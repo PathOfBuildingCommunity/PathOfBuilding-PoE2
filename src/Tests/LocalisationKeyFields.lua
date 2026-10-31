@@ -35,9 +35,7 @@ return function(build, equal)
 	end
 	localisation:SetLanguage('en')
 	checkFormats(sections)
-	local originalTranslate = localisation.Translate
 	-- 直接关闭旧显示反查，证明天赋正文和真实提示框由显式引用生成。
-	localisation.Translate = function(self, text) return text end
 	local shock = assert(build.spec.nodes[4])
 	for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW' }) do
 		localisation:SetLanguage(language)
@@ -72,7 +70,135 @@ return function(build, equal)
 		for _, row in ipairs(tooltip.lines) do if row.text and row.text:find(line, 1, true) then found = true end end
 		equal(found, true, language .. ' 真实提示框显示显式属性引用')
 	end
-	localisation.Translate = originalTranslate
+	-- 截图节点底部的复制和构筑备注提示必须直接来自当前语言资源。
+	local crushingJudgement = assert(build.spec.nodes[35739], '缺少威压裁决回归节点')
+	for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW', 'en' }) do
+		localisation:SetLanguage(language)
+		local tooltip = new('Tooltip'):Tooltip()
+		build.treeTab.viewer:AddNodeTooltip(tooltip, crushingJudgement, build, 0)
+		local expectedCopy = language == 'zh-CN' and '提示：按 Ctrl+C 复制此节点的文本。'
+			or language == 'zh-TW' and '提示：按 Ctrl+C 複製此節點的文本。'
+			or "Tip: Press Ctrl+C to copy this node's text."
+		local expectedNote = language == 'zh-CN' and '按 Shift＋鼠标右键添加构筑备注（用于 PoE2 .build 导出）'
+			or language == 'zh-TW' and '按 Shift＋滑鼠右鍵添加流派備註（用於 PoE2 .build 匯出）'
+			or 'Shift + Right-Click to add a build note (PoE2 .build export)'
+		local copyFound, noteFound = false, false
+		for _, line in ipairs(tooltip.lines) do
+			local text = StripEscapes(line.text or '')
+			copyFound = copyFound or text == expectedCopy
+			noteFound = noteFound or text == expectedNote
+			if text == expectedCopy or text == expectedNote then
+				equal(line.text:sub(1, #colorCodes.TIP), colorCodes.TIP, language .. ' 底部操作提示保留提示颜色')
+			end
+			if language ~= 'en' and line.text then
+				equal(line.text:find("Tip: Press Ctrl+C to copy this node's text.", 1, true), nil, language .. ' 复制节点提示无英文回退')
+				equal(line.text:find('Shift + Right-Click to add a build note', 1, true), nil, language .. ' 构筑备注提示无英文回退')
+			end
+		end
+		equal(copyFound, true, language .. ' 威压裁决显示复制节点的完整提示与颜色')
+		equal(noteFound, true, language .. ' 威压裁决显示构筑备注的完整提示与颜色')
+	end
+	-- 传奇天赋的风味文本通过稳定引用翻译，真实提示框保留换行、颜色和斜体。
+	local originalFlavour = main.showFlavourText
+	main.showFlavourText = true
+	for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW', 'en' }) do
+		localisation:SetLanguage(language)
+		local heartstopper = assert(build.spec.nodes[34497], '缺少凝心者回归节点')
+		local expectedFlavour = language == 'zh-CN' and '心跳暂歇，屏息凝神。毒发虽缓，唯死难逃。'
+			or language == 'zh-TW' and '心跳暫歇，屏息凝神。毒發雖緩，唯死難逃。'
+			or heartstopper.flavourText
+		equal(localisation:Field(heartstopper, 'flavourText'), expectedFlavour, language .. ' 凝心者风味文本切换语言')
+		local count = 0
+		for _, node in pairs(build.spec.nodes) do
+			if node.type == 'Keystone' and node.flavourText then
+				count = count + 1
+				local original = node.flavourText
+				local displayed = localisation:Field(node, 'flavourText')
+				if language == 'en' then equal(displayed, original, '英文保留传奇天赋风味原文')
+				else equal(displayed:find('%a'), nil, language .. ' 传奇天赋风味文本无英文：' .. node.dn) end
+				local tooltip = new('Tooltip'):Tooltip()
+				build.treeTab.viewer:AddNodeTooltip(tooltip, node, build, 0)
+				local lines = { }
+				for _, row in ipairs(tooltip.lines) do
+					if row.font == 'FONTIN ITALIC' and row.text then
+						if #lines == 0 then equal(row.text:sub(1, #colorCodes.UNIQUE), colorCodes.UNIQUE, language .. ' 风味文本保留传奇颜色') end
+						lines[#lines + 1] = StripEscapes(row.text)
+					end
+				end
+				equal(table.concat(lines):gsub('%s', ''), displayed:gsub('%s', ''), language .. ' 真实提示框显示完整风味文本：' .. node.dn)
+				equal(node.flavourText, original, language .. ' 显示不改写传奇天赋原文')
+			end
+		end
+		equal(count > 0, true, language .. ' 实际遍历传奇天赋风味文本')
+	end
+	main.showFlavourText = originalFlavour
+	-- 野兽与幽魂库的组合标题在同一弹窗内切换语言，不把显示名写回列表。
+	for _, library in ipairs({ 'beast', 'spectre' }) do
+		local originalList = library == 'beast' and build.beastList or build.spectreList
+		build:OpenSpectreLibrary(library)
+		local popup = main.popups[#main.popups]
+		for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW', 'en' }) do
+			localisation:SetLanguage(language)
+			local kind = language == 'en' and (library == 'beast' and 'Beasts' or 'Spectres')
+				or (library == 'beast' and (language == 'zh-CN' and '野兽' or '野獸') or '幽魂')
+			equal(popup.controls.list:GetProperty('label'), language == 'en' and kind .. ' in Build:' or (language == 'zh-CN' and '构筑中的' or '流派中的') .. kind .. '：', language .. ' 已选召唤物列表标题')
+			equal(popup.controls.source:GetProperty('label'), language == 'en' and '^7Available ' .. kind .. ':' or '^7可用' .. kind .. '：', language .. ' 可用召唤物列表标题')
+			equal(popup.controls.showAllLabel:GetProperty('label'), language == 'en' and '^7Show All ' .. kind .. ':' or (language == 'zh-CN' and '^7显示全部' or '^7顯示全部') .. kind .. '：', language .. ' 显示全部召唤物标签')
+			equal(library == 'beast' and build.beastList or build.spectreList, originalList, language .. ' 语言切换不修改召唤物列表')
+		end
+		main:ClosePopup()
+	end
+	for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW' }) do
+		localisation:SetLanguage(language)
+		for _, action in ipairs({ 'toggle', 'select' }) do
+			local text = localisation:Text('ui.config_tab.init.control_tooltip_func.message', { prefix = localisation:Ref('config.option.' .. action .. '_action') })
+			if language == 'en' then equal(text, action == 'toggle' and '^7Toggling this option will give you:' or '^7Selecting this option will give you:', '配置比较英文完整句保持一致')
+			else equal(text:find('%a'), nil, language .. ' 配置比较动作不残留英文') end
+		end
+	end
+	-- 标题栏的灌注材料独立于正文，测宽和绘制都必须使用当前语言，保留配方与图标身份。
+	do
+		local materialNames = {
+			Ire = { '愤怒', '憤怒' }, Guilt = { '自责', '罪惡' }, Greed = { '贪婪', '貪婪' },
+			Paranoia = { '疑惧', '妄想' }, Envy = { '嫉妒', '忌妒' }, Disgust = { '厌恶', '厭惡' },
+			Despair = { '绝望', '絕望' }, Fear = { '恐惧', '恐懼' }, Suffering = { '苦难', '苦難' },
+			Isolation = { '孤独', '孤立' }, Melancholy = { '忧郁', '憂鬱' },
+			Ferocity = { '暴烈', '兇殘' }, Contempt = { '蔑视', '蔑視' },
+		}
+		local escapeVelocity = assert(build.spec.nodes[17854], '缺少动如脱兔回归节点')
+		local samples, covered = { escapeVelocity }, { }
+		for _, node in pairs(build.spec.nodes) do
+			for _, material in ipairs(node.recipe or { }) do
+				assert(materialNames[material], '缺少灌注材料回归译名：' .. material)
+				if not covered[material] then samples[#samples + 1] = node; covered[material] = true end
+			end
+		end
+		for material in pairs(materialNames) do equal(covered[material], true, '实际配方覆盖材料：' .. material) end
+		local viewport = { x = 0, y = 0, width = 1920, height = 1080 }
+		for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW', 'en' }) do
+			localisation:SetLanguage(language)
+			for _, node in ipairs(samples) do
+				local tooltip = new('Tooltip'):Tooltip()
+				build.treeTab.viewer:AddNodeTooltip(tooltip, node, build, 0)
+				local measure, measured = DrawStringWidth, { }
+				DrawStringWidth = function(size, font, text)
+					measured[text] = true
+					return measure(size, font, text)
+				end
+				local ok, width, height = pcall(tooltip.GetSize, tooltip)
+				DrawStringWidth = measure
+				assert(ok, width)
+				local _, _, stack = tooltip:CalculateColumns(0, 0, height, width, viewport)
+				for index, material in ipairs(node.recipe) do
+					local expected = language == 'en' and material or materialNames[material][language == 'zh-CN' and 1 or 2]
+					equal(measured[expected], true, language .. ' 标题栏按当前材料译名测宽：' .. material)
+					equal(StripEscapes(stack[index * 2][6]), expected, language .. ' 标题栏绘制材料译名：' .. material)
+					equal(stack[index * 2 + 1][1], node.infoRecipe[index].sprite, language .. ' 材料图标与配方顺序保持一致')
+					equal(node.infoRecipe[index].name, material, language .. ' 显示不改写灌注配方')
+				end
+			end
+		end
+	end
 	local gem
 	for _, candidate in pairs(data.gems) do if candidate.name == 'Fireball' then gem = candidate; break end end
 	assert(gem and gem.nameKey, '火球必须具有显式显示引用')

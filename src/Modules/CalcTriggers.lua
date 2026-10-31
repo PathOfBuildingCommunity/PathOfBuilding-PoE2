@@ -215,6 +215,7 @@ local function helmetFocusHandler(env)
 		addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
 		env.player.mainSkill.infoMessage = localisation:Text("ui.calc_triggers.state.helmet_focus_handler.info_message")
 		env.player.mainSkill.infoTrigger = triggerName
+		env.player.mainSkill.infoTriggerKey = localisation:TermKey("trigger_name", triggerName)
 		env.player.mainSkill.skillData.triggerRate = output.SkillTriggerRate
 		env.player.mainSkill.skillFlags.globalTrigger = true
 	end
@@ -887,6 +888,8 @@ local function defaultTriggerHandler(env, config)
 			end
 
 			actor.mainSkill.infoTrigger = config.triggerName
+			actor.mainSkill.infoTriggerKey = config.triggerNameKey
+			actor.mainSkill.infoTriggerDisplay = config.triggerNameDisplay
 		end
 	end
 end

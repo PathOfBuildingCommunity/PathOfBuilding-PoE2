@@ -1,5 +1,7 @@
 # PoB2 内置中文支持
 
+2026-10-31 最终交付：核心补译、K4 旧显示反查移除及新增入口检查已验收；311 个分类入口、216 项契约及 423,612 项实际集成断言通过。全 DPS 与备注／来源的最后组合分支已补齐，原生三语切换正常。显示资源英文 123,836、简体 123,176、繁体 123,181；其他范围缺 key 660／655 已逐项统计。详见 [最终交付与保留边界](docs/localisation-delivery-2026-10-31.md)。以下较早计数与未完成描述保留对应历史时点。
+
 此工程直接基于官方 PoB2，分支 `feature/integrated-localisation`。程序使用原有 PoB2 界面、计算逻辑和官方 SimpleGraphic 运行时。没有 PoeCharm 启动器、每日迷宫或原 DLL 注入依赖。
 
 后续开发和启动在本仓库根目录执行；以下命令均以仓库根目录为当前目录。
@@ -11,6 +13,7 @@
 首次从源码检出时，运行 `build.cmd` 编译工具并生成字形图集；`start.cmd` 在图集缺失时也会调用构建。需要 Windows 和 Visual Studio 2022 C++ 工具。默认支持 Community 安装位置，也可以从已配置好的 x64 开发者命令提示符运行。
 
 ```cmd
+npm ci --prefix tools
 build.cmd
 test-localisation.cmd
 start.cmd
@@ -30,10 +33,17 @@ start.cmd
 
 ## 继续开发
 
+2026-10-31 已移除 K4 的全局英文字符串反查：`DrawString`、测宽、`Tooltip:AddLine` 和通用字符串搜索均不再猜测翻译身份。当前验证和保留边界见 [K4 验收记录](docs/localisation-k4-2026-10-31.md)。
+
+新增界面文字先在英文 `Messages.csv` 定义稳定 key，再补简体、繁体资源；完整动态句子使用命名参数。控件使用 `localisation:Label` 或对应 `*Key` 属性，绘制调用使用 `Text`，游戏数据使用 `Field`、`Line`、`ModLine` 或有业务域的 `Term`。显示引用不替换计算对象、保存内容或用户名称。搜索使用 `MatchField` / `MatchModLine` 同时匹配原文和译文。
+
+`test-localisation.cmd` 会先运行 `node tools/check-localisation-display.cjs`，检查六类显示候选、旧接口调用及固定 key。新文字必须绑定资源；共享变量须追溯其来源，在 `docs/localisation-display-review.json` 记录审核依据。不能重新生成整个审阅清单来绕过失败。当前清单保留通用控件、用户文本、业务标识及历史界面的分类，它不是所有动态分支均已人工验收的证明。
+
 | 路径 | 职责 |
 | --- | --- |
 | `src/Modules/Localisation.lua` | 语言状态、显示入口、搜索和输入边界 |
-| `src/Modules/Localisation/Dictionary.lua` | CSV、双向词条和编号参数模板 |
+| `src/Modules/Localisation/Messages.lua` | 稳定 key、命名参数和显示资源校验 |
+| `src/Modules/Localisation/Dictionary.lua` | 旧输入词典、中文反向转换和编号参数模板；不参与界面显示 |
 | `src/Modules/Localisation/Languages.lua` | 语言注册表、资源清单和默认回退 |
 | `src/Modules/Localisation/Font.lua` | 官方图像 API 上的字形绘制和布局 |
 | `src/Modules/Localisation/Import.lua` | PoB2 角色结构和剪贴板转换 |
@@ -67,9 +77,9 @@ test-localisation.cmd
 
 ## 验证范围与限制
 
-2026-10-30 再次全仓复查的最新缺口与修复顺序见 [全仓本地化复查](docs/localisation-full-rescan.md)。已确认仍有中文基底解析失败、中文技能粘贴被忽略、格式匹配及坏 CSV/参数问题；下面的“已接入”仅表示入口存在，不代表全部数据和流程均已兼容。
+最新验证见 [K4 验收记录](docs/localisation-k4-2026-10-31.md)，较早全面复查及分批补译见 [本地化全面复查](docs/localisation-comprehensive-2026-10-31.md)。当前显示资源简体缺 660、繁体缺 655 个 key，主要是按范围仅统计的区域名称和地图机制。中文技能粘贴可创建技能组并保留英文内部身份；输入仍有简体 22、繁体 2 个同名基底歧义，旧输入词典另有参数及反向冲突候选。“已接入”不代表全部数据和流程均已兼容。
 
-全量中文化尚未完成。全域数据与界面源码待核对候选见 `docs/localisation-runtime-audit.md`，可通过 `python tools/audit-localisation.py` 重新生成。三个 poe.ninja 构筑的装备字段扫描只覆盖样本中的装备，不代表技能、天赋和整个界面的翻译覆盖。
+全量语义校对尚未完成。`python tools/audit-localisation.py` 生成真实显示字段审计及仓库清单，`python tools/audit-localisation-keys.py` 生成逐 key 缺译和英文残留候选；源码显示边界以检查工具及其审阅清单为准。三个 poe.ninja 构筑的装备字段扫描只覆盖样本中的装备，不代表技能、天赋和整个界面的翻译覆盖。
 
 实际构建、字体检查、Lua 测试和界面截图见 `docs/localisation-verification.md`。本次未验证在线角色数据的网络获取链路；角色数据转换通过离线结构和真实 PoB2 物品解析器验证。账号登录与鉴权不属于本地化功能验收范围。
 

@@ -14,8 +14,17 @@ local function copy(value)
 end
 
 -- 逐项转换词条，未知或有歧义的译名保持原样。
-local function item(value, translate)
-	for field in pairs(termFields) do if type(value[field]) == 'string' then value[field] = translate(value[field]) end end
+local function item(value, translate, inputName, domain)
+	for field in pairs(termFields) do
+		if type(value[field]) == 'string' then
+			-- 稀有装备名称属于用户原文；基底和宝石名称由当前数据域消除旧词典的同名冲突。
+			if field ~= 'name' or value.frameType ~= 2 then
+				local text, status = value[field]
+				if inputName and field ~= 'name' then text, status = inputName(domain, text) end
+				value[field] = status and text or translate(text)
+			end
+		end
+	end
 	for field in pairs(modFields) do
 		for i, mod in ipairs(value[field] or { }) do
 			if type(mod) == 'string' then value[field][i] = translate(mod)
@@ -28,16 +37,16 @@ local function item(value, translate)
 			for _, pair in ipairs(property.values or { }) do if type(pair[1]) == 'string' then pair[1] = translate(pair[1]) end end
 		end
 	end
-	for _, socketed in ipairs(value.socketedItems or { }) do item(socketed, translate) end
-	for _, socketed in ipairs(value.sockets or { }) do if socketed.item then item(socketed.item, translate) end end
-	for _, support in ipairs(value.supports or { }) do item(support, translate) end
+	for _, socketed in ipairs(value.socketedItems or { }) do item(socketed, translate, inputName, domain) end
+	for _, socketed in ipairs(value.sockets or { }) do if socketed.item then item(socketed.item, translate, inputName, 'equipment_base') end end
+	for _, support in ipairs(value.supports or { }) do item(support, translate, inputName, 'gem') end
 end
 
 --- <summary>接受 PoB2 的角色对象，既不扁平化数据，也不把 PoE1 items 结构直接套入。</summary>
-function Import.Character(character, translate)
+function Import.Character(character, translate, inputName)
 	local result = copy(character)
 	for _, field in ipairs({ 'equipment', 'skills', 'jewels' }) do
-		for _, value in ipairs(result[field] or { }) do item(value, translate) end
+		for _, value in ipairs(result[field] or { }) do item(value, translate, inputName, field == 'skills' and 'gem' or 'equipment_base') end
 	end
 	for _, override in pairs(result.passives and result.passives.skill_overrides or { }) do
 		-- 此位置由 PoB2 明确按三种属性名读取，可消除“智慧”与其他词条的歧义。
@@ -47,8 +56,27 @@ function Import.Character(character, translate)
 end
 
 --- <summary>游戏剪贴板按整行处理，保留换行、稀有物品自定义名称和未识别词条。</summary>
-function Import.ItemText(text, translate)
-	return (text:gsub('[^\r\n]+', translate))
+function Import.ItemText(text, translate, baseName)
+	local rarity, headerLines
+	return (text:gsub('[^\r\n]+', function(line)
+		-- 双行装备头的第一行是名称；稀有名称不进入任何翻译或基底匹配。
+		if headerLines == 2 then
+			headerLines = 1
+			return rarity == 'RARE' and line or translate(line)
+		end
+		if baseName and (headerLines == 1 or not rarity) then
+			local name, status = baseName(line)
+			if headerLines == 1 then headerLines = 0 end
+			if status then return name end
+		end
+		local translated = translate(line)
+		local value = translated:match('^Rarity:%s*(.+)$')
+		if value then
+			rarity = value:upper()
+			headerLines = (rarity == 'RARE' or rarity == 'UNIQUE' or rarity == 'RELIC') and 2 or 1
+		end
+		return translated
+	end))
 end
 
 return Import

@@ -554,6 +554,9 @@ function CalcSectionClass:DrawContent(drawX, startLineY, drawWidth, actor, viewP
 			for _, rowData in ipairs(subSec.data) do
 				if (isOverlay and actor and self.calcsTab:CheckFlag(rowData)) or (not isOverlay and rowData.enabled) then
 					rows = rows + 1
+					local label = rowData.label and localisation:Field(rowData, "label")
+					-- 较长译文使用十四号字，确保标签仍落在固定的一百三十像素列内。
+					local labelSize = label and label ~= rowData.label and DrawStringWidth(16, "VAR", label .. ":") > 130 and 14 or 16
 					if not isOverlay then
 						local textColor = rowData.color or "^7"
 						if rowData.label then
@@ -562,10 +565,10 @@ function CalcSectionClass:DrawContent(drawX, startLineY, drawWidth, actor, viewP
 							if self.calcsTab:SearchMatch(rowData.label, localisation:Field(rowData, "label")) then
 								textColor = colorCodes.HIGHLIGHT
 							end
-							DrawString(drawX + 132, lineY + 2, "RIGHT_X", 16, "VAR", textColor..localisation:Field(rowData, "label").."^7:")
+							DrawString(drawX + 132, lineY + 2, "RIGHT_X", labelSize, "VAR", textColor..label.."^7:")
 						end
 					elseif rowData.label then
-						DrawString(drawX + 132, lineY + 2, "RIGHT_X", 16, "VAR", "^7"..localisation:Field(rowData, "label").."^7:")
+						DrawString(drawX + 132, lineY + 2, "RIGHT_X", labelSize, "VAR", "^7"..label.."^7:")
 					end
 					for _, colData in ipairs(rowData) do
 						local cellX = isOverlay and (drawX + (colData.xOffset or 134)) or colData.x
@@ -598,7 +601,7 @@ function CalcSectionClass:DrawContent(drawX, startLineY, drawWidth, actor, viewP
 
 								local textSize = rowData.textSize or 14
 								SetViewport(cellX + 3, isOverlay and lineY + 2 or cellY, cellW - 4, 18)
-								DrawString(1, 9 - textSize / 2, "LEFT", textSize, "VAR", "^7"..formatCalcField(colData, "format", actor, colData))
+								DrawString(1, 9 - textSize / 2, "LEFT", textSize, "VAR", "^7"..(colData.formatDisplay and colData.formatDisplay(actor) or formatCalcField(colData, "format", actor, colData)))
 								SetViewport()
 							end
 						end

@@ -1,4 +1,6 @@
 @echo off
+node "%~dp0tools\check-localisation-display.cjs"
+if errorlevel 1 exit /b 1
 cd /d "%~dp0src"
 if not exist Tests\Run mkdir Tests\Run
 type nul > Tests\Run\.ready

@@ -367,8 +367,10 @@ function ImportTabClass:ImportTab(build)
 		updateBuildPlannerPath()
 	end)
 	self.controls.buildPlannerBuildName:SetPlaceholder("Unnamed Build")
+	self.controls.buildPlannerBuildName.placeholderKey = "build.export.placeholder.name"
 	self.controls.buildPlannerAuthorName = new("EditControl"):EditControl({"LEFT",self.controls.buildPlannerBuildName,"RIGHT"}, {8, 0, 200, 20}, nil, localisation:Label("ui.import_tab.init.build_planner_author_name.label"), nil, nil)
 	self.controls.buildPlannerAuthorName:SetPlaceholder("Author")
+	self.controls.buildPlannerAuthorName.placeholderKey = "build.export.placeholder.author"
 	self.controls.buildPlannerTreeLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 0, 8, 0, 16 }, localisation:Label("ui.import_tab.init.build_planner_tree_label.label"))
 	self.controls.buildPlannerSkillLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 188, 8, 0, 16 }, localisation:Label("ui.import_tab.init.build_planner_skill_label.label"))
 	self.controls.buildPlannerItemLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 376, 8, 0, 16 }, localisation:Label("ui.import_tab.init.build_planner_item_label.label"))
@@ -446,9 +448,9 @@ function ImportTabClass:ImportTab(build)
 			for _, writtenPath in ipairs(written) do
 				t_insert(displayedPaths, displayPath(writtenPath))
 			end
-			local msg = s_format("Wrote %d file(s):\n%s", #written, t_concat(displayedPaths, "\n"))
+			local msg = localisation:Text("build.export.written_files", { count = #written, paths = t_concat(displayedPaths, "\n") })
 			if #errors > 0 then
-				msg = msg .. s_format("\n\n%d failed:\n%s", #errors, t_concat(errors, "\n"))
+				msg = msg .. localisation:Text("build.export.failed_files", { count = #errors, errors = t_concat(errors, "\n") })
 			end
 			main:OpenMessagePopup(localisation:Text("ui.import_tab.do_write.poe2_export_save_all.label"), msg)
 		end
@@ -498,14 +500,14 @@ function ImportTabClass:RefreshBuildPlannerSets()
 	-- these shouldn't really ever be empty as even a fresh build will have default sets active
 	local treeList = {}
 	for index, spec in ipairs(build.treeTab.specList) do
-		t_insert(treeList, { label = spec.title or "Default", key = index })
+		t_insert(treeList, { label = spec.title or "Default", labelKey = not spec.title and "term.calculation_source.default" or spec.titleKey, key = index })
 	end
 
 	local skillList = {}
 	for _, setId in ipairs(build.skillsTab.skillSetOrderList) do
 		local skillSet = build.skillsTab.skillSets[setId]
 		if skillSet then
-			t_insert(skillList, { label = skillSet.title or "Default", key = setId })
+			t_insert(skillList, { label = skillSet.title or "Default", labelKey = not skillSet.title and "term.calculation_source.default" or skillSet.titleKey, key = setId })
 		end
 	end
 
@@ -513,7 +515,7 @@ function ImportTabClass:RefreshBuildPlannerSets()
 	for _, setId in ipairs(build.itemsTab.itemSetOrderList) do
 		local itemSet = build.itemsTab.itemSets[setId]
 		if itemSet then
-			t_insert(itemList, { label = itemSet.title or "Default", key = setId })
+			t_insert(itemList, { label = itemSet.title or "Default", labelKey = not itemSet.title and "term.calculation_source.default" or itemSet.titleKey, key = setId })
 		end
 	end
 

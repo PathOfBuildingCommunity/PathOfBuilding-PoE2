@@ -1,0 +1,108 @@
+language,key,source,before,after,basis
+zh-CN,game.tree_node.0_5_44527_option_huntress.dn,Attuned with Nature,,自然共鸣,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_5777_option_druid.dn,Natural Essence,,自然精华,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_22049_option_huntress.dn,Melee and Projectile Damage,,近战与投射物伤害,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_42781_option_huntress.dn,Stalk and Leap,,潜行跃击,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_26085_option_abyssal_lich.dn,Umbral Well,,暗影之井,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_28992_option_huntress.dn,Primal Instinct,,原始本能,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_64299_option_druid.dn,Harbinger of Disaster,,灾难先驱,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_55429_option_huntress.dn,Melee and Projectile Damage,,近战与投射物伤害,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_2516_option_abyssal_lich.dn,Steward of Kulemak,,库勒马克的管家,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_51335_option_witch.dn,Jagged Shards,,锯齿碎片,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_2877_option_abyssal_lich.dn,Unwilling Offering,,非自愿献祭,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_23352_option_abyssal_lich.dn,Rupture the Flesh,,血肉撕裂,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_51184_option_witch.dn,Raw Destruction,,纯粹毁灭,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_39540_option_druid.dn,Skill Speed while Shapeshifted,,变形期间的技能速度,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_28950_option_druid.dn,Bastion of the Forest,,森林堡垒,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_22795_option_huntress.dn,Melee and Projectile Damage,,近战与投射物伤害,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_19104_option_huntress.dn,Reflex Action,,反射动作,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_36602_option_druid.dn,Skill Speed while Shapeshifted,,变形期间的技能速度,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_51142_option_abyssal_lich.dn,Minion Reservation Efficiency,,召唤生物保留效能,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_3823_option_witch.dn,Power of the Dead,,亡者之力,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_node.0_5_6898_option_druid.dn,Guardian of the Wilds,,荒野守护者,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_legion.196.dn,Sacrifice of Flesh,,血肉献祭,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_legion.197.dn,Sacrifice of Loyalty,,忠诚献祭,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_legion.198.dn,Sacrifice of Mind,,心智献祭,当前职业选项／珠宝传奇转换；逐项自译
+zh-CN,game.tree_legion.200.dn,Sacrifice of Sight,,视野献祭,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_44527_option_huntress.dn,Attuned with Nature,,自然共鳴,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_5777_option_druid.dn,Natural Essence,,自然精華,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_22049_option_huntress.dn,Melee and Projectile Damage,,近戰與投射物傷害,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_42781_option_huntress.dn,Stalk and Leap,,潛行躍擊,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_26085_option_abyssal_lich.dn,Umbral Well,,暗影之井,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_28992_option_huntress.dn,Primal Instinct,,原始本能,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_64299_option_druid.dn,Harbinger of Disaster,,災難先驅,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_55429_option_huntress.dn,Melee and Projectile Damage,,近戰與投射物傷害,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_2516_option_abyssal_lich.dn,Steward of Kulemak,,庫勒馬克的管家,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_51335_option_witch.dn,Jagged Shards,,鋸齒碎片,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_2877_option_abyssal_lich.dn,Unwilling Offering,,非自願獻祭,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_23352_option_abyssal_lich.dn,Rupture the Flesh,,血肉撕裂,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_51184_option_witch.dn,Raw Destruction,,純粹毀滅,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_39540_option_druid.dn,Skill Speed while Shapeshifted,,變形期間的技能速度,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_28950_option_druid.dn,Bastion of the Forest,,森林堡壘,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_22795_option_huntress.dn,Melee and Projectile Damage,,近戰與投射物傷害,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_19104_option_huntress.dn,Reflex Action,,反射動作,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_36602_option_druid.dn,Skill Speed while Shapeshifted,,變形期間的技能速度,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_51142_option_abyssal_lich.dn,Minion Reservation Efficiency,,召喚生物保留效能,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_3823_option_witch.dn,Power of the Dead,,亡者之力,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_node.0_5_6898_option_druid.dn,Guardian of the Wilds,,荒野守護者,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_legion.196.dn,Sacrifice of Flesh,,血肉獻祭,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_legion.197.dn,Sacrifice of Loyalty,,忠誠獻祭,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_legion.198.dn,Sacrifice of Mind,,心智獻祭,当前职业选项／珠宝传奇转换；逐项自译
+zh-TW,game.tree_legion.200.dn,Sacrifice of Sight,,視野獻祭,当前职业选项／珠宝传奇转换；逐项自译
+en,game.tree_legion.156.sd_1,Gain no inherent bonus from Strength,,Gain no inherent bonus from Strength,当前珠宝实际转换节点的逐行属性引用
+zh-CN,game.tree_legion.156.sd_1,Gain no inherent bonus from Strength,,无法获得力量的固有加成,当前珠宝实际转换节点的逐行属性引用
+zh-TW,game.tree_legion.156.sd_1,Gain no inherent bonus from Strength,,無法獲得力量的固有加成,当前珠宝实际转换节点的逐行属性引用
+en,game.tree_legion.156.sd_2,{value_1}% increased Energy Shield per {value_2} Strength,,{value_1}% increased Energy Shield per {value_2} Strength,当前珠宝实际转换节点的逐行属性引用
+zh-CN,game.tree_legion.156.sd_2,{value_1}% increased Energy Shield per {value_2} Strength,,每 {value_2} 点力量使能量护盾提高 {value_1}%,当前珠宝实际转换节点的逐行属性引用
+zh-TW,game.tree_legion.156.sd_2,{value_1}% increased Energy Shield per {value_2} Strength,,每 {value_2} 點力量使能量護盾增加 {value_1}%,当前珠宝实际转换节点的逐行属性引用
+en,game.tree_legion.157.sd_1,Gain no inherent bonus from Dexterity,,Gain no inherent bonus from Dexterity,当前珠宝实际转换节点的逐行属性引用
+zh-CN,game.tree_legion.157.sd_1,Gain no inherent bonus from Dexterity,,无法获得敏捷的固有加成,当前珠宝实际转换节点的逐行属性引用
+zh-TW,game.tree_legion.157.sd_1,Gain no inherent bonus from Dexterity,,無法獲得敏捷的固有加成,当前珠宝实际转换节点的逐行属性引用
+en,game.tree_legion.157.sd_2,{value_1}% increased Armour per {value_2} Dexterity,,{value_1}% increased Armour per {value_2} Dexterity,当前珠宝实际转换节点的逐行属性引用
+zh-CN,game.tree_legion.157.sd_2,{value_1}% increased Armour per {value_2} Dexterity,,每 {value_2} 点敏捷使护甲提高 {value_1}%,当前珠宝实际转换节点的逐行属性引用
+zh-TW,game.tree_legion.157.sd_2,{value_1}% increased Armour per {value_2} Dexterity,,每 {value_2} 點敏捷使護甲增加 {value_1}%,当前珠宝实际转换节点的逐行属性引用
+en,game.tree_legion.158.sd_1,Gain no inherent bonus from Intelligence,,Gain no inherent bonus from Intelligence,当前珠宝实际转换节点的逐行属性引用
+zh-CN,game.tree_legion.158.sd_1,Gain no inherent bonus from Intelligence,,无法获得智慧的固有加成,当前珠宝实际转换节点的逐行属性引用
+zh-TW,game.tree_legion.158.sd_1,Gain no inherent bonus from Intelligence,,無法獲得智慧的固有加成,当前珠宝实际转换节点的逐行属性引用
+en,game.tree_legion.158.sd_2,{value_1}% increased Evasion Rating per {value_2} Intelligence,,{value_1}% increased Evasion Rating per {value_2} Intelligence,当前珠宝实际转换节点的逐行属性引用
+zh-CN,game.tree_legion.158.sd_2,{value_1}% increased Evasion Rating per {value_2} Intelligence,,每 {value_2} 点智慧使闪避值提高 {value_1}%,当前珠宝实际转换节点的逐行属性引用
+zh-TW,game.tree_legion.158.sd_2,{value_1}% increased Evasion Rating per {value_2} Intelligence,,每 {value_2} 點智慧使閃避值增加 {value_1}%,当前珠宝实际转换节点的逐行属性引用
+en,game.tree_legion.196.sd_1,"When taking damage from Hits, {value_1}% of Life Loss is prevented, then {value_2}% of Life Loss prevented this way is Lost over {value_3} seconds",,"When taking damage from Hits, {value_1}% of Life Loss is prevented, then {value_2}% of Life Loss prevented this way is Lost over {value_3} seconds",当前珠宝实际转换节点的逐行属性引用
+zh-CN,game.tree_legion.196.sd_1,"When taking damage from Hits, {value_1}% of Life Loss is prevented, then {value_2}% of Life Loss prevented this way is Lost over {value_3} seconds",,受到击中的生命损失的 {value_1}% 被阻挡，并在 {value_3} 秒内逐渐丧失该阻挡值 {value_2}% 的生命,当前珠宝实际转换节点的逐行属性引用
+zh-TW,game.tree_legion.196.sd_1,"When taking damage from Hits, {value_1}% of Life Loss is prevented, then {value_2}% of Life Loss prevented this way is Lost over {value_3} seconds",,當承受擊中傷害時，損失生命值的 {value_1}% 將會被減免，並在 {value_3} 秒內損失減免數值的 {value_2}%,当前珠宝实际转换节点的逐行属性引用
+en,game.tree_legion.197.sd_1,You deal {value_1}% more Damage per {value_2} total Power of your Undead Minions,,You deal {value_1}% more Damage per {value_2} total Power of your Undead Minions,当前珠宝实际转换节点的逐行属性引用
+zh-CN,game.tree_legion.197.sd_1,You deal {value_1}% more Damage per {value_2} total Power of your Undead Minions,,你的亡灵召唤生物每有 {value_2} 点总威能，你造成的伤害总增 {value_1}%,当前珠宝实际转换节点的逐行属性引用
+zh-TW,game.tree_legion.197.sd_1,You deal {value_1}% more Damage per {value_2} total Power of your Undead Minions,,你的不死召喚物每有 {value_2} 點總威能，你造成的傷害總增 {value_1}%,当前珠宝实际转换节点的逐行属性引用
+en,game.tree_legion.197.sd_2,Undead Minions have {value_1}% less maximum Life,,Undead Minions have {value_1}% less maximum Life,当前珠宝实际转换节点的逐行属性引用
+zh-CN,game.tree_legion.197.sd_2,Undead Minions have {value_1}% less maximum Life,,亡灵召唤生物的最大生命总降 {value_1}%,当前珠宝实际转换节点的逐行属性引用
+zh-TW,game.tree_legion.197.sd_2,Undead Minions have {value_1}% less maximum Life,,不死召喚物的最大生命總降 {value_1}%,当前珠宝实际转换节点的逐行属性引用
+en,game.tree_legion.198.sd_1,Mana Recovery from Regeneration Overflows maximum Mana,,Mana Recovery from Regeneration Overflows maximum Mana,当前珠宝实际转换节点的逐行属性引用
+zh-CN,game.tree_legion.198.sd_1,Mana Recovery from Regeneration Overflows maximum Mana,,魔力再生带来的恢复量可溢出魔力上限,当前珠宝实际转换节点的逐行属性引用
+zh-TW,game.tree_legion.198.sd_1,Mana Recovery from Regeneration Overflows maximum Mana,,魔力再生帶來的恢復量可溢出魔力上限,当前珠宝实际转换节点的逐行属性引用
+en,game.tree_legion.198.sd_2,{value_1}% less Mana Regeneration Rate,,{value_1}% less Mana Regeneration Rate,当前珠宝实际转换节点的逐行属性引用
+zh-CN,game.tree_legion.198.sd_2,{value_1}% less Mana Regeneration Rate,,魔力再生率总降 {value_1}%,当前珠宝实际转换节点的逐行属性引用
+zh-TW,game.tree_legion.198.sd_2,{value_1}% less Mana Regeneration Rate,,魔力再生率總降 {value_1}%,当前珠宝实际转换节点的逐行属性引用
+en,game.tree_legion.199.sd_1,Regenerate {value_1} Life per second per {value_2} Life spent in the past {value_3} seconds,,Regenerate {value_1} Life per second per {value_2} Life spent in the past {value_3} seconds,当前珠宝实际转换节点的逐行属性引用
+zh-CN,game.tree_legion.199.sd_1,Regenerate {value_1} Life per second per {value_2} Life spent in the past {value_3} seconds,,过去 {value_3} 秒内每消耗 {value_2} 点生命，每秒再生 {value_1} 点生命,当前珠宝实际转换节点的逐行属性引用
+zh-TW,game.tree_legion.199.sd_1,Regenerate {value_1} Life per second per {value_2} Life spent in the past {value_3} seconds,,過去 {value_3} 秒內每消耗 {value_2} 點生命，每秒再生 {value_1} 點生命,当前珠宝实际转换节点的逐行属性引用
+en,game.tree_legion.199.sd_2,{value_1}% more Life Cost of Skills,,{value_1}% more Life Cost of Skills,当前珠宝实际转换节点的逐行属性引用
+zh-CN,game.tree_legion.199.sd_2,{value_1}% more Life Cost of Skills,,技能的生命消耗总增 {value_1}%,当前珠宝实际转换节点的逐行属性引用
+zh-TW,game.tree_legion.199.sd_2,{value_1}% more Life Cost of Skills,,技能的生命消耗總增 {value_1}%,当前珠宝实际转换节点的逐行属性引用
+en,game.tree_legion.200.sd_1,Projectiles do one of the following at random:,,Projectiles do one of the following at random:,当前珠宝实际转换节点的逐行属性引用
+zh-CN,game.tree_legion.200.sd_1,Projectiles do one of the following at random:,,投射物随机获得以下效果之一：,当前珠宝实际转换节点的逐行属性引用
+zh-TW,game.tree_legion.200.sd_1,Projectiles do one of the following at random:,,投射物隨機獲得以下效果之一：,当前珠宝实际转换节点的逐行属性引用
+en,game.tree_legion.200.sd_2,Fork an additional time,,Fork an additional time,当前珠宝实际转换节点的逐行属性引用
+zh-CN,game.tree_legion.200.sd_2,Fork an additional time,,额外分裂一次,当前珠宝实际转换节点的逐行属性引用
+zh-TW,game.tree_legion.200.sd_2,Fork an additional time,,額外分裂一次,当前珠宝实际转换节点的逐行属性引用
+en,game.tree_legion.200.sd_3,Chain an additional time,,Chain an additional time,当前珠宝实际转换节点的逐行属性引用
+zh-CN,game.tree_legion.200.sd_3,Chain an additional time,,额外连锁一次,当前珠宝实际转换节点的逐行属性引用
+zh-TW,game.tree_legion.200.sd_3,Chain an additional time,,額外連鎖一次,当前珠宝实际转换节点的逐行属性引用
+en,game.tree_legion.200.sd_4,Chain from Terrain an additional time,,Chain from Terrain an additional time,当前珠宝实际转换节点的逐行属性引用
+zh-CN,game.tree_legion.200.sd_4,Chain from Terrain an additional time,,额外从地形连锁一次,当前珠宝实际转换节点的逐行属性引用
+zh-TW,game.tree_legion.200.sd_4,Chain from Terrain an additional time,,額外從地形連鎖一次,当前珠宝实际转换节点的逐行属性引用
+en,game.tree_legion.200.sd_5,Cannot collide with targets,,Cannot collide with targets,当前珠宝实际转换节点的逐行属性引用
+zh-CN,game.tree_legion.200.sd_5,Cannot collide with targets,,无法与目标碰撞,当前珠宝实际转换节点的逐行属性引用
+zh-TW,game.tree_legion.200.sd_5,Cannot collide with targets,,無法與目標碰撞,当前珠宝实际转换节点的逐行属性引用
+en,game.tree_legion.201.sd_1,+{value_1} to Tribute,,+{value_1} to Tribute,当前珠宝实际转换节点的逐行属性引用
+zh-CN,game.tree_legion.201.sd_1,+{value_1} to Tribute,,+{value_1} 贡品,当前珠宝实际转换节点的逐行属性引用
+zh-TW,game.tree_legion.201.sd_1,+{value_1} to Tribute,,+{value_1} 貢品,当前珠宝实际转换节点的逐行属性引用

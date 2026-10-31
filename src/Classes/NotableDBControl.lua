@@ -74,7 +74,7 @@ function NotableDBClass:NotableDBControl(anchor, rect, itemsTab, db, dbType)
 	local function emoCheck(name, relTo)
 		local anchor = {"LEFT", relTo, "RIGHT"}
 		local rect = {2, 0, 26, 26}
-		local ctl = new("CheckBoxControl"):CheckBoxControl(anchor, rect, "", emoCheckOnChange(name), localisation:Label("ui.notable_dbcontrol.check_box_control.tooltip", { name = name }), true)
+		local ctl = new("CheckBoxControl"):CheckBoxControl(anchor, rect, "", emoCheckOnChange(name), localisation:Label("ui.notable_dbcontrol.check_box_control.tooltip", { name = localisation:TermRef('anoint_material', name) }), true)
 		if self.emotionImages then ctl:SetCheckImage(self.emotionImages[name]) end
 		return ctl
 	end
@@ -83,7 +83,7 @@ function NotableDBClass:NotableDBControl(anchor, rect, itemsTab, db, dbType)
 	for i,emo in ipairs(emotionList) do
 		local emoCtl
 		if i == 11 then
-			local ctl = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", emotionCheckBoxes[1], "BOTTOMLEFT" }, { 0, 2, 26, 26 }, "", emoCheckOnChange(emo), localisation:Label("ui.notable_dbcontrol.check_box_control.tooltip_2", { emo = emo }), true)
+			local ctl = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", emotionCheckBoxes[1], "BOTTOMLEFT" }, { 0, 2, 26, 26 }, "", emoCheckOnChange(emo), localisation:Label("ui.notable_dbcontrol.check_box_control.tooltip_2", { emo = localisation:TermRef('anoint_material', emo) }), true)
 			if self.emotionImages then ctl:SetCheckImage(self.emotionImages[emo]) end
 			emoCtl = ctl
 		else
@@ -125,7 +125,7 @@ function NotableDBClass:DoesNotableMatchFilters(node)
 		if mode == 1 or mode == 3 then
 			for index, line in ipairs(node.sd) do
 				local err, match = PCall(function()
-					return string.matchOrPattern(line:lower(), searchStr, true) or string.matchOrPattern(localisation:Line(node, 'sd', index, line):lower(), searchStr, true)
+					return string.matchOrPattern(line:lower(), searchStr) or string.matchOrPattern(localisation:Line(node, 'sd', index, line):lower(), searchStr)
 				end)
 				if not err and match then
 					found = true
@@ -209,6 +209,7 @@ function NotableDBClass:ListBuilder()
 			local now = GetTime()
 			if now - start > 50 then
 				self.defaultText = "^7Sorting... ("..m_floor(nodeIndex/#list*100).."%)"
+				self.defaultTextKey, self.defaultTextParams = 'ui.notable_dbcontrol.sorting', { percent = m_floor(nodeIndex/#list*100) }
 				coroutine.yield()
 				start = now
 			end
@@ -246,6 +247,7 @@ function NotableDBClass:ListBuilder()
 
 	self.list = list
 	self.defaultText = "^7No notables found that match those filters."
+	self.defaultTextKey, self.defaultTextParams = 'ui.notable_dbcontrol.no_matches', nil
 end
 
 ---@param viewPort table<string, number>
@@ -297,7 +299,7 @@ end
 ---@param node table
 function NotableDBClass:AddValueTooltip(tooltip, index, node)
 	local dropdownDropped = self.controls.type and self.controls.type.dropped or self.controls.sort.dropped or self.controls.searchMode.dropped
-	if dropdownDropped or (main.popups[1] and main.popups[1].title ~= "Anoint Item") then
+	if dropdownDropped or (main.popups[1] and main.popups[1].controls.notableDB ~= self) then
 		tooltip:Clear()
 		return
 	end

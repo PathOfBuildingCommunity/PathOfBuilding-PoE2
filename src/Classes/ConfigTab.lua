@@ -42,11 +42,18 @@ function CustomModBlockClass:CustomModBlockControl(anchor, rect, configTab, bloc
 	end)
 
 	self.controls.titleEdit = new("EditControl"):EditControl({ "LEFT", self.controls.deleteBtn, "RIGHT" }, { 6, 0, 232, 18 }, blockData.title or "", nil, nil, nil, function(buf)
+		if buf ~= blockData.title then
+			blockData.titleKey = nil
+		end
 		blockData.title = buf
 		configTab:AddUndoState()
 		configTab:BuildModList()
 		configTab.build.buildFlag = true
 	end)
+	-- 默认标题只在非编辑状态翻译，用户输入和词缀来源保留原文。
+	self.controls.titleEdit.inactiveText = function(buf)
+		return blockData.titleKey and localisation:Field(blockData, "title") or buf
+	end
 
 	self.controls.addModBtn = new("ButtonControl"):ButtonControl({"LEFT", self.controls.titleEdit, "RIGHT"}, {6, 0, 58, 18}, localisation:Label("ui.config_tab.custom_mod_block_control.add_mod_btn.label"), function()
 		configModBrowser.OpenAddModPopup(self.configTab, blockData)
@@ -827,7 +834,7 @@ function ConfigTabClass:ConfigTab(build)
 								-- we restore the previous state if the user
 								-- hasn't actually clicked
 								self.build.buildFlag = buildFlag
-								local prefix = (varData.type == "check") and "^7Toggling this" or "^7Selecting this"
+								local prefix = localisation:Ref(varData.type == "check" and "config.option.toggle_action" or "config.option.select_action")
 								self.build:AddStatComparesToTooltip(tooltip, self.calcBase, outputCache[key], localisation:Text("ui.config_tab.init.control_tooltip_func.message", { prefix = prefix }))
 								-- clear tooltip if it only has our separator
 								if #tooltip.lines == 1 then
@@ -924,15 +931,18 @@ function ConfigTabClass:Load(xml, fileName)
 	-- Catch special case of empty Config
 	if xml.empty then
 		self:CreateConfigSet(1, "Default")
+		self.configSets[1].titleKey = 'term.calculation_source.default'
 	end
 	for index, node in ipairs(xml) do
 		if node.elem ~= "ConfigSet" then
 			if not self.configSets[1] then
 				self:CreateConfigSet(1, "Default")
+				self.configSets[1].titleKey = 'term.calculation_source.default'
 			end
 			if node.elem == "CustomModifierBlock" then
 				local block = {
 					title = node.attrib.title or "Default",
+					titleKey = (node.attrib.defaultTitle == "true" or not node.attrib.title) and "ui.config_tab.custom_mod_block_control.delete_btn.title" or nil,
 					enabled = (node.attrib.enabled == "true" or node.attrib.enabled == nil),
 					text = node[1] or ""
 				}
@@ -943,12 +953,14 @@ function ConfigTabClass:Load(xml, fileName)
 		else
 			local configSetId = tonumber(node.attrib.id)
 			self:CreateConfigSet(configSetId, node.attrib.title or "Default")
+			if not node.attrib.title then self.configSets[configSetId].titleKey = 'term.calculation_source.default' end
 			self.configSetOrderList[index] = configSetId
 			self.configSets[configSetId].customModsList = {}
 			for _, child in ipairs(node) do
 				if child.elem == "CustomModifierBlock" then
 					local block = {
 						title = child.attrib.title or "Default",
+						titleKey = (child.attrib.defaultTitle == "true" or not child.attrib.title) and "ui.config_tab.custom_mod_block_control.delete_btn.title" or nil,
 						enabled = (child.attrib.enabled == "true" or child.attrib.enabled == nil),
 						text = child[1] or ""
 					}
@@ -1035,6 +1047,7 @@ function ConfigTabClass:Save(xml)
 					elem = "CustomModifierBlock",
 					attrib = {
 						title = block.title or "Default",
+						defaultTitle = block.titleKey == "ui.config_tab.custom_mod_block_control.delete_btn.title" and "true" or nil,
 						enabled = tostring(block.enabled ~= false)
 					},
 					[1] = block.text or ""
@@ -1137,14 +1150,16 @@ function ConfigTabClass:Draw(viewPort, inputEvents)
 	end
 
 	local newSetList = { }
+	local setKeys = { }
 	for index, configSetId in ipairs(self.configSetOrderList) do
 		local configSet = self.configSets[configSetId]
 		t_insert(newSetList, configSet.title or "Default")
+		setKeys[index] = configSet.titleKey or (not configSet.title and "term.calculation_source.default" or nil)
 		if configSetId == self.activeConfigSetId then
 			self.controls.setSelect.selIndex = index
 		end
 	end
-	self.controls.setSelect:SetList(newSetList)
+	self.controls.setSelect:SetList(localisation:List(newSetList, setKeys))
 
 	self.controls.scrollBar.height = viewPort.height
 	self.controls.scrollBar:SetContentDimension(maxColY + 58, viewPort.height)
@@ -1316,7 +1331,7 @@ function ConfigTabClass:OpenConfigSetManagePopup()
 end
 
 function ConfigTabClass:CreateConfigSet(configSetId, title)
-	local configSet = { id = configSetId, title = title, input = {}, placeholder = {}, customModsList = { { title = "Default", titleKey = "ui.config_tab.custom_mod_block_control.delete_btn.title", enabled = true, text = "" } } }
+	local configSet = { id = configSetId, title = title, titleKey = not title and 'term.calculation_source.default' or nil, input = {}, placeholder = {}, customModsList = { { title = "Default", titleKey = "ui.config_tab.custom_mod_block_control.delete_btn.title", enabled = true, text = "" } } }
 	if not configSetId then
 		configSet.id = #self.configSets + 1
 	end
@@ -1347,6 +1362,7 @@ function ConfigTabClass:CopyConfigSet(configSetId, newConfigSetName)
 	local newConfigSet = copyTable(configSet)
 	newConfigSet.id = #self.configSets + 1
 	newConfigSet.title = newConfigSetName or configSet.title .. " (Copy)"
+	newConfigSet.titleKey = nil
 	t_insert(self.configSets, newConfigSet)
 	t_insert(self.configSetOrderList, newConfigSet.id)
 	self.modFlag = true
@@ -1361,6 +1377,7 @@ function ConfigTabClass:RenameConfigSet(configSetId, newTitle)
 	end
 
 	configSet.title = newTitle
+	configSet.titleKey = nil
 	self.modFlag = true
 end
 

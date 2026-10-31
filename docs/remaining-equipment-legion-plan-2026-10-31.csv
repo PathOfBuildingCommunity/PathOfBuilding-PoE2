@@ -1,0 +1,1047 @@
+language,domain,index,key,source,before,after,reason
+zh-CN,equipment_affix,1,game.equipment_affix.abyssal.name,Abyssal,,深渊的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,1,game.equipment_affix.abyssal.name,Abyssal,,深淵的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,2,game.equipment_affix.arming.name,Arming,,武装的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,2,game.equipment_affix.arming.name,Arming,,武裝的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,3,game.equipment_affix.artificer_s.name,Artificer's,,工匠的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,3,game.equipment_affix.artificer_s.name,Artificer's,,工匠的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,4,game.equipment_affix.avalanching.name,Avalanching,,雪崩的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,4,game.equipment_affix.avalanching.name,Avalanching,,雪崩的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,5,game.equipment_affix.baleful.name,Baleful,,灾厄的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,5,game.equipment_affix.baleful.name,Baleful,,災厄的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,6,game.equipment_affix.bandit_s.name,Bandit's,,强盗的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,6,game.equipment_affix.bandit_s.name,Bandit's,,強盜的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,7,game.equipment_affix.battlemage_s.name,Battlemage's,,战斗法师的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,7,game.equipment_affix.battlemage_s.name,Battlemage's,,戰鬥法師的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,8,game.equipment_affix.betrayer_s.name,Betrayer's,,背叛者的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,8,game.equipment_affix.betrayer_s.name,Betrayer's,,背叛者的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,9,game.equipment_affix.blunt.name,Blunt,,钝击的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,10,game.equipment_affix.brawling.name,Brawling,,搏斗的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,10,game.equipment_affix.brawling.name,Brawling,,搏鬥的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,11,game.equipment_affix.breachlord_s.name,Breachlord's,,裂隙领主的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,11,game.equipment_affix.breachlord_s.name,Breachlord's,,裂隙領主的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,12,game.equipment_affix.burdensome.name,Burdensome,,沉重的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,12,game.equipment_affix.burdensome.name,Burdensome,,沉重的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,13,game.equipment_affix.cerebral.name,Cerebral,,心智的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,13,game.equipment_affix.cerebral.name,Cerebral,,心智的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,14,game.equipment_affix.charging.name,Charging,,冲锋的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,14,game.equipment_affix.charging.name,Charging,,衝鋒的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,15,game.equipment_affix.commanding.name,Commanding,,统御的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,15,game.equipment_affix.commanding.name,Commanding,,統御的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,16,game.equipment_affix.contaminating.name,Contaminating,,污染的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,16,game.equipment_affix.contaminating.name,Contaminating,,污染的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,17,game.equipment_affix.crippling.name,Crippling,,致残的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,17,game.equipment_affix.crippling.name,Crippling,,致殘的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,18,game.equipment_affix.cryomantic.name,Cryomantic,,冰术的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,18,game.equipment_affix.cryomantic.name,Cryomantic,,冰術的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,19,game.equipment_affix.debilitating.name,Debilitating,,衰弱的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,19,game.equipment_affix.debilitating.name,Debilitating,,衰弱的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,20,game.equipment_affix.deceiver_s.name,Deceiver's,,欺诈者的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,20,game.equipment_affix.deceiver_s.name,Deceiver's,,欺詐者的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,21,game.equipment_affix.decimating.name,Decimating,,屠戮的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,21,game.equipment_affix.decimating.name,Decimating,,屠戮的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,22,game.equipment_affix.decrepifying.name,Decrepifying,,衰朽的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,22,game.equipment_affix.decrepifying.name,Decrepifying,,衰朽的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,23,game.equipment_affix.dedicated.name,Dedicated,,专注的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,23,game.equipment_affix.dedicated.name,Dedicated,,專注的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,24,game.equipment_affix.defensive.name,Defensive,,防御的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,24,game.equipment_affix.defensive.name,Defensive,,防禦的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,25,game.equipment_affix.deflecting.name,Deflecting,,偏转的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,25,game.equipment_affix.deflecting.name,Deflecting,,偏轉的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,26,game.equipment_affix.demolishing.name,Demolishing,,摧毁的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,26,game.equipment_affix.demolishing.name,Demolishing,,摧毀的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,27,game.equipment_affix.determined.name,Determined,,坚定的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,27,game.equipment_affix.determined.name,Determined,,堅定的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,28,game.equipment_affix.disabling.name,Disabling,,禁制的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,28,game.equipment_affix.disabling.name,Disabling,,禁制的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,29,game.equipment_affix.dousing_fix_me.name,Dousing FIX ME,,灭火的【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,29,game.equipment_affix.dousing_fix_me.name,Dousing FIX ME,,滅火的【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,30,game.equipment_affix.dragon_s.name,Dragon's,,巨龙的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,30,game.equipment_affix.dragon_s.name,Dragon's,,巨龍的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,31,game.equipment_affix.electromantic.name,Electromantic,,雷术的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,31,game.equipment_affix.electromantic.name,Electromantic,,雷術的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,32,game.equipment_affix.energetic.name,Energetic,,活力的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,32,game.equipment_affix.energetic.name,Energetic,,活力的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,33,game.equipment_affix.engineer_s.name,Engineer's,,工程师的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,33,game.equipment_affix.engineer_s.name,Engineer's,,工程師的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,34,game.equipment_affix.enlightened.name,Enlightened,,启悟的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,34,game.equipment_affix.enlightened.name,Enlightened,,啓悟的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,35,game.equipment_affix.erupting.name,Erupting,,喷发的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,35,game.equipment_affix.erupting.name,Erupting,,噴發的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,36,game.equipment_affix.eviscerating.name,Eviscerating,,剜腹的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,36,game.equipment_affix.eviscerating.name,Eviscerating,,剜腹的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,37,game.equipment_affix.explosive.name,Explosive,,爆破的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,37,game.equipment_affix.explosive.name,Explosive,,爆破的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,38,game.equipment_affix.fix_me.name,FIX ME,,【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,38,game.equipment_affix.fix_me.name,FIX ME,,【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,39,game.equipment_affix.fencing.name,Fencing,,剑术的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,39,game.equipment_affix.fencing.name,Fencing,,劍術的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,40,game.equipment_affix.fevered.name,Fevered,,狂热的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,40,game.equipment_affix.fevered.name,Fevered,,狂熱的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,41,game.equipment_affix.fierce.name,Fierce,,凶猛的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,41,game.equipment_affix.fierce.name,Fierce,,兇猛的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,42,game.equipment_affix.fire_breather_s.name,Fire Breather's,,吐焰者的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,42,game.equipment_affix.fire_breather_s.name,Fire Breather's,,吐焰者的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,43,game.equipment_affix.flailing.name,Flailing,,挥击的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,43,game.equipment_affix.flailing.name,Flailing,,揮擊的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,44,game.equipment_affix.flanking.name,Flanking,,侧袭的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,44,game.equipment_affix.flanking.name,Flanking,,側襲的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,45,game.equipment_affix.furious.name,Furious,,狂怒的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,45,game.equipment_affix.furious.name,Furious,,狂怒的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,46,game.equipment_affix.glacial.name,Glacial,,冰川的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,46,game.equipment_affix.glacial.name,Glacial,,冰川的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,47,game.equipment_affix.harming.name,Harming,,伤害的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,47,game.equipment_affix.harming.name,Harming,,傷害的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,48,game.equipment_affix.harmonic.name,Harmonic,,谐和的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,48,game.equipment_affix.harmonic.name,Harmonic,,諧和的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,49,game.equipment_affix.heating_fix_me.name,Heating FIX ME,,升温的【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,49,game.equipment_affix.heating_fix_me.name,Heating FIX ME,,升溫的【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,50,game.equipment_affix.hero_s_fix_me.name,Hero's FIX ME,,英雄的【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,50,game.equipment_affix.hero_s_fix_me.name,Hero's FIX ME,,英雄的【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,51,game.equipment_affix.hexing_fix_me.name,Hexing FIX ME,,咒术的【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,51,game.equipment_affix.hexing_fix_me.name,Hexing FIX ME,,咒術的【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,52,game.equipment_affix.hungering.name,Hungering,,饥饿的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,52,game.equipment_affix.hungering.name,Hungering,,飢餓的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,53,game.equipment_affix.incapacitating.name,Incapacitating,,瘫痪的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,53,game.equipment_affix.incapacitating.name,Incapacitating,,癱瘓的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,54,game.equipment_affix.inescapable.name,Inescapable,,无可逃避的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,54,game.equipment_affix.inescapable.name,Inescapable,,無可逃避的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,55,game.equipment_affix.instructor_s.name,Instructor's,,教官的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,55,game.equipment_affix.instructor_s.name,Instructor's,,教官的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,56,game.equipment_affix.insulating_fix_me.name,Insulating FIX ME,,绝缘的【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,56,game.equipment_affix.insulating_fix_me.name,Insulating FIX ME,,絕緣的【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,57,game.equipment_affix.inventor_s.name,Inventor's,,发明家的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,57,game.equipment_affix.inventor_s.name,Inventor's,,發明家的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,58,game.equipment_affix.jinxing.name,Jinxing,,厄运的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,58,game.equipment_affix.jinxing.name,Jinxing,,厄運的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,59,game.equipment_affix.judging.name,Judging,,裁决的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,59,game.equipment_affix.judging.name,Judging,,裁決的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,60,game.equipment_affix.learned.name,Learned,,博学的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,60,game.equipment_affix.learned.name,Learned,,博學的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,61,game.equipment_affix.master_s.name,Master's,,大师的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,61,game.equipment_affix.master_s.name,Master's,,大師的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,62,game.equipment_affix.mechanic_s.name,Mechanic's,,技师的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,62,game.equipment_affix.mechanic_s.name,Mechanic's,,技師的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,63,game.equipment_affix.monstrous.name,Monstrous,,骇人的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,63,game.equipment_affix.monstrous.name,Monstrous,,駭人的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,64,game.equipment_affix.obliterating.name,Obliterating,,湮灭的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,64,game.equipment_affix.obliterating.name,Obliterating,,湮滅的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,65,game.equipment_affix.pestilent.name,Pestilent,,瘟疫的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,65,game.equipment_affix.pestilent.name,Pestilent,,瘟疫的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,66,game.equipment_affix.piercing.name,Piercing,,穿透的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,66,game.equipment_affix.piercing.name,Piercing,,穿透的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,67,game.equipment_affix.pirate_s.name,Pirate's,,海盗的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,67,game.equipment_affix.pirate_s.name,Pirate's,,海盜的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,68,game.equipment_affix.prolonging.name,Prolonging,,延长的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,68,game.equipment_affix.prolonging.name,Prolonging,,延長的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,69,game.equipment_affix.punching.name,Punching,,拳击的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,69,game.equipment_affix.punching.name,Punching,,拳擊的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,70,game.equipment_affix.puncturing.name,Puncturing,,穿刺的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,70,game.equipment_affix.puncturing.name,Puncturing,,穿刺的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,71,game.equipment_affix.pyromantic.name,Pyromantic,,炎术的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,71,game.equipment_affix.pyromantic.name,Pyromantic,,炎術的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,72,game.equipment_affix.redblade.name,Redblade,,红刃的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,72,game.equipment_affix.redblade.name,Redblade,,紅刃的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,73,game.equipment_affix.resonant.name,Resonant,,共鸣的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,73,game.equipment_affix.resonant.name,Resonant,,共鳴的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,74,game.equipment_affix.ripping.name,Ripping,,撕裂的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,74,game.equipment_affix.ripping.name,Ripping,,撕裂的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,75,game.equipment_affix.sabotage.name,Sabotage,,破坏的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,75,game.equipment_affix.sabotage.name,Sabotage,,破壞的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,76,game.equipment_affix.saboteur_s.name,Saboteur's,,破坏者的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,76,game.equipment_affix.saboteur_s.name,Saboteur's,,破壞者的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,77,game.equipment_affix.sapper_s.name,Sapper's,,工兵的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,77,game.equipment_affix.sapper_s.name,Sapper's,,工兵的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,78,game.equipment_affix.scratching.name,Scratching,,抓挠的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,78,game.equipment_affix.scratching.name,Scratching,,抓撓的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,79,game.equipment_affix.sinister.name,Sinister,,阴险的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,79,game.equipment_affix.sinister.name,Sinister,,陰險的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,80,game.equipment_affix.slicing.name,Slicing,,切割的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,80,game.equipment_affix.slicing.name,Slicing,,切割的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,81,game.equipment_affix.soldier_s.name,Soldier's,,士兵的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,81,game.equipment_affix.soldier_s.name,Soldier's,,士兵的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,82,game.equipment_affix.sorcerer_s.name,Sorcerer's,,术士的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,82,game.equipment_affix.sorcerer_s.name,Sorcerer's,,術士的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,83,game.equipment_affix.soul_stealer_s.name,Soul Stealer's,,窃魂者的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,83,game.equipment_affix.soul_stealer_s.name,Soul Stealer's,,竊魂者的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,84,game.equipment_affix.storm_chaser_s.name,Storm Chaser's,,追风者的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,84,game.equipment_affix.storm_chaser_s.name,Storm Chaser's,,追風者的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,85,game.equipment_affix.technical.name,Technical,,精工的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,85,game.equipment_affix.technical.name,Technical,,精工的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,86,game.equipment_affix.tempest_rider_s.name,Tempest Rider's,,驭风者的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,86,game.equipment_affix.tempest_rider_s.name,Tempest Rider's,,馭風者的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,87,game.equipment_affix.thawing_fix_me.name,Thawing FIX ME,,解冻的【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,87,game.equipment_affix.thawing_fix_me.name,Thawing FIX ME,,解凍的【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,88,game.equipment_affix.thirsting.name,Thirsting,,饥渴的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,88,game.equipment_affix.thirsting.name,Thirsting,,飢渴的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,89,game.equipment_affix.thundering.name,Thundering,,雷鸣的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,89,game.equipment_affix.thundering.name,Thundering,,雷鳴的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,90,game.equipment_affix.tinkerer_s.name,Tinkerer's,,修补匠的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,90,game.equipment_affix.tinkerer_s.name,Tinkerer's,,修補匠的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,91,game.equipment_affix.training.name,Training,,训练的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,91,game.equipment_affix.training.name,Training,,訓練的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,92,game.equipment_affix.trapping.name,Trapping,,陷阱的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,92,game.equipment_affix.trapping.name,Trapping,,陷阱的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,93,game.equipment_affix.tul_s.name,Tul's,,托沃的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,93,game.equipment_affix.tul_s.name,Tul's,,托沃的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,94,game.equipment_affix.turncoat_s.name,Turncoat's,,变节者的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,94,game.equipment_affix.turncoat_s.name,Turncoat's,,變節者的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,95,game.equipment_affix.underling_s.name,Underling's,,仆从的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,95,game.equipment_affix.underling_s.name,Underling's,,僕從的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,96,game.equipment_affix.unshackling.name,Unshackling,,解缚的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,96,game.equipment_affix.unshackling.name,Unshackling,,解縛的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,97,game.equipment_affix.uul_netol_s.name,Uul-Netol's,,乌尔尼多的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,97,game.equipment_affix.uul_netol_s.name,Uul-Netol's,,烏爾尼多的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,98,game.equipment_affix.verisium.name,Verisium,,维里西姆的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,98,game.equipment_affix.verisium.name,Verisium,,維裏西姆的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,99,game.equipment_affix.volleying.name,Volleying,,齐射的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,99,game.equipment_affix.volleying.name,Volleying,,齊射的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,100,game.equipment_affix.warded.name,Warded,,受护的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,100,game.equipment_affix.warded.name,Warded,,受護的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,101,game.equipment_affix.warding.name,Warding,,守护的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,101,game.equipment_affix.warding.name,Warding,,守護的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,102,game.equipment_affix.wise.name,Wise,,睿智的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,102,game.equipment_affix.wise.name,Wise,,睿智的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,103,game.equipment_affix.wright_s.name,Wright's,,匠师的,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,103,game.equipment_affix.wright_s.name,Wright's,,匠師的,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,104,game.equipment_affix.of_accuracy.name,of Accuracy,,精准之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,104,game.equipment_affix.of_accuracy.name,of Accuracy,,精準之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,105,game.equipment_affix.of_adaption.name,of Adaption,,适应之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,105,game.equipment_affix.of_adaption.name,of Adaption,,適應之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,106,game.equipment_affix.of_amplification.name,of Amplification,,增幅之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,106,game.equipment_affix.of_amplification.name,of Amplification,,增幅之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,107,game.equipment_affix.of_anticipation.name,of Anticipation,,预判之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,107,game.equipment_affix.of_anticipation.name,of Anticipation,,預判之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,108,game.equipment_affix.of_archery.name,of Archery,,箭术之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,108,game.equipment_affix.of_archery.name,of Archery,,箭術之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,109,game.equipment_affix.of_assassination_fix_me.name,of Assassination FIX ME,,暗杀之【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,109,game.equipment_affix.of_assassination_fix_me.name,of Assassination FIX ME,,暗殺之【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,110,game.equipment_affix.of_asylum.name,of Asylum,,庇护之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,110,game.equipment_affix.of_asylum.name,of Asylum,,庇護之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,111,game.equipment_affix.of_athletics.name,of Athletics,,健体之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,111,game.equipment_affix.of_athletics.name,of Athletics,,健體之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,112,game.equipment_affix.of_backstabbing.name,of Backstabbing,,背刺之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,112,game.equipment_affix.of_backstabbing.name,of Backstabbing,,背刺之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,113,game.equipment_affix.of_berserking.name,of Berserking,,狂暴之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,113,game.equipment_affix.of_berserking.name,of Berserking,,狂暴之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,114,game.equipment_affix.of_binding.name,of Binding,,束缚之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,114,game.equipment_affix.of_binding.name,of Binding,,束縛之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,115,game.equipment_affix.of_biting_fix_me.name,of Biting FIX ME,,撕咬之【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,115,game.equipment_affix.of_biting_fix_me.name,of Biting FIX ME,,撕咬之【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,116,game.equipment_affix.of_blasphemy.name,of Blasphemy,,亵渎之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,116,game.equipment_affix.of_blasphemy.name,of Blasphemy,,褻瀆之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,117,game.equipment_affix.of_bleeding.name,of Bleeding,,流血之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,117,game.equipment_affix.of_bleeding.name,of Bleeding,,流血之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,118,game.equipment_affix.of_burning.name,of Burning,,燃烧之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,118,game.equipment_affix.of_burning.name,of Burning,,燃燒之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,119,game.equipment_affix.of_cleaving.name,of Cleaving,,劈砍之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,119,game.equipment_affix.of_cleaving.name,of Cleaving,,劈砍之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,120,game.equipment_affix.of_coherence.name,of Coherence,,凝聚之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,120,game.equipment_affix.of_coherence.name,of Coherence,,凝聚之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,121,game.equipment_affix.of_combusting.name,of Combusting,,燃爆之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,121,game.equipment_affix.of_combusting.name,of Combusting,,燃爆之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,122,game.equipment_affix.of_conservation.name,of Conservation,,节约之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,122,game.equipment_affix.of_conservation.name,of Conservation,,節約之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,123,game.equipment_affix.of_cover.name,of Cover,,掩护之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,123,game.equipment_affix.of_cover.name,of Cover,,掩護之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,124,game.equipment_affix.of_craiceann.name,of Craiceann,,奎尔珊之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,124,game.equipment_affix.of_craiceann.name,of Craiceann,,奎爾珊之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,125,game.equipment_affix.of_crushing_fix_me.name,of Crushing FIX ME,,碾压之【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,125,game.equipment_affix.of_crushing_fix_me.name,of Crushing FIX ME,,碾壓之【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,126,game.equipment_affix.of_cunning.name,of Cunning,,狡诈之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,126,game.equipment_affix.of_cunning.name,of Cunning,,狡詐之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,127,game.equipment_affix.of_deflection.name,of Deflection,,偏转之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,127,game.equipment_affix.of_deflection.name,of Deflection,,偏轉之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,128,game.equipment_affix.of_detonation.name,of Detonation,,引爆之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,128,game.equipment_affix.of_detonation.name,of Detonation,,引爆之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,129,game.equipment_affix.of_dexterity.name,of Dexterity,,敏捷之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,129,game.equipment_affix.of_dexterity.name,of Dexterity,,敏捷之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,130,game.equipment_affix.of_diffusion.name,of Diffusion,,扩散之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,130,game.equipment_affix.of_diffusion.name,of Diffusion,,擴散之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,131,game.equipment_affix.of_dispersal.name,of Dispersal,,分散之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,131,game.equipment_affix.of_dispersal.name,of Dispersal,,分散之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,132,game.equipment_affix.of_divination_fix_me.name,of Divination FIX ME,,占卜之【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,132,game.equipment_affix.of_divination_fix_me.name,of Divination FIX ME,,占卜之【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,133,game.equipment_affix.of_drenching.name,of Drenching,,浸透之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,133,game.equipment_affix.of_drenching.name,of Drenching,,浸透之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,134,game.equipment_affix.of_endurance.name,of Endurance,,耐力之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,134,game.equipment_affix.of_endurance.name,of Endurance,,耐力之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,135,game.equipment_affix.of_enlivening.name,of Enlivening,,焕活之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,135,game.equipment_affix.of_enlivening.name,of Enlivening,,煥活之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,136,game.equipment_affix.of_esh.name,of Esh,,艾许之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,136,game.equipment_affix.of_esh.name,of Esh,,艾許之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,137,game.equipment_affix.of_evocation_fix_me.name,of Evocation FIX ME,,唤术之【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,137,game.equipment_affix.of_evocation_fix_me.name,of Evocation FIX ME,,喚術之【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,138,game.equipment_affix.of_excavation.name,of Excavation,,挖掘之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,138,game.equipment_affix.of_excavation.name,of Excavation,,挖掘之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,139,game.equipment_affix.of_execution_fix_me.name,of Execution FIX ME,,处决之【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,139,game.equipment_affix.of_execution_fix_me.name,of Execution FIX ME,,處決之【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,140,game.equipment_affix.of_exertion.name,of Exertion,,增助之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,140,game.equipment_affix.of_exertion.name,of Exertion,,增助之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,141,game.equipment_affix.of_expectation.name,of Expectation,,期盼之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,141,game.equipment_affix.of_expectation.name,of Expectation,,期盼之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,142,game.equipment_affix.of_explosives.name,of Explosives,,爆炸之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,142,game.equipment_affix.of_explosives.name,of Explosives,,爆炸之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,143,game.equipment_affix.of_farrul.name,of Farrul,,费尔罗之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,143,game.equipment_affix.of_farrul.name,of Farrul,,費爾羅之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,144,game.equipment_affix.of_fencing.name,of Fencing,,剑术之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,144,game.equipment_affix.of_fencing.name,of Fencing,,劍術之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,145,game.equipment_affix.of_fenumus.name,of Fenumus,,菲恩斯之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,145,game.equipment_affix.of_fenumus.name,of Fenumus,,菲恩絲之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,146,game.equipment_affix.of_fervour.name,of Fervour,,热忱之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,146,game.equipment_affix.of_fervour.name,of Fervour,,熱忱之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,147,game.equipment_affix.of_focus.name,of Focus,,专注之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,147,game.equipment_affix.of_focus.name,of Focus,,專注之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,148,game.equipment_affix.of_fortitude.name,of Fortitude,,坚毅之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,148,game.equipment_affix.of_fortitude.name,of Fortitude,,堅毅之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,149,game.equipment_affix.of_fretfulness.name,of Fretfulness,,焦躁之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,149,game.equipment_affix.of_fretfulness.name,of Fretfulness,,焦躁之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,150,game.equipment_affix.of_haste.name,of Haste,,急速之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,150,game.equipment_affix.of_haste.name,of Haste,,急速之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,151,game.equipment_affix.of_hexwarding.name,of Hexwarding,,御咒之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,151,game.equipment_affix.of_hexwarding.name,of Hexwarding,,御咒之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,152,game.equipment_affix.of_imbuing.name,of Imbuing,,灌注之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,152,game.equipment_affix.of_imbuing.name,of Imbuing,,灌注之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,153,game.equipment_affix.of_impaling.name,of Impaling,,穿刺之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,153,game.equipment_affix.of_impaling.name,of Impaling,,穿刺之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,154,game.equipment_affix.of_impatience.name,of Impatience,,急躁之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,154,game.equipment_affix.of_impatience.name,of Impatience,,急躁之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,155,game.equipment_affix.of_inscription.name,of Inscription,,铭刻之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,155,game.equipment_affix.of_inscription.name,of Inscription,,銘刻之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,156,game.equipment_affix.of_intelligence.name,of Intelligence,,智慧之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,156,game.equipment_affix.of_intelligence.name,of Intelligence,,智慧之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,157,game.equipment_affix.of_invigoration.name,of Invigoration,,振奋之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,157,game.equipment_affix.of_invigoration.name,of Invigoration,,振奮之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,158,game.equipment_affix.of_jabbing.name,of Jabbing,,刺击之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,158,game.equipment_affix.of_jabbing.name,of Jabbing,,刺擊之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,159,game.equipment_affix.of_lancing.name,of Lancing,,枪刺之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,159,game.equipment_affix.of_lancing.name,of Lancing,,槍刺之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,160,game.equipment_affix.of_motivation.name,of Motivation,,激励之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,160,game.equipment_affix.of_motivation.name,of Motivation,,激勵之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,161,game.equipment_affix.of_multitudes.name,of Multitudes,,繁多之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,161,game.equipment_affix.of_multitudes.name,of Multitudes,,繁多之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,162,game.equipment_affix.of_mysticism.name,of Mysticism,,秘法之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,162,game.equipment_affix.of_mysticism.name,of Mysticism,,祕法之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,163,game.equipment_affix.of_needling_fix_me.name,of Needling FIX ME,,针刺之【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,163,game.equipment_affix.of_needling_fix_me.name,of Needling FIX ME,,針刺之【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,164,game.equipment_affix.of_neutralisation.name,of Neutralisation,,中和之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,164,game.equipment_affix.of_neutralisation.name,of Neutralisation,,中和之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,165,game.equipment_affix.of_order.name,of Order,,秩序之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,165,game.equipment_affix.of_order.name,of Order,,秩序之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,166,game.equipment_affix.of_power.name,of Power,,威能之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,166,game.equipment_affix.of_power.name,of Power,,威能之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,167,game.equipment_affix.of_preparation.name,of Preparation,,准备之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,167,game.equipment_affix.of_preparation.name,of Preparation,,準備之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,168,game.equipment_affix.of_protection.name,of Protection,,防护之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,168,game.equipment_affix.of_protection.name,of Protection,,防護之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,169,game.equipment_affix.of_punctuality.name,of Punctuality,,准时之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,169,game.equipment_affix.of_punctuality.name,of Punctuality,,準時之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,170,game.equipment_affix.of_putrefaction.name,of Putrefaction,,腐烂之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,170,game.equipment_affix.of_putrefaction.name,of Putrefaction,,腐爛之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,171,game.equipment_affix.of_pyrotechnics.name,of Pyrotechnics,,焰火之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,171,game.equipment_affix.of_pyrotechnics.name,of Pyrotechnics,,焰火之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,172,game.equipment_affix.of_ravaging.name,of Ravaging,,劫掠之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,172,game.equipment_affix.of_ravaging.name,of Ravaging,,劫掠之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,173,game.equipment_affix.of_rebounding.name,of Rebounding,,反弹之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,173,game.equipment_affix.of_rebounding.name,of Rebounding,,反彈之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,174,game.equipment_affix.of_redirection.name,of Redirection,,变向之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,174,game.equipment_affix.of_redirection.name,of Redirection,,變向之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,175,game.equipment_affix.of_refuge.name,of Refuge,,避难之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,175,game.equipment_affix.of_refuge.name,of Refuge,,避難之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,176,game.equipment_affix.of_renewal.name,of Renewal,,新生之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,176,game.equipment_affix.of_renewal.name,of Renewal,,新生之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,177,game.equipment_affix.of_repairing.name,of Repairing,,修复之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,177,game.equipment_affix.of_repairing.name,of Repairing,,修復之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,178,game.equipment_affix.of_resilience.name,of Resilience,,韧性之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,178,game.equipment_affix.of_resilience.name,of Resilience,,韌性之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,179,game.equipment_affix.of_resolve.name,of Resolve,,决心之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,179,game.equipment_affix.of_resolve.name,of Resolve,,決心之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,180,game.equipment_affix.of_restlessness.name,of Restlessness,,躁动之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,180,game.equipment_affix.of_restlessness.name,of Restlessness,,躁動之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,181,game.equipment_affix.of_reverberation.name,of Reverberation,,回响之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,181,game.equipment_affix.of_reverberation.name,of Reverberation,,迴響之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,182,game.equipment_affix.of_revitalization.name,of Revitalization,,复苏之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,182,game.equipment_affix.of_revitalization.name,of Revitalization,,復甦之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,183,game.equipment_affix.of_revival.name,of Revival,,复活之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,183,game.equipment_affix.of_revival.name,of Revival,,復活之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,184,game.equipment_affix.of_rot.name,of Rot,,腐朽之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,184,game.equipment_affix.of_rot.name,of Rot,,腐朽之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,185,game.equipment_affix.of_runes.name,of Runes,,符文之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,185,game.equipment_affix.of_runes.name,of Runes,,符文之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,186,game.equipment_affix.of_sabotage.name,of Sabotage,,破坏之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,186,game.equipment_affix.of_sabotage.name,of Sabotage,,破壞之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,187,game.equipment_affix.of_sanctuary.name,of Sanctuary,,圣域之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,187,game.equipment_affix.of_sanctuary.name,of Sanctuary,,聖域之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,188,game.equipment_affix.of_saqawal.name,of Saqawal,,斯卡沃之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,188,game.equipment_affix.of_saqawal.name,of Saqawal,,斯卡沃之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,189,game.equipment_affix.of_scattering.name,of Scattering,,散射之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,189,game.equipment_affix.of_scattering.name,of Scattering,,散射之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,190,game.equipment_affix.of_severing_fix_me.name,of Severing FIX ME,,割裂之【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,190,game.equipment_affix.of_severing_fix_me.name,of Severing FIX ME,,割裂之【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,191,game.equipment_affix.of_shaping.name,of Shaping,,塑形之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,191,game.equipment_affix.of_shaping.name,of Shaping,,塑形之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,192,game.equipment_affix.of_shelter.name,of Shelter,,遮蔽之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,192,game.equipment_affix.of_shelter.name,of Shelter,,遮蔽之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,193,game.equipment_affix.of_shrapnel.name,of Shrapnel,,弹片之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,193,game.equipment_affix.of_shrapnel.name,of Shrapnel,,彈片之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,194,game.equipment_affix.of_slicing.name,of Slicing,,切割之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,194,game.equipment_affix.of_slicing.name,of Slicing,,切割之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,195,game.equipment_affix.of_soaring.name,of Soaring,,翱翔之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,195,game.equipment_affix.of_soaring.name,of Soaring,,翱翔之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,196,game.equipment_affix.of_spirit.name,of Spirit,,精魂之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,196,game.equipment_affix.of_spirit.name,of Spirit,,精魂之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,197,game.equipment_affix.of_stemming.name,of Stemming,,遏制之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,197,game.equipment_affix.of_stemming.name,of Stemming,,遏制之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,198,game.equipment_affix.of_stinging_fix_me.name,of Stinging FIX ME,,刺痛之【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,198,game.equipment_affix.of_stinging_fix_me.name,of Stinging FIX ME,,刺痛之【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,199,game.equipment_affix.of_stoicism.name,of Stoicism,,坚忍之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,199,game.equipment_affix.of_stoicism.name,of Stoicism,,堅忍之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,200,game.equipment_affix.of_strength.name,of Strength,,力量之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,200,game.equipment_affix.of_strength.name,of Strength,,力量之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,201,game.equipment_affix.of_striking_fix_me.name,of Striking FIX ME,,打击之【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,201,game.equipment_affix.of_striking_fix_me.name,of Striking FIX ME,,打擊之【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,202,game.equipment_affix.of_swapping.name,of Swapping,,切换之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,202,game.equipment_affix.of_swapping.name,of Swapping,,切換之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,203,game.equipment_affix.of_symbolism.name,of Symbolism,,象征之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,203,game.equipment_affix.of_symbolism.name,of Symbolism,,象徵之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,204,game.equipment_affix.of_tacati.name,of Tacati,,塔卡提之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,204,game.equipment_affix.of_tacati.name,of Tacati,,塔卡提之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,205,game.equipment_affix.of_thrashing.name,of Thrashing,,鞭挞之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,205,game.equipment_affix.of_thrashing.name,of Thrashing,,鞭撻之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,206,game.equipment_affix.of_training.name,of Training,,训练之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,206,game.equipment_affix.of_training.name,of Training,,訓練之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,207,game.equipment_affix.of_transformation.name,of Transformation,,变形之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,207,game.equipment_affix.of_transformation.name,of Transformation,,變形之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,208,game.equipment_affix.of_trauma_fix_me.name,of Trauma FIX ME,,创伤之【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,208,game.equipment_affix.of_trauma_fix_me.name,of Trauma FIX ME,,創傷之【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,209,game.equipment_affix.of_tyranny_fix_me.name,of Tyranny FIX ME,,暴政之【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,209,game.equipment_affix.of_tyranny_fix_me.name,of Tyranny FIX ME,,暴政之【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,210,game.equipment_affix.of_unending.name,of Unending,,不息之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,210,game.equipment_affix.of_unending.name,of Unending,,不息之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,211,game.equipment_affix.of_utilisation.name,of Utilisation,,运用之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,211,game.equipment_affix.of_utilisation.name,of Utilisation,,運用之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,212,game.equipment_affix.of_vastness.name,of Vastness,,浩瀚之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,212,game.equipment_affix.of_vastness.name,of Vastness,,浩瀚之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,213,game.equipment_affix.of_volatility.name,of Volatility,,无常之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,213,game.equipment_affix.of_volatility.name,of Volatility,,易爆之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,214,game.equipment_affix.of_warcries.name,of Warcries,,战吼之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,214,game.equipment_affix.of_warcries.name,of Warcries,,戰吼之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,215,game.equipment_affix.of_weight.name,of Weight,,重量之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,215,game.equipment_affix.of_weight.name,of Weight,,重量之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,216,game.equipment_affix.of_will.name,of Will,,意志之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,216,game.equipment_affix.of_will.name,of Will,,意志之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,217,game.equipment_affix.of_windfall.name,of Windfall,,横财之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,217,game.equipment_affix.of_windfall.name,of Windfall,,橫財之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,218,game.equipment_affix.of_wounding.name,of Wounding,,致伤之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,218,game.equipment_affix.of_wounding.name,of Wounding,,致傷之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,219,game.equipment_affix.of_xoph.name,of Xoph,,索伏之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,219,game.equipment_affix.of_xoph.name,of Xoph,,索伏之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,220,game.equipment_affix.of_zeal.name,of Zeal,,狂热之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,220,game.equipment_affix.of_zeal.name,of Zeal,,狂熱之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,221,game.equipment_affix.of_the_apocalypse.name,of the Apocalypse,,末日之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,221,game.equipment_affix.of_the_apocalypse.name,of the Apocalypse,,末日之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,222,game.equipment_affix.of_the_bear_fix_me.name,of the Bear FIX ME,,巨熊之【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,222,game.equipment_affix.of_the_bear_fix_me.name,of the Bear FIX ME,,巨熊之【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,223,game.equipment_affix.of_the_beast.name,of the Beast,,野兽之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,223,game.equipment_affix.of_the_beast.name,of the Beast,,野獸之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,224,game.equipment_affix.of_the_cabal.name,of the Cabal,,秘社之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,224,game.equipment_affix.of_the_cabal.name,of the Cabal,,祕社之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,225,game.equipment_affix.of_the_dragon.name,of the Dragon,,巨龙之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,225,game.equipment_affix.of_the_dragon.name,of the Dragon,,巨龍之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,226,game.equipment_affix.of_the_eagle_fix_me.name,of the Eagle FIX ME,,雄鹰之【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,226,game.equipment_affix.of_the_eagle_fix_me.name,of the Eagle FIX ME,,雄鷹之【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,227,game.equipment_affix.of_the_elder.name,of the Elder,,长老之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,227,game.equipment_affix.of_the_elder.name,of the Elder,,長老之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,228,game.equipment_affix.of_the_elements.name,of the Elements,,元素之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,228,game.equipment_affix.of_the_elements.name,of the Elements,,元素之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,229,game.equipment_affix.of_the_essence.name,of the Essence,,精华之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,229,game.equipment_affix.of_the_essence.name,of the Essence,,精華之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,230,game.equipment_affix.of_the_flameruler.name,of the Flameruler,,焰主之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,230,game.equipment_affix.of_the_flameruler.name,of the Flameruler,,焰主之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,231,game.equipment_affix.of_the_hunter_fix_me.name,of the Hunter FIX ME,,猎手之【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,231,game.equipment_affix.of_the_hunter_fix_me.name,of the Hunter FIX ME,,獵手之【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,232,game.equipment_affix.of_the_parasite.name,of the Parasite,,寄生之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,232,game.equipment_affix.of_the_parasite.name,of the Parasite,,寄生之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,233,game.equipment_affix.of_the_sniper_fix_me.name,of the Sniper FIX ME,,狙击之【待修复】,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,233,game.equipment_affix.of_the_sniper_fix_me.name,of the Sniper FIX ME,,狙擊之【待修復】,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,234,game.equipment_affix.of_the_snowbreather.name,of the Snowbreather,,吐霜者之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,234,game.equipment_affix.of_the_snowbreather.name,of the Snowbreather,,吐霜者之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,235,game.equipment_affix.of_the_stars.name,of the Stars,,群星之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,235,game.equipment_affix.of_the_stars.name,of the Stars,,群星之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,236,game.equipment_affix.of_the_stormdweller.name,of the Stormdweller,,栖风者之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,236,game.equipment_affix.of_the_stormdweller.name,of the Stormdweller,,棲風者之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,237,game.equipment_affix.of_the_thirsty.name,of the Thirsty,,饥渴者之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,237,game.equipment_affix.of_the_thirsty.name,of the Thirsty,,飢渴者之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,238,game.equipment_affix.of_the_tyrant.name,of the Tyrant,,暴君之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,238,game.equipment_affix.of_the_tyrant.name,of the Tyrant,,暴君之,补齐名称或保留纯数字版本模板
+zh-CN,equipment_affix,239,game.equipment_affix.of_the_wall.name,of the Wall,,壁垒之,补齐名称或保留纯数字版本模板
+zh-TW,equipment_affix,239,game.equipment_affix.of_the_wall.name,of the Wall,,壁壘之,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,1,game.tree_legion.177.dn,Aim for the Jugular,,直取咽喉,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,1,game.tree_legion.177.dn,Aim for the Jugular,,直取咽喉,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,2,game.tree_legion.206.dn,Ambivalent Command,,矛盾号令,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,2,game.tree_legion.206.dn,Ambivalent Command,,矛盾號令,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,3,game.tree_legion.226.dn,Ancient Bastion,,远古堡垒,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,3,game.tree_legion.226.dn,Ancient Bastion,,遠古堡壘,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,4,game.tree_legion.72.dn,Ancient Hex,,远古咒术,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,4,game.tree_legion.72.dn,Ancient Hex,,遠古咒術,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,5,game.tree_legion.213.dn,Arcane Ascension,,秘术升华,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,5,game.tree_legion.213.dn,Arcane Ascension,,秘術昇華,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,6,game.tree_legion.63.dn,Automaton Studies,,机巧研习,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,6,game.tree_legion.63.dn,Automaton Studies,,機巧研習,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,7,game.tree_legion.35.dn,Avoid Elemental Ailments,,避免元素异常状态,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,7,game.tree_legion.35.dn,Avoid Elemental Ailments,,避免元素異常狀態,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,8,game.tree_legion.132.dn,Axiom Warden,,公理守卫,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,8,game.tree_legion.132.dn,Axiom Warden,,公理守衛,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,9,game.tree_legion.149.dn,Baleful Augmentation,,灾厄强化,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,9,game.tree_legion.149.dn,Baleful Augmentation,,災厄強化,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,10,game.tree_legion.231.dn,Barbed Allegiance,,荆棘效忠,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,10,game.tree_legion.231.dn,Barbed Allegiance,,荊棘效忠,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,11,game.tree_legion.67.dn,Blood-Quenched Bulwark,,血淬壁垒,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,11,game.tree_legion.67.dn,Blood-Quenched Bulwark,,血淬壁壘,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,12,game.tree_legion.136.dn,Bloody Flowers' Rebellion,,血花叛乱,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,12,game.tree_legion.136.dn,Bloody Flowers' Rebellion,,血花叛亂,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,13,game.tree_legion.54.dn,Bloody Savagery,,血腥野性,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,13,game.tree_legion.54.dn,Bloody Savagery,,血腥野性,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,14,game.tree_legion.207.dn,Boneshedder,,蜕骨者,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,14,game.tree_legion.207.dn,Boneshedder,,蛻骨者,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,15,game.tree_legion.162.dn,Born of Middengard,,米登加德之子,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,15,game.tree_legion.162.dn,Born of Middengard,,公尺登加德之子,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,16,game.tree_legion.112.dn,Brutal Execution,,残暴处决,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,16,game.tree_legion.112.dn,Brutal Execution,,殘暴處決,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,17,game.tree_legion.223.dn,Buried Animosity,,深埋仇恨,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,17,game.tree_legion.223.dn,Buried Animosity,,深埋仇恨,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,18,game.tree_legion.93.dn,Calming Devotion,,宁心奉献,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,18,game.tree_legion.93.dn,Calming Devotion,,寧心奉獻,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,19,game.tree_legion.82.dn,Chainbreaker,,破枷除鎖,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,20,game.tree_legion.137.dn,Chitus' Heart,,切特斯之心,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,20,game.tree_legion.137.dn,Chitus' Heart,,奇塔斯之心,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,21,game.tree_legion.126.dn,City Walls,,城墙,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,21,game.tree_legion.126.dn,City Walls,,城牆,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,22,game.tree_legion.100.dn,Cloistered,,隐修,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,22,game.tree_legion.100.dn,Cloistered,,隱修,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,23,game.tree_legion.71.dn,Commanding Presence,,统御威仪,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,23,game.tree_legion.71.dn,Commanding Presence,,統御威儀,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,24,game.tree_legion.212.dn,Confined Exaltation,,禁锢升华,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,24,game.tree_legion.212.dn,Confined Exaltation,,禁錮昇華,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,25,game.tree_legion.64.dn,Construct Studies,,构装研习,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,25,game.tree_legion.64.dn,Construct Studies,,構裝研習,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,26,game.tree_legion.189.dn,Corrupted Vision,,腐化视界,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,26,game.tree_legion.189.dn,Corrupted Vision,,腐化視界,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,27,game.tree_legion.203.dn,Creature of Death,,死亡造物,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,27,game.tree_legion.203.dn,Creature of Death,,死亡造物,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,28,game.tree_legion.204.dn,Creature of Magic,,魔法造物,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,28,game.tree_legion.204.dn,Creature of Magic,,魔法造物,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,29,game.tree_legion.147.dn,Crematorium Worker,,焚尸工,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,29,game.tree_legion.147.dn,Crematorium Worker,,焚屍工,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,30,game.tree_legion.217.dn,Cruel Strength,,残酷力量,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,30,game.tree_legion.217.dn,Cruel Strength,,殘酷力量,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,31,game.tree_legion.76.dn,Cult of Chaos,,混沌教派,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,31,game.tree_legion.76.dn,Cult of Chaos,,混沌教派,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,32,game.tree_legion.73.dn,Cult of Fire,,烈火教派,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,32,game.tree_legion.73.dn,Cult of Fire,,烈火教派,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,33,game.tree_legion.74.dn,Cult of Ice,,寒冰教派,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,33,game.tree_legion.74.dn,Cult of Ice,,寒冰教派,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,34,game.tree_legion.75.dn,Cult of Lightning,,闪电教派,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,34,game.tree_legion.75.dn,Cult of Lightning,,閃電教派,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,35,game.tree_legion.227.dn,Deformed Steel,,畸变钢铁,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,35,game.tree_legion.227.dn,Deformed Steel,,畸變鋼鐵,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,36,game.tree_legion.209.dn,Derogatory Gaze,,轻蔑凝视,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,36,game.tree_legion.209.dn,Derogatory Gaze,,輕蔑凝視,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,37,game.tree_legion.143.dn,Dialla's Wit,,达拉的才智,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,37,game.tree_legion.143.dn,Dialla's Wit,,達拉的才智,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,38,game.tree_legion.144.dn,Discerning Taste,,鉴赏之味,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,38,game.tree_legion.144.dn,Discerning Taste,,鑑賞之味,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,39,game.tree_legion.202.dn,Disciple of Darkness,,黑暗信徒,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,39,game.tree_legion.202.dn,Disciple of Darkness,,黑暗信徒,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,40,game.tree_legion.221.dn,Domineering Commands,,专横号令,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,40,game.tree_legion.221.dn,Domineering Commands,,專橫號令,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,41,game.tree_legion.230.dn,Dreadful Fortitude,,恐怖坚毅,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,41,game.tree_legion.230.dn,Dreadful Fortitude,,恐怖堅毅,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,42,game.tree_legion.168.dn,Druidic Alliance,,德鲁伊盟约,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,42,game.tree_legion.168.dn,Druidic Alliance,,德魯伊盟約,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,43,game.tree_legion.188.dn,Druidic Training,,德鲁伊训练,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,43,game.tree_legion.188.dn,Druidic Training,,德魯伊訓練,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,44,game.tree_legion.97.dn,Enduring Faith,,坚韧信仰,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,44,game.tree_legion.97.dn,Enduring Faith,,堅韌信仰,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,45,game.tree_legion.65.dn,Energy Flow Studies,,能量流动研习,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,45,game.tree_legion.65.dn,Energy Flow Studies,,能量流動研習,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,46,game.tree_legion.117.dn,Eternal Adaptiveness,,永恒适应,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,46,game.tree_legion.117.dn,Eternal Adaptiveness,,永恆適應,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,47,game.tree_legion.118.dn,Eternal Bloodlust,,永恒嗜血,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,47,game.tree_legion.118.dn,Eternal Bloodlust,,永恆嗜血,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,48,game.tree_legion.115.dn,Eternal Dominance,,永恒统御,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,48,game.tree_legion.115.dn,Eternal Dominance,,永恆統御,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,49,game.tree_legion.121.dn,Eternal Exploitation,,永恒榨取,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,49,game.tree_legion.121.dn,Eternal Exploitation,,永恆榨取,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,50,game.tree_legion.116.dn,Eternal Fervour,,永恒热忱,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,50,game.tree_legion.116.dn,Eternal Fervour,,永恆熱忱,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,51,game.tree_legion.114.dn,Eternal Fortitude,,永恒坚毅,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,51,game.tree_legion.114.dn,Eternal Fortitude,,永恆堅毅,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,52,game.tree_legion.113.dn,Eternal Resilience,,永恒韧性,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,52,game.tree_legion.113.dn,Eternal Resilience,,永恆韌性,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,53,game.tree_legion.120.dn,Eternal Separation,,永恒隔离,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,53,game.tree_legion.120.dn,Eternal Separation,,永恆隔離,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,54,game.tree_legion.119.dn,Eternal Subjugation,,永恒征服,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,54,game.tree_legion.119.dn,Eternal Subjugation,,永恆征服,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,55,game.tree_legion.211.dn,Expedited Horrors,,迅捷恐惧,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,55,game.tree_legion.211.dn,Expedited Horrors,,迅捷恐懼,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,56,game.tree_legion.59.dn,Exquisite Pain,,极致痛苦,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,56,game.tree_legion.59.dn,Exquisite Pain,,極致痛苦,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,57,game.tree_legion.224.dn,Fast Rot,,迅速腐败,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,57,game.tree_legion.224.dn,Fast Rot,,迅速腐敗,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,58,game.tree_legion.167.dn,Fiery Leadership,,烈焰统领,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,58,game.tree_legion.167.dn,Fiery Leadership,,烈焰統領,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,59,game.tree_legion.186.dn,Fight as One,,并肩作战,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,59,game.tree_legion.186.dn,Fight as One,,並肩作戰,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,60,game.tree_legion.173.dn,Firedancer,,火焰舞者,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,60,game.tree_legion.173.dn,Firedancer,,火焰舞者,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,61,game.tree_legion.111.dn,Flawless Execution,,无瑕处决,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,61,game.tree_legion.111.dn,Flawless Execution,,無瑕處決,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,62,game.tree_legion.61.dn,Flesh Worship,,血肉崇拜,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,62,game.tree_legion.61.dn,Flesh Worship,,血肉崇拜,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,63,game.tree_legion.45.dn,Flesh to Flames,,血肉化焰,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,63,game.tree_legion.45.dn,Flesh to Flames,,血肉化焰,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,64,game.tree_legion.48.dn,Flesh to Frost,,血肉化霜,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,64,game.tree_legion.48.dn,Flesh to Frost,,血肉化霜,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,65,game.tree_legion.51.dn,Flesh to Lightning,,血肉化雷,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,65,game.tree_legion.51.dn,Flesh to Lightning,,血肉化雷,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,66,game.tree_legion.184.dn,Forceful Energies,,强劲能量,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,66,game.tree_legion.184.dn,Forceful Energies,,強勁能量,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,67,game.tree_legion.99.dn,Frenzied Faith,,狂热信仰,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,67,game.tree_legion.99.dn,Frenzied Faith,,狂熱信仰,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,68,game.tree_legion.155.dn,Freshly Brewed,,新酿佳酿,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,68,game.tree_legion.155.dn,Freshly Brewed,,新釀佳釀,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,69,game.tree_legion.191.dn,Furs and Leather,,毛皮革甲,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,69,game.tree_legion.191.dn,Furs and Leather,,毛皮革甲,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,70,game.tree_legion.134.dn,Gemling Ambush,,宝石军团伏击,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,70,game.tree_legion.134.dn,Gemling Ambush,,寶石軍團伏擊,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,71,game.tree_legion.133.dn,Gemling Inquisition,,宝石军团审讯,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,71,game.tree_legion.133.dn,Gemling Inquisition,,寶石軍團審訊,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,72,game.tree_legion.138.dn,Gemling Training,,宝石军团训练,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,72,game.tree_legion.138.dn,Gemling Training,,寶石軍團訓練,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,73,game.tree_legion.140.dn,Geofri's End,,吉尔菲之终,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,73,game.tree_legion.140.dn,Geofri's End,,吉爾菲之終,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,74,game.tree_legion.145.dn,Gleaming Legion,,闪耀军团,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,74,game.tree_legion.145.dn,Gleaming Legion,,閃耀軍團,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,75,game.tree_legion.215.dn,Gluttonous Presence,,贪食威仪,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,75,game.tree_legion.215.dn,Gluttonous Presence,,貪食威儀,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,76,game.tree_legion.180.dn,Guerilla Warfare,,游击战术,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,76,game.tree_legion.180.dn,Guerilla Warfare,,游擊戰術,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,77,game.tree_legion.92.dn,Heated Devotion,,炽热奉献,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,77,game.tree_legion.92.dn,Heated Devotion,,熾熱奉獻,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,78,game.tree_legion.58.dn,Hierarchy,,森严阶序,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,78,game.tree_legion.58.dn,Hierarchy,,森嚴階序,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,79,game.tree_legion.225.dn,Hollow Bones,,中空骨骼,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,79,game.tree_legion.225.dn,Hollow Bones,,中空骨骼,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,80,game.tree_legion.220.dn,I Have Darkvision,,黑暗视觉,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,80,game.tree_legion.220.dn,I Have Darkvision,,黑暗視覺,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,81,game.tree_legion.102.dn,Intolerance of Sin,,罪恶不容,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,81,game.tree_legion.102.dn,Intolerance of Sin,,罪惡不容,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,82,game.tree_legion.69.dn,Jungle Paths,,丛林小径,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,82,game.tree_legion.69.dn,Jungle Paths,,叢林小徑,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,83,game.tree_legion.161.dn,Kalguuran Forged,,卡尔古锻造,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,83,game.tree_legion.161.dn,Kalguuran Forged,,卡爾葛鍛造,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,84,game.tree_legion.153.dn,Laureate,,桂冠者,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,84,game.tree_legion.153.dn,Laureate,,桂冠者,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,85,game.tree_legion.141.dn,Lioneye's Focus,,狮眼专注,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,85,game.tree_legion.141.dn,Lioneye's Focus,,獅眼專注,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,86,game.tree_legion.101.dn,Martyr's Might,,殉道者之力,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,86,game.tree_legion.101.dn,Martyr's Might,,殉道者之力,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,87,game.tree_legion.77.dn,Might of the Vaal,,瓦尔之力,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,87,game.tree_legion.77.dn,Might of the Vaal,,瓦爾之力,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,88,game.tree_legion.228.dn,Mystic Brew,,秘法酿剂,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,88,game.tree_legion.228.dn,Mystic Brew,,祕法釀劑,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,89,game.tree_legion.193.dn,Natural Energies,,自然能量,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,89,game.tree_legion.193.dn,Natural Energies,,自然能量,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,90,game.tree_legion.135.dn,Night of a Thousand Ribbons,,千缎之夜,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,90,game.tree_legion.135.dn,Night of a Thousand Ribbons,,千緞之夜,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,91,game.tree_legion.194.dn,Oaken Form,,橡木形态,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,91,game.tree_legion.194.dn,Oaken Form,,橡木形態,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,92,game.tree_legion.181.dn,One for the Road,,临行一饮,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,92,game.tree_legion.181.dn,One for the Road,,臨行一飲,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,93,game.tree_legion.218.dn,Opportunistic Dexterity,,伺机灵巧,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,93,game.tree_legion.218.dn,Opportunistic Dexterity,,伺機靈巧,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,94,game.tree_legion.152.dn,Pooled Resources,,资源汇聚,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,94,game.tree_legion.152.dn,Pooled Resources,,資源匯聚,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,95,game.tree_legion.98.dn,Powerful Faith,,强盛信仰,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,95,game.tree_legion.98.dn,Powerful Faith,,強盛信仰,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,96,game.tree_legion.110.dn,Price of Glory,,荣耀代价,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,96,game.tree_legion.110.dn,Price of Glory,,榮耀代價,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,97,game.tree_legion.129.dn,Purity Rebel,,纯净叛军,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,97,game.tree_legion.129.dn,Purity Rebel,,純淨叛軍,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,98,game.tree_legion.205.dn,Quickened Corpses,,迅捷尸骸,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,98,game.tree_legion.205.dn,Quickened Corpses,,迅捷屍骸,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,99,game.tree_legion.214.dn,Ravenous Mind,,贪婪心智,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,99,game.tree_legion.214.dn,Ravenous Mind,,貪婪心智,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,100,game.tree_legion.229.dn,Resilient Wards,,坚韧结界,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,100,game.tree_legion.229.dn,Resilient Wards,,堅韌結界,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,101,game.tree_legion.56.dn,Revitalising Darkness,,黑暗复苏,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,101,game.tree_legion.56.dn,Revitalising Darkness,,黑暗復甦,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,102,game.tree_legion.44.dn,Revitalising Flames,,烈焰复苏,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,102,game.tree_legion.44.dn,Revitalising Flames,,烈焰復甦,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,103,game.tree_legion.47.dn,Revitalising Frost,,冰霜复苏,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,103,game.tree_legion.47.dn,Revitalising Frost,,冰冷復甦,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,104,game.tree_legion.50.dn,Revitalising Lightning,,闪电复苏,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,104,game.tree_legion.50.dn,Revitalising Lightning,,閃電覆蘇,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,105,game.tree_legion.53.dn,Revitalising Winds,,清风复苏,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,105,game.tree_legion.53.dn,Revitalising Winds,,清風復甦,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,106,game.tree_legion.139.dn,Rigwald's Might,,瑞佛之力,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,106,game.tree_legion.139.dn,Rigwald's Might,,瑞佛之力,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,107,game.tree_legion.122.dn,Rites of Lunaris,,月影仪式,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,107,game.tree_legion.122.dn,Rites of Lunaris,,月影儀式,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,108,game.tree_legion.123.dn,Rites of Solaris,,日耀仪式,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,108,game.tree_legion.123.dn,Rites of Solaris,,日耀儀式,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,109,game.tree_legion.60.dn,Ritual of Flesh,,血肉仪式,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,109,game.tree_legion.60.dn,Ritual of Flesh,,血肉儀式,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,110,game.tree_legion.43.dn,Ritual of Immolation,,献祭仪式,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,110,game.tree_legion.43.dn,Ritual of Immolation,,獻祭儀式,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,111,game.tree_legion.62.dn,Ritual of Memory,,记忆仪式,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,111,game.tree_legion.62.dn,Ritual of Memory,,記憶儀式,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,112,game.tree_legion.52.dn,Ritual of Might,,力量仪式,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,112,game.tree_legion.52.dn,Ritual of Might,,力量儀式,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,113,game.tree_legion.55.dn,Ritual of Shadows,,暗影仪式,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,113,game.tree_legion.55.dn,Ritual of Shadows,,暗影儀式,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,114,game.tree_legion.46.dn,Ritual of Stillness,,静止仪式,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,114,game.tree_legion.46.dn,Ritual of Stillness,,靜止儀式,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,115,game.tree_legion.49.dn,Ritual of Thunder,,雷霆仪式,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,115,game.tree_legion.49.dn,Ritual of Thunder,,雷霆儀式,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,116,game.tree_legion.151.dn,Robust Diet,,健体饮食,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,116,game.tree_legion.151.dn,Robust Diet,,健體飲食,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,117,game.tree_legion.166.dn,Rune Knight,,符文骑士,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,117,game.tree_legion.166.dn,Rune Knight,,符文騎士,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,118,game.tree_legion.164.dn,Runic Flows,,符文流转,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,118,game.tree_legion.164.dn,Runic Flows,,符文流轉,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,119,game.tree_legion.190.dn,Runic Tattoos,,符文刺青,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,119,game.tree_legion.190.dn,Runic Tattoos,,符文刺青,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,120,game.tree_legion.125.dn,Rural Life,,田园生活,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,120,game.tree_legion.125.dn,Rural Life,,田園生活,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,121,game.tree_legion.127.dn,Sceptre Pinnacle,,权杖巅峰,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,121,game.tree_legion.127.dn,Sceptre Pinnacle,,權杖巔峯,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,122,game.tree_legion.159.dn,Scorched Earth,,焦土,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,122,game.tree_legion.159.dn,Scorched Earth,,焦土,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,123,game.tree_legion.86.dn,Second Sight,,慧眼,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,124,game.tree_legion.128.dn,Secret Tunnels,,隐秘隧道,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,124,game.tree_legion.128.dn,Secret Tunnels,,隱祕隧道,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,125,game.tree_legion.176.dn,Sensible Precautions,,审慎防备,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,125,game.tree_legion.176.dn,Sensible Precautions,,審慎防備,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,126,game.tree_legion.146.dn,Shadowy Streets,,幽暗街巷,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,126,game.tree_legion.146.dn,Shadowy Streets,,幽暗街巷,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,127,game.tree_legion.165.dn,Siege Mentality,,围城心态,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,127,game.tree_legion.165.dn,Siege Mentality,,圍城心態,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,128,game.tree_legion.131.dn,Slum Lord,,贫民窟之主,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,128,game.tree_legion.131.dn,Slum Lord,,貧民窟之主,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,129,game.tree_legion.105.dn,Smite the Heretical,,惩戒异端,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,129,game.tree_legion.105.dn,Smite the Heretical,,懲戒異端,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,130,game.tree_legion.104.dn,Smite the Ignorant,,惩戒无知,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,130,game.tree_legion.104.dn,Smite the Ignorant,,懲戒無知,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,131,game.tree_legion.103.dn,Smite the Wicked,,惩戒邪恶,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,131,game.tree_legion.103.dn,Smite the Wicked,,懲戒邪惡,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,132,game.tree_legion.66.dn,Soul Worship,,灵魂崇拜,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,132,game.tree_legion.66.dn,Soul Worship,,靈魂崇拜,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,133,game.tree_legion.195.dn,Spider's Lesson,,蜘蛛教诲,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,133,game.tree_legion.195.dn,Spider's Lesson,,蜘蛛教誨,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,134,game.tree_legion.183.dn,Steel Bastion,,钢铁堡垒,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,134,game.tree_legion.183.dn,Steel Bastion,,鋼鐵堡壘,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,135,game.tree_legion.169.dn,Steel and Sorcery,,钢铁与巫术,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,135,game.tree_legion.169.dn,Steel and Sorcery,,鋼鐵與巫術,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,136,game.tree_legion.171.dn,Stormtossed Voyager,,风暴漂泊者,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,136,game.tree_legion.171.dn,Stormtossed Voyager,,風暴漂泊者,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,137,game.tree_legion.148.dn,Street Urchin,,街头顽童,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,137,game.tree_legion.148.dn,Street Urchin,,街頭頑童,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,138,game.tree_legion.79.dn,Strength of Blood,,鮮血之力,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,139,game.tree_legion.192.dn,Sudden Hail,,骤降冰雹,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,139,game.tree_legion.192.dn,Sudden Hail,,驟降冰雹,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,140,game.tree_legion.187.dn,Summer Meadows,,夏日草甸,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,140,game.tree_legion.187.dn,Summer Meadows,,夏日草甸,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,141,game.tree_legion.130.dn,Superiority,,优越,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,141,game.tree_legion.130.dn,Superiority,,優越,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,142,game.tree_legion.107.dn,Supreme Grandstanding,,無上之秀,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,143,game.tree_legion.109.dn,Supreme Ostentation,,無上宣示,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,144,game.tree_legion.178.dn,Survival Plan,,生存计划,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,144,game.tree_legion.178.dn,Survival Plan,,生存計劃,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,145,game.tree_legion.182.dn,Targeted Strike,,精准打击,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,145,game.tree_legion.182.dn,Targeted Strike,,精準打擊,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,146,game.tree_legion.80.dn,Tempered by War,,戰爭鍛鍊,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,147,game.tree_legion.70.dn,Temple Paths,,神庙小径,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,147,game.tree_legion.70.dn,Temple Paths,,神廟小徑,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,148,game.tree_legion.57.dn,Thaumaturgical Aptitude,,奇术天资,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,148,game.tree_legion.57.dn,Thaumaturgical Aptitude,,奇術天資,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,149,game.tree_legion.68.dn,Thaumaturgical Protection,,奇术防护,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,149,game.tree_legion.68.dn,Thaumaturgical Protection,,奇術防護,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,150,game.tree_legion.84.dn,The Traitor,,叛徒,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,151,game.tree_legion.95.dn,Thoughts and Prayers,,思念与祈祷,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,151,game.tree_legion.95.dn,Thoughts and Prayers,,思念與祈禱,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,152,game.tree_legion.94.dn,Thundrous Devotion,,雷霆奉献,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,152,game.tree_legion.94.dn,Thundrous Devotion,,雷霆奉獻,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,153,game.tree_legion.170.dn,Triskelion's Light,,三曲之光,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,153,game.tree_legion.170.dn,Triskelion's Light,,三曲之光,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,154,game.tree_legion.208.dn,Unfiltered Brutality,,纯粹残暴,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,154,game.tree_legion.208.dn,Unfiltered Brutality,,純粹殘暴,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,155,game.tree_legion.219.dn,Unreal Potential,,非凡潜能,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,155,game.tree_legion.219.dn,Unreal Potential,,非凡潛能,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,156,game.tree_legion.216.dn,Unrestrained Intellect,,无拘智慧,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,156,game.tree_legion.216.dn,Unrestrained Intellect,,無拘智慧,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,157,game.tree_legion.124.dn,Virtue Gem Surgery,,美德宝石手术,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,157,game.tree_legion.124.dn,Virtue Gem Surgery,,美德寶石手術,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,158,game.tree_legion.142.dn,Voll's Coup,,福尔政变,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,158,game.tree_legion.142.dn,Voll's Coup,,福爾政變,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,159,game.tree_legion.175.dn,Vorana's Fury,,沃拉娜之怒,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,159,game.tree_legion.175.dn,Vorana's Fury,,沃拉娜之怒,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,160,game.tree_legion.154.dn,War Games,,战争演练,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,160,game.tree_legion.154.dn,War Games,,戰爭演練,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,161,game.tree_legion.160.dn,War Tactics,,战争战术,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,161,game.tree_legion.160.dn,War Tactics,,戰爭戰術,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,162,game.tree_legion.185.dn,Winter Forest,,冬日森林,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,162,game.tree_legion.185.dn,Winter Forest,,冬日森林,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,163,game.tree_legion.150.dn,With Eyes Open,,睁眼而视,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,163,game.tree_legion.150.dn,With Eyes Open,,睜眼而視,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,164,game.tree_legion.222.dn,Worthy Tithes,,应尽什一税,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,164,game.tree_legion.222.dn,Worthy Tithes,,應盡什一稅,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,165,game.tree_legion.172.dn,Wrest Control,,夺取控制,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,165,game.tree_legion.172.dn,Wrest Control,,奪取控制,补齐名称或保留纯数字版本模板
+zh-CN,tree_legion,166,game.tree_legion.96.dn,Zealot,,狂信徒,补齐名称或保留纯数字版本模板
+zh-TW,tree_legion,166,game.tree_legion.96.dn,Zealot,,狂信徒,补齐名称或保留纯数字版本模板
+zh-CN,essence,1,game.essence.metadata_items_currency_currencycorruptedessencedelirium.name,Essence of Delirium,,错乱精华,补齐名称或保留纯数字版本模板
+zh-TW,essence,1,game.essence.metadata_items_currency_currencycorruptedessencedelirium.name,Essence of Delirium,,錯亂精華,补齐名称或保留纯数字版本模板
+zh-CN,essence,2,game.essence.metadata_items_currency_currencycorruptedessenceabyss.name,Essence of the Abyss,,深渊精华,补齐名称或保留纯数字版本模板
+zh-TW,essence,2,game.essence.metadata_items_currency_currencycorruptedessenceabyss.name,Essence of the Abyss,,深淵精華,补齐名称或保留纯数字版本模板
+zh-CN,equipment_base,1,game.equipment_base.timeless_jewel.sub_type,Timeless,,永恒,补齐名称或保留纯数字版本模板
+zh-CN,equipment_unique_modifier,1,game.equipment_unique_modifier.atziri_s_disdain_gold_circlet.variant_list_1,{value_1}.{value_2},,{value_1}.{value_2},补齐名称或保留纯数字版本模板
+zh-CN,equipment_unique_modifier,1,game.equipment_unique_modifier.death_s_harp_dualstring_bow.variant_list_1,{value_1}.{value_2},,{value_1}.{value_2},补齐名称或保留纯数字版本模板
+zh-CN,equipment_unique_modifier,1,game.equipment_unique_modifier.death_s_harp_dualstring_bow.variant_list_2,{value_1}.{value_2},,{value_1}.{value_2},补齐名称或保留纯数字版本模板
+zh-CN,equipment_unique_modifier,1,game.equipment_unique_modifier.death_s_harp_dualstring_bow.variant_list_3,{value_1}.{value_2},,{value_1}.{value_2},补齐名称或保留纯数字版本模板
+zh-CN,equipment_unique_modifier,1,game.equipment_unique_modifier.reverie_shaman_mantle.variant_list_2,{value_1}.{value_2},,{value_1}.{value_2},补齐名称或保留纯数字版本模板
+zh-TW,equipment_unique_modifier,1,game.equipment_unique_modifier.atziri_s_disdain_gold_circlet.variant_list_1,{value_1}.{value_2},,{value_1}.{value_2},补齐名称或保留纯数字版本模板
+zh-TW,equipment_unique_modifier,1,game.equipment_unique_modifier.death_s_harp_dualstring_bow.variant_list_1,{value_1}.{value_2},,{value_1}.{value_2},补齐名称或保留纯数字版本模板
+zh-TW,equipment_unique_modifier,1,game.equipment_unique_modifier.death_s_harp_dualstring_bow.variant_list_2,{value_1}.{value_2},,{value_1}.{value_2},补齐名称或保留纯数字版本模板
+zh-TW,equipment_unique_modifier,1,game.equipment_unique_modifier.death_s_harp_dualstring_bow.variant_list_3,{value_1}.{value_2},,{value_1}.{value_2},补齐名称或保留纯数字版本模板
+zh-TW,equipment_unique_modifier,1,game.equipment_unique_modifier.reverie_shaman_mantle.variant_list_2,{value_1}.{value_2},,{value_1}.{value_2},补齐名称或保留纯数字版本模板
+zh-CN,equipment_modifier,6,game.equipment_modifier.exclusive_addedchaosdamagevsenemieswith5poisonsunique_1.line_1,Attacks with this Weapon deal {value_1} to {value_2} added Chaos Damage against,,该武器的攻击对以下敌人附加 {value_1} 至 {value_2} 点混沌伤害：,补齐分行说明
+zh-TW,equipment_modifier,6,game.equipment_modifier.exclusive_addedchaosdamagevsenemieswith5poisonsunique_1.line_1,Attacks with this Weapon deal {value_1} to {value_2} added Chaos Damage against,,該武器的攻擊對以下敵人附加 {value_1} 至 {value_2} 點混沌傷害：,补齐分行说明
+zh-CN,equipment_modifier,22,game.equipment_modifier.exclusive_addedchaosdamagevsenemieswith5poisonsunique_1.line_2,Enemies affected by at least {value_1} Poisons,,受到至少 {value_1} 层中毒影响的敌人,补齐分行说明
+zh-TW,equipment_modifier,22,game.equipment_modifier.exclusive_addedchaosdamagevsenemieswith5poisonsunique_1.line_2,Enemies affected by at least {value_1} Poisons,,受到至少 {value_1} 層中毒影響的敵人,补齐分行说明
+zh-CN,equipment_modifier,55,game.equipment_modifier.exclusive_additionalprojectilesafterammoconsumeduniquebelt_1.line_1,Skills Fire {value_1} additional Projectiles for {value_2} seconds after,,技能额外发射 {value_1} 个投射物，持续 {value_2} 秒，触发条件为,补齐分行说明
+zh-TW,equipment_modifier,55,game.equipment_modifier.exclusive_additionalprojectilesafterammoconsumeduniquebelt_1.line_1,Skills Fire {value_1} additional Projectiles for {value_2} seconds after,,技能額外發射 {value_1} 個投射物，持續 {value_2} 秒，觸發條件為,补齐分行说明
+zh-CN,equipment_modifier,82,game.equipment_modifier.exclusive_additionalprojectilesafterammoconsumeduniquebelt_1.line_2,you consume a total of {value_1} Steel Shards,,你累计消耗 {value_1} 个钢铁碎片,补齐分行说明
+zh-TW,equipment_modifier,82,game.equipment_modifier.exclusive_additionalprojectilesafterammoconsumeduniquebelt_1.line_2,you consume a total of {value_1} Steel Shards,,你累計消耗 {value_1} 個鋼鐵碎片,补齐分行说明
+zh-CN,equipment_modifier,7,game.equipment_modifier.exclusive_bleedingenemiesexplodeunique_1.line_1,"Bleeding Enemies you Kill Explode, dealing {value_1}% of",,你击杀的流血敌人会爆炸，造成相当于其 {value_1}% 的,补齐分行说明
+zh-TW,equipment_modifier,7,game.equipment_modifier.exclusive_bleedingenemiesexplodeunique_1.line_1,"Bleeding Enemies you Kill Explode, dealing {value_1}% of",,你擊殺的流血敵人會爆炸，造成相當於其 {value_1}% 的,补齐分行说明
+zh-CN,equipment_modifier,78,game.equipment_modifier.exclusive_bleedingenemiesexplodeunique_1.line_2,their Maximum Life as Physical Damage,,生命上限的物理伤害,同组相邻行修正，保证整条说明完整
+zh-TW,equipment_modifier,78,game.equipment_modifier.exclusive_bleedingenemiesexplodeunique_1.line_2,their Maximum Life as Physical Damage,造成 10% 最大生命的物理傷害,最大生命的物理傷害,同组相邻行修正，保证整条说明完整
+zh-CN,equipment_modifier,90,game.equipment_modifier.exclusive_chancetocastonmanaspentunique_1.line_1,{value_1}% chance to Trigger Socketed Spells when you Spend at least {value_2} Mana on an,有 {value_1}% 的几率在消耗至少 {value_2} 点预支花费的魔力,使用或触发技能时，若预付消耗至少 {value_2} 点魔力，有 {value_1}% 的几率,整组修正残文、条件或数值错误
+zh-TW,equipment_modifier,90,game.equipment_modifier.exclusive_chancetocastonmanaspentunique_1.line_1,{value_1}% chance to Trigger Socketed Spells when you Spend at least {value_2} Mana on an,,使用或觸發技能時，若預付消耗至少 {value_2} 點魔力，有 {value_1}% 的機率,补齐分行说明
+zh-CN,equipment_modifier,0,game.equipment_modifier.exclusive_chancetocastonmanaspentunique_1.line_2,"Upfront Cost to Use or Trigger a Skill, with a {value_1} second Cooldown",或触发一个技能时触发插入的法术，它有 {value_1} 秒冷却时间,触发插槽中的法术，冷却时间为 {value_1} 秒,同组相邻行修正，保证整条说明完整
+zh-TW,equipment_modifier,0,game.equipment_modifier.exclusive_chancetocastonmanaspentunique_1.line_2,"Upfront Cost to Use or Trigger a Skill, with a {value_1} second Cooldown",觸發插槽中的法術，有{value_1}秒冷卻,觸發插槽中的法術，冷卻時間為 {value_1} 秒,同组相邻行修正，保证整条说明完整
+zh-CN,equipment_modifier,89,game.equipment_modifier.exclusive_chancetogainmaximumpowerchargesunique_1.line_1,"{value_1}% chance that if you would gain Power Charges, you instead gain up to",,你获得暴击球时，有 {value_1}% 的几率改为获得,补齐分行说明
+zh-TW,equipment_modifier,89,game.equipment_modifier.exclusive_chancetogainmaximumpowerchargesunique_1.line_1,"{value_1}% chance that if you would gain Power Charges, you instead gain up to",若你會獲得暴擊球，有{value_1}%的機率改為獲得,你獲得暴擊球時，有 {value_1}% 的機率改為獲得,整组修正残文、条件或数值错误
+zh-CN,equipment_modifier,0,game.equipment_modifier.exclusive_chancetogainmaximumpowerchargesunique_1.line_2,your maximum number of Power Charges,your maximum number of 暴击球,你能拥有的最大数量的暴击球,同组相邻行修正，保证整条说明完整
+zh-TW,equipment_modifier,0,game.equipment_modifier.exclusive_chancetogainmaximumpowerchargesunique_1.line_2,your maximum number of Power Charges,最大數量的暴擊球,你能擁有的最大數量的暴擊球,同组相邻行修正，保证整条说明完整
+zh-CN,equipment_modifier,89,game.equipment_modifier.exclusive_chargebonuschancetogainmaximumpowercharges.line_1,"{value_1}% chance that if you would gain Power Charges, you instead gain up to",,你获得暴击球时，有 {value_1}% 的几率改为获得,补齐分行说明
+zh-TW,equipment_modifier,89,game.equipment_modifier.exclusive_chargebonuschancetogainmaximumpowercharges.line_1,"{value_1}% chance that if you would gain Power Charges, you instead gain up to",若你會獲得暴擊球，有{value_1}%的機率改為獲得,你獲得暴擊球時，有 {value_1}% 的機率改為獲得,整组修正残文、条件或数值错误
+zh-CN,equipment_modifier,0,game.equipment_modifier.exclusive_chargebonuschancetogainmaximumpowercharges.line_2,your maximum number of Power Charges,your maximum number of 暴击球,你能拥有的最大数量的暴击球,同组相邻行修正，保证整条说明完整
+zh-TW,equipment_modifier,0,game.equipment_modifier.exclusive_chargebonuschancetogainmaximumpowercharges.line_2,your maximum number of Power Charges,最大數量的暴擊球,你能擁有的最大數量的暴擊球,同组相邻行修正，保证整条说明完整
+zh-CN,equipment_modifier,95,game.equipment_modifier.exclusive_corruptedmagicjewelmodeffectunique_1.line_1,{value_1}% increased Effect of Jewel Socket Passive Skills,,珠宝插槽天赋的效果提高 {value_1}%,补齐分行说明
+zh-TW,equipment_modifier,95,game.equipment_modifier.exclusive_corruptedmagicjewelmodeffectunique_1.line_1,{value_1}% increased Effect of Jewel Socket Passive Skills,增加{value_1}%含有已汙染魔法珠寶的,珠寶插槽天賦的效果提高 {value_1}%,整组修正残文、条件或数值错误
+zh-CN,equipment_modifier,66,game.equipment_modifier.exclusive_corruptedmagicjewelmodeffectunique_1.line_2,containing Corrupted Magic Jewels,,条件：其中插有腐化魔法珠宝,补齐分行说明
+zh-TW,equipment_modifier,66,game.equipment_modifier.exclusive_corruptedmagicjewelmodeffectunique_1.line_2,containing Corrupted Magic Jewels,珠寶插槽天賦效果,條件：其中插有腐化魔法珠寶,整组修正残文、条件或数值错误
+zh-CN,equipment_modifier,49,game.equipment_modifier.exclusive_corruptionupgradeadditionalchainchance.line_1,Projectiles have {value_1}% additional chance to Chain,,投射物有 {value_1}% 的额外连锁几率,补齐分行说明
+zh-TW,equipment_modifier,49,game.equipment_modifier.exclusive_corruptionupgradeadditionalchainchance.line_1,Projectiles have {value_1}% additional chance to Chain,,投射物有 {value_1}% 的額外連鎖機率,补齐分行说明
+zh-CN,equipment_modifier,23,game.equipment_modifier.exclusive_enemiestakeincreaseddamageperailmenttypeunique_1.line_1,Enemies take {value_1}% increased Damage for each Elemental Ailment type among,,每种元素异常状态都会使敌人承受的伤害提高 {value_1}%，统计范围为,补齐分行说明
+zh-CN,equipment_modifier,85,game.equipment_modifier.exclusive_enemiestakeincreaseddamageperailmenttypeunique_1.line_2,your Ailments on them,,你对其施加的异常状态,补齐分行说明
+zh-CN,equipment_modifier,63,game.equipment_modifier.exclusive_groundslamthresholdunique_1.line_1,"With at least {value_1} Strength in Radius, Ground Slam",,范围内至少有 {value_1} 点力量时，裂地之击,补齐分行说明
+zh-TW,equipment_modifier,63,game.equipment_modifier.exclusive_groundslamthresholdunique_1.line_1,"With at least {value_1} Strength in Radius, Ground Slam",範圍內至少有{value_1}點力量時，減少{value_1}%,範圍內至少有 {value_1} 點力量時，裂地之擊,整组修正残文、条件或数值错误
+zh-CN,equipment_modifier,72,game.equipment_modifier.exclusive_groundslamthresholdunique_1.line_2,has a {value_1}% increased angle,角度提高 has a {value_1}%,角度提高 {value_1}%,整组修正残文、条件或数值错误
+zh-TW,equipment_modifier,72,game.equipment_modifier.exclusive_groundslamthresholdunique_1.line_2,has a {value_1}% increased angle,,角度提高 {value_1}%,补齐分行说明
+zh-CN,equipment_modifier,64,game.equipment_modifier.exclusive_groundslamthresholdunique_2.line_1,"With at least {value_1} Strength in Radius, Ground Slam has a {value_2}% chance",,范围内至少有 {value_1} 点力量时，裂地之击有 {value_2}% 的几率,补齐分行说明
+zh-TW,equipment_modifier,64,game.equipment_modifier.exclusive_groundslamthresholdunique_2.line_1,"With at least {value_1} Strength in Radius, Ground Slam has a {value_2}% chance",,範圍內至少有 {value_1} 點力量時，裂地之擊有 {value_2}% 的機率,补齐分行说明
+zh-CN,equipment_modifier,79,game.equipment_modifier.exclusive_groundslamthresholdunique_2.line_2,to grant an Endurance Charge when you Stun an Enemy,,在你使敌人晕眩时获得一个耐力球,补齐分行说明
+zh-TW,equipment_modifier,79,game.equipment_modifier.exclusive_groundslamthresholdunique_2.line_2,to grant an Endurance Charge when you Stun an Enemy,,在你使敵人暈眩時獲得一個耐力球,补齐分行说明
+zh-CN,equipment_modifier,88,game.equipment_modifier.exclusive_handwrapsuniqueimmobiliseincreaseddamagetaken1.line_1,{value_1}% Surpassing chance per enemy Power to gain,,敌人每点威力使你有 {value_1}% 的溢出几率获得,补齐分行说明
+zh-TW,equipment_modifier,88,game.equipment_modifier.exclusive_handwrapsuniqueimmobiliseincreaseddamagetaken1.line_1,{value_1}% Surpassing chance per enemy Power to gain,,敵人每點強度使你有 {value_1}% 的滿溢機率獲得,补齐分行说明
+zh-CN,equipment_modifier,43,game.equipment_modifier.exclusive_handwrapsuniqueimmobiliseincreaseddamagetaken1.line_2,Mountain's Teachings on Immobilising an enemy if,,山之教诲，触发条件为使敌人定身，且,补齐分行说明
+zh-TW,equipment_modifier,43,game.equipment_modifier.exclusive_handwrapsuniqueimmobiliseincreaseddamagetaken1.line_2,Mountain's Teachings on Immobilising an enemy if,當你禁錮敵人時其每點強度都會使你,山之教誨，觸發條件為使敵人定身，且,整组修正残文、条件或数值错误
+zh-CN,equipment_modifier,84,game.equipment_modifier.exclusive_handwrapsuniqueimmobiliseincreaseddamagetaken1.line_3,you have the Way of the Mountain Ascendancy Passive Skill,,你拥有山岳之道升华天赋,补齐分行说明
+zh-TW,equipment_modifier,84,game.equipment_modifier.exclusive_handwrapsuniqueimmobiliseincreaseddamagetaken1.line_3,you have the Way of the Mountain Ascendancy Passive Skill,,你擁有山之道昇華天賦,补齐分行说明
+zh-CN,equipment_modifier,101,game.equipment_modifier.exclusive_handwrapsuniquerecouplifeenergyshieldopenweakness1.line_1,{value_1}% of damage taken from enemies with an Open Weakness Recouped as Life and Energy Shield,,承受来自弱点暴露敌人的伤害的 {value_1}% 补偿为生命和能量护盾,补齐分行说明
+zh-TW,equipment_modifier,101,game.equipment_modifier.exclusive_handwrapsuniquerecouplifeenergyshieldopenweakness1.line_1,{value_1}% of damage taken from enemies with an Open Weakness Recouped as Life and Energy Shield,,承受來自開放弱點敵人的傷害的 {value_1}% 補償為生命和能量護盾,补齐分行说明
+zh-CN,equipment_modifier,19,game.equipment_modifier.exclusive_localdisableraremodonhitunique_1.line_1,DNT-UNUSED {value_1}% chance when hitting a Rare Monster to disable one of its Modifiers,,【开发·未使用】击中稀有怪物时，有 {value_1}% 的几率使其一个词缀失效,补齐分行说明
+zh-TW,equipment_modifier,19,game.equipment_modifier.exclusive_localdisableraremodonhitunique_1.line_1,DNT-UNUSED {value_1}% chance when hitting a Rare Monster to disable one of its Modifiers,,【開發·未使用】擊中稀有怪物時，有 {value_1}% 的機率使其一個詞綴失效,补齐分行说明
+zh-CN,equipment_modifier,13,game.equipment_modifier.exclusive_obliterated.line_1,DNT Obliterated #{value_1},,【开发标记】湮灭 #{value_1},补齐分行说明
+zh-TW,equipment_modifier,13,game.equipment_modifier.exclusive_obliterated.line_1,DNT Obliterated #{value_1},,【開發標記】湮滅 #{value_1},补齐分行说明
+zh-CN,equipment_modifier,57,game.equipment_modifier.exclusive_passageuniqueamanamuabyssalwastingdoubledpower.line_1,Targets affected by Abyssal Wasting in your Presence have double Power,,你存在范围内受到深渊损耗影响的目标，其威力翻倍,补齐分行说明
+zh-TW,equipment_modifier,57,game.equipment_modifier.exclusive_passageuniqueamanamuabyssalwastingdoubledpower.line_1,Targets affected by Abyssal Wasting in your Presence have double Power,,你存在範圍內受到深淵損耗影響的目標，其強度翻倍,补齐分行说明
+zh-CN,equipment_modifier,60,game.equipment_modifier.exclusive_passageuniqueamanamuabyssalwastinghinders.line_1,Targets affected by Abyssal Wasting you inflict are Hindered,,受到你施加的深渊损耗影响的目标被阻碍,补齐分行说明
+zh-TW,equipment_modifier,60,game.equipment_modifier.exclusive_passageuniqueamanamuabyssalwastinghinders.line_1,Targets affected by Abyssal Wasting you inflict are Hindered,,受到你施加的深淵損耗影響的目標被阻礙,补齐分行说明
+zh-CN,equipment_modifier,91,game.equipment_modifier.exclusive_passageuniqueamanamuabyssalwastingonslaughtchance.line_1,{value_1}% chance to gain Onslaught for {value_2} seconds when you kill an,,有 {value_1}% 的几率获得猛攻，持续 {value_2} 秒，触发条件为击杀一个,补齐分行说明
+zh-TW,equipment_modifier,91,game.equipment_modifier.exclusive_passageuniqueamanamuabyssalwastingonslaughtchance.line_1,{value_1}% chance to gain Onslaught for {value_2} seconds when you kill an,,有 {value_1}% 的機率獲得猛攻，持續 {value_2} 秒，觸發條件為擊殺一個,补齐分行说明
+zh-CN,equipment_modifier,1,game.equipment_modifier.exclusive_passageuniqueamanamuabyssalwastingonslaughtchance.line_2, enemy affected by Abyssal Wasting,,受到深渊损耗影响的敌人,补齐分行说明
+zh-TW,equipment_modifier,1,game.equipment_modifier.exclusive_passageuniqueamanamuabyssalwastingonslaughtchance.line_2, enemy affected by Abyssal Wasting,,受到深淵損耗影響的敵人,补齐分行说明
+zh-CN,equipment_modifier,30,game.equipment_modifier.exclusive_passageuniqueamanamuabyssalwastingrage.line_1,Gain {value_1} Rage when you kill an enemy affected by Abyssal Wasting,,击杀受到深渊损耗影响的敌人时，获得 {value_1} 点怒火,补齐分行说明
+zh-TW,equipment_modifier,30,game.equipment_modifier.exclusive_passageuniqueamanamuabyssalwastingrage.line_1,Gain {value_1} Rage when you kill an enemy affected by Abyssal Wasting,,擊殺受到深淵損耗影響的敵人時，獲得 {value_1} 點盛怒,补齐分行说明
+zh-CN,equipment_modifier,59,game.equipment_modifier.exclusive_passageuniquekurgalabyssalwastingdebilitates.line_1,Targets affected by Abyssal Wasting you inflict are Debilitated,,受到你施加的深渊损耗影响的目标陷入疲惫,补齐分行说明
+zh-TW,equipment_modifier,59,game.equipment_modifier.exclusive_passageuniquekurgalabyssalwastingdebilitates.line_1,Targets affected by Abyssal Wasting you inflict are Debilitated,,受到你施加的深淵損耗影響的目標陷入疲憊,补齐分行说明
+zh-CN,equipment_modifier,93,game.equipment_modifier.exclusive_passageuniquekurgalabyssalwastingrevivechance.line_1,{value_1}% chance to revive one of your Persistent Minions when you kill an,,有 {value_1}% 的几率复活你的一个常驻召唤生物，触发条件为击杀一个,补齐分行说明
+zh-TW,equipment_modifier,93,game.equipment_modifier.exclusive_passageuniquekurgalabyssalwastingrevivechance.line_1,{value_1}% chance to revive one of your Persistent Minions when you kill an,,有 {value_1}% 的機率復活你的一個常駐召喚物，觸發條件為擊殺一個,补齐分行说明
+zh-CN,equipment_modifier,1,game.equipment_modifier.exclusive_passageuniquekurgalabyssalwastingrevivechance.line_2, enemy affected by Abyssal Wasting,,受到深渊损耗影响的敌人,补齐分行说明
+zh-TW,equipment_modifier,1,game.equipment_modifier.exclusive_passageuniquekurgalabyssalwastingrevivechance.line_2, enemy affected by Abyssal Wasting,,受到深淵損耗影響的敵人,补齐分行说明
+zh-CN,equipment_modifier,32,game.equipment_modifier.exclusive_passageuniquekurgalabyssalwastingvolatility.line_1,Gain {value_1} Volatility when you kill an enemy affected by Abyssal Wasting,,击杀受到深渊损耗影响的敌人时，获得 {value_1} 层无常,补齐分行说明
+zh-TW,equipment_modifier,32,game.equipment_modifier.exclusive_passageuniquekurgalabyssalwastingvolatility.line_1,Gain {value_1} Volatility when you kill an enemy affected by Abyssal Wasting,,擊殺受到深淵損耗影響的敵人時，獲得 {value_1} 層易爆,补齐分行说明
+zh-CN,equipment_modifier,92,game.equipment_modifier.exclusive_passageuniquekurgalabyssalwastingwitherchance.line_1,{value_1}% chance to inflict Withered with Hits against targets affected by Abyssal Wasting,,击中受到深渊损耗影响的目标时，有 {value_1}% 的几率施加枯萎,补齐分行说明
+zh-TW,equipment_modifier,92,game.equipment_modifier.exclusive_passageuniquekurgalabyssalwastingwitherchance.line_1,{value_1}% chance to inflict Withered with Hits against targets affected by Abyssal Wasting,,擊中受到深淵損耗影響的目標時，有 {value_1}% 的機率施加枯萎,补齐分行说明
+zh-CN,equipment_modifier,58,game.equipment_modifier.exclusive_passageuniqueulamanabyssalwastingblinds.line_1,Targets affected by Abyssal Wasting you inflict are Blinded,,受到你施加的深渊损耗影响的目标被致盲,补齐分行说明
+zh-TW,equipment_modifier,58,game.equipment_modifier.exclusive_passageuniqueulamanabyssalwastingblinds.line_1,Targets affected by Abyssal Wasting you inflict are Blinded,,受到你施加的深淵損耗影響的目標被致盲,补齐分行说明
+zh-CN,equipment_modifier,25,game.equipment_modifier.exclusive_passageuniqueulamanabyssalwastinggrantsflaskcharges.line_1,Enemies you kill while they are affected by Abyssal Wasting,,你击杀的受到深渊损耗影响的敌人,补齐分行说明
+zh-TW,equipment_modifier,25,game.equipment_modifier.exclusive_passageuniqueulamanabyssalwastinggrantsflaskcharges.line_1,Enemies you kill while they are affected by Abyssal Wasting,,你擊殺的受到深淵損耗影響的敵人,补齐分行说明
+zh-CN,equipment_modifier,96,game.equipment_modifier.exclusive_passageuniqueulamanabyssalwastingimmobilisationbuildup.line_1,{value_1}% increased Immobilisation buildup against targets affected by Abyssal Wasting,,对受到深渊损耗影响的目标，定身积蓄值提高 {value_1}%,补齐分行说明
+zh-TW,equipment_modifier,96,game.equipment_modifier.exclusive_passageuniqueulamanabyssalwastingimmobilisationbuildup.line_1,{value_1}% increased Immobilisation buildup against targets affected by Abyssal Wasting,,對受到深淵損耗影響的目標，定身積蓄值提高 {value_1}%,补齐分行说明
+zh-CN,equipment_modifier,48,game.equipment_modifier.exclusive_projectileattackschancetobleedbeastialminionunique_1.line_1,Projectiles from Attacks have {value_1}% chance to inflict Bleeding on Hit while,,攻击投射物击中时有 {value_1}% 的几率施加流血，条件为,补齐分行说明
+zh-TW,equipment_modifier,48,game.equipment_modifier.exclusive_projectileattackschancetobleedbeastialminionunique_1.line_1,Projectiles from Attacks have {value_1}% chance to inflict Bleeding on Hit while,,攻擊投射物擊中時有 {value_1}% 的機率施加流血，條件為,补齐分行说明
+zh-CN,equipment_modifier,83,game.equipment_modifier.exclusive_projectileattackschancetobleedbeastialminionunique_1.line_2,you have a Bestial Minion,,你拥有野兽召唤生物,补齐分行说明
+zh-TW,equipment_modifier,83,game.equipment_modifier.exclusive_projectileattackschancetobleedbeastialminionunique_1.line_2,you have a Bestial Minion,,你擁有野獸召喚物,补齐分行说明
+zh-CN,equipment_modifier,46,game.equipment_modifier.exclusive_projectileattackschancetomaimbeastialminionunique_1.line_1,Projectiles from Attacks have {value_1}% chance to Maim on Hit while,,攻击投射物击中时有 {value_1}% 的几率造成瘫痪，条件为,补齐分行说明
+zh-TW,equipment_modifier,46,game.equipment_modifier.exclusive_projectileattackschancetomaimbeastialminionunique_1.line_1,Projectiles from Attacks have {value_1}% chance to Maim on Hit while,,攻擊投射物擊中時有 {value_1}% 的機率造成癱瘓，條件為,补齐分行说明
+zh-CN,equipment_modifier,83,game.equipment_modifier.exclusive_projectileattackschancetomaimbeastialminionunique_1.line_2,you have a Bestial Minion,,你拥有野兽召唤生物,补齐分行说明
+zh-TW,equipment_modifier,83,game.equipment_modifier.exclusive_projectileattackschancetomaimbeastialminionunique_1.line_2,you have a Bestial Minion,,你擁有野獸召喚物,补齐分行说明
+zh-CN,equipment_modifier,47,game.equipment_modifier.exclusive_projectileattackschancetopoisonbeastialminionunique_1.line_1,Projectiles from Attacks have {value_1}% chance to Poison on Hit while,,攻击投射物击中时有 {value_1}% 的几率造成中毒，条件为,补齐分行说明
+zh-TW,equipment_modifier,47,game.equipment_modifier.exclusive_projectileattackschancetopoisonbeastialminionunique_1.line_1,Projectiles from Attacks have {value_1}% chance to Poison on Hit while,,攻擊投射物擊中時有 {value_1}% 的機率造成中毒，條件為,补齐分行说明
+zh-CN,equipment_modifier,83,game.equipment_modifier.exclusive_projectileattackschancetopoisonbeastialminionunique_1.line_2,you have a Bestial Minion,,你拥有野兽召唤生物,补齐分行说明
+zh-TW,equipment_modifier,83,game.equipment_modifier.exclusive_projectileattackschancetopoisonbeastialminionunique_1.line_2,you have a Bestial Minion,,你擁有野獸召喚物,补齐分行说明
+zh-CN,equipment_modifier,54,game.equipment_modifier.exclusive_shockedenemiesexplodeunique_1.line_1,"Shocked Enemies you Kill Explode, dealing {value_1}% of",,你击杀的感电敌人会爆炸，造成相当于其 {value_1}% 的,补齐分行说明
+zh-CN,equipment_modifier,77,game.equipment_modifier.exclusive_shockedenemiesexplodeunique_1.line_2,their Life as Lightning Damage which cannot Shock,,生命的闪电伤害，该伤害无法造成感电,补齐分行说明
+zh-CN,equipment_modifier,62,game.equipment_modifier.exclusive_takephysicaldamageperwarcryexertingunique_1.line_1,"When you Attack, take {value_1}% of Life as Physical Damage for",,你攻击时，承受相当于生命 {value_1}% 的物理伤害，每有一个,补齐分行说明
+zh-TW,equipment_modifier,62,game.equipment_modifier.exclusive_takephysicaldamageperwarcryexertingunique_1.line_1,"When you Attack, take {value_1}% of Life as Physical Damage for",,你攻擊時，承受相當於生命 {value_1}% 的物理傷害，每有一個,补齐分行说明
+zh-CN,equipment_modifier,68,game.equipment_modifier.exclusive_takephysicaldamageperwarcryexertingunique_1.line_2,each Warcry Empowering the Attack,,强化该次攻击的战吼,补齐分行说明
+zh-TW,equipment_modifier,68,game.equipment_modifier.exclusive_takephysicaldamageperwarcryexertingunique_1.line_2,each Warcry Empowering the Attack,,強化該次攻擊的戰吼,补齐分行说明
+zh-CN,equipment_modifier,17,game.equipment_modifier.exclusive_theflawededictunique_1.line_1,DNT-UNUSED Gain {value_1}% Edict Declaration when you disable a rare monster mod,,【开发·未使用】使稀有怪物的一个词缀失效时，获得 {value_1}% 的敕令宣告,补齐分行说明
+zh-TW,equipment_modifier,17,game.equipment_modifier.exclusive_theflawededictunique_1.line_1,DNT-UNUSED Gain {value_1}% Edict Declaration when you disable a rare monster mod,,【開發·未使用】使稀有怪物的一個詞綴失效時，獲得 {value_1}% 的敕令宣告,补齐分行说明
+zh-CN,equipment_modifier,0,game.equipment_modifier.exclusive_travelskillsreflectpoisonunique_1.line_1,Poison you inflict with Travel Skills is Reflected to you if you,若你身上的中毒效果少于 5 层,你通过位移技能施加的中毒会反射给你，条件为,同组相邻行修正，保证整条说明完整
+zh-TW,equipment_modifier,0,game.equipment_modifier.exclusive_travelskillsreflectpoisonunique_1.line_1,Poison you inflict with Travel Skills is Reflected to you if you,若你身上中毒少於5層，,你通過位移技能施加的中毒會反射給你，條件為,同组相邻行修正，保证整条说明完整
+zh-CN,equipment_modifier,73,game.equipment_modifier.exclusive_travelskillsreflectpoisonunique_1.line_2,have fewer than {value_1} Poisons on you,,你身上的中毒少于 {value_1} 层,补齐分行说明
+zh-TW,equipment_modifier,73,game.equipment_modifier.exclusive_travelskillsreflectpoisonunique_1.line_2,have fewer than {value_1} Poisons on you,,你身上的中毒少於 {value_1} 層,补齐分行说明
+zh-CN,equipment_modifier,61,game.equipment_modifier.exclusive_triggerbowskillsoncastunique_1.line_1,Trigger a Socketed Bow Skill when you Cast a Spell while,,施放法术时触发一个插槽内的弓技能，条件为,补齐分行说明
+zh-TW,equipment_modifier,61,game.equipment_modifier.exclusive_triggerbowskillsoncastunique_1.line_1,Trigger a Socketed Bow Skill when you Cast a Spell while,,施放法術時觸發一個插槽內的弓技能，條件為,补齐分行说明
+zh-CN,equipment_modifier,80,game.equipment_modifier.exclusive_triggerbowskillsoncastunique_1.line_2,"wielding a Bow, with a {value_1} second Cooldown",,持弓，冷却时间为 {value_1} 秒,补齐分行说明
+zh-TW,equipment_modifier,80,game.equipment_modifier.exclusive_triggerbowskillsoncastunique_1.line_2,"wielding a Bow, with a {value_1} second Cooldown",,持弓，冷卻時間為 {value_1} 秒,补齐分行说明
+zh-CN,equipment_modifier,37,game.equipment_modifier.exclusive_uniqueapplycorruptedbloodonblock1.line_1,"Inflict Corrupted Blood for {value_1} seconds on Block, dealing {value_2}% of",,格挡时施加腐化之血，持续 {value_1} 秒，每秒造成相当于 {value_2}% 的,补齐分行说明
+zh-TW,equipment_modifier,37,game.equipment_modifier.exclusive_uniqueapplycorruptedbloodonblock1.line_1,"Inflict Corrupted Blood for {value_1} seconds on Block, dealing {value_2}% of",,格擋時施加腐化之血，持續 {value_1} 秒，每秒造成相當於 {value_2}% 的,补齐分行说明
+zh-CN,equipment_modifier,86,game.equipment_modifier.exclusive_uniqueapplycorruptedbloodonblock1.line_2,your maximum Life as Physical damage per second,,你生命上限的物理伤害,补齐分行说明
+zh-TW,equipment_modifier,86,game.equipment_modifier.exclusive_uniqueapplycorruptedbloodonblock1.line_2,your maximum Life as Physical damage per second,,你最大生命的物理傷害,补齐分行说明
+zh-CN,equipment_modifier,14,game.equipment_modifier.exclusive_uniqueblasphemyhasnoreservation1.line_1,DNT-UNUSED Blasphemy has no Reservation,,【开发·未使用】渎神无需保留,补齐分行说明
+zh-TW,equipment_modifier,14,game.equipment_modifier.exclusive_uniqueblasphemyhasnoreservation1.line_1,DNT-UNUSED Blasphemy has no Reservation,,【開發·未使用】瀆神無需保留,补齐分行说明
+zh-CN,equipment_modifier,15,game.equipment_modifier.exclusive_uniquebleedinginflictedonshockedenemiesisaggravated1.line_1,DNT-UNUSED Bleeding you inflict on Shocked enemies is Aggravated,,【开发·未使用】你对感电敌人施加的流血被加剧,补齐分行说明
+zh-TW,equipment_modifier,15,game.equipment_modifier.exclusive_uniquebleedinginflictedonshockedenemiesisaggravated1.line_1,DNT-UNUSED Bleeding you inflict on Shocked enemies is Aggravated,,【開發·未使用】你對感電敵人施加的流血被加劇,补齐分行说明
+zh-CN,equipment_modifier,16,game.equipment_modifier.exclusive_uniquebreakarmourwithphysicalspells1.line_1,DNT-UNUSED Break Armour equal to {value_1}% of Physical Spell damage dealt,,【开发·未使用】破坏相当于造成的物理法术伤害 {value_1}% 的护甲,补齐分行说明
+zh-TW,equipment_modifier,16,game.equipment_modifier.exclusive_uniquebreakarmourwithphysicalspells1.line_1,DNT-UNUSED Break Armour equal to {value_1}% of Physical Spell damage dealt,,【開發·未使用】破壞相當於造成的物理法術傷害 {value_1}% 的護甲,补齐分行说明
+zh-CN,equipment_modifier,8,game.equipment_modifier.exclusive_uniquechancefornoboltreload1.line_1,Bolts fired by Crossbow Attacks have {value_1}% chance to not,,弩攻击发射的弩箭有 {value_1}% 的几率不,补齐分行说明
+zh-TW,equipment_modifier,8,game.equipment_modifier.exclusive_uniquechancefornoboltreload1.line_1,Bolts fired by Crossbow Attacks have {value_1}% chance to not,,十字弓攻擊發射的弩箭有 {value_1}% 的機率不,补齐分行说明
+zh-CN,equipment_modifier,70,game.equipment_modifier.exclusive_uniquechancefornoboltreload1.line_2,expend Ammunition if you've Reloaded Recently,,消耗弹药，条件是你近期装填过,补齐分行说明
+zh-TW,equipment_modifier,70,game.equipment_modifier.exclusive_uniquechancefornoboltreload1.line_2,expend Ammunition if you've Reloaded Recently,,消耗彈藥，條件是你近期裝填過,补齐分行说明
+zh-CN,equipment_modifier,10,game.equipment_modifier.exclusive_uniquecharmchargegeneration1.line_1,Charms gain {value_1} charge per Second,,护符每秒获得 {value_1} 次充能,补齐分行说明
+zh-TW,equipment_modifier,10,game.equipment_modifier.exclusive_uniquecharmchargegeneration1.line_1,Charms gain {value_1} charge per Second,,護符每秒獲得 {value_1} 次充能,补齐分行说明
+zh-CN,equipment_modifier,38,game.equipment_modifier.exclusive_uniquedexterityinherentbonuschange1.line_1,Inherent bonus of Dexterity grants +{value_1} to Mana per Dexterity instead,,敏捷的固有加成改为每点敏捷 +{value_1} 魔力,补齐分行说明
+zh-CN,equipment_modifier,23,game.equipment_modifier.exclusive_uniqueenemiestakeincreaseddamageperailmenttype1.line_1,Enemies take {value_1}% increased Damage for each Elemental Ailment type among,,每种元素异常状态都会使敌人承受的伤害提高 {value_1}%，统计范围为,补齐分行说明
+zh-CN,equipment_modifier,85,game.equipment_modifier.exclusive_uniqueenemiestakeincreaseddamageperailmenttype1.line_2,your Ailments on them,,你对其施加的异常状态,补齐分行说明
+zh-CN,equipment_modifier,51,game.equipment_modifier.exclusive_uniqueflaskwardgainedasguard1.line_1,Regenerate {value_1}% of maximum Runic Ward per second during Effect,,效果期间，每秒再生符文结界上限的 {value_1}%,补齐分行说明
+zh-TW,equipment_modifier,51,game.equipment_modifier.exclusive_uniqueflaskwardgainedasguard1.line_1,Regenerate {value_1}% of maximum Runic Ward per second during Effect,,效果期間，每秒再生符文保護上限的 {value_1}%,补齐分行说明
+zh-CN,equipment_modifier,27,game.equipment_modifier.exclusive_uniqueflaskwardgainedasguard1.line_2,Gain Guard equal to Current Runic Ward for {value_1} seconds when Effect ends,,效果结束时，获得等同于当前符文结界的防卫，持续 {value_1} 秒,补齐分行说明
+zh-TW,equipment_modifier,27,game.equipment_modifier.exclusive_uniqueflaskwardgainedasguard1.line_2,Gain Guard equal to Current Runic Ward for {value_1} seconds when Effect ends,,效果結束時，獲得等同於當前符文保護的守護，持續 {value_1} 秒,补齐分行说明
+zh-CN,equipment_modifier,11,game.equipment_modifier.exclusive_uniquegainamodifierfromeachenemyinpresenceonshapeshift1.line_1,Copy a random Modifier from each enemy in your Presence when,当你变形成动物形态时，从在场的每,从你存在范围内每个敌人身上随机复制一个词缀，条件为：,整组修正残文、条件或数值错误
+zh-TW,equipment_modifier,11,game.equipment_modifier.exclusive_uniquegainamodifierfromeachenemyinpresenceonshapeshift1.line_1,Copy a random Modifier from each enemy in your Presence when,,從你存在範圍內每個敵人身上隨機複製一個詞綴，條件為：,补齐分行说明
+zh-CN,equipment_modifier,81,game.equipment_modifier.exclusive_uniquegainamodifierfromeachenemyinpresenceonshapeshift1.line_2,you Shapeshift to an Animal form,敌人处随机复制一个词缀,你变形成动物形态时,整组修正残文、条件或数值错误
+zh-TW,equipment_modifier,81,game.equipment_modifier.exclusive_uniquegainamodifierfromeachenemyinpresenceonshapeshift1.line_2,you Shapeshift to an Animal form,,你變形成動物形態時,补齐分行说明
+zh-CN,equipment_modifier,42,game.equipment_modifier.exclusive_uniquegainamodifierfromeachenemyinpresenceonshapeshift1.line_3,Modifiers gained this way are lost after {value_1} seconds or when you next Shapeshift,该类词缀在 {value_1} 秒后或在你再次变形时消失,以此获得的词缀在 {value_1} 秒后或你下次变形时失去,整组修正残文、条件或数值错误
+zh-TW,equipment_modifier,42,game.equipment_modifier.exclusive_uniquegainamodifierfromeachenemyinpresenceonshapeshift1.line_3,Modifiers gained this way are lost after {value_1} seconds or when you next Shapeshift,,以此獲得的詞綴在 {value_1} 秒後或你下次變形時失去,补齐分行说明
+zh-CN,equipment_modifier,39,game.equipment_modifier.exclusive_uniqueintelligenceinherentbonuschange1.line_1,Inherent bonus of Intelligence grants +{value_1} to Life per Intelligence instead,,智慧的固有加成改为每点智慧 +{value_1} 生命,补齐分行说明
+zh-CN,equipment_modifier,18,game.equipment_modifier.exclusive_uniquelightningdamagetobleedingenemiescanelectrocute1.line_1,DNT-UNUSED Lightning Damage from Hits against Bleeding enemies Contributes to Electrocute buildup,,【开发·未使用】对流血敌人的击中闪电伤害参与计算触电积蓄,补齐分行说明
+zh-TW,equipment_modifier,18,game.equipment_modifier.exclusive_uniquelightningdamagetobleedingenemiescanelectrocute1.line_1,DNT-UNUSED Lightning Damage from Hits against Bleeding enemies Contributes to Electrocute buildup,,【開發·未使用】對流血敵人的擊中閃電傷害參與計算觸電積蓄,补齐分行说明
+zh-TW,equipment_modifier,44,game.equipment_modifier.exclusive_uniquemaximumlightningdamageperpower1.line_1,"On Hitting an enemy, gains maximum added Lightning damage equal to",,擊中敵人時，獲得額外閃電傷害上限，其數值等同於,补齐分行说明
+zh-TW,equipment_modifier,76,game.equipment_modifier.exclusive_uniquemaximumlightningdamageperpower1.line_2,"the enemy's Power for {value_1} seconds, up to a total of {value_2}",,敵人的強度，持續 {value_1} 秒，上限為 {value_2},补齐分行说明
+zh-CN,equipment_modifier,41,game.equipment_modifier.exclusive_uniqueminionsexplodeaspercentphysicalondeath1.line_1,"Minions explode on death, dealing {value_1}% of their maximum",,召唤生物死亡时爆炸，造成相当于其上限 {value_1}% 的,补齐分行说明
+zh-TW,equipment_modifier,41,game.equipment_modifier.exclusive_uniqueminionsexplodeaspercentphysicalondeath1.line_1,"Minions explode on death, dealing {value_1}% of their maximum",,召喚物死亡時爆炸，造成相當於其上限 {value_1}% 的,补齐分行说明
+zh-CN,equipment_modifier,74,game.equipment_modifier.exclusive_uniqueminionsexplodeaspercentphysicalondeath1.line_2,life as Physical Damage to enemies within {value_1} metres,,生命的物理伤害，对象为 {value_1} 米内的敌人,补齐分行说明
+zh-TW,equipment_modifier,74,game.equipment_modifier.exclusive_uniqueminionsexplodeaspercentphysicalondeath1.line_2,life as Physical Damage to enemies within {value_1} metres,,生命的物理傷害，對象為 {value_1} 公尺內的敵人,补齐分行说明
+zh-TW,equipment_modifier,35,game.equipment_modifier.exclusive_uniquemoltenshowerskill1.line_1,Hits with this Weapon have {value_1}% chance to Trigger Molten Shower per {value_2} Strength,,每有 {value_2} 點力量，使用該武器擊中時有 {value_1}% 的機率觸發熔岩驟雨,补齐分行说明
+zh-CN,equipment_modifier,9,game.equipment_modifier.exclusive_uniquemutatedvaalburningenemiesexplodechance.line_1,"Burning Enemies you kill have a {value_1}% chance to Explode, dealing a",,你击杀的燃烧敌人有 {value_1}% 的几率爆炸，造成,补齐分行说明
+zh-TW,equipment_modifier,9,game.equipment_modifier.exclusive_uniquemutatedvaalburningenemiesexplodechance.line_1,"Burning Enemies you kill have a {value_1}% chance to Explode, dealing a",,你擊殺的燃燒敵人有 {value_1}% 的機率爆炸，造成,补齐分行说明
+zh-CN,equipment_modifier,75,game.equipment_modifier.exclusive_uniquemutatedvaalburningenemiesexplodechance.line_2,tenth of their maximum Life as Fire Damage,,相当于其生命上限十分之一的火焰伤害,补齐分行说明
+zh-TW,equipment_modifier,75,game.equipment_modifier.exclusive_uniquemutatedvaalburningenemiesexplodechance.line_2,tenth of their maximum Life as Fire Damage,,相當於其最大生命十分之一的火焰傷害,补齐分行说明
+zh-CN,equipment_modifier,95,game.equipment_modifier.exclusive_uniquemutatedvaalcorruptedrarejewelmodeffect.line_1,{value_1}% increased Effect of Jewel Socket Passive Skills,,珠宝插槽天赋的效果提高 {value_1}%,补齐分行说明
+zh-TW,equipment_modifier,95,game.equipment_modifier.exclusive_uniquemutatedvaalcorruptedrarejewelmodeffect.line_1,{value_1}% increased Effect of Jewel Socket Passive Skills,增加{value_1}%含有已汙染魔法珠寶的,珠寶插槽天賦的效果提高 {value_1}%,整组修正残文、条件或数值错误
+zh-CN,equipment_modifier,67,game.equipment_modifier.exclusive_uniquemutatedvaalcorruptedrarejewelmodeffect.line_2,containing Corrupted Rare Jewels,,条件：其中插有腐化稀有珠宝,补齐分行说明
+zh-TW,equipment_modifier,67,game.equipment_modifier.exclusive_uniquemutatedvaalcorruptedrarejewelmodeffect.line_2,containing Corrupted Rare Jewels,珠寶插槽天賦效果,條件：其中插有腐化稀有珠寶,整组修正残文、条件或数值错误
+zh-CN,equipment_modifier,87,game.equipment_modifier.exclusive_uniquemutatedvaalrandomkeystonefromtable.line_1,{value_1},,{value_1},补齐分行说明
+zh-TW,equipment_modifier,87,game.equipment_modifier.exclusive_uniquemutatedvaalrandomkeystonefromtable.line_1,{value_1},,{value_1},补齐分行说明
+zh-TW,equipment_modifier,31,game.equipment_modifier.exclusive_uniqueraiseshieldancientschallenge1.line_2,Gain {value_1} Runefather's Boast per Power of targets affected by Runefather's Challenge you kill,,擊殺受到符文之父的挑戰影響的目標時，目標每點強度使你獲得 {value_1} 層符文之父的自誇,补齐分行说明
+zh-CN,equipment_modifier,0,game.equipment_modifier.exclusive_uniqueraiseshieldapplyexposure1.line_1,Inflict Elemental Exposure to Enemies {value_1} metres in front of you,举起时，每 0.25 秒对你前方 {value_1} 米内的敌人施加,对你前方 {value_1} 米内的敌人施加元素曝露，,同组相邻行修正，保证整条说明完整
+zh-TW,equipment_modifier,0,game.equipment_modifier.exclusive_uniqueraiseshieldapplyexposure1.line_1,Inflict Elemental Exposure to Enemies {value_1} metres in front of you,對你前方{value_1}公尺內敵人施加元素曝曬，,對你前方 {value_1} 公尺內的敵人施加元素曝曬，,同组相邻行修正，保证整条说明完整
+zh-CN,equipment_modifier,71,game.equipment_modifier.exclusive_uniqueraiseshieldapplyexposure1.line_2,"for {value_1} seconds, every {value_2} seconds while raised",,持续 {value_1} 秒，举盾期间每 {value_2} 秒施加一次,补齐分行说明
+zh-TW,equipment_modifier,71,game.equipment_modifier.exclusive_uniqueraiseshieldapplyexposure1.line_2,"for {value_1} seconds, every {value_2} seconds while raised",持續{value_1}秒，舉起時每{value_2}秒觸發,持續 {value_1} 秒，舉盾期間每 {value_2} 秒施加一次,整组修正残文、条件或数值错误
+zh-CN,equipment_modifier,87,game.equipment_modifier.exclusive_uniquerandomkeystonefromtable1.line_1,{value_1},,{value_1},补齐分行说明
+zh-TW,equipment_modifier,87,game.equipment_modifier.exclusive_uniquerandomkeystonefromtable1.line_1,{value_1},,{value_1},补齐分行说明
+zh-TW,equipment_modifier,34,game.equipment_modifier.exclusive_uniquerandommovementvelocityonhit1.line_1,"Gain {value_1}% to {value_2}% increased Movement Speed at random when Hit, until Hit again",,被擊中時，移動速度隨機提高 {value_1}% 至 {value_2}%，直到再次被擊中,补齐分行说明
+zh-CN,equipment_modifier,100,game.equipment_modifier.exclusive_uniquerecouplifeopenweakness1.line_1,{value_1}% of damage taken from enemies with an Open Weakness Recouped as Life,,承受来自弱点暴露敌人的伤害的 {value_1}% 补偿为生命,补齐分行说明
+zh-TW,equipment_modifier,100,game.equipment_modifier.exclusive_uniquerecouplifeopenweakness1.line_1,{value_1}% of damage taken from enemies with an Open Weakness Recouped as Life,,承受來自開放弱點敵人的傷害的 {value_1}% 補償為生命,补齐分行说明
+zh-CN,equipment_modifier,21,game.equipment_modifier.exclusive_uniquesouleateropenweakness1.line_1,Eat a Soul when you Hit an enemy with an Open Weakness,,击中弱点暴露的敌人时，吞噬一个灵魂,补齐分行说明
+zh-TW,equipment_modifier,21,game.equipment_modifier.exclusive_uniquesouleateropenweakness1.line_1,Eat a Soul when you Hit an enemy with an Open Weakness,,擊中開放弱點的敵人時，吞噬一個靈魂,补齐分行说明
+zh-CN,equipment_modifier,40,game.equipment_modifier.exclusive_uniquestrengthinherentbonuschange1.line_1,Inherent bonus of Strength grants +{value_1} to Accuracy Rating per Strength instead,,力量的固有加成改为每点力量 +{value_1} 命中值,补齐分行说明
+zh-CN,equipment_modifier,24,game.equipment_modifier.exclusive_uniquewithergrantselementaldamagetaken1.line_1,Enemies take {value_1}% increased Elemental Damage from your Hits for,,敌人承受来自你的击中的元素伤害提高 {value_1}%，每有一层,补齐分行说明
+zh-CN,equipment_modifier,69,game.equipment_modifier.exclusive_uniquewithergrantselementaldamagetaken1.line_2,each Withered you have inflicted on them,,你对其施加的枯萎,补齐分行说明
+zh-CN,equipment_modifier,53,game.equipment_modifier.exclusive_waistgateverisiumimplicitrunicwardcanoverflow1.line_1,Runic Ward recovery can Overflow maximum Runic Ward,,符文结界回复可以溢出符文结界上限,补齐分行说明
+zh-TW,equipment_modifier,53,game.equipment_modifier.exclusive_waistgateverisiumimplicitrunicwardcanoverflow1.line_1,Runic Ward recovery can Overflow maximum Runic Ward,,符文保護恢復可以溢出符文保護上限,补齐分行说明
+zh-CN,equipment_modifier,23,game.equipment_modifier.item_handwrapsdecayinfluencefasterdamagingailments1.line_1,Enemies take {value_1}% increased Damage for each Elemental Ailment type among,,每种元素异常状态都会使敌人承受的伤害提高 {value_1}%，统计范围为,补齐分行说明
+zh-CN,equipment_modifier,85,game.equipment_modifier.item_handwrapsdecayinfluencefasterdamagingailments1.line_2,your Ailments on them,,你对其施加的异常状态,补齐分行说明
+zh-CN,equipment_modifier,23,game.equipment_modifier.item_handwrapsdecayinfluencefasterdamagingailments2.line_1,Enemies take {value_1}% increased Damage for each Elemental Ailment type among,,每种元素异常状态都会使敌人承受的伤害提高 {value_1}%，统计范围为,补齐分行说明
+zh-CN,equipment_modifier,85,game.equipment_modifier.item_handwrapsdecayinfluencefasterdamagingailments2.line_2,your Ailments on them,,你对其施加的异常状态,补齐分行说明
+zh-CN,equipment_modifier,9,game.equipment_modifier.item_handwrapsdecayinfluenceignitemagnitude1.line_2,"Burning Enemies you kill have a {value_1}% chance to Explode, dealing a",,你击杀的燃烧敌人有 {value_1}% 的几率爆炸，造成,补齐分行说明
+zh-TW,equipment_modifier,9,game.equipment_modifier.item_handwrapsdecayinfluenceignitemagnitude1.line_2,"Burning Enemies you kill have a {value_1}% chance to Explode, dealing a",,你擊殺的燃燒敵人有 {value_1}% 的機率爆炸，造成,补齐分行说明
+zh-CN,equipment_modifier,75,game.equipment_modifier.item_handwrapsdecayinfluenceignitemagnitude1.line_3,tenth of their maximum Life as Fire Damage,,相当于其生命上限十分之一的火焰伤害,补齐分行说明
+zh-TW,equipment_modifier,75,game.equipment_modifier.item_handwrapsdecayinfluenceignitemagnitude1.line_3,tenth of their maximum Life as Fire Damage,,相當於其最大生命十分之一的火焰傷害,补齐分行说明
+zh-CN,equipment_modifier,9,game.equipment_modifier.item_handwrapsdecayinfluenceignitemagnitude2.line_2,"Burning Enemies you kill have a {value_1}% chance to Explode, dealing a",,你击杀的燃烧敌人有 {value_1}% 的几率爆炸，造成,补齐分行说明
+zh-TW,equipment_modifier,9,game.equipment_modifier.item_handwrapsdecayinfluenceignitemagnitude2.line_2,"Burning Enemies you kill have a {value_1}% chance to Explode, dealing a",,你擊殺的燃燒敵人有 {value_1}% 的機率爆炸，造成,补齐分行说明
+zh-CN,equipment_modifier,75,game.equipment_modifier.item_handwrapsdecayinfluenceignitemagnitude2.line_3,tenth of their maximum Life as Fire Damage,,相当于其生命上限十分之一的火焰伤害,补齐分行说明
+zh-TW,equipment_modifier,75,game.equipment_modifier.item_handwrapsdecayinfluenceignitemagnitude2.line_3,tenth of their maximum Life as Fire Damage,,相當於其最大生命十分之一的火焰傷害,补齐分行说明
+zh-CN,equipment_modifier,97,game.equipment_modifier.runes_atziri_s_soul_core_of_alacrity_gloves.line_1,{value_1}% increased Skill Speed for each Corrupted Item Equipped,,每装备一件腐化物品，技能速度提高 {value_1}%,补齐分行说明
+zh-TW,equipment_modifier,97,game.equipment_modifier.runes_atziri_s_soul_core_of_alacrity_gloves.line_1,{value_1}% increased Skill Speed for each Corrupted Item Equipped,,每裝備一件腐化物品，技能速度提高 {value_1}%,补齐分行说明
+zh-CN,equipment_modifier,12,game.equipment_modifier.runes_atziri_s_soul_core_of_alacrity_gloves.line_2,Corrupting will always result in change,,腐化必定产生变化,补齐分行说明
+zh-TW,equipment_modifier,12,game.equipment_modifier.runes_atziri_s_soul_core_of_alacrity_gloves.line_2,Corrupting will always result in change,,腐化必定產生變化,补齐分行说明
+zh-CN,equipment_modifier,98,game.equipment_modifier.runes_atziri_s_soul_core_of_devotion_helmet.line_1,{value_1}% increased Spirit for each Corrupted Item Equipped,,每装备一件腐化物品，精魂提高 {value_1}%,补齐分行说明
+zh-TW,equipment_modifier,98,game.equipment_modifier.runes_atziri_s_soul_core_of_devotion_helmet.line_1,{value_1}% increased Spirit for each Corrupted Item Equipped,,每裝備一件腐化物品，精魂提高 {value_1}%,补齐分行说明
+zh-CN,equipment_modifier,12,game.equipment_modifier.runes_atziri_s_soul_core_of_devotion_helmet.line_2,Corrupting will always result in change,,腐化必定产生变化,补齐分行说明
+zh-TW,equipment_modifier,12,game.equipment_modifier.runes_atziri_s_soul_core_of_devotion_helmet.line_2,Corrupting will always result in change,,腐化必定產生變化,补齐分行说明
+zh-CN,equipment_modifier,4,game.equipment_modifier.runes_atziri_s_soul_core_of_inoculation_boots.line_1,+{value_1}% to Chaos Resistance for each Corrupted Item Equipped,,每装备一件腐化物品，混沌抗性 +{value_1}%,补齐分行说明
+zh-TW,equipment_modifier,4,game.equipment_modifier.runes_atziri_s_soul_core_of_inoculation_boots.line_1,+{value_1}% to Chaos Resistance for each Corrupted Item Equipped,,每裝備一件腐化物品，混沌抗性 +{value_1}%,补齐分行说明
+zh-CN,equipment_modifier,12,game.equipment_modifier.runes_atziri_s_soul_core_of_inoculation_boots.line_2,Corrupting will always result in change,,腐化必定产生变化,补齐分行说明
+zh-TW,equipment_modifier,12,game.equipment_modifier.runes_atziri_s_soul_core_of_inoculation_boots.line_2,Corrupting will always result in change,,腐化必定產生變化,补齐分行说明
+zh-CN,equipment_modifier,12,game.equipment_modifier.runes_atziri_s_soul_core_of_vitality_body_armour.line_2,Corrupting will always result in change,,腐化必定产生变化,补齐分行说明
+zh-TW,equipment_modifier,12,game.equipment_modifier.runes_atziri_s_soul_core_of_vitality_body_armour.line_2,Corrupting will always result in change,,腐化必定產生變化,补齐分行说明
+zh-TW,equipment_modifier,45,game.equipment_modifier.runes_carved_cunning_body_armour.line_1,Prevent +{value_1}% of Damage from Deflected Hits if you've,,避免偏轉擊中傷害的比例 +{value_1}%，條件為：,补齐分行说明
+zh-TW,equipment_modifier,20,game.equipment_modifier.runes_carved_cunning_body_armour.line_2,Deflected no Hits Recently,,你近期沒有偏轉過擊中,补齐分行说明
+zh-TW,equipment_modifier,28,game.equipment_modifier.runes_carved_mischief_helmet.line_1,Gain Guard equal to {value_1}% of maximum Life for {value_2} seconds on taking Savage Hit,,受到兇蠻擊中時，獲得等同於最大生命 {value_1}% 的守護，持續 {value_2} 秒,补齐分行说明
+zh-CN,equipment_modifier,50,game.equipment_modifier.runes_emergent_instinct_gloves.line_1,Regenerate {value_1}% of maximum Life per Second if you have used a Command Skill Recently,,若你近期使用过命令技能，每秒再生生命上限的 {value_1}%,补齐分行说明
+zh-TW,equipment_modifier,50,game.equipment_modifier.runes_emergent_instinct_gloves.line_1,Regenerate {value_1}% of maximum Life per Second if you have used a Command Skill Recently,,若你近期使用過指令技能，每秒再生最大生命的 {value_1}%,补齐分行说明
+zh-CN,equipment_modifier,99,game.equipment_modifier.runes_emergent_possibility_body_armour.line_1,{value_1}% of Chaos Damage from Hits taken as Damage of a random Element,,承受的击中混沌伤害的 {value_1}% 转为随机元素类型的伤害,补齐分行说明
+zh-TW,equipment_modifier,99,game.equipment_modifier.runes_emergent_possibility_body_armour.line_1,{value_1}% of Chaos Damage from Hits taken as Damage of a random Element,,承受的擊中混沌傷害的 {value_1}% 轉為隨機元素類型的傷害,补齐分行说明
+zh-CN,equipment_modifier,33,game.equipment_modifier.runes_emergent_possibility_gloves.line_1,Gain {value_1}% of Damage as Extra Damage of a random Element per,,获得相当于伤害 {value_1}% 的额外随机元素伤害，每有一个,补齐分行说明
+zh-TW,equipment_modifier,33,game.equipment_modifier.runes_emergent_possibility_gloves.line_1,Gain {value_1}% of Damage as Extra Damage of a random Element per,,獲得相當於傷害 {value_1}% 的額外隨機元素傷害，每有一個,补齐分行说明
+zh-CN,equipment_modifier,52,game.equipment_modifier.runes_emergent_possibility_gloves.line_2,Rune Socketed in Equipped Items,,镶嵌在已装备物品中的符文,补齐分行说明
+zh-TW,equipment_modifier,52,game.equipment_modifier.runes_emergent_possibility_gloves.line_2,Rune Socketed in Equipped Items,,鑲嵌在已裝備物品中的符文,补齐分行说明
+zh-CN,equipment_modifier,29,game.equipment_modifier.runes_emergent_vigour_body_armour.line_1,Gain Maximum Energy Shield equal to {value_1}% of total,,获得相当于总量 {value_1}% 的能量护盾上限，统计范围为,补齐分行说明
+zh-TW,equipment_modifier,29,game.equipment_modifier.runes_emergent_vigour_body_armour.line_1,Gain Maximum Energy Shield equal to {value_1}% of total,,獲得相當於總量 {value_1}% 的最大能量護盾，統計範圍為,补齐分行说明
+zh-CN,equipment_modifier,56,game.equipment_modifier.runes_emergent_vigour_body_armour.line_2,Strength Requirements of Equipped Armour Items,,已装备护甲物品的力量需求,补齐分行说明
+zh-TW,equipment_modifier,56,game.equipment_modifier.runes_emergent_vigour_body_armour.line_2,Strength Requirements of Equipped Armour Items,,已裝備護甲物品的力量需求,补齐分行说明
+zh-CN,equipment_modifier,36,game.equipment_modifier.runes_jiquani_s_thesis_boots.line_1,Increases and Reductions to Movement Speed also,,移动速度的提高与降低也,补齐分行说明
+zh-CN,equipment_modifier,0,game.equipment_modifier.runes_jiquani_s_thesis_boots.line_2, apply to Energy Shield Recharge Rate, 能量护盾充能速度,作用于能量护盾充能率,同组相邻行修正，保证整条说明完整
+zh-CN,equipment_modifier,26,game.equipment_modifier.runes_jiquani_s_thesis_gloves.line_1,Energy Shield Recharge starts after spending a total of,,能量护盾充能在累计消耗,补齐分行说明
+zh-TW,equipment_modifier,26,game.equipment_modifier.runes_jiquani_s_thesis_gloves.line_1,Energy Shield Recharge starts after spending a total of,消耗2000魔力後開始充能能量護盾，,能量護盾充能在累計消耗,整组修正残文、条件或数值错误
+zh-CN,equipment_modifier,2,game.equipment_modifier.runes_jiquani_s_thesis_gloves.line_2," {value_1} Mana, no more than once every {value_2} seconds",, {value_1} 点魔力后开始，每 {value_2} 秒最多触发一次,补齐分行说明
+zh-TW,equipment_modifier,2,game.equipment_modifier.runes_jiquani_s_thesis_gloves.line_2," {value_1} Mana, no more than once every {value_2} seconds",, {value_1} 點魔力後開始，每 {value_2} 秒最多觸發一次,补齐分行说明
+zh-CN,equipment_modifier,3,game.equipment_modifier.runes_jiquani_s_thesis_helmet.line_1,+{value_1} to maximum Mana per {value_2} Item Armour on Equipped Helmet,,已装备头盔每有 {value_2} 点物品护甲，魔力上限 +{value_1},补齐分行说明
+zh-TW,equipment_modifier,3,game.equipment_modifier.runes_jiquani_s_thesis_helmet.line_1,+{value_1} to maximum Mana per {value_2} Item Armour on Equipped Helmet,,已裝備頭盔每有 {value_2} 點物品護甲，最大魔力 +{value_1},补齐分行说明
+zh-CN,equipment_modifier,10,game.equipment_modifier.runes_legacy_of_elevore_helmet.line_1,Charms gain {value_1} charge per Second,,护符每秒获得 {value_1} 次充能,补齐分行说明
+zh-TW,equipment_modifier,10,game.equipment_modifier.runes_legacy_of_elevore_helmet.line_1,Charms gain {value_1} charge per Second,,護符每秒獲得 {value_1} 次充能,补齐分行说明
+zh-TW,equipment_modifier,44,game.equipment_modifier.runes_legacy_of_olrovasara_one_hand_mace.line_1,"On Hitting an enemy, gains maximum added Lightning damage equal to",,擊中敵人時，獲得額外閃電傷害上限，其數值等同於,补齐分行说明
+zh-TW,equipment_modifier,76,game.equipment_modifier.runes_legacy_of_olrovasara_one_hand_mace.line_2,"the enemy's Power for {value_1} seconds, up to a total of {value_2}",,敵人的強度，持續 {value_1} 秒，上限為 {value_2},补齐分行说明
+zh-TW,equipment_modifier,94,game.equipment_modifier.runes_saqawal_s_rune_of_the_sky_staff_bonded.line_1,{value_1}% chance when collecting an Elemental Infusion to gain an,,收集元素灌注時有 {value_1}% 的機率,补齐分行说明
+zh-TW,equipment_modifier,65,game.equipment_modifier.runes_saqawal_s_rune_of_the_sky_staff_bonded.line_2,additional Elemental Infusion of the same type,,額外獲得一個同類型的元素灌注,补齐分行说明
+zh-TW,equipment_modifier,94,game.equipment_modifier.runes_saqawal_s_rune_of_the_sky_wand_bonded.line_1,{value_1}% chance when collecting an Elemental Infusion to gain an,,收集元素灌注時有 {value_1}% 的機率,补齐分行说明
+zh-TW,equipment_modifier,65,game.equipment_modifier.runes_saqawal_s_rune_of_the_sky_wand_bonded.line_2,additional Elemental Infusion of the same type,,額外獲得一個同類型的元素灌注,补齐分行说明

@@ -13,13 +13,13 @@ local m_max = math.max
 local defaultGemLevelList = {
 	{
 		label = "Normal Maximum", labelKey = "ui.skills_tab.module.default_gem_level_list.label_3",
-		description = "All gems default to their highest valid non-corrupted gem level.",
+		description = "All gems default to their highest valid non-corrupted gem level.", descriptionKey = "skill.default_level.description.1",
 		gemLevel = "normalMaximum",
 	},
 	{
 		label = "Corrupted Maximum", labelKey = "ui.skills_tab.module.default_gem_level_list.label",
 		description = [[Normal gems default to their highest valid corrupted gem level.
-Awakened gems default to their highest valid non-corrupted gem level.]],
+Awakened gems default to their highest valid non-corrupted gem level.]], descriptionKey = "skill.default_level.description.2",
 		gemLevel = "corruptedMaximum",
 	},
 	--{
@@ -30,7 +30,7 @@ Awakened gems default to their highest valid non-corrupted gem level.]],
 	{
 		label = "Match Character Level", labelKey = "ui.skills_tab.module.default_gem_level_list.label_2",
 		description = [[All gems default to their highest valid non-corrupted gem level that your character meets the level requirement for.
-This hides gems with a minimum level requirement above your character level, preventing them from showing up in the dropdown list.]],
+This hides gems with a minimum level requirement above your character level, preventing them from showing up in the dropdown list.]], descriptionKey = "skill.default_level.description.3",
 		gemLevel = "characterLevel",
 	},
 }
@@ -117,7 +117,7 @@ localisation:Label("ui.skills_tab.init.group_tip.label")
 	self.controls.defaultLevel.tooltipFunc = function(tooltip, mode, index, value)
 		tooltip:Clear()
 		if mode ~= "OUT" and value.description then
-			tooltip:AddLine(16, "^7" .. value.description)
+			tooltip:AddLine(16, "^7" .. localisation:Field(value, "description"))
 		end
 	end
 	self.controls.defaultLevelLabel = new("LabelControl"):LabelControl({ "RIGHT", self.controls.defaultLevel, "LEFT" }, { -4, 0, 0, 16 }, localisation:Label("ui.skills_tab.init.default_level_label.label"))
@@ -173,7 +173,7 @@ localisation:Label("ui.skills_tab.init.group_tip.label")
 					valid = self:IsSocketGroupWeaponSetValid(self.displayGroup, set)
 				end
 			end
-			return (valid and "" or colorCodes.NEGATIVE) .. "Set " .. set .. ":"
+			return (valid and "" or colorCodes.NEGATIVE) .. localisation:Text(set == 1 and "ui.skills_tab.init.set1_enabled.label" or "ui.skills_tab.init.set2_enabled.label")
 		end
 		control.enabled = function()
 			return self.displayGroup and not self:IsSocketGroupWeaponSetLocked(self.displayGroup) and not self.displayGroup.forcedBoth and self:IsSocketGroupWeaponSetValid(self.displayGroup, set)
@@ -192,6 +192,13 @@ localisation:Label("ui.skills_tab.init.group_tip.label")
 				tooltip:AddLine(16, colorCodes.NEGATIVE .. localisation:Text("ui.skills_tab.init.control_tooltip_func.tooltip_3", { set = set }))
 			end
 		end
+	end
+	-- 中文武器组标签较长，按当前译文测宽，避免覆盖左侧列表或前一个复选框。
+	self.controls.set1Enabled.x = function()
+		return m_max(42, math.ceil(DrawStringWidth(16, "VAR", self.controls.set1Enabled:GetProperty("label"))) + 5)
+	end
+	self.controls.set2Enabled.x = function()
+		return m_max(50, DrawStringWidth(16, "VAR", self.controls.set2Enabled:GetProperty("label")) + 9)
 	end
 	self.controls.groupEnabled = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.set2Enabled, "RIGHT" }, { 70, 0, 20 }, localisation:Label("ui.skills_tab.init.group_enabled.label"), function(state)
 		self.displayGroup.enabled = state
@@ -607,14 +614,16 @@ function SkillsTabClass:Draw(viewPort, inputEvents)
 	main:DrawBackground(viewPort)
 
 	local newSetList = { }
+	local setKeys = { }
 	for index, skillSetId in ipairs(self.skillSetOrderList) do
 		local skillSet = self.skillSets[skillSetId]
 		t_insert(newSetList, skillSet.title or "Default")
+		setKeys[index] = skillSet.titleKey or (not skillSet.title and "term.calculation_source.default" or nil)
 		if skillSetId == self.activeSkillSetId then
 			self.controls.setSelect.selIndex = index
 		end
 	end
-	self.controls.setSelect:SetList(newSetList)
+	self.controls.setSelect:SetList(localisation:List(newSetList, setKeys))
 
 	if main.portraitMode then
 		self.anchorGroupDetail:SetAnchor("TOPLEFT",self.controls.optionSection,"BOTTOMLEFT", 0, 20)
@@ -689,7 +698,8 @@ function SkillsTabClass:PasteSocketGroup(testInput)
 			end
 
 			local nameSpec, level, quality, state, count, cFlag, cLevel =
-				currentLine:match("^([ %a':]+) (%d+)/(%d+)%s*(%u*)%s+([%d%.]+)%s*(C?)([+%-]?%d*)%s*$")
+				currentLine:match("^(.+) (%d+)/(%d+)%s*(%u*)%s+([%d%.]+)%s*(C?)([+%-]?%d*)%s*$")
+			if nameSpec then nameSpec = localisation:InputName('gem', nameSpec) end
 
 			-- Ignore invalid or mismatched skillId
 			if skillId and not (self.build.data.skills[skillId] and self.build.data.skills[skillId].baseTypeName == nameSpec) then
@@ -1172,7 +1182,7 @@ function SkillsTabClass:CreateGemSlot(index)
 		return self:IsShown() and (DrawStringWidth(16, "VAR", slot.enableGlobal1:GetProperty("label")) + 5) or 0
 	end
 	slot.enableGlobal1.label = function()
-		return "Enable "..self.displayGroup.gemList[index].gemData.grantedEffectList[1].name..":"
+		return localisation:Text("skill.enable_global", { name = localisation:Field(self.displayGroup.gemList[index].gemData.grantedEffectList[1], "name") })
 	end
 	self.controls["gemSlot"..index.."EnableGlobal1"] = slot.enableGlobal1
 
@@ -1191,7 +1201,7 @@ function SkillsTabClass:CreateGemSlot(index)
 		return self:IsShown() and (DrawStringWidth(16, "VAR", slot.enableGlobal2:GetProperty("label")) + 12) or 0
 	end
 	slot.enableGlobal2.label = function()
-		return "Enable "..self.displayGroup.gemList[index].gemData.grantedEffectList[2].name..":"
+		return localisation:Text("skill.enable_global", { name = localisation:Field(self.displayGroup.gemList[index].gemData.grantedEffectList[2], "name") })
 	end
 	self.controls["gemSlot"..index.."EnableGlobal2"] = slot.enableGlobal2
 end
@@ -1227,6 +1237,18 @@ end
 
 -- Find the skill gem matching the given specification
 function SkillsTabClass:FindSkillGem(nameSpec)
+	-- 中文输入只按当前宝石的唯一精确译名转换，英文缩写仍沿用原有查找规则。
+	nameSpec = localisation:InputName('gem', nameSpec)
+	-- 有多个宝石共用译名时给出明确歧义，避免把中文名称误指向任意一个业务身份。
+	local translatedMatches = { }
+	for _, gemData in pairs(self.build.data.gems) do
+		if localisation:Field(gemData, 'name') == nameSpec then translatedMatches[#translatedMatches + 1] = gemData end
+	end
+	if #translatedMatches > 1 then
+		return "Ambiguous gem name '" .. nameSpec .. "': use skillId to select the intended gem"
+	elseif #translatedMatches == 1 then
+		return nil, translatedMatches[1]
+	end
 	-- Search for gem name using increasingly broad search patterns
 	local patternList = {
 		"^ "..nameSpec:gsub("%a", function(a) return "["..a:upper()..a:lower().."]" end).."$", -- Exact match (case-insensitive)
@@ -1331,6 +1353,7 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 		elseif gemInstance.nameSpec:match("%S") then
 			-- Specified by gem/skill name, try to match it
 			-- Used to migrate pre-1.4.20 builds
+			gemInstance.nameSpec = localisation:InputName('gem', gemInstance.nameSpec)
 			gemInstance.errMsg, gemInstance.gemData = self:FindSkillGem(gemInstance.nameSpec)
 			gemInstance.gemId = gemInstance.gemData and gemInstance.gemData.id
 			gemInstance.skillId = gemInstance.gemData and gemInstance.gemData.grantedEffectId

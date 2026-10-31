@@ -607,8 +607,8 @@ function PassiveTreeClass:ProcessNode(node)
 			end
 			switchNode.dn = switchNode.name
 			switchNode.sd = switchNode.stats
-			-- 选项具有自己的显示身份，不能继承父节点的名称或属性引用。
-			switchNode.dnKey = false
+			-- 名称沿用父节点时复用其显示身份；不同名称和属性仍使用选项自己的引用。
+			switchNode.dnKey = switchNode.dn == node.dn and node.dnKey or false
 			switchNode.flavourTextKey = false
 			switchNode.localisationDomain, switchNode.localisationId = node.localisationDomain, node.localisationId .. ':option:' .. class
 			localisation:BindFields(switchNode.localisationDomain, switchNode.localisationId, switchNode)
@@ -624,6 +624,9 @@ function PassiveTreeClass:ProcessNode(node)
 			end
 
 			self:ProcessStats(switchNode)
+			-- 未覆盖属性或提示正文的选项继续使用父节点已经核对的逐行显示引用。
+			if switchNode.sd == node.sd then switchNode.sdDisplay = node.sdDisplay end
+			if switchNode.reminderText == node.reminderText then switchNode.reminderTextDisplay = node.reminderTextDisplay end
 		end
 	end
 end

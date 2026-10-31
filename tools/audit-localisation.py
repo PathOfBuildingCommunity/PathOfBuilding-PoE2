@@ -1,9 +1,10 @@
-"""枚举源码文字与属性模板文件，交给实际 PoB2 语言层生成覆盖报告。"""
+"""刷新仓库范围清单，并用真实稳定字段引用生成显示审计。"""
 from pathlib import Path
 import csv
 import json
 import re
 import subprocess
+import sys
 
 
 # 先匹配注释，避免将注释里的字符串当作源码候选；长字符串保留 Lua 原语法。
@@ -43,7 +44,7 @@ def main():
             elif name.startswith("src/Locales/"):
                 scope, method = "locale-resource", "loaded-files-and-term-review"
             elif name in ("help.txt", "changelog.txt"):
-                scope, method = "product-text-resource", "boundary-audit-line-translation"
+                scope, method = "product-text-resource", "boundary-audit-inventory-only"
             elif name.startswith(("src/Export/", "tools/", "spec/", "tests/", "src/Tests/", ".github/")):
                 scope, method = "development", "inventory-only-not-product-text"
             else:
@@ -71,8 +72,12 @@ def main():
     (run / "localisation-audit-input.json").write_text(
         json.dumps(manifest, ensure_ascii=False), encoding="utf-8"
     )
+    # 稳定 key 审计独立运行时只更新源码范围，避免旧反查报告冒充当前字段结果。
+    if "--inventory-only" in sys.argv:
+        print(f"范围清单：{len(list(filter(None, tracked)))} 个跟踪文件；{len(paths)} 个产品 Lua；{len(literals)} 个字符串常量；{len(manifest['statFiles'])} 个属性描述文件")
+        return
     result = subprocess.run(
-        [str(root / "tools" / "LuaRunner.exe"), str(root / "tools" / "audit-localisation.lua")],
+        [str(root / "tools" / "LuaRunner.exe"), str(root / "tools" / "audit-localisation-fields.lua")],
         cwd=source,
     )
     raise SystemExit(result.returncode)

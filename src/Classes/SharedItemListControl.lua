@@ -19,6 +19,7 @@ function SharedItemListClass:SharedItemListControl(anchor, rect, itemsTab, force
 	self.itemsTab = itemsTab
 	self.label = localisation:Label("ui.shared_item_list_control.init.label")
 	self.defaultText = "^x7F7F7FThis is a list of items that will be shared between all of\nyour builds.\nYou can add items to this list by dragging them from\none of the other lists."
+	self.defaultTextKey = 'ui.shared_item_list_control.empty_list'
 	self.dragTargetList = { }
 	self.controls.delete = new("ButtonControl"):ButtonControl({ "BOTTOMRIGHT", self, "TOPRIGHT" }, { 0, -2, 60, 18 }, localisation:Label("ui.shared_item_list_control.init.delete.label"), function()
 		self:OnSelDelete(self.selIndex, self.selValue)

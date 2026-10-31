@@ -14,6 +14,13 @@ local spawnAreas = { }
 for _, area in pairs(data.worldAreas) do
 	if #area.monsterVarieties > 0 and not spawnAreas[area.name] then spawnAreas[area.name] = area end
 end
+-- 没有区域详情的已知地点仍使用召唤物自身的稳定显示引用。
+local spawnLocations = { }
+for _, minion in pairs(data.minions) do
+	for index, source in ipairs(minion.spawnLocation or { }) do
+		if not spawnLocations[source] then spawnLocations[source] = { minion = minion, index = index } end
+	end
+end
 
 ---@class MinionListControl: ListControl
 local MinionListClass = newClass("MinionListControl", "ListControl")
@@ -152,6 +159,8 @@ end
 function SpawnListClass:GetRowValue(column, index, spawnLocation)
 	local area = spawnAreas[spawnLocation]
 	if area then return localisation:Field(area, 'name') end
+	local location = spawnLocations[spawnLocation]
+	if location then return localisation:Line(location.minion, 'spawnLocation', location.index) end
 	return spawnLocation == 'Found in Maps' and localisation:Text('ui.minion_list_control.get_row_value.message') or spawnLocation
 end
 function SpawnListClass:AddValueTooltip(tooltip, index, value)
@@ -199,7 +208,7 @@ function SpawnListClass:AddValueTooltip(tooltip, index, value)
 		elseif value == "Found in Maps" then
 			-- no tooltip
 		else
-			tooltip:AddLine(18, localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip_18", { value = tostring(value) }))
+			tooltip:AddLine(18, localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip_18", { value = self:GetRowValue(1, index, value) }))
 		end
 	end
 end

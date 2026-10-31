@@ -295,7 +295,7 @@ function CompareEntryClass:RefreshSkillSelectControls(controls, mainGroup, suffi
 	controls.mainSocketGroup.selIndex = mainGroup
 	wipeTable(controls.mainSocketGroup.list)
 	for i, socketGroup in pairs(self.skillsTab.socketGroupList) do
-		controls.mainSocketGroup.list[i] = { val = i, label = socketGroup.displayLabel }
+		controls.mainSocketGroup.list[i] = { val = i, label = socketGroup.displayLabel, labelDisplay = function() return localisation:SocketGroupName(socketGroup) end }
 	end
 	controls.mainSocketGroup:CheckDroppedWidth(true)
 
@@ -334,7 +334,7 @@ function CompareEntryClass:RefreshSkillSelectControls(controls, mainGroup, suffi
 		local explodeSource = activeSkill.activeEffect.srcInstance.explodeSource
 		local explodeSourceName = explodeSource and (explodeSource.name or explodeSource.dn)
 		local colourCoded = explodeSourceName and ("From "..colorCodes[explodeSource.rarity or "NORMAL"]..explodeSourceName)
-		t_insert(controls.mainSkill.list, { val = i, label = colourCoded or self.calcsTab.calcs.getActiveSkillDisplayName(activeSkill) })
+		t_insert(controls.mainSkill.list, { val = i, label = colourCoded or self.calcsTab.calcs.getActiveSkillDisplayName(activeSkill), labelDisplay = function() return localisation:ActiveSkillSelectionName(activeSkill) end })
 	end
 	controls.mainSkill.enabled = #displaySkillList > 1
 	controls.mainSkill.selIndex = mainActiveSkill
@@ -372,7 +372,7 @@ function CompareEntryClass:RefreshSkillSelectControls(controls, mainGroup, suffi
 		wipeTable(controls.statSet.list)
 		for i, statSet in ipairs(activeEffect.grantedEffect.statSets) do
 			t_insert(controls.statSet.list,
-				{ val = i, label = statSet.label, grantedEffectId = activeEffect.grantedEffect.id })
+				{ val = i, label = statSet.label, labelKey = statSet.labelKey, grantedEffectId = activeEffect.grantedEffect.id })
 		end
 		controls.statSet.selIndex = activeEffect.srcInstance["statSet" .. suffix] and
 		activeEffect.srcInstance["statSet" .. suffix][activeEffect.grantedEffect.id] or 1
@@ -411,6 +411,7 @@ function CompareEntryClass:RefreshMinionControls(controls, activeSkill, activeEf
 			if minion then
 				t_insert(controls.mainSkillMinion.list, {
 					label = minion.name,
+					labelKey = minion.nameKey,
 					minionId = minionId,
 				})
 			end
@@ -423,7 +424,8 @@ function CompareEntryClass:RefreshMinionControls(controls, activeSkill, activeEf
 	wipeTable(controls.mainSkillMinionSkill.list)
 	if activeSkill.minion then
 		for _, minionSkill in ipairs(activeSkill.minion.activeSkillList) do
-			t_insert(controls.mainSkillMinionSkill.list, minionSkill.activeEffect.grantedEffect.name)
+			local effect = minionSkill.activeEffect.grantedEffect
+			t_insert(controls.mainSkillMinionSkill.list, { label = effect.name, labelKey = effect.nameKey })
 		end
 		controls.mainSkillMinionSkill.selIndex = activeEffect.srcInstance["skillMinionSkill" .. suffix] or 1
 		controls.mainSkillMinionSkill.shown = true
@@ -431,7 +433,7 @@ function CompareEntryClass:RefreshMinionControls(controls, activeSkill, activeEf
 		wipeTable(controls.mainSkillMinionSkillStatSet.list)
 		for _, statSet in ipairs(activeSkill.minion.activeSkillList[controls.mainSkillMinionSkill.selIndex].activeEffect.grantedEffect.statSets) do
 			t_insert(controls.mainSkillMinionSkillStatSet.list,
-				{ label = statSet.label, grantedEffectId = activeEffect.grantedEffect.id })
+				{ label = statSet.label, labelKey = statSet.labelKey, grantedEffectId = activeEffect.grantedEffect.id })
 		end
 		local minionStatSetIndexLookup = activeEffect.srcInstance["skillMinionSkillStatSetIndexLookup" .. suffix]
 		controls.mainSkillMinionSkillStatSet.selIndex = minionStatSetIndexLookup and

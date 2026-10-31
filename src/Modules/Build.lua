@@ -235,7 +235,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 				if mult > 0.01 then
 					local line = level
 					if level >= 68 then
-						line = line .. string.format(" (Tier %d)", level - 67)
+						line = line .. localisation:Text("build.level_scaling.tier", { tier = level - 67 })
 					end
 					line = line .. string.format(": %.1f%%", mult * 100)
 					tooltip:AddLine(14, line)
@@ -500,7 +500,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		if #self.controls.warnings.lines > 0 then
 			local count = 0
 			for _ in pairs(self.controls.warnings.lines) do count = count + 1 end
-			control.str = string.format(colorCodes.NEGATIVE.."%d Warnings", count)
+			control.str = colorCodes.NEGATIVE .. localisation:Text('build.warning.count', { count = count })
 			local x, y = control:GetPos()
 			local width, height = control:GetSize()
 			DrawString(x, y + 2, "LEFT", 16, "FIXED", control.str)
@@ -635,10 +635,11 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 end
 
 function buildMode:SyncLoadouts(skipBuildPlannerSync)
-	self.controls.buildLoadouts.list = {"No Loadouts"}
+	self.controls.buildLoadouts.list = localisation:List({"No Loadouts"}, { "ui.build.loadouts.empty" })
 	self.loadoutsList = {}
 
 	local filteredList = {"^7^7Loadouts:"}
+	local loadoutKeys = { [1] = "ui.build.loadouts.heading" }
 	local filteredSpecs = {}
 	local treeList = {}
 	local itemList = {}
@@ -718,6 +719,9 @@ function buildMode:SyncLoadouts(skipBuildPlannerSync)
 			-- only exact match loadouts
 			if (oneItem or itemList[tree]) and (oneSkill or skillList[tree]) and (oneConfig or configList[tree]) then
 				t_insert(filteredList, tree)
+				if not spec.title and spec.treeVersion == latestTreeVersion then
+					loadoutKeys[#filteredList] = 'term.calculation_source.default'
+				end
 				t_insert(self.loadoutsList, filteredSpecs[id])
 			end
 		end
@@ -740,6 +744,10 @@ function buildMode:SyncLoadouts(skipBuildPlannerSync)
 	t_insert(filteredList, "^7^7Manage")
 	t_insert(filteredList, "^7^7Sync")
 	t_insert(filteredList, "^7^7Help >>")
+	loadoutKeys[#filteredList - 2] = "ui.build.loadouts.manage"
+	loadoutKeys[#filteredList - 1] = "ui.build.loadouts.sync"
+	loadoutKeys[#filteredList] = "ui.build.loadouts.help"
+	localisation:List(filteredList, loadoutKeys)
 
 	if #filteredList > 0 then
 		self.controls.buildLoadouts.list = filteredList
@@ -1404,8 +1412,10 @@ function buildMode:OnFrame(inputEvents)
 	if main.decimalSeparator ~= self.lastShowDecimalSeparator then
 		self:RefreshStatList()
 	end
-	if main.showTitlebarName ~= self.lastShowTitlebarName then
+	-- 窗口标题由原生接口输出，语言变化时也需重新读取职业显示资源。
+	if main.showTitlebarName ~= self.lastShowTitlebarName or self.lastTitleLanguage ~= localisation.language then
 		self.spec:SetWindowTitleWithBuildClass()
+		self.lastTitleLanguage = localisation.language
 	end
 
 	-- Update contents of main skill dropdowns
@@ -1557,9 +1567,9 @@ end
 
 function buildMode:OpenSavePopup(mode)
 	local modeDesc = {
-		["LIST"] = "now?",
-		["EXIT"] = "before exiting?",
-		["UPDATE"] = "before updating?",
+		["LIST"] = localisation:Ref("ui.build.open_save_popup.mode.now"),
+		["EXIT"] = localisation:Ref("ui.build.open_save_popup.mode.before_exiting"),
+		["UPDATE"] = localisation:Ref("ui.build.open_save_popup.mode.before_updating"),
 	}
 	local controls = { }
 	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, localisation:Label("ui.build.open_save_popup.label_2", { value = modeDesc[mode] }))
@@ -1767,7 +1777,7 @@ function buildMode:OpenSpectreLibrary(library)
 		local coldResist = library == "beast" and minion.companionColdResist or minion.coldResist
 		local lightningResist = library == "beast" and minion.companionLightningResist or minion.lightningResist
 		local chaosResist = library == "beast" and minion.companionChaosResist or minion.chaosResist
-		controls.minionNameLabel.labelText = "^7" .. minion.name
+		controls.minionNameLabel.minion = minion
 		controls.lifeLabel.lifeValue = round(totalLife)
 		controls.energyshieldLabel.energyShieldValue = round(totalES)
 		controls.armourLabel.armourValue = round(totalArmour)
@@ -1782,12 +1792,12 @@ function buildMode:OpenSpectreLibrary(library)
 		controls.movementSpeedLabel.movementSpeedValue = movementSpeed
 	end
 
-	local label = (library == "beast" and "Beasts" or "Spectres")
-	controls.list = new("MinionListControl"):MinionListControl(nil, { -230, 40, 210, 270 }, self.data, destList, nil, label .. " in Build:", library == "beast")
+	local label = localisation:Ref(library == "beast" and "minion.library.beasts" or "minion.library.spectres")
+	controls.list = new("MinionListControl"):MinionListControl(nil, { -230, 40, 210, 270 }, self.data, destList, nil, localisation:Label("minion.library.in_build", { kind = label }), library == "beast")
 	controls.list.OnSelect = function()
 			UpdateMinionDisplay(controls.list.selValue)
 	end
-	controls.source = new("MinionSearchListControl"):MinionSearchListControl(nil, { 0, 80, 210, 230 }, self.data, sourceList, controls.list, "^7Available " .. label .. ":", library == "beast")
+	controls.source = new("MinionSearchListControl"):MinionSearchListControl(nil, { 0, 80, 210, 230 }, self.data, sourceList, controls.list, localisation:Label("minion.library.available", { kind = label }), library == "beast")
 	controls.source.OnSelect = function()
 			UpdateMinionDisplay(controls.source.selValue)
 	end
@@ -1832,13 +1842,14 @@ function buildMode:OpenSpectreLibrary(library)
 	}
 	for _, monsterType in ipairs(monsterTypeCheckbox) do
 		local controlName = "sortMonsterCheckbox" .. monsterType.name
-		local checkbox = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.source, "BOTTOMLEFT" }, { monsterType.x, 30, 26, 26 }, "", monsterTypeCheckboxChange(monsterType.name), monsterType.name, true)
+		local checkbox = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.source, "BOTTOMLEFT" }, { monsterType.x, 30, 26, 26 }, "", monsterTypeCheckboxChange(monsterType.name), function() return localisation:Term("monster_category", monsterType.name, monsterType.name) end, true)
 		checkbox:SetCheckImage(self.monsterImages[monsterType.name])
 		checkbox.shown = library ~= "beast"
 		controls[controlName] = checkbox
 	end
-	controls.sortMonsterCheckboxShowAll = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.source, "BOTTOMLEFT" }, { 153, 2, 26, 26 }, "", monsterTypeCheckboxChange("recommendedList"), localisation:Label("ui.build.check_box_control.tooltip", { value = firstToUpper(library) }), false)
-	controls.showAllLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.sortMonsterCheckboxShowAll, "LEFT" }, { -5, 0, 0, 16 }, localisation:Label("ui.build.open_spectre_library.show_all_label.label", { value = firstToUpper(library) }))
+	local libraryName = localisation:Ref(library == "beast" and "minion.library.beast" or "minion.library.spectre")
+	controls.sortMonsterCheckboxShowAll = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.source, "BOTTOMLEFT" }, { 153, 2, 26, 26 }, "", monsterTypeCheckboxChange("recommendedList"), localisation:Label("ui.build.check_box_control.tooltip", { value = libraryName }), false)
+	controls.showAllLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.sortMonsterCheckboxShowAll, "LEFT" }, { -5, 0, 0, 16 }, localisation:Label("ui.build.open_spectre_library.show_all_label.label", { value = libraryName }))
 	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, 420, 80, 20 }, localisation:Label("ui.build.init.save.label"), function()
 		if library == "beast" then
 			self.beastList = destList
@@ -1872,7 +1883,7 @@ function buildMode:OpenSpectreLibrary(library)
 		SetDrawColor(0,0,0,1)
 		DrawImage(nil, xPos-76, yPos-8, 241, 34)
 		SetDrawColor(1, 1, 1)
-		DrawString(xPos + 45, yPos, "CENTER_X", 18, "VAR BOLD", self.labelText or localisation:Text("ui.build.open_spectre_library.minion_name_label_draw.message"))
+		DrawString(xPos + 45, yPos, "CENTER_X", 18, "VAR BOLD", self.minion and ("^7" .. localisation:Field(self.minion, 'name')) or localisation:Text("ui.build.open_spectre_library.minion_name_label_draw.message"))
 	end
 	controls.minionGemLevelLabel = new("LabelControl"):LabelControl({ "BOTTOM", controls.minionNameLabel, "TOP" }, { 24, 271, 0, 16 }, localisation:Label("ui.build.open_spectre_library.minion_gem_level_label.label"))
 	controls.minionGemLevel = new("EditControl"):EditControl({ "LEFT", controls.minionGemLevelLabel, "RIGHT" }, { 4, 0, 60, 20 }, 20, nil, "%D", 3, function()
@@ -1999,7 +2010,7 @@ function buildMode:OpenSpectreLibrary(library)
 			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.movementSpeedValue)
 		end
 	end
-	controls.spawnLocations = new("SpawnListControl"):SpawnListControl({ "TOP", controls.movementSpeedLabel, "TOP" }, { 2, 73, 244, 68 }, self.data, nil, "Spawns:")
+	controls.spawnLocations = new("SpawnListControl"):SpawnListControl({ "TOP", controls.movementSpeedLabel, "TOP" }, { 2, 73, 244, 68 }, self.data, nil, localisation:Label("minion.library.spawns"))
 end
 
 function buildMode:OpenSimilarPopup()
@@ -2048,7 +2059,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 	controls.mainSocketGroup.selIndex = mainGroup
 	wipeTable(controls.mainSocketGroup.list)
 	for i, socketGroup in pairs(self.skillsTab.socketGroupList) do
-		controls.mainSocketGroup.list[i] = { val = i, label = socketGroup.displayLabel }
+		controls.mainSocketGroup.list[i] = { val = i, label = socketGroup.displayLabel, labelDisplay = function() return localisation:SocketGroupName(socketGroup) end }
 	end
 	controls.mainSocketGroup:CheckDroppedWidth(true)
 	if controls.warnings then controls.warnings.shown = #controls.warnings.lines > 0 end
@@ -2071,7 +2082,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 			local explodeSource = activeSkill.activeEffect.srcInstance.explodeSource
 			local explodeSourceName = explodeSource and (explodeSource.name or explodeSource.dn)
 			local colourCoded = explodeSourceName and ("From "..colorCodes[explodeSource.rarity or "NORMAL"]..explodeSourceName)
-			t_insert(controls.mainSkill.list, { val = i, label = colourCoded or self.calcsTab.calcs.getActiveSkillDisplayName(activeSkill) })
+			t_insert(controls.mainSkill.list, { val = i, label = colourCoded or self.calcsTab.calcs.getActiveSkillDisplayName(activeSkill), labelDisplay = function() return localisation:ActiveSkillSelectionName(activeSkill) end })
 		end
 		controls.mainSkill.enabled = #displaySkillList > 1
 		controls.mainSkill.selIndex = mainActiveSkill
@@ -2090,7 +2101,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 			if activeEffect then
 				wipeTable(controls.statSet.list)
 				for i, statSet in ipairs(activeEffect.grantedEffect.statSets) do
-					t_insert(controls.statSet.list, { val = i, label = statSet.label, grantedEffectId = activeEffect.grantedEffect.id })
+					t_insert(controls.statSet.list, { val = i, label = statSet.label, labelKey = statSet.labelKey, grantedEffectId = activeEffect.grantedEffect.id })
 				end
 				controls.statSet.selIndex = activeEffect.srcInstance["statSet"..suffix] and activeEffect.srcInstance["statSet"..suffix][activeEffect.grantedEffect.id] or 1
 				controls.statSet.enabled = #controls.statSet.list > 1
@@ -2147,6 +2158,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 							if minion then
 								t_insert(controls.mainSkillMinion.list, {
 									label = minion.name,
+									labelKey = minion.nameKey,
 									minionId = minionId,
 								})
 							end
@@ -2159,14 +2171,15 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 					if activeSkill.minion then
 						if activeSkill.minion.activeSkillList and activeSkill.minion.activeSkillList[1] then
 							for _, minionSkill in ipairs(activeSkill.minion.activeSkillList) do
-								t_insert(controls.mainSkillMinionSkill.list, minionSkill.activeEffect.grantedEffect.name)
+								local effect = minionSkill.activeEffect.grantedEffect
+								t_insert(controls.mainSkillMinionSkill.list, { label = effect.name, labelKey = effect.nameKey })
 							end
 							controls.mainSkillMinionSkill.selIndex = activeEffect.srcInstance["skillMinionSkill"..suffix] or 1
 							controls.mainSkillMinionSkill.shown = true
 							controls.mainSkillMinionSkill.enabled = #controls.mainSkillMinionSkill.list > 1
 							wipeTable(controls.mainSkillMinionSkillStatSet.list)
 							for _, statSet in ipairs(activeSkill.minion.activeSkillList[controls.mainSkillMinionSkill.selIndex].activeEffect.grantedEffect.statSets) do
-								t_insert(controls.mainSkillMinionSkillStatSet.list, {label =  statSet.label, grantedEffectId = activeEffect.grantedEffect.id})
+								t_insert(controls.mainSkillMinionSkillStatSet.list, {label =  statSet.label, labelKey = statSet.labelKey, grantedEffectId = activeEffect.grantedEffect.id})
 							end
 							local minionStatSetIndexLookup = activeEffect.srcInstance["skillMinionSkillStatSetIndexLookup"..suffix]
 							controls.mainSkillMinionSkillStatSet.selIndex = minionStatSetIndexLookup and minionStatSetIndexLookup[activeEffect.grantedEffect.id] and minionStatSetIndexLookup[activeEffect.grantedEffect.id][controls.mainSkillMinionSkill.selIndex] or 1
@@ -2382,12 +2395,13 @@ function buildMode:AddDisplayStatList(statList, actor, actorName)
 						for _, skillData in ipairs(actor.output.SkillDPS) do
 							local triggerStr = ""
 							if skillData.trigger and skillData.trigger ~= "" then
-								triggerStr = colorCodes.WARNING.." ("..skillData.trigger..")"..labelColor
+								triggerStr = colorCodes.WARNING.." ("..localisation:Field(skillData, 'trigger')..")"..labelColor
 							end
 							local skillCount = skillData.count or 1
-							local lhsString = labelColor..skillData.name..triggerStr..":"
+							local skillName = localisation:Field(skillData, 'name')
+							local lhsString = labelColor..skillName..triggerStr..":"
 							if skillCount ~= 1 then
-								lhsString = labelColor..s_format("%g", skillCount).."x "..skillData.name..triggerStr..":"
+								lhsString = labelColor..s_format("%g", skillCount).."x "..skillName..triggerStr..":"
 							end
 							t_insert(statBoxList, {
 								height = 16,
@@ -2398,14 +2412,14 @@ function buildMode:AddDisplayStatList(statList, actor, actorName)
 								t_insert(statBoxList, {
 									height = 14,
 									align = "CENTER_X", x = 140,
-									"^8"..skillData.skillPart,
+									"^8"..localisation:Field(skillData, 'skillPart'),
 								})
 							end
 							if skillData.source then
 								t_insert(statBoxList, {
 									height = 14,
 									align = "CENTER_X", x = 140,
-									colorCodes.WARNING .. localisation:Text("ui.build.sidebar.add_display_stat_list", { source = skillData.source }),
+									colorCodes.WARNING .. localisation:Text("ui.build.sidebar.add_display_stat_list", { source = localisation:Field(skillData, 'source') }),
 								})
 							end
 						end
@@ -2507,7 +2521,7 @@ function buildMode:InsertItemWarnings()
 	end
 	if self.calcsTab.mainEnv.itemWarnings.lineageSupportGemLimitWarning then
 		for _, warning in ipairs(self.calcsTab.mainEnv.itemWarnings.lineageSupportGemLimitWarning) do
-			InsertIfNew(self.controls.warnings.lines, localisation:Text("ui.build.warning.insert_item_warnings_4", { value = warning[1], value_2 = warning[2], value_3 = ((warning[3] and " Locations: "..table.concat(warning[3], ", ")) or "") }))
+			InsertIfNew(self.controls.warnings.lines, localisation:Text("ui.build.warning.insert_item_warnings_4", { value = warning[1], value_2 = warning[2], value_3 = warning[3] and localisation:Ref("ui.build.warning.lineage_locations", { locations = table.concat(warning[3], ", ") }) or "" }))
 		end
 	end
 	if self.calcsTab.mainEnv.itemWarnings.gemGroupCountWarning then

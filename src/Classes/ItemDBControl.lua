@@ -270,6 +270,7 @@ function ItemDBClass:ListBuilder()
 			local now = GetTime()
 			if now - start > 50 then
 				self.defaultText = "^7Sorting... ("..m_floor(itemIndex/#list*100).."%)"
+				self.defaultTextKey, self.defaultTextParams = 'ui.item_dbcontrol.sorting', { percent = m_floor(itemIndex/#list*100) }
 				coroutine.yield()
 				start = now
 			end
@@ -300,6 +301,7 @@ function ItemDBClass:ListBuilder()
 
 	self.list = list
 	self.defaultText = "^7No items found that match those filters."
+	self.defaultTextKey, self.defaultTextParams = 'ui.item_dbcontrol.no_matches', nil
 end
 
 function ItemDBClass:Draw(viewPort)
@@ -323,6 +325,7 @@ function ItemDBClass:Draw(viewPort)
 	end
 	if self.db.loading then
 		self.defaultText = "^7Loading..."
+		self.defaultTextKey, self.defaultTextParams = 'ui.item_dbcontrol.loading', nil
 	elseif not self.leaguesAndTypesLoaded then
 		self:LoadLeaguesAndTypes()
 	end

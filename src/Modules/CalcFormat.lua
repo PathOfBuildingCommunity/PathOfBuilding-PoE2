@@ -9,6 +9,13 @@
 --
 local t_insert = table.insert
 
+-- 投射物状态按输出字段的枚举身份解析，数值及原始计算输出保持不变。
+local outputStateKeys = {
+	PierceCountString = { ['Cannot pierce'] = 'calcs.projectile.cannot_pierce', ['All targets'] = 'calcs.projectile.all_targets' },
+	ForkCountString = { ['Cannot fork'] = 'calcs.projectile.cannot_fork' },
+	SplitCountString = { ['Cannot split'] = 'calcs.projectile.cannot_split' },
+}
+
 function formatCalcVal(val, p)
 	return formatNumSep(tostring(round(val, p)))
 end
@@ -75,7 +82,12 @@ end
 
 --- <summary>先按原计算 DSL 求命名参数，再由稳定 key 决定完整显示句子的语序。</summary>
 function formatCalcField(object, field, actor, colData)
-	if not object[field .. 'Key'] then return formatCalcStr(object[field], actor, colData) end
+	if not object[field .. 'Key'] then
+		local value = formatCalcStr(object[field], actor, colData)
+		local output = object[field]:match('^{output:([%a]+)}$')
+		local key = output and outputStateKeys[output] and outputStateKeys[output][value]
+		return key and localisation:Text(key) or value
+	end
 	local parameters = { }
 	for name, token in pairs(object[field .. 'Tokens'] or { }) do parameters[name] = formatCalcStr(token, actor, colData) end
 	return localisation:Field(object, field, parameters)

@@ -397,7 +397,7 @@ function GemTooltip.AddGemTooltip(tooltip, build, gemInstance, options)
 		tooltip:AddSeparator(10)
 		tooltip:AddLine(14, colorCodes.TIP .. localisation:Text("ui.gem_tooltip.add_gem_tooltip.tooltip_4"))
 		if gemInstance.note and gemInstance.note ~= "" then
-			tooltip:AddBuildPlannerNote(14, gemInstance.note, "^7Note: ")
+			tooltip:AddBuildPlannerNote(14, gemInstance.note, "^7" .. localisation:Text("build_note.prefix"))
 		end
 	end
 end

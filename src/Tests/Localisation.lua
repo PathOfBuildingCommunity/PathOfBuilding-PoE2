@@ -15,6 +15,7 @@ end
 
 local languageList = Languages.List()
 dofile('Tests/LocalisationMessages.lua')(equal)
+dofile('Tests/LocalisationInputNames.lua')(equal)
 equal(#languageList, 5, '当前语言数量')
 equal(languageList[1].id, 'en', '英文语言顺序')
 equal(Languages.Default().id, 'en', '默认语言')
@@ -41,6 +42,33 @@ equal(dictionary:Translate('旧值 12', true), '旧值 12', '被覆盖的旧译�
 dictionary:Add('{0}s', '{0} 秒')
 equal(dictionary:Translate('Requires'), 'Requires', '秒数模板不匹配普通英文单词')
 equal(dictionary:Translate('12.5s'), '12.5 秒', '秒数模板仍可转换数值')
+
+-- 模板索引必须保留两端占位符、长模板优先、空捕获和反向歧义。
+local indexed = Dictionary.New()
+equal(indexed:Translate('未知文本'), '未知文本', '空词典仍保护未知输入')
+indexed:Add('Level {0}', '等级 {0}')
+indexed:Add('{0} increased Armour', '护甲提高 {0}')
+indexed:Add('{0} : {1}', '{1} / {0}')
+indexed:Add('left{0}right', '中{0}文')
+indexed:Add('({0})%', '百分之 {0}')
+indexed:Add('Long prefix {0}', 'Specific {0}')
+indexed:Add('{0} suffix', 'Generic {0}')
+equal(indexed:Translate('Level 12'), '等级 12', '固定前缀模板')
+equal(indexed:Translate('25 increased Armour'), '护甲提高 25', '固定后缀模板')
+equal(indexed:Translate('a : b'), 'b / a', '两端都是占位符仍匹配')
+equal(indexed:Translate('leftright'), '中文', '模板中间允许空捕获')
+equal(indexed:Translate('(25)%'), '百分之 25', '模板字面符号不作为模式执行')
+equal(indexed:Translate('Long prefix value suffix'), 'Specific Generic value', '跨前后缀候选仍按原长度优先')
+equal(indexed:Translate('护甲提高 25', true), '25 increased Armour', '中文前缀反向模板')
+equal(indexed:Translate('等级 12', true), 'Level 12', '中文模板反向转换')
+indexed:Add('Repeated {0} and {0}', '重复 {0}')
+equal(indexed:Translate('Repeated 12 and 12'), '重复 12', '重复占位符保持一致')
+equal(indexed:Translate('Repeated 12 and 13'), 'Repeated 12 and 13', '重复占位符冲突保留原文')
+indexed:Add('Other {0} Armour', '护甲提高 {0}')
+equal(indexed:Translate('护甲提高 25', true), '护甲提高 25', '跨索引候选的反向冲突不静默选择')
+indexed:Add('Level {0}', '新等级 {0}')
+equal(indexed:Translate('Level 12'), '新等级 12', '覆盖模板后重建候选索引')
+equal(indexed:Translate('等级 12', true), '等级 12', '旧的反向模板随覆盖失效')
 
 dictionary = Dictionary.New()
 local start = os.clock(); dictionary:LoadFolder('Locales/zh-CN')
@@ -101,6 +129,17 @@ equal(font:Cursor(16, '中文', 999, 0), 7, '中文末尾')
 equal(font:Cursor(16, '中文\nA', 0, 17), 8, '第二行字节索引')
 equal(font:Layout(16, '^7中文').width, font:Layout(16, '中文').width, '颜色码零宽')
 for _, cp in ipairs({ 0x4e2d, 0x6587, 0x7b80, 0x9ad4 }) do assert(font.metrics.glyphs[cp], '缺少中文字形') end
+
+-- 连续中文和混合长词都必须按实际宽度换行，颜色码与正文字符保持完整。
+for _, text in ipairs({ '中文说明没有空格也必须正确换行', '^7中文^xF05050说明 A longwordabcdefghijklmnop 中文', '中文\nEnglish\n', '中文 abcdefghijklmnopqrstuvwxyz 中文', '  中文\t测试  空白' }) do
+	for _, maximumWidth in ipairs({ 32, 64, 120 }) do
+		local lines = font:Wrap(16, text, maximumWidth)
+		equal(table.concat(lines):gsub('%s', ''), text:gsub('%s', ''), '自动换行保留全部正文和颜色码')
+		for _, line in ipairs(lines) do
+			equal(font:Layout(16, line).width <= maximumWidth, true, '自动换行不超出字形宽度')
+		end
+	end
+end
 
 -- 所有改动 Lua 文件必须在官方 LuaJIT 下可编译。
 for _, file in ipairs({ 'Launch.lua', 'Modules/Main.lua', 'Modules/Common.lua', 'Classes/EditControl.lua', 'Classes/GemSelectControl.lua', 'Classes/ImportTab.lua', 'Classes/ItemsTab.lua', 'Modules/Localisation.lua' }) do

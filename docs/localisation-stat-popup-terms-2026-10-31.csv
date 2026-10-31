@@ -1,0 +1,138 @@
+identity,key,en,zh-CN,zh-TW,fixtures,observed_calls,new_in_batch
+Accuracy,term.calculation_modifier.accuracy,Accuracy,命中值,命中值,goodnerfing;resurrectgodaura;xxthewizardofosu,24,True
+ActionSpeed,term.calculation_modifier.action_speed,Action Speed,行动速度,行動速度,goodnerfing;resurrectgodaura;xxthewizardofosu,18,True
+AilmentMagnitude,term.calculation_modifier.ailment_magnitude,Ailment Magnitude,异常状态幅度,異常狀態幅度,goodnerfing,36,True
+AilmentThreshold,term.calculation_modifier.ailment_threshold,Ailment Threshold,异常状态门槛,異常狀態門檻,goodnerfing;resurrectgodaura;xxthewizardofosu,12,True
+AllocatedConnectedNotable,term.calculation_modifier.allocated_connected_notable,Allocated Connected Notable,已分配相连的核心天赋,已配置相連的核心天賦,xxthewizardofosu,3,True
+Armour,term.calculation_modifier.armour,Armour,护甲,護甲,goodnerfing;resurrectgodaura;xxthewizardofosu,204,True
+ArmourAppliesToChaosDamageTaken,term.calculation_modifier.armour_applies_to_chaos_damage_taken,Armour Applies To Chaos Damage Taken,护甲适用于承受的混沌伤害,護甲套用於承受的混沌傷害,xxthewizardofosu,3,True
+ArmourAppliesToColdDamageTaken,term.calculation_modifier.armour_applies_to_cold_damage_taken,Armour Applies To Cold Damage Taken,护甲适用于承受的冰霜伤害,護甲套用於承受的冰冷傷害,goodnerfing;xxthewizardofosu,33,True
+ArmourAppliesToFireDamageTaken,term.calculation_modifier.armour_applies_to_fire_damage_taken,Armour Applies To Fire Damage Taken,护甲适用于承受的火焰伤害,護甲套用於承受的火焰傷害,goodnerfing;xxthewizardofosu,33,True
+ArmourAppliesToLightningDamageTaken,term.calculation_modifier.armour_applies_to_lightning_damage_taken,Armour Applies To Lightning Damage Taken,护甲适用于承受的闪电伤害,護甲套用於承受的閃電傷害,goodnerfing;xxthewizardofosu,33,True
+ArmourOnBody Armour,term.calculation_modifier.armour_on_body_armour,Armour On Body Armour,胸甲上的护甲,胸甲上的護甲,xxthewizardofosu,3,True
+ArmourOnBoots,term.calculation_modifier.armour_on_boots,Armour On Boots,鞋子上的护甲,鞋子上的護甲,xxthewizardofosu,3,True
+ArmourOnGloves,term.calculation_modifier.armour_on_gloves,Armour On Gloves,手套上的护甲,手套上的護甲,xxthewizardofosu,3,True
+ArmourOnHelmet,term.calculation_modifier.armour_on_helmet,Armour On Helmet,头盔上的护甲,頭盔上的護甲,xxthewizardofosu,3,True
+ArmourOnWeapon 2,term.calculation_modifier.armour_on_weapon_2,Armour On Weapon 2,副手武器上的护甲,副手武器上的護甲,goodnerfing;xxthewizardofosu,6,True
+Attack,term.calculation_modifier.attack,Attack,攻击,攻擊,goodnerfing,3,True
+Aura,term.calculation_modifier.aura,Aura,光环,光環,resurrectgodaura,6,True
+AuraDebuff,term.calculation_modifier.aura_debuff,Aura Debuff,光环减益,光環減益,goodnerfing,12,True
+BarrageRepeatDamage,term.calculation_modifier.barrage_repeat_damage,Barrage Repeat Damage,弹幕重复伤害,彈幕重複傷害,resurrectgodaura,3,True
+BarrageRepeats,term.calculation_modifier.barrage_repeats,Barrage Repeats,弹幕重复次数,彈幕重複次數,resurrectgodaura,6,True
+BeenHitRecently,term.calculation_modifier.been_hit_recently,Been Hit Recently,近期被击中,近期被擊中,goodnerfing;xxthewizardofosu,9,True
+BlockChance,term.calculation_modifier.block_chance,Block Chance,格挡率,格擋率,goodnerfing;xxthewizardofosu,6,True
+Buff,term.calculation_modifier.buff,Buff,增益效果,增益效果,goodnerfing;resurrectgodaura;xxthewizardofosu,159,False
+CannotConsumeCharges,term.calculation_modifier.cannot_consume_charges,Cannot Consume Charges,无法消耗能量球,無法消耗能量球,resurrectgodaura,3,True
+ChaosResist,term.calculation_modifier.chaos_resist,Chaos Resist,混沌抗性,混沌抗性,goodnerfing;resurrectgodaura;xxthewizardofosu,33,True
+ChaosResistMax,term.calculation_modifier.chaos_resist_max,Chaos Resist Max,混沌抗性上限,混沌抗性上限,goodnerfing;resurrectgodaura;xxthewizardofosu,9,True
+ChargeDuration,term.calculation_modifier.charge_duration,Charge Duration,能量球持续时间,能量球持續時間,goodnerfing;resurrectgodaura;xxthewizardofosu,27,True
+Chilled,term.calculation_modifier.chilled,Chilled,受到冰缓,受到冰緩,goodnerfing;resurrectgodaura;xxthewizardofosu,21,True
+ColdResist,term.calculation_modifier.cold_resist,Cold Resist,冰霜抗性,冰冷抗性,goodnerfing;resurrectgodaura;xxthewizardofosu,63,True
+ColdResistMax,term.calculation_modifier.cold_resist_max,Cold Resist Max,冰霜抗性上限,冰冷抗性上限,goodnerfing;resurrectgodaura;xxthewizardofosu,12,True
+CombatFrenzyCooldown,term.calculation_modifier.combat_frenzy_cooldown,Combat Frenzy Cooldown,战斗狂怒冷却时间,戰鬥狂怒冷卻時間,resurrectgodaura,3,True
+Condition:CanArmourBreak,term.calculation_modifier.condition_can_armour_break,Condition: Can Armour Break,条件：可以破坏护甲,條件：可以破壞護甲,xxthewizardofosu,3,True
+Condition:CanGainRage,term.calculation_modifier.condition_can_gain_rage,Condition: Can Gain Rage,条件：可以获得怒火,條件：可以獲得盛怒,goodnerfing;resurrectgodaura;xxthewizardofosu,9,True
+Condition:CanInflictIncision,term.calculation_modifier.condition_can_inflict_incision,Condition: Can Inflict Incision,条件：可以施加创口,條件：可以施加切割,goodnerfing,3,True
+Condition:EnemiesExplode,term.calculation_modifier.condition_enemies_explode,Condition: Enemies Explode,条件：敌人爆炸,條件：敵人爆炸,resurrectgodaura,3,True
+CritChance,term.calculation_modifier.crit_chance,Crit Chance,暴击率,暴擊率,goodnerfing;resurrectgodaura,69,False
+CritInPast8Sec,term.calculation_modifier.crit_in_past8_sec,Crit In Past 8 Sec,过去8秒内造成暴击,過去8秒內造成暴擊,resurrectgodaura,6,True
+CritRecently,term.calculation_modifier.crit_recently,Crit Recently,近期造成暴击,近期造成暴擊,resurrectgodaura,21,True
+Curse,term.calculation_modifier.curse,Curse,诅咒,詛咒,goodnerfing;resurrectgodaura;xxthewizardofosu,12,True
+CurseEffectOnSelf,term.calculation_modifier.curse_effect_on_self,Curse Effect On Self,自身承受的诅咒效果,自身承受的詛咒效果,goodnerfing;resurrectgodaura;xxthewizardofosu,45,True
+DamageGainAsChaos,term.calculation_modifier.damage_gain_as_chaos,Damage Gain As Chaos,伤害获得额外混沌伤害,傷害獲得額外混沌傷害,xxthewizardofosu,15,True
+DamageGainAsCold,term.calculation_modifier.damage_gain_as_cold,Damage Gain As Cold,伤害获得额外冰霜伤害,傷害獲得額外冰冷傷害,goodnerfing;resurrectgodaura,90,True
+DamageGainAsFire,term.calculation_modifier.damage_gain_as_fire,Damage Gain As Fire,伤害获得额外火焰伤害,傷害獲得額外火焰傷害,goodnerfing;resurrectgodaura;xxthewizardofosu,123,True
+DamageGainAsLightning,term.calculation_modifier.damage_gain_as_lightning,Damage Gain As Lightning,伤害获得额外闪电伤害,傷害獲得額外閃電傷害,goodnerfing;resurrectgodaura,60,True
+DamageGainAsPhysical,term.calculation_modifier.damage_gain_as_physical,Damage Gain As Physical,伤害获得额外物理伤害,傷害獲得額外物理傷害,xxthewizardofosu,30,True
+DistanceRamp,term.calculation_modifier.distance_ramp,Distance Ramp,随距离变化,隨距離變化,xxthewizardofosu,3,True
+Effective,term.calculation_modifier.effective,Effective,有效伤害模式,有效傷害模式,goodnerfing;resurrectgodaura;xxthewizardofosu,75,True
+ElementalDamage,term.calculation_modifier.elemental_damage,Elemental Damage,元素伤害,元素傷害,resurrectgodaura,9,True
+ElementalResist,term.calculation_modifier.elemental_resist,Elemental Resist,元素抗性,元素抗性,goodnerfing;resurrectgodaura;xxthewizardofosu,117,True
+EnduranceCharges,term.calculation_modifier.endurance_charges,Endurance Charges,耐力球,耐力球,resurrectgodaura,18,False
+EnduranceChargesMax,term.calculation_modifier.endurance_charges_max,Endurance Charges Max,耐力球上限,耐力球上限,goodnerfing;resurrectgodaura;xxthewizardofosu,12,True
+EnemyAilmentThreshold,term.calculation_modifier.enemy_ailment_threshold,Enemy Ailment Threshold,敌人异常状态门槛,敵人異常狀態門檻,goodnerfing,6,True
+EnemyBleedDuration,term.calculation_modifier.enemy_bleed_duration,Enemy Bleed Duration,敌人流血持续时间,敵人流血持續時間,goodnerfing,3,True
+EnemyCurseLimit,term.calculation_modifier.enemy_curse_limit,Enemy Curse Limit,敌人可承受的诅咒上限,敵人可承受的詛咒上限,goodnerfing;resurrectgodaura;xxthewizardofosu,9,True
+EnemyFreezeBuildup,term.calculation_modifier.enemy_freeze_buildup,Enemy Freeze Buildup,敌人冻结积累,敵人冰凍累積,resurrectgodaura,6,True
+EnemyHeavyStunBuildup,term.calculation_modifier.enemy_heavy_stun_buildup,Enemy Heavy Stun Buildup,敌人重度晕眩积累,敵人重度暈眩累積,goodnerfing;xxthewizardofosu,36,True
+EnemyIgniteDuration,term.calculation_modifier.enemy_ignite_duration,Enemy Ignite Duration,敌人点燃持续时间,敵人點燃持續時間,goodnerfing,3,True
+EnemyImmobilisationBuildup,term.calculation_modifier.enemy_immobilisation_buildup,Enemy Immobilisation Buildup,敌人不可移动积累,敵人無法移動累積,resurrectgodaura,6,True
+EnemyStunDuration,term.calculation_modifier.enemy_stun_duration,Enemy Stun Duration,敌人晕眩持续时间,敵人暈眩持續時間,xxthewizardofosu,3,True
+EnemyStunThreshold,term.calculation_modifier.enemy_stun_threshold,Enemy Stun Threshold,敌人晕眩门槛,敵人暈眩門檻,goodnerfing,6,True
+EnergyShield,term.calculation_modifier.energy_shield,Energy Shield,能量护盾,能量護盾,goodnerfing;resurrectgodaura;xxthewizardofosu,51,True
+Evasion,term.calculation_modifier.evasion,Evasion,闪避值,閃避值,goodnerfing;resurrectgodaura;xxthewizardofosu,231,True
+EvasionOnBody Armour,term.calculation_modifier.evasion_on_body_armour,Evasion On Body Armour,胸甲上的闪避值,胸甲上的閃避值,resurrectgodaura,3,True
+EvasionOnWeapon 2,term.calculation_modifier.evasion_on_weapon_2,Evasion On Weapon 2,副手武器上的闪避值,副手武器上的閃避值,goodnerfing;xxthewizardofosu,6,True
+FireDamage,term.calculation_modifier.fire_damage,Fire Damage,火焰伤害,火焰傷害,goodnerfing;xxthewizardofosu,12,True
+FireMax,term.calculation_modifier.fire_max,Fire Max,最大火焰伤害,最大火焰傷害,xxthewizardofosu,3,True
+FireMin,term.calculation_modifier.fire_min,Fire Min,最小火焰伤害,最小火焰傷害,xxthewizardofosu,3,True
+FirePenetration,term.calculation_modifier.fire_penetration,Fire Penetration,火焰抗性穿透,火焰抗性穿透,xxthewizardofosu,3,True
+FireResist,term.calculation_modifier.fire_resist,Fire Resist,火焰抗性,火焰抗性,goodnerfing;resurrectgodaura;xxthewizardofosu,72,True
+FireResistMax,term.calculation_modifier.fire_resist_max,Fire Resist Max,火焰抗性上限,火焰抗性上限,goodnerfing;resurrectgodaura;xxthewizardofosu,12,True
+FlaskLifeRecovery,term.calculation_modifier.flask_life_recovery,Flask Life Recovery,药剂生命回复,藥劑生命恢復,xxthewizardofosu,3,True
+FreezeImmune,term.calculation_modifier.freeze_immune,Freeze Immune,免疫冻结,免疫冰凍,goodnerfing;resurrectgodaura,6,True
+FrenzyCharges,term.calculation_modifier.frenzy_charges,Frenzy Charges,狂怒球,狂怒球,resurrectgodaura,12,False
+FrenzyChargesMax,term.calculation_modifier.frenzy_charges_max,Frenzy Charges Max,狂怒球上限,狂怒球上限,goodnerfing;resurrectgodaura;xxthewizardofosu,9,True
+GemCorruptionLevel,term.calculation_modifier.gem_corruption_level,Gem Corruption Level,宝石腐化等级,寶石汙染等級,goodnerfing;xxthewizardofosu,6,True
+GemGlobalLevel,term.calculation_modifier.gem_global_level,Gem Global Level,全局宝石等级,全域寶石等級,goodnerfing;xxthewizardofosu,18,True
+GemGlobalQuality,term.calculation_modifier.gem_global_quality,Gem Global Quality,全局宝石品质,全域寶石品質,goodnerfing,3,True
+GemLevel,term.calculation_modifier.gem_level,Gem Level,宝石等级,寶石等級,goodnerfing;resurrectgodaura;xxthewizardofosu,9,True
+GemQuality,term.calculation_modifier.gem_quality,Gem Quality,宝石品质,寶石品質,goodnerfing;resurrectgodaura;xxthewizardofosu,9,True
+Global,term.calculation_modifier.global,Global,全局,全域,resurrectgodaura;xxthewizardofosu,72,True
+HeraldOfAshBuff,term.calculation_modifier.herald_of_ash_buff,Herald Of Ash Buff,灰烬之捷增益,灰燼之捷增益,xxthewizardofosu,3,True
+IgniteImmune,term.calculation_modifier.ignite_immune,Ignite Immune,免疫点燃,免疫點燃,resurrectgodaura,3,True
+Ignited,term.calculation_modifier.ignited,Ignited,受到点燃,受到點燃,resurrectgodaura,3,True
+IgnoreMovementPenalties,term.calculation_modifier.ignore_movement_penalties,Ignore Movement Penalties,无视移动速度惩罚,無視移動速度懲罰,goodnerfing;resurrectgodaura,9,True
+ItemCondition,term.calculation_modifier.item_condition,Item Condition,物品条件,物品條件,xxthewizardofosu,36,True
+Level,term.calculation_modifier.level,Level,等级,等級,goodnerfing;resurrectgodaura;xxthewizardofosu,27,True
+Life,term.calculation_modifier.life,Life,生命,生命,goodnerfing;resurrectgodaura;xxthewizardofosu,30,True
+LifeCost,term.calculation_modifier.life_cost,Life Cost,生命消耗,生命消耗,xxthewizardofosu,15,True
+LifeOnKill,term.calculation_modifier.life_on_kill,Life On Kill,击杀生命回复,擊殺生命恢復,goodnerfing;resurrectgodaura;xxthewizardofosu,9,True
+LifeRecoup,term.calculation_modifier.life_recoup,Life Recoup,生命补偿,生命補償,xxthewizardofosu,6,True
+LifeRegen,term.calculation_modifier.life_regen,Life Regen,生命再生,生命再生,resurrectgodaura;xxthewizardofosu,6,True
+LifeRegenPercent,term.calculation_modifier.life_regen_percent,Life Regen Percent,生命再生百分比,生命再生百分比,goodnerfing;resurrectgodaura;xxthewizardofosu,24,True
+LightningResist,term.calculation_modifier.lightning_resist,Lightning Resist,闪电抗性,閃電抗性,goodnerfing;resurrectgodaura;xxthewizardofosu,57,True
+LightningResistMax,term.calculation_modifier.lightning_resist_max,Lightning Resist Max,闪电抗性上限,閃電抗性上限,goodnerfing;resurrectgodaura;xxthewizardofosu,12,True
+Mana,term.calculation_modifier.mana,Mana,魔力,魔力,resurrectgodaura,3,True
+ManaCost,term.calculation_modifier.mana_cost,Mana Cost,魔力消耗,魔力消耗,goodnerfing,3,True
+ManaRegen,term.calculation_modifier.mana_regen,Mana Regen,魔力再生,魔力再生,goodnerfing;resurrectgodaura,21,True
+MovementSpeed,term.calculation_modifier.movement_speed,Movement Speed,移动速度,移動速度,goodnerfing;resurrectgodaura;xxthewizardofosu,36,True
+Multiplier:PredatorsMarkLimit,term.calculation_modifier.multiplier_predators_mark_limit,Multiplier: Predators Mark Limit,计数：掠食者印记上限,計數：掠食者印記上限,goodnerfing;xxthewizardofosu,6,True
+Multiplier:ScavengedPlatingStacksLimit,term.calculation_modifier.multiplier_scavenged_plating_stacks_limit,Multiplier: Scavenged Plating Stacks Limit,计数：装甲回收层数上限,計數：拾荒者護板層數上限,goodnerfing,3,True
+NoInherentManaRegen,term.calculation_modifier.no_inherent_mana_regen,No Inherent Mana Regen,无固有魔力再生,無固有魔力再生,resurrectgodaura,3,True
+PhysicalDamageFromHitsTakenAsChaos,term.calculation_modifier.physical_damage_from_hits_taken_as_chaos,Physical Damage From Hits Taken As Chaos,承受的物理击中伤害转为混沌伤害,承受的物理擊中傷害轉為混沌傷害,goodnerfing,6,True
+PhysicalDamageFromHitsTakenAsFire,term.calculation_modifier.physical_damage_from_hits_taken_as_fire,Physical Damage From Hits Taken As Fire,承受的物理击中伤害转为火焰伤害,承受的物理擊中傷害轉為火焰傷害,xxthewizardofosu,6,True
+PhysicalDamageLifeLeech,term.calculation_modifier.physical_damage_life_leech,Physical Damage Life Leech,物理伤害生命偷取,物理傷害生命偷取,goodnerfing;xxthewizardofosu,9,True
+PhysicalDamageReduction,term.calculation_modifier.physical_damage_reduction,Physical Damage Reduction,物理伤害减免,物理傷害減免,goodnerfing;xxthewizardofosu,6,True
+PhysicalDamageTakenAsFire,term.calculation_modifier.physical_damage_taken_as_fire,Physical Damage Taken As Fire,承受的物理伤害转为火焰伤害,承受的物理傷害轉為火焰傷害,xxthewizardofosu,15,True
+PhysicalHeavyStunBuildup,term.calculation_modifier.physical_heavy_stun_buildup,Physical Heavy Stun Buildup,物理伤害重度晕眩积累,物理傷害重度暈眩累積,goodnerfing;resurrectgodaura;xxthewizardofosu,9,True
+PierceAllTargets,term.calculation_modifier.pierce_all_targets,Pierce All Targets,穿透所有目标,穿透所有目標,resurrectgodaura,3,True
+PoiseThreshold,term.calculation_modifier.poise_threshold,Poise Threshold,控制积累门槛,控場累積門檻,goodnerfing;resurrectgodaura;xxthewizardofosu,30,True
+PowerCharges,term.calculation_modifier.power_charges,Power Charges,暴击球,暴擊球,resurrectgodaura,6,False
+PowerChargesMax,term.calculation_modifier.power_charges_max,Power Charges Max,暴击球上限,暴擊球上限,goodnerfing;resurrectgodaura;xxthewizardofosu,9,True
+ProjectileCount,term.calculation_modifier.projectile_count,Projectile Count,投射物数量,投射物數量,resurrectgodaura,3,True
+Rage,term.calculation_modifier.rage,Rage,怒火,盛怒,goodnerfing,6,True
+RageRegen,term.calculation_modifier.rage_regen,Rage Regen,怒火再生,盛怒再生,goodnerfing,6,True
+RareOrUnique,term.calculation_modifier.rare_or_unique,Rare Or Unique,稀有或传奇敌人,稀有或傳奇敵人,resurrectgodaura;xxthewizardofosu,6,True
+RemovableFrenzyCharge,term.calculation_modifier.removable_frenzy_charge,Removable Frenzy Charge,可移除的狂怒球,可移除的狂怒球,resurrectgodaura,3,True
+SelfCritMultiplier,term.calculation_modifier.self_crit_multiplier,Self Crit Multiplier,受到暴击的伤害加成,受到暴擊的傷害加成,resurrectgodaura,3,True
+SequentialProjectiles,term.calculation_modifier.sequential_projectiles,Sequential Projectiles,连续发射投射物,連續發射投射物,resurrectgodaura,3,True
+ShockImmune,term.calculation_modifier.shock_immune,Shock Immune,免疫感电,免疫感電,goodnerfing;xxthewizardofosu,6,True
+SkillMovementSpeed,term.calculation_modifier.skill_movement_speed,Skill Movement Speed,技能使用期间移动速度,技能使用期間移動速度,resurrectgodaura,3,True
+Speed,term.calculation_modifier.speed,Speed,速度,速度,resurrectgodaura,3,True
+SpellDodgeChanceMax,term.calculation_modifier.spell_dodge_chance_max,Spell Dodge Chance Max,法术躲避率上限,法術躲避率上限,goodnerfing;resurrectgodaura;xxthewizardofosu,9,True
+Str,term.calculation_modifier.str,Str,力量,力量,goodnerfing,3,True
+StrRequirementsOnBoots,term.calculation_modifier.str_requirements_on_boots,Str Requirements On Boots,鞋子的力量需求,鞋子的力量需求,xxthewizardofosu,3,True
+StrRequirementsOnGloves,term.calculation_modifier.str_requirements_on_gloves,Str Requirements On Gloves,手套的力量需求,手套的力量需求,xxthewizardofosu,3,True
+StrRequirementsOnHelmet,term.calculation_modifier.str_requirements_on_helmet,Str Requirements On Helmet,头盔的力量需求,頭盔的力量需求,xxthewizardofosu,3,True
+StunThreshold,term.calculation_modifier.stun_threshold,Stun Threshold,晕眩门槛,暈眩門檻,goodnerfing;resurrectgodaura;xxthewizardofosu,42,True
+TotemPlacementSpeed,term.calculation_modifier.totem_placement_speed,Totem Placement Speed,图腾放置速度,圖騰放置速度,resurrectgodaura,3,True
+UsesWarcryPower,term.calculation_modifier.uses_warcry_power,Uses Warcry Power,使用战吼威能,使用戰吼威能,goodnerfing;xxthewizardofosu,9,True
+UsingFlask,term.calculation_modifier.using_flask,Using Flask,药剂生效期间,藥劑效果期間,resurrectgodaura,6,False
+UsingShield,term.calculation_modifier.using_shield,Using Shield,使用盾牌,使用盾牌,goodnerfing;xxthewizardofosu,18,True
+Warcry,term.calculation_modifier.warcry,Warcry,战吼,戰吼,goodnerfing;xxthewizardofosu,9,True
+WarcrySpeed,term.calculation_modifier.warcry_speed,Warcry Speed,战吼速度,戰吼速度,resurrectgodaura,3,True
+WardRegenPercent,term.calculation_modifier.ward_regen_percent,Ward Regen Percent,结界再生百分比,結界再生百分比,goodnerfing;resurrectgodaura;xxthewizardofosu,9,True
+WeaponSet1,term.calculation_modifier.weapon_set1,Weapon Set 1,武器组 1,武器組 1,goodnerfing;xxthewizardofosu,165,False
+WeaponSet2,term.calculation_modifier.weapon_set2,Weapon Set 2,武器组 2,武器組 2,resurrectgodaura,156,False
+enemyDistance,term.calculation_modifier.enemy_distance,enemy Distance,敌人距离,敵人距離,resurrectgodaura,12,True

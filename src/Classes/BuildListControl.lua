@@ -212,11 +212,20 @@ function BuildListClass:GetRowValue(column, index, build)
 		end
 	elseif column == 2 then
 		if build.buildName then
-			return s_format("%sLevel %d %s", 
-				build.className and colorCodes[build.className:upper()] or "^7", 
-				build.level or 1, 
-				(build.ascendClassName ~= "None" and build.ascendClassName) or build.className or "?"
-			)
+			-- 使用构筑头中的职业身份读取树资源，保留未知或历史职业的原始名称。
+			local tree = main.tree[latestTreeVersion]
+			local class = tree.classes[tree.classNameMap[build.className]]
+			local className = (build.ascendClassName ~= "None" and build.ascendClassName) or build.className or "?"
+			local displayClass = class
+			if build.ascendClassName and build.ascendClassName ~= "None" then
+				displayClass = nil
+				for _, ascendancy in pairs(class and class.classes or { }) do
+					if ascendancy.name == className or ascendancy.id == className then displayClass = ascendancy; break end
+				end
+			end
+			return (build.className and colorCodes[build.className:upper()] or "^7") .. localisation:Text("ui.build_list_control.summary", {
+				level = s_format("%d", build.level or 1), class = displayClass and localisation:Field(displayClass, "name") or className,
+			})
 		else
 			return ""
 		end

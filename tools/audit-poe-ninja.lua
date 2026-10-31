@@ -13,9 +13,9 @@ local seen = { }
 local total = 0
 local currentLanguage = 'zh-CN'
 
-local function add(kind, buildName, value, detail)
+local function add(kind, buildName, value, detail, translated)
 	if type(value) ~= 'string' or value == '' or not value:find('%a') then return end
-	local translated = localisation:Translate(value)
+	translated = translated or value
 	if translated ~= value then return end
 	local key = currentLanguage .. '\t' .. kind .. '\t' .. value
 	if seen[key] then return end
@@ -26,11 +26,12 @@ end
 
 local function scanItem(buildName, item)
 	if item.rarity == 'UNIQUE' or item.rarity == 'RELIC' then
-		add('item.unique-name', buildName, item.title or item.name, item.rarity)
+		add('item.unique-name', buildName, item.title or item.name, item.rarity, localisation:ItemTitle(item))
 	end
-	add('item.base', buildName, item.baseName, item.rarity)
+	local _, base = localisation:ItemTitle(item)
+	add('item.base', buildName, item.baseName, item.rarity, base)
 	for _, listName in ipairs({ 'enchantModLines', 'runeModLines', 'implicitModLines', 'explicitModLines', 'craftedModLines', 'fracturedModLines' }) do
-		for _, modLine in ipairs(item[listName] or { }) do add('item.' .. listName, buildName, modLine.line, item.rarity) end
+		for _, modLine in ipairs(item[listName] or { }) do add('item.' .. listName, buildName, modLine.line, item.rarity, localisation:ModLine(modLine, modLine.line)) end
 	end
 	for _, property in ipairs(item.properties or { }) do
 		add('item.property.name', buildName, property.name, item.rarity)

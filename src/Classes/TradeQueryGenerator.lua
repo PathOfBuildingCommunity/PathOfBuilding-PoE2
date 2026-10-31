@@ -1168,15 +1168,7 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 	-- there are also some exceptions like the darkness enthroned belt, but runes on these are not yet working pob
 	local isAugmentableSlot = slot and (slot.slotName:find("Weapon 1") or slot.slotName:find("Weapon 2") or slot.slotName:find("Helmet") or slot.slotName:find("Body Armour") or slot.slotName:find("Gloves") or slot.slotName:find("Boots"))
 	if isAugmentableSlot then
-		local augmentTooltip = [[Controls how augments are used in the search.
-
-Copy Current: augments in weights are skipped and augments are replaced with the current augments when possible.
-Usually the best opinion as this ensures the augments makes sense for your build.
-
-Keep: augments will be included in weights and will not be changed on items.
-Best used when you value an augment greatly, and cannot add it yourself.
-
-Remove: augments are completely ignored, and removed from items.]]
+		local augmentTooltip = localisation:Label('ui.trade_query_generator.request_query.augment_tooltip')
 		controls.augmentBehaviour = new("DropDownControl"):DropDownControl({ "TOPLEFT", lastItemAnchor, "BOTTOMLEFT" }, { 0, 5, 110, 18 }, localisation:List({ "Copy Current", "Keep", "Remove" }, { [1] = "ui.trade_query_generator.request_query.augment_behaviour.label", [2] = "ui.trade_query_generator.request_query.augment_behaviour.label_2", [3] = "ui.trade_query_generator.request_query.augment_behaviour.label_3" }), function(state) end, augmentTooltip)
 		controls.augmentBehaviour:SetSel(self.lastAugmentBehaviourIdx or 1)
 		controls.augmentBehaviourLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.augmentBehaviour, "LEFT" },
@@ -1186,15 +1178,7 @@ Remove: augments are completely ignored, and removed from items.]]
 
 	local isAmulet = slot and (slot.slotName:find("Amulet"))
 	if isAmulet then
-		local augmentTooltip = [[Controls how anoints are used in the search.
-
-Copy Current: anoints are replaced with the current anoint when possible.
-Usually the best opinion as this ensures the anoint makes sense for your build.
-
-Keep: anoints will not be changed on items.
-Best used when you cannot add one yourself. Note that weights cannot be generated for anoints.
-
-Remove: anoints are completely ignored, and removed from items.]]
+		local augmentTooltip = localisation:Label('ui.trade_query_generator.request_query.anoint_tooltip')
 		controls.anointBehaviour = new("DropDownControl"):DropDownControl({ "TOPLEFT", lastItemAnchor, "BOTTOMLEFT" }, { 0, 5, 110, 18 }, localisation:List({ "Copy Current", "Keep", "Remove" }, { [1] = "ui.trade_query_generator.request_query.augment_behaviour.label", [2] = "ui.trade_query_generator.request_query.augment_behaviour.label_2", [3] = "ui.trade_query_generator.request_query.augment_behaviour.label_3" }), function(state) end, augmentTooltip)
 		controls.anointBehaviour:SetSel(self.lastAnointBehaviourIdx or 1)
 		controls.anointBehaviourLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.anointBehaviour, "LEFT" },

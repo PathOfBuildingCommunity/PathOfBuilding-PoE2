@@ -77,19 +77,19 @@ end
 
 function SkillListClass:GetRowValue(column, index, socketGroup)
 	if column == 1 then
-		local label = socketGroup.displayLabel or "?"
+		local label = localisation:SocketGroupName(socketGroup)
 		local currentMainSkill = self.skillsTab.build.mainSocketGroup == index
 		local disabled = not socketGroup.enabled
 		if disabled then
 			local colour = currentMainSkill and "" or "^x7F7F7F"
-			label = colour .. label .. " (Disabled)"
+			label = colour .. label .. " " .. localisation:Text("skill.group.status.disabled")
 		end
 		if currentMainSkill then 
-			local activeLabel = disabled and " (Forced Active)" or " (Active)"
+			local activeLabel = " " .. localisation:Text(disabled and "skill.group.status.forced_active" or "skill.group.status.active")
 			label = label .. colorCodes.RELIC .. activeLabel
 		end
 		if socketGroup.includeInFullDPS then 
-			label = label .. colorCodes.CUSTOM .. " (FullDPS)"
+			label = label .. colorCodes.CUSTOM .. " " .. localisation:Text("skill.group.status.full_dps")
 		end
 		return label
 	end

@@ -25,7 +25,7 @@ local function compile(source, target)
 	-- 用首个字面片段筛选，避免每个字符串遍历整套数万条模式。
 	local prefix = source:match('^(.-){%d+}')
 	local numeric = source:match('^{%d+}[%a%%]+$') or target:match('^{%d+}[%a%%]+$')
-	return { pattern = table.concat(pattern), order = order, target = target, prefix = prefix, length = #source, numeric = numeric }
+	return { pattern = table.concat(pattern), order = order, target = target, prefix = prefix, suffix = source:sub(pos), length = #source, numeric = numeric }
 end
 
 --- <summary>加入一条翻译；同名词条以最后加载的内容为准。</summary>
@@ -34,6 +34,41 @@ function Dictionary:Add(source, target)
 	if not self.forward[source] then self.count = self.count + 1 end
 	self.forward[source] = target; self.lower[source:lower()] = target
 	self.dirty = true
+end
+
+-- 模板只按较长的固定前缀或后缀入桶，避免未知文本逐条尝试数万次模式匹配。
+local function indexTemplates(templates)
+	local index = { prefixes = { }, suffixes = { }, lengths = { } }
+	local lengths = { }
+	for priority, template in ipairs(templates) do
+		template.priority = priority
+		local usePrefix = #template.prefix >= #template.suffix
+		local literal = usePrefix and template.prefix or template.suffix
+		local buckets = usePrefix and index.prefixes or index.suffixes
+		buckets[literal] = buckets[literal] or { }
+		table.insert(buckets[literal], template)
+		lengths[#literal] = true
+	end
+	for length in pairs(lengths) do table.insert(index.lengths, length) end
+	table.sort(index.lengths)
+	return index
+end
+
+-- 候选仍按原模板顺序匹配，保持长模板优先与反向歧义检查。
+local function matchingTemplates(index, text)
+	local candidates = { }
+	if not index then return candidates end
+	for _, length in ipairs(index.lengths) do
+		if length > #text then break end
+		for _, template in ipairs(index.prefixes[text:sub(1, length)] or { }) do
+			table.insert(candidates, template)
+		end
+		for _, template in ipairs(length > 0 and index.suffixes[text:sub(-length)] or { }) do
+			table.insert(candidates, template)
+		end
+	end
+	table.sort(candidates, function(a, b) return a.priority < b.priority end)
+	return candidates
 end
 
 -- 按最终正向词条重建索引，避免覆盖后仍保留旧译文或旧模板。
@@ -58,6 +93,8 @@ local function rebuild(dictionary)
 	end
 	table.sort(dictionary.templates, function(a, b) return a.length > b.length end)
 	table.sort(dictionary.reverseTemplates, function(a, b) return a.length > b.length end)
+	dictionary.templateIndex = indexTemplates(dictionary.templates)
+	dictionary.reverseTemplateIndex = indexTemplates(dictionary.reverseTemplates)
 	dictionary.dirty = false
 end
 
@@ -97,7 +134,7 @@ function Dictionary:Translate(text, reverse)
 	local leading, trimmed, trailing = text:match('^(%s*)(.-)(%s*)$')
 	if trimmed ~= text then return leading .. self:Translate(trimmed, reverse) .. trailing end
 	local result
-	for _, template in ipairs(reverse and self.reverseTemplates or self.templates) do
+	for _, template in ipairs(matchingTemplates(reverse and self.reverseTemplateIndex or self.templateIndex, text)) do
 		if template.prefix == '' or text:sub(1, #template.prefix) == template.prefix then
 			local captures = { text:match(template.pattern) }
 			if #captures == #template.order then

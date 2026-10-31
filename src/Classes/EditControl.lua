@@ -769,11 +769,11 @@ function EditClass:RestoreUndoState(state)
 	self.lastUndoState = state
 end
 
--- 编辑区必须展示用户原文，测宽也使用同一原文；标题与标签仍由界面翻译。
+-- 编辑区展示用户原文，标题和占位文字通过独立资源属性解析。
 local drawEdit = EditClass.Draw
 function EditClass:Draw(...)
 	-- 标签属于界面文案；用户缓冲区仍按原文绘制和编辑。
-	self.displayPrompt = localisation:Translate(self:GetProperty("prompt"))
-	self.displayPlaceholder = localisation:Translate(self.placeholder)
+	self.displayPrompt = self:GetProperty("prompt")
+	self.displayPlaceholder = self:GetProperty("placeholder")
 	return localisation:DrawRaw(drawEdit, self, ...)
 end

@@ -63,3 +63,4 @@ tools/*.png
 tools/*.pid
 src/Tests/*.log
 src/Tests/Run/
+tools/node_modules/

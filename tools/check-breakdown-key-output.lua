@@ -57,12 +57,18 @@ local function capture(xml, original)
 	return result
 end
 
-local count, numericalCount = 0, 0
+local count, numericalCount, correctedNotes = 0, 0, 0
 for _, id in ipairs({ 'resurrectgodaura', 'goodnerfing', 'xxthewizardofosu' }) do
 	local file = assert(io.open('Tests/Fixtures/poe-ninja/' .. id .. '.xml', 'rb'))
 	local xml = file:read('*a'); file:close()
 	local expected, actual = capture(xml, true), capture(xml, false)
 	for path, value in pairs(expected) do
+		-- 旧版本把混沌护盾说明的布尔条件当成正文；仅允许这两处精确的已回归修正。
+		if type(value) == 'string' and value:match('Energy Shieldtrue$') and path:match('%.breakdown%.ChaosTakenHit%.%d+$')
+			or type(value) == 'string' and value:match('^Energy Shield: %d+true$') and path:match('%.breakdown%.ChaosTotalPool%.%d+$') then
+			value = value:gsub('true$', '^8 (ES takes double damage from chaos)')
+			correctedNotes = correctedNotes + 1
+		end
 		assert(actual[path] == value or type(value) == 'number' and value ~= value and actual[path] ~= actual[path], id .. ': ' .. path .. '\n' .. tostring(actual[path]) .. ' ~= ' .. tostring(value))
 		count = count + 1
 	end
@@ -86,4 +92,5 @@ for _, id in ipairs({ 'resurrectgodaura', 'goodnerfing', 'xxthewizardofosu' }) d
 end
 selectModules(false)
 print('计算报告对照通过：' .. count .. ' 个输出标量。')
+print('其中已核对的混沌护盾说明修正：' .. correctedNotes .. ' 处；其余英文报告保持。')
 print('简繁计算输出对照通过：' .. numericalCount .. ' 个输出标量。')

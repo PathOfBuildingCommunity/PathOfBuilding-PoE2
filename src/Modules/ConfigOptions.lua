@@ -15,7 +15,7 @@ local function bossSkillsTooltip(tooltip, mode, index, value)
 	if applyModes[mode] then
 		tooltip:AddLine(14, localisation:Text("ui.config_options.boss_skills_tooltip.tooltip"))
 		if value.val ~= "None" then
-			tooltip:AddLine(14, '\n^7'..value.val..": "..data.bossSkills[value.val].tooltip)
+			tooltip:AddLine(14, '\n^7' .. localisation:Term('boss_skill', value.val) .. ": " .. localisation:Field(data.bossSkills[value.val], 'tooltip'))
 		end
 	end
 end

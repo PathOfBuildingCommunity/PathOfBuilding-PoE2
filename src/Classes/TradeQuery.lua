@@ -1217,6 +1217,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 		end
 	end, nil)
 	controls["uri"..row_idx]:SetPlaceholder("Paste trade URL here...")
+	controls["uri"..row_idx].placeholderKey = "trade.url.placeholder"
 	if pbURL and pbURL ~= "" then
 		controls["uri"..row_idx]:SetText(pbURL, true)
 	end

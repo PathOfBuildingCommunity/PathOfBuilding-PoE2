@@ -34,6 +34,7 @@ function CalcsTabClass:CalcsTab(build)
 
 	self.colWidth = 230
 	self.sectionList = { }
+	local effectDisplay = LoadModule("Modules/CalcDisplay").New(build.data.skills)
 
 	self.controls.search = new("EditControl"):EditControl({ "TOPLEFT", self, "TOPLEFT" }, { 4, 5, 260, 20 }, "", localisation:Label("ui.calcs_tab.init.search.label"), "%c", 100, nil, nil, nil, true)
 	t_insert(self.controls, self.controls.search)
@@ -168,9 +169,9 @@ function CalcsTabClass:CalcsTab(build)
 				self.build.buildFlag = true
 			end, localisation:Label("ui.calcs_tab.drop_down_control.tooltip"))
 		}, },
-		{ label = "Aura and Buff Skills", labelKey = "ui.calcs_tab.init.buff_list.label", flag = "buffs", textSize = 12, { format = "{output:BuffList}", { breakdown = "SkillBuffs" } }, },
-		{ label = "Combat Buffs", labelKey = "ui.calcs_tab.init.combat_list.label", flag = "combat", textSize = 12, { format = "{output:CombatList}" }, },
-		{ label = "Curses and Debuffs", labelKey = "ui.calcs_tab.init.curse_list.label", flag = "effective", textSize = 12, { format = "{output:CurseList}", { breakdown = "SkillDebuffs" } }, },
+		{ label = "Aura and Buff Skills", labelKey = "ui.calcs_tab.init.buff_list.label", flag = "buffs", textSize = 12, { format = "{output:BuffList}", formatDisplay = function(actor) return effectDisplay:EffectList(actor, "BuffList") end, { breakdown = "SkillBuffs" } }, },
+		{ label = "Combat Buffs", labelKey = "ui.calcs_tab.init.combat_list.label", flag = "combat", textSize = 12, { format = "{output:CombatList}", formatDisplay = function(actor) return effectDisplay:EffectList(actor, "CombatList") end }, },
+		{ label = "Curses and Debuffs", labelKey = "ui.calcs_tab.init.curse_list.label", flag = "effective", textSize = 12, { format = "{output:CurseList}", formatDisplay = function(actor) return effectDisplay:EffectList(actor, "CurseList") end, { breakdown = "SkillDebuffs" } }, },
 	}}}, function(section)
 		self.build:RefreshSkillSelectControls(section.controls, self.input.skill_number, "Calcs")
 		section.controls.showMinion.state = self.input.showMinion

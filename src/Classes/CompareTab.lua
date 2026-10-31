@@ -1640,6 +1640,7 @@ function CompareTabClass:OpenImportFolderPopup()
 		listHost:FilterBuildList()
 	end, nil, nil, true)
 	controls.searchText:SetPlaceholder("(e.g. class:invoker myfilename)")
+	controls.searchText.placeholderKey = "build.search.placeholder"
 	controls.sort = new("DropDownControl"):DropDownControl({ "TOPLEFT", nil, "TOPLEFT" }, { 475, 25, 210, 20 }, buildListHelpers.buildSortDropList, function(index, value)
 		sortMode = value.sortMode
 		main.buildSortMode = value.sortMode

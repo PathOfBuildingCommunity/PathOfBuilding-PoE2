@@ -1,0 +1,4 @@
+组,代码路径,英文缺口,简体目标,繁体目标,行为边界
+计算效果,src/Modules/CalcDisplay.lua,Rage / EternalRage / ArmourBreak,怒火 / 永恒狂怒 / 护甲破损,怒火 / 無盡怒火 / 護甲破壞,只改显示
+计算来源,src/Classes/CalcBreakdownControl.lua,Xesht,席斯特,薛斯特,来源身份与数值不变
+保存提示,src/Modules/Build.lua,now? / before exiting? / before updating?,现在？/退出前？/更新前？,現在？/退出前？/更新前？,模式与按钮行为不变

@@ -1,6 +1,6 @@
 # 语言资源结构审计
 
-生成日期：2026-10-30。命令：`python tools/audit-locale-resources.py`。
+生成日期：2026-10-31。命令：`python tools/audit-locale-resources.py`。
 
 按 Files.lua 顺序和 Dictionary:Add 的空值/同文跳过规则计算有效词条。覆盖次数不等于缺陷；反向歧义允许安全保留原文，不能直接当成导入已兼容。大小写冲突需要结合精确匹配与小写检索复核。参数集合不一致可能丢值或产生占位符残留，须逐条核实。
 
@@ -12,13 +12,13 @@
 | 显示资源语言 | 项目 | 数量 |
 |---|---|---:|
 | en | files | 2 |
-| en | keys | 123300 |
-| zh-CN | english-fallback-keys | 12417 |
+| en | keys | 123836 |
+| zh-CN | english-fallback-keys | 660 |
 | zh-CN | files | 2 |
-| zh-CN | keys | 110883 |
-| zh-TW | english-fallback-keys | 12194 |
+| zh-CN | keys | 123176 |
+| zh-TW | english-fallback-keys | 655 |
 | zh-TW | files | 2 |
-| zh-TW | keys | 111106 |
+| zh-TW | keys | 123181 |
 
 | 输入词典语言 | 项目 | 数量 |
 |---|---|---:|

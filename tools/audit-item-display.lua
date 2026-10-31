@@ -27,7 +27,7 @@ for _, language in ipairs({ 'zh-CN', 'zh-TW' }) do
 	for name in pairs(data.itemBases) do
 		local source = name:gsub(' %(.+%)', '')
 		totals.bases = totals.bases + 1
-		local translated = localisation:Translate(source)
+		local translated = localisation:DataText('equipment_base', name, 'name', source)
 		if translated == source and source:find('%a') then totals.baseMissing = totals.baseMissing + 1 end
 		record(language, 'base', name, translated, source)
 	end
@@ -35,7 +35,7 @@ for _, language in ipairs({ 'zh-CN', 'zh-TW' }) do
 		for _, stat in ipairs(statList) do
 			if stat.stat and stat.label then
 				totals.labels = totals.labels + 1
-				local translated = localisation:Translate(stat.label)
+				local translated = localisation:Field(stat, 'label')
 				if translated == stat.label then totals.labelMissing = totals.labelMissing + 1 end
 				record(language, 'comparison-label', stat.stat, translated, stat.label)
 			end
@@ -71,7 +71,7 @@ for _, language in ipairs({ 'zh-CN', 'zh-TW' }) do
 end
 csv:close()
 local report = assert(io.open('../docs/localisation-item-display-audit.md', 'wb'))
-report:write('# 装备实际显示审计\n\n生成日期：2026-10-30。命令：在 `src` 目录运行 `..\\tools\\LuaRunner.exe ..\\tools\\audit-item-display.lua`。\n\n使用真实 Item、ItemsTab:AddItemTooltip 和数据库 GetRowValue，启用风味文本及不支持附注。扫描当前默认变体；未遍历全部历史版本、分组变体、稀有词缀组合及 Shift 展开的技能子提示框。比较栏检查真实字段标签，数值拼接另外由集成测试覆盖。\n\n| 语言 | 基底数 | 原文回退基底 | 传奇样本 | 提示框行 | 含拉丁字母行 | 比较标签 | 原文回退标签 | 构建异常 |\n|---|---:|---:|---:|---:|---:|---:|---:|---:|\n')
+report:write('# 装备实际显示审计\n\n生成日期：2026-10-31。命令：在 `src` 目录运行 `..\\tools\\LuaRunner.exe ..\\tools\\audit-item-display.lua`。\n\n使用真实 Item、ItemsTab:AddItemTooltip 和数据库 GetRowValue，启用风味文本及不支持附注。扫描当前默认变体；未遍历全部历史版本、分组变体、稀有词缀组合及 Shift 展开的技能子提示框。比较栏检查真实字段标签，数值拼接另外由集成测试覆盖。\n\n| 语言 | 基底数 | 原文回退基底 | 传奇样本 | 提示框行 | 含拉丁字母行 | 比较标签 | 原文回退标签 | 构建异常 |\n|---|---:|---:|---:|---:|---:|---:|---:|---:|\n')
 for _, language in ipairs({ 'zh-CN', 'zh-TW' }) do
 	local c = counts[language]
 	report:write(string.format('| %s | %d | %d | %d | %d | %d | %d | %d | %d |\n', language, c.bases, c.baseMissing, c.items, c.lines, c.latinLines, c.labels, c.labelMissing, c.errors))

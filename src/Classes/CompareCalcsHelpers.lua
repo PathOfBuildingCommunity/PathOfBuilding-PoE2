@@ -36,7 +36,8 @@ end
 
 -- Format CamelCase mod name to spaced words
 function M.FormatCalcModName(modName)
-	return modName:gsub("([%l%d]:?)(%u)", "%1 %2"):gsub("(%l)(%d)", "%1 %2")
+	local fallback = modName:gsub("([%l%d]:?)(%u)", "%1 %2"):gsub("(%l)(%d)", "%1 %2")
+	return localisation:Term("calculation_modifier", modName, fallback)
 end
 
 -- Resolve a modifier's source to a human-readable name
@@ -142,7 +143,7 @@ function M.FormatModRow(row, sectionData, build)
 		modName = "  " .. M.FormatCalcModName(row.mod.name)
 	end
 
-	return displayValue, sourceType, sourceName, modName
+	return displayValue, localisation:Term("calculation_source", sourceType, sourceType), sourceName, modName
 end
 
 -- Get breakdown text lines for a build's actor
@@ -349,20 +350,20 @@ local function resolveModSource(mod, build)
 				or (build.spec and build.spec.tree and build.spec.tree.nodes[nodeIdNum])
 				or (build.latestTree and build.latestTree.nodes[nodeIdNum])
 			if node then
-				sourceName = node.dn or node.name or ""
+				sourceName = localisation:Field(node, "dn") or localisation:Field(node, "name") or ""
 			end
 		end
 	elseif sourceType == "Skill" then
 		local skillId = mod.source:match("Skill:(.+)")
 		if skillId and build.data and build.data.skills[skillId] then
-			sourceName = build.data.skills[skillId].name
+			sourceName = localisation:Field(build.data.skills[skillId], "name")
 		end
 	elseif sourceType == "Pantheon" then
 		sourceName = mod.source:match("Pantheon:(.+)") or ""
 	elseif sourceType == "Spectre" then
 		sourceName = mod.source:match("Spectre:(.+)") or ""
 	end
-	return sourceType, sourceName
+	return localisation:Term("calculation_source", sourceType, sourceType), sourceName
 end
 
 -- Draw a breakdown panel for a single build's SkillBuffs or SkillDebuffs,

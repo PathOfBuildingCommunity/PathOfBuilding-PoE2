@@ -31,7 +31,7 @@ local function record(source, display, origin, errorStatus)
 	else
 		local onlyAllowed = true
 		for word in display:gmatch('%a[%a%d]*') do if not allowed[word] then onlyAllowed = false end end
-		status = onlyAllowed and 'allowed-only' or source == display and 'fallback' or 'partial'
+		status = onlyAllowed and 'allowed-only' or display:find('[\128-\255]') and 'partial' or 'fallback'
 		summary[status == 'allowed-only' and 'allowed' or status] = summary[status == 'allowed-only' and 'allowed' or status] + 1
 	end
 	local values = { localisation.language, scope, owner .. ' ' .. (origin or ''), status, source, display }
@@ -46,7 +46,7 @@ end
 local draw = DrawString
 DrawString = function(x, y, align, size, font, text)
 	-- 用户缓冲区原文不属于产品漏译；标签在进入原文绘制上下文前已翻译。
-	if localisation.rawDepth == 0 then record(tostring(text or ''), localisation:Translate(tostring(text or '')), location(3)) end
+	if localisation.rawDepth == 0 then record(tostring(text or ''), tostring(text or ''), location(3)) end
 	return draw(x, y, align, size, font, text)
 end
 -- 保留实际提示框拆行结果与拆行前文字之间的对应关系。
@@ -88,22 +88,8 @@ local function controls(host, prefix, visited)
 end
 local viewport = { x = 0, y = 0, width = 1920, height = 1080 }
 local gemTooltip = LoadModule('Classes/GemTooltip')
--- 全遍历会重复翻译同一技能片段；只缓存审计期间不变词库的纯函数结果，不改产品代码。
-local function memoiseDictionary(language)
-	local dictionary = localisation.dictionaries[language]
-	if not dictionary then return end
-	local original, memo = dictionary.Translate, { }
-	dictionary.Translate = function(self, text, reverse)
-		local key = (reverse and 'r' or 'f') .. text
-		if memo[key] ~= nil then return memo[key] end
-		local result = original(self, text, reverse)
-		memo[key] = result
-		return result
-	end
-end
 for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW' }) do
 	localisation:SetLanguage(language)
-	memoiseDictionary(language)
 	for _, mode in ipairs({ 'IMPORT', 'NOTES', 'PARTY', 'CONFIG', 'TREE', 'SKILLS', 'ITEMS', 'CALCS', 'COMPARE' }) do
 		scope, owner = 'page.' .. mode, 'blank-build'
 		build.viewMode = mode
@@ -114,6 +100,13 @@ for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW' }) do
 		main:OpenOptionsPopup()
 		main.popups[1]:Draw(viewport)
 		controls(main.popups[1], 'options', { })
+	end)
+	main.popups = { }
+	scope, owner = 'note.editor', 'build-note'
+	attempt(function()
+		main:OpenNoteEditPopup(nil, '', function() error('显示审计不保存备注') end)
+		main.popups[1]:Draw(viewport)
+		controls(main.popups[1], 'note', { })
 	end)
 	main.popups = { }
 	scope = 'control.tooltip'
@@ -141,13 +134,61 @@ for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW' }) do
 	end
 	print(language .. ' ' .. gems .. ' 个技能提示框扫描完成')
 end
+-- 空构筑不能触发技能条件；用三份离线构筑补查页面、控件提示和可用属性详情。
+for _, id in ipairs({ 'resurrectgodaura', 'goodnerfing', 'xxthewizardofosu' }) do
+	local file = assert(io.open('Tests/Fixtures/poe-ninja/' .. id .. '.xml', 'rb'))
+	local xml = file:read('*a'); file:close()
+	localisation:SetLanguage('en')
+	loadBuildFromXML(xml, id)
+	-- 空构筑与 fixture 默认开关未覆盖全 DPS；统一启用后审计实际侧栏组合。
+	for _, group in ipairs(build.skillsTab.socketGroupList) do group.includeInFullDPS = true end
+	build.buildFlag = true
+	for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW' }) do
+		localisation:SetLanguage(language)
+		for _, mode in ipairs({ 'IMPORT', 'NOTES', 'PARTY', 'CONFIG', 'TREE', 'SKILLS', 'ITEMS', 'CALCS', 'COMPARE' }) do
+			scope, owner = 'fixture.' .. id .. '.page.' .. mode, id
+			build.viewMode = mode
+			attempt(function() build:OnFrame({ }) end)
+		end
+		scope = 'fixture.' .. id .. '.control.tooltip'
+		for _, name in ipairs({ 'importTab', 'notesTab', 'partyTab', 'configTab', 'treeTab', 'skillsTab', 'itemsTab', 'calcsTab', 'compareTab' }) do controls(build[name], name, { }) end
+		local tab, breakdowns = build.calcsTab, 0
+		scope = 'fixture.' .. id .. '.breakdown'
+		for _, section in ipairs(tab.sectionList) do
+			attempt(function()
+				-- 只在当前构筑允许的分区和行上构建详情，展开状态仅影响审计内存。
+				if not tab:CheckFlag(section) then return end
+				for _, subSec in ipairs(section.subSection) do subSec.collapsed = false end
+				section:UpdateSize(); section:UpdatePos()
+				for _, subSec in ipairs(section.subSection) do
+					for _, row in ipairs(subSec.data) do
+						if row.enabled then
+							for column, cell in ipairs(row) do
+								if #cell > 0 then
+									owner = id .. ':' .. section.id .. ':' .. (row.label or '') .. ':' .. column
+									attempt(function()
+										tab:ClearDisplayStat(); tab:SetDisplayStat(cell)
+										if tab.controls.breakdown.shown then tab.controls.breakdown:Draw(viewport); breakdowns = breakdowns + 1 end
+									end)
+								end
+							end
+						end
+					end
+				end
+			end)
+		end
+		tab:ClearDisplayStat()
+		print(language .. ' ' .. id .. ' 九个页面与 ' .. breakdowns .. ' 个属性详情扫描完成')
+	end
+end
 DrawString = draw
 output:close()
 local report = assert(io.open('../docs/localisation-visible-audit.md', 'wb'))
-report:write('# 实际显示路径扫描\n\n生成日期：2026-10-30。命令：在 src 目录运行 `..\\tools\\LuaRunner.exe ..\\tools\\audit-visible-localisation.lua`。\n\n执行 English、简体、繁体的九个构筑页面、选项页、递归控件提示文字、当前树的全部节点提示框（关闭属性比较，包含授予技能子提示框）和全部宝石的 20 级/20 品质提示框（自然最高等级不足 20 时使用自然最高等级）。没有点击购买、更新或外部服务。用户编辑原文保留，不算漏译。\n\n批量提示框关闭自动换行，以完整句子统计翻译；缓存优化前后的两个保留换行版本曾对照 1,189 条简体非宝石残留记录，结果一致，另有 40 个缓存前后结果等价探针。这些对照不证明本次完整句子结果与换行片段逐行一致。审计期间仅缓存固定词库的纯函数结果。代表样本换行路径有集成回归，不能据此宣称全节点/技能的换行布局通过。\n\n此扫描使用图形桩调用实际 Lua 绘制/提示框逻辑；不证明原生窗口布局、字体输入法、网络流程、隐藏弹窗和全部动态状态已验收。控件 tooltipFunc 没有强行用不完整参数调用；其字符串仍在全仓源码候选中。统计按语言/场景/源文/输出去重；allowed-only 只作常见缩写与按键的粗分，不保证语义正确。\n\n| 语言与场景 | 唯一文本/异常 | 原文回退 | 部分英文 | 仅保留项 | 调用异常 |\n|---|---:|---:|---:|---:|---:|\n')
+report:write('# 实际显示路径扫描\n\n生成日期：2026-10-31。命令：在 src 目录运行 `..\\tools\\LuaRunner.exe ..\\tools\\audit-visible-localisation.lua`。\n\n执行 English、简体、繁体的九个构筑页面、选项页、递归控件提示文字、当前树的全部节点提示框（关闭属性比较，包含授予技能子提示框）和全部宝石的 20 级/20 品质提示框（自然最高等级不足 20 时使用自然最高等级）。另外绘制备注编辑器并扫描按钮提示；加载三份离线 poe.ninja 构筑，统一启用全 DPS，各语言绘制九页、递归控件提示，并展开当前构筑可用的属性详情。没有点击购买、更新或外部服务。用户编辑原文保留，不算漏译。\n\n批量提示框关闭自动换行，以完整句子统计翻译；缓存优化前后的两个保留换行版本曾对照 1,189 条简体非宝石残留记录，结果一致，另有 40 个缓存前后结果等价探针。这些对照不证明本次完整句子结果与换行片段逐行一致。K4 后不再启用旧显示词典或其缓存，记录调用点已解析的实际文案。代表样本换行路径有集成回归，不能据此宣称全节点/技能的换行布局通过。\n\n此扫描使用图形桩调用实际 Lua 绘制/提示框逻辑；不证明原生窗口布局、字体输入法、网络流程、隐藏弹窗和全部动态状态已验收。控件 tooltipFunc 没有强行用不完整参数调用；其字符串仍在全仓源码候选中。统计按语言/场景/源文/输出去重；fallback/partial 分别按纯英文/包含非 ASCII 字符粗分，不再用 source==display 推断资源回退；CSV 的 source 可能已经是 key 解析后的文本。allowed-only 只作常见缩写与按键的粗分，不保证语义正确。\n\n| 语言与场景 | 唯一文本/异常 | 纯英文复核 | 混合英文复核 | 仅保留项 | 调用异常 |\n|---|---:|---:|---:|---:|---:|\n')
 for key, count in pairsSortByKey(counts) do
 	report:write(string.format('| %s | %d | %d | %d | %d | %d |\n', key:gsub('%|', ' / '), count.texts, count.fallback, count.partial, count.allowed, count.errors))
 end
 report:write('\n定位与完整实际输出见 `localisation-visible-missing.csv`。所有异常保留原始堆栈，须区分审计输入缺失与产品缺陷。英文基线异常同时出现时不能归因于汉化。\n')
 report:close()
 print('实际显示报告已生成')
+for scopeName, count in pairs(counts) do assert(count.errors == 0, scopeName .. ' 显示调用异常，见审计 CSV') end

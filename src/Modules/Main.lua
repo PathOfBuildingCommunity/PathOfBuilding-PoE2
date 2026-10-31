@@ -184,6 +184,8 @@ function main:Init()
 					end
 					newItem:Craft()
 				end
+				-- 仅内置预设绑定标题资源；按原文复制出的用户物品保持原始名称。
+				newItem.titleKey = newItem.title and localisation:TermKey("equipment.rare_preset", newItem.title)
 				self.rareDB.list[newItem.name] = newItem
 			elseif launch.devMode then
 				ConPrintf("Rare DB unrecognised item:\n%s", raw)
@@ -268,15 +270,7 @@ function main:Init()
 	self.toastMessages = { }
 
 	if launch.devMode and GetTime() >= 0 and GetTime() < 15000 then
-		t_insert(self.toastMessages, [[
-^xFF7700Warning: ^7Developer Mode active!
-The program is currently running in developer
-mode, which is not intended for normal use.
-If you are not expecting this, then you may have
-set up the program from the source .zip instead
-of using one of the installers. If that is the case,
-please reinstall using one of the installers from
-the "Releases" section of the GitHub page.]])
+		t_insert(self.toastMessages, { key = "ui.main.init.developer_mode_warning" })
 	end
 
 	self.onFrameFuncs = {
@@ -421,11 +415,14 @@ function main:OnFrame()
 	end
 
 	-- Run toasts
-	if self.toastMessages[1] then
+	-- 保留资源身份，在绘制时读取当前语言，避免切换后仍显示旧译文。
+	local toast = self.toastMessages[1]
+	if type(toast) == "table" then toast = localisation:Text(toast.key) end
+	if toast then
+		self.toastHeight = #toast:gsub("[^\n]","") * 16 + 20 + 40
 		if not self.toastMode then
 			self.toastMode = "SHOWING"
 			self.toastStart = GetTime()
-			self.toastHeight = #self.toastMessages[1]:gsub("[^\n]","") * 16 + 20 + 40
 		end
 		if self.toastMode == "SHOWING" then
 			local now = GetTime()
@@ -453,8 +450,8 @@ function main:OnFrame()
 			SetDrawColor(0.1, 0.1, 0.1)
 			DrawImage(nil, 0, self.screenH - self.mainBarHeight + 4, 308, self.mainBarHeight - 4)
 			SetDrawColor(1, 1, 1)
-			DrawString(4, self.screenH - self.mainBarHeight + 8, "LEFT", 20, "VAR", self.toastMessages[1]:gsub("\n.*",""))
-			DrawString(4, self.screenH - self.mainBarHeight + 28, "LEFT", 16, "VAR", self.toastMessages[1]:gsub("^[^\n]*\n?",""))
+			DrawString(4, self.screenH - self.mainBarHeight + 8, "LEFT", 20, "VAR", toast:gsub("\n.*",""))
+			DrawString(4, self.screenH - self.mainBarHeight + 28, "LEFT", 16, "VAR", toast:gsub("^[^\n]*\n?",""))
 		end
 	end
 
@@ -523,12 +520,16 @@ function main:OnFrame()
 	end
 end
 
+--- <summary>记录按键发生时的鼠标位置，避免慢帧丢失拖动起点和缩放中心。</summary>
 function main:OnKeyDown(key, doubleClick)
-	t_insert(self.inputEvents, { type = "KeyDown", key = key, doubleClick = doubleClick })
+	local cursorX, cursorY = GetCursorPos()
+	t_insert(self.inputEvents, { type = "KeyDown", key = key, doubleClick = doubleClick, cursorX = cursorX, cursorY = cursorY })
 end
 
+--- <summary>保留释放位置，使天赋树能够补齐最后一段拖动。</summary>
 function main:OnKeyUp(key)
-	t_insert(self.inputEvents, { type = "KeyUp", key = key })
+	local cursorX, cursorY = GetCursorPos()
+	t_insert(self.inputEvents, { type = "KeyUp", key = key, cursorX = cursorX, cursorY = cursorY })
 end
 
 function main:OnChar(key)
@@ -962,7 +963,7 @@ function main:OpenOptionsPopup(savedState)
 	drawSectionHeader("app", "ui.main.open_options_popup.message")
 	local languageOptions = { }
 	for _, language in ipairs(localisation:LanguageList()) do
-		languageOptions[#languageOptions + 1] = { label = language.name, id = language.id }
+		languageOptions[#languageOptions + 1] = { label = language.name, labelLanguage = language.id, id = language.id }
 	end
 	controls.language = new("DropDownControl"):DropDownControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 160, 18 }, languageOptions)
 	controls.language:SelByValue(localisation.language, "id")
@@ -1786,11 +1787,11 @@ function main:OpenNoteEditPopup(title, initial, onSave, generatedText)
 
 	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, localisation:Label("ui.main.open_note_edit_popup.label_2"))
 
-	local hoverText = "Click to insert tag, then type inside the curly braces."
+	local hoverText = localisation:Label("build_note.markup_help")
 
 	controls.fontLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { 14, 72, 0, 16 }, localisation:Label("ui.main.open_note_edit_popup.font_label.label"))
 	for index, style in ipairs(noteFontTags) do
-		controls["font" .. style.label] = new("ButtonControl"):ButtonControl(nil, { -258 + (index - 1) * 86, 90, 82, 18 }, "^7" .. style.label, function()
+		controls["font" .. style.label] = new("ButtonControl"):ButtonControl(nil, { -258 + (index - 1) * 86, 90, 82, 18 }, localisation:Label(style.labelKey, nil, "^7"), function()
 			return insertMarkup("<" .. style.tag .. ">")
 		end)
 		controls["font" .. style.label].tooltipText = hoverText
@@ -1801,7 +1802,7 @@ function main:OpenNoteEditPopup(title, initial, onSave, generatedText)
 	for index, code in ipairs(noteColorCodes) do
 		local col = (index - 1) % markupButtonsPerRow
 		local row = m_floor((index - 1) / markupButtonsPerRow)
-		controls["color" .. code] = new("ButtonControl"):ButtonControl(nil, { -250 + col * 100, 132 + row * 20, 96, 18 }, colorCodes[code] .. code, function()
+		controls["color" .. code] = new("ButtonControl"):ButtonControl(nil, { -250 + col * 100, 132 + row * 20, 96, 18 }, localisation:Label("build_note.color." .. code:lower(), nil, colorCodes[code]), function()
 			return insertMarkup(colorCodeToMarkupColour(colorCodes[code]))
 		end)
 		controls["color" .. code].tooltipText = hoverText
@@ -1910,6 +1911,8 @@ end
 do
 	local wrapTable = { }
 	function main:WrapString(str, height, width)
+		local unicodeLines = localisation:WrapText(str, height, width)
+		if unicodeLines then return unicodeLines end
 		wipeTable(wrapTable)
 		local lineStart = 1
 		local lastSpace, lastBreak

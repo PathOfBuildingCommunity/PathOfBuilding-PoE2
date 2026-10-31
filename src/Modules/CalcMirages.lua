@@ -76,6 +76,7 @@ function calcs.mirages(env)
 
 				env.player.mainSkill.mirage = { }
 				env.player.mainSkill.mirage.name = newSkill.activeEffect.grantedEffect.name
+				env.player.mainSkill.mirage.nameKey = newSkill.activeEffect.grantedEffect.nameKey
 				env.player.mainSkill.mirage.count = mirageCount
 
 				if not env.player.mainSkill.infoMessage then
@@ -92,7 +93,7 @@ function calcs.mirages(env)
 				if newSkill.skillPartName then
 					env.player.mainSkill.mirage.skillPart = newSkill.skillPart
 					env.player.mainSkill.mirage.skillPartName = newSkill.skillPartName
-					env.player.mainSkill.mirage.infoMessage2 = newSkill.activeEffect.grantedEffect.name
+					env.player.mainSkill.mirage.infoMessage2 = localisation:Field(newSkill.activeEffect.grantedEffect, 'name')
 				else
 					env.player.mainSkill.mirage.skillPartName = nil
 				end
@@ -319,6 +320,7 @@ function calcs.mirages(env)
 
 				env.player.mainSkill.mirage = { }
 				env.player.mainSkill.mirage.name = newSkill.activeEffect.grantedEffect.name
+				env.player.mainSkill.mirage.nameKey = newSkill.activeEffect.grantedEffect.nameKey
 				env.player.mainSkill.mirage.count = wispsMaxCount
 
 				if not env.player.mainSkill.infoMessage then
@@ -335,7 +337,7 @@ function calcs.mirages(env)
 				if newSkill.skillPartName then
 					env.player.mainSkill.mirage.skillPart = newSkill.skillPart
 					env.player.mainSkill.mirage.skillPartName = newSkill.skillPartName
-					env.player.mainSkill.mirage.infoMessage2 = newSkill.activeEffect.grantedEffect.name
+					env.player.mainSkill.mirage.infoMessage2 = localisation:Field(newSkill.activeEffect.grantedEffect, 'name')
 				else
 					env.player.mainSkill.mirage.skillPartName = nil
 				end

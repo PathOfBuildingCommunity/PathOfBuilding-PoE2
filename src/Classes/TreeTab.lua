@@ -70,8 +70,8 @@ function TreeTabClass:TreeTab(build)
 			local spec = self.specList[selIndex]
 			if spec then
 				local used, ascUsed, secondaryAscUsed, sockets = spec:CountAllocNodes()
-				tooltip:AddLine(16, localisation:Text("ui.tree_tab.init.spec_select_tooltip_func.tooltip_2", { cur_class_name = spec.curClassName }))
-				tooltip:AddLine(16, localisation:Text("ui.tree_tab.init.spec_select_tooltip_func.tooltip", { cur_ascend_class_name = spec.curAscendClassName }))
+				tooltip:AddLine(16, localisation:Text("ui.tree_tab.init.spec_select_tooltip_func.tooltip_2", { cur_class_name = localisation:Field(spec.curClass, 'name') }))
+				tooltip:AddLine(16, localisation:Text("ui.tree_tab.init.spec_select_tooltip_func.tooltip", { cur_ascend_class_name = localisation:Field(spec.curAscendClass, 'name') }))
 				tooltip:AddLine(16, localisation:Text("ui.tree_tab.init.spec_select_tooltip_func.tooltip_6", { used = used }))
 				if sockets > 0 then
 					tooltip:AddLine(16, localisation:Text("ui.tree_tab.init.spec_select_tooltip_func.tooltip_5", { sockets = sockets }))
@@ -205,7 +205,7 @@ function TreeTabClass:TreeTab(build)
 	end)
 
 	-- Control for setting max node depth to limit calculation time of the heat map
-	self.controls.nodePowerMaxDepthSelect = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.treeHeatMap, "RIGHT" }, { 8, 0, 55, 20 }, { "All", 5, 10, 15, "Custom" }, function(index, value)
+	self.controls.nodePowerMaxDepthSelect = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.treeHeatMap, "RIGHT" }, { 8, 0, 55, 20 }, localisation:List({ "All", 5, 10, 15, "Custom" }, { [1] = 'tree.heatmap.depth.all', [5] = 'tree.heatmap.depth.custom' }), function(index, value)
 		-- Show custom value control and resize/move elements
 		self.isCustomMaxDepth = value == "Custom"
 		if self.isCustomMaxDepth then
@@ -254,7 +254,7 @@ function TreeTabClass:TreeTab(build)
 	end)
 	self.controls.treeHeatMap.tooltipText = function()
 		local offCol, defCol = main.nodePowerTheme:match("(%a+)/(%a+)")
-		return localisation:Text("ui.tree_tab.init.tree_heat_map_tooltip_text.message", { value = offCol:lower(), value_2 = defCol:lower() })
+		return localisation:Text("ui.tree_tab.init.tree_heat_map_tooltip_text.message", { value = localisation:TermRef('power_color', offCol, offCol:lower()), value_2 = localisation:TermRef('power_color', defCol, defCol:lower()) })
 	end
 
 	self.powerStatList = { }
@@ -331,10 +331,10 @@ function TreeTabClass:TreeTab(build)
 		return latestTreeVersion .. (self.specList[self.activeSpec].treeVersion:match("^" .. latestTreeVersion .. "(.*)") or "")
 	end
 	local function buildConvertButtonLabel()
-		return colorCodes.POSITIVE.."Convert to "..treeVersions[getLatestTreeVersion()].display
+		return colorCodes.POSITIVE..localisation:Text("ui.tree_tab.convert_current.label", { display = treeVersions[getLatestTreeVersion()].display })
 	end
 	local function buildConvertAllButtonLabel()
-		return colorCodes.POSITIVE.."Convert all trees to "..treeVersions[getLatestTreeVersion()].display
+		return colorCodes.POSITIVE..localisation:Text("ui.tree_tab.convert_all.label", { display = treeVersions[getLatestTreeVersion()].display })
 	end
 	self.controls.specConvert = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.specConvertText, "RIGHT" }, { 8, 0, function() return DrawStringWidth(16, "VAR", buildConvertButtonLabel()) + 20 end, 20 }, buildConvertButtonLabel, function()
 		self:ConvertToVersion(getLatestTreeVersion(), false, true)
@@ -484,10 +484,12 @@ end
 
 function TreeTabClass:GetSpecList()
 	local newSpecList = { }
+	local specKeys = { }
 	for _, spec in ipairs(self.specList) do
 		t_insert(newSpecList, (spec.treeVersion ~= latestTreeVersion and ("["..treeVersions[spec.treeVersion].display.."] ") or "")..(spec.title or "Default"))
+		if not spec.title and spec.treeVersion == latestTreeVersion then specKeys[#newSpecList] = 'term.calculation_source.default' end
 	end
-	return newSpecList
+	return localisation:List(newSpecList, specKeys)
 end
 
 function TreeTabClass:Load(xml, dbFileName)

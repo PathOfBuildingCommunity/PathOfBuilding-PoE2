@@ -1840,10 +1840,10 @@ function calcs.offence(env, actor, activeSkill)
 		local additionalUses = skillModList:Sum("BASE", skillCfg, "AdditionalCooldownUses")
 		output.StoredUses = baseUses + additionalUses
 		if breakdown then
-			breakdown.StoredUses = { localisation:Text("calc.offence.stored_uses.line", { base_uses = baseUses, value = ((baseUses == 1 and "") or "s") }) }
+			breakdown.StoredUses = { localisation:Text("calc.offence.stored_uses.line", { base_uses = baseUses, value = localisation:Ref(baseUses == 1 and "calc.offence.use_form.singular" or "calc.offence.use_form.plural") }) }
 			if additionalUses ~= 0 then
-				t_insert(breakdown.StoredUses, localisation:Text("calc.offence.offence.line_13", { additional_uses = additionalUses, value = ((additionalUses == 1 and "") or "s") }))
-				t_insert(breakdown.StoredUses, localisation:Text("calc.offence.offence.line_14", { stored_uses = output.StoredUses, value = ((output.StoredUses == 1 and "") or "s") }))
+				t_insert(breakdown.StoredUses, localisation:Text("calc.offence.offence.line_13", { additional_uses = additionalUses, value = localisation:Ref(additionalUses == 1 and "calc.offence.use_form.singular" or "calc.offence.use_form.plural") }))
+				t_insert(breakdown.StoredUses, localisation:Text("calc.offence.offence.line_14", { stored_uses = output.StoredUses, value = localisation:Ref(output.StoredUses == 1 and "calc.offence.use_form.singular" or "calc.offence.use_form.plural") }))
 			end
 		end
 	end
@@ -2804,7 +2804,7 @@ function calcs.offence(env, actor, activeSkill)
 					entry.distBuffer = buffers.dist[string.len(entry.distance)] -- buffer defines the number of spaces needed to align the output numbers
 					entry.cappedBuffer = buffers.chance[string.len(entry.capped)]
 					entry.excessText = entry.excess and " ^8(+" .. buffers.chance[string.len(entry.excess)+1] .. entry.excess .. "%)" or ""
-					entry.config = (entry.distance == enemyDistance) and " ^8(current config)" or ""
+					entry.config = (entry.distance == enemyDistance) and localisation:Text("calc.offence.accuracy.current_config") or ""
 					t_insert(breakdown.AccuracyHitChance, entry.distBuffer .. entry.distance .. "m: " .. entry.cappedBuffer .. entry.capped .. "%" .. entry.excessText .. entry.config)
 				end
 				-- Add note for uncapped hit chance / "Chance to hit with Attacks can exceed 100%"
@@ -3351,7 +3351,7 @@ function calcs.offence(env, actor, activeSkill)
 	local function calcAncestralBoost(skillName, moreDmg, uptimeOverride, combinedCalcs)
 		globalOutput.CreateWarcryOffensiveCalcSection = true -- labels for the CalcSection
 		local skillNameVar = skillName:gsub(" ", "")   -- Fist Of War -> FistOfWar
-		local skillNameLabel = skillName:lower()
+		local skillNameLabel = localisation:TermRef("offence_boost_source", skillName, skillName:lower())
 
 		globalOutput[skillNameVar .. "DamageMultiplier"] = moreDmg or 1
 		globalOutput[skillNameVar .. "UptimeRatio"] = uptimeOverride or m_min((1 / globalOutput.Speed) / globalOutput[skillNameVar .. "Cooldown"], 1) * 100
@@ -3386,14 +3386,14 @@ function calcs.offence(env, actor, activeSkill)
 	local function calcCombinedAncestralBoost(skillName, moreDmg, uptimeOverride, additionalSkillName)
 		globalOutput.CreateWarcryOffensiveCalcSection = true -- labels for the CalcSection
 		local skillNameVar = skillName:gsub(" ", "")   -- Fist Of War -> FistOfWar
-		local skillNameLabel = skillName:lower()
+		local skillNameLabel = localisation:TermRef("offence_boost_source", skillName, skillName:lower())
 
 		globalOutput[skillNameVar .. "DamageMultiplier"] = moreDmg or 1
 		-- for CalcSections, set the AncestralEmpowerment damage for mod breakdown
 		globalOutput[skillNameVar .. "CombinedDamageMultiplier"] = globalOutput[skillNameVar .. "DamageMultiplier"]
 		skillNameVar = skillNameVar .. "Combined"
 		local additionalSkillNameVar = additionalSkillName:gsub(" ", "")
-		local additionalSkillNameLabel = additionalSkillName:lower()
+		local additionalSkillNameLabel = localisation:TermRef("offence_boost_source", additionalSkillName, additionalSkillName:lower())
 
 		-- a lot of these are doubled up because it would be very long lines otherwise and hopefully this helps legibility
 		globalOutput[skillNameVar .. "UptimeRatio"] = uptimeOverride or m_min((1 / globalOutput.Speed) / globalOutput[skillNameVar .. "Cooldown"], 1) * 100
@@ -3405,7 +3405,7 @@ function calcs.offence(env, actor, activeSkill)
 				"+",
 				localisation:Text("calc.offence.calc_combined_ancestral_boost.line", { speed = globalOutput.Speed }),
 				localisation:Text("calc.offence.calc_combined_ancestral_boost.line_4", { additional_skill_name_label = additionalSkillNameLabel, value = globalOutput[additionalSkillNameVar .. "Cooldown"] }),
-				"capped at 100%",
+				localisation:Text("calc.offence.ancestral_boost.capped"),
 				s_format("= %d%%", globalOutput[skillNameVar .. "UptimeRatio"]),
 			}
 		end
@@ -3742,7 +3742,7 @@ function calcs.offence(env, actor, activeSkill)
 			t_insert(globalBreakdown.ExertedAttackUptimeRatio, localisation:Text("calc.offence.offence.line_105"))
 			for _, cryTimeRatio in ipairs(combinedList) do
 				if globalOutput[cryTimeRatio] then
-					t_insert(globalBreakdown.ExertedAttackUptimeRatio, localisation:Text("calc.offence.offence.line_106", { value = ((maxEmpoweredUptimeRatio or globalOutput[cryTimeRatio]) or 0), value_2 = (((maxEmpoweredUptimeRatio and localisation:Ref("calc.offence.offence.line.parameter")) or cryTimeRatio:match("(.+)Up.*")) or localisation:Ref("calc.offence.offence.line.parameter")) }))
+					t_insert(globalBreakdown.ExertedAttackUptimeRatio, localisation:Text("calc.offence.offence.line_106", { value = ((maxEmpoweredUptimeRatio or globalOutput[cryTimeRatio]) or 0), value_2 = (((maxEmpoweredUptimeRatio and localisation:Ref("calc.offence.offence.line.parameter")) or localisation:TermRef("offence_uptime_source", cryTimeRatio:match("(.+)Up.*"))) or localisation:Ref("calc.offence.offence.line.parameter")) }))
 				end
 			end
 			t_insert(globalBreakdown.ExertedAttackUptimeRatio, s_format("= %d%%", globalOutput.ExertedAttackUptimeRatio))
@@ -3777,7 +3777,7 @@ function calcs.offence(env, actor, activeSkill)
 			t_insert(globalBreakdown.BoostedAttackUptimeRatio, localisation:Text("calc.offence.offence.line_105"))
 			for _, boostUptimeRatio in ipairs(ancestralBoostList) do
 				if globalOutput[boostUptimeRatio] then
-					t_insert(globalBreakdown.BoostedAttackUptimeRatio, localisation:Text("calc.offence.offence.line_107", { value = ((maxBoostedUptimeRatio or globalOutput[boostUptimeRatio]) or 0), value_2 = ((maxBoostedUptimeRatio and localisation:Ref("calc.offence.offence.line.parameter")) or boostUptimeRatio:match("(.+)Up.*")) }))
+					t_insert(globalBreakdown.BoostedAttackUptimeRatio, localisation:Text("calc.offence.offence.line_107", { value = ((maxBoostedUptimeRatio or globalOutput[boostUptimeRatio]) or 0), value_2 = ((maxBoostedUptimeRatio and localisation:Ref("calc.offence.offence.line.parameter")) or localisation:TermRef("offence_uptime_source", boostUptimeRatio:match("(.+)Up.*"))) }))
 				end
 			end
 			t_insert(globalBreakdown.BoostedAttackUptimeRatio, s_format("= %d%%", globalOutput.BoostedAttackUptimeRatio))
@@ -3934,7 +3934,7 @@ function calcs.offence(env, actor, activeSkill)
 				end
 				if breakdown and output.CritChance ~= baseCrit then
 					breakdown.CritChance = { }
-					local baseCritFromMainHandStr = baseCritFromMainHand and " from main weapon" or baseCritFromParentMainHand and " from parent main weapon" or ""
+					local baseCritFromMainHandStr = baseCritFromMainHand and localisation:Text('calc.offence.crit_base.main_weapon') or baseCritFromParentMainHand and localisation:Text('calc.offence.crit_base.parent_main_weapon') or ""
 					if base ~= 0 then
 						t_insert(breakdown.CritChance, localisation:Text("calc.offence.offence.line_108", { base_crit = baseCrit, base = base, base_crit_from_main_hand_str = baseCritFromMainHandStr }))
 					else
@@ -5341,9 +5341,9 @@ function calcs.offence(env, actor, activeSkill)
 				}
 				if hitAvg ~= critAvg or output.CritChance > 0 then
 					t_insert(globalBreakdown[ailment .. "DPS"], "")
-					t_insert(globalBreakdown[ailment .. "DPS"], "Crit Dmg Derivation:")
+					t_insert(globalBreakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.crit_derivation"))
 					t_insert(globalBreakdown[ailment .. "DPS"], s_format("%.0f + (%.0f - %.0f) * %.2f%%", critMin, critMax, critMin, ailmentRollAverage))
-					t_insert(globalBreakdown[ailment .. "DPS"], "^8min combined sources + (max combined sources - min combined sources) * average roll")
+					t_insert(globalBreakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_16"))
 					t_insert(globalBreakdown[ailment .. "DPS"], s_format("= %.2f", critAvg))
 				end
 			end
@@ -5761,7 +5761,7 @@ function calcs.offence(env, actor, activeSkill)
 							local precision = ailmentData[ailment].precision
 							value = m_floor(value * (10 ^ precision)) / (10 ^ precision)
 							local valueFormat = "%."..tostring(precision).."f%%"
-							local threshString = s_format("%d", thresh)..(m_floor(thresh + 0.5) == m_floor(enemyThreshold + 0.5) and s_format(" ^8(%s)", env.configInput.enemyIsBoss) or "")
+							local threshString = s_format("%d", thresh)..(m_floor(thresh + 0.5) == m_floor(enemyThreshold + 0.5) and s_format(" ^8(%s)", localisation:Term("enemy_boss_type", env.configInput.enemyIsBoss)) or "")
 							local labels = { }
 							if decCheck == 1 and value ~= 0 then
 								if value == current then

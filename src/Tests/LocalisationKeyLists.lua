@@ -4,8 +4,6 @@ return function(build, equal)
 	local list = localisation:List(values, { 'ui.calcs_tab.module.buff_mode_drop_list.label_4', 'ui.calcs_tab.module.buff_mode_drop_list.label' })
 	local selected
 	local control = new('DropDownControl'):DropDownControl(nil, { 0, 0, 200, 20 }, list, function(_, value) selected = value end)
-	local originalTranslate = localisation.Translate
-	localisation.Translate = function(self, text) return text end
 	for _, language in ipairs({ 'zh-CN', 'zh-TW', 'en' }) do
 		localisation:SetLanguage(language)
 		equal(list, values, language .. ' 显示绑定保留列表身份')
@@ -59,6 +57,5 @@ return function(build, equal)
 			end
 		end
 	end
-	localisation.Translate = originalTranslate
 	localisation:SetLanguage('en')
 end

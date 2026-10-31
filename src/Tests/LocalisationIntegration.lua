@@ -17,6 +17,43 @@ local function equal(actual, expected, label)
 	assert(actual == expected, label .. ': ' .. tostring(actual) .. ' ~= ' .. tostring(expected))
 end
 
+-- 开发警告须经过启动队列，正文和颜色保持，中文各行适配固定提示框宽度。
+equal(launch.devMode, true, '仓库启动触发开发模式警告')
+equal(main.toastMessages[1].key, 'ui.main.init.developer_mode_warning', '启动队列保留开发警告资源身份')
+local warningLanguage = localisation.language
+local warningFont = dofile('Modules/Localisation/Font.lua').New('Locales/Fonts')
+-- 使用真实主帧绘制队列，复现警告出现后切换语言，而不是重新创建警告。
+local warningFrame = setmetatable({
+	inputEvents = { }, popups = { }, onFrameFuncs = { }, toastMessages = { main.toastMessages[1] },
+	toastMode = 'SHOWN', mainBarHeight = 58,
+	CallMode = function() end, ProcessControlsInput = function() end, DrawControls = function() end,
+}, { __index = main })
+for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW', 'en' }) do
+	localisation:SetLanguage(language)
+	local warning = localisation:Text('ui.main.init.developer_mode_warning')
+	local title, body = warning:match('^([^\n]+)\n(.*)$')
+	local originalDraw, drawn = DrawString, { }
+	DrawString = function(left, top, align, height, font, text)
+		if left == 4 then drawn[height] = text end
+	end
+	warningFrame:OnFrame()
+	DrawString = originalDraw
+	equal(drawn[20], title, language .. ' 切换后实际警告标题刷新')
+	equal(drawn[16], body, language .. ' 切换后实际警告正文刷新')
+	equal(warningFrame.toastHeight, select(2, warning:gsub('\n', '')) * 16 + 60, language .. ' 切换后警告高度适配当前语言')
+	equal(title:sub(1, 8), '^xFF7700', language .. ' 警告标题保留橙色')
+	equal(title:find('^7', 1, true) ~= nil, true, language .. ' 警告正文标题保留白色')
+	if language == 'en' then
+		equal(warning, '^xFF7700Warning: ^7Developer Mode active!\nThe program is currently running in developer\nmode, which is not intended for normal use.\nIf you are not expecting this, then you may have\nset up the program from the source .zip instead\nof using one of the installers. If that is the case,\nplease reinstall using one of the installers from\nthe "Releases" section of the GitHub page.', '英文开发警告与原文及换行一致')
+	else
+		equal(title, language == 'zh-CN' and '^xFF7700警告：^7已启用开发模式！' or '^xFF7700警告：^7已啟用開發模式！', language .. ' 开发警告标题已翻译')
+		equal(body:gsub('GitHub', ''):gsub('Releases', ''):gsub('zip', ''):find('%a'), nil, language .. ' 开发警告正文无英文残留')
+		equal(warningFont:Layout(20, title).width <= 300, true, language .. ' 警告标题适配面板宽度')
+		for line in body:gmatch('[^\n]+') do equal(warningFont:Layout(16, line).width <= 300, true, language .. ' 警告正文行适配面板宽度') end
+	end
+end
+localisation:SetLanguage(warningLanguage)
+
 equal(localisation:SetLanguage(nil), 'en', '未指定语言回退默认语言')
 localisation:SetLanguage('zh-CN')
 local edit = new('EditControl'):EditControl(nil, {0, 0, 200, 20}, '')
@@ -54,16 +91,39 @@ end
 edit.placeholder = nil
 localisation:SetLanguage('zh-CN')
 
+dofile('Tests/LocalisationDisplayBoundary.lua')(build, equal)
+
+dofile('Tests/LocalisationLanguageSelector.lua')(equal)
+
 dofile('Tests/LocalisationEquipment.lua')(build, equal)
+dofile('Tests/LocalisationEquipmentDetails.lua')(build, equal)
+dofile('Tests/LocalisationCrafting.lua')(build, equal)
+dofile('Tests/LocalisationRarePresets.lua')(build, equal)
 dofile('Tests/LocalisationKeyFields.lua')(build, equal)
+dofile('Tests/LocalisationTreeContext.lua')(build, equal)
+dofile('Tests/LocalisationTreePresentation.lua')(build, equal)
+dofile('Tests/LocalisationFlavour.lua')(build, equal)
+dofile('Tests/LocalisationConfig.lua')(build, equal)
 dofile('Tests/LocalisationKeyLists.lua')(build, equal)
 dofile('Tests/LocalisationSkills.lua')(build, equal)
+dofile('Tests/LocalisationDynamicSkills.lua')(build, equal)
+dofile('Tests/LocalisationSkillBranches.lua')(build, equal)
+dofile('Tests/LocalisationMinionConfig.lua')(build, equal)
+dofile('Tests/LocalisationWorldAreas.lua')(build, equal)
+dofile('Tests/LocalisationInterfaceFollowup.lua')(build, equal)
 localisation:SetLanguage('zh-CN')
 
 local clipboard = Paste
 Paste = function() return 'Fireball 20/0 1' end
+local beforeChinesePaste = #build.skillsTab.socketGroupList
 build.skillsTab:PasteSocketGroup()
 Paste = clipboard
+local chinesePaste = Paste
+Paste = function() return '火球 20/0 1' end
+build.skillsTab:PasteSocketGroup()
+Paste = chinesePaste
+equal(#build.skillsTab.socketGroupList, beforeChinesePaste + 2, '中文技能组剪贴板创建技能组')
+equal(build.skillsTab.socketGroupList[#build.skillsTab.socketGroupList].gemList[1].nameSpec, 'Fireball', '中文技能组剪贴板保留英文业务身份')
 local selector = build.skillsTab.gemSlots[1].nameSpec
 selector:SetText('')
 selector:Insert('火球')
@@ -74,10 +134,11 @@ for _, id in ipairs(selector.list) do if selector.gems[id] and selector.gems[id]
 equal(found, true, '真实技能列表中文搜索')
 selector:BuildList('Fireball')
 equal(selector.noMatches, false, '英文技能搜索保持可用')
-equal(('Fireball'):matchOrPattern('火球'), true, '公共搜索支持中文译名')
+equal(('Fireball'):matchOrPattern('火球'), false, '公共原文搜索不再隐式反查译名')
+equal(localisation:MatchField(data.skills.FireballPlayer, 'name', '火球'), true, '显式技能字段支持中文搜索')
 equal(localisation:TagName({ melee = true }, '近战'), 'melee', '中文标签搜索')
 local englishWidth = localisation:MeasureRaw(16, 'VAR', 'Fireball')
-assert(englishWidth ~= DrawStringWidth(16, 'VAR', 'Fireball'), '编辑原文测宽被显示翻译污染')
+equal(englishWidth, DrawStringWidth(16, 'VAR', 'Fireball'), '绘制测宽不再隐式翻译英文')
 assert(type(localisation:MeasureRaw(12, 'VAR', 12345)) == 'number', '数值计算结果测宽')
 local font = dofile('Modules/Localisation/Font.lua').New('Locales/Fonts')
 equal(localisation:MeasureRaw(16, 'VAR', 'A', 'A中文'), font:Layout(16, 'A').width, '混排编辑框前缀测宽')
@@ -86,9 +147,9 @@ localisation:DrawRaw(function()
 end, { buf = 'A中文' })
 local ok = pcall(function() localisation:DrawRaw(function() error('预期异常') end, {}) end)
 equal(ok, false, '保留绘制异常')
-equal(localisation.rawDepth, 0, '异常后恢复显示翻译')
+equal(localisation.rawDepth, 0, '异常后恢复字体上下文')
 
-local cnBase = localisation:Translate('Lapis Amulet')
+local cnBase = localisation:DataText('equipment_base', 'Lapis Amulet', 'name', 'Lapis Amulet')
 assert(cnBase ~= 'Lapis Amulet', '测试物品基底缺少译名')
 local translatedTitle, translatedBase = localisation:ItemTitle({ title = 'Alkem Eira', baseName = 'Blazon Crest Shield' })
 equal(translatedTitle, '神谕', '物品唯一名称按字段翻译')
@@ -130,7 +191,7 @@ equal(#popup.controls.language.list, 5, '设置使用注册表中的五种首发
 popup.controls.language:SelByValue('en', 'id')
 popup.controls.save.onClick()
 equal(localisation.language, 'en', '保存设置后切换英文')
-equal(localisation:Translate('Fireball'), 'Fireball', '英文模式回退')
+equal(localisation:Field(data.skills.FireballPlayer, 'name'), 'Fireball', '英文模式回退')
 local file = assert(io.open(main.userPath .. 'Settings.xml', 'rb'))
 local settings = file:read('*a'); file:close()
 assert(settings:find('language="en"', 1, true), '语言设置未持久化')
@@ -138,9 +199,9 @@ localisation:SetLanguage('zh-CN')
 main:LoadSettings(true)
 equal(localisation.language, 'en', '从设置重新加载语言')
 localisation:SetLanguage('zh-TW')
-assert(localisation:Translate('Options'):find('[\128-\255]'), '繁体词库未加载')
-assert(localisation:Translate('Grants Skill: Raise Shield'):find('[\128-\255]'), '繁体组合词条未按字段翻译')
-local twBase = localisation:Translate('Lapis Amulet')
+assert(localisation:Text('ui.main.init.options.label'):find('[\128-\255]'), '繁体词库未加载')
+assert(localisation:Field(data.skills.ShieldBlockPlayer, 'name'):find('[\128-\255]'), '繁体技能名称按字段翻译')
+local twBase = localisation:DataText('equipment_base', 'Lapis Amulet', 'name', 'Lapis Amulet')
 assert(twBase ~= 'Lapis Amulet', '繁体物品基底缺少译名')
 equal(localisation:ToEnglish(twBase), 'Lapis Amulet', '繁体物品反向转换')
 equal(localisation:ItemText('稀有度: 普通\n' .. twBase .. '\n物品等級: 80'), 'Rarity: Normal\nLapis Amulet\nItem Level: 80', '繁体物品输入边界')
@@ -148,6 +209,24 @@ localisation:SetLanguage('missing-locale')
 equal(localisation.language, 'en', '无效语言回退默认语言')
 equal(localisation.invalidLanguage, 'missing-locale', '记录无效语言配置')
 localisation:SetLanguage('zh-CN'); main:SaveSettings()
+
+-- 保存提示的模式短语必须随当前语言解析，测试只读取并关闭弹窗，不执行保存、退出或更新动作。
+for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW' }) do
+	localisation:SetLanguage(language)
+	for _, mode in ipairs({ 'LIST', 'EXIT', 'UPDATE' }) do
+		build:OpenSavePopup(mode)
+		local savePopup = main.popups[#main.popups]
+		local label = StripEscapes(savePopup.controls.label:GetProperty('label'))
+		local expected = {
+			LIST = language == 'en' and 'Do you want to save them now?' or language == 'zh-CN' and '是否要现在保存？' or '是否要現在儲存？',
+			EXIT = language == 'en' and 'Do you want to save them before exiting?' or language == 'zh-CN' and '是否要在退出前保存？' or '是否要在退出前儲存？',
+			UPDATE = language == 'en' and 'Do you want to save them before updating?' or language == 'zh-CN' and '是否要在更新前保存？' or '是否要在更新前儲存？',
+		}
+		equal(label:find(expected[mode], 1, true) ~= nil, true, language .. ' 保存提示模式短语：' .. mode)
+		main:ClosePopup()
+	end
+end
+localisation:SetLanguage('zh-CN')
 
 -- 天赋验收使用实际提示框内容，覆盖颜色码和换行产生的显示字符串。
 for _, language in ipairs({ 'zh-CN', 'zh-TW' }) do
@@ -170,14 +249,14 @@ end
 local languageTooltip = new('Tooltip'):Tooltip()
 localisation:SetLanguage('zh-CN')
 equal(languageTooltip:CheckForUpdate('language-fixture'), true, '提示框首次生成')
-languageTooltip:AddLine(16, 'Shock Chance')
-equal(languageTooltip.lines[1].text, '感电几率', '提示框保存当前语言译文')
+languageTooltip:AddLine(16, localisation:Field(data.skills.FireballPlayer, 'name'))
+equal(languageTooltip.lines[1].text, '火球', '提示框保存当前语言译文')
 equal(languageTooltip:CheckForUpdate('language-fixture'), nil, '同语言保留提示框缓存')
 localisation:SetLanguage('en')
 equal(languageTooltip:CheckForUpdate('language-fixture'), true, '切换语言使提示框缓存失效')
 equal(#languageTooltip.lines, 0, '切换语言清理原提示框译文')
-languageTooltip:AddLine(16, 'Shock Chance')
-equal(languageTooltip.lines[1].text, 'Shock Chance', '切换英文后恢复原始名称')
+languageTooltip:AddLine(16, localisation:Field(data.skills.FireballPlayer, 'name'))
+equal(languageTooltip.lines[1].text, 'Fireball', '切换英文后恢复原始名称')
 
 -- 读取 poe.ninja 的公开 PoB2 导出，验证真实构筑可以被 PoB2 解析。
 local dkjson = require('dkjson')
@@ -199,6 +278,11 @@ for _, fixture in ipairs(poeNinjaFixtures) do
 	assert(xml:find('<Skills', 1, true), fixture.id .. ' 缺少技能段')
 	assert(xml:find('<Tree', 1, true), fixture.id .. ' 缺少天赋段')
 	loadBuildFromXML(xml, 'poe.ninja ' .. fixture.id)
+	dofile('Tests/LocalisationCoreCombinations.lua')(build, equal)
+	if fixture.id == 'resurrectgodaura' then dofile('Tests/LocalisationBuildNotes.lua')(build, equal) end
+	if fixture.id == 'resurrectgodaura' then dofile('Tests/LocalisationStatPopup.lua')(build, equal) end
+	if fixture.id == 'resurrectgodaura' then dofile('Tests/LocalisationCalcs.lua')(build, equal) end
+	if fixture.id == 'resurrectgodaura' then dofile('Tests/LocalisationHiddenInterface.lua')(build, equal) end
 	equal(build.characterLevel, meta.level, fixture.id .. ' 等级导入')
 	equal(build.spec.curAscendClassName, fixture.class, fixture.id .. ' 升华职业导入')
 	assert(#build.itemsTab.items > 0, fixture.id .. ' 装备没有进入 PoB2')
@@ -211,4 +295,6 @@ for _, fixture in ipairs(poeNinjaFixtures) do
 	end
 end
 
+dofile('Tests/LocalisationTreeAlternatives.lua')(build, equal)
+dofile('Tests/LocalisationMinionInterface.lua')(equal)
 print(string.format('真实 PoB2 集成检查通过 %d 个断言。', assertions))

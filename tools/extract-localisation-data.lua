@@ -137,7 +137,7 @@ end
 local function addNode(domain, id, node)
 	add(domain, id, { dn = node.dn or node.name, flavourText = node.flavourText }, { 'dn', 'flavourText' })
 	local lines = { }
-	for _, text in ipairs(node.stats or node.sd or { }) do
+	for _, text in ipairs(node.sd or node.stats or { }) do
 		if text:find('\n', 1, true) then
 			for line in text:gmatch('[^\n]+') do lines[#lines + 1] = line end
 		else lines[#lines + 1] = text end

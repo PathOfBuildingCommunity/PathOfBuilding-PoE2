@@ -1,0 +1,611 @@
+language,file,key,source,before,translation,reason
+zh-CN,Game.csv,game.skill_stat_set.firestormplayer_2.label,Ice Bolts,Ice 枚箭矢,冰霜箭矢,技能分段标题的英文残留及错误数量词修正
+zh-CN,Game.csv,game.skill_stat_set.firestormplayer_3.label,Lightning Bolts,闪电 枚箭矢,闪电箭矢,技能分段标题的英文残留及错误数量词修正
+zh-CN,Game.csv,game.stat_description.active_skill_gem_stat_descriptions_tempest_bell_area_of_effect_final_per_1_unit_of_knockback_1_normal_variant_1.text,"{value_1}% more Area of Effect per 0.1 metres of
+Knockback the triggering Hit would have caused","触发的击中原本每可造成 0.1 米击退，
+效果范围总降 {value_1}%","触发的击中原本每可造成 0.1 米击退，
+效果范围总增 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-CN,Game.csv,game.stat_description.active_skill_gem_stat_descriptions_total_attack_time_ms_skill_added_attack_time_by_distance_ms_0_0_milliseconds_to_seconds_2dp_if_required_2_normal_variant_1.text,"Up to {value_2_plus} seconds to Total
+Attack Time based on distance travelled",,"根据行进距离，总攻击时间
+最多增加 {value_2_plus} 秒",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.active_skill_gem_stat_descriptions_total_attack_time_ms_skill_added_attack_time_by_distance_ms_milliseconds_to_seconds_2dp_if_required_1_milliseconds_to_seconds_2dp_if_required_2_normal_variant_1.text,"{value_1_plus} seconds to Total Attack Time, plus up to
+{value_2_plus} seconds based on distance travelled","并根据移动的距离最多 总攻击时间 {value_1_plus} 秒，
+{value_2_plus} 秒","总攻击时间额外 {value_1_plus} 秒，并根据行进距离
+最多再增加 {value_2_plus} 秒",攻击时间完整句子错序及标记修正
+zh-CN,Game.csv,game.stat_description.align_fate_spellflux_spell_damage_final_if_matching_flux_cast_1_normal_variant_1.text,"Casting the matching Spell before the next
+Visage appears Empowers that Spell
+Empowered Spells deal {value_1}% more damage","伤害总增 Casting the matching Spell before the next
+Visage appears Empowers that Spell
+Empowered Spells deal {value_1}%","在下一个分身出现前施放相同法术，
+会强化该法术
+被强化法术的伤害总增 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.ancestral_cry_statset_0_ancestral_cry_duration_final_per_removable_endurance_charge_normal_variant_1.text,Consumes all Endurance Charges to increase Warcry duration by {value_1}% per charge,消耗所有耐力球，每个能量球使战吼持续时间提高 {value_1}%,消耗所有耐力球，每个耐力球使战吼持续时间提高 {value_1}%,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.ancient_gifts_breach_flame_spawn_rate_ms_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text,"An Ancient Bloom manifests within 8.5m of
+ you every {value_1} seconds",,"每 {value_1} 秒在你周围 8.5 米内
+显现一朵远古之花",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.atziri_herald_skill_herald_bleeding_enemies_explode_for_blood_loss_as_unscalable_physical_damage_quality_display_herald_of_blood_is_gem_1_normal_variant_1.text,"Deals {value_1}% of exploded enemy's Blood Loss
+as unscalable Physical Attack Damage",,"造成等同于爆炸敌人失血量 {value_1}%
+且不受加成影响的物理攻击伤害",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.azmerian_swarm_statset_0_active_skill_minion_1_attack_speed_per_x_player_dexterity_normal_variant_1.text,"Swarms have 1% increased Attack Speed
+per {value_1} of your Dexterity","每 {value_1} 点敏捷使
+该技能的召唤生物效果范围提高 1%","你每有 {value_1} 点敏捷，
+虫群的攻击速度提高 1%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.bloodhounds_mark_explosion_hunters_mark_buildup_as_explosion_damage_final_hunters_mark_explosion_area_of_effect_final_from_buildup_normal_variant_1.text,"Gains up to {value_1}% more damage and {value_2}% more area of
+effect based on the percentage of target's
+Heavy Stun buildup caused by Blood Loss",,"根据失血造成的重度晕眩积蓄占目标总积蓄的比例，
+伤害最多总增 {value_1}%，
+效果范围最多总增 {value_2}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.bloodhounds_mark_hunters_mark_of_phys_damage_over_time_as_build_up_normal_variant_1.text,"Marked target receives Heavy Stun buildup equal to
+{value_1}% of Blood Loss",,"被标记的目标获得等同于
+失血量 {value_1}% 的重度晕眩积蓄",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.boneshatter_boneshatter_damage_final_if_created_from_unique_1_normal_variant_1.text,"{value_1}% more damage with Hits for Shockwaves originating
+from a Unique enemy","源自传奇敌人的冲击波
+造成的击中伤害总降 {value_1}%","源自传奇敌人的冲击波
+造成的击中伤害总增 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.charge_regulation_charge_mastery_crit_chance_final_with_power_charges_1_normal_variant_1.text,"{value_1}% more Critical Hit Chance while
+you have a Power Charge","当你有暴击球时
+暴击几率总降 {value_1}%","当你有暴击球时
+暴击几率总增 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-CN,Game.csv,game.stat_description.disengage_consume_parry_debuff_on_hit_to_gain_x_frenzy_charges_1_1_normal_variant_1.text,Grants a Frenzy Charge on Parried Consumption,在消耗被招架时获得一个[FrenzyCharge|狂怒球],消耗招架减益效果时获得一个狂怒球,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.disengage_consume_parry_debuff_on_hit_to_gain_x_frenzy_charges_normal_variant_1.text,Grants {value_1} Frenzy Charges on Parried Consumption,在消耗被招架时获得 {value_1} 个[FrenzyCharge|狂怒球],消耗招架减益效果时获得 {value_1} 个狂怒球,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.elemental_sundering_statset_1_elemental_sundering_damage_final_if_created_from_unique_1_normal_variant_1.text,"{value_1}% more damage with Hits for pulses originating
+from a Unique enemy","源自传奇敌人的脉冲
+造成的击中伤害总降 {value_1}%","源自传奇敌人的脉冲
+造成的击中伤害总增 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.fragmentation_rounds_statset_1_frag_rounds_damage_final_if_created_from_unique_1_normal_variant_1.text,"{value_1}% more damage with Hits for explosions originating
+from a Unique enemy","源自传奇敌人的爆炸
+造成的击中伤害总降 {value_1}%","源自传奇敌人的爆炸
+造成的击中伤害总增 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.frostflame_nova_active_skill_hit_damage_freeze_multiplier_permyriad_final_per_1_of_target_ailment_threshold_being_dealt_by_ignite_per_second_1_divide_by_one_hundred_2dp_if_required_1_normal_variant_1.text,{value_1}% more Freeze Buildup for each 1% of enemy's Ailment Threshold dealt by the affected Ignite per second,受影响的点燃每秒对敌人每造成 1% 异常状态阈值，冻结积蓄值总增 {value_1}%,受影响的点燃每秒造成的伤害每达到敌人异常状态阈值的 1%，冻结积蓄值总增 {value_1}%,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.future_past_base_skill_effect_duration_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text,"Grants each of Hindsight, Foresight, and
+Sight Beyond Sight, in sequence
+Hindsight lasts for a {value_1} second duration",,"依次获得后见之明、先见之明
+和超越视线
+后见之明持续 {value_1} 秒",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gathering_storm_statset_3_active_skill_base_area_of_effect_radius_divide_by_ten_1dp_if_required_1_normal_variant_1.text,"Shockwave radius is {value_1} metres
+Shocked Ground radius is {value_1} metres","震波范围为 {value_1} metres
+Shocked Ground radius is {value_1} 米","冲击波半径为 {value_1} 米
+感电地面半径为 {value_1} 米",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_added_physical_damage_ward_cost_normal_variant_1.text,"Supported Skills deal added Physical damage equal
+to {value_1}% of Runic Ward cost","Supported Skills deal added Physical damage equal
+消耗 {value_1}% 的附加冰霜伤害","被辅助技能造成等同于符文结界
+消耗 {value_1}% 的附加物理伤害",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_gain_x_tasalios_perfection_on_perfect_timing_1_1_normal_variant_1.text,"Successfully executing Perfect Timing with Supported Skills grants a stack of Tasalio's Rhythm
+All Tasalio's Rhythm is lost on failing to execute any Perfect Timing
+ Supported Skills deal 10% more Damage for each stack of Tasalio's Rhythm
+ Supported Skills have a 30% shorter Perfect Timing window for each stack of Tasalio's Rhythm
+ Tasalio's Rhythm stacks up to 5 times","成功在完美时机释放被辅助技能时，获得一层塔萨里奥的律动
+若未能把握完美时机，则失去所有塔萨里奥的律动
+ Supported Skills deal 10% more Damage for each stack of Tasalio's Rhythm
+ Supported Skills have a 30% shorter Perfect Timing window for each stack of Tasalio's Rhythm
+ Tasalio's Rhythm stacks up to 5 times","使用被辅助技能成功把握完美时机时，获得一层塔萨里奥的律动
+任何一次未能把握完美时机都会失去所有塔萨里奥的律动
+每层塔萨里奥的律动使被辅助技能的伤害总增 10%
+每层塔萨里奥的律动使被辅助技能的完美时机窗口缩短 30%
+塔萨里奥的律动最多叠加 5 层",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_ground_effects_apply_cooldown_speed_final_1_negate_1_normal_variant_1.text,"Ground Surfaces from Supported Skills apply Suppressive Ground
+Suppressive Ground inflicts {value_1}% less Cooldown Recovery Rate","被辅助技能的地面效果产生压制地面
+Suppressive Ground inflicts {value_1}%% less Cooldown Recovery Speed","被辅助技能的地面效果施加压制地面
+压制地面使冷却回复速度总降 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_hazards_trigger_at_end_of_duration_instead_normal_variant_1.text,"Hazards created by Supported Skills cannot be triggered by enemies unless triggered immediately on creation
+Hazards created by Supported Skills trigger at
+the end of their duration",,"被辅助技能生成的危害只能在生成瞬间被敌人触发
+被辅助技能生成的危害会在
+持续时间结束时触发",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_lose_x_of_life_per_5_rage_on_supported_skill_use_1_normal_variant_1.text,"Lose {value_1}% of Maximum Life per 5 Rage when 
+you use Supported Skills","Lose {value_1}% of Maximum Life per 5 Rage when 
+你失去 {value_1}% 的生命上限","使用被辅助技能时，你每有 5 点怒火，
+便失去生命上限的 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_loyalty_of_redirected_damage_recouped_as_life_for_owner_1_normal_variant_1.text,You Recoup {value_1}% of Damage taken from Supported Minion's Life this way as Life,,以此方式从被辅助召唤生物生命中扣除的伤害，有 {value_1}% 被你吸纳为生命,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_random_projectile_direction_normal_variant_1.text,"Projectiles from Supported Skills are
+fired in random directions",,"被辅助技能的投射物
+朝随机方向发射",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_skill_consume_corpse_within_x_units_on_use_skill_consume_up_to_x_corpses_on_use_1_1_divide_by_ten_1dp_if_required_1_normal_variant_1.text,"Supported Skills consume a Corpse within {value_1} metres
+on use, if possible",,"使用被辅助技能时，若可能，消耗
+{value_1} 米内的一具尸体",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_skill_consume_corpse_within_x_units_on_use_skill_consume_up_to_x_corpses_on_use_1_divide_by_ten_1dp_if_required_1_normal_variant_1.text,"Supported Skills consume up to {value_2} Corpses within {value_1} metres
+on use, if possible",,"使用被辅助技能时，若可能，消耗
+{value_1} 米内最多 {value_2} 具尸体",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_skill_consume_frenzy_charge_to_gain_skill_speed_final_1_normal_variant_1.text,"Supported Skills will consume a Frenzy Charge on use if possible
+Supported Skills have {value_1}% more Skill Speed when consuming Frenzy Charges","使用被辅助技能时尽量消耗一个狂怒球
+Supported Skills have {value_1}% more Skill Speed when consuming 狂怒球","使用被辅助技能时，若可能，消耗一个狂怒球
+消耗狂怒球时，被辅助技能的技能速度总增 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_skill_reserves_x_life_permyriad_per_spirit_instead_of_spirit_normal_variant_1.text,"Supported Skills Reserve a percentage of your maximum
+Life equal to {value_1}% of base Spirit Reservation",,"被辅助技能改为保留一定百分比的生命上限，
+该百分比等于基础精魂保留的 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_spell_daze_on_critical_hit_dealing_physical_damage_normal_variant_1.text,Supported Skills Daze on Critically Hitting enemies with Physical damage,使用被辅助技能对敌人造成物理伤害[Critial|暴击]时会使敌人恍惚,被辅助技能以物理伤害暴击击中敌人时使其恍惚,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_chance_to_shock_nearby_enemy_on_shock_shock_nearby_enemy_area_of_effect_radius_shock_nearby_enemy_base_area_of_effect_radius_divide_by_ten_1dp_3_normal_variant_1.text,Shocking Hits from supported Skills have a {value_1}% chance to also Shock enemies in a {value_3} metre radius,,被辅助技能的感电击中有 {value_1}% 的几率同时使 {value_3} 米半径内的敌人感电,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_chaos_damage_final_if_corpse_consumed_on_use_1_normal_variant_1.text,"Supported Skills deal {value_1}% more
+Chaos Damage if consuming a Corpse","每 100 智慧使被辅助技能造成的
+被辅助技能造成的混沌伤害总降 {value_1}%","被辅助技能消耗尸体时，
+造成的混沌伤害总增 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_chaos_damage_final_per_corpse_consumed_on_use_1_normal_variant_1.text,"Supported Skills deal {value_1}% more
+Chaos Damage for each Corpse consumed this way","每 100 智慧使被辅助技能造成的
+被辅助技能造成的混沌伤害总降 {value_1}%","以此方式每消耗一具尸体，被辅助技能
+造成的混沌伤害总增 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_chaos_support_non_chaos_damage_final_1_negate_1_normal_variant_1.text,Supported Skills deal {value_1}% less non-Chaos Damage,,被辅助技能造成的非混沌伤害总降 {value_1}%,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_close_combat_attack_damage_final_from_distance_1_normal_variant_1.text,"Supported Skills deal {value_1}% more Attack Damage to 
+enemies within 1 metre of you, scaling down to
+no bonus at 3.5 metres or further","被辅助技能对 7 米外的敌人
+造成的攻击伤害总增 {value_1}%，并逐渐降低
+3.5米及以外不提供加成","被辅助技能对你 1 米内的敌人
+造成的攻击伤害总增 {value_1}%，加成随距离降低，
+到 3.5 米及以外时不再提供加成",时间、距离、频率或触发条件修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_damage_final_per_crossbow_bolt_reloaded_in_past_6_seconds_1_normal_variant_1.text,"Supported Crossbow Skills deal {value_1}% more Damage for
+each bolt Reloaded by that skill in the past 6 seconds","被辅助的战弩技能过去 8 秒内每装填一发弩箭
+造成的伤害总降 {value_1}%","被辅助战弩技能过去 6 秒内每装填一发弩箭，
+该技能造成的伤害总增 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_damage_final_per_crossbow_bolt_reloaded_in_past_8_seconds_1_normal_variant_1.text,"Supported Crossbow Skills deal {value_1}% more Damage for
+each bolt Reloaded by that skill in the past 8 seconds","被辅助的战弩技能过去 8 秒内每装填一发弩箭
+造成的伤害总降 {value_1}%","被辅助战弩技能过去 8 秒内每装填一发弩箭，
+该技能造成的伤害总增 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_deliberation_movement_speed_penalty_final_while_performing_action_1_normal_variant_1.text,"{value_1}% more Movement Speed penalty while
+using Supported Skills","使用被辅助技能时
+移动速度惩罚总降 {value_1}%","使用被辅助技能时，
+移动速度惩罚总增 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_elemental_damage_final_per_different_elemental_skill_used_recently_1_normal_variant_1.text,"Supported Skills deal {value_1}% more Elemental Damage for each
+Skill used Recently of a different Elemental type","近期每使用一个不同的元素类型的技能，
+被辅助技能造成的元素伤害总降 {value_1}%","近期每使用一个不同元素类型的技能，
+被辅助技能造成的元素伤害总增 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_hit_damage_stun_multiplier_final_from_current_poise_100_100_normal_variant_1.text,"Hits from Supported Skills Stun Enemies as though dealing more Damage equivalent to the
+current percentage of your Stun Bar",,"被辅助技能的击中造成晕眩时，视为造成的伤害总增，
+增幅等于你当前晕眩条的百分比",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_mothers_ward_base_duration_ms_milliseconds_to_seconds_0dp_1_normal_variant_1.text,"Allies in your Presence gain Guard equal to 10% of your maximum Life for {value_1} seconds, every 6 seconds while
+a Supported Skill is active","被辅助技能激活时，每 6 秒，你在场范围内的友军获得等同于你生命上限 10% 的防卫，
+持续 {value_1} 秒","被辅助技能激活时，每 6 秒，你存在范围内的友军获得等同于你生命上限 10% 的防卫，
+持续 {value_1} 秒",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_rageforged_consumes_x_rage_to_enrage_skill_use_support_rageforged_enraged_damage_final_1_normal_variant_1.text,"Supported Skills spend {value_1} Rage if possible to
+deal {value_2}% more Damage","伤害总增 被辅助技能可以消耗 {value_1} 点怒火
+deal {value_2}%","被辅助技能尽可能消耗 {value_1} 点怒火，
+使伤害总增 {value_2}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_retreating_assault_projectile_damage_final_if_melee_hit_in_past_2_seconds_1_normal_variant_1.text,Supported Skills deal {value_1}% more Projectile Damage if you have Damaged an Enemy with a Melee Hit in the last 2 seconds,,若你过去 2 秒内以近战击中对敌人造成过伤害，被辅助技能的投射物伤害总增 {value_1}%,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_retreating_assault_projectile_damage_final_if_melee_hit_in_past_8_seconds_1_normal_variant_1.text,Supported Skills deal {value_1}% more Projectile Damage if you have Damaged an Enemy with a Melee Hit in the last 8 seconds,,若你过去 8 秒内以近战击中对敌人造成过伤害，被辅助技能的投射物伤害总增 {value_1}%,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_rigwald_damage_final_in_weapon_set_two_1_normal_variant_1.text,"Supported Skills deal {value_1}% more Damage if
+used in Weapon Set II","在武器组 II 中使用时，
+被辅助技能造成的伤害总降 {value_1}%","在武器组 II 中使用时，
+被辅助技能造成的伤害总增 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_sacrificial_lamb_base_radius_1_divide_by_ten_1dp_if_required_1_normal_variant_1.text,"Your Skills target Minions from Supported Skills within
+{value_1} metres if possible",,"你的技能尽可能以 {value_1} 米内
+被辅助技能的召唤生物为目标",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_shield_sacrifice_damage_over_time_final_per_100_intelligence_1_normal_variant_1.text,"Supported Skills deal {value_1}% more
+non-Ailment Damage over time per 100 Intelligence","每 100 智慧使被辅助技能造成的
+非异常状态持续伤害总降 {value_1}%","每有 100 点智慧，被辅助技能造成的
+非异常状态持续伤害总增 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_splinter_totem_area_of_effect_final_each_splinter_1_negate_1_normal_variant_1.text,"Totems created by Supported Skills have {value_1}% less
+area of effect for each time they have splintered","被辅助技能生成的图腾每碎裂一次，
+效果范围总增 {value_1}%","被辅助技能生成的图腾每碎裂一次，
+效果范围总降 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_splinter_totem_maximum_life_final_each_splinter_1_negate_1_normal_variant_1.text,"Totems created by Supported Skills have {value_1}% less maximum
+Life for each time they have splintered","被辅助技能生成的图腾每碎裂一次，
+生命上限总增 {value_1}%","被辅助技能生成的图腾每碎裂一次，
+生命上限总降 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_support_totem_life_final_1_normal_variant_1.text,"Totems created by Supported
+Skills have {value_1}% more maximum Life","生命上限总增 Totems created by Supported
+Skills have {value_1}%","被辅助技能生成的图腾
+生命上限总增 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_try_consuming_shock_to_trigger_shocking_rift_in_radius_on_shocking_enemy_consume_shock_of_x_enemies_to_trigger_shocking_rift_2_2_divide_by_ten_1dp_if_required_1_normal_variant_1.text,"On Shocking an enemy where there are at least {value_2}
+Shocked enemies within {value_1} metres that are not already
+in a Shocking Rift, Supported Skills Consume Shock of
+all enemies within {value_1} metres to trigger Shocking Rift",,"使敌人感电时，若其周围 {value_1} 米内有至少 {value_2} 个
+已感电且尚未处于感电裂隙中的敌人，
+被辅助技能会消耗 {value_1} 米内
+所有敌人的感电来触发感电裂隙",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.gem_stat_descriptions_your_marks_spread_to_a_nearby_enemies_on_consume_chance_100_normal_variant_1.text,Supported Skills will Mark another Enemy within 3 Metres of Marked Enemy when Consumed,被辅助技能消耗敌人的印记时标记 4 米内的另一个敌人,被辅助技能消耗敌人的印记时，标记该敌人 3 米内的另一个敌人,时间、距离、频率或触发条件修正
+zh-CN,Game.csv,game.stat_description.herald_of_blood_skill_herald_bleeding_enemies_explode_for_blood_loss_as_unscalable_physical_damage_quality_display_herald_of_blood_is_gem_1_normal_variant_1.text,"Deals {value_1}% of exploded enemy's Blood Loss
+as unscalable Physical Attack Damage",,"造成等同于爆炸敌人失血量 {value_1}%
+且不受加成影响的物理攻击伤害",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.hollow_focus_active_skill_base_secondary_area_of_effect_radius_divide_by_ten_1dp_if_required_1_quality_variant_1.text,{value_1_plus} metres to bell appearance radius,,钟出现的半径 {value_1_plus} 米,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.incinerate_player_statset_0_spell_minimum_base_fire_damage_spell_maximum_base_fire_damage_normal_variant_1.text,"Ignites as though dealing {value_1} to {value_2} Fire damage, every 0.075 seconds",点燃，视作造成 {value_1} - {value_2} 火焰伤害,每 0.075 秒造成点燃，视作造成 {value_1} 至 {value_2} 火焰伤害,时间、距离、频率或触发条件修正
+zh-CN,Game.csv,game.stat_description.inevitable_agony_active_skill_base_area_of_effect_radius_divide_by_ten_1dp_if_required_1_quality_variant_1.text,+{value_1} Metres to initial cast radius,,初始施放半径 +{value_1} 米,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.killing_palm_skill_grant_x_power_charges_against_normal_and_magic_monsters_skill_grant_x_power_charges_against_rare_monsters_skill_grant_x_power_charges_against_unique_monsters_1_1_normal_variant_1.text_3,"Normal and Magic monsters grant {value_1} Power Charge
+Rare monsters grant {value_2} Power Charges
+Unique monsters grant {value_3} Power Charges","普通和魔法怪物提供 {value_1} Power Charge
+稀有怪物提供 {value_2} 个暴击球
+Unique monsters grant {value_3} 个暴击球","普通和魔法怪物提供 {value_1} 个暴击球
+稀有怪物提供 {value_2} 个暴击球
+传奇怪物提供 {value_3} 个暴击球",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.meta_gem_stat_descriptions_warcry_grant_damage_to_exerted_attacks_normal_variant_1.text,"Attacks Empowered by Socketed
+Skills deal {value_1}% increased damage","伤害提高 被镶嵌的技能被强化的攻击
+Skills deal {value_1}%","被镶嵌技能强化的攻击
+造成的伤害提高 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.midnight_star_statset_0_midnight_star_gain_ice_seeds_equal_to_enemy_power_on_kill_with_critical_hit_1_normal_variant_1.text,+1 Arctic Petal per Power of targets Killed with Critical Hits,使用暴击击中击杀的每点威力值，使极地花瓣 +1,暴击击杀的目标每有 1 点威力值，获得 +1 枚极寒花瓣,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.midnight_star_statset_0_midnight_star_gain_x_ice_seeds_when_you_critically_hit_a_rare_or_unique_enemy_2_normal_variant_1.text,{value_1_plus} Arctic Petals on Critically Hitting Rare or Unique targets,暴击击中时，极地花瓣对稀有或传奇目标 {value_1_plus},暴击击中稀有或传奇目标时，获得 {value_1_plus} 枚极寒花瓣,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.new_sunder_statset_0_sunder_armor_break_extra_magnitude_1_normal_variant_1.text,"Inflicts Sundered Armour on hitting
+Fully Armour Broken targets, causing {value_1}% additional
+increased Physical damage taken",,"击中护甲完全破损的目标时施加护甲撕裂，
+使其受到的物理伤害
+额外提高 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.overwhelming_presence_skill_overwhelming_pressure_aura_enemy_ailment_threshold_1_negate_1_normal_variant_1.text,"Enemies in your Presence have {value_1}% reduced
+Elemental Ailment Threshold",,"你存在范围内的敌人的
+元素异常状态阈值降低 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.repulsion_shockwave_curse_repulsion_shockwave_hit_damage_stun_multiplier_final_per_fragility_on_special_object_1_normal_variant_1.text_2,"{value_1}% more Stun buildup on Hit
+per Fragility on the target","目标每有一层虚弱，
+击中时晕眩积蓄值总降 {value_1}%","目标每有一层虚弱，
+击中时晕眩积蓄值总增 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-CN,Game.csv,game.stat_description.sacrifice_harvester_minion_resummon_speed_final_1_negate_1_normal_variant_1.text,"Skills can use your undead Reviving Minions in
+place of Corpses
+Minions Revive {value_1}% more slowly","技能使用你的复活亡灵召唤生物
+代替灵柩
+召唤生物复活速度总降 {value_1}%","技能可以用你的可复活亡灵召唤生物
+代替尸体
+召唤生物复活速度总降 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.skill_stat_descriptions_blood_boil_application_interval_ms_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text,"Blood Boil applies to non-Unique enemies
+in your Presence every {value_1} seconds",,"每 {value_1} 秒对你存在范围内的
+非传奇敌人施加血沸",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.skill_stat_descriptions_blood_boil_explosion_area_final_per_boil_1_normal_variant_1.text,"{value_1}% more Corrupted Blood infliction Area of Effect
+per Blood Boil on slain Enemy","被击败的敌人每受到一层血沸影响
+腐化之血的施加效果范围总降 {value_1}%","被击杀的敌人每受到一层血沸影响，
+腐化之血的施加效果范围总增 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-CN,Game.csv,game.stat_description.skill_stat_descriptions_breach_flame_spawn_rate_ms_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text,"A Flame of Chayula manifests within 8.5m of
+ you every {value_1} seconds",,"每 {value_1} 秒在你周围 8.5 米内
+显现一团夏乌拉之焰",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.skill_stat_descriptions_cast_on_crit_gain_x_centienergy_per_monster_power_on_crit_divide_by_one_hundred_2dp_if_required_1_normal_variant_1.text,"Gains {value_1} Energy per Power of enemies you
+Critically Hit with Skills, modified by the percentage of the enemy's Ailment Threshold the Critical Hit will deal","近战攻击击败的敌人
+敌人每有一点威力值便获得 {value_1} 能量，受该次暴击造成的敌人异常状态阈值比例调整","你的技能暴击击中的敌人每有 1 点威力值，
+获得 {value_1} 点能量，受该次暴击伤害占敌人异常状态阈值的比例调整",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.skill_stat_descriptions_cast_on_ignite_gain_x_centienergy_per_monster_power_on_ignite_divide_by_one_hundred_2dp_if_required_1_normal_variant_1.text,"Gains {value_1} Energy per Power of enemies you Ignite with Hits from Skills, modified by the percentage of the enemy's Ailment Threshold the Ignite will deal",,被你的技能击中点燃的敌人每有 1 点威力值，获得 {value_1} 点能量，受该次点燃伤害占敌人异常状态阈值的比例调整,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.skill_stat_descriptions_consume_x_heat_on_skill_use_active_skill_all_damage_as_fire_if_heat_is_consumed_ignite_effect_final_if_heat_is_consumed_1_0_0_1_normal_variant_1.text,"Consumes {value_1} Heat if possible to
+gain {value_3}% more Ignite Magnitude","点燃强度总增 若可能的话消耗 {value_1} 层热度，
+gain {value_3}%","若可能，消耗 {value_1} 层热度，
+使点燃强度总增 {value_3}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.skill_stat_descriptions_contagion_spread_magnitude_final_contagion_maximum_spread_magnitude_final_quality_display_contagion_is_gem_normal_variant_1.text,"Debuff deals {value_1}% more Damage for each
+time it has spread, up to {value_2}%",,"减益效果每传播一次，伤害总增 {value_1}%，
+最多总增 {value_2}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.skill_stat_descriptions_elemental_invocation_gain_x_centienergy_per_monster_power_on_ignite_divide_by_one_hundred_2dp_if_required_1_normal_variant_1.text,"Gains {value_1} Energy per Power of enemies you Ignite with Hits from Skills, modified by the percentage of the enemy's Ailment Threshold the Ignite will deal",,被你的技能击中点燃的敌人每有 1 点威力值，获得 {value_1} 点能量，受该次点燃伤害占敌人异常状态阈值的比例调整,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.skill_stat_descriptions_number_of_additional_impaled_debuffs_to_apply_2_normal_variant_1.text,Inflicts {value_1} additional Impales,造成 {value_1} 个额外的[Imaple|穿刺],造成 {value_1} 个额外的穿刺,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.skill_stat_descriptions_skill_base_oil_exposure_to_total_elemental_resistance_0_normal_variant_1.text,"Oil applies Exposure, lowering Total
+Elemental Resistances by {value_1}%","黏油造成曝露，使全部
+元素抗性总降 {value_1}%","黏油施加曝露，使总
+元素抗性降低 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.skill_stat_descriptions_skill_grant_x_frenzy_charges_against_normal_and_magic_monsters_skill_grant_x_frenzy_charges_against_rare_monsters_skill_grant_x_frenzy_charges_against_unique_monsters_1_1_normal_variant_1.text_3,"Normal and Magic monsters grant {value_1} Frenzy Charge
+Rare monsters grant {value_2} Frenzy Charges
+Unique monsters grant {value_3} Frenzy Charges","普通和魔法怪物提供 {value_1} Frenzy Charge
+稀有怪物提供 {value_2} 个狂怒球
+Unique monsters grant {value_3} 个狂怒球","普通和魔法怪物提供 {value_1} 个狂怒球
+稀有怪物提供 {value_2} 个狂怒球
+传奇怪物提供 {value_3} 个狂怒球",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.skill_stat_descriptions_skill_triggered_on_hit_while_have_vivid_stag_wisps_normal_variant_1.text,"Triggered when you Attack, creating one Stag per Vivid Wisp",,你攻击时触发，每个鲜活鬼火生成一只雄鹿,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.skill_stat_descriptions_spellslinger_invocation_gain_x_centienergy_per_10ms_base_cast_time_divide_by_ten_1dp_if_required_1_normal_variant_1.text,"Gains {value_1} Energy per 0.1 seconds of base
+cast time of Spells you cast","Gains {value_1} Energy per 0.1 seconds of 基础
+cast time of Spells you cast","你施放的法术每有 0.1 秒基础施法时间，
+获得 {value_1} 点能量",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.snap_snap_damage_final_if_created_from_unique_1_normal_variant_1.text,"{value_1}% more damage with Hits for blasts originating
+from a Unique enemy","源自传奇敌人的爆破
+造成的击中伤害总降 {value_1}%","源自传奇敌人的爆破
+造成的击中伤害总增 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.sorcery_ward_aegis_unique_shield_max_value_from_armour_evasion_1_normal_variant_1.text,"Elemental Damage from Hits is taken from the Barrier before your Life, Mana or Energy Shield
+Barrier can take Elemental Damage equal to {value_1}% of your Armour and Evasion Rating, up to a maximum of 32,000","受到的击中元素伤害先扣除屏障，之后才扣除生命、魔力或能量护盾
+Barrier can take Elemental Damage equal to {value_1}% of your Armour and Evasion Rating, up to a maximum of 32,000","受到的击中元素伤害先由屏障承担，之后才扣除生命、魔力或能量护盾
+屏障可承受等同于你护甲与闪避值之和 {value_1}% 的元素伤害，最多 32,000",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.sorcery_ward_aegis_unique_shield_max_value_from_armour_evasion_1_quality_variant_1.text,Barrier can take Elemental Damage equal to {value_1_plus}% of your Armour and Evasion Rating,,屏障可承受的元素伤害等同于你护甲与闪避值之和的比例 {value_1_plus}%,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.stat_descriptions_snipe_damage_final_if_created_from_unique_1_normal_variant_1.text,{value_1}% more damage with Hits for explosions originating from a Unique enemy,,源自传奇敌人的爆炸造成的击中伤害总增 {value_1}%,动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.summon_water_djinn_water_djinn_mana_wave_mana_regeneration_rate_1_normal_variant_1.text,"Triggers Navira's Calming when Commanded to
+use a Skill, granting nearby Allies {value_1}% increased
+Mana Regeneration for 4 seconds",,"受命使用技能时触发纳薇拉之抚，
+使附近友军的魔力再生提高 {value_1}%，
+持续 4 秒",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.supercharged_slam_statset_0_channelled_slam_max_stages_quality_display_supercharged_slam_is_gem_normal_variant_1.text,"Maximum {value_1} Stages
+Channelling ends 1 second after reaching maximum Stages
+Releases 1 Aftershock per Stage","上限为 {value_1} Stages
+达到层数上限 1 秒后结束吟唱
+Releases 1 Aftershock per 层","最多 {value_1} 层
+达到层数上限 1 秒后结束吟唱
+每层释放 1 次余震",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.walking_calamity_walking_calamity_large_meteor_same_target_prevention_duration_ms_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text,"Large meteors can target a single enemy only
+once every {value_1} seconds","Large meteors can target a single enemy only
+每 {value_1} 秒只能触发一次","大型陨石每 {value_1} 秒最多
+以同一个敌人为目标一次",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.walking_calamity_walking_calamity_meteor_frequency_per_enemy_in_walking_calamity_radius_walking_calamity_meteor_frequency_cap_1_1_normal_variant_1.text,"Meteors Trigger {value_1}% more frequently for each
+additional enemy in radius, up to {value_2}%",,"范围内每有一个额外敌人，陨石触发频率总增 {value_1}%，
+最多总增 {value_2}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.wind_dancer_wind_dancer_evasion_rating_final_per_stage_1_normal_variant_1.text,"{value_1}% more Evasion Rating per stage
+On being Hit by an Enemy, consume all
+stages to trigger Gale Force",,"每层使闪避值总增 {value_1}%
+被敌人击中时，消耗所有
+层数以触发飓风之力",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.wing_blast_statset_1_wing_blast_shockwave_damage_final_if_created_from_unique_1_normal_variant_1.text,"{value_1}% more damage with Hits for Shockwaves originating
+from a Unique enemy","源自传奇敌人的冲击波
+造成的击中伤害总降 {value_1}%","源自传奇敌人的冲击波
+造成的击中伤害总增 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-CN,Game.csv,game.stat_description.wyvern_devour_wyvern_devour_life_restoration_normal_variant_1.text,"Regenerates {value_1} life per enemy or
+Corpse consumed over 1 second",,"每吞噬一个敌人或一具尸体，
+在 1 秒内再生 {value_1} 点生命",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.skill.futurepastplayer.description,"Hinekora observes your Future-Past granting you the opportunity to subvert a lesser fate. After a period of Hindsight, she will grant you her Foresight, which prevents you from avoiding Hits while Dodge Rolling. When you are Hit while Dodge Rolling, Hinekora restores you to full Life immediately before taking damage from the Hit, and grants you Sight Beyond Sight, which prevents you from dying.",悉妮蔻拉洞悉你的未來昔日，給予你轉換悲慘命運的機會。在經過一段時間的後事之師後，她會賦予你洞燭機先，讓你在翻滾閃避的時候避免遭擊中。當你在翻滾閃避時遭擊中，悉妮蔻拉讓你在承受擊中傷害前立即恢復至最大生命，並賦予你超越境界，使你不會死亡。,悉妮蔻拉洞悉你的未來昔日，給予你轉換悲慘命運的機會。在經過一段時間的後事之師後，她會賦予你洞燭機先，使你在翻滾閃避時無法避免遭擊中。當你在翻滾閃避時遭擊中，悉妮蔻拉讓你在承受擊中傷害前立即恢復至最大生命，並賦予你超越境界，使你不會死亡。,相关命运技能长描述的否定词修正
+zh-TW,Game.csv,game.skill_stat_set.firestormplayer_2.label,Ice Bolts,發彈數Ice,冰霜箭矢,技能分段标题的英文残留及错误数量词修正
+zh-TW,Game.csv,game.skill_stat_set.firestormplayer_3.label,Lightning Bolts,發彈數閃電,閃電箭矢,技能分段标题的英文残留及错误数量词修正
+zh-TW,Game.csv,game.stat_description.active_skill_gem_stat_descriptions_empower_barrage_damage_final_with_repeated_projectiles_quality_display_barrage_is_gem_1_normal_variant_1.text,Repeats deal {value_1}% less Damage,重複造成{value_1}%更多傷害,重複造成{value_1}%更少傷害,总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.active_skill_gem_stat_descriptions_total_attack_time_ms_skill_added_attack_time_by_distance_ms_0_0_milliseconds_to_seconds_2dp_if_required_2_normal_variant_1.text,"Up to {value_2_plus} seconds to Total
+Attack Time based on distance travelled",,"根據行進距離，總攻擊時間
+最多增加 {value_2_plus} 秒",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.active_skill_gem_stat_descriptions_total_attack_time_ms_skill_added_attack_time_by_distance_ms_milliseconds_to_seconds_2dp_if_required_1_milliseconds_to_seconds_2dp_if_required_2_normal_variant_1.text,"{value_1_plus} seconds to Total Attack Time, plus up to
+{value_2_plus} seconds based on distance travelled","移動距離額外增加總[攻擊]時間增加{value_1_plus}秒，並根據
+{value_2_plus}秒","總攻擊時間額外 {value_1_plus} 秒，並根據行進距離
+最多再增加 {value_2_plus} 秒",攻击时间完整句子错序及标记修正
+zh-TW,Game.csv,game.stat_description.align_fate_spellflux_spell_damage_final_if_matching_flux_cast_1_normal_variant_1.text,"Casting the matching Spell before the next
+Visage appears Empowers that Spell
+Empowered Spells deal {value_1}% more damage","Casting the matching Spell before the next
+Visage appears Empowers that Spell
+Empowered Spells deal {value_1}%更多傷害","在下一個幻影出現前施放相同法術，
+會強化該法術
+被強化法術的傷害總增 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.ancestral_cry_statset_0_ancestral_cry_duration_final_per_removable_endurance_charge_normal_variant_1.text,Consumes all Endurance Charges to increase Warcry duration by {value_1}% per charge,消耗所有耐力球，每個耐力球增加 {value_1}% [Warcry|戰吼]持續時間,消耗所有耐力球，每個耐力球使戰吼持續時間增加 {value_1}%,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.ancestral_cry_statset_0_base_skill_effect_duration_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text,Warcry duration is {value_1} seconds,[Warcry|戰吼]持續時間為 {value_1} 秒,戰吼持續時間為 {value_1} 秒,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.ancient_gifts_breach_flame_spawn_rate_ms_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text,"An Ancient Bloom manifests within 8.5m of
+ you every {value_1} seconds",,"每 {value_1} 秒在你周圍 8.5 公尺內
+顯現一朵遠古之綻",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.atziri_herald_skill_herald_bleeding_enemies_explode_for_blood_loss_as_unscalable_physical_damage_quality_display_herald_of_blood_is_gem_1_normal_variant_1.text,"Deals {value_1}% of exploded enemy's Blood Loss
+as unscalable Physical Attack Damage","造成等同於{value_1}%爆炸敵人失血量
+的獨立物理攻擊傷害","造成等同於爆炸敵人失血量 {value_1}%
+且不受加成影響的物理攻擊傷害",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.azmerian_swarm_statset_0_active_skill_minion_1_attack_speed_per_x_player_dexterity_normal_variant_1.text,"Swarms have 1% increased Attack Speed
+per {value_1} of your Dexterity",,"你每有 {value_1} 點敏捷，
+群落的攻擊速度增加 1%",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.azmerian_swarm_statset_0_skill_grants_chance_to_summon_azmerian_swarm_on_hitting_unique_or_rare_enemy_affected_by_elemental_ailment_1_normal_variant_1.text,{value_1}% chance to summon an Azmerian Swarm when you Hit a Rare or Unique target affected by an Elemental Ailment,,你擊中受元素異常狀態影響的稀有或傳奇目標時，有 {value_1}% 的幾率召喚一個阿茲莫里群落,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.bloodhounds_mark_explosion_hunters_mark_buildup_as_explosion_damage_final_hunters_mark_explosion_area_of_effect_final_from_buildup_normal_variant_1.text,"Gains up to {value_1}% more damage and {value_2}% more area of
+effect based on the percentage of target's
+Heavy Stun buildup caused by Blood Loss",,"根據失血造成的沉重暈眩積蓄佔目標總積蓄的比例，
+傷害最多總增 {value_1}%，
+效果範圍最多總增 {value_2}%",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.bloodhounds_mark_hunters_mark_of_phys_damage_over_time_as_build_up_normal_variant_1.text,"Marked target receives Heavy Stun buildup equal to
+{value_1}% of Blood Loss",,"被標記的目標獲得等同於
+失血量 {value_1}% 的沉重暈眩積蓄",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.boneshatter_boneshatter_damage_final_if_created_from_unique_1_normal_variant_1.text,"{value_1}% more damage with Hits for Shockwaves originating
+from a Unique enemy",,"源自傳奇敵人的衝擊波
+造成的擊中傷害總增 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.briarpatch_briarpatch_ground_creation_delay_ms_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text,"Cannot create more than one patch of
+Thorny Ground every {value_1} seconds","每{value_1}無法創造
+超過1片的荊棘地面","每 {value_1} 秒最多隻能生成
+一塊荊棘地面",时间、距离、频率或触发条件修正
+zh-TW,Game.csv,game.stat_description.conductive_runes_statset_0_rune_hazard_arming_time_ms_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text,Runes arm after {value_1} seconds,{value_1} seconds to arming time,符文在 {value_1} 秒後就緒,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.demon_form_demon_form_grants_cast_speed_1_normal_variant_1.text,{value_1}% increased Cast Speed while in Demon Form,在惡魔變身下，施放速度減少{value_1}%,在惡魔變身下，施放速度增加{value_1}%,总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.elemental_sundering_statset_1_elemental_sundering_damage_final_if_created_from_unique_1_normal_variant_1.text,"{value_1}% more damage with Hits for pulses originating
+from a Unique enemy",,"源自傳奇敵人的脈衝
+造成的擊中傷害總增 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.falling_thunder_lightning_strike_damage_final_per_power_charge_1_normal_variant_1.text,{value_1}% more Damage per Power Charge Consumed,每消耗一顆暴擊球，造成{value_1}%更少傷害,每消耗一顆暴擊球，造成{value_1}%更多傷害,总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.falling_thunder_lightning_strike_damage_final_when_charged_1_normal_variant_1.text,{value_1}% more Damage if a Power Charge was Consumed,若消耗一顆暴擊球，造成{value_1}%更少傷害,若消耗一顆暴擊球，造成{value_1}%更多傷害,总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.fragmentation_rounds_statset_1_frag_rounds_damage_final_if_created_from_unique_1_normal_variant_1.text,"{value_1}% more damage with Hits for explosions originating
+from a Unique enemy",,"源自傳奇敵人的爆炸
+造成的擊中傷害總增 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.frostflame_nova_active_skill_hit_damage_freeze_multiplier_permyriad_final_per_1_of_target_ailment_threshold_being_dealt_by_ignite_per_second_1_divide_by_one_hundred_2dp_if_required_1_normal_variant_1.text,{value_1}% more Freeze Buildup for each 1% of enemy's Ailment Threshold dealt by the affected Ignite per second,,受影響的點燃每秒造成的傷害每達到敵人異常狀態門檻的 1%，凍結積蓄值總增 {value_1}%,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gathering_storm_statset_3_active_skill_base_area_of_effect_radius_divide_by_ten_1dp_if_required_1_normal_variant_1.text,"Shockwave radius is {value_1} metres
+Shocked Ground radius is {value_1} metres","震波範圍為{value_1} metres
+Shocked Ground radius is {value_1}公尺","衝擊波半徑為 {value_1} 公尺
+感電地面半徑為 {value_1} 公尺",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_added_cold_damage_ward_cost_normal_variant_1.text,"Supported Skills deal added Cold damage equal
+to {value_1}% of Runic Ward cost",,"被輔助技能造成等同於符文保護
+消耗 {value_1}% 的附加冰冷傷害",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_base_skill_cost_life_instead_of_mana_100_normal_variant_1.text,Supported Skills have Mana Costs Converted to Life Costs,,被輔助技能的魔力消耗轉化為生命消耗,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_crossbow_reload_on_heavy_stun_normal_variant_1.text,Supported Skills reload automatically when Heavy Stunning an enemy with them,,被輔助技能使敵人沉重暈眩時自動裝填,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_exposure_effect_1_normal_variant_1.text,Exposure applied by Supported Skills has {value_1}% increased effect,被輔助技能施加的曝曬效果減少{value_1}%,被輔助技能施加的曝曬效果增加{value_1}%,总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_gain_x_tasalios_perfection_on_perfect_timing_1_1_normal_variant_1.text,"Successfully executing Perfect Timing with Supported Skills grants a stack of Tasalio's Rhythm
+All Tasalio's Rhythm is lost on failing to execute any Perfect Timing
+ Supported Skills deal 10% more Damage for each stack of Tasalio's Rhythm
+ Supported Skills have a 30% shorter Perfect Timing window for each stack of Tasalio's Rhythm
+ Tasalio's Rhythm stacks up to 5 times","以被輔助的技能成功達成完美時機時獲得一層塔薩里奧的律動
+在達成任何完美時機失敗時失去所有塔薩里奧的律動
+ Supported Skills deal 10% more Damage for each stack of Tasalio's Rhythm
+ Supported Skills have a 30% shorter Perfect Timing window for each stack of Tasalio's Rhythm
+塔薩里奧的律動可以堆疊五次","使用被輔助技能成功把握完美時機時，獲得一層塔薩里奧的律動
+任何一次未能把握完美時機都會失去所有塔薩里奧的律動
+每層塔薩里奧的律動使被輔助技能的傷害總增 10%
+每層塔薩里奧的律動使被輔助技能的完美時機窗口縮短 30%
+塔薩里奧的律動最多疊加 5 層",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_ground_effects_apply_cooldown_speed_final_1_negate_1_normal_variant_1.text,"Ground Surfaces from Supported Skills apply Suppressive Ground
+Suppressive Ground inflicts {value_1}% less Cooldown Recovery Rate","被輔助的技能生成的地面獲得抑制地面效果
+Suppressive Ground inflicts {value_1}% 更少冷卻時間恢復速度","被輔助技能的地面效果施加壓制地面
+壓制地面使冷卻恢復速度總降 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_loyalty_of_redirected_damage_recouped_as_life_for_owner_1_normal_variant_1.text,You Recoup {value_1}% of Damage taken from Supported Minion's Life this way as Life,,以此方式從被輔助召喚物生命中扣除的傷害，有 {value_1}% 被你吸納為生命,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_random_projectile_direction_normal_variant_1.text,"Projectiles from Supported Skills are
+fired in random directions",,"被輔助技能的投射物
+朝隨機方向發射",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_skill_consume_corpse_within_x_units_on_use_skill_consume_up_to_x_corpses_on_use_1_divide_by_ten_1dp_if_required_1_normal_variant_1.text,"Supported Skills consume up to {value_2} Corpses within {value_1} metres
+on use, if possible",,"使用被輔助技能時，若可能，消耗
+{value_1} 公尺內最多 {value_2} 具屍體",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_skill_consume_frenzy_charge_to_gain_skill_speed_final_1_normal_variant_1.text,"Supported Skills will consume a Frenzy Charge on use if possible
+Supported Skills have {value_1}% more Skill Speed when consuming Frenzy Charges","如果可行，使用被輔助的技能時會消耗一顆狂怒球
+Supported Skills have {value_1}% more Skill Speed when consuming 狂怒球","使用被輔助技能時，若可能，消耗一個狂怒球
+消耗狂怒球時，被輔助技能的技能速度總增 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_skill_reserves_x_life_permyriad_per_spirit_instead_of_spirit_normal_variant_1.text,"Supported Skills Reserve a percentage of your maximum
+Life equal to {value_1}% of base Spirit Reservation",,"被輔助技能改為保留一定百分比的最大生命，
+該百分比等於基礎精魂保留的 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_chaos_damage_final_if_corpse_consumed_on_use_1_normal_variant_1.text,"Supported Skills deal {value_1}% more
+Chaos Damage if consuming a Corpse","每擁有100智慧，被輔助的技能造成
+{value_1}%更少混沌傷害","被輔助技能消耗屍體時，
+造成的混沌傷害總增 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_chaos_damage_final_per_corpse_consumed_on_use_1_normal_variant_1.text,"Supported Skills deal {value_1}% more
+Chaos Damage for each Corpse consumed this way","每擁有100智慧，被輔助的技能造成
+{value_1}%更少混沌傷害","以此方式每消耗一具屍體，被輔助技能
+造成的混沌傷害總增 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_chaos_support_non_chaos_damage_final_1_negate_1_normal_variant_1.text,Supported Skills deal {value_1}% less non-Chaos Damage,,被輔助技能造成的非混沌傷害總降 {value_1}%,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_close_combat_attack_damage_final_from_distance_1_normal_variant_1.text,"Supported Skills deal {value_1}% more Attack Damage to 
+enemies within 1 metre of you, scaling down to
+no bonus at 3.5 metres or further","被輔助的技能對你7公尺外的敵人
+造成{value_1}%更多攻擊傷害，超過
+3.5公尺時失去傷害加成","被輔助技能對你 1 公尺內的敵人
+造成的攻擊傷害總增 {value_1}%，加成隨距離降低，
+到 3.5 公尺及以外時不再提供加成",时间、距离、频率或触发条件修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_damage_final_per_crossbow_bolt_reloaded_in_past_6_seconds_1_normal_variant_1.text,"Supported Crossbow Skills deal {value_1}% more Damage for
+each bolt Reloaded by that skill in the past 6 seconds","被輔助的十字弓技能在8秒內每裝填一發弩箭，
+該技能造成的傷害便減少{value_1}%","被輔助十字弓技能過去 6 秒內每裝填一發弩箭，
+該技能造成的傷害總增 {value_1}%",时间、距离、频率或触发条件修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_damage_final_per_crossbow_bolt_reloaded_in_past_8_seconds_1_normal_variant_1.text,"Supported Crossbow Skills deal {value_1}% more Damage for
+each bolt Reloaded by that skill in the past 8 seconds","被輔助的十字弓技能在8秒內每裝填一發弩箭，
+該技能會造成{value_1}%更少傷害","被輔助十字弓技能過去 8 秒內每裝填一發弩箭，
+該技能造成的傷害總增 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_deliberation_movement_speed_penalty_final_while_performing_action_1_normal_variant_1.text,"{value_1}% more Movement Speed penalty while
+using Supported Skills","使用被輔助的技能時
+有{value_1}%更少移動速度懲罰","使用被輔助技能時，
+移動速度懲罰總增 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_empower_x_attacks_with_spark_on_power_charge_gain_normal_variant_1.text,Generating a Power Charge with supported Skills Empowers {value_1} Attacks,被輔助技能的強化{value_1}攻擊會生成1顆暴擊球,用被輔助技能生成一個暴擊球時，強化 {value_1} 次攻擊,时间、距离、频率或触发条件修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_hit_damage_stun_multiplier_final_from_current_poise_100_100_normal_variant_1.text,"Hits from Supported Skills Stun Enemies as though dealing more Damage equivalent to the
+current percentage of your Stun Bar",,"被輔助技能的擊中造成暈眩時，視為造成的傷害總增，
+增幅等於你當前暈眩條的百分比",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_mothers_ward_base_duration_ms_milliseconds_to_seconds_0dp_1_normal_variant_1.text,"Allies in your Presence gain Guard equal to 10% of your maximum Life for {value_1} seconds, every 6 seconds while
+a Supported Skill is active",,"被輔助技能激活時，每 6 秒，你存在範圍內的友軍獲得等同於你最大生命 10% 的守護，
+持續 {value_1} 秒",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_rageforged_consumes_x_rage_to_enrage_skill_use_support_rageforged_enraged_damage_final_1_normal_variant_1.text,"Supported Skills spend {value_1} Rage if possible to
+deal {value_2}% more Damage","被輔助的技能在可能的情況下會消耗{value_1}層盛怒，
+deal {value_2}%更多傷害","被輔助技能儘可能消耗 {value_1} 點盛怒，
+使傷害總增 {value_2}%",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_retreating_assault_melee_damage_final_100_100_normal_variant_1.text,Supported Skills deal no Melee damage,,被輔助技能不造成近戰傷害,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_retreating_assault_projectile_damage_final_if_melee_hit_in_past_2_seconds_1_normal_variant_1.text,Supported Skills deal {value_1}% more Projectile Damage if you have Damaged an Enemy with a Melee Hit in the last 2 seconds,,若你過去 2 秒內以近戰擊中對敵人造成過傷害，被輔助技能的投射物傷害總增 {value_1}%,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_retreating_assault_projectile_damage_final_if_melee_hit_in_past_8_seconds_1_normal_variant_1.text,Supported Skills deal {value_1}% more Projectile Damage if you have Damaged an Enemy with a Melee Hit in the last 8 seconds,,若你過去 8 秒內以近戰擊中對敵人造成過傷害，被輔助技能的投射物傷害總增 {value_1}%,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_rigwald_damage_final_in_weapon_set_two_1_normal_variant_1.text,"Supported Skills deal {value_1}% more Damage if
+used in Weapon Set II","被輔助的技能在切換至武器套裝II使用時，
+造成{value_1}%更少傷害","在武器組 II 中使用時，
+被輔助技能造成的傷害總增 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_sacrificial_lamb_base_radius_1_divide_by_ten_1dp_if_required_1_normal_variant_1.text,"Your Skills target Minions from Supported Skills within
+{value_1} metres if possible",,"你的技能儘可能以 {value_1} 公尺內
+被輔助技能的召喚物為目標",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_shield_sacrifice_damage_over_time_final_per_100_intelligence_1_normal_variant_1.text,"Supported Skills deal {value_1}% more
+non-Ailment Damage over time per 100 Intelligence","每擁有100智慧，被輔助的技能造成
+{value_1}%更少非異常狀態的持續傷害","每有 100 點智慧，被輔助技能造成的
+非異常狀態持續傷害總增 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_splinter_totem_area_of_effect_final_each_splinter_1_negate_1_normal_variant_1.text,"Totems created by Supported Skills have {value_1}% less
+area of effect for each time they have splintered","被輔助技能所創造的圖騰每分裂一次
+即擁有{value_1}%更多範圍效果","被輔助技能生成的圖騰每碎裂一次，
+效果範圍總降 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_splinter_totem_maximum_life_final_each_splinter_1_negate_1_normal_variant_1.text,"Totems created by Supported Skills have {value_1}% less maximum
+Life for each time they have splintered","被輔助技能所創造的圖騰每分裂一次
+即擁有{value_1}%更多最大生命","被輔助技能生成的圖騰每碎裂一次，
+最大生命總降 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_support_totem_life_final_1_normal_variant_1.text,"Totems created by Supported
+Skills have {value_1}% more maximum Life","Totems created by Supported
+Skills have {value_1}%更多最大生命","被輔助技能生成的圖騰
+最大生命總增 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.gem_stat_descriptions_try_consuming_shock_to_trigger_shocking_rift_in_radius_on_shocking_enemy_consume_shock_of_x_enemies_to_trigger_shocking_rift_2_2_divide_by_ten_1dp_if_required_1_normal_variant_1.text,"On Shocking an enemy where there are at least {value_2}
+Shocked enemies within {value_1} metres that are not already
+in a Shocking Rift, Supported Skills Consume Shock of
+all enemies within {value_1} metres to trigger Shocking Rift",,"使敵人感電時，若其周圍 {value_1} 公尺內有至少 {value_2} 個
+已感電且尚未處於感電裂隙中的敵人，
+被輔助技能會消耗 {value_1} 公尺內
+所有敵人的感電來觸發感電裂隙",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.herald_of_blood_skill_herald_bleeding_enemies_explode_for_blood_loss_as_unscalable_physical_damage_quality_display_herald_of_blood_is_gem_1_normal_variant_1.text,"Deals {value_1}% of exploded enemy's Blood Loss
+as unscalable Physical Attack Damage","造成等同於{value_1}%爆炸敵人失血量
+的獨立物理攻擊傷害","造成等同於爆炸敵人失血量 {value_1}%
+且不受加成影響的物理攻擊傷害",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.herald_of_ice_active_skill_base_physical_damage_to_convert_to_cold_active_skill_display_suppress_physical_to_cold_damage_conversion_1_0_0_normal_variant_1.text,"{value_1}% of Explosion Physical Damage
+Converted to Cold Damage","{value_1}% of Explosion Physical Damage
+轉化為冰冷傷害","爆炸的物理傷害的 {value_1}%
+轉化為冰冷傷害",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.herald_of_thunder_statset_1_active_skill_base_physical_damage_to_convert_to_lightning_1_normal_variant_1.text,"{value_1}% of Bolt Physical Damage
+Converted to Lightning Damage",,"雷擊的物理傷害的 {value_1}%
+轉化為閃電傷害",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.high_velocity_rounds_base_skill_effect_duration_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text,"Applies Riven Armour on Hit
+Riven Armour has {value_1} second duration, or until Fully
+Broken Armour is removed",,"擊中時施加碎甲
+碎甲持續 {value_1} 秒，或直到
+完全破甲被移除",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.hollow_focus_active_skill_base_secondary_area_of_effect_radius_divide_by_ten_1dp_if_required_1_quality_variant_1.text,{value_1_plus} metres to bell appearance radius,,鐘出現的半徑 {value_1_plus} 公尺,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.incinerate_player_statset_0_spell_minimum_base_fire_damage_spell_maximum_base_fire_damage_normal_variant_1.text,"Ignites as though dealing {value_1} to {value_2} Fire damage, every 0.075 seconds",點燃每 0.075 秒造成 {value_1} to {value_2} 火焰傷害,每 0.075 秒造成點燃，視作造成 {value_1} 至 {value_2} 火焰傷害,点燃频率与完整伤害区间翻译
+zh-TW,Game.csv,game.stat_description.inevitable_agony_active_skill_base_area_of_effect_radius_divide_by_ten_1dp_if_required_1_quality_variant_1.text,+{value_1} Metres to initial cast radius,,初始施放半徑 +{value_1} 公尺,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.killing_palm_skill_grant_x_power_charges_against_normal_and_magic_monsters_skill_grant_x_power_charges_against_rare_monsters_skill_grant_x_power_charges_against_unique_monsters_1_1_normal_variant_1.text_3,"Normal and Magic monsters grant {value_1} Power Charge
+Rare monsters grant {value_2} Power Charges
+Unique monsters grant {value_3} Power Charges","普通和魔法怪物賦予{value_1} Power Charge
+稀有怪物賦予{value_2}顆暴擊球
+Unique monsters grant {value_3}顆暴擊球","普通和魔法怪物提供 {value_1} 個暴擊球
+稀有怪物提供 {value_2} 個暴擊球
+傳奇怪物提供 {value_3} 個暴擊球",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.leap_slam_active_skill_consume_enemy_fully_broken_armour_to_gain_hit_damage_stun_multiplier_1_normal_variant_1.text,Consumes Fully Broken Armour on enemies to cause {value_1}% more Stun buildup,消耗敵人身上的完全破甲，造成{value_1}%更少暈眩累積,消耗敵人身上的完全破甲，造成{value_1}%更多暈眩累積,总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.meta_gem_stat_descriptions_warcry_grant_damage_to_exerted_attacks_normal_variant_1.text,"Attacks Empowered by Socketed
+Skills deal {value_1}% increased damage","增加Attacks Empowered by Socketed
+Skills deal {value_1}%傷害","被鑲嵌技能強化的攻擊
+造成的傷害增加 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.midnight_star_statset_0_midnight_star_gain_ice_seeds_equal_to_enemy_power_on_kill_with_critical_hit_1_normal_variant_1.text,+1 Arctic Petal per Power of targets Killed with Critical Hits,以暴擊擊中擊殺目標時，目標每有 1 點強度即獲得 +1 枚[ArcticPetal|極地花瓣],暴擊擊殺的目標每有 1 點強度，獲得 +1 枚極地花瓣,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.midnight_star_statset_0_midnight_star_gain_x_ice_seeds_when_you_critically_hit_a_rare_or_unique_enemy_2_normal_variant_1.text,{value_1_plus} Arctic Petals on Critically Hitting Rare or Unique targets,暴擊擊中稀有或傳奇目標時，獲得 {value_1_plus} 枚[ArcticPetal|極地花瓣],暴擊擊中稀有或傳奇目標時，獲得 {value_1_plus} 枚極地花瓣,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.new_sunder_statset_0_sunder_armor_break_extra_magnitude_1_normal_variant_1.text,"Inflicts Sundered Armour on hitting
+Fully Armour Broken targets, causing {value_1}% additional
+increased Physical damage taken",,"擊中完全破甲的目標時施加破碎護甲，
+使其受到的物理傷害
+額外增加 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.pain_offering_pain_offering_attack_and_cast_speed_1_normal_variant_1.text,Aura grants Minions {value_1}% increased Attack and Cast Speed,光環賦予召喚物減少{value_1}%攻擊和施放速度,光環賦予召喚物增加{value_1}%攻擊和施放速度,总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.refutation_runic_fortress_stun_threshold_final_1_negate_1_normal_variant_1.text,{value_1}% less Stun Threshold while Buff is active,,增益生效時，暈眩門檻總降 {value_1}%,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.remnants_of_kalguur_ward_remnants_chance_to_spawn_remnant_on_stun_ward_remnants_spawn_remnant_on_stun_cooldown_ms_1_99_milliseconds_to_seconds_2dp_if_required_2_normal_variant_1.text,"{value_1}% chance to spawn a Remnant on Stunning an Enemy, no more than once every {value_2} seconds",,暈眩敵人時有 {value_1}% 的幾率生成一個殘片，每 {value_2} 秒最多一次,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.repulsion_shockwave_curse_repulsion_shockwave_hit_damage_stun_multiplier_final_per_fragility_on_special_object_1_normal_variant_1.text_2,"{value_1}% more Stun buildup on Hit
+per Fragility on the target","目標每有一層易碎
+擊中擁有{value_1}%更少暈眩累積","目標每有一層易碎，
+擊中時暈眩積蓄值總增 {value_1}%",总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.sacrifice_harvester_minion_resummon_speed_final_1_negate_1_normal_variant_1.text,"Skills can use your undead Reviving Minions in
+place of Corpses
+Minions Revive {value_1}% more slowly",,"技能可以用你的可復活亡靈召喚物
+代替屍體
+召喚物復活速度總降 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.scavenged_plating_scavenged_plating_armour_final_per_stack_1_normal_variant_1.text,{value_1}% more Armour per Scavenged Plating,每片拾荒者護板有{value_1}%更少護甲值,每片拾荒者護板有{value_1}%更多護甲值,总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_active_skill_damage_final_while_dual_wielding_1_negate_1_normal_variant_1.text,"While Dual Wielding, both weapons hit with {value_1}% less damage","While Dual Wielding, both weapons hit with {value_1}%更少傷害",雙持時，兩把武器的擊中傷害總降 {value_1}%,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_active_skill_hit_damage_freeze_multiplier_final_100_100_normal_variant_1.text,Cannot cause Freeze Buildup,,無法造成凍結積蓄,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_active_skill_hit_damage_stun_multiplier_final_1_normal_variant_1.text,{value_1}% more Stun buildup,{value_1}%更少暈眩累積,{value_1}%更多暈眩累積,总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_active_skill_stun_threshold_while_performing_action_1_normal_variant_1.text,{value_1}% increased Stun Threshold while using Skill,使用技能時減少{value_1}%暈眩門檻,使用技能時增加{value_1}%暈眩門檻,总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_base_additional_damage_from_distance_final_quality_display_spear_puncture_is_gem_0_0_normal_variant_1.text,"Deals up to an additional {value_1_plus}% more Damage, based on the distance travelled",根據移動的距離最少造成{value_1_plus}%更少傷害,根據行進距離，傷害最多額外總增 {value_1_plus}%,总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_breach_flame_spawn_rate_ms_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text,"A Flame of Chayula manifests within 8.5m of
+ you every {value_1} seconds",,"每 {value_1} 秒在你周圍 8.5 公尺內
+顯現一團夏烏拉之炎",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_cannot_daze_normal_variant_1.text,Cannot inflict Daze,,無法造成目眩,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_cast_on_crit_gain_x_centienergy_per_monster_power_on_crit_divide_by_one_hundred_2dp_if_required_1_normal_variant_1.text,"Gains {value_1} Energy per Power of enemies you
+Critically Hit with Skills, modified by the percentage of the enemy's Ailment Threshold the Critical Hit will deal",,"你的技能暴擊擊中的敵人每有 1 點強度，
+獲得 {value_1} 點能量，受該次暴擊傷害佔敵人異常狀態門檻的比例調整",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_cast_on_ignite_gain_x_centienergy_per_monster_power_on_ignite_divide_by_one_hundred_2dp_if_required_1_normal_variant_1.text,"Gains {value_1} Energy per Power of enemies you Ignite with Hits from Skills, modified by the percentage of the enemy's Ailment Threshold the Ignite will deal",,被你的技能擊中點燃的敵人每有 1 點強度，獲得 {value_1} 點能量，受該次點燃傷害佔敵人異常狀態門檻的比例調整,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_charged_blast_spell_damage_final_per_stack_1_normal_variant_1.text,{value_1}% more damage per Stage,造成{value_1}%更少每階段法術傷害,造成{value_1}%更多每階段法術傷害,总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_consume_x_heat_on_skill_use_active_skill_all_damage_as_fire_if_heat_is_consumed_ignite_effect_final_if_heat_is_consumed_1_0_0_1_normal_variant_1.text,"Consumes {value_1} Heat if possible to
+gain {value_3}% more Ignite Magnitude","如果可能，消耗{value_1}熱能來
+gain {value_3}%更多點燃幅度","若可能，消耗 {value_1} 層熱能，
+使點燃強度總增 {value_3}%",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_contagion_spread_magnitude_final_contagion_maximum_spread_magnitude_final_quality_display_contagion_is_gem_normal_variant_1.text,"Debuff deals {value_1}% more Damage for each
+time it has spread, up to {value_2}%",,"減益效果每傳播一次，傷害總增 {value_1}%，
+最多總增 {value_2}%",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_earthshatter_damage_final_per_spike_1_normal_variant_1.text,{value_1}% more Damage with Hits for each Spike,每個棘刺有{value_1}%更少擊中傷害,每個棘刺有{value_1}%更多擊中傷害,总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_elemental_invocation_gain_x_centienergy_per_monster_power_on_ignite_divide_by_one_hundred_2dp_if_required_1_normal_variant_1.text,"Gains {value_1} Energy per Power of enemies you Ignite with Hits from Skills, modified by the percentage of the enemy's Ailment Threshold the Ignite will deal",,被你的技能擊中點燃的敵人每有 1 點強度，獲得 {value_1} 點能量，受該次點燃傷害佔敵人異常狀態門檻的比例調整,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_infusion_remnants_chance_to_spawn_cold_infusion_on_freezing_an_enemy_1_normal_variant_1.text,"{value_1}% chance per Power to spawn a Cold Remnant on
+Freezing a target",,"凍結目標時，每點強度有 {value_1}% 的幾率
+生成一個冰冷殘片",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_infusion_remnants_chance_to_spawn_fire_infusion_on_igniting_an_enemy_1_normal_variant_1.text,"{value_1}% chance to spawn a Fire Remnant on
+Igniting a non-Ignited target",,"點燃未點燃的目標時有 {value_1}% 的幾率
+生成一個火焰殘片",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_infusion_remnants_chance_to_spawn_lightning_infusion_on_shocking_an_enemy_1_normal_variant_1.text,"{value_1}% chance to spawn a Lightning Remnant on
+Shocking a non-Shocked target",,"感電未感電的目標時有 {value_1}% 的幾率
+生成一個閃電殘片",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_skill_base_oil_exposure_to_total_elemental_resistance_0_normal_variant_1.text,"Oil applies Exposure, lowering Total
+Elemental Resistances by {value_1}%","焦油會施加曝曬，降低{value_1}%總
+ElementalDamage|元素]抗性","黏油施加曝曬，使總
+元素抗性降低 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_skill_grant_x_frenzy_charges_against_normal_and_magic_monsters_skill_grant_x_frenzy_charges_against_rare_monsters_skill_grant_x_frenzy_charges_against_unique_monsters_1_1_normal_variant_1.text_3,"Normal and Magic monsters grant {value_1} Frenzy Charge
+Rare monsters grant {value_2} Frenzy Charges
+Unique monsters grant {value_3} Frenzy Charges","普通和魔法怪物賦予{value_1} Frenzy Charge
+稀有怪物賦予{value_2}顆狂怒球
+Unique monsters grant {value_3}顆狂怒球","普通和魔法怪物提供 {value_1} 個狂怒球
+稀有怪物提供 {value_2} 個狂怒球
+傳奇怪物提供 {value_3} 個狂怒球",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.skill_stat_descriptions_skill_triggered_on_hit_while_have_vivid_stag_wisps_normal_variant_1.text,"Triggered when you Attack, creating one Stag per Vivid Wisp",,你攻擊時觸發，每個鮮活幽光生成一隻靈鹿,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.snap_snap_damage_final_if_created_from_unique_1_normal_variant_1.text,"{value_1}% more damage with Hits for blasts originating
+from a Unique enemy",,"源自傳奇敵人的爆破
+造成的擊中傷害總增 {value_1}%",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.sorcery_ward_aegis_unique_shield_max_value_from_armour_evasion_1_normal_variant_1.text,"Elemental Damage from Hits is taken from the Barrier before your Life, Mana or Energy Shield
+Barrier can take Elemental Damage equal to {value_1}% of your Armour and Evasion Rating, up to a maximum of 32,000","擊中的元素傷害會在扣除你的生命、魔力或能量護盾前先被屏障吸收
+Barrier can take Elemental Damage equal to {value_1}% of your Armour and Evasion Rating, up to a maximum of 32,000","受到的擊中元素傷害先由屏障承擔，之後才扣除生命、魔力或能量護盾
+屏障可承受等同於你護甲與閃避值之和 {value_1}% 的元素傷害，最多 32,000",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.sorcery_ward_aegis_unique_shield_max_value_from_armour_evasion_1_quality_variant_1.text,Barrier can take Elemental Damage equal to {value_1_plus}% of your Armour and Evasion Rating,,屏障可承受的元素傷害等同於你護甲與閃避值之和的比例 {value_1_plus}%,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.stat_descriptions_snipe_damage_final_if_created_from_unique_1_normal_variant_1.text,{value_1}% more damage with Hits for explosions originating from a Unique enemy,爆炸擊中傳奇敵人時，有{value_1}%更多傷害,源自傳奇敵人的爆炸造成的擊中傷害總增 {value_1}%,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.summon_spiraling_conspiracy_tangmazu_raven_added_to_your_flock_every_x_msec_a_rare_or_unique_enemy_is_in_your_presence_divide_by_one_thousand_1_normal_variant_1.text,A Raven joins the Flock every {value_1} seconds while a Rare or Unique enemy is in your Presence,當稀有或傳奇敵人在你的存在範圍內時，每{value_1}秒使一隻[Raven|渡鴉]加入鴉群,你存在範圍內有稀有或傳奇敵人時，每 {value_1} 秒一隻渡鴉加入鴉群,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.summon_spiraling_conspiracy_tangmazu_raven_added_to_your_flock_every_x_power_of_enemies_killed_normal_variant_1.text,A Raven joins the Flock for every {value_1} total Power of enemies slain by you or your Minions,你或你的召喚物每擊殺總計{value_1}強度的敵人，使一隻[Raven|渡鴉]加入鴉群,你或你的召喚物擊殺的敵人每有 {value_1} 點總強度，一隻渡鴉加入鴉群,动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.summon_water_djinn_water_djinn_mana_wave_mana_regeneration_rate_1_normal_variant_1.text,"Triggers Navira's Calming when Commanded to
+use a Skill, granting nearby Allies {value_1}% increased
+Mana Regeneration for 4 seconds",,"受命使用技能時觸發納維拉的平撫，
+使附近友軍的魔力再生增加 {value_1}%，
+持續 4 秒",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.supercharged_slam_statset_0_channelled_slam_damage_final_per_stage_1_normal_variant_1.text,{value_1}% more Damage with Hits for each stage,每層造成{value_1}%更少擊中傷害,每層造成{value_1}%更多擊中傷害,总增/总降、增减方向或相关触发条件修正
+zh-TW,Game.csv,game.stat_description.supercharged_slam_statset_0_channelled_slam_max_stages_quality_display_supercharged_slam_is_gem_normal_variant_1.text,"Maximum {value_1} Stages
+Channelling ends 1 second after reaching maximum Stages
+Releases 1 Aftershock per Stage","疊層上限{value_1} Stages
+引導會在達到最大層數的 1 秒後結束
+Releases 1 Aftershock per","最多 {value_1} 層
+達到層數上限 1 秒後結束引導
+每層釋放 1 次餘震",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.walking_calamity_walking_calamity_large_meteor_same_target_prevention_duration_ms_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text,"Large meteors can target a single enemy only
+once every {value_1} seconds","大型隕石每{value_1}秒僅能
+每{value_1}秒只能觸發1次","大型隕石每 {value_1} 秒最多
+以同一個敵人為目標一次",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.walking_calamity_walking_calamity_meteor_frequency_per_enemy_in_walking_calamity_radius_walking_calamity_meteor_frequency_cap_1_1_normal_variant_1.text,"Meteors Trigger {value_1}% more frequently for each
+additional enemy in radius, up to {value_2}%",,"範圍內每有一個額外敵人，隕石觸發頻率總增 {value_1}%，
+最多總增 {value_2}%",动态属性缺译/残留/相关语义修正
+zh-TW,Game.csv,game.stat_description.wing_blast_statset_1_wing_blast_shockwave_damage_final_if_created_from_unique_1_normal_variant_1.text,"{value_1}% more damage with Hits for Shockwaves originating
+from a Unique enemy",,"源自傳奇敵人的衝擊波
+造成的擊中傷害總增 {value_1}%",动态属性缺译/残留/相关语义修正

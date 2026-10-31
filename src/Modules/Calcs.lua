@@ -174,7 +174,7 @@ local function mergeFullDPSPass(fullDPS, sources, pass)
 	for _, actor in ipairs(pass.actors) do
 		local out = actor.out
 		if out.TotalDPS and out.TotalDPS > 0 then
-			t_insert(fullDPS.skills, { name = actor.name, dps = out.TotalDPS, count = actor.count, trigger = actor.trigger, skillPart = actor.skillPart })
+			t_insert(fullDPS.skills, { name = actor.name, dps = out.TotalDPS, count = actor.count, trigger = actor.trigger, skillPart = actor.skillPart, nameDisplay = actor.nameDisplay, skillPartDisplay = actor.skillPartDisplay, triggerDisplay = actor.triggerDisplay })
 			fullDPS.combinedDPS = fullDPS.combinedDPS + out.TotalDPS * actor.count
 		end
 		for _, stat in ipairs(mergeStatsSpec) do
@@ -183,7 +183,7 @@ local function mergeFullDPSPass(fullDPS, sources, pass)
 				if stat.mode == "max" then
 					if value > fullDPS[stat.target] then
 						fullDPS[stat.target] = value
-						sources[stat.target] = actor.sourceName
+						sources[stat.target] = { name = actor.sourceName, nameDisplay = actor.sourceNameDisplay or actor.nameDisplay }
 					end
 				elseif stat.mode == "add" then
 					if value > 0 then
@@ -356,18 +356,26 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 				-- Capture this pass's results into a plain snapshot, then merge it into the totals;
 				-- the snapshot lets later calls reuse the results when this skill's inputs are unchanged
 				local skillName = calcs.getActiveSkillDisplayName(activeSkill)
+				-- 显示引用随缓存快照保存，原名称继续用于导出和计算身份。
+				local skillNameDisplay = function() return localisation:ActiveSkillName(activeSkill) end
+				local triggerDisplay = function() return localisation:Field(activeSkill, 'infoTrigger') end
 				local dotCanStack = activeSkill.activeEffect.statSet.skillFlags.DotCanStack
 				local pass = { actors = { } }
 				local minionOut
 				if activeSkill.minion or usedEnv.minion then
 					minionOut = captureFields(usedEnv.minion.output)
 					local minionNamePrefix = (activeSkill.minion and activeSkill.minion.minionData.name..": ") or (usedEnv.minion and usedEnv.minion.minionData.name..": ") or ""
+					local minion = activeSkill.minion or usedEnv.minion
+					local minionData, minionEffect = minion.minionData, minion.mainSkill.activeEffect.grantedEffect
+					local minionPartDisplay = function()
+						return localisation:Text('calcs.full_dps.minion_skill', { minion = localisation:Field(minionData, 'name'), skill = localisation:Field(minionEffect, 'name') })
+					end
 					t_insert(pass.actors, {
 						out = minionOut,
-						name = skillName,
+						name = skillName, nameDisplay = skillNameDisplay, triggerDisplay = triggerDisplay,
 						count = activeSkillCount,
 						trigger = activeSkill.infoTrigger,
-						skillPart = minionNamePrefix .. activeSkill.skillPartName,
+						skillPart = minionNamePrefix .. activeSkill.skillPartName, skillPartDisplay = minionPartDisplay,
 						sourceName = skillName,
 						dotScale = 1,
 					})
@@ -384,10 +392,13 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 					t_insert(pass.actors, {
 						out = captureFields(activeSkill.mirage.output),
 						name = activeSkill.mirage.name .. " (Mirage)",
+						nameDisplay = function() return localisation:Text('calcs.full_dps.mirage', { skill = localisation:Field(activeSkill.mirage, 'name') }) end,
+						triggerDisplay = function() return localisation:Field(activeSkill.mirage, 'infoTrigger') end,
 						count = mirageCount,
 						trigger = activeSkill.mirage.infoTrigger,
-						skillPart = activeSkill.mirage.skillPartName,
+						skillPart = activeSkill.mirage.skillPartName, skillPartDisplay = function() return localisation:Field(activeSkill.mirage, 'skillPartName') end,
 						sourceName = skillName .. " (Mirage)",
+						sourceNameDisplay = function() return localisation:Text('calcs.full_dps.mirage', { skill = skillNameDisplay() }) end,
 						dotScale = (dotCanStack or (playerOut.TotalDot and playerOut.TotalDot == 0)) and (dotCanStack and mirageCount or 1) or nil,
 					})
 				end
@@ -395,10 +406,11 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 				local minionContributed = minionOut and minionOut.TotalDPS and minionOut.TotalDPS > 0
 				t_insert(pass.actors, {
 					out = playerOut,
-					name = skillName,
+					name = skillName, nameDisplay = skillNameDisplay, triggerDisplay = triggerDisplay,
 					count = activeSkillCount,
 					trigger = activeSkill.infoTrigger,
 					skillPart = minionContributed and activeSkill.infoMessage2 or activeSkill.skillPartName,
+					skillPartDisplay = function() return localisation:Field(activeSkill, minionContributed and 'infoMessage2' or 'skillPartName') end,
 					sourceName = skillName,
 					dotScale = dotCanStack and activeSkillCount or 1,
 				})
@@ -439,46 +451,46 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 	-- Re-Add ailment DPS components
 	fullDPS.TotalDotDPS = 0
 	if fullDPS.bleedDPS > 0 then
-		t_insert(fullDPS.skills, { name = "Best Bleed DPS", dps = fullDPS.bleedDPS, count = 1, source = sources.bleedDPS or "" })
+		t_insert(fullDPS.skills, { name = "Best Bleed DPS", nameKey = "calcs.full_dps.best_bleed", dps = fullDPS.bleedDPS, count = 1, source = sources.bleedDPS and sources.bleedDPS.name or "", sourceDisplay = sources.bleedDPS and sources.bleedDPS.nameDisplay })
 		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.bleedDPS
 	end
 	if fullDPS.corruptingBloodDPS > 0 then
-		t_insert(fullDPS.skills, { name = "Best Corr. Blood DPS", dps = fullDPS.corruptingBloodDPS, count = 1, source = sources.corruptingBloodDPS or "" })
+		t_insert(fullDPS.skills, { name = "Best Corr. Blood DPS", nameKey = "calcs.full_dps.best_corrupting_blood", dps = fullDPS.corruptingBloodDPS, count = 1, source = sources.corruptingBloodDPS and sources.corruptingBloodDPS.name or "", sourceDisplay = sources.corruptingBloodDPS and sources.corruptingBloodDPS.nameDisplay })
 		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.corruptingBloodDPS
 	end
 	if fullDPS.igniteDPS > 0 then
-		t_insert(fullDPS.skills, { name = "Best Ignite DPS", dps = fullDPS.igniteDPS, count = 1, source = sources.igniteDPS or "" })
+		t_insert(fullDPS.skills, { name = "Best Ignite DPS", nameKey = "calcs.full_dps.best_ignite", dps = fullDPS.igniteDPS, count = 1, source = sources.igniteDPS and sources.igniteDPS.name or "", sourceDisplay = sources.igniteDPS and sources.igniteDPS.nameDisplay })
 		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.igniteDPS
 	end
 	if fullDPS.burningGroundDPS > 0 then
-		t_insert(fullDPS.skills, { name = "Best Burning Ground DPS", dps = fullDPS.burningGroundDPS, count = 1, source = sources.burningGroundDPS or "" })
+		t_insert(fullDPS.skills, { name = "Best Burning Ground DPS", nameKey = "calcs.full_dps.best_burning_ground", dps = fullDPS.burningGroundDPS, count = 1, source = sources.burningGroundDPS and sources.burningGroundDPS.name or "", sourceDisplay = sources.burningGroundDPS and sources.burningGroundDPS.nameDisplay })
 		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.burningGroundDPS
 	end
 	if fullDPS.poisonDPS > 0 then
-		t_insert(fullDPS.skills, { name = "Best Poison DPS", dps = fullDPS.poisonDPS, count = 1, source = sources.poisonDPS or "" })
+		t_insert(fullDPS.skills, { name = "Best Poison DPS", nameKey = "calcs.full_dps.best_poison", dps = fullDPS.poisonDPS, count = 1, source = sources.poisonDPS and sources.poisonDPS.name or "", sourceDisplay = sources.poisonDPS and sources.poisonDPS.nameDisplay })
 		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.poisonDPS
 	end
 	if fullDPS.causticGroundDPS > 0 then
-		t_insert(fullDPS.skills, { name = "Best Caustic Ground DPS", dps = fullDPS.causticGroundDPS, count = 1, source = sources.causticGroundDPS or "" })
+		t_insert(fullDPS.skills, { name = "Best Caustic Ground DPS", nameKey = "calcs.full_dps.best_caustic_ground", dps = fullDPS.causticGroundDPS, count = 1, source = sources.causticGroundDPS and sources.causticGroundDPS.name or "", sourceDisplay = sources.causticGroundDPS and sources.causticGroundDPS.nameDisplay })
 		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.causticGroundDPS
 	end
 	if fullDPS.impaleDPS > 0 then
-		t_insert(fullDPS.skills, { name = "Full Impale DPS", dps = fullDPS.impaleDPS, count = 1 })
+		t_insert(fullDPS.skills, { name = "Full Impale DPS", nameKey = "calcs.full_dps.full_impale", dps = fullDPS.impaleDPS, count = 1 })
 		fullDPS.combinedDPS = fullDPS.combinedDPS + fullDPS.impaleDPS
 	end
 	if fullDPS.decayDPS > 0 then
-		t_insert(fullDPS.skills, { name = "Full Decay DPS", dps = fullDPS.decayDPS, count = 1 })
+		t_insert(fullDPS.skills, { name = "Full Decay DPS", nameKey = "calcs.full_dps.full_decay", dps = fullDPS.decayDPS, count = 1 })
 		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.decayDPS
 	end
 	if fullDPS.dotDPS > 0 then
-		t_insert(fullDPS.skills, { name = "Full DoT DPS", dps = fullDPS.dotDPS, count = 1 })
+		t_insert(fullDPS.skills, { name = "Full DoT DPS", nameKey = "calcs.full_dps.full_dot", dps = fullDPS.dotDPS, count = 1 })
 		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.dotDPS
 	end
 	fullDPS.TotalDotDPS = m_min(fullDPS.TotalDotDPS, data.misc.DotDpsCap)
 	fullDPS.combinedDPS = fullDPS.combinedDPS + fullDPS.TotalDotDPS
 	if fullDPS.cullingMulti > 0 then
 		fullDPS.cullingDPS = fullDPS.combinedDPS * (fullDPS.cullingMulti - 1)
-		t_insert(fullDPS.skills, { name = "Full Culling DPS", dps = fullDPS.cullingDPS, count = 1 })
+		t_insert(fullDPS.skills, { name = "Full Culling DPS", nameKey = "calcs.full_dps.full_culling", dps = fullDPS.cullingDPS, count = 1 })
 		fullDPS.combinedDPS = fullDPS.combinedDPS + fullDPS.cullingDPS
 	end
 

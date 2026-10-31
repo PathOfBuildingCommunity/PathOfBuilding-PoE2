@@ -1164,7 +1164,10 @@ data.runeInfluences = {
 }
 
 -- 显示引用跟随已有业务对象，原英文身份和计算内容保持独立。
+for _, preset in ipairs(data.bossSkillsList) do preset.labelKey = localisation:TermKey('boss_skill', preset.val) end
+for id, preset in pairs(data.bossSkills) do preset.tooltipKey = localisation:TermKey('boss_skill_tooltip', id) end
 for id, gem in pairs(data.gems) do localisation:BindFields('gem', id, gem) end
+localisation:RegisterInputNames('gem', data.gems)
 for id, skill in pairs(data.skills) do
 	localisation:BindFields('skill', id, skill)
 	for index, statSet in ipairs(skill.statSets or { }) do
@@ -1176,6 +1179,7 @@ for id, minion in pairs(data.minions) do
 	localisation:BindLines('minion', id, minion, 'spawnLocation')
 end
 for id, base in pairs(data.itemBases) do localisation:BindFields('equipment_base', id, base) end
+localisation:RegisterInputNames('equipment_base', data.itemBases)
 for _, list in pairs(data.itemBaseLists) do
 	for _, entry in ipairs(list) do entry.labelKey = entry.base.nameKey end
 end

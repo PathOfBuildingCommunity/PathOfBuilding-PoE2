@@ -130,7 +130,7 @@ def main():
         writer = csv.writer(output)
         writer.writerow(["language", "status", "origin", "source", "translation"])
         writer.writerows(records)
-    lines = ["# 语言资源结构审计", "", "生成日期：2026-10-30。命令：`python tools/audit-locale-resources.py`。", "", "按 Files.lua 顺序和 Dictionary:Add 的空值/同文跳过规则计算有效词条。覆盖次数不等于缺陷；反向歧义允许安全保留原文，不能直接当成导入已兼容。大小写冲突需要结合精确匹配与小写检索复核。参数集合不一致可能丢值或产生占位符残留，须逐条核实。", "", "| 语言 | 项目 | 数量 |", "|---|---|---:|"]
+    lines = ["# 语言资源结构审计", "", "生成日期：2026-10-31。命令：`python tools/audit-locale-resources.py`。", "", "按 Files.lua 顺序和 Dictionary:Add 的空值/同文跳过规则计算有效词条。覆盖次数不等于缺陷；反向歧义允许安全保留原文，不能直接当成导入已兼容。大小写冲突需要结合精确匹配与小写检索复核。参数集合不一致可能丢值或产生占位符残留，须逐条核实。", "", "| 语言 | 项目 | 数量 |", "|---|---|---:|"]
     lines.extend(['', '显示资源（Manifest.messageFiles）使用稳定 key 和命名参数独立校验。英文回退数量表示尚无该语言译文，不是参数错误；以下输入词典统计不参与显示资源查找。', '', '| 显示资源语言 | 项目 | 数量 |', '|---|---|---:|'])
     for language, totals in message_summaries:
         for key, count in sorted(totals.items()):

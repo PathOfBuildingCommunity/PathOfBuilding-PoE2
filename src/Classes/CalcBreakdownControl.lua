@@ -389,7 +389,7 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 							total = round((total - 1) * 100)
 						end
 						if total and total ~= 0 then
-							t_insert(lines, self:FormatModValue(total, modType) .. " " .. modName:gsub("(%l)(%u)","%1 %2"))
+							t_insert(lines, self:FormatModValue(total, modType) .. " " .. localisation:Term('calculation_modifier', modName, (modName:gsub("(%l)(%u)","%1 %2"))))
 						end
 					end
 				else
@@ -419,11 +419,11 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 			row.name = self:FormatModName(row.mod.name)
 		end
 		local sourceType = row.mod.source:match("[^:]+") or ""
-		row.source = sourceType
+		row.source = localisation:Term('calculation_source', sourceType, sourceType)
 		if not modList and not sectionData.modSource then
 			-- No modifier source specified, add the source type to the table
 			row.sourceTooltip = function(tooltip)
-				tooltip:AddLine(16, localisation:Text("ui.calc_breakdown_control.add_mod_section.row_source_tooltip.tooltip", { source_type = sourceType }))
+				tooltip:AddLine(16, localisation:Text("ui.calc_breakdown_control.add_mod_section.row_source_tooltip.tooltip", { source_type = localisation:TermRef('calculation_source', sourceType, sourceType) }))
 				for _, line in ipairs(sourceTotals[sourceType]) do
 					tooltip:AddLine(14, line)
 				end
@@ -463,6 +463,13 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 			row.sourceName = row.mod.source:match("Spectre:(.+)")
 		elseif sourceType == "Quest" then
 			row.sourceName = row.mod.source:match("Quest:(.+)")
+			-- 按任务来源身份复用配置页的章节和区域引用，未知来源仍保留原文。
+			for _, quest in ipairs(build.data.questRewards) do
+				if row.mod.source == "Quest:" .. quest.Description .. ": " .. quest.Area then
+					row.sourceName = localisation:Text('quest.reward.label', { act = localisation:Ref(quest.DescriptionKey), area = localisation:Ref(quest.AreaKey) })
+					break
+				end
+			end
 		elseif sourceType == "Custom" then
 			row.sourceName = row.mod.source:match("Custom:(.+)")
 		elseif sourceType == "Rune" then
@@ -480,6 +487,8 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 				end
 			end
 			table.sort(flagNames)
+			-- 按原身份排序后翻译显示名称，保留修饰词的位标志和顺序。
+			for index, name in ipairs(flagNames) do flagNames[index] = localisation:Term('calculation_flag', name, name) end
 			row.flags = table.concat(flagNames, ", ")
 		end
 		row.tags = nil
@@ -489,8 +498,8 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 			for _, tag in ipairs(row.mod) do
 				local desc
 				if tag.type == "Condition" or tag.type == "ActorCondition" then
-					local cond = (tag.var or tag.varList) and ": "..(tag.neg and "Not " or "")..self:FormatVarNameOrList(tag.var, tag.varList) or ""
-					desc = localisation:Text("ui.calc_breakdown_control.display.add_mod_section.desc", { value = ((tag.actor and tag.actor:sub(1,1):upper()..tag.actor:sub(2).." ") or ""), cond = cond })
+					local cond = (tag.var or tag.varList) and ": "..(tag.neg and localisation:Text("ui.calc_breakdown_control.display.add_mod_section.cond.parameter") or "")..self:FormatVarNameOrList(tag.var, tag.varList) or ""
+					desc = localisation:Text("ui.calc_breakdown_control.display.add_mod_section.desc", { value = ((tag.actor and localisation:Term('calculation_actor_prefix', tag.actor, tag.actor:sub(1,1):upper()..tag.actor:sub(2).." ")) or ""), cond = cond })
 				elseif tag.type == "Multiplier" then
 					local base = tag.base and (self:FormatModBase(row.mod, tag.base).." + "..math.abs(row.mod.value).." ") or baseVal
 					desc = localisation:Text("ui.calc_breakdown_control.display.add_mod_section.desc_2", { base = base, value = ((tag.div and tag.div.." ") or ""), value_2 = self:FormatVarNameOrList(tag.var, tag.varList) })
@@ -549,11 +558,15 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 end
 
 function CalcBreakdownClass:FormatModName(modName)
-	return modName:gsub("([%l%d]:?)(%u)","%1 %2"):gsub("(%l)(%d)","%1 %2")
+	-- 仅翻译已登记的显示术语，未知计算身份仍按原规则拆分英文。
+	return localisation:Term('calculation_modifier', modName, (modName:gsub("([%l%d]:?)(%u)","%1 %2"):gsub("(%l)(%d)","%1 %2")))
 end
 
 function CalcBreakdownClass:FormatVarNameOrList(var, varList)
-	return var and self:FormatModName(var) or self:FormatModName(table.concat(varList, " / "))
+	if var then return self:FormatModName(var) end
+	local names = { }
+	for index, name in ipairs(varList) do names[index] = self:FormatModName(name) end
+	return table.concat(names, " / ")
 end
 
 function CalcBreakdownClass:FormatModBase(mod, base)

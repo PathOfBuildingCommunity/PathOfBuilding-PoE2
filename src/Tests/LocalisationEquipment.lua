@@ -1,13 +1,61 @@
 -- 使用真实装备、列表、槽位和比较提示框回归，防止只测试词条却遗漏显示拼接。
 return function(build, equal)
+	-- 截图中的失落珠宝必须整句翻译，且范围标签随语言切换。
+	local jewelRaw = 'Rarity: RARE\nLoath Stone\nTime-Lost Emerald\nRadius: Very Large\nNotable Passive Skills in Radius also grant 2% increased Attack Speed\nNotable Passive Skills in Radius also grant 2% increased Attack Speed with Spears\nSmall Passive Skills in Radius also grant 2% increased Evasion Rating\nUpgrades Radius to Very Large'
+	local jewel = new('Item'):Item(jewelRaw)
+	assert(jewel and jewel.base and #jewel.explicitModLines == 4, '缺少失落珠宝回归样本')
+	local expected = {
+		['zh-CN'] = { '范围内的核心天赋额外提供：攻击速度提高 2%', '范围内的核心天赋额外提供：战矛的攻击速度提高 2%', '范围内的小型天赋额外提供：闪避值提高 2%', '极大型' },
+		['zh-TW'] = { '範圍內的核心天賦額外提供：增加2%攻擊速度', '範圍內的核心天賦額外提供：增加2%長矛攻擊速度', '範圍內的小型天賦額外提供：增加2%閃避值', '極大型' },
+	}
+	for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW', 'en' }) do
+		localisation:SetLanguage(language)
+		local tooltip = new('Tooltip'):Tooltip()
+		build.itemsTab:AddItemTooltip(tooltip, jewel, nil, true)
+		local lines = { }
+		for _, line in ipairs(tooltip.lines) do if line.text then lines[#lines + 1] = StripEscapes(line.text) end end
+		local text = table.concat(lines, '\n')
+		for index = 1, 3 do
+			local modLine = jewel.explicitModLines[index]
+			local displayed = localisation:ModLine(modLine, modLine.line)
+			equal(displayed, expected[language] and expected[language][index] or modLine.line, language .. ' 失落珠宝词缀 ' .. index)
+			if language == 'en' then equal(text:find(modLine.line, 1, true) ~= nil, true, '切回英文保留珠宝原词缀') end
+			equal(modLine.modList and #modLine.modList > 0, true, language .. ' 珠宝词缀仍解析为计算属性')
+		end
+		if expected[language] then
+			equal(text:find(expected[language][4], 1, true) ~= nil, true, language .. ' 实际提示框翻译极大型范围')
+			for _, source in ipairs({ 'Passive Skills', 'also grant', 'Very Large', 'Attack Speed', 'Evasion Rating' }) do
+				equal(text:find(source, 1, true), nil, language .. ' 珠宝提示框不残留 ' .. source)
+			end
+		end
+		equal(jewel.raw, jewelRaw, language .. ' 翻译不改写珠宝原文')
+		equal(jewel.jewelRadiusLabel, 'Very Large', language .. ' 翻译不改写珠宝范围身份')
+	end
+	-- 遍历运行时实际拼接的珠宝词缀，防止只补截图而遗漏同类属性或输入绑定歧义。
+	for _, language in ipairs({ 'zh-CN', 'zh-TW' }) do
+		localisation:SetLanguage(language)
+		for _, kind in ipairs({ 'Jewel', 'Desecrated' }) do
+			for id, mod in pairs(data.itemMods[kind]) do
+				if mod[1] and mod[1]:match('^%a+ Passive Skills in Radius also grant ') then
+					local rolled = itemLib.applyRange(mod[1], 0.5)
+					local modLine = { line = rolled }
+					localisation:BindModLine(modLine)
+					local displayed = localisation:ModLine(modLine, rolled)
+					equal(displayed:find('%a'), nil, language .. ' 范围珠宝完整译文 ' .. id .. ': ' .. displayed)
+					equal(displayed, localisation:ModDataLine(mod, 1, rolled), language .. ' 范围珠宝输入与词缀表显示一致 ' .. id)
+					for value in rolled:gmatch('%d+%.?%d*') do
+						equal(displayed:find(value, 1, true) ~= nil, true, language .. ' 珠宝加成保留数值 ' .. id)
+					end
+				end
+			end
+		end
+	end
 	local item
 	for _, raw in ipairs(dofile('Data/Uniques/shield.lua')) do
 		if raw:match('^%s*Alkem Eira\n') then item = new('Item'):Item(raw, 'UNIQUE'); break end
 	end
 	assert(item and item.base, '缺少神谕装备样本')
 	local raw, name, baseName = item.raw, item.name, item.baseName
-	local originalTranslate = localisation.Translate
-	localisation.Translate = function(self, text) return text end
 	local blockLine
 	for _, line in ipairs(item.explicitModLines) do if line.line:find('increased Block chance', 1, true) then blockLine = line; break end end
 	assert(blockLine and #blockLine.displayReferences > 0, '已知唯一装备词缀必须绑定显示引用')
@@ -24,7 +72,6 @@ return function(build, equal)
 	local unknown = { line = 'My custom unknown modifier 42' }
 	localisation:BindModLine(unknown)
 	equal(localisation:ModLine(unknown, unknown.line), unknown.line, '未知用户词缀保留原文')
-	localisation.Translate = originalTranslate
 	local originalFlavour, originalSupport = main.showFlavourText, main.notSupportedModTooltips
 	main.showFlavourText, main.notSupportedModTooltips = true, true
 	build.itemsTab:AddItem(item, true)
@@ -34,6 +81,16 @@ return function(build, equal)
 	local englishBlocks
 	for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW', 'en' }) do
 		localisation:SetLanguage(language)
+		-- 人造肢体槽位沿用原始保存身份，仅为实际控件补齐显示名称。
+		for _, specification in ipairs({
+			{ 'Arm 1', '手臂 1', '手臂 1' }, { 'Arm 2', '手臂 2', '手臂 2' },
+			{ 'Leg 1', '腿部 1', '腿部 1' }, { 'Leg 2', '腿部 2', '腿部 2' },
+		}) do
+			local limbSlot = build.itemsTab.slots[specification[1]]
+			local name = language == 'zh-CN' and specification[2] or language == 'zh-TW' and specification[3] or specification[1]
+			equal(localisation:Field(limbSlot, 'label'), name, language .. ' 人造肢体槽实际标签：' .. specification[1])
+			equal(limbSlot.slotName, specification[1], language .. ' 人造肢体槽保存身份保持')
+		end
 		local tooltip = new('Tooltip'):Tooltip()
 		build.itemsTab:AddItemTooltip(tooltip, item, nil, true)
 		local lines = { }
@@ -87,16 +144,41 @@ return function(build, equal)
 		equal(item.name, name, language .. ' 不改写内部名称')
 		equal(item.baseName, baseName, language .. ' 不改写内部基底')
 	end
+	-- 授予多个技能时不残留英文复数，跨页面查看装备时使用已翻译的页面提示。
+	local originalSkills, originalView = item.grantedSkills, build.viewMode
+	assert(originalSkills and originalSkills[1], '缺少授予技能的装备样本')
+	for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW', 'en' }) do
+		localisation:SetLanguage(language)
+		for _, mode in ipairs({ 'ITEMS', 'TREE' }) do
+			build.viewMode = mode
+			for count = 1, 2 do
+				item.grantedSkills = { originalSkills[1], count == 2 and originalSkills[1] or nil }
+				local tooltip = new('Tooltip'):Tooltip()
+				build.itemsTab:AddItemTooltip(tooltip, item, nil, true)
+				local lines = { }
+				for _, row in ipairs(tooltip.lines) do if row.text then lines[#lines + 1] = StripEscapes(row.text) end end
+				local text = table.concat(lines, '\n')
+				if language == 'en' then
+					equal(text:find('for the granted skill' .. (count == 2 and 's' or '') .. '.', 1, true) ~= nil, true, '英文授予技能提示单复数保持一致')
+					equal(text:find(' in the Items tab', 1, true) ~= nil, mode ~= 'ITEMS', '英文物品页上下文保持一致')
+				else
+					equal(text:find('in the Items tab', 1, true), nil, language .. ' 跨页面装备提示不残留英文上下文')
+					equal(text:find('授予技能的提示框', 1, true) ~= nil, true, language .. ' 多个授予技能使用完整中文句子')
+				end
+			end
+		end
+	end
+	item.grantedSkills, build.viewMode = originalSkills, originalView
 	-- 验证标签翻译不会把用户输入中的英文技能名称改成译文。
 	for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW' }) do
 		localisation:SetLanguage(language)
-		local edit = new('EditControl'):EditControl(nil, { 0, 0, 200, 20 }, 'Fireball', 'Search')
+		local edit = new('EditControl'):EditControl(nil, { 0, 0, 200, 20 }, 'Fireball', localisation:Label('ui.build_list.init.search_text.label'))
 		local draw, drawn = DrawString, { }
 		DrawString = function(x, y, align, height, font, text) drawn[#drawn + 1] = tostring(text); return draw(x, y, align, height, font, text) end
 		local ok, err = pcall(edit.Draw, edit, viewPort)
 		DrawString = draw
 		equal(ok, true, language .. ' 搜索输入框绘制 ' .. tostring(err))
-		equal(table.concat(drawn):find(localisation:Translate('Search'), 1, true) ~= nil, true, language .. ' 搜索标签翻译')
+		equal(table.concat(drawn):find(localisation:Text('ui.build_list.init.search_text.label'), 1, true) ~= nil, true, language .. ' 搜索标签翻译')
 		equal(edit.buf, 'Fireball', language .. ' 标签翻译不污染输入内容')
 	end
 	for _, language in ipairs({ 'zh-CN', 'zh-TW' }) do
@@ -112,11 +194,11 @@ return function(build, equal)
 		equal(requirementText:find('18', 1, true) ~= nil, true, language .. ' 需求数值完整保留')
 		for name in pairs(data.itemBases) do
 			local source = name:gsub(' %(.+%)', '')
-			if localisation:Translate(source) == source and source:find('%a') then missingBases[#missingBases + 1] = source end
+			if localisation:DataText('equipment_base', name, 'name', source) == source and source:find('%a') then missingBases[#missingBases + 1] = source end
 		end
 		for _, list in ipairs({ build.displayStats, build.minionDisplayStats }) do
 			for _, stat in ipairs(list) do
-				if stat.stat and stat.label and localisation:Translate(stat.label) == stat.label then missingLabels[#missingLabels + 1] = stat.label end
+				if stat.stat and stat.label and localisation:Field(stat, 'label') == stat.label then missingLabels[#missingLabels + 1] = stat.label end
 			end
 		end
 		equal(#missingBases, 0, language .. ' 全部装备基底无原文回退：' .. table.concat(missingBases, ', '))

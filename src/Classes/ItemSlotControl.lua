@@ -49,7 +49,7 @@ function ItemSlotClass:ItemSlotControl(anchor, x, y, itemsTab, slotName, slotLab
 	if data.buildFileInventorySlotMap[slotName] then
 		self.controls.noteButton = new("ButtonControl"):ButtonControl({"LEFT",self,"RIGHT"}, {2, 0, 20, 20}, "~", function()
 			local item = itemsTab.items[self.selItemId]
-			main:OpenNoteEditPopup(self.slotName, self.note or "", function(note)
+			main:OpenNoteEditPopup(localisation:Term("equipment.slot", self.slotName), self.note or "", function(note)
 				self.note = note
 				itemsTab:PopulateSlots()
 				itemsTab:AddUndoState()
@@ -58,7 +58,7 @@ function ItemSlotClass:ItemSlotControl(anchor, x, y, itemsTab, slotName, slotLab
 		end)
 		self.controls.noteButton.tooltipFunc = function(tooltip)
 			tooltip:Clear()
-			tooltip:AddBuildPlannerNote(14, self.note and self.note ~= "" and self.note or "Add a note for this item slot")
+			tooltip:AddBuildPlannerNote(14, self.note and self.note ~= "" and self.note or localisation:Text("build_note.empty_item_slot"))
 		end
 	end
 	if slotName:match("Flask") then

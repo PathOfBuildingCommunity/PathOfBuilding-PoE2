@@ -55,6 +55,8 @@ local function ensureGenerated(folder, spec)
 		local command = shellQuote(generator) .. " " .. shellQuote(output) .. " " .. shellQuote(spec.face)
 		local fontFile = resolveFontFile(spec)
 		if fontFile then command = command .. " " .. shellQuote(fontFile) end
+		-- Windows 命令解释器需要外层引号，保留程序路径和含空格的参数。
+		if package.config:sub(1, 1) == "\\" then command = '"' .. command .. '"' end
 		os.execute(command)
 	end)
 	return ok and fileExists(output .. "/Glyphs.lua") and output or nil
@@ -111,6 +113,36 @@ function Font:Layout(height, text)
 	line.after = #text + 1; result.width = math.max(result.width, line.width)
 	if self.cacheSize >= 4096 then self.cache = { }; self.cacheSize = 0 end
 	self.cache[key] = result; self.cacheSize = self.cacheSize + 1
+	return result
+end
+
+--- <summary>按实际字形宽度换行，保留 UTF-8 字符、颜色码、原始分行及可用单词边界。</summary>
+function Font:Wrap(height, text, width)
+	local result = { }
+	for _, line in ipairs(self:Layout(height, text).lines) do
+		local start, startX = line.start, 0
+		local breakBefore, breakAfter, breakX
+		for _, token in ipairs(line.tokens) do
+			if token.advance then
+				if token.x + token.advance - startX > width and token.x > startX then
+					local stop, after, nextX = token.first - 1, token.first, token.x
+					if breakBefore and breakBefore > start then
+						stop, after, nextX = breakBefore - 1, breakAfter, breakX
+					end
+					result[#result + 1] = text:sub(start, stop)
+					start, startX = after, nextX
+					breakBefore, breakAfter, breakX = nil, nil, nil
+				end
+				local char = text:sub(token.first, token.after - 1)
+				if char:match('%s') then
+					breakBefore, breakAfter, breakX = token.first, token.after, token.x + token.advance
+				elseif char:byte() >= 128 then
+					breakBefore, breakAfter, breakX = token.after, token.after, token.x + token.advance
+				end
+			end
+		end
+		result[#result + 1] = text:sub(start, line.after - 1)
+	end
 	return result
 end
 

@@ -139,8 +139,8 @@ function PowerReportListClass:AddValueTooltip(tooltip, _, node)
 		return
 	end
 	if tooltip:CheckForUpdate(node) and node.sd then
-		for _, line in ipairs(node.sd) do
-			tooltip:AddLine(16, line)
+		for index, line in ipairs(node.sd) do
+			tooltip:AddLine(16, localisation:Line(node, "sd", index, line))
 		end
 	end
 end

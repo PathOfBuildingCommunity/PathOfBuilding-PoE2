@@ -169,8 +169,7 @@ end
 
 function TooltipClass:AddLine(size, text, font, background, modLine, newBlock)
 	if text then
-		-- 在拆行与换行前翻译，保留词条边界并按译文计算布局。
-		text = localisation:Translate(text)
+		-- 调用点已解析资源引用，拆行和测宽使用同一份文案。
 		local fontToUse
 		if main.showFlavourText then
 			fontToUse = font or "VAR"
@@ -340,6 +339,8 @@ function TooltipClass:GetSize()
 			if #recipeNameShort > 3 and recipeNameShort:sub(-3) == "Oil" then
 				recipeNameShort = recipeNameShort:sub(1, #recipeNameShort - 3)
 			end
+			-- 材料测宽和绘制使用相同的当前语言术语，原配方名称继续用于图标与业务逻辑。
+			recipeNameShort = localisation:Term("anoint_material", recipeName, recipeNameShort)
 			imageX = imageX + DrawStringWidth(recipeTextSize, font, recipeNameShort) + title.size * 1.25
 		end
 		ttW = m_max(ttW, imageX)
@@ -414,6 +415,7 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 				if #rn > 3 and rn:sub(-3) == "Oil" then
 					rn = rn:sub(1, #rn - 3)
 				end
+				rn = localisation:Term("anoint_material", r.name, rn)
 				local textW = DrawStringWidth(recipeTextSize, font, rn)
 				local iconW = titleSize
 				table.insert(oilWidths, {rn, r.sprite, textW, iconW})

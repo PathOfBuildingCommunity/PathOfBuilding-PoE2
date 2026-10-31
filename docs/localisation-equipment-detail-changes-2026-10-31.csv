@@ -1,0 +1,1036 @@
+language,file,field,key,source,before,translation,item
+zh-CN,Game.csv,source,game.equipment_unique_modifier.choir_of_the_storm_jade_amulet.source_1,"Drops from unique{{Xesht, We That Are One}} in normal{{Twisted Domain}}",,由 normal{{扭曲之域}} 的 unique{{吾等合一·席斯特}} 掉落,Choir of the Storm
+zh-TW,Game.csv,source,game.equipment_unique_modifier.choir_of_the_storm_jade_amulet.source_1,"Drops from unique{{Xesht, We That Are One}} in normal{{Twisted Domain}}",,由 normal{{扭曲之域}} 的 unique{{吾等合一·薛斯特}} 掉落,Choir of the Storm
+zh-CN,Game.csv,source,game.equipment_unique_modifier.the_pandemonius_lapis_amulet.source_1,"Drops from unique{{Xesht, We That Are One}} in normal{{Twisted Domain}}",,由 normal{{扭曲之域}} 的 unique{{吾等合一·席斯特}} 掉落,The Pandemonius
+zh-TW,Game.csv,source,game.equipment_unique_modifier.the_pandemonius_lapis_amulet.source_1,"Drops from unique{{Xesht, We That Are One}} in normal{{Twisted Domain}}",,由 normal{{扭曲之域}} 的 unique{{吾等合一·薛斯特}} 掉落,The Pandemonius
+zh-CN,Game.csv,source,game.equipment_unique_modifier.xoph_s_blood_amber_amulet.source_1,"Drops from unique{{Xesht, We That Are One}} in normal{{Twisted Domain}}",,由 normal{{扭曲之域}} 的 unique{{吾等合一·席斯特}} 掉落,Xoph's Blood
+zh-TW,Game.csv,source,game.equipment_unique_modifier.xoph_s_blood_amber_amulet.source_1,"Drops from unique{{Xesht, We That Are One}} in normal{{Twisted Domain}}",,由 normal{{扭曲之域}} 的 unique{{吾等合一·薛斯特}} 掉落,Xoph's Blood
+zh-CN,Game.csv,source,game.equipment_unique_modifier.infernoclasp_plate_belt.source_1,No longer obtainable,不再可获得,已无法获得,Infernoclasp
+zh-TW,Game.csv,source,game.equipment_unique_modifier.infernoclasp_plate_belt.source_1,No longer obtainable,,已無法獲得,Infernoclasp
+zh-CN,Game.csv,source,game.equipment_unique_modifier.ingenuity_utility_belt.source_1,Drops from unique{{The King in the Mists}} in normal{{Crux of Nothingness}},,由 normal{{虚无之境}} 的 unique{{迷雾之王}} 掉落,Ingenuity
+zh-TW,Game.csv,source,game.equipment_unique_modifier.ingenuity_utility_belt.source_1,Drops from unique{{The King in the Mists}} in normal{{Crux of Nothingness}},,由 normal{{虛無之境}} 的 unique{{迷霧之王}} 掉落,Ingenuity
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.mageblood_utility_belt.explicit_mod_lines_1,Legacy of Amethyst,Amethyst 继承,紫晶遗产,Mageblood
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.mageblood_utility_belt.explicit_mod_lines_1,Legacy of Amethyst,Amethyst之遺,紫晶遺產,Mageblood
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.mageblood_utility_belt.explicit_mod_lines_3,Legacy of Bismuth,Bismuth 继承,灰岩遗产,Mageblood
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.mageblood_utility_belt.explicit_mod_lines_3,Legacy of Bismuth,Bismuth之遺,灰巖遺產,Mageblood
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.mageblood_utility_belt.explicit_mod_lines_5,Legacy of Gold,Gold 继承,黄金遗产,Mageblood
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.mageblood_utility_belt.explicit_mod_lines_5,Legacy of Gold,Gold之遺,黃金遺產,Mageblood
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.mageblood_utility_belt.explicit_mod_lines_6,Legacy of Granite,Granite 继承,坚岩遗产,Mageblood
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.mageblood_utility_belt.explicit_mod_lines_6,Legacy of Granite,Granite之遺,堅巖遺產,Mageblood
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.mageblood_utility_belt.explicit_mod_lines_7,Legacy of Jade,Jade 继承,翠玉遗产,Mageblood
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.mageblood_utility_belt.explicit_mod_lines_7,Legacy of Jade,Jade之遺,翠玉遺產,Mageblood
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.mageblood_utility_belt.explicit_mod_lines_8,Legacy of Quicksilver,Quicksilver 继承,水银遗产,Mageblood
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.mageblood_utility_belt.explicit_mod_lines_8,Legacy of Quicksilver,Quicksilver之遺,水銀遺產,Mageblood
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.mageblood_utility_belt.explicit_mod_lines_12,Legacy of Stibnite,Stibnite 继承,迷雾遗产,Mageblood
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.mageblood_utility_belt.explicit_mod_lines_12,Legacy of Stibnite,Stibnite之遺,迷霧遺產,Mageblood
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.mageblood_utility_belt.explicit_mod_lines_13,Legacy of Sulphur,Sulphur 继承,硫磺遗产,Mageblood
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.mageblood_utility_belt.explicit_mod_lines_13,Legacy of Sulphur,Sulphur之遺,硫磺遺產,Mageblood
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.mageblood_utility_belt.explicit_mod_lines_14,Legacy of Topaz,Topaz 继承,黄玉遗产,Mageblood
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.mageblood_utility_belt.explicit_mod_lines_14,Legacy of Topaz,Topaz之遺,黃玉遺產,Mageblood
+zh-CN,Game.csv,source,game.equipment_unique_modifier.zerphi_s_genesis_heavy_belt.source_1,Drops from unique{{Trialmaster}} in normal{{The Trial of Chaos}},,由 normal{{混沌试炼}} 的 unique{{试炼大师}} 掉落,Zerphi's Genesis
+zh-TW,Game.csv,source,game.equipment_unique_modifier.zerphi_s_genesis_heavy_belt.source_1,Drops from unique{{Trialmaster}} in normal{{The Trial of Chaos}},,由 normal{{混沌試煉}} 的 unique{{試煉大師}} 掉落,Zerphi's Genesis
+zh-CN,Game.csv,source,game.equipment_unique_modifier.atziri_s_splendour_sacrificial_regalia.source_1,Drops from unique{{Atziri's Vault}} in normal{{Vaal Temple}},,由 normal{{瓦尔神殿}} 的 unique{{阿兹里宝库}} 掉落,Atziri's Splendour
+zh-TW,Game.csv,source,game.equipment_unique_modifier.atziri_s_splendour_sacrificial_regalia.source_1,Drops from unique{{Atziri's Vault}} in normal{{Vaal Temple}},,由 normal{{瓦爾神殿}} 的 unique{{阿茲裏寶庫}} 掉落,Atziri's Splendour
+zh-CN,Game.csv,source,game.equipment_unique_modifier.the_road_warrior_raider_plate.source_1,No longer obtainable,不再可获得,已无法获得,The Road Warrior
+zh-TW,Game.csv,source,game.equipment_unique_modifier.the_road_warrior_raider_plate.source_1,No longer obtainable,,已無法獲得,The Road Warrior
+zh-CN,Game.csv,source,game.equipment_unique_modifier.temporalis_silk_robe.source_1,"Drops from unique{{Zarokh, the Temporal}}",,由 unique{{时光之主·扎洛卡}} 掉落,Temporalis
+zh-TW,Game.csv,source,game.equipment_unique_modifier.temporalis_silk_robe.source_1,"Drops from unique{{Zarokh, the Temporal}}",,由 unique{{時光之主·澤洛克}} 掉落,Temporalis
+zh-CN,Game.csv,source,game.equipment_unique_modifier.the_fallen_formation_lamellar_mail.source_1,No longer obtainable,不再可获得,已无法获得,The Fallen Formation
+zh-TW,Game.csv,source,game.equipment_unique_modifier.the_fallen_formation_lamellar_mail.source_1,No longer obtainable,,已無法獲得,The Fallen Formation
+zh-CN,Game.csv,source,game.equipment_unique_modifier.perfidy_knight_armour.source_1,"Drops from unique{{Kosis, The Revelation}}",,由 unique{{启示者科西斯}} 掉落,Perfidy
+zh-TW,Game.csv,source,game.equipment_unique_modifier.perfidy_knight_armour.source_1,"Drops from unique{{Kosis, The Revelation}}",,由 unique{{啓示者科西斯}} 掉落,Perfidy
+zh-CN,Game.csv,source,game.equipment_unique_modifier.pragmatism_explorer_armour.source_1,Drops from unique{{The King in the Mists}} in normal{{Crux of Nothingness}},,由 normal{{虚无之境}} 的 unique{{迷雾之王}} 掉落,Pragmatism
+zh-TW,Game.csv,source,game.equipment_unique_modifier.pragmatism_explorer_armour.source_1,Drops from unique{{The King in the Mists}} in normal{{Crux of Nothingness}},,由 normal{{虛無之境}} 的 unique{{迷霧之王}} 掉落,Pragmatism
+zh-CN,Game.csv,source,game.equipment_unique_modifier.morior_invictus_grand_regalia.source_1,Drops from unique{{Arbiter of Ash}} in normal{{The Burning Monolith}},,由 normal{{燃烧巨石碑}} 的 unique{{灰烬仲裁者}} 掉落,Morior Invictus
+zh-TW,Game.csv,source,game.equipment_unique_modifier.morior_invictus_grand_regalia.source_1,Drops from unique{{Arbiter of Ash}} in normal{{The Burning Monolith}},,由 normal{{燃燒巨石碑}} 的 unique{{灰燼仲裁者}} 掉落,Morior Invictus
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_1,Spirit (Pre {value_1}.{value_2}),,精魂（{value_1}.{value_2} 之前）,Morior Invictus
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_1,Spirit (Pre {value_1}.{value_2}),,精魂（{value_1}.{value_2} 之前）,Morior Invictus
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_4,Life (Pre {value_1}.{value_2}),,生命（{value_1}.{value_2} 之前）,Morior Invictus
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_4,Life (Pre {value_1}.{value_2}),,生命（{value_1}.{value_2} 之前）,Morior Invictus
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_7,Mana (Pre {value_1}.{value_2}),,魔力（{value_1}.{value_2} 之前）,Morior Invictus
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_7,Mana (Pre {value_1}.{value_2}),,魔力（{value_1}.{value_2} 之前）,Morior Invictus
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_10,Global Defences (Pre {value_1}.{value_2}),,全局防御（{value_1}.{value_2} 之前）,Morior Invictus
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_10,Global Defences (Pre {value_1}.{value_2}),,全局防禦（{value_1}.{value_2} 之前）,Morior Invictus
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_12,Global Defences,,全局防御,Morior Invictus
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_12,Global Defences,,全局防禦,Morior Invictus
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_13,Item Rarity (Pre {value_1}.{value_2}),,物品稀有度（{value_1}.{value_2} 之前）,Morior Invictus
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_13,Item Rarity (Pre {value_1}.{value_2}),,物品稀有度（{value_1}.{value_2} 之前）,Morior Invictus
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_14,All Resistances (Pre {value_1}.{value_2}),,所有抗性（{value_1}.{value_2} 之前）,Morior Invictus
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_14,All Resistances (Pre {value_1}.{value_2}),,所有抗性（{value_1}.{value_2} 之前）,Morior Invictus
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_16,All Resistances,,所有抗性,Morior Invictus
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_16,All Resistances,,所有抗性,Morior Invictus
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_17,Attributes (Pre {value_1}.{value_2}),,属性（{value_1}.{value_2} 之前）,Morior Invictus
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_17,Attributes (Pre {value_1}.{value_2}),,屬性（{value_1}.{value_2} 之前）,Morior Invictus
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_20,Chaos Resistance (Pre {value_1}.{value_2}),,混沌抗性（{value_1}.{value_2} 之前）,Morior Invictus
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_20,Chaos Resistance (Pre {value_1}.{value_2}),,混沌抗性（{value_1}.{value_2} 之前）,Morior Invictus
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_22,Stun Threshold (Pre {value_1}.{value_2}),,晕眩门槛（{value_1}.{value_2} 之前）,Morior Invictus
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_22,Stun Threshold (Pre {value_1}.{value_2}),,暈眩門檻（{value_1}.{value_2} 之前）,Morior Invictus
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_24,Life Regeneration (Pre {value_1}.{value_2}),,生命再生（{value_1}.{value_2} 之前）,Morior Invictus
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_24,Life Regeneration (Pre {value_1}.{value_2}),,生命再生（{value_1}.{value_2} 之前）,Morior Invictus
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_26,Reduced Crit Damage (Pre {value_1}.{value_2}),,降低承受的暴击伤害（{value_1}.{value_2} 之前）,Morior Invictus
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_26,Reduced Crit Damage (Pre {value_1}.{value_2}),,降低承受的暴擊傷害（{value_1}.{value_2} 之前）,Morior Invictus
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_27,Reduced Crit Damage,,降低承受的暴击伤害,Morior Invictus
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_27,Reduced Crit Damage,,降低承受的暴擊傷害,Morior Invictus
+zh-CN,Game.csv,source,game.equipment_unique_modifier.skin_of_the_loyal_garment.source_1,"Drops from unique{{Xesht, We That Are One}} in normal{{Twisted Domain}}",,由 normal{{扭曲之域}} 的 unique{{吾等合一·席斯特}} 掉落,Skin of the Loyal
+zh-TW,Game.csv,source,game.equipment_unique_modifier.skin_of_the_loyal_garment.source_1,"Drops from unique{{Xesht, We That Are One}} in normal{{Twisted Domain}}",,由 normal{{扭曲之域}} 的 unique{{吾等合一·薛斯特}} 掉落,Skin of the Loyal
+zh-CN,Game.csv,source,game.equipment_unique_modifier.atziri_s_step_cinched_boots.source_1,Drops from unique{{Atziri's Vault}} in normal{{Vaal Temple}},,由 normal{{瓦尔神殿}} 的 unique{{阿兹里宝库}} 掉落,Atziri's Step
+zh-TW,Game.csv,source,game.equipment_unique_modifier.atziri_s_step_cinched_boots.source_1,Drops from unique{{Atziri's Vault}} in normal{{Vaal Temple}},,由 normal{{瓦爾神殿}} 的 unique{{阿茲裏寶庫}} 掉落,Atziri's Step
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.gamblesprint_embossed_boots.explicit_mod_lines_6,"Gain {value_1}% to {value_2}% increased Movement Speed at random when Hit, until Hit again",被击中时移动速度提高{value_1}% - {value_2}%，直到被再次击中,被击中时，随机获得 {value_1}% 至 {value_2}% 的移动速度提高，直到再次被击中,Gamblesprint
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.gamblesprint_embossed_boots.explicit_mod_lines_6,"Gain {value_1}% to {value_2}% increased Movement Speed at random when Hit, until Hit again",,被擊中時，隨機獲得 {value_1}% 至 {value_2}% 的移動速度提高，直到再次被擊中,Gamblesprint
+zh-CN,Game.csv,source,game.equipment_unique_modifier.thunderstep_steeltoe_boots.source_1,No longer obtainable,不再可获得,已无法获得,Thunderstep
+zh-TW,Game.csv,source,game.equipment_unique_modifier.thunderstep_steeltoe_boots.source_1,No longer obtainable,,已無法獲得,Thunderstep
+zh-CN,Game.csv,source,game.equipment_unique_modifier.beetlebite_velour_shoes.source_1,Drops from unique{{The King in the Mists}} in normal{{Crux of Nothingness}},,由 normal{{虚无之境}} 的 unique{{迷雾之王}} 掉落,Beetlebite
+zh-TW,Game.csv,source,game.equipment_unique_modifier.beetlebite_velour_shoes.source_1,Drops from unique{{The King in the Mists}} in normal{{Crux of Nothingness}},,由 normal{{虛無之境}} 的 unique{{迷霧之王}} 掉落,Beetlebite
+zh-CN,Game.csv,source,game.equipment_unique_modifier.ab_aeterno_grand_cuisses.source_1,Drops from unique{{Arbiter of Ash}} in normal{{The Burning Monolith}},,由 normal{{燃烧巨石碑}} 的 unique{{灰烬仲裁者}} 掉落,Ab Aeterno
+zh-TW,Game.csv,source,game.equipment_unique_modifier.ab_aeterno_grand_cuisses.source_1,Drops from unique{{Arbiter of Ash}} in normal{{The Burning Monolith}},,由 normal{{燃燒巨石碑}} 的 unique{{灰燼仲裁者}} 掉落,Ab Aeterno
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.rampart_raptor_tense_crossbow.explicit_mod_lines_4,"Bolts fired by Crossbow Attacks have {value_1}% chance to not
+expend Ammunition if you've Reloaded Recently","若你近期内装填过弹药则获得
+战弩攻击有 {value_1}% 几率不消耗弹药","若你近期装填过，弩攻击发射的弩箭有 {value_1}% 的几率
+不消耗弹药",Rampart Raptor
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.rampart_raptor_tense_crossbow.explicit_mod_lines_4,"Bolts fired by Crossbow Attacks have {value_1}% chance to not
+expend Ammunition if you've Reloaded Recently",,"若你近期裝填過，弩攻擊發射的弩箭有 {value_1}% 的幾率
+不消耗彈藥",Rampart Raptor
+zh-CN,Game.csv,source,game.equipment_unique_modifier.olroth_s_resolve_ultimate_life_flask.source_1,"Drops from unique{{Olroth, Origin of the Fall}}",,由 unique{{陨落之源·欧罗什}} 掉落,Olroth's Resolve
+zh-TW,Game.csv,source,game.equipment_unique_modifier.olroth_s_resolve_ultimate_life_flask.source_1,"Drops from unique{{Olroth, Origin of the Fall}}",,由 unique{{隕落之源·奧爾羅斯}} 掉落,Olroth's Resolve
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.olroth_s_resolve_ultimate_life_flask.explicit_mod_lines_3,Regenerate {value_1}% of maximum Runic Ward per second during Effect,,效果期间，每秒再生符文结界上限的 {value_1}%,Olroth's Resolve
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.olroth_s_resolve_ultimate_life_flask.explicit_mod_lines_3,Regenerate {value_1}% of maximum Runic Ward per second during Effect,,效果期間，每秒再生符文結界上限的 {value_1}%,Olroth's Resolve
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.olroth_s_resolve_ultimate_life_flask.explicit_mod_lines_4,Gain Guard equal to Current Runic Ward for {value_1} seconds when Effect ends,,效果结束时，获得等于当前符文结界的防卫，持续 {value_1} 秒,Olroth's Resolve
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.olroth_s_resolve_ultimate_life_flask.explicit_mod_lines_4,Gain Guard equal to Current Runic Ward for {value_1} seconds when Effect ends,,效果結束時，獲得等於當前符文結界的防衛，持續 {value_1} 秒,Olroth's Resolve
+zh-CN,Game.csv,source,game.equipment_unique_modifier.melting_maelstrom_ultimate_mana_flask.source_1,"Drops from unique{{Kosis, The Revelation}}",,由 unique{{启示者科西斯}} 掉落,Melting Maelstrom
+zh-TW,Game.csv,source,game.equipment_unique_modifier.melting_maelstrom_ultimate_mana_flask.source_1,"Drops from unique{{Kosis, The Revelation}}",,由 unique{{啓示者科西斯}} 掉落,Melting Maelstrom
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.rite_of_passage_golden_charm.variant_list_1,Owl,,猫头鹰,Rite of Passage
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.rite_of_passage_golden_charm.variant_list_1,Owl,,貓頭鷹,Rite of Passage
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.rite_of_passage_golden_charm.variant_list_2,Serpent,,蛇,Rite of Passage
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.rite_of_passage_golden_charm.variant_list_2,Serpent,,蛇,Rite of Passage
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.rite_of_passage_golden_charm.variant_list_3,Primate,,灵长类,Rite of Passage
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.rite_of_passage_golden_charm.variant_list_3,Primate,,靈長類,Rite of Passage
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.rite_of_passage_golden_charm.variant_list_5,Boar,,野猪,Rite of Passage
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.rite_of_passage_golden_charm.variant_list_5,Boar,,野豬,Rite of Passage
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.rite_of_passage_golden_charm.variant_list_6,Ox,,牛,Rite of Passage
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.rite_of_passage_golden_charm.variant_list_6,Ox,,牛,Rite of Passage
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.rite_of_passage_golden_charm.variant_list_8,Stag,,雄鹿,Rite of Passage
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.rite_of_passage_golden_charm.variant_list_8,Stag,,雄鹿,Rite of Passage
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.rite_of_passage_golden_charm.variant_list_9,Cat,,猫,Rite of Passage
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.rite_of_passage_golden_charm.variant_list_9,Cat,,貓,Rite of Passage
+zh-CN,Game.csv,source,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.source_1,"Drops from unique{{Zarokh, the Temporal}}",,由 unique{{时光之主·扎洛卡}} 掉落,Against the Darkness
+zh-TW,Game.csv,source,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.source_1,"Drops from unique{{Zarokh, the Temporal}}",,由 unique{{時光之主·澤洛克}} 掉落,Against the Darkness
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_3,Damage As Chaos,,获得额外混沌伤害,Against the Darkness
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_3,Damage As Chaos,,獲得額外混沌傷害,Against the Darkness
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_4,Damage As Cold,,获得额外冰霜伤害,Against the Darkness
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_4,Damage As Cold,,獲得額外冰霜傷害,Against the Darkness
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_5,Damage As Fire,,获得额外火焰伤害,Against the Darkness
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_5,Damage As Fire,,獲得額外火焰傷害,Against the Darkness
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_6,Damage As Lightning,,获得额外闪电伤害,Against the Darkness
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_6,Damage As Lightning,,獲得額外閃電傷害,Against the Darkness
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_8,Freeze Duration On Self,,自身受到的冻结持续时间,Against the Darkness
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_8,Freeze Duration On Self,,自身受到的凍結持續時間,Against the Darkness
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_9,Ignite Duration On Self,,自身受到的点燃持续时间,Against the Darkness
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_9,Ignite Duration On Self,,自身受到的點燃持續時間,Against the Darkness
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_10,Increased Life,,提高生命上限,Against the Darkness
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_10,Increased Life,,提高生命上限,Against the Darkness
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_11,Increased Mana,,提高魔力上限,Against the Darkness
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_11,Increased Mana,,提高魔力上限,Against the Darkness
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_15,Max Chaos Resistance,,混沌抗性上限,Against the Darkness
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_15,Max Chaos Resistance,,混沌抗性上限,Against the Darkness
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_16,Max Cold Resistance,,冰霜抗性上限,Against the Darkness
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_16,Max Cold Resistance,,冰霜抗性上限,Against the Darkness
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_17,Max Fire Resistance,,火焰抗性上限,Against the Darkness
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_17,Max Fire Resistance,,火焰抗性上限,Against the Darkness
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_18,Max Lightning Resistance,,闪电抗性上限,Against the Darkness
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_18,Max Lightning Resistance,,閃電抗性上限,Against the Darkness
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_19,Percent Dexterity,,敏捷百分比,Against the Darkness
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_19,Percent Dexterity,,敏捷百分比,Against the Darkness
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_20,Percent Intelligence,,智慧百分比,Against the Darkness
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_20,Percent Intelligence,,智慧百分比,Against the Darkness
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_21,Percent Strength,,力量百分比,Against the Darkness
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_21,Percent Strength,,力量百分比,Against the Darkness
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_22,Shock Duration On Self,,自身受到的感电持续时间,Against the Darkness
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.against_the_darkness_time_lost_diamond.variant_list_22,Shock Duration On Self,,自身受到的感電持續時間,Against the Darkness
+zh-CN,Game.csv,source,game.equipment_unique_modifier.from_nothing_diamond.source_1,Drops from unique{{The King in the Mists}} in normal{{Crux of Nothingness}},,由 normal{{虚无之境}} 的 unique{{迷雾之王}} 掉落,From Nothing
+zh-TW,Game.csv,source,game.equipment_unique_modifier.from_nothing_diamond.source_1,Drops from unique{{The King in the Mists}} in normal{{Crux of Nothingness}},,由 normal{{虛無之境}} 的 unique{{迷霧之王}} 掉落,From Nothing
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.from_nothing_diamond.variant_list_34,Everything (QoL Test Variant),,全部（便捷测试变体）,From Nothing
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.from_nothing_diamond.variant_list_34,Everything (QoL Test Variant),,全部（便捷測試變體）,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_1,Passives in radius of Ancestral Bond can be Allocated without being connected to your tree,,先祖魂约范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_1,Passives in radius of Ancestral Bond can be Allocated without being connected to your tree,,先祖魂約範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_2,Passives in radius of Avatar of Fire can be Allocated without being connected to your tree,,火之化身范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_2,Passives in radius of Avatar of Fire can be Allocated without being connected to your tree,,火之化身範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_3,Passives in radius of Blackflame Covenant can be Allocated without being connected to your tree,,黑焰血誓范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_3,Passives in radius of Blackflame Covenant can be Allocated without being connected to your tree,,黯炎盟約範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_4,Passives in radius of Blood Magic can be Allocated without being connected to your tree,,祭血术范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_4,Passives in radius of Blood Magic can be Allocated without being connected to your tree,,祭血術範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_5,Passives in radius of Bulwark can be Allocated without being connected to your tree,,壁垒范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_5,Passives in radius of Bulwark can be Allocated without being connected to your tree,,守護範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_6,Passives in radius of Chaos Inoculation can be Allocated without being connected to your tree,,异灵之体范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_6,Passives in radius of Chaos Inoculation can be Allocated without being connected to your tree,,異靈之體範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_7,Passives in radius of Conduit can be Allocated without being connected to your tree,,能量连接范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_7,Passives in radius of Conduit can be Allocated without being connected to your tree,,能量連結範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_8,Passives in radius of Crimson Assault can be Allocated without being connected to your tree,,猩红强袭范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_8,Passives in radius of Crimson Assault can be Allocated without being connected to your tree,,緋紅攻擊範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_9,Passives in radius of Dance with Death can be Allocated without being connected to your tree,,与亡共舞范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_9,Passives in radius of Dance with Death can be Allocated without being connected to your tree,,與死共舞範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_10,Passives in radius of Eldritch Battery can be Allocated without being connected to your tree,,异能魔力范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_10,Passives in radius of Eldritch Battery can be Allocated without being connected to your tree,,異能魔力範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_11,Passives in radius of Elemental Equilibrium can be Allocated without being connected to your tree,,元素之相范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_11,Passives in radius of Elemental Equilibrium can be Allocated without being connected to your tree,,元素之相範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_12,Passives in radius of Eternal Youth can be Allocated without being connected to your tree,,青春永驻范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_12,Passives in radius of Eternal Youth can be Allocated without being connected to your tree,,青春永駐範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_13,Passives in radius of Giant's Blood can be Allocated without being connected to your tree,,巨人之血范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_13,Passives in radius of Giant's Blood can be Allocated without being connected to your tree,,巨人之血範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_14,Passives in radius of Glancing Blows can be Allocated without being connected to your tree,,斗转星移范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_14,Passives in radius of Glancing Blows can be Allocated without being connected to your tree,,側身之擊範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_15,Passives in radius of Heartstopper can be Allocated without being connected to your tree,,凝心者范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_15,Passives in radius of Heartstopper can be Allocated without being connected to your tree,,心靈永止範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_16,Passives in radius of Hollow Palm Technique can be Allocated without being connected to your tree,,空明之掌范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_16,Passives in radius of Hollow Palm Technique can be Allocated without being connected to your tree,,空掌之術範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_17,Passives in radius of Iron Reflexes can be Allocated without being connected to your tree,,霸体范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_17,Passives in radius of Iron Reflexes can be Allocated without being connected to your tree,,霸體範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_18,Passives in radius of Lord of the Wilds can be Allocated without being connected to your tree,,荒野之主范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_18,Passives in radius of Lord of the Wilds can be Allocated without being connected to your tree,,荒野領主範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_19,Passives in radius of Mind Over Matter can be Allocated without being connected to your tree,,心灵升华范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_19,Passives in radius of Mind Over Matter can be Allocated without being connected to your tree,,心靈昇華範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_20,Passives in radius of Necromantic Talisman can be Allocated without being connected to your tree,,通灵魔符范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_20,Passives in radius of Necromantic Talisman can be Allocated without being connected to your tree,,靈能魔符範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_21,Passives in radius of Oasis can be Allocated without being connected to your tree,,荒漠绿洲范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_21,Passives in radius of Oasis can be Allocated without being connected to your tree,,幻景綠洲範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_22,Passives in radius of Pain Attunement can be Allocated without being connected to your tree,,苦痛灵曲范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_22,Passives in radius of Pain Attunement can be Allocated without being connected to your tree,,苦痛靈曲範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_23,Passives in radius of Primal Hunger can be Allocated without being connected to your tree,,原始饥渴范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_23,Passives in radius of Primal Hunger can be Allocated without being connected to your tree,,原初飢餓範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_24,Passives in radius of Resolute Technique can be Allocated without being connected to your tree,,坚毅之心范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_24,Passives in radius of Resolute Technique can be Allocated without being connected to your tree,,堅毅之心範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_25,Passives in radius of Resonance can be Allocated without being connected to your tree,,共鸣范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_25,Passives in radius of Resonance can be Allocated without being connected to your tree,,共鳴範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_26,Passives in radius of Ritual Cadence can be Allocated without being connected to your tree,,仪式节律范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_26,Passives in radius of Ritual Cadence can be Allocated without being connected to your tree,,祭祀終章範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_27,Passives in radius of Scarred Faith can be Allocated without being connected to your tree,,创痛信仰范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_27,Passives in radius of Scarred Faith can be Allocated without being connected to your tree,,創傷信仰範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_28,Passives in radius of Trusted Kinship can be Allocated without being connected to your tree,,情比金坚范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_28,Passives in radius of Trusted Kinship can be Allocated without being connected to your tree,,可信之情範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_29,Passives in radius of Unwavering Stance can be Allocated without being connected to your tree,,烈士意志范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_29,Passives in radius of Unwavering Stance can be Allocated without being connected to your tree,,烈士意志範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_30,Passives in radius of Vaal Pact can be Allocated without being connected to your tree,,瓦尔契约范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_30,Passives in radius of Vaal Pact can be Allocated without being connected to your tree,,瓦爾冥約範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_31,Passives in radius of Whispers of Doom can be Allocated without being connected to your tree,,灭世之语范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_31,Passives in radius of Whispers of Doom can be Allocated without being connected to your tree,,滅世之語範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_32,Passives in radius of Wildsurge Incantation can be Allocated without being connected to your tree,,野性涌动咒言范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_32,Passives in radius of Wildsurge Incantation can be Allocated without being connected to your tree,,荒野湧浪咒範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_33,Passives in radius of Zealot's Oath can be Allocated without being connected to your tree,,狂热者誓言范围内的天赋无需与你的天赋树相连即可配置,From Nothing
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.from_nothing_diamond.explicit_mod_lines_33,Passives in radius of Zealot's Oath can be Allocated without being connected to your tree,,狂熱者的誓言範圍內的天賦無需與你的天賦樹相連即可配置,From Nothing
+zh-CN,Game.csv,source,game.equipment_unique_modifier.prism_of_belief_diamond.source_1,Drops from unique{{Arbiter of Ash}} in normal{{The Burning Monolith}},,由 normal{{燃烧巨石碑}} 的 unique{{灰烬仲裁者}} 掉落,Prism of Belief
+zh-TW,Game.csv,source,game.equipment_unique_modifier.prism_of_belief_diamond.source_1,Drops from unique{{Arbiter of Ash}} in normal{{The Burning Monolith}},,由 normal{{燃燒巨石碑}} 的 unique{{灰燼仲裁者}} 掉落,Prism of Belief
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.prism_of_belief_diamond.variant_list_219,Summon Spectre,,召唤灵体,Prism of Belief
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.prism_of_belief_diamond.variant_list_219,Summon Spectre,,召喚靈體,Prism of Belief
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.prism_of_belief_diamond.variant_list_223,Tamed Companion,,驯服伙伴,Prism of Belief
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.prism_of_belief_diamond.variant_list_223,Tamed Companion,,馴服伙伴,Prism of Belief
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.prism_of_belief_diamond.explicit_mod_lines_219,+{value_1} to Level of all Summon Spectre Skills,所有Summon Spectre技能等级 +{value_1},所有召唤灵体技能等级 +{value_1},Prism of Belief
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.prism_of_belief_diamond.explicit_mod_lines_219,+{value_1} to Level of all Summon Spectre Skills,+{value_1}至所有Summon Spectre技能的等級,所有召喚靈體技能等級 +{value_1},Prism of Belief
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.prism_of_belief_diamond.explicit_mod_lines_223,+{value_1} to Level of all Tamed Companion Skills,所有Tamed Companion技能等级 +{value_1},所有驯服伙伴技能等级 +{value_1},Prism of Belief
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.prism_of_belief_diamond.explicit_mod_lines_223,+{value_1} to Level of all Tamed Companion Skills,+{value_1}至所有Tamed Companion技能的等級,所有馴服夥伴技能等級 +{value_1},Prism of Belief
+zh-CN,Game.csv,source,game.equipment_unique_modifier.megalomaniac_diamond.source_1,"Drops from unique{{Kosis, The Revelation}}",,由 unique{{启示者科西斯}} 掉落,Megalomaniac
+zh-TW,Game.csv,source,game.equipment_unique_modifier.megalomaniac_diamond.source_1,"Drops from unique{{Kosis, The Revelation}}",,由 unique{{啓示者科西斯}} 掉落,Megalomaniac
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.megalomaniac_diamond.variant_list_91,Brain Freeze,,思维冻结,Megalomaniac
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.megalomaniac_diamond.variant_list_91,Brain Freeze,冰冷傷害,思緒凍結,Megalomaniac
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.megalomaniac_diamond.variant_list_92,Brain Storm,,思维风暴,Megalomaniac
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.megalomaniac_diamond.variant_list_92,Brain Storm,閃電傷害,思緒風暴,Megalomaniac
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.megalomaniac_diamond.variant_list_311,Flamekeeper,,火焰守护者,Megalomaniac
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.megalomaniac_diamond.variant_list_311,Flamekeeper,火焰傷害,烈焰守護者,Megalomaniac
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.megalomaniac_diamond.variant_list_401,Ice Storm,,冰霜风暴,Megalomaniac
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.megalomaniac_diamond.variant_list_401,Ice Storm,冰冷傷害,冰霜風暴,Megalomaniac
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.megalomaniac_diamond.variant_list_429,Inherited Strength,,传承之力,Megalomaniac
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.megalomaniac_diamond.variant_list_429,Inherited Strength,,傳承之力,Megalomaniac
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.megalomaniac_diamond.variant_list_466,Lead by Example,,以身作则,Megalomaniac
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.megalomaniac_diamond.variant_list_466,Lead by Example,,以身作則,Megalomaniac
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.megalomaniac_diamond.variant_list_603,Pyromancer,,火焰魔法师,Megalomaniac
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.megalomaniac_diamond.variant_list_603,Pyromancer,,烈焰法師,Megalomaniac
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.megalomaniac_diamond.variant_list_637,Rhythm of Fire,,烈焰之歌,Megalomaniac
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.megalomaniac_diamond.variant_list_638,Rhythm of Ice,,冰霜之歌,Megalomaniac
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.megalomaniac_diamond.variant_list_741,Stormkeeper,,闪电守护者,Megalomaniac
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.megalomaniac_diamond.variant_list_741,Stormkeeper,閃電傷害,閃電守護者,Megalomaniac
+zh-CN,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_91,Allocates Brain Freeze,配置 Brain Freeze,配置 思维冻结,Megalomaniac
+zh-TW,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_91,Allocates Brain Freeze,配置冰冷傷害,配置 思緒凍結,Megalomaniac
+zh-CN,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_92,Allocates Brain Storm,配置 Brain Storm,配置 思维风暴,Megalomaniac
+zh-TW,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_92,Allocates Brain Storm,配置閃電傷害,配置 思緒風暴,Megalomaniac
+zh-CN,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_311,Allocates Flamekeeper,配置 Flamekeeper,配置 火焰守护者,Megalomaniac
+zh-TW,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_311,Allocates Flamekeeper,配置火焰傷害,配置 烈焰守護者,Megalomaniac
+zh-CN,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_401,Allocates Ice Storm,配置 Ice Storm,配置 冰霜风暴,Megalomaniac
+zh-TW,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_401,Allocates Ice Storm,配置冰冷傷害,配置 冰霜風暴,Megalomaniac
+zh-CN,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_429,Allocates Inherited Strength,配置 Inherited Strength,配置 传承之力,Megalomaniac
+zh-TW,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_429,Allocates Inherited Strength,配置Inherited Strength,配置 傳承之力,Megalomaniac
+zh-CN,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_466,Allocates Lead by Example,配置 Lead by Example,配置 以身作则,Megalomaniac
+zh-TW,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_466,Allocates Lead by Example,配置Lead by Example,配置 以身作則,Megalomaniac
+zh-CN,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_603,Allocates Pyromancer,配置 Pyromancer,配置 火焰魔法师,Megalomaniac
+zh-TW,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_603,Allocates Pyromancer,配置Pyromancer,配置 烈焰法師,Megalomaniac
+zh-CN,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_637,Allocates Rhythm of Fire,配置 Rhythm of Fire,配置 烈焰之歌,Megalomaniac
+zh-TW,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_637,Allocates Rhythm of Fire,配置烈焰之歌,配置 烈焰之歌,Megalomaniac
+zh-CN,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_638,Allocates Rhythm of Ice,配置 Rhythm of Ice,配置 冰霜之歌,Megalomaniac
+zh-TW,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_638,Allocates Rhythm of Ice,配置寒霜之歌,配置 寒霜之歌,Megalomaniac
+zh-CN,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_741,Allocates Stormkeeper,配置 Stormkeeper,配置 闪电守护者,Megalomaniac
+zh-TW,Game.csv,enchantModLines,game.equipment_unique_modifier.megalomaniac_diamond.enchant_mod_lines_741,Allocates Stormkeeper,配置閃電傷害,配置 閃電守護者,Megalomaniac
+zh-CN,Game.csv,source,game.equipment_unique_modifier.flesh_crucible_diamond.source_1,Drops from unique{{Atziri's Vault}} in normal{{Vaal Temple}},,由 normal{{瓦尔神殿}} 的 unique{{阿兹里宝库}} 掉落,Flesh Crucible
+zh-TW,Game.csv,source,game.equipment_unique_modifier.flesh_crucible_diamond.source_1,Drops from unique{{Atziri's Vault}} in normal{{Vaal Temple}},,由 normal{{瓦爾神殿}} 的 unique{{阿茲裏寶庫}} 掉落,Flesh Crucible
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_1,Amanamu Abyssal Wasting Doubled Power,,阿曼娜姆：深渊损耗使威力翻倍,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_1,Amanamu Abyssal Wasting Doubled Power,,阿姆那姆：深淵損耗使威力翻倍,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_2,Amanamu Abyssal Wasting Hinders,,阿曼娜姆：深渊损耗施加阻碍,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_2,Amanamu Abyssal Wasting Hinders,,阿姆那姆：深淵損耗施加阻礙,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_3,Amanamu Abyssal Wasting Increased Effect,,阿曼娜姆：提高深渊损耗效果,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_3,Amanamu Abyssal Wasting Increased Effect,,阿姆那姆：提高深淵損耗效果,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_4,Amanamu Abyssal Wasting Infinite Duration,,阿曼娜姆：深渊损耗持续时间无限,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_4,Amanamu Abyssal Wasting Infinite Duration,,阿姆那姆：深淵損耗持續時間無限,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_5,Amanamu Abyssal Wasting Onslaught Chance,,阿曼娜姆：击杀深渊损耗目标有几率获得猛攻,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_5,Amanamu Abyssal Wasting Onslaught Chance,,阿姆那姆：擊殺深淵損耗目標有幾率獲得猛攻,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_6,Amanamu Abyssal Wasting Prevents Crits,,阿曼娜姆：深渊损耗阻止目标暴击,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_6,Amanamu Abyssal Wasting Prevents Crits,,阿姆那姆：深淵損耗阻止目標暴擊,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_7,Amanamu Abyssal Wasting Rage,,阿曼娜姆：击杀深渊损耗目标获得怒火,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_7,Amanamu Abyssal Wasting Rage,,阿姆那姆：擊殺深淵損耗目標獲得怒火,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_8,Amanamu Abyssal Wasting Reduces Fire Res,,阿曼娜姆：深渊损耗降低火焰抗性,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_8,Amanamu Abyssal Wasting Reduces Fire Res,,阿姆那姆：深淵損耗降低火焰抗性,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_9,Amanamu Armour Applies To Elemental Damage,,阿曼娜姆：护甲作用于元素伤害,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_9,Amanamu Armour Applies To Elemental Damage,,阿姆那姆：護甲作用於元素傷害,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_10,Amanamu Damage As Extra Fire,,阿曼娜姆：获得额外火焰伤害,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_10,Amanamu Damage As Extra Fire,,阿姆那姆：獲得額外火焰傷害,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_11,Amanamu Faster Cursed Activation,,阿曼娜姆：诅咒激活加快,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_11,Amanamu Faster Cursed Activation,,阿姆那姆：詛咒激活加快,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_12,Amanamu Flat Spirit If At Least {value_1} Strength,,阿曼娜姆：至少 {value_1} 力量时获得固定精魂,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_12,Amanamu Flat Spirit If At Least {value_1} Strength,,阿姆那姆：至少 {value_1} 力量時獲得固定精魂,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_13,Amanamu Hybrid Armour And Armour Elemental,,阿曼娜姆：护甲与护甲作用于元素伤害,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_13,Amanamu Hybrid Armour And Armour Elemental,,阿姆那姆：護甲與護甲作用於元素傷害,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_14,Amanamu Hybrid Slow And Slow On Self,,阿曼娜姆：提高施加的减速强度并降低受到的减速强度,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_14,Amanamu Hybrid Slow And Slow On Self,,阿姆那姆：提高施加的減速強度並降低受到的減速強度,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_15,Amanamu Hybrid Strength Percent Gain As Fire,,阿曼娜姆：力量百分比与获得额外火焰伤害,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_15,Amanamu Hybrid Strength Percent Gain As Fire,,阿姆那姆：力量百分比與獲得額外火焰傷害,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_16,Amanamu Ignite Magnitude,,阿曼娜姆：点燃强度,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_16,Amanamu Ignite Magnitude,,阿姆那姆：點燃強度,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_17,Amanamu Increased Armour Percent,,阿曼娜姆：护甲百分比,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_17,Amanamu Increased Armour Percent,,阿姆那姆：護甲百分比,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_18,Amanamu Increased Curse Area Of Effect,,阿曼娜姆：诅咒效果范围,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_18,Amanamu Increased Curse Area Of Effect,,阿姆那姆：詛咒效果範圍,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_19,Amanamu Increased Debuff Slow Magnitude,,阿曼娜姆：提高施加的减益减速强度,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_19,Amanamu Increased Debuff Slow Magnitude,,阿姆那姆：提高施加的減益減速強度,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_20,Amanamu Increased Spirit Percent,,阿曼娜姆：精魂百分比,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_20,Amanamu Increased Spirit Percent,,阿姆那姆：精魂百分比,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_21,Amanamu Increased Strength Percent,,阿曼娜姆：力量百分比,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_21,Amanamu Increased Strength Percent,,阿姆那姆：力量百分比,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_22,Amanamu Max Endurance Charges,Amanamu Max 耐力球,阿曼娜姆：耐力球上限,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_22,Amanamu Max Endurance Charges,Amanamu Max 耐力球,阿姆那姆：耐力球上限,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_23,Amanamu Reduced Incoming Critical Bonus,,阿曼娜姆：降低承受的暴击伤害加成,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_23,Amanamu Reduced Incoming Critical Bonus,,阿姆那姆：降低承受的暴擊傷害加成,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_24,Amanamu Reduced Incoming Debuff Slow Potency,,阿曼娜姆：降低受到的减益减速强度,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_24,Amanamu Reduced Incoming Debuff Slow Potency,,阿姆那姆：降低受到的減益減速強度,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_25,Amanamu Reduced Movement Penalty,,阿曼娜姆：降低移动速度惩罚,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_25,Amanamu Reduced Movement Penalty,,阿姆那姆：降低移動速度懲罰,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_26,Amanamu Skill Effect Duration,,阿曼娜姆：技能效果持续时间,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_26,Amanamu Skill Effect Duration,,阿姆那姆：技能效果持續時間,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_27,Amanamu Spirit Efficiency,,阿曼娜姆：精魂保留效能,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_27,Amanamu Spirit Efficiency,,阿姆那姆：精魂保留效能,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_28,Amanamu Thorns From Consuming Endurance,,阿曼娜姆：消耗耐力球提高荆棘伤害,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_28,Amanamu Thorns From Consuming Endurance,,阿姆那姆：消耗耐力球提高荊棘傷害,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_29,Amanamu You And Ally Chaos Resistance,,阿曼娜姆：你与友军的混沌抗性,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_29,Amanamu You And Ally Chaos Resistance,,阿姆那姆：你與友軍的混沌抗性,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_30,Amanamu You And Ally Cooldown Presence,,阿曼娜姆：你与存在范围内友军的冷却回复,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_30,Amanamu You And Ally Cooldown Presence,,阿姆那姆：你與存在範圍內友軍的冷卻回覆,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_31,Kurgal Abyssal Wasting Accuracy Rating Plus Percent,,古加尔：提高对深渊损耗目标的命中值,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_31,Kurgal Abyssal Wasting Accuracy Rating Plus Percent,,柯戈：提高對深淵損耗目標的命中值,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_32,Kurgal Abyssal Wasting Debilitates,,古加尔：深渊损耗施加疲惫,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_32,Kurgal Abyssal Wasting Debilitates,,柯戈：深淵損耗施加疲憊,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_33,Kurgal Abyssal Wasting Instant Mana Leech Percent,,古加尔：从深渊损耗目标偷取的魔力立即生效比例,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_33,Kurgal Abyssal Wasting Instant Mana Leech Percent,,柯戈：從深淵損耗目標偷取的魔力立即生效比例,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_34,Kurgal Abyssal Wasting Phys Explode,,古加尔：深渊损耗目标死亡时有几率物理爆炸,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_34,Kurgal Abyssal Wasting Phys Explode,,柯戈：深淵損耗目標死亡時有幾率物理爆炸,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_35,Kurgal Abyssal Wasting Prevents Ele Ailments,,古加尔：深渊损耗阻止目标施加元素异常状态,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_35,Kurgal Abyssal Wasting Prevents Ele Ailments,,柯戈：深淵損耗阻止目標施加元素異常狀態,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_36,Kurgal Abyssal Wasting Reduces Cold Res,,古加尔：深渊损耗降低冰霜抗性,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_36,Kurgal Abyssal Wasting Reduces Cold Res,,柯戈：深淵損耗降低冰霜抗性,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_37,Kurgal Abyssal Wasting Revive Chance,,古加尔：击杀深渊损耗目标有几率复活召唤生物,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_37,Kurgal Abyssal Wasting Revive Chance,,柯戈：擊殺深淵損耗目標有幾率復活召喚生物,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_38,Kurgal Abyssal Wasting Volatility,,古加尔：击杀深渊损耗目标获得无常,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_38,Kurgal Abyssal Wasting Volatility,,柯戈：擊殺深淵損耗目標獲得易爆,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_39,Kurgal Abyssal Wasting Wither Chance,,古加尔：击中深渊损耗目标有几率施加枯萎,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_39,Kurgal Abyssal Wasting Wither Chance,,柯戈：擊中深淵損耗目標有幾率施加枯萎,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_40,Kurgal Chill Magnitude,,古加尔：冰缓强度,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_40,Kurgal Chill Magnitude,,柯戈：冰緩強度,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_41,Kurgal Critical Strike Chance Percent,,古加尔：暴击率百分比,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_41,Kurgal Critical Strike Chance Percent,,柯戈：暴擊率百分比,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_42,Kurgal Damage As Extra Cold,,古加尔：获得额外冰霜伤害,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_42,Kurgal Damage As Extra Cold,,柯戈：獲得額外冰霜傷害,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_43,Kurgal Damage Taken From Mana Before Life,,古加尔：伤害优先从魔力扣除,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_43,Kurgal Damage Taken From Mana Before Life,,柯戈：傷害優先從魔力扣除,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_44,Kurgal Enemies Dying In Presence Recover Mana,,古加尔：敌人在存在范围内死亡时回复魔力,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_44,Kurgal Enemies Dying In Presence Recover Mana,,柯戈：敵人在存在範圍內死亡時回覆魔力,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_45,Kurgal Faster Start Of Energy Shield Recharge,,古加尔：能量护盾提早开始充能,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_45,Kurgal Faster Start Of Energy Shield Recharge,,柯戈：能量護盾提早開始充能,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_46,Kurgal Flat Spirit If At Least {value_1} Intelligence,,古加尔：至少 {value_1} 智慧时获得固定精魂,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_46,Kurgal Flat Spirit If At Least {value_1} Intelligence,,柯戈：至少 {value_1} 智慧時獲得固定精魂,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_47,Kurgal Gain Arcane Surge On Minion Death,,古加尔：召唤生物死亡时获得秘术增强,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_47,Kurgal Gain Arcane Surge On Minion Death,,柯戈：召喚生物死亡時獲得祕術增強,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_48,Kurgal Hybrid Cast Speed And Arcane Surge On Minion Death,,古加尔：施法速度与召唤生物死亡时获得秘术增强,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_48,Kurgal Hybrid Cast Speed And Arcane Surge On Minion Death,,柯戈：施法速度與召喚生物死亡時獲得祕術增強,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_49,Kurgal Hybrid Energy Shield And Delay,,古加尔：能量护盾与提早开始充能,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_49,Kurgal Hybrid Energy Shield And Delay,,柯戈：能量護盾與提早開始充能,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_50,Kurgal Hybrid Intelligence Percent Gain As Cold,,古加尔：智慧百分比与获得额外冰霜伤害,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_50,Kurgal Hybrid Intelligence Percent Gain As Cold,,柯戈：智慧百分比與獲得額外冰霜傷害,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_51,Kurgal Hybrid Mana Percent Taken Before Life,,古加尔：魔力百分比与伤害优先从魔力扣除,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_51,Kurgal Hybrid Mana Percent Taken Before Life,,柯戈：魔力百分比與傷害優先從魔力扣除,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_52,Kurgal Increased Energy Shield Percent,,古加尔：能量护盾百分比,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_52,Kurgal Increased Energy Shield Percent,,柯戈：能量護盾百分比,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_53,Kurgal Increased Intelligence Percent,,古加尔：智慧百分比,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_53,Kurgal Increased Intelligence Percent,,柯戈：智慧百分比,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_54,Kurgal Increased Spell Area Of Effect,,古加尔：法术效果范围,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_54,Kurgal Increased Spell Area Of Effect,,柯戈：法術效果範圍,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_55,Kurgal Mana Regen While Surrounded,,古加尔：被包围时的魔力再生,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_55,Kurgal Mana Regen While Surrounded,,柯戈：被包圍時的魔力再生,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_56,Kurgal Maximum Mana Percent,,古加尔：魔力上限百分比,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_56,Kurgal Maximum Mana Percent,,柯戈：魔力上限百分比,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_57,Kurgal Maximum Power Charges,Kurgal Maximum 暴击球,古加尔：暴击球上限,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_57,Kurgal Maximum Power Charges,Kurgal Maximum 暴擊球,柯戈：暴擊球上限,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_58,Kurgal Meta Skills Generate Increased Energy,,古加尔：提高非凡技能获得的能量,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_58,Kurgal Meta Skills Generate Increased Energy,,柯戈：提高非凡技能獲得的能量,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_59,Kurgal Percent Cast Speed Per Spirit,,古加尔：根据精魂提高施法速度,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_59,Kurgal Percent Cast Speed Per Spirit,,柯戈：根據精魂提高施法速度,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_60,Kurgal Skill Cost Efficiency From Consuming Power,,古加尔：消耗暴击球提高技能消耗效能,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_60,Kurgal Skill Cost Efficiency From Consuming Power,,柯戈：消耗暴擊球提高技能消耗效能,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_61,Kurgal Triggered Skills Deal Increased Damage,,古加尔：提高被触发技能伤害,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_61,Kurgal Triggered Skills Deal Increased Damage,,柯戈：提高被觸發技能傷害,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_62,Kurgal You And Ally Cast Speed,,古加尔：你与友军的施法速度,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_62,Kurgal You And Ally Cast Speed,,柯戈：你與友軍的施法速度,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_63,Ulaman Abyssal Wasting Ailment Chance Plus Percent,,乌拉曼：提高对深渊损耗目标施加异常状态的几率,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_63,Ulaman Abyssal Wasting Ailment Chance Plus Percent,,烏拉曼：提高對深淵損耗目標施加異常狀態的幾率,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_64,Ulaman Abyssal Wasting Blinds,,乌拉曼：深渊损耗施加致盲,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_64,Ulaman Abyssal Wasting Blinds,,烏拉曼：深淵損耗施加致盲,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_65,Ulaman Abyssal Wasting Grants Flask Charges,,乌拉曼：深渊损耗目标提供更多药剂充能,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_65,Ulaman Abyssal Wasting Grants Flask Charges,,烏拉曼：深淵損耗目標提供更多藥劑充能,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_66,Ulaman Abyssal Wasting Immobilisation Buildup,,乌拉曼：提高对深渊损耗目标的定身积蓄,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_66,Ulaman Abyssal Wasting Immobilisation Buildup,,烏拉曼：提高對深淵損耗目標的定身積蓄,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_67,Ulaman Abyssal Wasting Instant Life Leech Percent,,乌拉曼：从深渊损耗目标偷取的生命立即生效比例,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_67,Ulaman Abyssal Wasting Instant Life Leech Percent,,烏拉曼：從深淵損耗目標偷取的生命立即生效比例,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_68,Ulaman Abyssal Wasting Reduces Lightning Res,,乌拉曼：深渊损耗降低闪电抗性,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_68,Ulaman Abyssal Wasting Reduces Lightning Res,,烏拉曼：深淵損耗降低閃電抗性,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_69,Ulaman Additional Projectile Chance While Forking,,乌拉曼：分叉时有几率增加投射物,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_69,Ulaman Additional Projectile Chance While Forking,,烏拉曼：分叉時有幾率增加投射物,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_70,Ulaman Critical Damage Bonus,,乌拉曼：暴击伤害加成,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_70,Ulaman Critical Damage Bonus,,烏拉曼：暴擊傷害加成,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_71,Ulaman Damage As Extra Lightning,,乌拉曼：获得额外闪电伤害,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_71,Ulaman Damage As Extra Lightning,,烏拉曼：獲得額外閃電傷害,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_72,Ulaman Enemies Dying In Presence Recover Life,,乌拉曼：敌人在存在范围内死亡时回复生命,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_72,Ulaman Enemies Dying In Presence Recover Life,,烏拉曼：敵人在存在範圍內死亡時回覆生命,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_73,Ulaman Evasion Applies To Deflect Rating,,乌拉曼：从闪避值获得偏转值,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_73,Ulaman Evasion Applies To Deflect Rating,,烏拉曼：從閃避值獲得偏轉值,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_74,Ulaman Flat Spirit If At Least {value_1} Dexterity,,乌拉曼：至少 {value_1} 敏捷时获得固定精魂,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_74,Ulaman Flat Spirit If At Least {value_1} Dexterity,,烏拉曼：至少 {value_1} 敏捷時獲得固定精魂,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_75,Ulaman Gain Onslaught Surge On Minion Death,,乌拉曼：召唤生物死亡时获得猛攻,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_75,Ulaman Gain Onslaught Surge On Minion Death,,烏拉曼：召喚生物死亡時獲得猛攻,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_76,Ulaman Hybrid Attack Speed And Onslaught On Minion Death,,乌拉曼：攻击速度与召唤生物死亡时获得猛攻,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_76,Ulaman Hybrid Attack Speed And Onslaught On Minion Death,,烏拉曼：攻擊速度與召喚生物死亡時獲得猛攻,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_77,Ulaman Hybrid Chain Terrain And Fork,,乌拉曼：地形连锁与分叉,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_77,Ulaman Hybrid Chain Terrain And Fork,,烏拉曼：地形連鎖與分叉,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_78,Ulaman Hybrid Dexterity And Gain As Lightning,,乌拉曼：敏捷与获得额外闪电伤害,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_78,Ulaman Hybrid Dexterity And Gain As Lightning,,烏拉曼：敏捷與獲得額外閃電傷害,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_79,Ulaman Hybrid Evasion And Deflection,,乌拉曼：闪避与偏转,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_79,Ulaman Hybrid Evasion And Deflection,,烏拉曼：閃避與偏轉,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_80,Ulaman Hybrid Life Recover Life On Death,,乌拉曼：生命与敌人死亡时回复生命,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_80,Ulaman Hybrid Life Recover Life On Death,,烏拉曼：生命與敵人死亡時回覆生命,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_81,Ulaman Increased Attack Area Of Effect,,乌拉曼：攻击效果范围,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_81,Ulaman Increased Attack Area Of Effect,,烏拉曼：攻擊效果範圍,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_82,Ulaman Increased Dexterity Percent,,乌拉曼：敏捷百分比,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_82,Ulaman Increased Dexterity Percent,,烏拉曼：敏捷百分比,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_83,Ulaman Increased Evasion Percent,,乌拉曼：闪避百分比,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_83,Ulaman Increased Evasion Percent,,烏拉曼：閃避百分比,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_84,Ulaman Life Leech Amount From Consuming Frenzy,,乌拉曼：消耗狂怒球提高生命偷取量,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_84,Ulaman Life Leech Amount From Consuming Frenzy,,烏拉曼：消耗狂怒球提高生命偷取量,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_85,Ulaman Life Regen While Surrounded,,乌拉曼：被包围时的生命再生,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_85,Ulaman Life Regen While Surrounded,,烏拉曼：被包圍時的生命再生,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_86,Ulaman Maximum Frenzy Charges,Ulaman Maximum 狂怒球,乌拉曼：狂怒球上限,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_86,Ulaman Maximum Frenzy Charges,Ulaman Maximum 狂怒球,烏拉曼：狂怒球上限,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_87,Ulaman Maximum Life Percent,,乌拉曼：生命上限百分比,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_87,Ulaman Maximum Life Percent,,烏拉曼：生命上限百分比,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_88,Ulaman Percent Attack Speed Per Spirit,,乌拉曼：根据精魂提高攻击速度,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_88,Ulaman Percent Attack Speed Per Spirit,,烏拉曼：根據精魂提高攻擊速度,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_89,Ulaman Projectile Chance To Chain Terrain,,乌拉曼：投射物有几率从地形连锁,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_89,Ulaman Projectile Chance To Chain Terrain,,烏拉曼：投射物有幾率從地形連鎖,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_90,Ulaman Shock Magnitude,,乌拉曼：感电强度,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_90,Ulaman Shock Magnitude,,烏拉曼：感電強度,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_91,Ulaman You And Ally Accuracy Rating Percent,,乌拉曼：你与友军的命中值百分比,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_91,Ulaman You And Ally Accuracy Rating Percent,,烏拉曼：你與友軍的命中值百分比,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_92,Ulaman You And Ally Increased Attack Speed,,乌拉曼：你与友军的攻击速度,Grip of Kulemak
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.variant_list_92,Ulaman You And Ally Increased Attack Speed,,烏拉曼：你與友軍的攻擊速度,Grip of Kulemak
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_1,Targets affected by Abyssal Wasting in your Presence have double Power,,你存在范围内受到深渊损耗影响的目标，威力翻倍,Grip of Kulemak
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_1,Targets affected by Abyssal Wasting in your Presence have double Power,,你存在範圍內受到深淵損耗影響的目標，威力翻倍,Grip of Kulemak
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_2,Targets affected by Abyssal Wasting you inflict are Hindered,,受到你施加的深渊损耗影响的目标被阻碍,Grip of Kulemak
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_2,Targets affected by Abyssal Wasting you inflict are Hindered,,受到你施加的深淵損耗影響的目標被阻礙,Grip of Kulemak
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_5,{value_1}% chance to gain Onslaught for {value_2} seconds when you kill an,,你击杀以下敌人时，有 {value_1}% 的几率获得猛攻，持续 {value_2} 秒：,Grip of Kulemak
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_5,{value_1}% chance to gain Onslaught for {value_2} seconds when you kill an,,你擊殺以下敵人時，有 {value_1}% 的幾率獲得猛攻，持續 {value_2} 秒：,Grip of Kulemak
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_42, enemy affected by Abyssal Wasting,,受到深渊损耗影响的敌人,Grip of Kulemak
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_42, enemy affected by Abyssal Wasting,,受到深淵損耗影響的敵人,Grip of Kulemak
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_7,Abyssal Wasting you inflict also prevents targets from dealing Critical Hits,深渊 Wasting you inflict also prevents targets from dealing Critical Hits,你施加的深渊损耗还会阻止目标造成暴击,Grip of Kulemak
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_7,Abyssal Wasting you inflict also prevents targets from dealing Critical Hits,深淵 Wasting you inflict also prevents targets from dealing Critical Hits,你施加的深淵損耗還會阻止目標造成暴擊,Grip of Kulemak
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_8,Gain {value_1} Rage when you kill an enemy affected by Abyssal Wasting,,你击杀受到深渊损耗影响的敌人时，获得 {value_1} 点怒火,Grip of Kulemak
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_8,Gain {value_1} Rage when you kill an enemy affected by Abyssal Wasting,,你擊殺受到深淵損耗影響的敵人時，獲得 {value_1} 點怒火,Grip of Kulemak
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_36,Targets affected by Abyssal Wasting you inflict are Debilitated,,受到你施加的深渊损耗影响的目标陷入疲惫,Grip of Kulemak
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_36,Targets affected by Abyssal Wasting you inflict are Debilitated,,受到你施加的深淵損耗影響的目標陷入疲憊,Grip of Kulemak
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_38,"Abyssal Wasting you inflict also gives targets {value_1}% chance to explode on death, dealing a tenth of their life as Physical Damage","造成 深渊 Wasting you inflict also gives targets {value_1}% chance - explode on death, dealing a tenth of their life as 物理伤害",你施加的深渊损耗还使目标死亡时有 {value_1}% 的几率爆炸，造成等于其生命十分之一的物理伤害,Grip of Kulemak
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_38,"Abyssal Wasting you inflict also gives targets {value_1}% chance to explode on death, dealing a tenth of their life as Physical Damage","深淵 Wasting you inflict also gives targets {value_1}% chance 至 explode on death, dealing a tenth of their life as 物理傷害",你施加的深淵損耗還使目標死亡時有 {value_1}% 的幾率爆炸，造成等於其生命十分之一的物理傷害,Grip of Kulemak
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_39,Abyssal Wasting you inflict also prevents targets from inflicting Elemental Ailments,深渊 Wasting you inflict also prevents targets from inflicting Elemental Ailments,你施加的深渊损耗还会阻止目标施加元素异常状态,Grip of Kulemak
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_39,Abyssal Wasting you inflict also prevents targets from inflicting Elemental Ailments,深淵 Wasting you inflict also prevents targets from inflicting Elemental Ailments,你施加的深淵損耗還會阻止目標施加元素異常狀態,Grip of Kulemak
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_41,{value_1}% chance to revive one of your Persistent Minions when you kill an,,你击杀以下敌人时，有 {value_1}% 的几率复活一个永久召唤生物：,Grip of Kulemak
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_41,{value_1}% chance to revive one of your Persistent Minions when you kill an,,你擊殺以下敵人時，有 {value_1}% 的幾率復活一個永久召喚生物：,Grip of Kulemak
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_43,Gain {value_1} Volatility when you kill an enemy affected by Abyssal Wasting,,你击杀受到深渊损耗影响的敌人时，获得 {value_1} 层无常,Grip of Kulemak
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_43,Gain {value_1} Volatility when you kill an enemy affected by Abyssal Wasting,,你擊殺受到深淵損耗影響的敵人時，獲得 {value_1} 層易爆,Grip of Kulemak
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_44,{value_1}% chance to inflict Withered with Hits against targets affected by Abyssal Wasting,,击中受到深渊损耗影响的目标时，有 {value_1}% 的几率施加枯萎,Grip of Kulemak
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_44,{value_1}% chance to inflict Withered with Hits against targets affected by Abyssal Wasting,,擊中受到深淵損耗影響的目標時，有 {value_1}% 的幾率施加枯萎,Grip of Kulemak
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_73,Targets affected by Abyssal Wasting you inflict are Blinded,,受到你施加的深渊损耗影响的目标被致盲,Grip of Kulemak
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_73,Targets affected by Abyssal Wasting you inflict are Blinded,,受到你施加的深淵損耗影響的目標被致盲,Grip of Kulemak
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_74,Enemies you kill while they are affected by Abyssal Wasting,,你击杀的受深渊损耗影响的敌人,Grip of Kulemak
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_74,Enemies you kill while they are affected by Abyssal Wasting,,你擊殺的受深淵損耗影響的敵人,Grip of Kulemak
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_76,{value_1}% increased Immobilisation buildup against targets affected by Abyssal Wasting,,对受到深渊损耗影响的目标，定身积蓄值提高 {value_1}%,Grip of Kulemak
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_76,{value_1}% increased Immobilisation buildup against targets affected by Abyssal Wasting,,對受到深淵損耗影響的目標，定身積蓄值提高 {value_1}%,Grip of Kulemak
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_1,Prefix Aggravate Bleed On Attack Hit Chance,,前缀：攻击击中有几率加剧流血,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_1,Prefix Aggravate Bleed On Attack Hit Chance,,前綴：攻擊擊中有幾率加劇流血,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_2,Prefix Attack Speed Percent If Rare Or Unique Enemy Nearby,,前缀：附近有稀有或传奇敌人时的攻击速度,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_2,Prefix Attack Speed Percent If Rare Or Unique Enemy Nearby,,前綴：附近有稀有或傳奇敵人時的攻擊速度,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_3,Prefix Body Armour From Body Armour,,前缀：提高胸甲提供的护甲,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_3,Prefix Body Armour From Body Armour,,前綴：提高胸甲提供的護甲,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_4,Prefix Chance To Pierce,,前缀：穿透几率,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_4,Prefix Chance To Pierce,,前綴：穿透幾率,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_5,Prefix Charm Chance To Use Other Charm,,前缀：护符有几率同时使用其他护符,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_5,Prefix Charm Chance To Use Other Charm,,前綴：護符有幾率同時使用其他護符,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_6,Prefix Charm Effect,,前缀：护符效果,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_6,Prefix Charm Effect,,前綴：護符效果,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_7,Prefix Charm Recover Mana On Use,,前缀：使用护符回复魔力,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_7,Prefix Charm Recover Mana On Use,,前綴：使用護符回覆魔力,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_8,Prefix Culling Strike Threshold,,前缀：终结门槛,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_8,Prefix Culling Strike Threshold,,前綴：終結門檻,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_9,Prefix Damage Gained As Chaos,,前缀：获得额外混沌伤害,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_9,Prefix Damage Gained As Chaos,,前綴：獲得額外混沌傷害,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_10,Prefix Damage Gained As Cold,,前缀：获得额外冰霜伤害,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_10,Prefix Damage Gained As Cold,,前綴：獲得額外冰霜傷害,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_11,Prefix Damage Gained As Fire,,前缀：获得额外火焰伤害,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_11,Prefix Damage Gained As Fire,,前綴：獲得額外火焰傷害,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_12,Prefix Damage Gained As Lightning,,前缀：获得额外闪电伤害,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_12,Prefix Damage Gained As Lightning,,前綴：獲得額外閃電傷害,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_13,Prefix Damage While In Presence Of Companion,,前缀：伙伴在存在范围内时的伤害,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_13,Prefix Damage While In Presence Of Companion,,前綴：夥伴在存在範圍內時的傷害,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_14,Prefix Elemental Exposure Effect,,前缀：元素曝露效果,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_14,Prefix Elemental Exposure Effect,,前綴：元素曝露效果,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_15,Prefix Evasion Rating From Body Armour,,前缀：从胸甲获得闪避值,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_15,Prefix Evasion Rating From Body Armour,,前綴：從胸甲獲得閃避值,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_16,Prefix Flask Life Regen For XSeconds,,前缀：使用生命药剂后的生命再生,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_16,Prefix Flask Life Regen For XSeconds,,前綴：使用生命藥劑後的生命再生,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_17,Prefix Global Cooldown Recovery,,前缀：全局冷却回复,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_17,Prefix Global Cooldown Recovery,,前綴：全局冷卻回覆,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_18,Prefix Ice Crystal Maximum Life,,前缀：冰晶生命上限,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_18,Prefix Ice Crystal Maximum Life,,前綴：冰晶生命上限,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_19,Prefix Increased Skill Speed,,前缀：技能速度,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_19,Prefix Increased Skill Speed,,前綴：技能速度,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_20,Prefix Lucky Lightning Damage Chance Percent,,前缀：闪电伤害有几率幸运,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_20,Prefix Lucky Lightning Damage Chance Percent,,前綴：閃電傷害有幾率幸運,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_21,Prefix Mana Cost Efficiency,,前缀：魔力消耗效能,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_21,Prefix Mana Cost Efficiency,,前綴：魔力消耗效能,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_22,Prefix Mana Regeneration Rate While Moving,,前缀：移动时的魔力再生速度,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_22,Prefix Mana Regeneration Rate While Moving,,前綴：移動時的魔力再生速度,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_23,Prefix Maximum Elemental Resistance,,前缀：元素抗性上限,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_23,Prefix Maximum Elemental Resistance,,前綴：元素抗性上限,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_24,Prefix Maximum Energy Shield From Body Armour,,前缀：从胸甲获得能量护盾上限,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_24,Prefix Maximum Energy Shield From Body Armour,,前綴：從胸甲獲得能量護盾上限,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_25,Prefix Minion Life Gain As Energy Shield,,前缀：召唤生物获得额外能量护盾,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_25,Prefix Minion Life Gain As Energy Shield,,前綴：召喚生物獲得額外能量護盾,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_26,Prefix Minion Life Regeneration,,前缀：召唤生物生命再生,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_26,Prefix Minion Life Regeneration,,前綴：召喚生物生命再生,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_27,Prefix Minion Revive Speed,,前缀：召唤生物复活速度,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_27,Prefix Minion Revive Speed,,前綴：召喚生物復活速度,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_28,Prefix Percent Of Leech Is Instant,,前缀：偷取立即生效的比例,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_28,Prefix Percent Of Leech Is Instant,,前綴：偷取立即生效的比例,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_29,Prefix Physical Damage Prevented Recoup,,前缀：防止的物理伤害用于补偿,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_29,Prefix Physical Damage Prevented Recoup,,前綴：防止的物理傷害用於補償,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_30,Prefix Recoup Speed,,前缀：补偿速度,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_30,Prefix Recoup Speed,,前綴：補償速度,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_31,Prefix Recover Life On Killing Poisoned Enemy,,前缀：击杀中毒敌人回复生命,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_31,Prefix Recover Life On Killing Poisoned Enemy,,前綴：擊殺中毒敵人回覆生命,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_32,Prefix Skill Effect Duration,,前缀：技能效果持续时间,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_32,Prefix Skill Effect Duration,,前綴：技能效果持續時間,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_33,Prefix Thorns Critical Strike Chance,Prefix Thorns 法术暴击率,前缀：荆棘暴击率,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_33,Prefix Thorns Critical Strike Chance,Prefix Thorns 法術暴擊率,前綴：荊棘暴擊率,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_34,Prefix Thorns From Percent Body Armour,,前缀：从胸甲护甲获得荆棘,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_34,Prefix Thorns From Percent Body Armour,,前綴：從胸甲護甲獲得荊棘,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_35,Prefix Triggers Refund Energy Spent,,前缀：触发技能返还消耗的能量,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_35,Prefix Triggers Refund Energy Spent,,前綴：觸發技能返還消耗的能量,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_36,Suffix Ailment Chance,,后缀：异常状态几率,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_36,Suffix Ailment Chance,,後綴：異常狀態幾率,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_37,Suffix Ailment Thresholdfrom Energy Shield,,后缀：从能量护盾获得异常状态门槛,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_37,Suffix Ailment Thresholdfrom Energy Shield,,後綴：從能量護盾獲得異常狀態門檻,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_38,Suffix Base Chance To Bleed,,后缀：基础流血几率,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_38,Suffix Base Chance To Bleed,,後綴：基礎流血幾率,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_39,Suffix Base Chance To Poison,,后缀：基础中毒几率,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_39,Suffix Base Chance To Poison,,後綴：基礎中毒幾率,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_40,Suffix Crit Chance For Jewel,,后缀：暴击率,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_40,Suffix Crit Chance For Jewel,,後綴：暴擊率,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_41,Suffix Crit Multiplier For Jewel,,后缀：暴击伤害加成,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_41,Suffix Crit Multiplier For Jewel,,後綴：暴擊傷害加成,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_42,Suffix Damage Removed From Mana Before Life,,后缀：伤害优先从魔力扣除,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_42,Suffix Damage Removed From Mana Before Life,,後綴：傷害優先從魔力扣除,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_43,Suffix Debuff Time Passed,,后缀：自身减益到期速度,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_43,Suffix Debuff Time Passed,,後綴：自身減益到期速度,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_44,Suffix Faster Ailment Damage For Jewel,,后缀：异常状态伤害生效速度,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_44,Suffix Faster Ailment Damage For Jewel,,後綴：異常狀態傷害生效速度,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_45,Suffix Flask Duration,,后缀：药剂持续时间,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_45,Suffix Flask Duration,,後綴：藥劑持續時間,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_46,Suffix Gain Rage When Hit,,后缀：被击中时获得怒火,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_46,Suffix Gain Rage When Hit,,後綴：被擊中時獲得怒火,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_47,Suffix Global Cooldown Recovery,,后缀：全局冷却回复,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_47,Suffix Global Cooldown Recovery,,後綴：全局冷卻回覆,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_48,Suffix Increased Ailment Threshold,,后缀：提高异常状态门槛,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_48,Suffix Increased Ailment Threshold,,後綴：提高異常狀態門檻,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_49,Suffix Increased Attack Speed,,后缀：攻击速度,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_49,Suffix Increased Attack Speed,,後綴：攻擊速度,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_50,Suffix Increased Cast Speed For Jewel,,后缀：施法速度,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_50,Suffix Increased Cast Speed For Jewel,,後綴：施法速度,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_51,Suffix Increased Flask Charges Gained,,后缀：获得的药剂充能,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_51,Suffix Increased Flask Charges Gained,,後綴：獲得的藥劑充能,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_52,Suffix Increased Stun Threshold,,后缀：提高晕眩门槛,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_52,Suffix Increased Stun Threshold,,後綴：提高暈眩門檻,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_53,Suffix Life Cost,,后缀：魔力消耗转为生命消耗,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_53,Suffix Life Cost,,後綴：魔力消耗轉爲生命消耗,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_54,Suffix Life Recoup For Jewel,,后缀：生命补偿,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_54,Suffix Life Recoup For Jewel,,後綴：生命補償,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_55,Suffix Life Regeneration Rate,,后缀：生命再生速度,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_55,Suffix Life Regeneration Rate,,後綴：生命再生速度,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_56,Suffix Mana Gained On Kill Percentage,,后缀：击杀回复魔力百分比,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_56,Suffix Mana Gained On Kill Percentage,,後綴：擊殺回覆魔力百分比,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_57,Suffix Mana Regeneration,,后缀：魔力再生,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_57,Suffix Mana Regeneration,,後綴：魔力再生,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_58,Suffix Maximum Cold Resist,,后缀：冰霜抗性上限,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_58,Suffix Maximum Cold Resist,,後綴：冰霜抗性上限,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_59,Suffix Maximum Fire Resist,,后缀：火焰抗性上限,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_59,Suffix Maximum Fire Resist,,後綴：火焰抗性上限,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_60,Suffix Maximum Life On Kill Percent,,后缀：击杀回复生命百分比,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_60,Suffix Maximum Life On Kill Percent,,後綴：擊殺回覆生命百分比,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_61,Suffix Maximum Lightning Resist,,后缀：闪电抗性上限,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_61,Suffix Maximum Lightning Resist,,後綴：閃電抗性上限,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_62,Suffix Minion Attack Speed And Cast Speed,,后缀：召唤生物攻击与施法速度,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_62,Suffix Minion Attack Speed And Cast Speed,,後綴：召喚生物攻擊與施法速度,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_63,Suffix Minion Critical Strike Chance Increase,,后缀：召唤生物暴击率,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_63,Suffix Minion Critical Strike Chance Increase,,後綴：召喚生物暴擊率,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_64,Suffix Minion Elemental Resistance,,后缀：召唤生物元素抗性,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_64,Suffix Minion Elemental Resistance,,後綴：召喚生物元素抗性,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_65,Suffix Minion Physical Damage Reduction,,后缀：召唤生物物理伤害减免,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_65,Suffix Minion Physical Damage Reduction,,後綴：召喚生物物理傷害減免,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_66,Suffix Movement Velocity,,后缀：移动速度,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_66,Suffix Movement Velocity,,後綴：移動速度,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_67,Suffix Rage On Hit,,后缀：击中时获得怒火,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_67,Suffix Rage On Hit,,後綴：擊中時獲得怒火,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_68,Suffix Skill Effect Duration,,后缀：技能效果持续时间,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_68,Suffix Skill Effect Duration,,後綴：技能效果持續時間,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_69,Suffix Slow Potency,,后缀：减速强度,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_69,Suffix Slow Potency,,後綴：減速強度,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_70,Suffix Spell Crit Multiplier For Jewel,,后缀：法术暴击伤害加成,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_70,Suffix Spell Crit Multiplier For Jewel,,後綴：法術暴擊傷害加成,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_71,Suffix Spell Critical Strike Chance,Suffix Spell 法术暴击率,后缀：法术暴击率,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_71,Suffix Spell Critical Strike Chance,Suffix Spell 法術暴擊率,後綴：法術暴擊率,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_72,Suffix Stun Damage Increase,,后缀：晕眩积蓄,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_72,Suffix Stun Damage Increase,,後綴：暈眩積蓄,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_73,Suffix Stun Thresholdfrom Energy Shield,,后缀：从能量护盾获得晕眩门槛,Heart of the Well
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heart_of_the_well_diamond.variant_list_73,Suffix Stun Thresholdfrom Energy Shield,,後綴：從能量護盾獲得暈眩門檻,Heart of the Well
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.heart_of_the_well_diamond.explicit_mod_lines_35,{value_1}% chance for Trigger skills to refund half of Energy Spent,,触发技能有 {value_1}% 的几率返还消耗能量的一半,Heart of the Well
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.heart_of_the_well_diamond.explicit_mod_lines_35,{value_1}% chance for Trigger skills to refund half of Energy Spent,有{value_1}%機率使觸發技能返還消耗的一半能量,觸發技能有 {value_1}% 的幾率返還消耗能量的一半,Heart of the Well
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_1,Andvarius {value_1},,贪欲之记 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_1,Andvarius {value_1},,貪慾之記 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_2,Andvarius {value_1} Big Range,,贪欲之记 {value_1}（大数值范围）,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_2,Andvarius {value_1} Big Range,,貪慾之記 {value_1}（大數值範圍）,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_3,Andvarius {value_1} Combined With Base Gold Ring,,贪欲之记 {value_1}（合并金光戒指基底）,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_3,Andvarius {value_1} Combined With Base Gold Ring,,貪慾之記 {value_1}（合併金光戒指基底）,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_4,Andvarius {value_1} Combined With Base Gold Ring Big Range,,贪欲之记 {value_1}（合并金光戒指基底，大数值范围）,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_4,Andvarius {value_1} Combined With Base Gold Ring Big Range,,貪慾之記 {value_1}（合併金光戒指基底，大數值範圍）,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_5,Bereks Grip Shocked Ground Boost {value_1},,贝雷克的冰与雷之曲 {value_1}：感电地面增益,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_5,Bereks Grip Shocked Ground Boost {value_1},,貝雷克的冰與雷之曲 {value_1}：感電地面增益,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_6,Bereks Pass Chilled Ground Boost {value_1},,贝雷克的冰与火之歌 {value_1}：冰缓地面增益,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_6,Bereks Pass Chilled Ground Boost {value_1},,貝雷克的冰與火之歌 {value_1}：冰緩地面增益,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_7,Bereks Respite Ignited Ground Boost {value_1},,贝雷克的火与雷之乐 {value_1}：点燃地面增益,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_7,Bereks Respite Ignited Ground Boost {value_1},,貝雷克的火與雷之樂 {value_1}：點燃地面增益,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_8,Blackflame Ignite Deals Chaos Damage Instead {value_1},,黑焰 {value_1}：点燃改为造成混沌伤害,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_8,Blackflame Ignite Deals Chaos Damage Instead {value_1},,黯炎 {value_1}：點燃改爲造成混沌傷害,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_9,Blackflame Wither Also Increases Fire Damage {value_1},,黑焰 {value_1}：枯萎也提高火焰伤害,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_9,Blackflame Wither Also Increases Fire Damage {value_1},,黯炎 {value_1}：枯萎也提高火焰傷害,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_10,Blackflame Wither Never Expires On Ignited Enemies {value_1},,黑焰 {value_1}：被点燃敌人身上的枯萎不会到期,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_10,Blackflame Wither Never Expires On Ignited Enemies {value_1},,黯炎 {value_1}：被點燃敵人身上的枯萎不會到期,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_11,Blackheart {value_1},,幽暗之语 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_11,Blackheart {value_1},,幽暗之語 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_12,Blackheart {value_1} Big Range,,幽暗之语 {value_1}（大数值范围）,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_12,Blackheart {value_1} Big Range,,幽暗之語 {value_1}（大數值範圍）,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_15,Blistering Bond {value_1},,沸腾桎梏 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_15,Blistering Bond {value_1},,極熱護環 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_18,Burrower {value_1},,挖掘者 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_18,Burrower {value_1},,掘地者 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_19,Bursting Decay {value_1},,腐朽迸发 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_19,Bursting Decay {value_1},,爆發腐蝕 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_20,Bursting Decay {value_1} Big Range,,腐朽迸发 {value_1}（大数值范围）,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_20,Bursting Decay {value_1} Big Range,,爆發腐蝕 {value_1}（大數值範圍）,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_21,Call Brotherhood {value_1},,意志呼唤 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_21,Call Brotherhood {value_1},,意志呼喚 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_22,Cracklecreep {value_1},,爆裂蔓延 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_22,Cracklecreep {value_1},,裂紋怪客 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_23,Death Rush {value_1},,亡者呼唤 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_23,Death Rush {value_1},,亡者呼喚 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_24,Doedres {value_1},,德瑞的魔具 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_24,Doedres {value_1},,德瑞的魔具 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_25,Dream Fragments {value_1},,梦语之痕 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_25,Dream Fragments {value_1},,夢語之痕 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_26,Evergrasping {value_1},,永恒紧缩之戒 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_26,Evergrasping {value_1},,永恆之握戒指 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_27,Evergrasping {value_1} Big Range,,永恒紧缩之戒 {value_1}（大数值范围）,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_27,Evergrasping {value_1} Big Range,,永恆之握戒指 {value_1}（大數值範圍）,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_28,Gifts Above {value_1},,神赐 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_28,Gifts Above {value_1},,神賜 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_29,Glowswarm {value_1},,微光虫 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_29,Glowswarm {value_1},,發光蟲群 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_30,Glowswarm {value_1} Big Range,,微光虫 {value_1}（大数值范围）,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_30,Glowswarm {value_1} Big Range,,發光蟲群 {value_1}（大數值範圍）,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_31,Heartbound {value_1},,结魂之环 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_31,Heartbound {value_1},,結魂之環 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_32,Heartbound {value_1} Big Range,,结魂之环 {value_1}（大数值范围）,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_32,Heartbound {value_1} Big Range,,結魂之環 {value_1}（大數值範圍）,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_35,Icefang {value_1},,冰牙指环 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_35,Icefang {value_1},,冰風軌跡 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_37,Kulemak {value_1},,库勒马克之握 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_37,Kulemak {value_1},,骷髏馬克的掌握 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_39,Kulemak {value_1} Big Range,,库勒马克之握 {value_1}（大数值范围）,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_39,Kulemak {value_1} Big Range,,骷髏馬克的掌握 {value_1}（大數值範圍）,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_64,Levinstone {value_1},,电光之石 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_64,Levinstone {value_1},,浮游石 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_65,Mings Heart {value_1},,明恩的慧心 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_65,Mings Heart {value_1},,明恩的慧心 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_66,Mings Heart {value_1} Big Range,,明恩的慧心 {value_1}（大数值范围）,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_66,Mings Heart {value_1} Big Range,,明恩的慧心 {value_1}（大數值範圍）,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_67,Original Sin {value_1},,原初之罪 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_67,Original Sin {value_1},,原罪 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_68,Perandus Seal {value_1},,普兰德斯的印章 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_68,Perandus Seal {value_1},,普蘭德斯之印 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_69,Perandus Seal {value_1} Big Range,,普兰德斯的印章 {value_1}（大数值范围）,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_69,Perandus Seal {value_1} Big Range,,普蘭德斯之印 {value_1}（大數值範圍）,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_70,Polcirkeln {value_1},,极圈 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_70,Polcirkeln {value_1},,極圈 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_71,Prized Pain {value_1},,珍藏的痛苦 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_71,Prized Pain {value_1},,珍貴苦痛 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_72,Prized Pain {value_1} Big Range,,珍藏的痛苦 {value_1}（大数值范围）,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_72,Prized Pain {value_1} Big Range,,珍貴苦痛 {value_1}（大數值範圍）,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_73,Seed Of Cataclysm {value_1},,灾变的种子 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_73,Seed Of Cataclysm {value_1},,浩劫種子 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_74,Seed Of Cataclysm {value_1} Big Range,,灾变的种子 {value_1}（大数值范围）,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_74,Seed Of Cataclysm {value_1} Big Range,,浩劫種子 {value_1}（大數值範圍）,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_75,Sekhemas Resolve Cold {value_1},,丝克玛的决心 {value_1}：冰霜,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_75,Sekhemas Resolve Cold {value_1},,絲克瑪的決意 {value_1}：冰霜,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_76,Sekhemas Resolve Cold {value_1} Big Range,,丝克玛的决心 {value_1}：冰霜（大数值范围）,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_76,Sekhemas Resolve Cold {value_1} Big Range,,絲克瑪的決意 {value_1}：冰霜（大數值範圍）,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_77,Sekhemas Resolve Emerald {value_1},,丝克玛的决心 {value_1}：翠绿,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_77,Sekhemas Resolve Emerald {value_1},,絲克瑪的決意 {value_1}：翠綠,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_78,Sekhemas Resolve Fire {value_1},,丝克玛的决心 {value_1}：火焰,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_78,Sekhemas Resolve Fire {value_1},,絲克瑪的決意 {value_1}：火焰,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_79,Sekhemas Resolve Fire {value_1} Big Range,,丝克玛的决心 {value_1}：火焰（大数值范围）,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_79,Sekhemas Resolve Fire {value_1} Big Range,,絲克瑪的決意 {value_1}：火焰（大數值範圍）,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_80,Sekhemas Resolve Lightning {value_1},,丝克玛的决心 {value_1}：闪电,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_80,Sekhemas Resolve Lightning {value_1},,絲克瑪的決意 {value_1}：閃電,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_81,Sekhemas Resolve Lightning {value_1} Big Range,,丝克玛的决心 {value_1}：闪电（大数值范围）,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_81,Sekhemas Resolve Lightning {value_1} Big Range,,絲克瑪的決意 {value_1}：閃電（大數值範圍）,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_82,Sekhemas Resolve Ruby {value_1},,丝克玛的决心 {value_1}：赤红,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_82,Sekhemas Resolve Ruby {value_1},,絲克瑪的決意 {value_1}：赤紅,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_83,Sekhemas Resolve Sapphire {value_1},,丝克玛的决心 {value_1}：钴蓝,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_83,Sekhemas Resolve Sapphire {value_1},,絲克瑪的決意 {value_1}：鈷藍,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_84,Snakepit {value_1},,蛇穴 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_84,Snakepit {value_1},,蛇巢 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_87,The Taming Elemental Ground Boost {value_1},,元素之章 {value_1}：元素地面增益,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_87,The Taming Elemental Ground Boost {value_1},,元素之章 {value_1}：元素地面增益,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_88,Thiefs Torment {value_1},,窃罪 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_88,Thiefs Torment {value_1},,竊罪 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_89,Thiefs Torment {value_1} Big Range,,窃罪 {value_1}（大数值范围）,Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_89,Thiefs Torment {value_1} Big Range,,竊罪 {value_1}（大數值範圍）,Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_90,Veilpiercer {value_1},,破幕者 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_90,Veilpiercer {value_1},,破帷者 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_93,Venopuncture {value_1},,静脉穿刺 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_93,Venopuncture {value_1},,脈絡針刺 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_95,Vigilant View {value_1},,警戒凝视 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_95,Vigilant View {value_1},,警戒之視 {value_1},Loreweave
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_96,Whisper Brotherhood {value_1},,兄弟会的耳语 {value_1},Loreweave
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_96,Whisper Brotherhood {value_1},,意志低語 {value_1},Loreweave
+zh-CN,Game.csv,source,game.equipment_unique_modifier.hateforge_moulded_mitts.source_1,Drops from unique{{Trialmaster}} in normal{{The Trial of Chaos}},,由 normal{{混沌试炼}} 的 unique{{试炼大师}} 掉落,Hateforge
+zh-TW,Game.csv,source,game.equipment_unique_modifier.hateforge_moulded_mitts.source_1,Drops from unique{{Trialmaster}} in normal{{The Trial of Chaos}},,由 normal{{混沌試煉}} 的 unique{{試煉大師}} 掉落,Hateforge
+zh-CN,Game.csv,source,game.equipment_unique_modifier.blessed_bonds_linen_wraps.source_1,No longer obtainable,不再可获得,已无法获得,Blessed Bonds
+zh-TW,Game.csv,source,game.equipment_unique_modifier.blessed_bonds_linen_wraps.source_1,No longer obtainable,,已無法獲得,Blessed Bonds
+zh-CN,Game.csv,source,game.equipment_unique_modifier.hand_of_wisdom_and_action_spiral_wraps.source_1,"Drops from unique{{Xesht, We That Are One}} in normal{{Twisted Domain}}",,由 normal{{扭曲之域}} 的 unique{{吾等合一·席斯特}} 掉落,Hand of Wisdom and Action
+zh-TW,Game.csv,source,game.equipment_unique_modifier.hand_of_wisdom_and_action_spiral_wraps.source_1,"Drops from unique{{Xesht, We That Are One}} in normal{{Twisted Domain}}",,由 normal{{扭曲之域}} 的 unique{{吾等合一·薛斯特}} 掉落,Hand of Wisdom and Action
+zh-CN,Game.csv,source,game.equipment_unique_modifier.sine_aequo_grand_manchettes.source_1,Drops from unique{{Arbiter of Ash}} in normal{{The Burning Monolith}},,由 normal{{燃烧巨石碑}} 的 unique{{灰烬仲裁者}} 掉落,Sine Aequo
+zh-TW,Game.csv,source,game.equipment_unique_modifier.sine_aequo_grand_manchettes.source_1,Drops from unique{{Arbiter of Ash}} in normal{{The Burning Monolith}},,由 normal{{燃燒巨石碑}} 的 unique{{灰燼仲裁者}} 掉落,Sine Aequo
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.elevore_hunter_hood.explicit_mod_lines_5,Charms gain {value_1} charge per Second,,护符每秒获得 {value_1} 次充能,Elevore
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.elevore_hunter_hood.explicit_mod_lines_5,Charms gain {value_1} charge per Second,,護符每秒獲得 {value_1} 次充能,Elevore
+zh-CN,Game.csv,source,game.equipment_unique_modifier.forbidden_gaze_chain_tiara.source_1,No longer obtainable,不再可获得,已无法获得,Forbidden Gaze
+zh-TW,Game.csv,source,game.equipment_unique_modifier.forbidden_gaze_chain_tiara.source_1,No longer obtainable,,已無法獲得,Forbidden Gaze
+zh-CN,Game.csv,source,game.equipment_unique_modifier.sandstorm_visage_chain_tiara.source_1,"Drops from unique{{Zarokh, the Temporal}}",,由 unique{{时光之主·扎洛卡}} 掉落,Sandstorm Visage
+zh-TW,Game.csv,source,game.equipment_unique_modifier.sandstorm_visage_chain_tiara.source_1,"Drops from unique{{Zarokh, the Temporal}}",,由 unique{{時光之主·澤洛克}} 掉落,Sandstorm Visage
+zh-CN,Game.csv,source,game.equipment_unique_modifier.assailum_closed_helm.source_1,"Drops from unique{{Kosis, The Revelation}}",,由 unique{{启示者科西斯}} 掉落,Assailum
+zh-TW,Game.csv,source,game.equipment_unique_modifier.assailum_closed_helm.source_1,"Drops from unique{{Kosis, The Revelation}}",,由 unique{{啓示者科西斯}} 掉落,Assailum
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.the_bringer_of_rain_decorated_helm.explicit_mod_lines_8,Has {value_1} Augment Sockets,有 {value_1} Augment 个插槽,拥有 {value_1} 个增幅插槽,The Bringer of Rain
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.the_bringer_of_rain_decorated_helm.explicit_mod_lines_8,Has {value_1} Augment Sockets,有{value_1} Augment個插槽,擁有 {value_1} 個增幅插槽,The Bringer of Rain
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.greymake_brimmed_helm.explicit_mod_lines_5,Has {value_1} Augment Sockets,有 {value_1} Augment 个插槽,拥有 {value_1} 个增幅插槽,Greymake
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.greymake_brimmed_helm.explicit_mod_lines_5,Has {value_1} Augment Sockets,有{value_1} Augment個插槽,擁有 {value_1} 個增幅插槽,Greymake
+zh-CN,Game.csv,source,game.equipment_unique_modifier.the_deepest_tower_spiritbone_crown.source_1,No longer obtainable,不再可获得,已无法获得,The Deepest Tower
+zh-TW,Game.csv,source,game.equipment_unique_modifier.the_deepest_tower_spiritbone_crown.source_1,No longer obtainable,,已無法獲得,The Deepest Tower
+zh-CN,Game.csv,source,game.equipment_unique_modifier.keeper_of_the_arc_spiritbone_crown.source_1,"Drops from unique{{Olroth, Origin of the Fall}}",,由 unique{{陨落之源·欧罗什}} 掉落,Keeper of the Arc
+zh-TW,Game.csv,source,game.equipment_unique_modifier.keeper_of_the_arc_spiritbone_crown.source_1,"Drops from unique{{Olroth, Origin of the Fall}}",,由 unique{{隕落之源·奧爾羅斯}} 掉落,Keeper of the Arc
+zh-CN,Game.csv,source,game.equipment_unique_modifier.glimpse_of_chaos_tribal_mask.source_1,Drops from unique{{Trialmaster}} in normal{{The Trial of Chaos}},,由 normal{{混沌试炼}} 的 unique{{试炼大师}} 掉落,Glimpse of Chaos
+zh-TW,Game.csv,source,game.equipment_unique_modifier.glimpse_of_chaos_tribal_mask.source_1,Drops from unique{{Trialmaster}} in normal{{The Trial of Chaos}},,由 normal{{混沌試煉}} 的 unique{{試煉大師}} 掉落,Glimpse of Chaos
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.the_vertex_tribal_mask.variant_list_2,Equipment,,装备,The Vertex
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.the_vertex_tribal_mask.variant_list_2,Equipment,設備,裝備,The Vertex
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.the_vertex_tribal_mask.variant_list_3,Skill Gems,,技能宝石,The Vertex
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.the_vertex_tribal_mask.variant_list_3,Skill Gems,,技能寶石,The Vertex
+zh-CN,Game.csv,source,game.equipment_unique_modifier.solus_ipse_grand_visage.source_1,Drops from unique{{Arbiter of Ash}} in normal{{The Burning Monolith}},,由 normal{{燃烧巨石碑}} 的 unique{{灰烬仲裁者}} 掉落,Solus Ipse
+zh-TW,Game.csv,source,game.equipment_unique_modifier.solus_ipse_grand_visage.source_1,Drops from unique{{Arbiter of Ash}} in normal{{The Burning Monolith}},,由 normal{{燃燒巨石碑}} 的 unique{{灰燼仲裁者}} 掉落,Solus Ipse
+zh-CN,Game.csv,source,game.equipment_unique_modifier.the_adorned_diamond.source_1,Drops from unique{{Trialmaster}} in normal{{The Trial of Chaos}},,由 normal{{混沌试炼}} 的 unique{{试炼大师}} 掉落,The Adorned
+zh-TW,Game.csv,source,game.equipment_unique_modifier.the_adorned_diamond.source_1,Drops from unique{{Trialmaster}} in normal{{The Trial of Chaos}},,由 normal{{混沌試煉}} 的 unique{{試煉大師}} 掉落,The Adorned
+zh-CN,Game.csv,source,game.equipment_unique_modifier.controlled_metamorphosis_diamond.source_1,"Drops from unique{{Xesht, We That Are One}} in normal{{Twisted Domain}}",,由 normal{{扭曲之域}} 的 unique{{吾等合一·席斯特}} 掉落,Controlled Metamorphosis
+zh-TW,Game.csv,source,game.equipment_unique_modifier.controlled_metamorphosis_diamond.source_1,"Drops from unique{{Xesht, We That Are One}} in normal{{Twisted Domain}}",,由 normal{{扭曲之域}} 的 unique{{吾等合一·薛斯特}} 掉落,Controlled Metamorphosis
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.controlled_metamorphosis_diamond.variant_list_1,Very Small Ring,,极小环形,Controlled Metamorphosis
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.controlled_metamorphosis_diamond.variant_list_1,Very Small Ring,,極小環形,Controlled Metamorphosis
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.controlled_metamorphosis_diamond.variant_list_2,Small Ring,,小型环形,Controlled Metamorphosis
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.controlled_metamorphosis_diamond.variant_list_2,Small Ring,,小型環形,Controlled Metamorphosis
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.controlled_metamorphosis_diamond.variant_list_3,Medium-Small Ring,,中小型环形,Controlled Metamorphosis
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.controlled_metamorphosis_diamond.variant_list_3,Medium-Small Ring,,中小型環形,Controlled Metamorphosis
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.controlled_metamorphosis_diamond.variant_list_4,Medium Ring,,中型环形,Controlled Metamorphosis
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.controlled_metamorphosis_diamond.variant_list_4,Medium Ring,,中型環形,Controlled Metamorphosis
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.controlled_metamorphosis_diamond.variant_list_5,Medium-Large Ring,,中大型环形,Controlled Metamorphosis
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.controlled_metamorphosis_diamond.variant_list_5,Medium-Large Ring,,中大型環形,Controlled Metamorphosis
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.controlled_metamorphosis_diamond.variant_list_6,Large Ring,,大型环形,Controlled Metamorphosis
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.controlled_metamorphosis_diamond.variant_list_6,Large Ring,,大型環形,Controlled Metamorphosis
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.controlled_metamorphosis_diamond.variant_list_7,Very Large Ring,,极大环形,Controlled Metamorphosis
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.controlled_metamorphosis_diamond.variant_list_7,Very Large Ring,,極大環形,Controlled Metamorphosis
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.controlled_metamorphosis_diamond.variant_list_8,Massive Ring,,巨型环形,Controlled Metamorphosis
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.controlled_metamorphosis_diamond.variant_list_8,Massive Ring,,巨型環形,Controlled Metamorphosis
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.voices_sapphire.variant_list_1,{value_1} Sinister Sockets,,{value_1} 个阴险插槽,Voices
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.voices_sapphire.variant_list_1,{value_1} Sinister Sockets,,{value_1} 個陰險插槽,Voices
+zh-CN,Game.csv,source,game.equipment_unique_modifier.heroic_tragedy_timeless_jewel.source_1,"Drops from unique{{Olroth, Origin of the Fall}}",,由 unique{{陨落之源·欧罗什}} 掉落,Heroic Tragedy
+zh-TW,Game.csv,source,game.equipment_unique_modifier.heroic_tragedy_timeless_jewel.source_1,"Drops from unique{{Olroth, Origin of the Fall}}",,由 unique{{隕落之源·奧爾羅斯}} 掉落,Heroic Tragedy
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heroic_tragedy_timeless_jewel.variant_list_1,Vorana,,沃拉娜,Heroic Tragedy
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heroic_tragedy_timeless_jewel.variant_list_1,Vorana,,沃拉娜,Heroic Tragedy
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heroic_tragedy_timeless_jewel.variant_list_2,Medved,,梅德维,Heroic Tragedy
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heroic_tragedy_timeless_jewel.variant_list_2,Medved,,梅德維,Heroic Tragedy
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.heroic_tragedy_timeless_jewel.variant_list_3,Olroth,,欧罗什,Heroic Tragedy
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.heroic_tragedy_timeless_jewel.variant_list_3,Olroth,,奧爾羅斯,Heroic Tragedy
+zh-CN,Game.csv,source,game.equipment_unique_modifier.undying_hate_timeless_jewel.source_1,Drops from unique{{Vessel of Kulemak}},,由 unique{{库勒马克的容器}} 掉落,Undying Hate
+zh-TW,Game.csv,source,game.equipment_unique_modifier.undying_hate_timeless_jewel.source_1,Drops from unique{{Vessel of Kulemak}},,由 unique{{庫勒馬克的容器}} 掉落,Undying Hate
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.undying_hate_timeless_jewel.variant_list_2,Kulemak,,库勒马克,Undying Hate
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.undying_hate_timeless_jewel.variant_list_2,Kulemak,,庫勒馬克,Undying Hate
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.undying_hate_timeless_jewel.variant_list_4,Tecrod,,特克罗德,Undying Hate
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.undying_hate_timeless_jewel.variant_list_4,Tecrod,,特克羅德,Undying Hate
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.brutus_lead_sprinkler_morning_star.explicit_mod_lines_1,Hits with this Weapon have {value_1}% chance to Trigger Molten Shower per {value_2} Strength,每有 {value_2} 点力量，使用该武器击中时有 {value_1}% 的几率触发熔岩骤雨,每有 {value_2} 点力量，此武器的击中有 {value_1}% 的几率触发熔岩骤雨,Brutus' Lead Sprinkler
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.brutus_lead_sprinkler_morning_star.explicit_mod_lines_1,Hits with this Weapon have {value_1}% chance to Trigger Molten Shower per {value_2} Strength,,每有 {value_2} 點力量，此武器的擊中有 {value_1}% 的機率觸發熔火噴濺,Brutus' Lead Sprinkler
+zh-CN,Game.csv,source,game.equipment_unique_modifier.olrovasara_torment_club.source_1,"Drops from unique{{Olroth, Origin of the Fall}}",,由 unique{{陨落之源·欧罗什}} 掉落,Olrovasara
+zh-TW,Game.csv,source,game.equipment_unique_modifier.olrovasara_torment_club.source_1,"Drops from unique{{Olroth, Origin of the Fall}}",,由 unique{{隕落之源·奧爾羅斯}} 掉落,Olrovasara
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.olrovasara_torment_club.explicit_mod_lines_5,"On Hitting an enemy, gains maximum added Lightning damage equal to",击中敌人时，获得相当于敌人威力值的,击中敌人时，获得附加闪电伤害上限，数值等于,Olrovasara
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.olrovasara_torment_club.explicit_mod_lines_5,"On Hitting an enemy, gains maximum added Lightning damage equal to",,擊中敵人時，獲得附加閃電傷害上限，數值等於,Olrovasara
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.olrovasara_torment_club.explicit_mod_lines_6,"the enemy's Power for {value_1} seconds, up to a total of {value_2}",额外闪电伤害上限，最多 {value_2}，持续 {value_1} 秒,该敌人的威力，持续 {value_1} 秒，最多 {value_2},Olrovasara
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.olrovasara_torment_club.explicit_mod_lines_6,"the enemy's Power for {value_1} seconds, up to a total of {value_2}",,該敵人的威力，持續 {value_1} 秒，最多 {value_2},Olrovasara
+zh-CN,Game.csv,source,game.equipment_unique_modifier.wylund_s_stake_smithing_hammer.source_1,No longer obtainable,不再可获得,已无法获得,Wylund's Stake
+zh-TW,Game.csv,source,game.equipment_unique_modifier.wylund_s_stake_smithing_hammer.source_1,No longer obtainable,,已無法獲得,Wylund's Stake
+zh-CN,Game.csv,source,game.equipment_unique_modifier.beyond_reach_visceral_quiver.source_1,"Drops from unique{{Xesht, We That Are One}} in normal{{Twisted Domain}}",,由 normal{{扭曲之域}} 的 unique{{吾等合一·席斯特}} 掉落,Beyond Reach
+zh-TW,Game.csv,source,game.equipment_unique_modifier.beyond_reach_visceral_quiver.source_1,"Drops from unique{{Xesht, We That Are One}} in normal{{Twisted Domain}}",,由 normal{{扭曲之域}} 的 unique{{吾等合一·薛斯特}} 掉落,Beyond Reach
+zh-CN,Game.csv,source,game.equipment_unique_modifier.drillneck_penetrating_quiver.source_1,Drops from unique{{Atziri's Vault}} in normal{{Vaal Temple}},,由 normal{{瓦尔神殿}} 的 unique{{阿兹里宝库}} 掉落,Drillneck
+zh-TW,Game.csv,source,game.equipment_unique_modifier.drillneck_penetrating_quiver.source_1,Drops from unique{{Atziri's Vault}} in normal{{Vaal Temple}},,由 normal{{瓦爾神殿}} 的 unique{{阿茲裏寶庫}} 掉落,Drillneck
+zh-CN,Game.csv,source,game.equipment_unique_modifier.eshtera_s_path_ring.source_1,"Drops from unique{{Zarokh, the Temporal}}",,由 unique{{时光之主·扎洛卡}} 掉落,Eshtera's Path
+zh-TW,Game.csv,source,game.equipment_unique_modifier.eshtera_s_path_ring.source_1,"Drops from unique{{Zarokh, the Temporal}}",,由 unique{{時光之主·澤洛克}} 掉落,Eshtera's Path
+zh-CN,Game.csv,source,game.equipment_unique_modifier.safrin_s_resolve_ring.source_1,"Drops from unique{{Zarokh, the Temporal}}",,由 unique{{时光之主·扎洛卡}} 掉落,Safrin's Resolve
+zh-TW,Game.csv,source,game.equipment_unique_modifier.safrin_s_resolve_ring.source_1,"Drops from unique{{Zarokh, the Temporal}}",,由 unique{{時光之主·澤洛克}} 掉落,Safrin's Resolve
+zh-CN,Game.csv,source,game.equipment_unique_modifier.zaida_s_longevity_ring.source_1,"Drops from unique{{Zarokh, the Temporal}}",,由 unique{{时光之主·扎洛卡}} 掉落,Zaida's Longevity
+zh-TW,Game.csv,source,game.equipment_unique_modifier.zaida_s_longevity_ring.source_1,"Drops from unique{{Zarokh, the Temporal}}",,由 unique{{時光之主·澤洛克}} 掉落,Zaida's Longevity
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.guiding_palm_shrine_sceptre.variant_list_1,Fire (Pre {value_1}.{value_2} ),,火焰（{value_1}.{value_2} 之前）,Guiding Palm
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.guiding_palm_shrine_sceptre.variant_list_1,Fire (Pre {value_1}.{value_2} ),,火焰（{value_1}.{value_2} 之前）,Guiding Palm
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.guiding_palm_shrine_sceptre.variant_list_2,Cold (Pre {value_1}.{value_2} ),,冰霜（{value_1}.{value_2} 之前）,Guiding Palm
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.guiding_palm_shrine_sceptre.variant_list_2,Cold (Pre {value_1}.{value_2} ),,冰霜（{value_1}.{value_2} 之前）,Guiding Palm
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.guiding_palm_shrine_sceptre.variant_list_3,Lightning (Pre {value_1}.{value_2} ),,闪电（{value_1}.{value_2} 之前）,Guiding Palm
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.guiding_palm_shrine_sceptre.variant_list_3,Lightning (Pre {value_1}.{value_2} ),,閃電（{value_1}.{value_2} 之前）,Guiding Palm
+zh-CN,Game.csv,source,game.equipment_unique_modifier.sacred_flame_shrine_sceptre.source_1,Drops from unique{{Arbiter of Ash}} in normal{{The Burning Monolith}},,由 normal{{燃烧巨石碑}} 的 unique{{灰烬仲裁者}} 掉落,Sacred Flame
+zh-TW,Game.csv,source,game.equipment_unique_modifier.sacred_flame_shrine_sceptre.source_1,Drops from unique{{Arbiter of Ash}} in normal{{The Burning Monolith}},,由 normal{{燃燒巨石碑}} 的 unique{{灰燼仲裁者}} 掉落,Sacred Flame
+zh-CN,Game.csv,source,game.equipment_unique_modifier.svalinn_crucible_tower_shield.source_1,"Drops from unique{{Olroth, Origin of the Fall}}",,由 unique{{陨落之源·欧罗什}} 掉落,Svalinn
+zh-TW,Game.csv,source,game.equipment_unique_modifier.svalinn_crucible_tower_shield.source_1,"Drops from unique{{Olroth, Origin of the Fall}}",,由 unique{{隕落之源·奧爾羅斯}} 掉落,Svalinn
+zh-CN,Game.csv,source,game.equipment_unique_modifier.the_wailing_wall_effigial_tower_shield.source_1,No longer obtainable,不再可获得,已无法获得,The Wailing Wall
+zh-TW,Game.csv,source,game.equipment_unique_modifier.the_wailing_wall_effigial_tower_shield.source_1,No longer obtainable,,已無法獲得,The Wailing Wall
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.window_to_paradise_barricade_tower_shield.explicit_mod_lines_5,"for {value_1} seconds, every {value_2} seconds while raised",,持续 {value_1} 秒，举起时每 {value_2} 秒触发一次,Window to Paradise
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.window_to_paradise_barricade_tower_shield.explicit_mod_lines_5,"for {value_1} seconds, every {value_2} seconds while raised",持續{value_1}秒，舉起時每{value_2}秒觸發,持續 {value_1} 秒，舉起時每 {value_2} 秒觸發一次,Window to Paradise
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.bloodbarrier_iron_buckler.explicit_mod_lines_5,"Inflict Corrupted Blood for {value_1} seconds on Block, dealing {value_2}% of
+your maximum Life as Physical damage per second",,"格挡时施加持续 {value_1} 秒的腐化之血，
+每秒造成等于你生命上限 {value_2}% 的物理伤害",Bloodbarrier
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.bloodbarrier_iron_buckler.explicit_mod_lines_5,"Inflict Corrupted Blood for {value_1} seconds on Block, dealing {value_2}% of
+your maximum Life as Physical damage per second",,"格擋時施加持續 {value_1} 秒的腐化之血，
+每秒造成等於你生命上限 {value_2}% 的物理傷害",Bloodbarrier
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_1,"Max Res: {value_1} Fire, {value_2} Cold, {value_3} Lightning",,抗性上限：火焰 {value_1}，冰霜 {value_2}，闪电 {value_3},Sunsplinter
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_1,"Max Res: {value_1} Fire, {value_2} Cold, {value_3} Lightning",,抗性上限：火焰 {value_1}，冰霜 {value_2}，閃電 {value_3},Sunsplinter
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_10,"Level: {value_1} Cold, {value_2} Fire, {value_3} Lightning","等级: {value_1} Cold, {value_2} Fire, {value_3} Lightning",等级：冰霜 {value_1}，火焰 {value_2}，闪电 {value_3},Sunsplinter
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_10,"Level: {value_1} Cold, {value_2} Fire, {value_3} Lightning","等級: {value_1} Cold, {value_2} Fire, {value_3} Lightning",等級：冰霜 {value_1}，火焰 {value_2}，閃電 {value_3},Sunsplinter
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.eyes_of_the_runefather_venerable_defender.explicit_mod_lines_5,Gain {value_1} Runefather's Boast per Power of targets affected by Runefather's Challenge you kill,击败受符文先祖的挑战影响的目标时，目标每有一点威力值，获得 {value_1} 层符文先祖的加持,击杀受符文先祖的挑战影响的目标时，目标每有一点威力，获得 {value_1} 层符文先祖的加持,Eyes of the Runefather
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.eyes_of_the_runefather_venerable_defender.explicit_mod_lines_5,Gain {value_1} Runefather's Boast per Power of targets affected by Runefather's Challenge you kill,,擊殺受符文之父的挑戰影響的目標時，目標每有一點強度，獲得 {value_1} 層符文之父的自誇,Eyes of the Runefather
+zh-CN,Game.csv,source,game.equipment_unique_modifier.merit_of_service_pelage_targe.source_1,No longer obtainable,不再可获得,已无法获得,Merit of Service
+zh-TW,Game.csv,source,game.equipment_unique_modifier.merit_of_service_pelage_targe.source_1,No longer obtainable,,已無法獲得,Merit of Service
+zh-CN,Game.csv,source,game.equipment_unique_modifier.mahuxotl_s_machination_omen_crest_shield.source_1,Drops from unique{{Trialmaster}} in normal{{The Trial of Chaos}},,由 normal{{混沌试炼}} 的 unique{{试炼大师}} 掉落,Mahuxotl's Machination
+zh-TW,Game.csv,source,game.equipment_unique_modifier.mahuxotl_s_machination_omen_crest_shield.source_1,Drops from unique{{Trialmaster}} in normal{{The Trial of Chaos}},,由 normal{{混沌試煉}} 的 unique{{試煉大師}} 掉落,Mahuxotl's Machination
+zh-CN,Game.csv,source,game.equipment_unique_modifier.atziri_s_contempt_pronged_spear.source_1,Drops from unique{{Atziri's Vault}} in normal{{Vaal Temple}},,由 normal{{瓦尔神殿}} 的 unique{{阿兹里宝库}} 掉落,Atziri's Contempt
+zh-TW,Game.csv,source,game.equipment_unique_modifier.atziri_s_contempt_pronged_spear.source_1,Drops from unique{{Atziri's Vault}} in normal{{Vaal Temple}},,由 normal{{瓦爾神殿}} 的 unique{{阿茲裏寶庫}} 掉落,Atziri's Contempt
+zh-CN,Game.csv,source,game.equipment_unique_modifier.atziri_s_rule_reflecting_staff.source_1,Drops from unique{{Atziri's Vault}} in normal{{Vaal Temple}},,由 normal{{瓦尔神殿}} 的 unique{{阿兹里宝库}} 掉落,Atziri's Rule
+zh-TW,Game.csv,source,game.equipment_unique_modifier.atziri_s_rule_reflecting_staff.source_1,Drops from unique{{Atziri's Vault}} in normal{{Vaal Temple}},,由 normal{{瓦爾神殿}} 的 unique{{阿茲裏寶庫}} 掉落,Atziri's Rule
+zh-CN,Game.csv,source,game.equipment_unique_modifier.the_burden_of_shadows_chiming_staff.source_1,Drops from unique{{The King in the Mists}} in normal{{Crux of Nothingness}},,由 normal{{虚无之境}} 的 unique{{迷雾之王}} 掉落,The Burden of Shadows
+zh-TW,Game.csv,source,game.equipment_unique_modifier.the_burden_of_shadows_chiming_staff.source_1,Drops from unique{{The King in the Mists}} in normal{{Crux of Nothingness}},,由 normal{{虛無之境}} 的 unique{{迷霧之王}} 掉落,The Burden of Shadows
+zh-CN,Game.csv,source,game.equipment_unique_modifier.collapsing_horizon_wyrm_quarterstaff.source_1,"Drops from unique{{Kosis, The Revelation}}",,由 unique{{启示者科西斯}} 掉落,Collapsing Horizon
+zh-TW,Game.csv,source,game.equipment_unique_modifier.collapsing_horizon_wyrm_quarterstaff.source_1,"Drops from unique{{Kosis, The Revelation}}",,由 unique{{啓示者科西斯}} 掉落,Collapsing Horizon
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.the_unborn_lich_ravenous_staff.variant_list_7,Elemental Damage and Ailment Duration,,元素伤害与异常状态持续时间,The Unborn Lich
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.the_unborn_lich_ravenous_staff.variant_list_7,Elemental Damage and Ailment Duration,,元素傷害與異常狀態持續時間,The Unborn Lich
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.the_unborn_lich_ravenous_staff.variant_list_8,Spirit and Spirit Reservation Efficiency,,精魂与精魂保留效能,The Unborn Lich
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.the_unborn_lich_ravenous_staff.variant_list_8,Spirit and Spirit Reservation Efficiency,,精魂與精魂保留效能,The Unborn Lich
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.the_unborn_lich_ravenous_staff.variant_list_9,Chaos Damage and Curse,,混沌伤害与诅咒,The Unborn Lich
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.the_unborn_lich_ravenous_staff.variant_list_9,Chaos Damage and Curse,,混沌傷害與詛咒,The Unborn Lich
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.the_unborn_lich_ravenous_staff.variant_list_10,Spell Physical Damage and Bleed Chance,,法术物理伤害与流血几率,The Unborn Lich
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.the_unborn_lich_ravenous_staff.variant_list_10,Spell Physical Damage and Bleed Chance,,法術物理傷害與流血幾率,The Unborn Lich
+zh-CN,Game.csv,variantList,game.equipment_unique_modifier.the_unborn_lich_ravenous_staff.variant_list_11,Chaos Damage and Explode,,混沌伤害与爆炸,The Unborn Lich
+zh-TW,Game.csv,variantList,game.equipment_unique_modifier.the_unborn_lich_ravenous_staff.variant_list_11,Chaos Damage and Explode,,混沌傷害與爆炸,The Unborn Lich
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.the_flesh_poppet_vicious_talisman.explicit_mod_lines_5,Copy a random Modifier from each enemy in your Presence when,当你变形成动物形态时，从在场的每,从你存在范围内的每个敌人身上随机复制一个词缀，触发条件为：,The Flesh Poppet
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.the_flesh_poppet_vicious_talisman.explicit_mod_lines_5,Copy a random Modifier from each enemy in your Presence when,,從你存在範圍內的每個敵人身上隨機複製一個詞綴，觸發條件爲：,The Flesh Poppet
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.the_flesh_poppet_vicious_talisman.explicit_mod_lines_6,you Shapeshift to an Animal form,敌人处随机复制一个词缀,你变形成动物形态时,The Flesh Poppet
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.the_flesh_poppet_vicious_talisman.explicit_mod_lines_6,you Shapeshift to an Animal form,,你變形成動物形態時,The Flesh Poppet
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.the_flesh_poppet_vicious_talisman.explicit_mod_lines_7,Modifiers gained this way are lost after {value_1} seconds or when you next Shapeshift,该类词缀在 {value_1} 秒后或在你再次变形时消失,以此方式获得的词缀在 {value_1} 秒后或你下次变形时失去,The Flesh Poppet
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.the_flesh_poppet_vicious_talisman.explicit_mod_lines_7,Modifiers gained this way are lost after {value_1} seconds or when you next Shapeshift,,以此方式獲得的詞綴在 {value_1} 秒後或你下次變形時失去,The Flesh Poppet
+zh-CN,Game.csv,explicitModLines,game.equipment_unique_modifier.window_to_paradise_barricade_tower_shield.explicit_mod_lines_4,Inflict Elemental Exposure to Enemies {value_1} metres in front of you,举起时，每 0.25 秒对你前方 {value_1} 米内的敌人施加,对你前方 {value_1} 米内的敌人施加元素曝露,Window to Paradise
+zh-TW,Game.csv,explicitModLines,game.equipment_unique_modifier.window_to_paradise_barricade_tower_shield.explicit_mod_lines_4,Inflict Elemental Exposure to Enemies {value_1} metres in front of you,對你前方{value_1}公尺內敵人施加元素曝曬，,對你前方 {value_1} 米內的敵人施加元素曝露,Window to Paradise
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_6, enemy affected by Abyssal Wasting,,受到深渊损耗影响的敌人,Grip of Kulemak:Abyssal Signet
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.grip_of_kulemak_abyssal_signet.explicit_mod_lines_6, enemy affected by Abyssal Wasting,,受到深淵損耗影響的敵人,Grip of Kulemak:Abyssal Signet
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_13,Blackheart {value_1},,幽暗之语 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_13,Blackheart {value_1},,幽暗之語 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_14,Blackheart {value_1} Big Range,,幽暗之语 {value_1}（大数值范围）,Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_14,Blackheart {value_1} Big Range,,幽暗之語 {value_1}（大數值範圍）,Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_16,Blistering Bond {value_1},,沸腾桎梏 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_17,Blistering Bond {value_1},,沸腾桎梏 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_16,Blistering Bond {value_1},,極熱護環 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_17,Blistering Bond {value_1},,極熱護環 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_33,Heartbound {value_1},,结魂之环 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_33,Heartbound {value_1},,結魂之環 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_34,Heartbound {value_1} Big Range,,结魂之环 {value_1}（大数值范围）,Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_34,Heartbound {value_1} Big Range,,結魂之環 {value_1}（大數值範圍）,Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_36,Icefang {value_1},,冰牙指环 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_36,Icefang {value_1},,冰風軌跡 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_38,Kulemak {value_1},,库勒马克之握 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_40,Kulemak {value_1},,库勒马克之握 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_42,Kulemak {value_1},,库勒马克之握 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_44,Kulemak {value_1},,库勒马克之握 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_46,Kulemak {value_1},,库勒马克之握 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_48,Kulemak {value_1},,库勒马克之握 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_50,Kulemak {value_1},,库勒马克之握 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_51,Kulemak {value_1},,库勒马克之握 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_53,Kulemak {value_1},,库勒马克之握 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_55,Kulemak {value_1},,库勒马克之握 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_57,Kulemak {value_1},,库勒马克之握 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_58,Kulemak {value_1},,库勒马克之握 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_60,Kulemak {value_1},,库勒马克之握 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_62,Kulemak {value_1},,库勒马克之握 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_38,Kulemak {value_1},,骷髏馬克的掌握 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_40,Kulemak {value_1},,骷髏馬克的掌握 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_42,Kulemak {value_1},,骷髏馬克的掌握 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_44,Kulemak {value_1},,骷髏馬克的掌握 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_46,Kulemak {value_1},,骷髏馬克的掌握 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_48,Kulemak {value_1},,骷髏馬克的掌握 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_50,Kulemak {value_1},,骷髏馬克的掌握 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_51,Kulemak {value_1},,骷髏馬克的掌握 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_53,Kulemak {value_1},,骷髏馬克的掌握 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_55,Kulemak {value_1},,骷髏馬克的掌握 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_57,Kulemak {value_1},,骷髏馬克的掌握 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_58,Kulemak {value_1},,骷髏馬克的掌握 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_60,Kulemak {value_1},,骷髏馬克的掌握 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_62,Kulemak {value_1},,骷髏馬克的掌握 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_41,Kulemak {value_1} Big Range,,库勒马克之握 {value_1}（大数值范围）,Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_43,Kulemak {value_1} Big Range,,库勒马克之握 {value_1}（大数值范围）,Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_45,Kulemak {value_1} Big Range,,库勒马克之握 {value_1}（大数值范围）,Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_47,Kulemak {value_1} Big Range,,库勒马克之握 {value_1}（大数值范围）,Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_49,Kulemak {value_1} Big Range,,库勒马克之握 {value_1}（大数值范围）,Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_52,Kulemak {value_1} Big Range,,库勒马克之握 {value_1}（大数值范围）,Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_54,Kulemak {value_1} Big Range,,库勒马克之握 {value_1}（大数值范围）,Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_56,Kulemak {value_1} Big Range,,库勒马克之握 {value_1}（大数值范围）,Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_59,Kulemak {value_1} Big Range,,库勒马克之握 {value_1}（大数值范围）,Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_61,Kulemak {value_1} Big Range,,库勒马克之握 {value_1}（大数值范围）,Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_63,Kulemak {value_1} Big Range,,库勒马克之握 {value_1}（大数值范围）,Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_41,Kulemak {value_1} Big Range,,骷髏馬克的掌握 {value_1}（大數值範圍）,Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_43,Kulemak {value_1} Big Range,,骷髏馬克的掌握 {value_1}（大數值範圍）,Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_45,Kulemak {value_1} Big Range,,骷髏馬克的掌握 {value_1}（大數值範圍）,Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_47,Kulemak {value_1} Big Range,,骷髏馬克的掌握 {value_1}（大數值範圍）,Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_49,Kulemak {value_1} Big Range,,骷髏馬克的掌握 {value_1}（大數值範圍）,Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_52,Kulemak {value_1} Big Range,,骷髏馬克的掌握 {value_1}（大數值範圍）,Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_54,Kulemak {value_1} Big Range,,骷髏馬克的掌握 {value_1}（大數值範圍）,Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_56,Kulemak {value_1} Big Range,,骷髏馬克的掌握 {value_1}（大數值範圍）,Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_59,Kulemak {value_1} Big Range,,骷髏馬克的掌握 {value_1}（大數值範圍）,Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_61,Kulemak {value_1} Big Range,,骷髏馬克的掌握 {value_1}（大數值範圍）,Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_63,Kulemak {value_1} Big Range,,骷髏馬克的掌握 {value_1}（大數值範圍）,Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_85,Snakepit {value_1},,蛇穴 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_86,Snakepit {value_1},,蛇穴 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_85,Snakepit {value_1},,蛇巢 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_86,Snakepit {value_1},,蛇巢 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_91,Veilpiercer {value_1},,破幕者 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_92,Veilpiercer {value_1},,破幕者 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_91,Veilpiercer {value_1},,破帷者 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_92,Veilpiercer {value_1},,破帷者 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_94,Venopuncture {value_1},,静脉穿刺 {value_1},Loreweave:Ornate Ringmail
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.loreweave_ornate_ringmail.variant_list_94,Venopuncture {value_1},,脈絡針刺 {value_1},Loreweave:Ornate Ringmail
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.mageblood_utility_belt.variant_list_1,Legacy of Amethyst,Amethyst 继承,紫晶遗产,Mageblood:Utility Belt
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.mageblood_utility_belt.variant_list_1,Legacy of Amethyst,Amethyst之遺,紫晶遺產,Mageblood:Utility Belt
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.mageblood_utility_belt.variant_list_3,Legacy of Bismuth,Bismuth 继承,灰岩遗产,Mageblood:Utility Belt
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.mageblood_utility_belt.variant_list_3,Legacy of Bismuth,Bismuth之遺,灰巖遺產,Mageblood:Utility Belt
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.mageblood_utility_belt.variant_list_5,Legacy of Gold,Gold 继承,黄金遗产,Mageblood:Utility Belt
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.mageblood_utility_belt.variant_list_5,Legacy of Gold,Gold之遺,黃金遺產,Mageblood:Utility Belt
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.mageblood_utility_belt.variant_list_6,Legacy of Granite,Granite 继承,坚岩遗产,Mageblood:Utility Belt
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.mageblood_utility_belt.variant_list_6,Legacy of Granite,Granite之遺,堅巖遺產,Mageblood:Utility Belt
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.mageblood_utility_belt.variant_list_7,Legacy of Jade,Jade 继承,翠玉遗产,Mageblood:Utility Belt
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.mageblood_utility_belt.variant_list_7,Legacy of Jade,Jade之遺,翠玉遺產,Mageblood:Utility Belt
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.mageblood_utility_belt.variant_list_8,Legacy of Quicksilver,Quicksilver 继承,水银遗产,Mageblood:Utility Belt
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.mageblood_utility_belt.variant_list_8,Legacy of Quicksilver,Quicksilver之遺,水銀遺產,Mageblood:Utility Belt
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.mageblood_utility_belt.variant_list_12,Legacy of Stibnite,Stibnite 继承,迷雾遗产,Mageblood:Utility Belt
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.mageblood_utility_belt.variant_list_12,Legacy of Stibnite,Stibnite之遺,迷霧遺產,Mageblood:Utility Belt
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.mageblood_utility_belt.variant_list_13,Legacy of Sulphur,Sulphur 继承,硫磺遗产,Mageblood:Utility Belt
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.mageblood_utility_belt.variant_list_13,Legacy of Sulphur,Sulphur之遺,硫磺遺產,Mageblood:Utility Belt
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.mageblood_utility_belt.variant_list_14,Legacy of Topaz,Topaz 继承,黄玉遗产,Mageblood:Utility Belt
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.mageblood_utility_belt.variant_list_14,Legacy of Topaz,Topaz之遺,黃玉遺產,Mageblood:Utility Belt
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_15,All Resistances (Pre {value_1}.{value_2}),,所有抗性（{value_1}.{value_2} 之前）,Morior Invictus:Grand Regalia
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_15,All Resistances (Pre {value_1}.{value_2}),,所有抗性（{value_1}.{value_2} 之前）,Morior Invictus:Grand Regalia
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_18,Attributes (Pre {value_1}.{value_2}),,属性（{value_1}.{value_2} 之前）,Morior Invictus:Grand Regalia
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_18,Attributes (Pre {value_1}.{value_2}),,屬性（{value_1}.{value_2} 之前）,Morior Invictus:Grand Regalia
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_11,Global Defences (Pre {value_1}.{value_2}),,全局防御（{value_1}.{value_2} 之前）,Morior Invictus:Grand Regalia
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_11,Global Defences (Pre {value_1}.{value_2}),,全局防禦（{value_1}.{value_2} 之前）,Morior Invictus:Grand Regalia
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_5,Life (Pre {value_1}.{value_2}),,生命（{value_1}.{value_2} 之前）,Morior Invictus:Grand Regalia
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_5,Life (Pre {value_1}.{value_2}),,生命（{value_1}.{value_2} 之前）,Morior Invictus:Grand Regalia
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_8,Mana (Pre {value_1}.{value_2}),,魔力（{value_1}.{value_2} 之前）,Morior Invictus:Grand Regalia
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_8,Mana (Pre {value_1}.{value_2}),,魔力（{value_1}.{value_2} 之前）,Morior Invictus:Grand Regalia
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_2,Spirit (Pre {value_1}.{value_2}),,精魂（{value_1}.{value_2} 之前）,Morior Invictus:Grand Regalia
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.morior_invictus_grand_regalia.variant_list_2,Spirit (Pre {value_1}.{value_2}),,精魂（{value_1}.{value_2} 之前）,Morior Invictus:Grand Regalia
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_11,"Level: {value_1} Cold, {value_2} Fire, {value_3} Lightning","等级: {value_1} Cold, {value_2} Fire, {value_3} Lightning",等级：冰霜 {value_1}，火焰 {value_2}，闪电 {value_3},Sunsplinter:Array Buckler
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_12,"Level: {value_1} Cold, {value_2} Fire, {value_3} Lightning","等级: {value_1} Cold, {value_2} Fire, {value_3} Lightning",等级：冰霜 {value_1}，火焰 {value_2}，闪电 {value_3},Sunsplinter:Array Buckler
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_7,"Level: {value_1} Cold, {value_2} Fire, {value_3} Lightning","等级: {value_1} Cold, {value_2} Fire, {value_3} Lightning",等级：冰霜 {value_1}，火焰 {value_2}，闪电 {value_3},Sunsplinter:Array Buckler
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_8,"Level: {value_1} Cold, {value_2} Fire, {value_3} Lightning","等级: {value_1} Cold, {value_2} Fire, {value_3} Lightning",等级：冰霜 {value_1}，火焰 {value_2}，闪电 {value_3},Sunsplinter:Array Buckler
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_9,"Level: {value_1} Cold, {value_2} Fire, {value_3} Lightning","等级: {value_1} Cold, {value_2} Fire, {value_3} Lightning",等级：冰霜 {value_1}，火焰 {value_2}，闪电 {value_3},Sunsplinter:Array Buckler
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_11,"Level: {value_1} Cold, {value_2} Fire, {value_3} Lightning","等級: {value_1} Cold, {value_2} Fire, {value_3} Lightning",等級：冰霜 {value_1}，火焰 {value_2}，閃電 {value_3},Sunsplinter:Array Buckler
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_12,"Level: {value_1} Cold, {value_2} Fire, {value_3} Lightning","等級: {value_1} Cold, {value_2} Fire, {value_3} Lightning",等級：冰霜 {value_1}，火焰 {value_2}，閃電 {value_3},Sunsplinter:Array Buckler
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_7,"Level: {value_1} Cold, {value_2} Fire, {value_3} Lightning","等級: {value_1} Cold, {value_2} Fire, {value_3} Lightning",等級：冰霜 {value_1}，火焰 {value_2}，閃電 {value_3},Sunsplinter:Array Buckler
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_8,"Level: {value_1} Cold, {value_2} Fire, {value_3} Lightning","等級: {value_1} Cold, {value_2} Fire, {value_3} Lightning",等級：冰霜 {value_1}，火焰 {value_2}，閃電 {value_3},Sunsplinter:Array Buckler
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_9,"Level: {value_1} Cold, {value_2} Fire, {value_3} Lightning","等級: {value_1} Cold, {value_2} Fire, {value_3} Lightning",等級：冰霜 {value_1}，火焰 {value_2}，閃電 {value_3},Sunsplinter:Array Buckler
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_2,"Max Res: {value_1} Fire, {value_2} Cold, {value_3} Lightning",,抗性上限：火焰 {value_1}，冰霜 {value_2}，闪电 {value_3},Sunsplinter:Array Buckler
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_3,"Max Res: {value_1} Fire, {value_2} Cold, {value_3} Lightning",,抗性上限：火焰 {value_1}，冰霜 {value_2}，闪电 {value_3},Sunsplinter:Array Buckler
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_4,"Max Res: {value_1} Fire, {value_2} Cold, {value_3} Lightning",,抗性上限：火焰 {value_1}，冰霜 {value_2}，闪电 {value_3},Sunsplinter:Array Buckler
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_5,"Max Res: {value_1} Fire, {value_2} Cold, {value_3} Lightning",,抗性上限：火焰 {value_1}，冰霜 {value_2}，闪电 {value_3},Sunsplinter:Array Buckler
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_6,"Max Res: {value_1} Fire, {value_2} Cold, {value_3} Lightning",,抗性上限：火焰 {value_1}，冰霜 {value_2}，闪电 {value_3},Sunsplinter:Array Buckler
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_2,"Max Res: {value_1} Fire, {value_2} Cold, {value_3} Lightning",,抗性上限：火焰 {value_1}，冰霜 {value_2}，閃電 {value_3},Sunsplinter:Array Buckler
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_3,"Max Res: {value_1} Fire, {value_2} Cold, {value_3} Lightning",,抗性上限：火焰 {value_1}，冰霜 {value_2}，閃電 {value_3},Sunsplinter:Array Buckler
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_4,"Max Res: {value_1} Fire, {value_2} Cold, {value_3} Lightning",,抗性上限：火焰 {value_1}，冰霜 {value_2}，閃電 {value_3},Sunsplinter:Array Buckler
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_5,"Max Res: {value_1} Fire, {value_2} Cold, {value_3} Lightning",,抗性上限：火焰 {value_1}，冰霜 {value_2}，閃電 {value_3},Sunsplinter:Array Buckler
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.sunsplinter_array_buckler.variant_list_6,"Max Res: {value_1} Fire, {value_2} Cold, {value_3} Lightning",,抗性上限：火焰 {value_1}，冰霜 {value_2}，閃電 {value_3},Sunsplinter:Array Buckler
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.voices_sapphire.variant_list_2,{value_1} Sinister Sockets,,{value_1} 个阴险插槽,Voices:Sapphire
+zh-CN,Game.csv,same-context-template,game.equipment_unique_modifier.voices_sapphire.variant_list_3,{value_1} Sinister Sockets,,{value_1} 个阴险插槽,Voices:Sapphire
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.voices_sapphire.variant_list_2,{value_1} Sinister Sockets,,{value_1} 個陰險插槽,Voices:Sapphire
+zh-TW,Game.csv,same-context-template,game.equipment_unique_modifier.voices_sapphire.variant_list_3,{value_1} Sinister Sockets,,{value_1} 個陰險插槽,Voices:Sapphire
+en,Messages.csv,league,term.item_league.dawn_of_the_hunt,Dawn of the Hunt,,Dawn of the Hunt,
+en,Messages.csv,league,term.item_league.runes_of_aldur,Runes of Aldur,,Runes of Aldur,
+en,Messages.csv,league,term.item_league.rise_of_the_abyssal,Rise of the Abyssal,,Rise of the Abyssal,
+en,Messages.csv,league,term.item_league.fate_of_the_vaal,Fate of the Vaal,,Fate of the Vaal,
+zh-CN,Messages.csv,league,term.item_league.dawn_of_the_hunt,Dawn of the Hunt,,狩猎黎明,
+zh-CN,Messages.csv,league,term.item_league.runes_of_aldur,Runes of Aldur,,阿尔杜尔的符文,
+zh-CN,Messages.csv,league,term.item_league.rise_of_the_abyssal,Rise of the Abyssal,,深渊崛起,
+zh-CN,Messages.csv,league,term.item_league.fate_of_the_vaal,Fate of the Vaal,,瓦尔宿命,
+zh-TW,Messages.csv,league,term.item_league.dawn_of_the_hunt,Dawn of the Hunt,,狩獵黎明,
+zh-TW,Messages.csv,league,term.item_league.runes_of_aldur,Runes of Aldur,,阿爾杜爾的符文,
+zh-TW,Messages.csv,league,term.item_league.rise_of_the_abyssal,Rise of the Abyssal,,深淵崛起,
+zh-TW,Messages.csv,league,term.item_league.fate_of_the_vaal,Fate of the Vaal,,瓦爾宿命,

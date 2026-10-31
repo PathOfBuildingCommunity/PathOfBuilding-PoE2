@@ -13,7 +13,6 @@ local m_floor = math.floor
 
 local gemTooltip = LoadModule("Classes/GemTooltip")
 
-local toolTipText = "Prefix tag searches with a colon and exclude tags with a dash. e.g. :fire:lightning:-cold:area"
 
 ---@class GemSelectControl: EditControl
 local GemSelectClass = newClass("GemSelectControl", "EditControl")
@@ -563,7 +562,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 					SetDrawColor(colorCodes.INTELLIGENCE)
 				end
 			end
-			local gemText = gemData and localisation:Field(gemData, "name") or "<No matches>"
+			local gemText = gemData and localisation:Field(gemData, "name") or localisation:Text("skill.search.no_matches")
 			DrawString(0, y, "LEFT", height - 4, "VAR", gemText)
 			if gemData then
 				if gemData.grantedEffect.support and self.sortCache.canSupport[gemId] and self.sortCache.dpsColor[gemId] ~= "" then
@@ -639,7 +638,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			if gemInstance and gemInstance.gemData then
 				self:AddGemTooltip(gemInstance, true)
 			else
-				self.tooltip:AddLine(16, toolTipText)
+				self.tooltip:AddLine(16, localisation:Text("skill.search.tag_help"))
 			end
 
 			colorS = 0.5

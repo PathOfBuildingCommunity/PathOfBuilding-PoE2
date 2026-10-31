@@ -8,8 +8,16 @@ local m_min = math.min
 local m_max = math.max
 local m_floor = math.floor
 
-local function drawStrikethrough(label, y, lineHeight)
-	local strWidth = DrawStringWidth(lineHeight, "VAR", label or "")
+-- 固定语言本名按各自语言的字体绘制和测量，普通选项沿用界面语言。
+local function labelCall(item, callback, ...)
+	if type(item) == "table" and item.labelLanguage then
+		return localisation:WithRawLanguage(item.labelLanguage, callback, ...)
+	end
+	return callback(...)
+end
+
+local function drawStrikethrough(label, y, lineHeight, item)
+	local strWidth = labelCall(item, DrawStringWidth, lineHeight, "VAR", label or "")
 	SetDrawColor(0.6, 0.6, 0.6)
 	DrawImage(nil, 0, y + lineHeight / 2, strWidth, 1)
 end
@@ -116,7 +124,7 @@ function DropDownClass:GetDropCount()
 	end
 end
 
-function DropDownClass:DrawSearchHighlights(label, searchInfo, x, y, width, height)
+function DropDownClass:DrawSearchHighlights(label, searchInfo, x, y, width, height, item)
 	if searchInfo and searchInfo.matches then
 		local startX = 0
 		local endX = 0
@@ -125,11 +133,11 @@ function DropDownClass:DrawSearchHighlights(label, searchInfo, x, y, width, heig
 		local strippedLabel = StripEscapes(label)
 		for _, range in ipairs(searchInfo.ranges) do
 			if range.from - last - 1 > 0 then
-				startX = DrawStringWidth(height, "VAR", strippedLabel:sub(last + 1, range.from - 1)) + x + endX
+				startX = labelCall(item, DrawStringWidth, height, "VAR", strippedLabel:sub(last + 1, range.from - 1)) + x + endX
 			else
 				startX = endX
 			end
-			endX = DrawStringWidth(height, "VAR", strippedLabel:sub(range.from, range.to)) + x + startX
+			endX = labelCall(item, DrawStringWidth, height, "VAR", strippedLabel:sub(range.from, range.to)) + x + startX
 			last = range.to
 
 			DrawImage(nil, startX, y, endX - startX, height)
@@ -321,7 +329,9 @@ function DropDownClass:Draw(viewPort, noTooltip)
 	local selLabel = nil
 	local selDetail = nil
 	local selStrikethrough = false
+	local labelItem = self.list[self.selIndex]
 	if self:IsSearchActive() then
+		labelItem = self.list[self:DropIndexToListIndex(1)]
 		selLabel = localisation:Text('ui.drop_down_control.draw.sel_label.message', { term = self:GetSearchTermPretty() })
 	else
 		local selItem = self.list[self.selIndex]
@@ -334,9 +344,9 @@ function DropDownClass:Draw(viewPort, noTooltip)
 		end
 	end
 	SetViewport(x + 2, y + 2, width - height, lineHeight)
-	DrawString(0, 0, "LEFT", lineHeight, "VAR", selLabel or "")
+	labelCall(labelItem, DrawString, 0, 0, "LEFT", lineHeight, "VAR", selLabel or "")
 	if selStrikethrough then
-		drawStrikethrough(selLabel, 0, lineHeight)
+		drawStrikethrough(selLabel, 0, lineHeight, labelItem)
 		local textColor = enabled and 1 or 0.66
 		SetDrawColor(textColor, textColor, textColor)
 	end
@@ -398,9 +408,9 @@ function DropDownClass:Draw(viewPort, noTooltip)
 				else 
 					label = localisation:ListLabel(self.list, index)
 				end
-				DrawString(0, y, "LEFT", lineHeight, "VAR", label)
+				labelCall(listVal, DrawString, 0, y, "LEFT", lineHeight, "VAR", label)
 				if type(listVal) == "table" and listVal.strikethrough then
-					drawStrikethrough(label, y, lineHeight)
+					drawStrikethrough(label, y, lineHeight, listVal)
 					if index == self.hoverSel or index == self.selIndex then
 						SetDrawColor(1, 1, 1)
 					else
@@ -412,7 +422,7 @@ function DropDownClass:Draw(viewPort, noTooltip)
 					dx = DrawStringWidth(lineHeight, "VAR", detail)
 					DrawString(width - dx - 4 - 22, y, "LEFT", lineHeight, "VAR", detail)
 				end
-				self:DrawSearchHighlights(label, searchInfo, 0, y, width - 4, lineHeight)
+				self:DrawSearchHighlights(label, searchInfo, 0, y, width - 4, lineHeight, listVal)
 			end
 		end
 		SetDrawColor(1, 1, 1)
@@ -558,7 +568,7 @@ function DropDownClass:CheckDroppedWidth(enable)
 				line = localisation:ListLabel(self.list, index)
 			end
 			  -- +10 to stop clipping
-			dWidth = m_max(dWidth, DrawStringWidth(lineHeight, "VAR", line or "") + detailWidth + 10)
+			dWidth = m_max(dWidth, labelCall(self.list[index], DrawStringWidth, lineHeight, "VAR", line or "") + detailWidth + 10)
 		end
 		  -- no greater than self.maxDroppedWidth
 		self.droppedWidth = m_min(dWidth + scrollWidth, self.maxDroppedWidth)
@@ -571,7 +581,7 @@ function DropDownClass:CheckDroppedWidth(enable)
 			end
 			-- add 20 to account for the 'down arrow' in the box
 			local boxWidth
-			boxWidth = DrawStringWidth(lineHeight, "VAR", line or "") + 20
+			boxWidth = labelCall(self.list[self.selIndex], DrawStringWidth, lineHeight, "VAR", line or "") + 20
 			self.width = m_max(m_min(boxWidth, 390), 190)
 		end
 		

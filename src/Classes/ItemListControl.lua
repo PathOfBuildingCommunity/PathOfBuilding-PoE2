@@ -18,6 +18,7 @@ function ItemListClass:ItemListControl(anchor, rect, itemsTab, forceTooltip)
 	self:ListControl(anchor, rect, 16, "VERTICAL", true, itemsTab.itemOrderList, forceTooltip)
 	self.itemsTab = itemsTab
 	self.defaultText = "^x7F7F7FThis is the list of items that have been added to this build.\nYou can add items to this list by dragging them from\none of the other lists, or by clicking 'Add to build' when\nviewing an item."
+	self.defaultTextKey = 'ui.item_list_control.empty_list'
 	self.dragTargetList = { }
 	self.controls.loadoutFilter = new("DropDownControl"):DropDownControl({ "BOTTOMLEFT", self, "TOPLEFT" }, { 0, -2, 110, 18 }, nil, function()
 		self:UpdateList()
@@ -334,11 +335,17 @@ function ItemListClass:OnSelCopy(index, itemId)
 	Copy(item:BuildRaw():gsub("\n", "\r\n"))
 end
 
+-- 装备组名称保留用户原文，连接短语与默认组名使用当前语言。
+local function equippedSetSuffix(equipSet)
+	if not equipSet then return "" end
+	return localisation:Text("ui.item_list_control.in_set", { title = equipSet.title or localisation:Ref("ui.item_set_list_control.on_sel_delete.message_2") })
+end
+
 function ItemListClass:OnSelDelete(index, itemId)
 	local item = self.itemsTab.items[itemId]
 	local equipSlot, equipSet = self.itemsTab:GetEquippedSlotForItem(item)
 	if equipSlot then
-		local inSet = equipSet and (" in set '"..(equipSet.title or "Default").."'") or ""
+		local inSet = equippedSetSuffix(equipSet)
 		main:OpenConfirmPopup(localisation:Text("ui.item_list_control.on_sel_delete.message"), localisation:Text("ui.item_list_control.on_sel_delete.message_3", { name = localisation:ItemName(item), label = localisation:Field(equipSlot, 'label'), in_set = inSet }), localisation:Text("ui.item_list_control.init.delete_all.label_3"), function()
 			self.itemsTab:DeleteItem(item)
 			self.selIndex = nil
@@ -348,7 +355,7 @@ function ItemListClass:OnSelDelete(index, itemId)
 	else
 		local equipSet = self:FindEquippedItemSocket(itemId, true)
 		if equipSet then
-			local inSet = equipSet and (" in set '"..(equipSet.title or "Default").."'") or ""
+			local inSet = equippedSetSuffix(equipSet)
 			main:OpenConfirmPopup(localisation:Text("ui.item_list_control.on_sel_delete.message"), localisation:Text("ui.item_list_control.on_sel_delete.message_2", { name = localisation:ItemName(item), in_set = inSet }), localisation:Text("ui.item_list_control.init.delete_all.label_3"), function()
 				self.itemsTab:DeleteItem(item)
 				self.selIndex = nil

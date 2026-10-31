@@ -10,12 +10,70 @@ return function(build, equal)
 	local selector = skillsTab.gemSlots[1].nameSpec
 	local viewport = { x = 0, y = 0, width = 1920, height = 1080 }
 	local tooltipModule = LoadModule('Classes/GemTooltip')
-	local originalTranslate = localisation.Translate
 	-- 禁用旧反查，确保技能显示来自显式资源引用。
-	localisation.Translate = function(self, text) return text end
 	for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW', 'en' }) do
 		localisation:SetLanguage(language)
 		local expectedName = localisation:Field(instance.gemData, 'name')
+		-- 截图中的组标签、武器组和操作提示必须在同一控件上随语言切换。
+		local expectedPrompt = language == 'zh-CN' and '标签' or language == 'zh-TW' and '標簽' or 'Label'
+		equal(skillsTab.controls.groupLabel:GetProperty('prompt'), expectedPrompt, language .. ' 组标签提示按稳定资源显示')
+		local expectedTip = language == 'zh-CN' and '^7使用技巧:\n- 按 Ctrl+C 复制插槽组，按 Ctrl+V 粘贴。\n- 按住 Ctrl 并单击，启用或禁用插槽组。\n- 按住 Ctrl 并右键单击，将插槽组计入或移出完整 DPS 计算。\n- 右键单击，设为主技能组。\n'
+			or localisation:Text('ui.skills_tab.init.group_tip.label')
+		equal(skillsTab.controls.groupTip:GetProperty('label'), expectedTip, language .. ' 插槽组操作提示完整翻译')
+		local promptDraw, prompts = DrawString, { }
+		DrawString = function(x, y, align, size, font, text) prompts[StripEscapes(text)] = true end
+		local promptOk, promptError = pcall(skillsTab.controls.groupLabel.Draw, skillsTab.controls.groupLabel, viewport, true)
+		if promptOk then skillsTab.controls.groupTip:Draw() end
+		DrawString = promptDraw
+		assert(promptOk, promptError)
+		equal(prompts[expectedPrompt .. ':'], true, language .. ' 真实标签编辑框绘制当前译文')
+		equal(prompts[StripEscapes(expectedTip)], true, language .. ' 底部提示绘制完整多行文字')
+		for set, control in ipairs({ skillsTab.controls.set1Enabled, skillsTab.controls.set2Enabled }) do
+			local label = language == 'zh-CN' and '武器组 ' .. set .. '：' or language == 'zh-TW' and '武器組 ' .. set .. '：' or 'Set ' .. set .. ':'
+			equal(control:GetProperty('label'), label, language .. ' 武器组动态标签使用当前译文')
+			local labelX = control:GetPos() - 5 - DrawStringWidth(16, 'VAR', label)
+			local previous = set == 1 and skillsTab.anchorGroupDetail or skillsTab.controls.set1Enabled
+			equal(labelX >= previous:GetPos() + (set == 1 and 0 or previous:GetSize()), true, language .. ' 武器组 ' .. set .. ' 标签不覆盖左侧列表或复选框：' .. labelX .. ' / ' .. previous:GetPos())
+			local checkboxDraw, labels = DrawString, { }
+			DrawString = function(x, y, align, size, font, text) labels[text] = true end
+			local checkboxOk, checkboxError = pcall(control.Draw, control, viewport, true)
+			DrawString = checkboxDraw
+			assert(checkboxOk, checkboxError)
+			equal(labels[label], true, language .. ' 武器组复选框实际绘制中文标签')
+			-- 用真实锁定状态触发无效颜色，避免翻译时丢失可用性反馈。
+			local source, slot, set1, set2 = group.source, group.slot, group.set1, group.set2
+			group.source, group.slot, group.set1, group.set2 = 'Default Attack', 'Weapon 1', set ~= 1, set ~= 2
+			equal(control:GetProperty('label'), colorCodes.NEGATIVE .. label, language .. ' 锁定武器组保留无效颜色')
+			equal(control:IsEnabled(), false, language .. ' 锁定武器组仍禁止编辑')
+			group.source, group.slot, group.set1, group.set2 = source, slot, set1, set2
+		end
+		local mainIndex, list = build.mainSocketGroup, skillsTab.controls.groupList
+		local displayLabel, enabled, fullDPS, groupLabel = group.displayLabel, group.enabled, group.includeInFullDPS, group.label
+		group.displayLabel = '用户组 Fireball'
+		group.label = '用户组 Fireball'
+		for _, active in ipairs({ true, false }) do
+			for _, state in ipairs({ true, false }) do
+				group.enabled, group.includeInFullDPS = state, true
+				local suffix = language == 'en' and (active and (state and ' (Active)' or ' (Forced Active)') or '')
+					or (active and (state and ' （当前主技能）' or ' （强制启用）') or '')
+				if language == 'zh-TW' then suffix = active and (state and ' （目前主技能）' or ' （強制啟用）') or '' end
+				local disabled = state and '' or ' ' .. localisation:Text('skill.group.status.disabled')
+				local expected = (not active and not state and '^x7F7F7F' or '') .. '用户组 Fireball' .. disabled
+					.. (active and colorCodes.RELIC or '') .. suffix .. colorCodes.CUSTOM .. ' '
+					.. (language == 'en' and '(FullDPS)' or language == 'zh-CN' and '（计入完整 DPS）' or '（計入完整秒傷）')
+				equal(list:GetRowValue(1, active and mainIndex or mainIndex + 1, group), expected, language .. ' 列表主技能/禁用/完整伤害状态已翻译且保留颜色')
+			end
+		end
+		group.displayLabel, group.enabled, group.includeInFullDPS = displayLabel, enabled, fullDPS
+		group.label = groupLabel
+		local copy, copied = Copy
+		Copy = function(text) copied = text end
+		skillsTab:CopySocketGroup(group)
+		Copy = copy
+		equal(copied:find('Weapon Set: Both\r\n', 1, true) ~= nil, true, language .. ' 插槽组复制保留协议武器组身份')
+		equal(copied:find('Fulminating Concoction 20/0', 1, true) ~= nil, true, language .. ' 插槽组复制保留技能原名与等级')
+		equal(group.set1, true, language .. ' 显示翻译未改第一武器组')
+		equal(group.set2, true, language .. ' 显示翻译未改第二武器组')
 		local draw, drawn = DrawString, { }
 		DrawString = function(x, y, align, height, font, text)
 			drawn[#drawn + 1] = tostring(text)
@@ -48,6 +106,10 @@ return function(build, equal)
 		else
 			equal(description, instance.gemData.grantedEffect.description, '英文描述保持原文')
 			equal(text:find('AoE, Projectile, Lightning', 1, true) ~= nil, true, '英文标签保持原文')
+		end
+		local ambiguousError = skillsTab:FindSkillGem(language == 'zh-TW' and '寒冰碎片' or '冰屑')
+		if language == 'zh-TW' then
+			equal(type(ambiguousError), 'string', language .. ' 同名技能明确报告歧义')
 		end
 		-- 编辑时仍使用原文光标，离开编辑后也不能误译自定义输入。
 		selector.hasFocus = true
@@ -123,6 +185,5 @@ return function(build, equal)
 			end
 		end
 	end
-	localisation.Translate = originalTranslate
 	skillsTab:SetDisplayGroup(savedGroup)
 end

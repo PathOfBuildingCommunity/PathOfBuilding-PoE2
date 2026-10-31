@@ -8,7 +8,7 @@ local LineTemplates = dofile('Modules/Localisation/LineTemplates.lua')
 local terms = dofile('Locales/Terms.lua')
 local dataKeys = dofile('Locales/DataKeys.lua')
 local lineInputs = dofile('Locales/LineInputs.lua')
-local localisation = { language = 'en', rawDepth = 0, dictionaries = { }, fonts = { }, cache = { }, cacheSize = 0 }
+local localisation = { language = 'en', rawDepth = 0, dictionaries = { }, fonts = { } }
 local messages = Messages.New()
 local missingTerms = { }
 -- 数据容器会被业务代码用 pairs 枚举，显示引用独立保存，不能混入伪业务条目。
@@ -22,6 +22,19 @@ end
 messages:Validate()
 local ModifierInputs = dofile('Modules/Localisation/ModifierInputs.lua')
 local modifierInputs = ModifierInputs.New(dofile('Locales/ModifierInputs.lua'), messages.languages)
+local NameInputs = dofile('Modules/Localisation/NameInputs.lua')
+local nameInputs = { }
+
+--- <summary>数据加载后登记当前业务域的名称输入，沿用原对象的稳定显示引用。</summary>
+function localisation:RegisterInputNames(domain, objects)
+	nameInputs[domain] = NameInputs.New(objects, messages.languages)
+end
+
+--- <summary>按输入所在业务域转换唯一译名，避免装备、技能或不同语言的同名对象相互覆盖。</summary>
+function localisation:InputName(domain, text)
+	if nameInputs[domain] then return nameInputs[domain]:Resolve(text) end
+	return text
+end
 
 --- <summary>使用稳定语义 key 和命名参数生成当前语言文案，最终回退英文资源。</summary>
 function localisation:Text(key, parameters)
@@ -209,8 +222,8 @@ end
 
 --- <summary>装备检索同时匹配原输入和已绑定译文，不使用全局显示反查。</summary>
 function localisation:MatchModLine(modLine, pattern)
-	return string.matchOrPattern(modLine.line:lower(), pattern, true)
-		or string.matchOrPattern(self:ModLine(modLine, modLine.line):lower(), pattern, true)
+	return string.matchOrPattern(modLine.line:lower(), pattern)
+		or string.matchOrPattern(self:ModLine(modLine, modLine.line):lower(), pattern)
 end
 
 --- <summary>通过业务身份读取独立数据文案；未登记的用户内容保留原文。</summary>
@@ -223,16 +236,60 @@ end
 
 --- <summary>搜索独立匹配业务原文和显式引用的当前译文，不经过绘制词典反查。</summary>
 function localisation:MatchField(object, field, pattern)
-	return string.matchOrPattern((object[field] or ''):lower(), pattern, true)
-		or string.matchOrPattern((self:Field(object, field) or ''):lower(), pattern, true)
+	return string.matchOrPattern((object[field] or ''):lower(), pattern)
+		or string.matchOrPattern((self:Field(object, field) or ''):lower(), pattern)
 end
 
 --- <summary>显示已识别的技能名称，保留用户自定义名称和未识别输入原文。</summary>
 function localisation:SkillName(instance, effect)
 	local gem = instance and instance.gemData
+	local minion = instance and instance.skillMinion and data.minions[instance.skillMinion]
+	local kind = instance and instance.nameSpec and (instance.nameSpec:match('^Companion:') and 'companion' or instance.nameSpec:match('^Spectre:') and 'spectre')
+	if minion and kind and instance.nameSpec == (kind == 'companion' and 'Companion: ' or 'Spectre: ') .. minion.name then
+		return self:Text('skill.active.' .. kind, { minion = self:Field(minion, 'name') })
+	end
 	if instance and instance.nameSpec and (not gem or instance.nameSpec ~= gem.name) then return instance.nameSpec end
 	local object = gem or effect or instance and instance.grantedEffect
 	return object and self:Field(object, 'name') or instance and instance.nameSpec or ''
+end
+
+--- <summary>显示自动生成的技能组名称，用户填写的组标签原样保留。</summary>
+function localisation:SocketGroupName(group)
+	if group.labelKey then return self:Field(group, 'label') end
+	-- 导入构筑的自动组不保存显示引用，按引擎来源身份恢复；用户组仍保留原名。
+	if group.source == 'Thorns' then return self:Text('ui.calc_setup.init_env.group.label_2') end
+	if group.source == 'Explode' then return self:Text('ui.calc_setup.init_env.group.label') end
+	if group.label and group.label:match('%S') then return group.label end
+	if self.language == 'en' then return group.displayLabel or '?' end
+	local names = { }
+	for _, instance in ipairs(group.gemList or { }) do
+		local effect = instance.gemData and instance.gemData.grantedEffect or instance.grantedEffect
+		if effect and not effect.support and instance.enabled then names[#names + 1] = self:SkillName(instance, effect) end
+	end
+	return #names > 0 and table.concat(names, ', ') or self:Text('ui.build.refresh_skill_select_controls.main_socket_group_list_1.label')
+end
+
+--- <summary>显示已解析的主动技能及其召唤物名称，不改变计算使用的原始名称。</summary>
+function localisation:ActiveSkillName(skill)
+	local effect = skill.activeEffect.grantedEffect
+	local minion = skill.minion and skill.minion.minionData
+	local kind = effect.name:match('^Companion:') and 'companion' or effect.name:match('^Spectre:') and 'spectre'
+	if kind and minion then return self:Text('skill.active.' .. kind, { minion = self:Field(minion, 'name') }) end
+	if kind and self.language ~= 'en' then return self:SkillName(skill.activeEffect.srcInstance, effect) end
+	return self:Field(effect, 'name')
+end
+
+--- <summary>显示主技能选择项的装备或天赋爆炸来源，选择值仍使用原技能身份。</summary>
+function localisation:ActiveSkillSelectionName(skill)
+	local source = skill.activeEffect.srcInstance.explodeSource
+	if not source then return self:ActiveSkillName(skill) end
+	local name = source.name or source.dn
+	if not name then return self:ActiveSkillName(skill) end
+	if self.language ~= 'en' then
+		if source.baseName then name = self:ItemName(source)
+		elseif source.dn then name = self:Field(source, 'dn') end
+	end
+	return self:Text('skill.active.explosion_source', { source = colorCodes[source.rarity or 'NORMAL'] .. name })
 end
 
 --- <summary>返回尚未建立稳定显示引用的业务术语，供迁移审计逐条处理。</summary>
@@ -258,37 +315,15 @@ function localisation:LanguageList()
 	return Languages.List()
 end
 
---- <summary>词库与语言设置绑定，切换时清除显示缓存。</summary>
+--- <summary>更新界面语言；旧输入词库仅在输入转换时按需加载。</summary>
 function localisation:SetLanguage(language)
 	local requested = language
 	local definition = Languages.Get(language) or Languages.Default()
 	assert(definition, '没有可用的默认界面语言')
 	if not Languages.Get(language) then self.invalidLanguage = requested else self.invalidLanguage = nil end
 	language = definition.id
-	loadDictionary(language)
-	self.language = language; self.cache = { }; self.cacheSize = 0
+	self.language = language
 	return language
-end
-
---- <summary>显示翻译保留英文回退，缓存限制大小，避免长时间运行不断积累。</summary>
-function localisation:Translate(text)
-	if self.language == 'en' or self.rawDepth > 0 or type(text) ~= 'string' or text == '' then return text end
-	if self.cache[text] then return self.cache[text] end
-	local dictionary = loadDictionary(self.language)
-	local result = dictionary and dictionary:Translate(text) or text
-	local definition = Languages.Get(self.language)
-	local fallback = definition and definition.fallback
-	local visited = { [self.language] = true }
-	while result == text and fallback and not visited[fallback] do
-		visited[fallback] = true
-		local fallbackDictionary = loadDictionary(fallback)
-		result = fallbackDictionary and fallbackDictionary:Translate(text) or text
-		local fallbackDefinition = Languages.Get(fallback)
-		fallback = fallbackDefinition and fallbackDefinition.fallback
-	end
-	if self.cacheSize >= 8192 then self.cache = { }; self.cacheSize = 0 end
-	self.cache[text] = result; self.cacheSize = self.cacheSize + 1
-	return result
 end
 
 --- <summary>中文输入使用简体与繁体反向词典，不依赖当前显示语言。</summary>
@@ -307,11 +342,6 @@ function localisation:ToEnglish(text)
 	return text
 end
 
---- <summary>搜索同时匹配英文原名和当前语言译名，不改写业务标签表。</summary>
-function localisation:Match(text, pattern)
-	return text:match(pattern) or self:Translate(text):match(pattern)
-end
-
 --- <summary>在既有标签集合中寻找中文译名，避免修改由计算模块共享的标签表。</summary>
 function localisation:TagName(tags, name)
 	if tags[name] ~= nil or not name:find('[\128-\255]') then return name end
@@ -323,12 +353,12 @@ end
 
 --- <summary>物品和角色输入边界共用同一个无歧义词条转换器。</summary>
 function localisation:ItemText(text)
-	return Import.ItemText(text, function(line) return self:ToEnglish(line) end)
+	return Import.ItemText(text, function(line) return self:ToEnglish(line) end, function(line) return self:InputName('equipment_base', line) end)
 end
 
 --- <summary>转换角色导入术语并保留原始对象。</summary>
 function localisation:Character(character)
-	return Import.Character(character, function(text) return self:ToEnglish(text) end)
+	return Import.Character(character, function(text) return self:ToEnglish(text) end, function(domain, text) return self:InputName(domain, text) end)
 end
 
 --- <summary>按 PoB2 物品字段生成显示标题，避免唯一名称与基底名称拼接后失去词条边界。</summary>
@@ -336,7 +366,7 @@ function localisation:ItemTitle(item)
 	local baseName = item.baseName and item.baseName:gsub(' %(.+%)', '') or nil
 	local baseLabel = self:DataText('equipment_base', item.baseName, 'name', baseName or item.baseName or '')
 	if item.title then
-		return (item.rarity == 'UNIQUE' or item.rarity == 'RELIC' or not item.rarity) and self:DataText('equipment_unique', item.title, 'name', item.title) or item.title, baseLabel
+		return (item.rarity == 'UNIQUE' or item.rarity == 'RELIC' or not item.rarity) and self:DataText('equipment_unique', item.title, 'name', item.title) or self:Field(item, 'title'), baseLabel
 	end
 	local function affix(text)
 		if not text then return '' end
@@ -353,7 +383,7 @@ function localisation:ItemName(item)
 	return title and title .. ', ' .. baseName or baseName
 end
 
---- <summary>编辑区显示内容始终来自用户原文；异常也必须恢复翻译开关。</summary>
+--- <summary>编辑区使用完整缓冲区的混排字体；异常后恢复字体上下文。</summary>
 function localisation:DrawRaw(callback, object, ...)
 	self.rawDepth = self.rawDepth + 1
 	local previousUnicode = self.rawUnicode
@@ -368,7 +398,7 @@ end
 -- 设置未存在时默认英文，已有显式语言选择继续生效。
 localisation:SetLanguage('en')
 local function activeFont()
-	local definition = Languages.Get(localisation.language)
+	local definition = Languages.Get(localisation.rawLanguage or localisation.language)
 	local config = definition and definition.font
 	if not config then return nil end
 	local folder = type(config) == "string" and config or config.folder
@@ -382,7 +412,26 @@ local function activeFont()
 end
 local draw, width, cursor = DrawString, DrawStringWidth, DrawStringCursorIndex
 
---- <summary>编辑控件的滚动和插入计算也必须测量原文，不能只在 Draw 中关闭翻译。</summary>
+--- <summary>Unicode 文本使用当前字形图集换行；其余内容保留宿主原有分词路径。</summary>
+function localisation:WrapText(text, height, maximumWidth)
+	if not text:find('[\128-\255]') then return nil end
+	local font = activeFont()
+	return font and font:Wrap(height, text, maximumWidth) or nil
+end
+
+--- <summary>按指定语言绘制或测量固定原文，结束或异常后恢复当前界面的显示上下文。</summary>
+function localisation:WithRawLanguage(language, callback, ...)
+	local previousLanguage = self.rawLanguage
+	self.rawLanguage = language
+	self.rawDepth = self.rawDepth + 1
+	local ok, result = pcall(callback, ...)
+	self.rawLanguage = previousLanguage
+	self.rawDepth = self.rawDepth - 1
+	if not ok then error(result, 0) end
+	return result
+end
+
+--- <summary>按原文及其混排字体测宽，供编辑控件的滚动和插入计算使用。</summary>
 function localisation:MeasureRaw(height, fontName, text, context)
 	-- 计算表格中的数值最终按文本绘制，测宽时也统一转换为字符串。
 	if type(text) ~= 'string' then text = tostring(text or '') end
@@ -392,18 +441,16 @@ function localisation:MeasureRaw(height, fontName, text, context)
 end
 
 if draw then
-	--- <summary>翻译显示文本，并为含中文的文本选择字形图集。</summary>
+	--- <summary>绘制调用点已解析的文案，按文本选择字形图集。</summary>
 	function DrawString(left, top, align, height, fontName, text)
 		-- 配置占位符和计算结果允许传入数字，与测宽入口保持一致。
 		if type(text) ~= 'string' then text = tostring(text or '') end
-		text = localisation:Translate(text)
 		local font = activeFont()
 		if font and (localisation.rawUnicode or text:find('[\128-\255]')) then return font:Draw(left, top, align, height, text) end
 		return draw(left, top, align, height, fontName, text)
 	end
 	--- <summary>按实际显示内容测宽，编辑区服从原文绘制上下文。</summary>
 	function DrawStringWidth(height, fontName, text)
-		text = localisation:Translate(text)
 		return localisation:MeasureRaw(height, fontName, text)
 	end
 	--- <summary>返回原文光标字节索引，保持编辑数据与显示译文独立。</summary>

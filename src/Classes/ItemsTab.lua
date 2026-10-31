@@ -32,11 +32,11 @@ local socketDropList = {
 local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Ring 3","Belt", "Charm 1", "Charm 2", "Charm 3", "Flask 1", "Flask 2", "Arm 1", "Arm 2", "Leg 1", "Leg 2" }
 
 local characterRuneSlotList = {
-	{ "Helmet Rune #1", "helmet", "Helmet Rune 1" },
-	{ "Body Armour Rune #1", "body armour", "Body Rune 1" },
-	{ "Body Armour Rune #2", "body armour", "Body Rune 2" },
-	{ "Gloves Rune #1", "gloves", "Gloves Rune 1" },
-	{ "Boots Rune #1", "boots", "Boots Rune 1" },
+	{ "Helmet Rune #1", "helmet", "ui.items_tab.character_rune_slot.helmet" },
+	{ "Body Armour Rune #1", "body armour", "ui.items_tab.character_rune_slot.body_1" },
+	{ "Body Armour Rune #2", "body armour", "ui.items_tab.character_rune_slot.body_2" },
+	{ "Gloves Rune #1", "gloves", "ui.items_tab.character_rune_slot.gloves" },
+	{ "Boots Rune #1", "boots", "ui.items_tab.character_rune_slot.boots" },
 }
 
 local runeModLines
@@ -303,7 +303,7 @@ function ItemsTabClass:ItemsTab(build)
 				end
 			end
 		end
-		self.controls[slotName .. " Label"] = new("LabelControl"):LabelControl({ "RIGHT", runeSlot, "LEFT" }, { -2, 0, 16, 16 }, s_format("^7%s:", label))
+		self.controls[slotName .. " Label"] = new("LabelControl"):LabelControl({ "RIGHT", runeSlot, "LEFT" }, { -2, 0, 16, 16 }, localisation:Label(label))
 		prevSlot = runeSlot
 		t_insert(self.controls, runeSlot)
 		self.runeSlots[slotName] = runeSlot
@@ -1204,6 +1204,7 @@ localisation:Label("ui.items_tab.init.display_item_tip.label"))
 	self.itemSets = { }
 	self.itemSetOrderList = { 1 }
 	self:CreateItemSet(1, "Default")
+	self.itemSets[1].titleKey = 'term.calculation_source.default'
 	self:SetActiveItemSet(1)
 
 	self:PopulateSlots()
@@ -1286,6 +1287,7 @@ function ItemsTabClass:Load(xml, dbFileName)
 			end
 		elseif node.elem == "ItemSet" then
 			local itemSet = self:CreateItemSet(tonumber(node.attrib.id), node.attrib.title or "Default")
+			if not node.attrib.title then itemSet.titleKey = 'term.calculation_source.default' end
 			itemSet.useSecondWeaponSet = node.attrib.useSecondWeaponSet == "true"
 			for _, child in ipairs(node) do
 				if child.elem == "Slot" then
@@ -1332,6 +1334,7 @@ function ItemsTabClass:Load(xml, dbFileName)
 	end
 	if not self.itemSetOrderList[1] then
 		self.activeItemSet = self:CreateItemSet(1, "Default")
+		self.itemSets[1].titleKey = 'term.calculation_source.default'
 		self.activeItemSet.useSecondWeaponSet = xml.attrib.useSecondWeaponSet == "true"
 		self.itemSetOrderList[1] = 1
 	end
@@ -1532,14 +1535,16 @@ function ItemsTabClass:Draw(viewPort, inputEvents)
 	main:DrawBackground(viewPort)
 
 	local newItemList = { }
+	local setKeys = { }
 	for index, itemSetId in ipairs(self.itemSetOrderList) do
 		local itemSet = self.itemSets[itemSetId]
 		t_insert(newItemList, itemSet.title or "Default")
+		setKeys[index] = itemSet.titleKey or (not itemSet.title and "term.calculation_source.default" or nil)
 		if itemSetId == self.activeItemSetId then
 			self.controls.setSelect.selIndex = index
 		end
 	end
-	self.controls.setSelect:SetList(newItemList)
+	self.controls.setSelect:SetList(localisation:List(newItemList, setKeys))
 
 	if self.displayItem then
 		local x, y = self.controls.displayItemTooltipAnchor:GetPos()
@@ -1593,7 +1598,7 @@ end
 
 -- Creates a new item set
 function ItemsTabClass:CreateItemSet(itemSetId, name)
-	local itemSet = { id = itemSetId, title = name }
+	local itemSet = { id = itemSetId, title = name, titleKey = not name and 'term.calculation_source.default' or nil }
 	if not itemSetId then
 		itemSet.id = 1
 		while self.itemSets[itemSet.id] do
@@ -1623,6 +1628,7 @@ function ItemsTabClass:CopyItemSet(sourceItemSetId, newItemSetName)
 	local newSet = copyTable(self.itemSets[sourceItemSetId])
 	newSet.id = #self.itemSets + 1
 	newSet.title = newItemSetName or newSet.title .. " (Copy)"
+	newSet.titleKey = nil
 	t_insert(self.itemSetOrderList, newSet.id)
 	self.modFlag = true
 	self.itemSets[newSet.id] = newSet
@@ -1638,6 +1644,7 @@ function ItemsTabClass:RenameItemSet(itemSetId, newTitle)
 	end
 
 	itemSet.title = newTitle
+	itemSet.titleKey = nil
 	self.modFlag = true
 end
 
@@ -1653,6 +1660,7 @@ function ItemsTabClass:SetActiveItemSet(itemSetId, deferSync)
 	local prevSet = self.activeItemSet
 	if not self.itemSetOrderList[1] then
 		self:NewItemSet(1, "Default")
+		self.itemSets[1].titleKey = 'term.calculation_source.default'
 	end
 	if not self.itemSets[itemSetId] then
 		itemSetId = self.itemSetOrderList[1]
@@ -2985,7 +2993,7 @@ function ItemsTabClass:AppendAnointTooltip(tooltip, node, actionText)
 	end
 
 	if not actionText then
-		actionText = "Anointing"
+		actionText = localisation:Text("equipment.anoint.action")
 	end
 
 	local header
@@ -3005,9 +3013,9 @@ function ItemsTabClass:AppendAnointTooltip(tooltip, node, actionText)
 			end
 		end
 
-		header = "^7"..actionText.." "..node.dn.." will give you: "
+		header = "^7" .. localisation:Text("equipment.anoint.compare", { action = actionText, node = localisation:Field(node, 'dn') })
 	else
-		header = "^7"..actionText.." nothing will give you: "
+		header = "^7" .. localisation:Text("equipment.anoint.compare_empty", { action = actionText })
 	end
 	local calcFunc = self.build.calcsTab:GetMiscCalculator()
 	local repSlotName = self.displayItem:GetPrimarySlot()
@@ -3045,7 +3053,9 @@ function ItemsTabClass:AnointDisplayItem(enchantSlot)
 		end
 		local curAnoints = self:getAnoint(self.displayItem)
 		if curAnoints and #curAnoints >= self.anointEnchantSlot then
-			return localisation:Text("equipment.anoint.remove", { anoint = curAnoints[self.anointEnchantSlot] })
+			local anoint = curAnoints[self.anointEnchantSlot]
+			local node = self.build.spec.tree.notableMap[anoint:lower()]
+			return localisation:Text("equipment.anoint.remove", { anoint = node and localisation:Field(node, 'dn') or anoint })
 		end
 		return localisation:Text("equipment.anoint.empty")
 	end
@@ -3655,8 +3665,8 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	controls.modSelect.tooltipFunc = function(tooltip, mode, index, value)
 		tooltip:Clear()
 		if mode ~= "OUT" and value then
-			for _, line in ipairs(value.mod) do
-				tooltip:AddLine(16, "^7"..line)
+			for index, line in ipairs(value.mod) do
+				tooltip:AddLine(16, "^7" .. localisation:ModDataLine(value.mod, index, line))
 			end
 			self:AddModComparisonTooltip(tooltip, value.mod)
 		end
@@ -3779,7 +3789,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 			end
 		end
 		if item.league then
-			tooltip:AddLine(fontSizeBig, localisation:Text("ui.items_tab.add_item_tooltip.tooltip_17", { league = item.league }), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, localisation:Text("ui.items_tab.add_item_tooltip.tooltip_17", { league = localisation:Term('item_league', item.league) }), "FONTIN SC")
 		end
 		if item.unreleased then
 			tooltip:AddLine(fontSizeBig, colorCodes.NEGATIVE .. localisation:Text("ui.items_tab.add_item_tooltip.tooltip_22"), "FONTIN SC")
@@ -3976,7 +3986,14 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 			tooltip:AddLine(fontSizeBig, localisation:Text("ui.items_tab.add_item_tooltip.tooltip_31", { value = ((self.build.spec.curClassName == item.classRestriction and colorCodes.POSITIVE) or colorCodes.NEGATIVE), class_restriction = item.classRestriction }), "FONTIN SC")
 		end
 		if item.jewelRadiusLabel then
-			tooltip:AddLine(fontSizeBig, localisation:Text("ui.items_tab.add_item_tooltip.tooltip_25", { jewel_radius_label = item.jewelRadiusLabel }), "FONTIN SC")
+			local radiusLabel = item.jewelRadiusLabel
+			for _, radius in ipairs(data.jewelRadius) do
+				if radius.label == radiusLabel then
+					radiusLabel = localisation:Field(radius, "label")
+					break
+				end
+			end
+			tooltip:AddLine(fontSizeBig, localisation:Text("ui.items_tab.add_item_tooltip.tooltip_25", { jewel_radius_label = radiusLabel }), "FONTIN SC")
 		end
 		if item.jewelRadiusData and slot and item.jewelRadiusData[slot.nodeId] then
 			local radiusData = item.jewelRadiusData[slot.nodeId]
@@ -4171,7 +4188,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	if item.grantedSkills and #item.grantedSkills > 0 then
 		tooltip:AddSeparator(14)
 		tooltip:AddLine(14,
-			colorCodes.TIP .. localisation:Text("ui.items_tab.add_item_tooltip.tooltip_38", { value = ((#item.grantedSkills > 1 and "s") or "") }))
+			colorCodes.TIP .. localisation:Text(#item.grantedSkills > 1 and "equipment.tooltip.granted_skills_hint" or "ui.items_tab.add_item_tooltip.tooltip_38"))
 		for i, itemSkill in ipairs(item.grantedSkills) do
 			if not tooltip.childTooltips[i] then
 				tooltip.childTooltips[i] = new("Tooltip"):Tooltip()
@@ -4197,7 +4214,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		end
 	end
 	-- Stat differences
-	local itemTabHint = self.build.viewMode == "ITEMS" and "" or " in the Items tab"
+	local itemTabHint = self.build.viewMode == "ITEMS" and "" or localisation:Ref("equipment.tooltip.items_tab_hint")
 	if not self.showStatDifferences then
 		tooltip:AddSeparator(14)
 		tooltip:AddLine(14, colorCodes.TIP .. localisation:Text("ui.items_tab.add_item_tooltip.tooltip_40", { item_tab_hint = itemTabHint }))

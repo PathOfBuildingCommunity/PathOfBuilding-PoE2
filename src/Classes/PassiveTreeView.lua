@@ -166,6 +166,20 @@ function PassiveTreeViewClass:GetCompareNodeColor(node, compareNode, spec, build
 	return nodeDefaultColor
 end
 
+-- 按事件位置或当前光标补齐拖动，松开前也使用相同的位移与阈值判断。
+local function updateDrag(self, cursorX, cursorY)
+	if not self.dragX then return end
+	if not self.dragging and (math.abs(cursorX - self.dragX) > 5 or math.abs(cursorY - self.dragY) > 5) then
+		self.dragging = true
+	end
+	if self.dragging then
+		self.zoomX = self.zoomX + cursorX - self.dragX
+		self.zoomY = self.zoomY + cursorY - self.dragY
+		self.dragX, self.dragY = cursorX, cursorY
+	end
+end
+
+--- <summary>按输入事件位置更新天赋树视图，并绘制节点与提示。</summary>
 ---@param build Build
 ---@param viewPort any
 ---@param inputEvents any
@@ -180,14 +194,16 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	-- Process input events
 	local treeClick
 	for _, event in ipairs(inputEvents) do
+		local eventX, eventY = event.cursorX or cursorX, event.cursorY or cursorY
+		local eventOver = eventX >= viewPort.x and eventX < viewPort.x + viewPort.width and eventY >= viewPort.y and eventY < viewPort.y + viewPort.height
 		if event.type == "KeyDown" then
 			if event.key == "LEFTBUTTON" then
-				if mOver then
-					-- Record starting coords of mouse drag
-					-- Dragging won't actually commence unless the cursor moves far enough
-					self.dragX, self.dragY = cursorX, cursorY
+				if eventOver then
+					-- 使用按下时的位置，保留下一帧绘制前已经发生的移动。
+					self.dragX, self.dragY = eventX, eventY
+					self.dragging = false
 				end
-			elseif IsKeyDown("ALT") and mOver then
+			elseif IsKeyDown("ALT") and eventOver then
 				if event.key == "WHEELDOWN" then
 					spec.allocMode = math.max(0, spec.allocMode - 1)
 				elseif event.key == "WHEELUP" then
@@ -204,48 +220,40 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				end
 				Copy(result)
 			elseif event.key == "PAGEUP" then
-				self:Zoom(IsKeyDown("SHIFT") and 3 or 1, viewPort)
+				self:Zoom(IsKeyDown("SHIFT") and 3 or 1, viewPort, eventX, eventY)
 			elseif event.key == "PAGEDOWN" then
-				self:Zoom(IsKeyDown("SHIFT") and -3 or -1, viewPort)
+				self:Zoom(IsKeyDown("SHIFT") and -3 or -1, viewPort, eventX, eventY)
 			elseif itemLib.wiki.matchesKey(event.key) and self.hoverNode then
 				itemLib.wiki.open(self.hoverNode.name or self.hoverNode.dn)
 			end
 		elseif event.type == "KeyUp" then
 			if event.key == "LEFTBUTTON" then
+				-- 先补齐释放位置，再判断点击，避免同一帧内的拖动被误判。
+				updateDrag(self, eventX, eventY)
 				if self.dragX and not self.dragging then
 					-- Mouse button went down, but didn't move far enough to trigger drag, so register a normal click
 					treeClick = "LEFT"
 				end
-			elseif mOver then
+				self.dragging = false
+				self.dragX, self.dragY = nil, nil
+			elseif eventOver then
 				if event.key == "RIGHTBUTTON" then
 					treeClick = "RIGHT"
 				elseif event.key == "WHEELUP" and not IsKeyDown("ALT") then
-					self:Zoom(IsKeyDown("SHIFT") and 3 or 1, viewPort)
+					self:Zoom(IsKeyDown("SHIFT") and 3 or 1, viewPort, eventX, eventY)
 				elseif event.key == "WHEELDOWN" and not IsKeyDown("ALT") then
-					self:Zoom(IsKeyDown("SHIFT") and -3 or -1, viewPort)
+					self:Zoom(IsKeyDown("SHIFT") and -3 or -1, viewPort, eventX, eventY)
 				end
 			end
 		end
 	end
 
-	if not IsKeyDown("LEFTBUTTON") then
-		-- Left mouse button isn't down, stop dragging if dragging was in progress
+	if IsKeyDown("LEFTBUTTON") then
+		updateDrag(self, cursorX, cursorY)
+	else
+		-- 失去焦点等情况可能没有释放事件，仍按实时状态解除拖动。
 		self.dragging = false
 		self.dragX, self.dragY = nil, nil
-	end
-	if self.dragX then
-		-- Left mouse is down
-		if not self.dragging then
-			-- Check if mouse has moved more than a few pixels, and if so, initiate dragging
-			if math.abs(cursorX - self.dragX) > 5 or math.abs(cursorY - self.dragY) > 5 then
-				self.dragging = true
-			end
-		end
-		if self.dragging then
-			self.zoomX = self.zoomX + cursorX - self.dragX
-			self.zoomY = self.zoomY + cursorY - self.dragY
-			self.dragX, self.dragY = cursorX, cursorY
-		end
 	end
 
 	-- Ctrl-click to zoom
@@ -1370,7 +1378,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	end
 end
 
--- Draws the given asset at the given position
+--- <summary>绘制天赋树资源，跳过完全位于屏幕外的图片。</summary>
 function PassiveTreeViewClass:DrawAsset(data, x, y, scale, isHalf)
 	if not data or not data.found then
 		return
@@ -1383,6 +1391,11 @@ function PassiveTreeViewClass:DrawAsset(data, x, y, scale, isHalf)
 	end
 	local width = data.width * scale
 	local height = data.height * scale
+	-- 半幅背景会上下拼接，裁剪范围必须覆盖两幅图片。
+	local extentY = isHalf and height * 2 or height
+	if x + width < 0 or x - width > main.screenW or y + extentY < 0 or y - extentY > main.screenH then
+		return
+	end
 	if isHalf then
 		DrawImage(data.handle, x - width, y - height * 2, width * 2, height * 2)
 		DrawImage(data.handle, x - width, y, width * 2, height * 2, 0, 1, 1, 0)
@@ -1497,8 +1510,8 @@ function PassiveTreeViewClass:DrawQuadAndRotate(data, xTree, yTree, angleRad, tr
 	end
 end
 
--- Zoom the tree in or out
-function PassiveTreeViewClass:Zoom(level, viewPort)
+--- <summary>围绕输入发生时的鼠标位置缩放天赋树；直接调用时使用当前光标。</summary>
+function PassiveTreeViewClass:Zoom(level, viewPort, cursorX, cursorY)
 	-- Calculate new zoom level and zoom factor
 	self.zoomLevel = m_max(0, m_min(20, self.zoomLevel + level))
 	local oldZoom = self.zoom
@@ -1506,7 +1519,7 @@ function PassiveTreeViewClass:Zoom(level, viewPort)
 
 	-- Adjust zoom center position so that the point on the tree that is currently under the mouse will remain under it
 	local factor = self.zoom / oldZoom
-	local cursorX, cursorY = GetCursorPos()
+	if cursorX == nil or cursorY == nil then cursorX, cursorY = GetCursorPos() end
 	local relX = cursorX - viewPort.x - viewPort.width/2
 	local relY = cursorY - viewPort.y - viewPort.height/2
 	self.zoomX = relX + (self.zoomX - relX) * factor
@@ -1539,7 +1552,7 @@ function PassiveTreeViewClass:DoesNodeMatchSearchParams(build, node)
 
 	local function search(haystack, need)
 		for i=#need, 1, -1 do
-			if haystack:matchOrPattern(need[i], true) then
+			if haystack:matchOrPattern(need[i]) then
 				table.remove(need, i)
 			end
 		end
@@ -1882,7 +1895,12 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 			end
 		end
 		mNode.sd = copyTable(newSd)
+		local previousDisplay = mNode.sdDisplay
 		build.spec.tree:ProcessStats(mNode)
+		-- 重解析会按原节点身份重绑；保留珠宝追加行的明确引用，正文变化仍由模板核对。
+		for index, reference in pairs(previousDisplay or { }) do
+			if not mNode.sdDisplay[index] then mNode.sdDisplay[index] = reference end
+		end
 		return localIncEffect
 	end
 
@@ -2090,7 +2108,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		tooltip:AddSeparator(10)
 		tooltip:AddLine(14, colorCodes.TIP .. localisation:Text("ui.passive_tree_view.add_node_tooltip.tooltip_18"))
 		if existing and existing ~= "" then
-			tooltip:AddBuildPlannerNote(14, existing, "^7Note: ")
+			tooltip:AddBuildPlannerNote(14, existing, "^7" .. localisation:Text("build_note.prefix"))
 		end
 	end
 end

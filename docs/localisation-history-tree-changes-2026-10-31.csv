@@ -1,0 +1,1007 @@
+language,key,source,before,after,basis,reference
+zh-CN,game.tree_node.0_1_10208.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,获得等同于能量护盾上限 {value_1}% 的额外晕眩阈值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_10320.dn,Minion Defences,,召唤物防御,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_10552.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,获得等同于能量护盾上限 {value_1}% 的额外晕眩阈值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_10681.dn,Offensive Stance,,攻击架势,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_1104.sd_1,"{value_1}% chance that if you would gain Power Charges, you instead gain up to",,有 {value_1}% 的几率在获得暴击球时改为获得最多,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_13228.sd_1
+zh-CN,game.tree_node.0_1_12276.sd_1,{value_1}% chance to Aftershock for Slam Skills you use with Maces,,使用锤类武器的猛击技能有 {value_1}% 的几率造成余震,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_12462.sd_1,{value_1}% increased Effect of Auras from your Aura Skills,,你的光环技能提供的光环效果提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_13075.dn,Strength and Reduced Mana,,力量与减少的魔力,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_13307.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,获得等同于能量护盾上限 {value_1}% 的额外晕眩阈值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_13856.dn,Ailment Effect and Reduced Attack Speed,,异常状态效果与降低的攻击速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_13980.sd_1,{value_1}% chance to Aftershock for Slam Skills you use with Maces,,使用锤类武器的猛击技能有 {value_1}% 的几率造成余震,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_13980.sd_2,{value_1}% chance to Aftershock for Strike Skills you use with Maces,,使用锤类武器的打击技能有 {value_1}% 的几率造成余震,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_14226.sd_1,{value_1}% more Skill Speed while Off Hand is empty and you have,,技能速度总增 {value_1}%，条件是副手为空，且,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_14226.sd_1
+zh-CN,game.tree_node.0_1_14540.sd_1,Your Stun Threshold is doubled,,你的晕眩阈值翻倍,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_14540.sd_2,Cannot Dodge Roll,,无法闪避翻滚,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_15051.dn,Break Focus,,打破专注,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_15522.dn,Ignite Effect,,点燃效果,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_15522.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你施加的点燃效果幅度提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_16013.dn,Daze Buildup,,目眩积蓄,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_16140.dn,Daze Buildup,,目眩积蓄,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_16861.dn,Critical Chance and Reduced Mana,,暴击几率与减少的魔力,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_17348.dn,Ignite Effect,,点燃效果,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_17348.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你施加的点燃效果幅度提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_17600.dn,Resourceful Ally,,机智的盟友,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_17655.sd_1,{value_1}% increased Effect of Auras from your Aura Skills,,你的光环技能提供的光环效果提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_17724.dn,Unarmed Area,,徒手范围,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_17882.sd_1,{value_1}% reduced Grenade fuse duration,,榴弹引信持续时间缩短 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_18073.dn,Attack Damage and Reduced Attack Speed,,攻击伤害与降低的攻击速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_18158.sd_2,Allies in your Presence contributes to Ignite Chance and Magnitude,,存在范围内盟友造成的所有伤害，都能影响点燃几率与效果幅度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_18826.dn,Ravenous Doubts,,贪婪之虑,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_18895.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,获得等同于能量护盾上限 {value_1}% 的额外晕眩阈值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_19288.sd_1,Block Chance is doubled,,格挡几率翻倍,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_20165.dn,No Escape,,无处可逃,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_20205.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-CN,game.tree_node.0_1_21164.sd_1,Minions gain {value_1}% of their Maximum Life as Extra Maximum Energy Shield,,召唤物获得等同于自身生命上限 {value_1}% 的额外能量护盾上限,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_21415.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,获得等同于能量护盾上限 {value_1}% 的额外晕眩阈值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_22909.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,获得等同于能量护盾上限 {value_1}% 的额外晕眩阈值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_23940.sd_1,Increases and Reductions to Armour also apply to Energy Shield,,护甲的提高和降低也适用于能量护盾,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_23940.sd_2,Recharge Rate at {value_1}% of their value,,充能速率，套用比例为原数值的 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_24226.dn,Eagle Eyes,,鹰眼,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_24483.sd_1,{value_1}% increased Critical Hit Chance against Enemies that are affected,,暴击几率提高 {value_1}%，针对未受到,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_24483.sd_1
+zh-CN,game.tree_node.0_1_24483.sd_2,by no Elemental Ailments,,任何元素异常状态影响的敌人,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_24483.sd_2
+zh-CN,game.tree_node.0_1_24646.dn,Strength and Reduced Mana,,力量与减少的魔力,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_25363.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,获得等同于能量护盾上限 {value_1}% 的额外晕眩阈值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_25781.dn,Reality Rending,,碎裂现实,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_26614.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,获得等同于能量护盾上限 {value_1}% 的额外晕眩阈值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_26969.dn,Critical Chance and Reduced Mana,,暴击几率与减少的魔力,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_27667.dn,Open Sores,,开放创口,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_27667.sd_1,Your Curses have infinite Duration,,你的诅咒持续时间无限,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_28361.dn,Weapon Swap Speed,,武器切换速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_2857.sd_2,{value_1}% less Shock Duration,,感电持续时间总降 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_28589.dn,Attack Speed if Hit,,被击中时的攻击速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_28963.dn,Way of the Wind,,风之道,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_29408.dn,Reduced Mana Cost,,降低的魔力消耗,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_29514.sd_1,{value_1}% increased Grenade fuse duration,,榴弹引信持续时间延长 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_29527.sd_1,{value_1}% increased Critical Hit Chance against Enemies on Full Life,,对满血敌人的暴击几率提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_29645.dn,Greatwolf's Howl,,巨狼之嚎,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_30334.sd_1,{value_1}% reduced effect of Ignite on you,,你受到的点燃效果降低 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_30996.sd_1,You can use two copies of the same Support Gem in different Skills,,可以在不同技能中使用同一种辅助宝石的两个副本,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_31223.sd_1,Gain Energy Shield from equipped Body Armour as extra maximum Life,,获得等同于装备胸甲的能量护盾的额外生命上限,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_31326.sd_2,{value_1}% increased Magnitude of Ignite you inflict,,你施加的点燃效果幅度提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_31888.dn,Reduced Mana Cost,,降低的魔力消耗,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_32271.dn,Critical Ignite Effect,,暴击点燃效果,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_32349.sd_2,Triple Attribute requirements of weapons,,武器的属性需求变为三倍,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_33404.sd_2,Life Recovery from Flasks applies to Energy Shield instead,,药剂的生命回复改为作用于能量护盾,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_33729.dn,Elemental Damage and Ignite Chance,,元素伤害与点燃几率,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_34290.dn,Ignite Effect,,点燃效果,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_34290.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你施加的点燃效果幅度提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_34324.sd_1,+{value_1} to Maximum Energy Shield per {value_2} Evasion Rating on Equipped Body Armour,,装备的胸甲每有 {value_2} 点闪避值，能量护盾上限 +{value_1},历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_34419.sd_1,"Become Ignited when you deal a Critical Hit, taking {value_1}% of your Life and Energy Shield as Fire Damage per second",,造成暴击时被点燃，每秒承受相当于生命和能量护盾 {value_1}% 的火焰伤害,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_34497.sd_2,Take {value_1}% more Damage over Time if you've haven't started taking Damage over Time in the past second,,若过去一秒内没有开始承受持续伤害，承受的持续伤害总增 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_34531.sd_2,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,获得等同于能量护盾上限 {value_1}% 的额外晕眩阈值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_34626.sd_1,Recover {value_1}% of Life for each Endurance Charge consumed,,每消耗一个耐力球，回复 {value_1}% 生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_34817.dn,Inner Silence,,内在寂静,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_35028.sd_1,Regenerate {value_1}% of Life per second while Surrounded,,被包围时，每秒再生 {value_1}% 生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_36027.dn,Attack Damage and Reduced Attack Speed,,攻击伤害与降低的攻击速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_36270.dn,Daze Buildup,,目眩积蓄,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_3640.dn,Unarmed Damage,,徒手伤害,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_36676.sd_1,Grants {value_1} Passive Skill Point,,获得 {value_1} 个天赋点,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-CN,game.tree_node.0_1_37078.sd_1,"{value_1}% chance for Enemies you Kill to Explode, dealing {value_2}%",,你击杀的敌人有 {value_1}% 的几率爆炸，造成其生命上限 {value_2}% 的,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_37078.sd_1
+zh-CN,game.tree_node.0_1_37266.dn,Two-Pronged Attack,,双叉攻击,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_3781.dn,Consuming Questions,,烦心问题,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_38003.dn,Weapon Swap Speed,,武器切换速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_3823.dn,Path of Winter,,凛冬之途,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_3823_option_witch.dn,Power of the Dead,,亡者之力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_3823_option_witch.dn
+zh-CN,game.tree_node.0_1_38365.sd_1,Recover {value_1}% of Life for each Endurance Charge consumed,,每消耗一个耐力球，回复 {value_1}% 生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_38578.dn,Rain Dancer,,雨之舞者,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_38668.dn,Unarmed Attack Speed,,徒手攻击速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_38670.dn,Attack Speed if Hit,,被击中时的攻击速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_3894.sd_2,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,获得等同于能量护盾上限 {value_1}% 的额外晕眩阈值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_39839.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-CN,game.tree_node.0_1_39935.sd_1,All bonuses from an Equipped Amulet apply to your Minions instead of you,,装备的项链提供的所有加成改为作用于你的召唤物,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_40.dn,Connected Chemistry,,连锁化学,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_40117.sd_1,Gain Physical Thorns damage equal to {value_1}% of Armour from equipped Body Armour,,获得等同于装备胸甲的护甲 {value_1}% 的物理荆棘伤害,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_4031.sd_1,Gain {value_1}% of Maximum Energy Shield as additional Freeze Threshold,,获得等同于能量护盾上限 {value_1}% 的额外冻结阈值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_40399.sd_1,{value_1}% chance for Trigger skills to refund half of Energy Spent,,触发技能有 {value_1}% 的几率返还一半已消耗的能量,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_40399.sd_1
+zh-CN,game.tree_node.0_1_41076.sd_1,Removes all Spirit,,移除所有精魂,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_41665.dn,Critical Damage and Increased Mana Cost,,暴击伤害与增加的魔力消耗,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_41905.sd_2,You gain {value_1}% Life when one of your Minions is Revived,,召唤物复活时，你获得 {value_1}% 生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_42035.dn,Circular Heartbeat,,心跳循环,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_42522.dn,Heart of the Storm,,风暴之心,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_43383.sd_2,Break {value_1}% increased Armour on enemies affected by Ailments,,对受异常状态影响的敌人造成的护甲破坏提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_4346.sd_1,{value_1}% increased Damage if you've dealt a Critical Hit Recently,,近期造成暴击时，伤害提高 {value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_4519.sd_1
+zh-CN,game.tree_node.0_1_43650.dn,Critical Stun Buildup,,暴击晕眩积蓄,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_43650.sd_1,{value_1}% increased Stun Buildup with Critical Hits,,暴击造成的晕眩积蓄提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_43695.dn,Lasting Concoctions,,持久药剂,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_43939.dn,Fireproof,,防火,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_43939.sd_2,{value_1}% reduced effect of Ignite on you,,你受到的点燃效果降低 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_44092.dn,Ignite Effect,,点燃效果,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_44092.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你施加的点燃效果幅度提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_44098.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,获得等同于能量护盾上限 {value_1}% 的额外晕眩阈值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_44204.dn,Elemental Damage and Ignite Chance,,元素伤害与点燃几率,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_44330.sd_2,{value_1}% increased Chance to inflict Ailments with One-Handed Attacks,,单手攻击施加异常状态的几率提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_4447.dn,Pinned Down,,动弹不得,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_44917.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,获得等同于能量护盾上限 {value_1}% 的额外晕眩阈值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_45090.dn,Attack Damage and Reduced Attack Speed,,攻击伤害与降低的攻击速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_4519.sd_1,{value_1}% increased Damage if you've dealt a Critical Hit Recently,,近期造成暴击时，伤害提高 {value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_4519.sd_1
+zh-CN,game.tree_node.0_1_45712.dn,Elemental Damage and Ignite Chance,,元素伤害与点燃几率,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_46275.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,获得等同于能量护盾上限 {value_1}% 的额外晕眩阈值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_46454.sd_1,Grants {value_1} Passive Skill Point,,获得 {value_1} 个天赋点,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-CN,game.tree_node.0_1_46499.sd_1,Recover {value_1}% of Life for each Endurance Charge consumed,,每消耗一个耐力球，回复 {value_1}% 生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_46742.sd_1,Hits that deal Fire Damage remove Fire Exposure and inflict Lightning Exposure,,造成火焰伤害的击中会移除火焰曝露，并施加闪电曝露,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_46742.sd_2,Hits that deal Cold Damage remove Cold Exposure and inflict Fire Exposure,,造成冰霜伤害的击中会移除冰霜曝露，并施加火焰曝露,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_46742.sd_3,Hits that deal Lightning Damage remove Lightning Exposure and inflict Cold Exposure,,造成闪电伤害的击中会移除闪电曝露，并施加冰霜曝露,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_47097.sd_1,"Corpses in your Presence Explode when you Warcry,",,战吼时，存在范围内的尸体会爆炸，,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_47441.sd_2,Recover {value_1}% of Life when you create an Offering,,创造奉献时，回复 {value_1}% 生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_47733.sd_1,{value_1}% increased Chance to inflict Ailments with One-Handed Attacks,,单手攻击施加异常状态的几率提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_47782.dn,Quick-change Act,,快速切换,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_49088.dn,Fear of Death,,死亡恐惧,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_49189.dn,Scouring Winds,,横扫之风,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_49189.sd_1,Exposure you inflict lowers the affected Resistance by an additional {value_1}%,,你施加的曝露使对应抗性额外降低 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_4985.sd_1,Recover {value_1}% of Life when you Heavy Stun a Rare or Unique Enemy,,对稀有或传奇敌人造成重度晕眩时，回复 {value_1}% 生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_49952.dn,Ailment Effect and Reduced Attack Speed,,异常状态效果与降低的攻击速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_49976.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_1_50558.sd_1,{value_1}% increased Effect of Auras from your Aura Skills,,你的光环技能提供的光环效果提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_5108.sd_1,{value_1}% increased Chance to inflict Ailments with One-Handed Attacks,,单手攻击施加异常状态的几率提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_51184_option_witch.dn,Raw Destruction,,纯粹毁灭,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51184_option_witch.dn
+zh-CN,game.tree_node.0_1_51335.dn,Path of Flame,,烈焰之途,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_51335_option_witch.dn,Jagged Shards,,锯齿碎片,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51335_option_witch.dn
+zh-CN,game.tree_node.0_1_51737.dn,Specialisation Points,,专精点数,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_51737.sd_1,{value_1} Passive Skill Points become Weapon Set Skill Points,,{value_1} 个天赋点变为武器组天赋点,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_8272.sd_1
+zh-CN,game.tree_node.0_1_51795.dn,Ignite and Critical Chance,,点燃与暴击几率,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_5188.dn,Unarmed Attack Speed,,徒手攻击速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_51934.sd_1,Recover {value_1}% of Mana when you Invoke a Spell,,祈求法术时，回复 {value_1}% 魔力,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_53030.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你施加的点燃效果幅度提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_53294.sd_3,{value_1}% increased Magnitude of Ignite you inflict,,你施加的点燃效果幅度提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_53632.dn,Ignite and Critical Chance,,点燃与暴击几率,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_54204.dn,Daze Buildup,,目眩积蓄,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_54311.dn,Critical Ignite Effect,,暴击点燃效果,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_55789.dn,Critical Damage and Increased Mana Cost,,暴击伤害与增加的魔力消耗,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_56214.sd_1,{value_1}% reduced effect of Ignite on you,,你受到的点燃效果降低 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_56453.sd_2,{value_1}% increased Attack Damage when on Low Life,,低血时，攻击伤害提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_56806.dn,Parrying Motion,,招架动作,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_56893.sd_2,Recover {value_1}% of Mana when a Charm is used,,使用护符时，回复 {value_1}% 魔力,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_56910.dn,Battle-hardened,,身经百战,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_56910.dn
+zh-CN,game.tree_node.0_1_57388.sd_3,{value_1}% increased Stun Buildup with Critical Hits,,暴击造成的晕眩积蓄提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_57832.dn,Ignite Effect,,点燃效果,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_57832.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你施加的点燃效果幅度提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_58591.sd_1,"Inherent bonuses from Intelligence, Strength and Dexterity are doubled",,智慧、力量和敏捷的固有加成翻倍,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_58789.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,获得等同于能量护盾上限 {value_1}% 的额外晕眩阈值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_59047.dn,Hold Focus,,维持专注,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_59142.dn,Potent Concoctions,,强效药剂,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_60138.sd_1,Break {value_1}% increased Armour on enemies affected by Ailments,,对受异常状态影响的敌人造成的护甲破坏提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_61142.sd_1,Recover {value_1}% of Life for each Endurance Charge consumed,,每消耗一个耐力球，回复 {value_1}% 生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_61267.sd_1,Maximum {value_1} Demonflame,,最多 {value_1} 层恶魔烈焰,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_61409.dn,Strength and Reduced Mana,,力量与减少的魔力,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_61493.sd_2,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,获得等同于能量护盾上限 {value_1}% 的额外晕眩阈值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_61718.dn,Daze Buildup,,目眩积蓄,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_62122.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_1_62936.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_1_6304.sd_1,Regenerate {value_1}% of Life per second while affected by any Damaging Ailment,,受到任意伤害型异常状态影响时，每秒再生 {value_1}% 生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_64046.dn,Path of Storms,,风暴之途,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_64119.dn,Instant Reload,,立即装填,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_64299.sd_1,{value_1}% increased Effect of Auras from your Aura Skills,,你的光环技能提供的光环效果提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_64327.sd_2,Stagger empties {value_1}% faster while your Shield is lowered,,放下盾牌时，踉跄值消退速度加快 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_64851.dn,Flashy Deflection,,瞬间偏斜,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_6516.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-CN,game.tree_node.0_1_65265.dn,Smooth Buckler,,光滑圆盾,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_6748.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_1_703.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,获得等同于能量护盾上限 {value_1}% 的额外晕眩阈值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_7062.sd_1,{value_1}% chance for Crossbow Attacks to not consume a bolt,,弩攻击有 {value_1}% 的几率不消耗弩箭,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_7888.dn,Unarmed Damage,,徒手伤害,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_8143.sd_1,Gain {value_1} Spirit for every {value_2} Energy Shield on equipped Body Armour,,装备的胸甲每有 {value_2} 点能量护盾，获得 {value_1} 点精魂,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_8143.sd_2,Gain {value_1} Spirit for every {value_2} Evasion Rating on equipped Body Armour,,装备的胸甲每有 {value_2} 点闪避值，获得 {value_1} 点精魂,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_8194.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-CN,game.tree_node.0_1_8272.sd_1,{value_1} Passive Skill Points become Weapon Set Skill Points,,{value_1} 个天赋点变为武器组天赋点,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_8272.sd_1
+zh-CN,game.tree_node.0_1_8531.sd_1,{value_1}% increased Critical Hit Chance against Enemies on Full Life,,对满血敌人的暴击几率提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_9324.sd_1,{value_1}% reduced effect of Ignite on you,,你受到的点燃效果降低 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_1_9642.sd_2,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,获得等同于能量护盾上限 {value_1}% 的额外晕眩阈值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_10320.dn,Minion Defences,,召唤物防御,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_10681.dn,Offensive Stance,,攻击架势,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_1104.sd_1,"{value_1}% chance that if you would gain Power Charges, you instead gain up to",,有 {value_1}% 的几率在获得暴击球时改为获得最多,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_13228.sd_1
+zh-CN,game.tree_node.0_2_13075.dn,Strength and Reduced Mana,,力量与减少的魔力,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_13856.dn,Ailment Effect and Reduced Attack Speed,,异常状态效果与降低的攻击速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_14226.sd_1,{value_1}% more Skill Speed while Off Hand is empty and you have,,技能速度总增 {value_1}%，条件是副手为空，且,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_14226.sd_1
+zh-CN,game.tree_node.0_2_14540.sd_2,Cannot Dodge Roll,,无法闪避翻滚,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_15522.dn,Ignite Effect,,点燃效果,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_15522.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你施加的点燃效果幅度提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_16013.dn,Daze Buildup,,目眩积蓄,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_16140.dn,Daze Buildup,,目眩积蓄,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_16861.dn,Critical Chance and Reduced Mana,,暴击几率与减少的魔力,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_16938.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在伙伴的存在范围内时，伤害提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_17348.dn,Ignite Effect,,点燃效果,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_17348.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你施加的点燃效果幅度提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_17600.sd_1,Life Leech from your Hits also applies to your Companion,,你的击中提供的生命偷取也作用于伙伴,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_17724.dn,Unarmed Area,,徒手范围,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_18073.dn,Attack Damage and Reduced Attack Speed,,攻击伤害与降低的攻击速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_18158.sd_2,contributes to Ignite Chance and Magnitude,,能影响点燃几率与效果幅度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_18826.dn,Ravenous Doubts,,贪婪之虑,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_19104_option_huntress.dn,Reflex Action,,反射动作,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_19104_option_huntress.dn
+zh-CN,game.tree_node.0_2_19288.sd_1,Block Chance is doubled,,格挡几率翻倍,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_20205.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-CN,game.tree_node.0_2_22049_option_huntress.dn,Melee and Projectile Damage,,近战与投射物伤害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_22049_option_huntress.dn
+zh-CN,game.tree_node.0_2_22795_option_huntress.dn,Melee and Projectile Damage,,近战与投射物伤害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_22049_option_huntress.dn
+zh-CN,game.tree_node.0_2_23710.dn,DNT Troller,,DNT 拖钓者,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_23940.sd_1,Increases and Reductions to Armour also apply to Energy Shield,,护甲的提高和降低也适用于能量护盾,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_23940.sd_2,Recharge Rate at {value_1}% of their value,,充能速率，套用比例为原数值的 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_24178.dn,Accuracy and Companion Accuracy,,命中值与伙伴命中值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_24226.dn,Eagle Eyes,,鹰眼,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_24483.sd_1,{value_1}% increased Critical Hit Chance against Enemies that are affected,,暴击几率提高 {value_1}%，针对未受到,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_24483.sd_1
+zh-CN,game.tree_node.0_2_24483.sd_2,by no Elemental Ailments,,任何元素异常状态影响的敌人,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_24483.sd_2
+zh-CN,game.tree_node.0_2_24646.dn,Strength and Reduced Mana,,力量与减少的魔力,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_25781.dn,Reality Rending,,碎裂现实,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_26969.dn,Critical Chance and Reduced Mana,,暴击几率与减少的魔力,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_27667.dn,Open Sores,,开放创口,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_27667.sd_1,Your Curses have infinite Duration,,你的诅咒持续时间无限,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_27950.sd_2,Gain additional Stun Threshold equal to {value_1}% of Armour on Equipped Items,,获得等同于已装备物品护甲 {value_1}% 的额外晕眩阈值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_28361.dn,Weapon Swap Speed,,武器切换速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_28963.dn,Way of the Wind,,风之道,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_28992_option_huntress.dn,Primal Instinct,,原始本能,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_28992_option_huntress.dn
+zh-CN,game.tree_node.0_2_29408.dn,Reduced Mana Cost,,降低的魔力消耗,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_29527.sd_1,{value_1}% increased Critical Hit Chance against Enemies on Full Life,,对满血敌人的暴击几率提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_29645.dn,Greatwolf's Howl,,巨狼之嚎,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_30197.sd_1,{value_1}% increased Attack Speed while in the Presence of your Companion,,在伙伴的存在范围内时，攻击速度提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_30233.dn,As the Whispers Ask,,如低语所愿,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_30334.sd_1,{value_1}% reduced effect of Ignite on you,,你受到的点燃效果降低 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_30910.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在伙伴的存在范围内时，伤害提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_31223.sd_1,Gain additional maximum Life equal to {value_1}% of the Energy Shield on Equipped Body Armour,,获得等同于装备胸甲的能量护盾 {value_1}% 的额外生命上限,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_31326.sd_2,{value_1}% increased Magnitude of Ignite you inflict,,你施加的点燃效果幅度提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_3188.sd_1,Gain Physical Thorns damage equal to {value_1}% of Armour on Equipped Body Armour,,获得等同于装备胸甲的护甲 {value_1}% 的物理荆棘伤害,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_31888.dn,Reduced Mana Cost,,降低的魔力消耗,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_32271.dn,Critical Ignite Effect,,暴击点燃效果,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_33404.sd_2,Life Recovery from Flasks applies to Energy Shield instead,,药剂的生命回复改为作用于能量护盾,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_33729.dn,Elemental Damage and Ignite Chance,,元素伤害与点燃几率,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_34290.dn,Ignite Effect,,点燃效果,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_34290.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你施加的点燃效果幅度提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_34324.sd_1,+{value_1} to Maximum Energy Shield per {value_2} Evasion Rating on Equipped Body Armour,,装备的胸甲每有 {value_2} 点闪避值，能量护盾上限 +{value_1},历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_34497.sd_2,Take {value_1}% more Damage over Time if you've haven't started taking Damage over Time in the past second,,若过去一秒内没有开始承受持续伤害，承受的持续伤害总增 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_34702.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在伙伴的存在范围内时，伤害提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_34817.dn,Inner Silence,,内在寂静,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_36027.dn,Attack Damage and Reduced Attack Speed,,攻击伤害与降低的攻击速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_36252.dn,DNT Whaler,,DNT 捕鲸者,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_36270.dn,Daze Buildup,,目眩积蓄,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_3640.dn,Unarmed Damage,,徒手伤害,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_36676.sd_1,Grants {value_1} Passive Skill Point,,获得 {value_1} 个天赋点,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-CN,game.tree_node.0_2_37078.sd_1,"{value_1}% chance for Enemies you Kill to Explode, dealing {value_2}%",,你击杀的敌人有 {value_1}% 的几率爆炸，造成其生命上限 {value_2}% 的,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_37078.sd_1
+zh-CN,game.tree_node.0_2_37266.sd_2,{value_1}% increased Life Recovery Rate while in the Presence of your Companion,,在伙伴的存在范围内时，生命回复速率提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_3781.dn,Consuming Questions,,烦心问题,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_38003.dn,Weapon Swap Speed,,武器切换速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_3823.dn,Path of Winter,,凛冬之途,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_3823_option_witch.dn,Power of the Dead,,亡者之力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_3823_option_witch.dn
+zh-CN,game.tree_node.0_2_38578.dn,Rain Dancer,,雨之舞者,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_38668.dn,Unarmed Attack Speed,,徒手攻击速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_39495.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在伙伴的存在范围内时，伤害提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_39839.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-CN,game.tree_node.0_2_39986.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在伙伴的存在范围内时，伤害提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_40333.dn,Accuracy and Companion Accuracy,,命中值与伙伴命中值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_40399.sd_1,{value_1}% chance for Trigger skills to refund half of Energy Spent,,触发技能有 {value_1}% 的几率返还一半已消耗的能量,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_40399.sd_1
+zh-CN,game.tree_node.0_2_41665.dn,Critical Damage and Increased Mana Cost,,暴击伤害与增加的魔力消耗,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_41736.dn,DNT Spearfisher,,DNT 鱼叉手,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_42035.dn,Flood of Echoes,,回响洪流,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_42441.dn,Infused Avatar,,灌注化身,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_42441.sd_1,{value_1}% chance for Infusions to Infuse your Projectiles without being Consumed,,灌注有 {value_1}% 的几率在灌注投射物时不被消耗,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_42522.dn,Heart of the Storm,,风暴之心,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_42781_option_huntress.dn,Stalk and Leap,,潜行跃击,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_42781_option_huntress.dn
+zh-CN,game.tree_node.0_2_42998.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在伙伴的存在范围内时，伤害提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_43102.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在伙伴的存在范围内时，伤害提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_4346.sd_1,{value_1}% increased Damage if you've dealt a Critical Hit Recently,,近期造成暴击时，伤害提高 {value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_4519.sd_1
+zh-CN,game.tree_node.0_2_43939.dn,Fireproof,,防火,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_43939.sd_2,{value_1}% reduced effect of Ignite on you,,你受到的点燃效果降低 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_43944.sd_1,"{value_1}% chance that when Volatility on you detonates, you regain an equivalent amount of Volatility",,你身上的无常引爆时，有 {value_1}% 的几率重新获得等量无常,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_44092.dn,Ignite Effect,,点燃效果,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_44092.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你施加的点燃效果幅度提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_44204.dn,Elemental Damage and Ignite Chance,,元素伤害与点燃几率,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_44527_option_huntress.dn,Attuned with Nature,,自然共鸣,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_44527_option_huntress.dn
+zh-CN,game.tree_node.0_2_45090.dn,Attack Damage and Reduced Attack Speed,,攻击伤害与降低的攻击速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_4519.sd_1,{value_1}% increased Damage if you've dealt a Critical Hit Recently,,近期造成暴击时，伤害提高 {value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_4519.sd_1
+zh-CN,game.tree_node.0_2_45712.dn,Elemental Damage and Ignite Chance,,元素伤害与点燃几率,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_46386.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在伙伴的存在范围内时，伤害提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_46454.sd_1,Grants {value_1} Passive Skill Point,,获得 {value_1} 个天赋点,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-CN,game.tree_node.0_2_46742.sd_1,Hits that deal Fire Damage remove Fire Exposure and inflict Lightning Exposure,,造成火焰伤害的击中会移除火焰曝露，并施加闪电曝露,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_46742.sd_2,Hits that deal Cold Damage remove Cold Exposure and inflict Fire Exposure,,造成冰霜伤害的击中会移除冰霜曝露，并施加火焰曝露,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_46742.sd_3,Hits that deal Lightning Damage remove Lightning Exposure and inflict Cold Exposure,,造成闪电伤害的击中会移除闪电曝露，并施加冰霜曝露,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_47782.dn,Quick-change Act,,快速切换,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_49088.dn,Fear of Death,,死亡恐惧,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_49130.dn,Reduced Arrow Speed,,降低的箭矢速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_49189.dn,Scouring Winds,,横扫之风,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_49189.sd_1,Exposure you inflict lowers the affected Resistance by an additional {value_1}%,,你施加的曝露使对应抗性额外降低 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_49952.dn,Ailment Effect and Reduced Attack Speed,,异常状态效果与降低的攻击速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_49976.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_2_51184_option_witch.dn,Raw Destruction,,纯粹毁灭,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51184_option_witch.dn
+zh-CN,game.tree_node.0_2_51335.dn,Path of Flame,,烈焰之途,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_51335_option_witch.dn,Jagged Shards,,锯齿碎片,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51335_option_witch.dn
+zh-CN,game.tree_node.0_2_51737.dn,Specialisation Points,,专精点数,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_51737.sd_1,{value_1} Passive Skill Points become Weapon Set Skill Points,,{value_1} 个天赋点变为武器组天赋点,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_8272.sd_1
+zh-CN,game.tree_node.0_2_51795.dn,Ignite and Critical Chance,,点燃与暴击几率,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_5188.dn,Unarmed Attack Speed,,徒手攻击速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_52415.sd_1,{value_1}% increased Attack Speed while in the Presence of your Companion,,在伙伴的存在范围内时，攻击速度提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_53030.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你施加的点燃效果幅度提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_53294.sd_3,{value_1}% increased Magnitude of Ignite you inflict,,你施加的点燃效果幅度提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_53632.dn,Ignite and Critical Chance,,点燃与暴击几率,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_54204.dn,Daze Buildup,,目眩积蓄,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_54311.dn,Critical Ignite Effect,,暴击点燃效果,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_55193.sd_1,+{value_1} to Evasion Rating per {value_2} Energy Shield on Equipped Helmet,,装备的头盔每有 {value_2} 点能量护盾，闪避值 +{value_1},历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_55429_option_huntress.dn,Melee and Projectile Damage,,近战与投射物伤害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_22049_option_huntress.dn
+zh-CN,game.tree_node.0_2_55789.dn,Critical Damage and Increased Mana Cost,,暴击伤害与增加的魔力消耗,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_56214.sd_1,{value_1}% reduced effect of Ignite on you,,你受到的点燃效果降低 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_56453.sd_2,{value_1}% increased Attack Damage when on Low Life,,低血时，攻击伤害提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_56806.dn,Parrying Motion,,招架动作,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_56910.dn,Battle-hardened,,身经百战,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_56910.dn
+zh-CN,game.tree_node.0_2_57832.dn,Ignite Effect,,点燃效果,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_57832.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你施加的点燃效果幅度提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_57933.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在伙伴的存在范围内时，伤害提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_58416.dn,Increased Arrow Speed,,提高的箭矢速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_5852.dn,DNT Angler,,DNT 垂钓者,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_59.dn,Dominion Over Flesh,,血肉主宰,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_59.sd_2,Your Curses can affect Hexproof Enemies,,你的诅咒可以影响无咒敌人,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_61409.dn,Strength and Reduced Mana,,力量与减少的魔力,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_61718.dn,Daze Buildup,,目眩积蓄,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_62122.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_2_62936.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_2_64046.dn,Path of Storms,,风暴之途,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_64119.dn,Instant Reload,,立即装填,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_64851.dn,Flashy Deflection,,瞬间偏斜,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_64962.sd_1,Body Armour grants Armour also applies to Chaos Damage taken from Hits,,胸甲提供的护甲也适用于承受的击中混沌伤害,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_6516.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-CN,game.tree_node.0_2_65265.dn,Swift Deflection,,迅捷偏斜,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_65518.dn,Between the Cracks,,裂隙之间,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_6748.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_2_7062.sd_1,{value_1}% chance for Crossbow Attacks to not consume a bolt,,弩攻击有 {value_1}% 的几率不消耗弩箭,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_7888.dn,Unarmed Damage,,徒手伤害,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_7979.dn,Elemental Infusion,,元素灌注,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_7979.sd_1,When you Consume a Power Charge Trigger Infuse Weapon to gain {value_1} Cold Infusion,,消耗暴击球时触发灌注武器，获得 {value_1} 个冰霜灌注,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_7979.sd_2,When you Consume an Endurance Charge Trigger Infuse Weapon to gain {value_1} Fire Infusion,,消耗耐力球时触发灌注武器，获得 {value_1} 个火焰灌注,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_7979.sd_3,When you Consume a Frenzy Charge Trigger Infuse Weapon to gain {value_1} Lightning Infusion,,消耗狂怒球时触发灌注武器，获得 {value_1} 个闪电灌注,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_8143.sd_1,+{value_1} to Spirit for every {value_2} Energy Shield on Equipped Body Armour,,装备的胸甲每有 {value_2} 点能量护盾，精魂 +{value_1},历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_8194.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-CN,game.tree_node.0_2_8272.sd_1,{value_1} Passive Skill Points become Weapon Set Skill Points,,{value_1} 个天赋点变为武器组天赋点,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_8272.sd_1
+zh-CN,game.tree_node.0_2_8531.sd_1,{value_1}% increased Critical Hit Chance against Enemies on Full Life,,对满血敌人的暴击几率提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_8789.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在伙伴的存在范围内时，伤害提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_2_9324.sd_1,{value_1}% reduced effect of Ignite on you,,你受到的点燃效果降低 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_3_14226.sd_1,{value_1}% more Skill Speed while Off Hand is empty and you have,,技能速度总增 {value_1}%，条件是副手为空，且,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_14226.sd_1
+zh-CN,game.tree_node.0_3_19104_option_huntress.dn,Reflex Action,,反射动作,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_19104_option_huntress.dn
+zh-CN,game.tree_node.0_3_20205.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-CN,game.tree_node.0_3_21206.sd_2,"Burning Enemies you kill have a {value_1}% chance to Explode, dealing a",,你击杀的燃烧敌人有 {value_1}% 的几率爆炸，造成,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_21206.sd_2
+zh-CN,game.tree_node.0_3_21206.sd_3,tenth of their maximum Life as Fire Damage,,其生命上限十分之一的火焰伤害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_21206.sd_3
+zh-CN,game.tree_node.0_3_22049_option_huntress.dn,Melee and Projectile Damage,,近战与投射物伤害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_22049_option_huntress.dn
+zh-CN,game.tree_node.0_3_22795_option_huntress.dn,Melee and Projectile Damage,,近战与投射物伤害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_22049_option_huntress.dn
+zh-CN,game.tree_node.0_3_23352_option_abyssal_lich.dn,Rupture the Flesh,,血肉撕裂,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_23352_option_abyssal_lich.dn
+zh-CN,game.tree_node.0_3_23940.sd_1,Increases and Reductions to Armour also apply to Energy Shield,,护甲的提高和降低也适用于能量护盾,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_3_23940.sd_2,Recharge Rate at {value_1}% of their value,,充能速率，套用比例为原数值的 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_3_24483.sd_1,{value_1}% increased Critical Hit Chance against Enemies that are affected,,暴击几率提高 {value_1}%，针对未受到,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_24483.sd_1
+zh-CN,game.tree_node.0_3_24483.sd_2,by no Elemental Ailments,,任何元素异常状态影响的敌人,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_24483.sd_2
+zh-CN,game.tree_node.0_3_2516_option_abyssal_lich.dn,Steward of Kulemak,,库勒马克的管家,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_2516_option_abyssal_lich.dn
+zh-CN,game.tree_node.0_3_26085_option_abyssal_lich.dn,Umbral Well,,暗影之井,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_26085_option_abyssal_lich.dn
+zh-CN,game.tree_node.0_3_2877_option_abyssal_lich.dn,Unwilling Offering,,非自愿献祭,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_2877_option_abyssal_lich.dn
+zh-CN,game.tree_node.0_3_28992_option_huntress.dn,Primal Instinct,,原始本能,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_28992_option_huntress.dn
+zh-CN,game.tree_node.0_3_30996.sd_3,Blue: Skills have {value_1}% less cost,,蓝色：技能消耗总降 {value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_30996.sd_3
+zh-CN,game.tree_node.0_3_30996.sd_4,Green: {value_1}% less Movement Speed Penalty from using Skills while Moving,,绿色：移动时使用技能的移动速度惩罚总降 {value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_30996.sd_4
+zh-CN,game.tree_node.0_3_32151.sd_1,+{value_1}% to all Maximum Elemental Resistances if you have at,,所有元素抗性上限 +{value_1}%，条件是已镶嵌,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_32151.sd_1
+zh-CN,game.tree_node.0_3_32151.sd_2,"least {value_1} Red, Green and Blue Support Gems Socketed",,红、绿、蓝色辅助宝石各至少 {value_1} 个,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_32151.sd_2
+zh-CN,game.tree_node.0_3_35058.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-CN,game.tree_node.0_3_36676.sd_1,Grants {value_1} Passive Skill Point,,获得 {value_1} 个天赋点,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-CN,game.tree_node.0_3_37078.sd_1,"{value_1}% chance for Enemies you Kill to Explode, dealing {value_2}%",,你击杀的敌人有 {value_1}% 的几率爆炸，造成其生命上限 {value_2}% 的,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_37078.sd_1
+zh-CN,game.tree_node.0_3_3823_option_witch.dn,Power of the Dead,,亡者之力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_3823_option_witch.dn
+zh-CN,game.tree_node.0_3_38570.sd_1,Gain {value_1}% of Damage as Extra Fire Damage for,,获得相当于伤害 {value_1}% 的额外火焰伤害，按下列数量叠加：,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_38570.sd_1
+zh-CN,game.tree_node.0_3_38570.sd_2,every different Grenade fired in the past {value_1} seconds,,过去 {value_1} 秒内发射的不同榴弹种类数,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_38570.sd_2
+zh-CN,game.tree_node.0_3_39839.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-CN,game.tree_node.0_3_40399.sd_1,{value_1}% chance for Trigger skills to refund half of Energy Spent,,触发技能有 {value_1}% 的几率返还一半已消耗的能量,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_40399.sd_1
+zh-CN,game.tree_node.0_3_40687.dn,Lead by Example,,以身作则,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_40687.dn
+zh-CN,game.tree_node.0_3_42781_option_huntress.dn,Stalk and Leap,,潜行跃击,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_42781_option_huntress.dn
+zh-CN,game.tree_node.0_3_4346.sd_1,{value_1}% increased Damage if you've dealt a Critical Hit Recently,,近期造成暴击时，伤害提高 {value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_4519.sd_1
+zh-CN,game.tree_node.0_3_44527_option_huntress.dn,Attuned with Nature,,自然共鸣,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_44527_option_huntress.dn
+zh-CN,game.tree_node.0_3_4519.sd_1,{value_1}% increased Damage if you've dealt a Critical Hit Recently,,近期造成暴击时，伤害提高 {value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_4519.sd_1
+zh-CN,game.tree_node.0_3_46454.sd_1,Grants {value_1} Passive Skill Point,,获得 {value_1} 个天赋点,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-CN,game.tree_node.0_3_46742.sd_1,Infusion Remnants you create are always a Random Element,,你创造的灌注残留物始终属于随机元素,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_3_49976.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_3_50817.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_3_51142_option_abyssal_lich.dn,Minion Reservation Efficiency,,召唤生物保留效能,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51142_option_abyssal_lich.dn
+zh-CN,game.tree_node.0_3_51184_option_witch.dn,Raw Destruction,,纯粹毁灭,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51184_option_witch.dn
+zh-CN,game.tree_node.0_3_51335_option_witch.dn,Jagged Shards,,锯齿碎片,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51335_option_witch.dn
+zh-CN,game.tree_node.0_3_55429_option_huntress.dn,Melee and Projectile Damage,,近战与投射物伤害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_22049_option_huntress.dn
+zh-CN,game.tree_node.0_3_56910.dn,Battle-hardened,,身经百战,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_56910.dn
+zh-CN,game.tree_node.0_3_57819.sd_1,Skills deal {value_1}% increased Damage per Connected red Support Gem,,每连接一个红色辅助宝石，技能伤害提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_3_57819.sd_2,Skills have {value_1}% increased Skill Speed per Connected green Support Gem,,每连接一个绿色辅助宝石，技能速度提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_3_57819.sd_3,Skills have {value_1}% increased Critical Hit Chance per Connected blue Support Gem,,每连接一个蓝色辅助宝石，技能暴击几率提高 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_3_61355.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_3_62122.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_3_62936.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_3_64601.sd_3,Physical damage based on their Skill Level,,基于其技能等级的物理伤害,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_3_64601.sd_4,{value_1}% more Attack Speed per {value_2} Item Evasion Rating on Equipped Armour Items,,装备的护甲物品每有 {value_2} 点物品闪避值，攻击速度总增 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_3_64601.sd_5,+{value_1}% to Critical Hit Chance per {value_2} Item Energy Shield on Equipped Armour Items,,装备的护甲物品每有 {value_2} 点物品能量护盾，暴击几率 +{value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_64601.sd_5
+zh-CN,game.tree_node.0_3_6516.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-CN,game.tree_node.0_3_6748.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_3_6898_option_druid.dn,Guardian of the Wilds,,荒野守护者,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6898_option_druid.dn
+zh-CN,game.tree_node.0_3_7062.sd_1,Bolts fired by Crossbow Attacks have {value_1}% chance to not,,弩攻击发射的弩箭有 {value_1}% 的几率不,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_7062.sd_1
+zh-CN,game.tree_node.0_3_7062.sd_2,expend Ammunition if you've Reloaded Recently,,消耗弹药，前提是你近期装填过,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_7062.sd_2
+zh-CN,game.tree_node.0_3_8194.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-CN,game.tree_node.0_3_8272.sd_1,{value_1} Passive Skill Points become Weapon Set Skill Points,,{value_1} 个天赋点变为武器组天赋点,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_8272.sd_1
+zh-CN,game.tree_node.0_4_10561.flavour_text,"""My heart was fractured. I believed Kelari's words. I knew not his true nature... his ambition. I convinced Ruzhan there were cowards among his ranks. I failed you. And I accept my fate."" 
+
+Navira confessed her failure to Varashta.",,"“我的心碎了。我相信了凯拉里的话，却不知道他的真面目……他的野心。我让鲁詹相信，他的队伍中有懦夫。我辜负了你。我接受自己的命运。”
+
+纳薇拉向瓦拉煞承认了自己的过错。",同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_10561.flavour_text
+zh-CN,game.tree_node.0_4_11335.sd_1,Grants {value_1} Passive Skill Point,,获得 {value_1} 个天赋点,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-CN,game.tree_node.0_4_12183.sd_1,Grants {value_1} Passive Skill Point,,获得 {value_1} 个天赋点,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-CN,game.tree_node.0_4_12795.sd_2,Grants {value_1} Passive Skill Point,,获得 {value_1} 个天赋点,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-CN,game.tree_node.0_4_13228.sd_1,"{value_1}% chance that if you would gain Power Charges, you instead gain up to",,有 {value_1}% 的几率在获得暴击球时改为获得最多,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_13228.sd_1
+zh-CN,game.tree_node.0_4_13289.flavour_text,"""And you... there was no excuse for your actions. You defiled them! You have tainted the very sands with the blood of your own! Yet the war rages on. You have achieved nothing. You must pay."" 
+
+Varashta condemned Kelari to the ritual of the barya, sentenced to serve as a Djinn.",,"“还有你……你的所作所为无可辩解。你亵渎了他们！你用同胞的鲜血玷污了这片沙地！可战争仍在继续。你一事无成。你必须付出代价。”
+
+瓦拉煞判处凯拉里接受巴里亚仪式，成为供人驱使的巨灵。",历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_4_14131.flavour_text,"""Yes... they fell by my blade and fire lashed them for their betrayal! No dekhara is exempt from fighting back the Winter before us. Lest they too know the Doom of the Desert!"" 
+
+Ruzhan fumed at Varashta, in pure defiance.",,"“没错……他们死在我的刀下，烈火因他们的背叛而鞭笞他们！面对寒冬，每个德卡拉都必须奋起抵抗。否则，他们也将领教沙漠的末日！”
+
+鲁詹怒斥瓦拉煞，满是不屈。",历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_4_14226.sd_1,{value_1}% more Skill Speed while Off Hand is empty and you have,,技能速度总增 {value_1}%，条件是副手为空，且,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_14226.sd_1
+zh-CN,game.tree_node.0_4_19104_option_huntress.dn,Reflex Action,,反射动作,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_19104_option_huntress.dn
+zh-CN,game.tree_node.0_4_20205.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-CN,game.tree_node.0_4_21206.sd_2,"Burning Enemies you kill have a {value_1}% chance to Explode, dealing a",,你击杀的燃烧敌人有 {value_1}% 的几率爆炸，造成,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_21206.sd_2
+zh-CN,game.tree_node.0_4_21206.sd_3,tenth of their maximum Life as Fire Damage,,其生命上限十分之一的火焰伤害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_21206.sd_3
+zh-CN,game.tree_node.0_4_22049_option_huntress.dn,Melee and Projectile Damage,,近战与投射物伤害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_22049_option_huntress.dn
+zh-CN,game.tree_node.0_4_22795_option_huntress.dn,Melee and Projectile Damage,,近战与投射物伤害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_22049_option_huntress.dn
+zh-CN,game.tree_node.0_4_23265.flavour_text,"""Listen not to his simpering words, he means to languish before you to weaken your resolve! He is duplicitous. An assassin, thriving on deception and lies. His lust for power is what drove his choice!"" 
+
+Outrage trembled in Ruzhan's voice at the sentencing.",,"“别听他那些谄媚的话，他故作可怜，就是为了动摇你的决心！他是个两面三刀的刺客，靠欺骗和谎言过活。正是对权力的渴望驱使他作出了那样的选择！”
+
+宣判时，鲁詹的声音因愤怒而颤抖。",历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_4_23352_option_abyssal_lich.dn,Rupture the Flesh,,血肉撕裂,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_23352_option_abyssal_lich.dn
+zh-CN,game.tree_node.0_4_23940.sd_1,Increases and Reductions to Armour also apply to Energy Shield,,护甲的提高和降低也适用于能量护盾,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_4_23940.sd_2,Recharge Rate at {value_1}% of their value,,充能速率，套用比例为原数值的 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_4_24483.sd_1,{value_1}% increased Critical Hit Chance against Enemies that are affected,,暴击几率提高 {value_1}%，针对未受到,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_24483.sd_1
+zh-CN,game.tree_node.0_4_24483.sd_2,by no Elemental Ailments,,任何元素异常状态影响的敌人,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_24483.sd_2
+zh-CN,game.tree_node.0_4_2516_option_abyssal_lich.dn,Steward of Kulemak,,库勒马克的管家,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_2516_option_abyssal_lich.dn
+zh-CN,game.tree_node.0_4_25653.flavour_text,"""Knowing where and when to plunge your knife is more important than the sharpness of your blade. I will not forget my error... and I will be a living example of your wisdom, dear Sekhema."" 
+
+Kelari accepted Varashta's sentence and committed himself to her.",,"“懂得何时、何处下刀，比刀锋是否锐利更重要。我不会忘记自己的过错……亲爱的丝克玛，我会用余生印证你的智慧。”
+
+凯拉里接受了瓦拉煞的判决，并宣誓效忠于她。",历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_4_25683.flavour_text,"""I stand before you, as your humble servant. Though I was betrayed, I would do it all again, if it would have saved us. But I accept your sentence. I will atone. I pledge myself to you... forevermore."" 
+
+Ruzhan accepted his fate at the barya ritual site.",,"“我站在你面前，是你卑微的仆人。虽然遭人背叛，但只要能拯救我们，我仍愿再做一次。不过，我接受你的判决。我会赎罪。我将永远……效忠于你。”
+
+鲁詹在巴里亚仪式场接受了自己的命运。",历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_4_26085_option_abyssal_lich.dn,Umbral Well,,暗影之井,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_26085_option_abyssal_lich.dn
+zh-CN,game.tree_node.0_4_2877_option_abyssal_lich.dn,Unwilling Offering,,非自愿献祭,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_2877_option_abyssal_lich.dn
+zh-CN,game.tree_node.0_4_28950_option_druid.dn,Bastion of the Forest,,森林堡垒,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_28950_option_druid.dn
+zh-CN,game.tree_node.0_4_28992_option_huntress.dn,Primal Instinct,,原始本能,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_28992_option_huntress.dn
+zh-CN,game.tree_node.0_4_29881.sd_1,Gain Arcane Surge when you Shapeshift to Human form after,,变回人形时获得秘术增幅，前提是已,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_29881.sd_1
+zh-CN,game.tree_node.0_4_29881.sd_2,being Shapeshifted for at least {value_1} seconds,,持续变形至少 {value_1} 秒,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_29881.sd_2
+zh-CN,game.tree_node.0_4_30996.sd_3,Blue: Skills have {value_1}% less cost,,蓝色：技能消耗总降 {value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_30996.sd_3
+zh-CN,game.tree_node.0_4_30996.sd_4,Green: {value_1}% less Movement Speed Penalty from using Skills while Moving,,绿色：移动时使用技能的移动速度惩罚总降 {value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_30996.sd_4
+zh-CN,game.tree_node.0_4_32151.sd_1,+{value_1}% to all Maximum Elemental Resistances if you have at,,所有元素抗性上限 +{value_1}%，条件是已镶嵌,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_32151.sd_1
+zh-CN,game.tree_node.0_4_32151.sd_2,"least {value_1} Red, Green and Blue Support Gems Socketed",,红、绿、蓝色辅助宝石各至少 {value_1} 个,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_32151.sd_2
+zh-CN,game.tree_node.0_4_32705.flavour_text,"""You knew the twisted plan these fools devised. As Tale Woman, you are their compass in the sandstorm. Yet... you did not act. And now we mourn these honoured dead. You must pay.""
+ 
+Varashta condemned Navira to the ritual of the barya, sentenced to serve as a Djinn.",,"“你明知这些蠢货策划的邪恶阴谋。身为述史女，你本应在沙暴中为他们指引方向。然而……你却无动于衷。如今，我们只能哀悼这些可敬的亡者。你必须付出代价。”
+
+瓦拉煞判处纳薇拉接受巴里亚仪式，成为供人驱使的巨灵。",历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_4_34207.flavour_text,"""You have forsaken your duty to my akhara. Yes... we do not abide weakness. But we also do not abide madness in the fervour of battle! Your slain dekhara will have their justice. You must pay."" 
+
+Varashta condemned Ruzhan to the ritual of the barya, sentenced to serve as a Djinn.",,"“你背弃了对我部族的责任。没错……我们不容忍软弱，但也不容忍在战斗狂热中陷入疯狂！被你杀害的德卡拉必将得到公道。你必须付出代价。”
+
+瓦拉煞判处鲁詹接受巴里亚仪式，成为供人驱使的巨灵。",历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_4_35058.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-CN,game.tree_node.0_4_36109.flavour_text,"""The snare was set on our fallen. Beetles burst from their flesh, flooding the sands. Their exploding carapaces halted the advancing enemy... but it was not enough. And for that... I grieve."" 
+
+Kelari admitted his wrongdoing to Varashta.",,"“陷阱设在我们阵亡同胞的身上。甲虫从他们的血肉中迸出，涌遍沙地。爆裂的甲壳阻挡了敌军前进……但这还不够。对此……我深感悲痛。”
+
+凯拉里向瓦拉煞承认了自己的罪行。",同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_36109.flavour_text
+zh-CN,game.tree_node.0_4_36602_option_druid.dn,Skill Speed while Shapeshifted,,变形期间的技能速度,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_39540_option_druid.dn
+zh-CN,game.tree_node.0_4_36676.sd_1,Grants {value_1} Passive Skill Point,,获得 {value_1} 个天赋点,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-CN,game.tree_node.0_4_37078.sd_1,"{value_1}% chance for Enemies you Kill to Explode, dealing {value_2}%",,你击杀的敌人有 {value_1}% 的几率爆炸，造成其生命上限 {value_2}% 的,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_37078.sd_1
+zh-CN,game.tree_node.0_4_3823_option_witch.dn,Power of the Dead,,亡者之力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_3823_option_witch.dn
+zh-CN,game.tree_node.0_4_38570.sd_1,Gain {value_1}% of Damage as Extra Fire Damage for,,获得相当于伤害 {value_1}% 的额外火焰伤害，按下列数量叠加：,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_38570.sd_1
+zh-CN,game.tree_node.0_4_38570.sd_2,every different Grenade fired in the past {value_1} seconds,,过去 {value_1} 秒内发射的不同榴弹种类数,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_38570.sd_2
+zh-CN,game.tree_node.0_4_39102.sd_1,"{value_1}% chance that if you would gain Power Charges, you instead gain up to",,有 {value_1}% 的几率在获得暴击球时改为获得最多,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_13228.sd_1
+zh-CN,game.tree_node.0_4_39540_option_druid.dn,Skill Speed while Shapeshifted,,变形期间的技能速度,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_39540_option_druid.dn
+zh-CN,game.tree_node.0_4_39839.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-CN,game.tree_node.0_4_40399.sd_1,{value_1}% chance for Trigger skills to refund half of Energy Spent,,触发技能有 {value_1}% 的几率返还一半已消耗的能量,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_40399.sd_1
+zh-CN,game.tree_node.0_4_40687.dn,Lead by Example,,以身作则,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_40687.dn
+zh-CN,game.tree_node.0_4_42781_option_huntress.dn,Stalk and Leap,,潜行跃击,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_42781_option_huntress.dn
+zh-CN,game.tree_node.0_4_43426.flavour_text,"""Wipe the tears from your face, dear Navira. I did not deceive you. I meant every word. I will forever cherish you, my beloved. Know that I did it all for you... for our future!"" 
+
+Kelari pleaded with the Tale Woman.",,"“擦干眼泪吧，亲爱的纳薇拉。我没有欺骗你。我的每句话都出自真心。我会永远珍爱你，我的挚爱。请相信，这一切都是为了你……为了我们的未来！”
+
+凯拉里向述史女苦苦哀求。",历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_4_4346.sd_1,{value_1}% increased Damage if you've dealt a Critical Hit Recently,,近期造成暴击时，伤害提高 {value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_4519.sd_1
+zh-CN,game.tree_node.0_4_43486.sd_1,"{value_1}% chance that if you would gain Power Charges, you instead gain up to",,有 {value_1}% 的几率在获得暴击球时改为获得最多,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_13228.sd_1
+zh-CN,game.tree_node.0_4_44527_option_huntress.dn,Attuned with Nature,,自然共鸣,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_44527_option_huntress.dn
+zh-CN,game.tree_node.0_4_4519.sd_1,{value_1}% increased Damage if you've dealt a Critical Hit Recently,,近期造成暴击时，伤害提高 {value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_4519.sd_1
+zh-CN,game.tree_node.0_4_45602.flavour_text,"""Kelari, you deceiver! I fell for your words, but no longer. Your sentence is a fate too good for you! I would give anything to bring back those who fell to your lies. Instead... I mourn my choices."" 
+
+Navira lambasted Kelari a final time.",,"“凯拉里，你这个骗子！我曾轻信你的话，但再也不会了。你所受的惩罚对你而言都太仁慈！只要能让那些因你的谎言而死的人回来，我愿付出一切。然而……我只能为自己的选择而悲伤。”
+
+纳薇拉最后一次痛斥凯拉里。",同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_45602.flavour_text
+zh-CN,game.tree_node.0_4_47190.sd_1,Grants {value_1} Passive Skill Point,,获得 {value_1} 个天赋点,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-CN,game.tree_node.0_4_49363.sd_4,have {value_1}% less duration,,持续时间总降 {value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_49363.sd_4
+zh-CN,game.tree_node.0_4_49976.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_4_50817.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_4_51142_option_abyssal_lich.dn,Minion Reservation Efficiency,,召唤生物保留效能,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51142_option_abyssal_lich.dn
+zh-CN,game.tree_node.0_4_51184_option_witch.dn,Raw Destruction,,纯粹毁灭,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51184_option_witch.dn
+zh-CN,game.tree_node.0_4_51335_option_witch.dn,Jagged Shards,,锯齿碎片,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51335_option_witch.dn
+zh-CN,game.tree_node.0_4_54289.sd_1,"{value_1}% chance that if you would gain Power Charges, you instead gain up to",,有 {value_1}% 的几率在获得暴击球时改为获得最多,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_13228.sd_1
+zh-CN,game.tree_node.0_4_55429_option_huntress.dn,Melee and Projectile Damage,,近战与投射物伤害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_22049_option_huntress.dn
+zh-CN,game.tree_node.0_4_56910.dn,Battle-hardened,,身经百战,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_56910.dn
+zh-CN,game.tree_node.0_4_57253.sd_2,Grants {value_1} Passive Skill Point,,获得 {value_1} 个天赋点,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-CN,game.tree_node.0_4_5777_option_druid.dn,Natural Essence,,自然精华,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_5777_option_druid.dn
+zh-CN,game.tree_node.0_4_61355.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_4_62122.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_4_62936.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_4_64299_option_druid.dn,Harbinger of Disaster,,灾难先驱,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_64299_option_druid.dn
+zh-CN,game.tree_node.0_4_64591.flavour_text,"""I have seen countless battles. I know war! The taste of defeat... The taste of victory! But in this war... everything is at stake. So yes, those you speak of will know my blade. I will do whatever I must!"" 
+
+Ruzhan confided in his Tale-Woman, Navira.",,"“我见过无数战役。我懂得战争！失败的滋味……胜利的滋味！但这场战争……赌上了一切。所以，没错，你说的那些人将见识我的刀锋。我会不惜一切！”
+
+鲁詹向他的述史女纳薇拉吐露了心声。",历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_4_64601.sd_3,Physical damage based on their Skill Level,,基于其技能等级的物理伤害,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_4_64601.sd_4,{value_1}% more Attack Speed per {value_2} Item Evasion Rating on Equipped Armour Items,,装备的护甲物品每有 {value_2} 点物品闪避值，攻击速度总增 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-CN,game.tree_node.0_4_64601.sd_5,+{value_1}% to Critical Hit Chance per {value_2} Item Energy Shield on Equipped Armour Items,,装备的护甲物品每有 {value_2} 点物品能量护盾，暴击几率 +{value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_64601.sd_5
+zh-CN,game.tree_node.0_4_6516.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-CN,game.tree_node.0_4_6748.dn,Damage from Mana,,伤害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-CN,game.tree_node.0_4_6898_option_druid.dn,Guardian of the Wilds,,荒野守护者,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6898_option_druid.dn
+zh-CN,game.tree_node.0_4_7062.sd_1,Bolts fired by Crossbow Attacks have {value_1}% chance to not,,弩攻击发射的弩箭有 {value_1}% 的几率不,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_7062.sd_1
+zh-CN,game.tree_node.0_4_7062.sd_2,expend Ammunition if you've Reloaded Recently,,消耗弹药，前提是你近期装填过,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_7062.sd_2
+zh-CN,game.tree_node.0_4_8194.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-CN,game.tree_node.0_4_8272.sd_1,{value_1} Passive Skill Points become Weapon Set Skill Points,,{value_1} 个天赋点变为武器组天赋点,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_8272.sd_1
+zh-TW,game.tree_node.0_1_10208.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,獲得等同於最大能量護盾 {value_1}% 的額外暈眩門檻,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_10552.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,獲得等同於最大能量護盾 {value_1}% 的額外暈眩門檻,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_11526.sd_1,"Arrows gain Critical Hit Chance as they travel farther, up to",,箭矢的暴擊率隨飛行距離提高，最多在,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11526.sd_1
+zh-TW,game.tree_node.0_1_11526.sd_2,{value_1}% increased Critical Hit Chance after {value_2} metres,,{value_2} 公尺後增加 {value_1}% 暴擊率,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11526.sd_2
+zh-TW,game.tree_node.0_1_12276.sd_1,{value_1}% chance to Aftershock for Slam Skills you use with Maces,,使用錘類武器的猛擊技能有 {value_1}% 機率造成餘震,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_12462.sd_1,{value_1}% increased Effect of Auras from your Aura Skills,,你的光環技能提供的光環效果增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_13307.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,獲得等同於最大能量護盾 {value_1}% 的額外暈眩門檻,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_13980.sd_1,{value_1}% chance to Aftershock for Slam Skills you use with Maces,,使用錘類武器的猛擊技能有 {value_1}% 機率造成餘震,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_13980.sd_2,{value_1}% chance to Aftershock for Strike Skills you use with Maces,,使用錘類武器的打擊技能有 {value_1}% 機率造成餘震,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_14226.sd_1,{value_1}% more Skill Speed while Off Hand is empty and you have,,技能速度更多 {value_1}%，條件是副手為空，且,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_14226.sd_1
+zh-TW,game.tree_node.0_1_14540.sd_1,Your Stun Threshold is doubled,,你的暈眩門檻加倍,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_15522.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你造成的點燃效果幅度增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_17348.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你造成的點燃效果幅度增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_17655.sd_1,{value_1}% increased Effect of Auras from your Aura Skills,,你的光環技能提供的光環效果增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_17882.sd_1,{value_1}% reduced Grenade fuse duration,,榴彈引信持續時間縮短 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_18158.sd_2,Allies in your Presence contributes to Ignite Chance and Magnitude,,存在範圍內盟友造成的所有傷害，都能影響點燃機率與效果幅度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_18895.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,獲得等同於最大能量護盾 {value_1}% 的額外暈眩門檻,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_19288.sd_1,Block Chance is doubled,,格擋機率加倍,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_20205.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-TW,game.tree_node.0_1_21164.sd_1,Minions gain {value_1}% of their Maximum Life as Extra Maximum Energy Shield,,召喚物獲得等同於自身最大生命 {value_1}% 的額外最大能量護盾,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_21415.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,獲得等同於最大能量護盾 {value_1}% 的額外暈眩門檻,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_22909.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,獲得等同於最大能量護盾 {value_1}% 的額外暈眩門檻,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_23940.sd_1,Increases and Reductions to Armour also apply to Energy Shield,,護甲的增加和減少也套用於能量護盾,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_23940.sd_2,Recharge Rate at {value_1}% of their value,,充能速率，套用比例為原數值的 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_25363.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,獲得等同於最大能量護盾 {value_1}% 的額外暈眩門檻,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_26614.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,獲得等同於最大能量護盾 {value_1}% 的額外暈眩門檻,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_27667.sd_1,Your Curses have infinite Duration,,你的詛咒持續時間無限,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_2857.sd_2,{value_1}% less Shock Duration,,感電持續時間總降 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_29514.sd_1,{value_1}% increased Grenade fuse duration,,榴彈引信持續時間延長 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_29527.sd_1,{value_1}% increased Critical Hit Chance against Enemies on Full Life,,對滿血敵人的暴擊機率增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_30334.sd_1,{value_1}% reduced effect of Ignite on you,,你受到的點燃效果減少 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_30996.sd_1,You can use two copies of the same Support Gem in different Skills,,可以在不同技能中使用同一種輔助寶石的兩個副本,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_31223.sd_1,Gain Energy Shield from equipped Body Armour as extra maximum Life,,獲得等同於裝備胸甲的能量護盾的額外最大生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_31326.sd_2,{value_1}% increased Magnitude of Ignite you inflict,,你造成的點燃效果幅度增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_32349.sd_2,Triple Attribute requirements of weapons,,武器的能力值需求變為三倍,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_33404.sd_2,Life Recovery from Flasks applies to Energy Shield instead,,藥劑的生命回復改為作用於能量護盾,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_33812.dn,Warbringer,,戰爭使者,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_33812.dn
+zh-TW,game.tree_node.0_1_34290.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你造成的點燃效果幅度增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_34324.sd_1,+{value_1} to Maximum Energy Shield per {value_2} Evasion Rating on Equipped Body Armour,,裝備的胸甲每有 {value_2} 點閃避值，最大能量護盾 +{value_1},历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_34419.sd_1,"Become Ignited when you deal a Critical Hit, taking {value_1}% of your Life and Energy Shield as Fire Damage per second",,造成暴擊時被點燃，每秒承受相當於生命和能量護盾 {value_1}% 的火焰傷害,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_34531.sd_2,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,獲得等同於最大能量護盾 {value_1}% 的額外暈眩門檻,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_34626.sd_1,Recover {value_1}% of Life for each Endurance Charge consumed,,每消耗一顆耐力球，回復 {value_1}% 生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_35028.sd_1,Regenerate {value_1}% of Life per second while Surrounded,,被包圍時，每秒再生 {value_1}% 生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_36676.sd_1,Grants {value_1} Passive Skill Point,,獲得 {value_1} 點天賦點,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-TW,game.tree_node.0_1_37078.sd_1,"{value_1}% chance for Enemies you Kill to Explode, dealing {value_2}%",,你擊殺的敵人有 {value_1}% 機率爆炸，造成其最大生命 {value_2}% 的,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_37078.sd_1
+zh-TW,game.tree_node.0_1_3823_option_witch.dn,Power of the Dead,,亡者之力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_3823_option_witch.dn
+zh-TW,game.tree_node.0_1_38365.sd_1,Recover {value_1}% of Life for each Endurance Charge consumed,,每消耗一顆耐力球，回復 {value_1}% 生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_3894.sd_2,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,獲得等同於最大能量護盾 {value_1}% 的額外暈眩門檻,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_39839.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-TW,game.tree_node.0_1_40117.sd_1,Gain Physical Thorns damage equal to {value_1}% of Armour from equipped Body Armour,,獲得等同於裝備胸甲的護甲 {value_1}% 的物理荊棘傷害,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_4031.sd_1,Gain {value_1}% of Maximum Energy Shield as additional Freeze Threshold,,獲得等同於最大能量護盾 {value_1}% 的額外冰凍門檻,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_41076.sd_1,Removes all Spirit,,移除所有精魂,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_41905.sd_2,You gain {value_1}% Life when one of your Minions is Revived,,召喚物復活時，你獲得 {value_1}% 生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_42275.sd_1,{value_1}% chance for Slam Skills you use yourself to cause Aftershocks,,你親自使用的猛擊技能有 {value_1}% 機率造成餘震,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_43383.sd_2,Break {value_1}% increased Armour on enemies affected by Ailments,,對受異常狀態影響的敵人造成的護甲破壞增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_4346.sd_1,{value_1}% increased Damage if you've dealt a Critical Hit Recently,,近期造成暴擊時，增加 {value_1}% 傷害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_4519.sd_1
+zh-TW,game.tree_node.0_1_43650.sd_1,{value_1}% increased Stun Buildup with Critical Hits,,暴擊造成的暈眩累積增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_43939.sd_2,{value_1}% reduced effect of Ignite on you,,你受到的點燃效果減少 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_44092.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你造成的點燃效果幅度增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_44098.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,獲得等同於最大能量護盾 {value_1}% 的額外暈眩門檻,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_44330.sd_2,{value_1}% increased Chance to inflict Ailments with One-Handed Attacks,,單手攻擊造成異常狀態的機率增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_44917.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,獲得等同於最大能量護盾 {value_1}% 的額外暈眩門檻,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_4519.sd_1,{value_1}% increased Damage if you've dealt a Critical Hit Recently,,近期造成暴擊時，增加 {value_1}% 傷害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_4519.sd_1
+zh-TW,game.tree_node.0_1_46275.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,獲得等同於最大能量護盾 {value_1}% 的額外暈眩門檻,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_46454.sd_1,Grants {value_1} Passive Skill Point,,獲得 {value_1} 點天賦點,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-TW,game.tree_node.0_1_46499.sd_1,Recover {value_1}% of Life for each Endurance Charge consumed,,每消耗一顆耐力球，回復 {value_1}% 生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_46742.sd_1,Hits that deal Fire Damage remove Fire Exposure and inflict Lightning Exposure,,造成火焰傷害的擊中會移除火焰曝曬，並施加閃電曝曬,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_46742.sd_2,Hits that deal Cold Damage remove Cold Exposure and inflict Fire Exposure,,造成冰冷傷害的擊中會移除冰冷曝曬，並施加火焰曝曬,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_46742.sd_3,Hits that deal Lightning Damage remove Lightning Exposure and inflict Cold Exposure,,造成閃電傷害的擊中會移除閃電曝曬，並施加冰冷曝曬,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_47097.sd_1,"Corpses in your Presence Explode when you Warcry,",,戰吼時，存在範圍內的屍體會爆炸，,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_47441.sd_2,Recover {value_1}% of Life when you create an Offering,,創造奉獻時，回復 {value_1}% 生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_47733.sd_1,{value_1}% increased Chance to inflict Ailments with One-Handed Attacks,,單手攻擊造成異常狀態的機率增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_49189.sd_1,Exposure you inflict lowers the affected Resistance by an additional {value_1}%,,你施加的曝曬使對應抗性額外降低 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_4985.sd_1,Recover {value_1}% of Life when you Heavy Stun a Rare or Unique Enemy,,對稀有或傳奇敵人造成沉重暈眩時，回復 {value_1}% 生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_49976.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_1_50558.sd_1,{value_1}% increased Effect of Auras from your Aura Skills,,你的光環技能提供的光環效果增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_5108.sd_1,{value_1}% increased Chance to inflict Ailments with One-Handed Attacks,,單手攻擊造成異常狀態的機率增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_51184_option_witch.dn,Raw Destruction,,純粹毀滅,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51184_option_witch.dn
+zh-TW,game.tree_node.0_1_51335_option_witch.dn,Jagged Shards,,鋸齒碎片,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51335_option_witch.dn
+zh-TW,game.tree_node.0_1_51737.sd_1,{value_1} Passive Skill Points become Weapon Set Skill Points,,{value_1} 點天賦點變為武器組天賦點,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_8272.sd_1
+zh-TW,game.tree_node.0_1_51934.sd_1,Recover {value_1}% of Mana when you Invoke a Spell,,祈願法術時，回復 {value_1}% 魔力,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_53030.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你造成的點燃效果幅度增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_53294.sd_3,{value_1}% increased Magnitude of Ignite you inflict,,你造成的點燃效果幅度增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_56214.sd_1,{value_1}% reduced effect of Ignite on you,,你受到的點燃效果減少 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_56453.sd_2,{value_1}% increased Attack Damage when on Low Life,,貧血時，攻擊傷害增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_56893.sd_2,Recover {value_1}% of Mana when a Charm is used,,使用護符時，回復 {value_1}% 魔力,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_56910.dn,Battle-hardened,,身經百戰,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_56910.dn
+zh-TW,game.tree_node.0_1_57388.sd_3,{value_1}% increased Stun Buildup with Critical Hits,,暴擊造成的暈眩累積增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_57832.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你造成的點燃效果幅度增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_58591.sd_1,"Inherent bonuses from Intelligence, Strength and Dexterity are doubled",,智慧、力量和敏捷的固有加成加倍,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_58789.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,獲得等同於最大能量護盾 {value_1}% 的額外暈眩門檻,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_60138.sd_1,Break {value_1}% increased Armour on enemies affected by Ailments,,對受異常狀態影響的敵人造成的護甲破壞增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_61142.sd_1,Recover {value_1}% of Life for each Endurance Charge consumed,,每消耗一顆耐力球，回復 {value_1}% 生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_61493.sd_2,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,獲得等同於最大能量護盾 {value_1}% 的額外暈眩門檻,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_62122.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_1_62936.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_1_6304.sd_1,Regenerate {value_1}% of Life per second while affected by any Damaging Ailment,,受到任意傷害型異常狀態影響時，每秒再生 {value_1}% 生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_64299.sd_1,{value_1}% increased Effect of Auras from your Aura Skills,,你的光環技能提供的光環效果增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_64327.sd_2,Stagger empties {value_1}% faster while your Shield is lowered,,放下盾牌時，踉蹌值消退速度加快 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_6516.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-TW,game.tree_node.0_1_6748.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_1_703.sd_1,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,獲得等同於最大能量護盾 {value_1}% 的額外暈眩門檻,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_7062.sd_1,{value_1}% chance for Crossbow Attacks to not consume a bolt,,十字弓攻擊有 {value_1}% 機率不消耗弩箭,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_8143.sd_1,Gain {value_1} Spirit for every {value_2} Energy Shield on equipped Body Armour,,裝備的胸甲每有 {value_2} 點能量護盾，獲得 {value_1} 點精魂,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_8143.sd_2,Gain {value_1} Spirit for every {value_2} Evasion Rating on equipped Body Armour,,裝備的胸甲每有 {value_2} 點閃避值，獲得 {value_1} 點精魂,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_8194.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-TW,game.tree_node.0_1_8272.sd_1,{value_1} Passive Skill Points become Weapon Set Skill Points,,{value_1} 點天賦點變為武器組天賦點,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_8272.sd_1
+zh-TW,game.tree_node.0_1_8531.sd_1,{value_1}% increased Critical Hit Chance against Enemies on Full Life,,對滿血敵人的暴擊機率增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_9324.sd_1,{value_1}% reduced effect of Ignite on you,,你受到的點燃效果減少 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_1_9642.sd_2,Gain {value_1}% of maximum Energy Shield as additional Stun Threshold,,獲得等同於最大能量護盾 {value_1}% 的額外暈眩門檻,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_11526.sd_1,"Arrows gain Critical Hit Chance as they travel farther, up to",,箭矢的暴擊率隨飛行距離提高，最多在,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11526.sd_1
+zh-TW,game.tree_node.0_2_11526.sd_2,{value_1}% increased Critical Hit Chance after {value_2} metres,,{value_2} 公尺後增加 {value_1}% 暴擊率,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11526.sd_2
+zh-TW,game.tree_node.0_2_14226.sd_1,{value_1}% more Skill Speed while Off Hand is empty and you have,,技能速度更多 {value_1}%，條件是副手為空，且,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_14226.sd_1
+zh-TW,game.tree_node.0_2_15522.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你造成的點燃效果幅度增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_16938.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在夥伴的存在範圍內時，傷害增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_17348.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你造成的點燃效果幅度增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_17600.sd_1,Life Leech from your Hits also applies to your Companion,,你的擊中提供的生命偷取也作用於夥伴,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_18158.sd_2,contributes to Ignite Chance and Magnitude,,能影響點燃機率與效果幅度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_19104_option_huntress.dn,Reflex Action,,反射動作,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_19104_option_huntress.dn
+zh-TW,game.tree_node.0_2_19288.sd_1,Block Chance is doubled,,格擋機率加倍,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_20205.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-TW,game.tree_node.0_2_22049_option_huntress.dn,Melee and Projectile Damage,,近戰與投射物傷害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_22049_option_huntress.dn
+zh-TW,game.tree_node.0_2_22795_option_huntress.dn,Melee and Projectile Damage,,近戰與投射物傷害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_22049_option_huntress.dn
+zh-TW,game.tree_node.0_2_23710.dn,DNT Troller,,DNT 拖釣者,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_23940.sd_1,Increases and Reductions to Armour also apply to Energy Shield,,護甲的增加和減少也套用於能量護盾,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_23940.sd_2,Recharge Rate at {value_1}% of their value,,充能速率，套用比例為原數值的 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_24178.dn,Accuracy and Companion Accuracy,,命中值與夥伴命中值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_27667.sd_1,Your Curses have infinite Duration,,你的詛咒持續時間無限,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_27950.sd_2,Gain additional Stun Threshold equal to {value_1}% of Armour on Equipped Items,,獲得等同於已裝備物品護甲 {value_1}% 的額外暈眩門檻,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_28992_option_huntress.dn,Primal Instinct,,原始本能,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_28992_option_huntress.dn
+zh-TW,game.tree_node.0_2_29527.sd_1,{value_1}% increased Critical Hit Chance against Enemies on Full Life,,對滿血敵人的暴擊機率增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_30197.sd_1,{value_1}% increased Attack Speed while in the Presence of your Companion,,在夥伴的存在範圍內時，攻擊速度增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_30233.dn,As the Whispers Ask,,如低語所願,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_30334.sd_1,{value_1}% reduced effect of Ignite on you,,你受到的點燃效果減少 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_30910.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在夥伴的存在範圍內時，傷害增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_31223.sd_1,Gain additional maximum Life equal to {value_1}% of the Energy Shield on Equipped Body Armour,,獲得等同於裝備胸甲的能量護盾 {value_1}% 的額外最大生命,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_31326.sd_2,{value_1}% increased Magnitude of Ignite you inflict,,你造成的點燃效果幅度增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_3188.sd_1,Gain Physical Thorns damage equal to {value_1}% of Armour on Equipped Body Armour,,獲得等同於裝備胸甲的護甲 {value_1}% 的物理荊棘傷害,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_33404.sd_2,Life Recovery from Flasks applies to Energy Shield instead,,藥劑的生命回復改為作用於能量護盾,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_33812.dn,Warbringer,,戰爭使者,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_33812.dn
+zh-TW,game.tree_node.0_2_34290.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你造成的點燃效果幅度增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_34324.sd_1,+{value_1} to Maximum Energy Shield per {value_2} Evasion Rating on Equipped Body Armour,,裝備的胸甲每有 {value_2} 點閃避值，最大能量護盾 +{value_1},历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_34702.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在夥伴的存在範圍內時，傷害增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_36252.dn,DNT Whaler,,DNT 捕鯨者,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_36676.sd_1,Grants {value_1} Passive Skill Point,,獲得 {value_1} 點天賦點,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-TW,game.tree_node.0_2_37078.sd_1,"{value_1}% chance for Enemies you Kill to Explode, dealing {value_2}%",,你擊殺的敵人有 {value_1}% 機率爆炸，造成其最大生命 {value_2}% 的,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_37078.sd_1
+zh-TW,game.tree_node.0_2_37266.sd_2,{value_1}% increased Life Recovery Rate while in the Presence of your Companion,,在夥伴的存在範圍內時，生命回復速率增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_3823_option_witch.dn,Power of the Dead,,亡者之力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_3823_option_witch.dn
+zh-TW,game.tree_node.0_2_39495.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在夥伴的存在範圍內時，傷害增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_39839.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-TW,game.tree_node.0_2_39986.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在夥伴的存在範圍內時，傷害增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_40333.dn,Accuracy and Companion Accuracy,,命中值與夥伴命中值,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_41736.dn,DNT Spearfisher,,DNT 魚叉手,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_42035.dn,Flood of Echoes,,迴響洪流,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_42275.sd_1,{value_1}% chance for Slam Skills you use yourself to cause Aftershocks,,你親自使用的猛擊技能有 {value_1}% 機率造成餘震,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_42441.dn,Infused Avatar,,灌注化身,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_42441.sd_1,{value_1}% chance for Infusions to Infuse your Projectiles without being Consumed,,灌注有 {value_1}% 機率在灌注投射物時不被消耗,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_42781_option_huntress.dn,Stalk and Leap,,潛行躍擊,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_42781_option_huntress.dn
+zh-TW,game.tree_node.0_2_42998.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在夥伴的存在範圍內時，傷害增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_43102.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在夥伴的存在範圍內時，傷害增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_4346.sd_1,{value_1}% increased Damage if you've dealt a Critical Hit Recently,,近期造成暴擊時，增加 {value_1}% 傷害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_4519.sd_1
+zh-TW,game.tree_node.0_2_43939.sd_2,{value_1}% reduced effect of Ignite on you,,你受到的點燃效果減少 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_43944.sd_1,"{value_1}% chance that when Volatility on you detonates, you regain an equivalent amount of Volatility",,你身上的易爆引爆時，有 {value_1}% 機率重新獲得等量易爆,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_44092.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你造成的點燃效果幅度增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_44527_option_huntress.dn,Attuned with Nature,,自然共鳴,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_44527_option_huntress.dn
+zh-TW,game.tree_node.0_2_4519.sd_1,{value_1}% increased Damage if you've dealt a Critical Hit Recently,,近期造成暴擊時，增加 {value_1}% 傷害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_4519.sd_1
+zh-TW,game.tree_node.0_2_46386.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在夥伴的存在範圍內時，傷害增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_46454.sd_1,Grants {value_1} Passive Skill Point,,獲得 {value_1} 點天賦點,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-TW,game.tree_node.0_2_46742.sd_1,Hits that deal Fire Damage remove Fire Exposure and inflict Lightning Exposure,,造成火焰傷害的擊中會移除火焰曝曬，並施加閃電曝曬,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_46742.sd_2,Hits that deal Cold Damage remove Cold Exposure and inflict Fire Exposure,,造成冰冷傷害的擊中會移除冰冷曝曬，並施加火焰曝曬,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_46742.sd_3,Hits that deal Lightning Damage remove Lightning Exposure and inflict Cold Exposure,,造成閃電傷害的擊中會移除閃電曝曬，並施加冰冷曝曬,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_49130.dn,Reduced Arrow Speed,,減少的箭矢速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_49189.sd_1,Exposure you inflict lowers the affected Resistance by an additional {value_1}%,,你施加的曝曬使對應抗性額外降低 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_49976.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_2_51184_option_witch.dn,Raw Destruction,,純粹毀滅,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51184_option_witch.dn
+zh-TW,game.tree_node.0_2_51335_option_witch.dn,Jagged Shards,,鋸齒碎片,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51335_option_witch.dn
+zh-TW,game.tree_node.0_2_51737.sd_1,{value_1} Passive Skill Points become Weapon Set Skill Points,,{value_1} 點天賦點變為武器組天賦點,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_8272.sd_1
+zh-TW,game.tree_node.0_2_52415.sd_1,{value_1}% increased Attack Speed while in the Presence of your Companion,,在夥伴的存在範圍內時，攻擊速度增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_53030.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你造成的點燃效果幅度增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_53294.sd_3,{value_1}% increased Magnitude of Ignite you inflict,,你造成的點燃效果幅度增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_55193.sd_1,+{value_1} to Evasion Rating per {value_2} Energy Shield on Equipped Helmet,,裝備的頭盔每有 {value_2} 點能量護盾，閃避值 +{value_1},历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_55429_option_huntress.dn,Melee and Projectile Damage,,近戰與投射物傷害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_22049_option_huntress.dn
+zh-TW,game.tree_node.0_2_56214.sd_1,{value_1}% reduced effect of Ignite on you,,你受到的點燃效果減少 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_56453.sd_2,{value_1}% increased Attack Damage when on Low Life,,貧血時，攻擊傷害增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_56910.dn,Battle-hardened,,身經百戰,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_56910.dn
+zh-TW,game.tree_node.0_2_57832.sd_1,{value_1}% increased Magnitude of Ignite you inflict,,你造成的點燃效果幅度增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_57933.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在夥伴的存在範圍內時，傷害增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_58416.dn,Increased Arrow Speed,,增加的箭矢速度,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_5852.dn,DNT Angler,,DNT 垂釣者,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_59.dn,Dominion Over Flesh,,血肉主宰,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_59.sd_2,Your Curses can affect Hexproof Enemies,,你的詛咒可以影響無咒敵人,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_62122.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_2_62936.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_2_64962.sd_1,Body Armour grants Armour also applies to Chaos Damage taken from Hits,,胸甲提供的護甲也適用於承受的擊中混沌傷害,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_6516.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-TW,game.tree_node.0_2_65265.dn,Swift Deflection,,迅捷偏斜,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_65518.dn,Between the Cracks,,裂隙之間,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_6748.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_2_7062.sd_1,{value_1}% chance for Crossbow Attacks to not consume a bolt,,十字弓攻擊有 {value_1}% 機率不消耗弩箭,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_7979.dn,Elemental Infusion,,元素灌注,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_7979.sd_1,When you Consume a Power Charge Trigger Infuse Weapon to gain {value_1} Cold Infusion,,消耗暴擊球時觸發灌注武器，獲得 {value_1} 個冰冷灌注,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_7979.sd_2,When you Consume an Endurance Charge Trigger Infuse Weapon to gain {value_1} Fire Infusion,,消耗耐力球時觸發灌注武器，獲得 {value_1} 個火焰灌注,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_7979.sd_3,When you Consume a Frenzy Charge Trigger Infuse Weapon to gain {value_1} Lightning Infusion,,消耗狂怒球時觸發灌注武器，獲得 {value_1} 個閃電灌注,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_8143.sd_1,+{value_1} to Spirit for every {value_2} Energy Shield on Equipped Body Armour,,裝備的胸甲每有 {value_2} 點能量護盾，精魂 +{value_1},历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_8194.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-TW,game.tree_node.0_2_8272.sd_1,{value_1} Passive Skill Points become Weapon Set Skill Points,,{value_1} 點天賦點變為武器組天賦點,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_8272.sd_1
+zh-TW,game.tree_node.0_2_8531.sd_1,{value_1}% increased Critical Hit Chance against Enemies on Full Life,,對滿血敵人的暴擊機率增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_8789.sd_2,{value_1}% increased Damage while in the Presence of your Companion,,在夥伴的存在範圍內時，傷害增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_2_9324.sd_1,{value_1}% reduced effect of Ignite on you,,你受到的點燃效果減少 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_3_11526.sd_1,"Arrows gain Critical Hit Chance as they travel farther, up to",,箭矢的暴擊率隨飛行距離提高，最多在,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11526.sd_1
+zh-TW,game.tree_node.0_3_11526.sd_2,{value_1}% increased Critical Hit Chance after {value_2} metres,,{value_2} 公尺後增加 {value_1}% 暴擊率,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11526.sd_2
+zh-TW,game.tree_node.0_3_12324.sd_1,{value_1}% chance when collecting an Elemental Infusion to gain an,,拾取元素灌注時有 {value_1}% 機率,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_12324.sd_1
+zh-TW,game.tree_node.0_3_12324.sd_2,additional Elemental Infusion of the same type,,額外獲得一個同類型的元素灌注,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_12324.sd_2
+zh-TW,game.tree_node.0_3_14226.sd_1,{value_1}% more Skill Speed while Off Hand is empty and you have,,技能速度更多 {value_1}%，條件是副手為空，且,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_14226.sd_1
+zh-TW,game.tree_node.0_3_15606.sd_1,"Consuming Glory grants you {value_1}% increased Attack damage per Glory consumed for {value_2} seconds, up to {value_3}%",,消耗榮耀時，每消耗一點榮耀，增加 {value_1}% 攻擊傷害，持續 {value_2} 秒，最多 {value_3}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_15606.sd_1
+zh-TW,game.tree_node.0_3_19104_option_huntress.dn,Reflex Action,,反射動作,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_19104_option_huntress.dn
+zh-TW,game.tree_node.0_3_20205.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-TW,game.tree_node.0_3_21206.sd_2,"Burning Enemies you kill have a {value_1}% chance to Explode, dealing a",,你擊殺的燃燒敵人有 {value_1}% 機率爆炸，造成,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_21206.sd_2
+zh-TW,game.tree_node.0_3_21206.sd_3,tenth of their maximum Life as Fire Damage,,其最大生命十分之一的火焰傷害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_21206.sd_3
+zh-TW,game.tree_node.0_3_22049_option_huntress.dn,Melee and Projectile Damage,,近戰與投射物傷害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_22049_option_huntress.dn
+zh-TW,game.tree_node.0_3_22795_option_huntress.dn,Melee and Projectile Damage,,近戰與投射物傷害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_22049_option_huntress.dn
+zh-TW,game.tree_node.0_3_23352_option_abyssal_lich.dn,Rupture the Flesh,,血肉撕裂,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_23352_option_abyssal_lich.dn
+zh-TW,game.tree_node.0_3_23710.dn,Lich,,巫妖,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_23710.dn
+zh-TW,game.tree_node.0_3_23940.sd_1,Increases and Reductions to Armour also apply to Energy Shield,,護甲的增加和減少也套用於能量護盾,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_3_23940.sd_2,Recharge Rate at {value_1}% of their value,,充能速率，套用比例為原數值的 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_3_24764.sd_1,{value_1}% chance when collecting an Elemental Infusion to gain an,,拾取元素灌注時有 {value_1}% 機率,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_12324.sd_1
+zh-TW,game.tree_node.0_3_24764.sd_2,additional Elemental Infusion of the same type,,額外獲得一個同類型的元素灌注,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_12324.sd_2
+zh-TW,game.tree_node.0_3_2516_option_abyssal_lich.dn,Steward of Kulemak,,庫勒馬克的管家,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_2516_option_abyssal_lich.dn
+zh-TW,game.tree_node.0_3_26085_option_abyssal_lich.dn,Umbral Well,,暗影之井,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_26085_option_abyssal_lich.dn
+zh-TW,game.tree_node.0_3_2877_option_abyssal_lich.dn,Unwilling Offering,,非自願獻祭,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_2877_option_abyssal_lich.dn
+zh-TW,game.tree_node.0_3_28992_option_huntress.dn,Primal Instinct,,原始本能,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_28992_option_huntress.dn
+zh-TW,game.tree_node.0_3_30985.sd_1,{value_1}% chance when collecting an Elemental Infusion to gain an,,拾取元素灌注時有 {value_1}% 機率,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_12324.sd_1
+zh-TW,game.tree_node.0_3_30985.sd_2,additional Elemental Infusion of the same type,,額外獲得一個同類型的元素灌注,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_12324.sd_2
+zh-TW,game.tree_node.0_3_30996.sd_3,Blue: Skills have {value_1}% less cost,,藍色：技能消耗更少 {value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_30996.sd_3
+zh-TW,game.tree_node.0_3_30996.sd_4,Green: {value_1}% less Movement Speed Penalty from using Skills while Moving,,綠色：移動時使用技能的移動速度懲罰更少 {value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_30996.sd_4
+zh-TW,game.tree_node.0_3_32151.sd_1,+{value_1}% to all Maximum Elemental Resistances if you have at,,全部最大元素抗性 +{value_1}%，條件是已鑲嵌,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_32151.sd_1
+zh-TW,game.tree_node.0_3_32151.sd_2,"least {value_1} Red, Green and Blue Support Gems Socketed",,紅、綠、藍色輔助寶石各至少 {value_1} 顆,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_32151.sd_2
+zh-TW,game.tree_node.0_3_33812.dn,Warbringer,,戰爭使者,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_33812.dn
+zh-TW,game.tree_node.0_3_35058.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-TW,game.tree_node.0_3_36676.sd_1,Grants {value_1} Passive Skill Point,,獲得 {value_1} 點天賦點,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-TW,game.tree_node.0_3_37078.sd_1,"{value_1}% chance for Enemies you Kill to Explode, dealing {value_2}%",,你擊殺的敵人有 {value_1}% 機率爆炸，造成其最大生命 {value_2}% 的,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_37078.sd_1
+zh-TW,game.tree_node.0_3_3823_option_witch.dn,Power of the Dead,,亡者之力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_3823_option_witch.dn
+zh-TW,game.tree_node.0_3_38570.sd_1,Gain {value_1}% of Damage as Extra Fire Damage for,,獲得等同於傷害 {value_1}% 的額外火焰傷害，依下列數量疊加：,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_38570.sd_1
+zh-TW,game.tree_node.0_3_38570.sd_2,every different Grenade fired in the past {value_1} seconds,,過去 {value_1} 秒內發射的不同榴彈種類數,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_38570.sd_2
+zh-TW,game.tree_node.0_3_39839.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-TW,game.tree_node.0_3_40687.dn,Lead by Example,,以身作則,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_40687.dn
+zh-TW,game.tree_node.0_3_42275.sd_1,{value_1}% chance for Slam Skills you use yourself to cause Aftershocks,,你親自使用的猛擊技能有 {value_1}% 機率造成餘震,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_3_42781_option_huntress.dn,Stalk and Leap,,潛行躍擊,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_42781_option_huntress.dn
+zh-TW,game.tree_node.0_3_4346.sd_1,{value_1}% increased Damage if you've dealt a Critical Hit Recently,,近期造成暴擊時，增加 {value_1}% 傷害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_4519.sd_1
+zh-TW,game.tree_node.0_3_44527_option_huntress.dn,Attuned with Nature,,自然共鳴,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_44527_option_huntress.dn
+zh-TW,game.tree_node.0_3_4519.sd_1,{value_1}% increased Damage if you've dealt a Critical Hit Recently,,近期造成暴擊時，增加 {value_1}% 傷害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_4519.sd_1
+zh-TW,game.tree_node.0_3_46454.sd_1,Grants {value_1} Passive Skill Point,,獲得 {value_1} 點天賦點,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-TW,game.tree_node.0_3_49976.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_3_50817.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_3_51142_option_abyssal_lich.dn,Minion Reservation Efficiency,,召喚生物保留效能,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51142_option_abyssal_lich.dn
+zh-TW,game.tree_node.0_3_51184_option_witch.dn,Raw Destruction,,純粹毀滅,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51184_option_witch.dn
+zh-TW,game.tree_node.0_3_51335_option_witch.dn,Jagged Shards,,鋸齒碎片,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51335_option_witch.dn
+zh-TW,game.tree_node.0_3_55429_option_huntress.dn,Melee and Projectile Damage,,近戰與投射物傷害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_22049_option_huntress.dn
+zh-TW,game.tree_node.0_3_5642.sd_3,{value_1}% chance for Slam Skills you use yourself to cause Aftershocks,,你親自使用的猛擊技能有 {value_1}% 機率造成餘震,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_3_56910.dn,Battle-hardened,,身經百戰,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_56910.dn
+zh-TW,game.tree_node.0_3_57819.sd_1,Skills deal {value_1}% increased Damage per Connected red Support Gem,,每連接一顆紅色輔助寶石，技能傷害增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_3_57819.sd_2,Skills have {value_1}% increased Skill Speed per Connected green Support Gem,,每連接一顆綠色輔助寶石，技能速度增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_3_57819.sd_3,Skills have {value_1}% increased Critical Hit Chance per Connected blue Support Gem,,每連接一顆藍色輔助寶石，技能暴擊機率增加 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_3_61355.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_3_62122.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_3_62936.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_3_64601.sd_3,Physical damage based on their Skill Level,,基於其技能等級的物理傷害,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_3_64601.sd_4,{value_1}% more Attack Speed per {value_2} Item Evasion Rating on Equipped Armour Items,,裝備的護甲物品每有 {value_2} 點物品閃避值，攻擊速度總增 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_3_64601.sd_5,+{value_1}% to Critical Hit Chance per {value_2} Item Energy Shield on Equipped Armour Items,,裝備的護甲物品每有 {value_2} 點物品能量護盾，暴擊率 +{value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_64601.sd_5
+zh-TW,game.tree_node.0_3_6516.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-TW,game.tree_node.0_3_6748.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_3_6898_option_druid.dn,Guardian of the Wilds,,荒野守護者,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6898_option_druid.dn
+zh-TW,game.tree_node.0_3_7062.sd_1,Bolts fired by Crossbow Attacks have {value_1}% chance to not,,十字弓攻擊發射的弩箭有 {value_1}% 機率不,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_7062.sd_1
+zh-TW,game.tree_node.0_3_7062.sd_2,expend Ammunition if you've Reloaded Recently,,消耗彈藥，前提是你近期裝填過,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_7062.sd_2
+zh-TW,game.tree_node.0_3_8194.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-TW,game.tree_node.0_3_8272.sd_1,{value_1} Passive Skill Points become Weapon Set Skill Points,,{value_1} 點天賦點變為武器組天賦點,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_8272.sd_1
+zh-TW,game.tree_node.0_4_10561.flavour_text,"""My heart was fractured. I believed Kelari's words. I knew not his true nature... his ambition. I convinced Ruzhan there were cowards among his ranks. I failed you. And I accept my fate."" 
+
+Navira confessed her failure to Varashta.",,"「我的心碎了。我相信了克拉里的話，卻不知道他的真面目……他的野心。我讓魯兹安相信，他的隊伍中有懦夫。我辜負了你。我接受自己的命運。」
+
+納維拉向瓦拉什塔承認了自己的過錯。",同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_10561.flavour_text
+zh-TW,game.tree_node.0_4_11335.sd_1,Grants {value_1} Passive Skill Point,,獲得 {value_1} 點天賦點,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-TW,game.tree_node.0_4_11526.sd_1,"Arrows gain Critical Hit Chance as they travel farther, up to",,箭矢的暴擊率隨飛行距離提高，最多在,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11526.sd_1
+zh-TW,game.tree_node.0_4_11526.sd_2,{value_1}% increased Critical Hit Chance after {value_2} metres,,{value_2} 公尺後增加 {value_1}% 暴擊率,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11526.sd_2
+zh-TW,game.tree_node.0_4_12183.sd_1,Grants {value_1} Passive Skill Point,,獲得 {value_1} 點天賦點,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-TW,game.tree_node.0_4_12324.sd_1,{value_1}% chance when collecting an Elemental Infusion to gain an,,拾取元素灌注時有 {value_1}% 機率,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_12324.sd_1
+zh-TW,game.tree_node.0_4_12324.sd_2,additional Elemental Infusion of the same type,,額外獲得一個同類型的元素灌注,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_12324.sd_2
+zh-TW,game.tree_node.0_4_12795.sd_2,Grants {value_1} Passive Skill Point,,獲得 {value_1} 點天賦點,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-TW,game.tree_node.0_4_13289.flavour_text,"""And you... there was no excuse for your actions. You defiled them! You have tainted the very sands with the blood of your own! Yet the war rages on. You have achieved nothing. You must pay."" 
+
+Varashta condemned Kelari to the ritual of the barya, sentenced to serve as a Djinn.",,"「還有你……你的所作所為無可辯解。你褻瀆了他們！你用同胞的鮮血玷污了這片沙地！可戰爭仍在繼續。你一事無成。你必須付出代價。」
+
+瓦拉什塔判處克拉里接受巴里亞儀式，成為供人驅使的巨靈。",历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_4_14131.flavour_text,"""Yes... they fell by my blade and fire lashed them for their betrayal! No dekhara is exempt from fighting back the Winter before us. Lest they too know the Doom of the Desert!"" 
+
+Ruzhan fumed at Varashta, in pure defiance.",,"「沒錯……他們死在我的刀下，烈火因他們的背叛而鞭笞他們！面對寒冬，每個部下都必須奮起抵抗。否則，他們也將領教沙漠的末日！」
+
+魯兹安怒斥瓦拉什塔，滿是不屈。",历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_4_14226.sd_1,{value_1}% more Skill Speed while Off Hand is empty and you have,,技能速度更多 {value_1}%，條件是副手為空，且,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_14226.sd_1
+zh-TW,game.tree_node.0_4_15606.sd_1,"Consuming Glory grants you {value_1}% increased Attack damage per Glory consumed for {value_2} seconds, up to {value_3}%",,消耗榮耀時，每消耗一點榮耀，增加 {value_1}% 攻擊傷害，持續 {value_2} 秒，最多 {value_3}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_15606.sd_1
+zh-TW,game.tree_node.0_4_19104_option_huntress.dn,Reflex Action,,反射動作,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_19104_option_huntress.dn
+zh-TW,game.tree_node.0_4_20205.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-TW,game.tree_node.0_4_21206.sd_2,"Burning Enemies you kill have a {value_1}% chance to Explode, dealing a",,你擊殺的燃燒敵人有 {value_1}% 機率爆炸，造成,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_21206.sd_2
+zh-TW,game.tree_node.0_4_21206.sd_3,tenth of their maximum Life as Fire Damage,,其最大生命十分之一的火焰傷害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_21206.sd_3
+zh-TW,game.tree_node.0_4_22049_option_huntress.dn,Melee and Projectile Damage,,近戰與投射物傷害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_22049_option_huntress.dn
+zh-TW,game.tree_node.0_4_22795_option_huntress.dn,Melee and Projectile Damage,,近戰與投射物傷害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_22049_option_huntress.dn
+zh-TW,game.tree_node.0_4_23265.flavour_text,"""Listen not to his simpering words, he means to languish before you to weaken your resolve! He is duplicitous. An assassin, thriving on deception and lies. His lust for power is what drove his choice!"" 
+
+Outrage trembled in Ruzhan's voice at the sentencing.",,"「別聽他那些諂媚的話，他故作可憐，就是為了動搖你的決心！他是個兩面三刀的刺客，靠欺騙和謊言過活。正是對權力的渴望驅使他作出了那樣的選擇！」
+
+宣判時，魯兹安的聲音因憤怒而顫抖。",历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_4_23352_option_abyssal_lich.dn,Rupture the Flesh,,血肉撕裂,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_23352_option_abyssal_lich.dn
+zh-TW,game.tree_node.0_4_23710.dn,Lich,,巫妖,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_23710.dn
+zh-TW,game.tree_node.0_4_23940.sd_1,Increases and Reductions to Armour also apply to Energy Shield,,護甲的增加和減少也套用於能量護盾,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_4_23940.sd_2,Recharge Rate at {value_1}% of their value,,充能速率，套用比例為原數值的 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_4_24764.sd_1,{value_1}% chance when collecting an Elemental Infusion to gain an,,拾取元素灌注時有 {value_1}% 機率,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_12324.sd_1
+zh-TW,game.tree_node.0_4_24764.sd_2,additional Elemental Infusion of the same type,,額外獲得一個同類型的元素灌注,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_12324.sd_2
+zh-TW,game.tree_node.0_4_2516_option_abyssal_lich.dn,Steward of Kulemak,,庫勒馬克的管家,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_2516_option_abyssal_lich.dn
+zh-TW,game.tree_node.0_4_25653.flavour_text,"""Knowing where and when to plunge your knife is more important than the sharpness of your blade. I will not forget my error... and I will be a living example of your wisdom, dear Sekhema."" 
+
+Kelari accepted Varashta's sentence and committed himself to her.",,"「懂得何時、何處下刀，比刀鋒是否銳利更重要。我不會忘記自己的過錯……親愛的絲克瑪，我會用餘生印證你的智慧。」
+
+克拉里接受了瓦拉什塔的判決，並宣誓效忠於她。",历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_4_25683.flavour_text,"""I stand before you, as your humble servant. Though I was betrayed, I would do it all again, if it would have saved us. But I accept your sentence. I will atone. I pledge myself to you... forevermore."" 
+
+Ruzhan accepted his fate at the barya ritual site.",,"「我站在你面前，是你卑微的僕人。雖然遭人背叛，但只要能拯救我們，我仍願再做一次。不過，我接受你的判決。我會贖罪。我將永遠……效忠於你。」
+
+魯兹安在巴里亞儀式場接受了自己的命運。",历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_4_26085_option_abyssal_lich.dn,Umbral Well,,暗影之井,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_26085_option_abyssal_lich.dn
+zh-TW,game.tree_node.0_4_2877_option_abyssal_lich.dn,Unwilling Offering,,非自願獻祭,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_2877_option_abyssal_lich.dn
+zh-TW,game.tree_node.0_4_28950_option_druid.dn,Bastion of the Forest,,森林堡壘,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_28950_option_druid.dn
+zh-TW,game.tree_node.0_4_28992_option_huntress.dn,Primal Instinct,,原始本能,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_28992_option_huntress.dn
+zh-TW,game.tree_node.0_4_29881.sd_1,Gain Arcane Surge when you Shapeshift to Human form after,,變回人形時獲得秘術增幅，前提是已,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_29881.sd_1
+zh-TW,game.tree_node.0_4_29881.sd_2,being Shapeshifted for at least {value_1} seconds,,持續變形至少 {value_1} 秒,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_29881.sd_2
+zh-TW,game.tree_node.0_4_30985.sd_1,{value_1}% chance when collecting an Elemental Infusion to gain an,,拾取元素灌注時有 {value_1}% 機率,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_12324.sd_1
+zh-TW,game.tree_node.0_4_30985.sd_2,additional Elemental Infusion of the same type,,額外獲得一個同類型的元素灌注,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_12324.sd_2
+zh-TW,game.tree_node.0_4_30996.sd_3,Blue: Skills have {value_1}% less cost,,藍色：技能消耗更少 {value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_30996.sd_3
+zh-TW,game.tree_node.0_4_30996.sd_4,Green: {value_1}% less Movement Speed Penalty from using Skills while Moving,,綠色：移動時使用技能的移動速度懲罰更少 {value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_30996.sd_4
+zh-TW,game.tree_node.0_4_32151.sd_1,+{value_1}% to all Maximum Elemental Resistances if you have at,,全部最大元素抗性 +{value_1}%，條件是已鑲嵌,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_32151.sd_1
+zh-TW,game.tree_node.0_4_32151.sd_2,"least {value_1} Red, Green and Blue Support Gems Socketed",,紅、綠、藍色輔助寶石各至少 {value_1} 顆,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_32151.sd_2
+zh-TW,game.tree_node.0_4_32705.flavour_text,"""You knew the twisted plan these fools devised. As Tale Woman, you are their compass in the sandstorm. Yet... you did not act. And now we mourn these honoured dead. You must pay.""
+ 
+Varashta condemned Navira to the ritual of the barya, sentenced to serve as a Djinn.",,"「你明知這些蠢貨策劃的邪惡陰謀。身為述史女，你本應在沙暴中為他們指引方向。然而……你卻無動於衷。如今，我們只能哀悼這些可敬的亡者。你必須付出代價。」
+
+瓦拉什塔判處納維拉接受巴里亞儀式，成為供人驅使的巨靈。",历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_4_33812.dn,Warbringer,,戰爭使者,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_33812.dn
+zh-TW,game.tree_node.0_4_34207.flavour_text,"""You have forsaken your duty to my akhara. Yes... we do not abide weakness. But we also do not abide madness in the fervour of battle! Your slain dekhara will have their justice. You must pay."" 
+
+Varashta condemned Ruzhan to the ritual of the barya, sentenced to serve as a Djinn.",,"「你背棄了對我部族的責任。沒錯……我們不容忍軟弱，但也不容忍在戰鬥狂熱中陷入瘋狂！被你殺害的部下必將得到公道。你必須付出代價。」
+
+瓦拉什塔判處魯兹安接受巴里亞儀式，成為供人驅使的巨靈。",历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_4_35058.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-TW,game.tree_node.0_4_36109.flavour_text,"""The snare was set on our fallen. Beetles burst from their flesh, flooding the sands. Their exploding carapaces halted the advancing enemy... but it was not enough. And for that... I grieve."" 
+
+Kelari admitted his wrongdoing to Varashta.",,"「陷阱設在我們陣亡同胞的身上。甲蟲從他們的血肉中迸出，湧遍沙地。爆裂的甲殼阻擋了敵軍前進……但這還不夠。對此……我深感悲痛。」
+
+克拉里向瓦拉什塔承認了自己的罪行。",同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_36109.flavour_text
+zh-TW,game.tree_node.0_4_36602_option_druid.dn,Skill Speed while Shapeshifted,,變形期間的技能速度,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_39540_option_druid.dn
+zh-TW,game.tree_node.0_4_36676.sd_1,Grants {value_1} Passive Skill Point,,獲得 {value_1} 點天賦點,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-TW,game.tree_node.0_4_37078.sd_1,"{value_1}% chance for Enemies you Kill to Explode, dealing {value_2}%",,你擊殺的敵人有 {value_1}% 機率爆炸，造成其最大生命 {value_2}% 的,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_37078.sd_1
+zh-TW,game.tree_node.0_4_3823_option_witch.dn,Power of the Dead,,亡者之力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_3823_option_witch.dn
+zh-TW,game.tree_node.0_4_38570.sd_1,Gain {value_1}% of Damage as Extra Fire Damage for,,獲得等同於傷害 {value_1}% 的額外火焰傷害，依下列數量疊加：,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_38570.sd_1
+zh-TW,game.tree_node.0_4_38570.sd_2,every different Grenade fired in the past {value_1} seconds,,過去 {value_1} 秒內發射的不同榴彈種類數,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_38570.sd_2
+zh-TW,game.tree_node.0_4_39540_option_druid.dn,Skill Speed while Shapeshifted,,變形期間的技能速度,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_39540_option_druid.dn
+zh-TW,game.tree_node.0_4_39839.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-TW,game.tree_node.0_4_40687.dn,Lead by Example,,以身作則,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_40687.dn
+zh-TW,game.tree_node.0_4_42781_option_huntress.dn,Stalk and Leap,,潛行躍擊,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_42781_option_huntress.dn
+zh-TW,game.tree_node.0_4_43426.flavour_text,"""Wipe the tears from your face, dear Navira. I did not deceive you. I meant every word. I will forever cherish you, my beloved. Know that I did it all for you... for our future!"" 
+
+Kelari pleaded with the Tale Woman.",,"「擦乾眼淚吧，親愛的納維拉。我沒有欺騙你。我的每句話都出自真心。我會永遠珍愛你，我的摯愛。請相信，這一切都是為了你……為了我們的未來！」
+
+克拉里向述史女苦苦哀求。",历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_4_4346.sd_1,{value_1}% increased Damage if you've dealt a Critical Hit Recently,,近期造成暴擊時，增加 {value_1}% 傷害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_4519.sd_1
+zh-TW,game.tree_node.0_4_44527_option_huntress.dn,Attuned with Nature,,自然共鳴,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_44527_option_huntress.dn
+zh-TW,game.tree_node.0_4_4519.sd_1,{value_1}% increased Damage if you've dealt a Critical Hit Recently,,近期造成暴擊時，增加 {value_1}% 傷害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_4519.sd_1
+zh-TW,game.tree_node.0_4_45602.flavour_text,"""Kelari, you deceiver! I fell for your words, but no longer. Your sentence is a fate too good for you! I would give anything to bring back those who fell to your lies. Instead... I mourn my choices."" 
+
+Navira lambasted Kelari a final time.",,"「克拉里，你這個騙子！我曾輕信你的話，但再也不會了。你所受的懲罰對你而言都太仁慈！只要能讓那些因你的謊言而死的人回來，我願付出一切。然而……我只能為自己的選擇而悲傷。」
+
+納維拉最後一次痛斥克拉里。",同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_45602.flavour_text
+zh-TW,game.tree_node.0_4_47190.sd_1,Grants {value_1} Passive Skill Point,,獲得 {value_1} 點天賦點,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-TW,game.tree_node.0_4_49976.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_4_50817.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_4_51142_option_abyssal_lich.dn,Minion Reservation Efficiency,,召喚生物保留效能,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51142_option_abyssal_lich.dn
+zh-TW,game.tree_node.0_4_51184_option_witch.dn,Raw Destruction,,純粹毀滅,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51184_option_witch.dn
+zh-TW,game.tree_node.0_4_51335_option_witch.dn,Jagged Shards,,鋸齒碎片,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_51335_option_witch.dn
+zh-TW,game.tree_node.0_4_55375.sd_2,"{value_1}% increased Life and Mana Regeneration Rate for each Minion in your Presence, up to a maximum of {value_2}%",,存在範圍內每有一個召喚物，增加 {value_1}% 生命及魔力再生率，最多 {value_2}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_55375.sd_2
+zh-TW,game.tree_node.0_4_55429_option_huntress.dn,Melee and Projectile Damage,,近戰與投射物傷害,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_22049_option_huntress.dn
+zh-TW,game.tree_node.0_4_56857.sd_1,{value_1}% of your current Energy Shield is added to your Armour for,,你目前能量護盾的 {value_1}% 會計入護甲，用於,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_56857.sd_1
+zh-TW,game.tree_node.0_4_56857.sd_2,determining your Physical Damage Reduction from Armour,,計算護甲提供的物理傷害減免,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_56857.sd_2
+zh-TW,game.tree_node.0_4_56910.dn,Battle-hardened,,身經百戰,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_56910.dn
+zh-TW,game.tree_node.0_4_57253.sd_2,Grants {value_1} Passive Skill Point,,獲得 {value_1} 點天賦點,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_11335.sd_1
+zh-TW,game.tree_node.0_4_5777_option_druid.dn,Natural Essence,,自然精華,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_5777_option_druid.dn
+zh-TW,game.tree_node.0_4_61355.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_4_62122.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_4_62936.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_4_64299_option_druid.dn,Harbinger of Disaster,,災難先驅,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_64299_option_druid.dn
+zh-TW,game.tree_node.0_4_64591.flavour_text,"""I have seen countless battles. I know war! The taste of defeat... The taste of victory! But in this war... everything is at stake. So yes, those you speak of will know my blade. I will do whatever I must!"" 
+
+Ruzhan confided in his Tale-Woman, Navira.",,"「我見過無數戰役。我懂得戰爭！失敗的滋味……勝利的滋味！但這場戰爭……賭上了一切。所以，沒錯，你說的那些人將見識我的刀鋒。我會不惜一切！」
+
+魯兹安向他的述史女納維拉吐露了心聲。",历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_4_64601.sd_3,Physical damage based on their Skill Level,,基於其技能等級的物理傷害,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_4_64601.sd_4,{value_1}% more Attack Speed per {value_2} Item Evasion Rating on Equipped Armour Items,,裝備的護甲物品每有 {value_2} 點物品閃避值，攻擊速度總增 {value_1}%,历史节点及相邻属性上下文自译；未核实为官方译文,
+zh-TW,game.tree_node.0_4_64601.sd_5,+{value_1}% to Critical Hit Chance per {value_2} Item Energy Shield on Equipped Armour Items,,裝備的護甲物品每有 {value_2} 點物品能量護盾，暴擊率 +{value_1}%,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_64601.sd_5
+zh-TW,game.tree_node.0_4_6516.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-TW,game.tree_node.0_4_6748.dn,Damage from Mana,,傷害取自魔力,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6748.dn
+zh-TW,game.tree_node.0_4_6898_option_druid.dn,Guardian of the Wilds,,荒野守護者,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_6898_option_druid.dn
+zh-TW,game.tree_node.0_4_7062.sd_1,Bolts fired by Crossbow Attacks have {value_1}% chance to not,,十字弓攻擊發射的弩箭有 {value_1}% 機率不,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_7062.sd_1
+zh-TW,game.tree_node.0_4_7062.sd_2,expend Ammunition if you've Reloaded Recently,,消耗彈藥，前提是你近期裝填過,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_7062.sd_2
+zh-TW,game.tree_node.0_4_8194.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_20205.dn
+zh-TW,game.tree_node.0_4_8272.sd_1,{value_1} Passive Skill Points become Weapon Set Skill Points,,{value_1} 點天賦點變為武器組天賦點,同域同原文既有译文；本批逐句审阅,game.tree_node.0_5_8272.sd_1
+zh-TW,game.tree_node.0_1_24226.dn,Eagle Eyes,潛意識,鷹眼,核对同节点完整属性后修正错义或未译技能名,
+zh-TW,game.tree_node.0_1_28589.dn,Attack Speed if Hit,擊中時獲得攻擊速度,被擊中時的攻擊速度,核对同节点完整属性后修正错义或未译技能名,
+zh-TW,game.tree_node.0_1_29645.dn,Greatwolf's Howl,戰爭呼喚者的戰角,巨狼之嚎,核对同节点完整属性后修正错义或未译技能名,
+zh-TW,game.tree_node.0_1_32271.dn,Critical Ignite Effect,點燃機率,暴擊點燃效果,核对同节点完整属性后修正错义或未译技能名,
+zh-TW,game.tree_node.0_1_38670.dn,Attack Speed if Hit,擊中時獲得攻擊速度,被擊中時的攻擊速度,核对同节点完整属性后修正错义或未译技能名,
+zh-TW,game.tree_node.0_1_39935.sd_1,All bonuses from an Equipped Amulet apply to your Minions instead of you,装備項鏈的所有加成會套用至你的召唤物，而非你自己,裝備的項鍊提供的所有加成改為作用於你的召喚物,核对同节点完整属性后修正错义或未译技能名,
+zh-TW,game.tree_node.0_1_43650.dn,Critical Stun Buildup,暈眩累積,暴擊暈眩累積,核对同节点完整属性后修正错义或未译技能名,
+zh-TW,game.tree_node.0_1_51795.dn,Ignite and Critical Chance,點燃機率,點燃與暴擊機率,核对同节点完整属性后修正错义或未译技能名,
+zh-TW,game.tree_node.0_1_53632.dn,Ignite and Critical Chance,點燃機率,點燃與暴擊機率,核对同节点完整属性后修正错义或未译技能名,
+zh-TW,game.tree_node.0_1_54311.dn,Critical Ignite Effect,點燃機率,暴擊點燃效果,核对同节点完整属性后修正错义或未译技能名,
+zh-TW,game.tree_node.0_2_24226.dn,Eagle Eyes,潛意識,鷹眼,核对同节点完整属性后修正错义或未译技能名,
+zh-TW,game.tree_node.0_2_29645.dn,Greatwolf's Howl,戰爭呼喚者的戰角,巨狼之嚎,核对同节点完整属性后修正错义或未译技能名,
+zh-TW,game.tree_node.0_2_32271.dn,Critical Ignite Effect,點燃機率,暴擊點燃效果,核对同节点完整属性后修正错义或未译技能名,
+zh-TW,game.tree_node.0_2_51795.dn,Ignite and Critical Chance,點燃機率,點燃與暴擊機率,核对同节点完整属性后修正错义或未译技能名,
+zh-TW,game.tree_node.0_2_53632.dn,Ignite and Critical Chance,點燃機率,點燃與暴擊機率,核对同节点完整属性后修正错义或未译技能名,
+zh-TW,game.tree_node.0_2_54311.dn,Critical Ignite Effect,點燃機率,暴擊點燃效果,核对同节点完整属性后修正错义或未译技能名,
+zh-CN,game.tree_node.0_2_7979.sd_4,Grants Skill: Infuse Weapon,赋予技能: Infuse Weapon,赋予技能：灌注武器,核对同节点完整属性后修正错义或未译技能名,
+zh-TW,game.tree_node.0_2_7979.sd_4,Grants Skill: Infuse Weapon,賦予技能: 灌注武器,賦予技能：灌注武器,核对同节点完整属性后修正错义或未译技能名,
+zh-TW,game.tree_node.0_4_49363.sd_4,have {value_1}% less duration,have {value_1}% 更少持續時間,持續時間總降 {value_1}%,四版本实际显示对照发现既有混译；原始属性保持,
+zh-CN,game.tree_node.0_1_1104.sd_2,your maximum number of Power Charges,your maximum number of 暴击球,你的暴击球上限数量,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-CN,game.tree_node.0_1_27950.sd_2,{value_1}% of Base Armour from Equipment also added to Stun Threshold,{value_1}% of Base Armour from Equipment also added 晕眩阈值,装备基础护甲的 {value_1}% 也计入晕眩阈值,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-CN,game.tree_node.0_1_372.sd_1,{value_1}% of Armour also applies to Fire Damage taken from Hits,被击中时承受 {value_1}% of Armour also applies to 火焰伤害,护甲的 {value_1}% 也适用于承受的击中火焰伤害,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-CN,game.tree_node.0_1_47097.sd_2,dealing {value_1}% of their Life as Physical Damage,dealing {value_1}% 生命的物理伤害,造成相当于其生命 {value_1}% 的物理伤害,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-CN,game.tree_node.0_2_1104.sd_2,your maximum number of Power Charges,your maximum number of 暴击球,你的暴击球上限数量,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-CN,game.tree_node.0_2_372.sd_1,{value_1}% of Armour also applies to Fire Damage taken from Hits,被击中时承受 {value_1}% of Armour also applies to 火焰伤害,护甲的 {value_1}% 也适用于承受的击中火焰伤害,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-CN,game.tree_node.0_3_30996.sd_2,Red: Hits against you have no Critical Damage Bonus,红: Hits against you have no Critical Damage Bonus,红色：对你的击中没有暴击伤害加成,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-CN,game.tree_node.0_4_13228.sd_2,your maximum number of Power Charges,your maximum number of 暴击球,你的暴击球上限数量,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-CN,game.tree_node.0_4_30996.sd_2,Red: Hits against you have no Critical Damage Bonus,红: Hits against you have no Critical Damage Bonus,红色：对你的击中没有暴击伤害加成,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-CN,game.tree_node.0_4_39102.sd_2,your maximum number of Power Charges,your maximum number of 暴击球,你的暴击球上限数量,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-CN,game.tree_node.0_4_43486.sd_2,your maximum number of Power Charges,your maximum number of 暴击球,你的暴击球上限数量,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-CN,game.tree_node.0_4_49363.sd_3,cost {value_1}% less,额外降低 cost {value_1}%,消耗总降 {value_1}%,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-CN,game.tree_node.0_4_54289.sd_2,your maximum number of Power Charges,your maximum number of 暴击球,你的暴击球上限数量,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-CN,game.tree_node.0_4_58932.sd_3,Spells for which this Sacrifice was fully made deal {value_1}% more Damage,伤害总增 Spells for which this Sacrifice was fully made deal {value_1}%,完整支付上述牺牲的法术，伤害总增 {value_1}%,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_1_27950.sd_2,{value_1}% of Base Armour from Equipment also added to Stun Threshold,暈眩門檻{value_1}% of Base Armour from Equipment also added,裝備基礎護甲的 {value_1}% 也計入暈眩門檻,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_1_372.sd_1,{value_1}% of Armour also applies to Fire Damage taken from Hits,被擊中時承受{value_1}% of Armour also applies to火焰傷害,護甲的 {value_1}% 也適用於承受的擊中火焰傷害,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_1_45202.sd_2,Totems reserve {value_1} Spirit each,每根[Totem圖騰]保留{value_1}精魂,每個圖騰保留 {value_1} 點精魂,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_1_47097.sd_2,dealing {value_1}% of their Life as Physical Damage,其生命dealing {value_1}%的物理傷害,造成相當於其生命 {value_1}% 的物理傷害,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_2_372.sd_1,{value_1}% of Armour also applies to Fire Damage taken from Hits,被擊中時承受{value_1}% of Armour also applies to火焰傷害,護甲的 {value_1}% 也適用於承受的擊中火焰傷害,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_2_45202.sd_2,Totems reserve {value_1} Spirit each,每根[Totem圖騰]保留{value_1}精魂,每個圖騰保留 {value_1} 點精魂,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_3_11230.sd_1,Invocation Skills instead Trigger Spells every {value_1} seconds,祈願技能改為每{value_1}秒觸發[Spell|法術,祈願技能改為每 {value_1} 秒觸發法術,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_3_11774.sd_1,{value_1}% chance for Damage of Enemies Hitting you to be Unlucky,敵人擊中你的傷害有{value_1}%機率視為[UnLucky|帶來厄運],敵人擊中你的傷害有 {value_1}% 機率不幸,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_3_19288.sd_1,Chance to Evade is Unlucky,閃避機率視為[UnLucky|帶來厄運],閃避機率不幸,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_3_30996.sd_2,Red: Hits against you have no Critical Damage Bonus,紅: Hits against you have no Critical Damage Bonus,紅色：對你的擊中沒有暴擊傷害加成,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_3_45202.sd_2,Totems reserve {value_1} Spirit each,每根[Totem圖騰]保留{value_1}精魂,每個圖騰保留 {value_1} 點精魂,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_4_11230.sd_1,Invocation Skills instead Trigger Spells every {value_1} seconds,祈願技能改為每{value_1}秒觸發[Spell|法術,祈願技能改為每 {value_1} 秒觸發法術,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_4_11774.sd_1,{value_1}% chance for Damage of Enemies Hitting you to be Unlucky,敵人擊中你的傷害有{value_1}%機率視為[UnLucky|帶來厄運],敵人擊中你的傷害有 {value_1}% 機率不幸,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_4_14026.sd_1,{value_1}% increased Damage against Immobilised Enemies while Shapeshifted,變形時增加{value_1}%對[Immobilised禁錮]的敵人造成的傷害,變形時，對被定身的敵人造成的傷害增加 {value_1}%,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_4_19288.sd_1,Chance to Evade is Unlucky,閃避機率視為[UnLucky|帶來厄運],閃避機率不幸,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_4_30996.sd_2,Red: Hits against you have no Critical Damage Bonus,紅: Hits against you have no Critical Damage Bonus,紅色：對你的擊中沒有暴擊傷害加成,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_4_37187.sd_1,{value_1}% increased Damage against Immobilised Enemies while Shapeshifted,變形時增加{value_1}%對[Immobilised禁錮]的敵人造成的傷害,變形時，對被定身的敵人造成的傷害增加 {value_1}%,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_4_45202.sd_2,Totems reserve {value_1} Spirit each,每根[Totem圖騰]保留{value_1}精魂,每個圖騰保留 {value_1} 點精魂,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_4_49363.sd_3,cost {value_1}% less,更少 cost {value_1}%,消耗總降 {value_1}%,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_4_56237.sd_1,{value_1}% increased Spell Damage for each different Non-Instant Attack you've used in the past {value_2} seconds,過去{value_2}秒內使用的每種非立即[Attackl|攻擊]使你增加{value_1}%法術傷害,過去 {value_2} 秒內使用的每種不同的非瞬發攻擊，使法術傷害增加 {value_1}%,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_4_58496.sd_1,{value_1}% increased Damage against Immobilised Enemies while Shapeshifted,變形時增加{value_1}%對[Immobilised禁錮]的敵人造成的傷害,變形時，對被定身的敵人造成的傷害增加 {value_1}%,历史树全资源混译与破损标签组复核；原值及相邻行已核对,
+zh-TW,game.tree_node.0_4_9328.sd_1,{value_1}% increased Damage against Immobilised Enemies while Shapeshifted,變形時增加{value_1}%對[Immobilised禁錮]的敵人造成的傷害,變形時，對被定身的敵人造成的傷害增加 {value_1}%,历史树全资源混译与破损标签组复核；原值及相邻行已核对,

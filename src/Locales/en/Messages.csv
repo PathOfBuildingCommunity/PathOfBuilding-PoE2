@@ -696,7 +696,7 @@ calc.offence.offence.line_126,{plus:s}{added_min:d} to {added_max:d} ^8(added da
 calc.offence.offence.line_127,x {added_mult:.2f} ^8(added damage multiplier)
 calc.offence.offence.line_128,x {base_multiplier:.2f} ^8(base damage multiplier)
 calc.offence.offence.line_129,x {conv_mult:g} ^8({value:g}% converted to other damage types)
-calc.offence.offence.line_13,+ {additional_uses:d} ^8(additional use{value:s})
+calc.offence.offence.line_13,+ {additional_uses:d} ^8(additional {value:s})
 calc.offence.offence.line_130,+ {value:d} to {value_2:d} ^8(damage converted from other damage types)
 calc.offence.offence.line_131,+ {value:d} to {value_2:d} ^8(damage gained from other damage types)
 calc.offence.offence.line_132,= {summed_min:.1f} to {summed_max:.1f}
@@ -707,7 +707,7 @@ calc.offence.offence.line_136,x {value:.2f} ^8(multiplier from {double_damage_ch
 calc.offence.offence.line_137,x {value:.2f} ^8(multiplier from {triple_damage_chance:d}% chance to deal triple damage)
 calc.offence.offence.line_138,x {fist_of_war_damage_effect:.2f} ^8(fist of war effect modifier)
 calc.offence.offence.line_139,x {ancestral_call_damage_effect:.2f} ^8(ancestral call effect modifier)
-calc.offence.offence.line_14,= {stored_uses:d} ^8(total use{value:s})
+calc.offence.offence.line_14,= {stored_uses:d} ^8(total {value:s})
 calc.offence.offence.line_140,x {ancestral_empowerment_damage_effect:.2f} ^8(ancestral empowerment effect modifier)
 calc.offence.offence.line_141,x {ancestral_empowerment_combined_damage_effect:.2f} ^8(ancestral empowerment combined effect modifier)
 calc.offence.offence.line_142,x {offensive_warcry_effect:.2f} ^8(aggregated warcry exerted effect modifier)
@@ -955,7 +955,7 @@ calc.offence.speed.line_2,Use Offhand Weapon Attack Speed:
 calc.offence.speed.line_3,Combined hit from both weapons:
 calc.offence.speed.line_4,Simultaneous hits from each weapon:
 calc.offence.speed.line_5,Alternating both weapons:
-calc.offence.stored_uses.line,{base_uses:d} ^8(skill use{value:s})
+calc.offence.stored_uses.line,{base_uses:d} ^8(skill {value:s})
 calc.offence.total_dot.line,{total_dot_instance:.1f} ^8(Damage per Instance)
 calc.offence.total_dot.line_2,x {speed:.2f} ^8(hits per second)
 calc.offence.total_dot.line_3,x {duration:.2f} ^8(skill duration)
@@ -1155,6 +1155,8 @@ Uber Pinnacle Boss adds the following modifiers:
 	{uber_damage}% of monster Damage of each type
 	{uber_total}% of monster Damage total
 	{uber_penetration}% penetration]"
+config.option.select_action,^7Selecting this
+config.option.toggle_action,^7Toggling this
 equipment.anoint.apply,Anoint {node}
 equipment.anoint.empty,No Anoint
 equipment.anoint.remove,Remove {anoint}
@@ -1203,6 +1205,8 @@ equipment.slot.socket,Socket
 equipment.slot.weapon_first,Weapon 1
 equipment.slot.weapon_second,Weapon 2
 equipment.slot.weapon_third,Weapon 3
+equipment.tooltip.granted_skills_hint,Tip: Hold Shift to display a tooltip for the granted skills.
+equipment.tooltip.items_tab_hint, in the Items tab
 equipment.variant.current,Current
 equipment.weapon_set.both,Both
 equipment.weapon_set.first,Set 1
@@ -1234,6 +1238,12 @@ import.validation.valid_url,URL is valid ({label})
 loadout.popup.copy,Copy Loadout
 loadout.popup.new,New Loadout
 loadout.popup.rename,Rename Loadout
+minion.library.available,^7Available {kind}:
+minion.library.beast,Beast
+minion.library.beasts,Beasts
+minion.library.in_build,{kind} in Build:
+minion.library.spectre,Spectre
+minion.library.spectres,Spectres
 notes.help.formatting,"^7You can use Ctrl +/- (or Ctrl+Scroll) to zoom in and out and Ctrl+0 to reset.
 This field also supports different colors.  Using the caret symbol (^) followed by a Hex code or a number (0-9) will set the color.
 Below are some common color codes PoB uses:	"
@@ -1253,6 +1263,9 @@ skill.group.explosion_sources,"^7This is a special group created for the enemy e
 which comes from the following sources:{sources}^7
 You cannot delete this group, but it will disappear if you lose the above sources."
 skill.group.status.disabled,(Disabled)
+skill.group.status.active,(Active)
+skill.group.status.forced_active,(Forced Active)
+skill.group.status.full_dps,(FullDPS)
 skill.group.status.inapplicable,(Cannot apply to any of the active skills)
 skill.group.status.superseded,(Superseded)
 skill.group.status.unsupported,(Unsupported)
@@ -1265,6 +1278,19 @@ term.ailment.poison,Poison
 term.ailment.sap,Sap
 term.ailment.scorch,Scorch
 term.ailment.shock,Shock
+term.anoint_material.contempt,Contempt
+term.anoint_material.despair,Despair
+term.anoint_material.disgust,Disgust
+term.anoint_material.envy,Envy
+term.anoint_material.fear,Fear
+term.anoint_material.ferocity,Ferocity
+term.anoint_material.greed,Greed
+term.anoint_material.guilt,Guilt
+term.anoint_material.ire,Ire
+term.anoint_material.isolation,Isolation
+term.anoint_material.melancholy,Melancholy
+term.anoint_material.paranoia,Paranoia
+term.anoint_material.suffering,Suffering
 term.attack_hand.main,Main Hand
 term.attack_hand.off,Off Hand
 term.calculation_resource.armour,Armour
@@ -4381,7 +4407,7 @@ ui.items_tab.add_item_tooltip.tooltip_34,^x7F7F7FSockets: {socket_string}
 ui.items_tab.add_item_tooltip.tooltip_35,Source: {value}
 ui.items_tab.add_item_tooltip.tooltip_36,^x7F7F7FSpirit: {value}{spirit_value:d}
 ui.items_tab.add_item_tooltip.tooltip_37,^x7F7F7FTalisman Tier ^xFFFFFF{talisman_tier}
-ui.items_tab.add_item_tooltip.tooltip_38,Tip: Hold Shift to display a tooltip for the granted skill{value}.
+ui.items_tab.add_item_tooltip.tooltip_38,Tip: Hold Shift to display a tooltip for the granted skill.
 ui.items_tab.add_item_tooltip.tooltip_39,Tip: Press Ctrl+D{item_tab_hint} to disable the display of stat differences.
 ui.items_tab.add_item_tooltip.tooltip_4,^x7F7F7FChance to Block: {value:s}{block_chance:d}%
 ui.items_tab.add_item_tooltip.tooltip_40,Tip: Press Ctrl+D{item_tab_hint} to enable the display of stat differences.
@@ -4533,6 +4559,14 @@ ui.main.init.about.label,About
 ui.main.init.apply_update.label,^x50E050Update Ready
 ui.main.init.check_update_label.message,Check for Update
 ui.main.init.dev_mode.label,Dev Mode
+ui.main.init.developer_mode_warning,"^xFF7700Warning: ^7Developer Mode active!
+The program is currently running in developer
+mode, which is not intended for normal use.
+If you are not expecting this, then you may have
+set up the program from the source .zip instead
+of using one of the installers. If that is the case,
+please reinstall using one of the installers from
+the ""Releases"" section of the GitHub page."
 ui.main.init.dismiss_toast.label,Dismiss
 ui.main.init.fork_label_label.message,^8PoB Community Fork
 ui.main.init.not_supported_tooltip_text_key.message,(Not supported in PoB yet)
@@ -5222,3 +5256,526 @@ world.biome.mountain,Mountain
 world.biome.swamp,Swamp
 world.biome.vaal_city,Vaal City
 world.biome.water,Water
+term.calculation_flag.attack,Attack
+term.calculation_flag.spell,Spell
+term.calculation_flag.hit,Hit
+term.calculation_flag.dot,Dot
+term.calculation_flag.cast,Cast
+term.calculation_flag.thorns,Thorns
+term.calculation_flag.melee,Melee
+term.calculation_flag.area,Area
+term.calculation_flag.projectile,Projectile
+term.calculation_flag.source_mask,SourceMask
+term.calculation_flag.ailment,Ailment
+term.calculation_flag.melee_hit,MeleeHit
+term.calculation_flag.weapon,Weapon
+term.calculation_flag.axe,Axe
+term.calculation_flag.bow,Bow
+term.calculation_flag.claw,Claw
+term.calculation_flag.dagger,Dagger
+term.calculation_flag.mace,Mace
+term.calculation_flag.staff,Staff
+term.calculation_flag.sword,Sword
+term.calculation_flag.wand,Wand
+term.calculation_flag.unarmed,Unarmed
+term.calculation_flag.fishing,Fishing
+term.calculation_flag.crossbow,Crossbow
+term.calculation_flag.flail,Flail
+term.calculation_flag.spear,Spear
+term.calculation_flag.warstaff,Warstaff
+term.calculation_flag.talisman,Talisman
+term.calculation_flag.weapon_melee,WeaponMelee
+term.calculation_flag.weapon_ranged,WeaponRanged
+term.calculation_flag.weapon1_h,Weapon1H
+term.calculation_flag.weapon2_h,Weapon2H
+term.calculation_flag.weapon_mask,WeaponMask
+term.calculation_flag.aura,Aura
+term.calculation_flag.curse,Curse
+term.calculation_flag.warcry,Warcry
+term.calculation_flag.movement,Movement
+term.calculation_flag.physical,Physical
+term.calculation_flag.fire,Fire
+term.calculation_flag.cold,Cold
+term.calculation_flag.lightning,Lightning
+term.calculation_flag.chaos,Chaos
+term.calculation_flag.vaal,Vaal
+term.calculation_flag.arrow,Arrow
+term.calculation_flag.trap,Trap
+term.calculation_flag.mine,Mine
+term.calculation_flag.totem,Totem
+term.calculation_flag.minion,Minion
+term.calculation_flag.brand,Brand
+term.calculation_flag.poison,Poison
+term.calculation_flag.bleed,Bleed
+term.calculation_flag.ignite,Ignite
+term.calculation_flag.physical_dot,PhysicalDot
+term.calculation_flag.lightning_dot,LightningDot
+term.calculation_flag.cold_dot,ColdDot
+term.calculation_flag.fire_dot,FireDot
+term.calculation_flag.chaos_dot,ChaosDot
+term.calculation_flag.match_all,MatchAll
+term.calculation_modifier.weapon_set1,Weapon Set 1
+term.calculation_modifier.weapon_set2,Weapon Set 2
+term.calculation_modifier.power_charges,Power Charges
+term.calculation_modifier.frenzy_charges,Frenzy Charges
+term.calculation_modifier.endurance_charges,Endurance Charges
+term.calculation_modifier.crit_chance,Crit Chance
+term.calculation_modifier.weapon_base_crit_chance,Weapon Base Crit Chance
+term.calculation_source.item,Item
+term.calculation_source.tree,Tree
+term.calculation_source.skill,Skill
+term.calculation_source.many_sources,Many Sources
+term.calculation_source.pantheon,Pantheon
+term.calculation_source.spectre,Spectre
+term.calculation_source.quest,Quest
+term.calculation_source.custom,Custom
+term.calculation_source.rune,Rune
+calc.offence.crit_base.main_weapon, from main weapon
+calc.offence.crit_base.parent_main_weapon, from parent main weapon
+term.calculation_modifier.buff,Buff
+term.calculation_modifier.using_flask,Using Flask
+calcs.effect.absorption_charges,Absorption Charges
+calcs.effect.adrenaline,Adrenaline
+calcs.effect.affliction_charges,Affliction Charges
+calcs.effect.alchemists_genius,Alchemist's Genius
+calcs.effect.blitz_charges,Blitz Charges
+calcs.effect.blood_charges,Blood Charges
+calcs.effect.brutal_charges,Brutal Charges
+calcs.effect.challenger_charges,Challenger Charges
+calcs.effect.chaotic_might,Chaotic Might
+calcs.effect.counted,{count} {effect}
+calcs.effect.crab_barriers,Crab Barriers
+calcs.effect.cruelty,Cruelty
+calcs.effect.diamond_shrine,Diamond Shrine
+calcs.effect.fortify,Fortify
+calcs.effect.ghost_shrouds,Ghost Shrouds
+calcs.effect.her_embrace,Her Embrace
+calcs.effect.inspiration_charges,Inspiration Charges
+calcs.effect.lesser_brutal_shrine,Lesser Brutal Shrine
+calcs.effect.lesser_massive_shrine,Lesser Massive Shrine
+calcs.effect.massive_shrine,Massive Shrine
+calcs.effect.onslaught,Onslaught
+calcs.effect.siphoning_charges,Siphoning Charges
+calcs.effect.spirit_charges,Spirit Charges
+calcs.effect.stacked,{effect} ({count} stacks)
+calcs.effect.tailwind,Tailwind
+calcs.effect.unholy_might,Unholy Might
+calcs.effect.wither,Wither
+term.calculation_modifier.accuracy,Accuracy
+term.calculation_modifier.action_speed,Action Speed
+term.calculation_modifier.ailment_magnitude,Ailment Magnitude
+term.calculation_modifier.ailment_threshold,Ailment Threshold
+term.calculation_modifier.allocated_connected_notable,Allocated Connected Notable
+term.calculation_modifier.armour,Armour
+term.calculation_modifier.armour_applies_to_chaos_damage_taken,Armour Applies To Chaos Damage Taken
+term.calculation_modifier.armour_applies_to_cold_damage_taken,Armour Applies To Cold Damage Taken
+term.calculation_modifier.armour_applies_to_fire_damage_taken,Armour Applies To Fire Damage Taken
+term.calculation_modifier.armour_applies_to_lightning_damage_taken,Armour Applies To Lightning Damage Taken
+term.calculation_modifier.armour_on_body_armour,Armour On Body Armour
+term.calculation_modifier.armour_on_boots,Armour On Boots
+term.calculation_modifier.armour_on_gloves,Armour On Gloves
+term.calculation_modifier.armour_on_helmet,Armour On Helmet
+term.calculation_modifier.armour_on_weapon_2,Armour On Weapon 2
+term.calculation_modifier.attack,Attack
+term.calculation_modifier.aura,Aura
+term.calculation_modifier.aura_debuff,Aura Debuff
+term.calculation_modifier.barrage_repeat_damage,Barrage Repeat Damage
+term.calculation_modifier.barrage_repeats,Barrage Repeats
+term.calculation_modifier.been_hit_recently,Been Hit Recently
+term.calculation_modifier.block_chance,Block Chance
+term.calculation_modifier.cannot_consume_charges,Cannot Consume Charges
+term.calculation_modifier.chaos_resist,Chaos Resist
+term.calculation_modifier.chaos_resist_max,Chaos Resist Max
+term.calculation_modifier.charge_duration,Charge Duration
+term.calculation_modifier.chilled,Chilled
+term.calculation_modifier.cold_resist,Cold Resist
+term.calculation_modifier.cold_resist_max,Cold Resist Max
+term.calculation_modifier.combat_frenzy_cooldown,Combat Frenzy Cooldown
+term.calculation_modifier.condition_can_armour_break,Condition: Can Armour Break
+term.calculation_modifier.condition_can_gain_rage,Condition: Can Gain Rage
+term.calculation_modifier.condition_can_inflict_incision,Condition: Can Inflict Incision
+term.calculation_modifier.condition_enemies_explode,Condition: Enemies Explode
+term.calculation_modifier.crit_in_past8_sec,Crit In Past 8 Sec
+term.calculation_modifier.crit_recently,Crit Recently
+term.calculation_modifier.curse,Curse
+term.calculation_modifier.curse_effect_on_self,Curse Effect On Self
+term.calculation_modifier.damage_gain_as_chaos,Damage Gain As Chaos
+term.calculation_modifier.damage_gain_as_cold,Damage Gain As Cold
+term.calculation_modifier.damage_gain_as_fire,Damage Gain As Fire
+term.calculation_modifier.damage_gain_as_lightning,Damage Gain As Lightning
+term.calculation_modifier.damage_gain_as_physical,Damage Gain As Physical
+term.calculation_modifier.distance_ramp,Distance Ramp
+term.calculation_modifier.effective,Effective
+term.calculation_modifier.elemental_damage,Elemental Damage
+term.calculation_modifier.elemental_resist,Elemental Resist
+term.calculation_modifier.endurance_charges_max,Endurance Charges Max
+term.calculation_modifier.enemy_ailment_threshold,Enemy Ailment Threshold
+term.calculation_modifier.enemy_bleed_duration,Enemy Bleed Duration
+term.calculation_modifier.enemy_curse_limit,Enemy Curse Limit
+term.calculation_modifier.enemy_freeze_buildup,Enemy Freeze Buildup
+term.calculation_modifier.enemy_heavy_stun_buildup,Enemy Heavy Stun Buildup
+term.calculation_modifier.enemy_ignite_duration,Enemy Ignite Duration
+term.calculation_modifier.enemy_immobilisation_buildup,Enemy Immobilisation Buildup
+term.calculation_modifier.enemy_stun_duration,Enemy Stun Duration
+term.calculation_modifier.enemy_stun_threshold,Enemy Stun Threshold
+term.calculation_modifier.energy_shield,Energy Shield
+term.calculation_modifier.evasion,Evasion
+term.calculation_modifier.evasion_on_body_armour,Evasion On Body Armour
+term.calculation_modifier.evasion_on_weapon_2,Evasion On Weapon 2
+term.calculation_modifier.fire_damage,Fire Damage
+term.calculation_modifier.fire_max,Fire Max
+term.calculation_modifier.fire_min,Fire Min
+term.calculation_modifier.fire_penetration,Fire Penetration
+term.calculation_modifier.fire_resist,Fire Resist
+term.calculation_modifier.fire_resist_max,Fire Resist Max
+term.calculation_modifier.flask_life_recovery,Flask Life Recovery
+term.calculation_modifier.freeze_immune,Freeze Immune
+term.calculation_modifier.frenzy_charges_max,Frenzy Charges Max
+term.calculation_modifier.gem_corruption_level,Gem Corruption Level
+term.calculation_modifier.gem_global_level,Gem Global Level
+term.calculation_modifier.gem_global_quality,Gem Global Quality
+term.calculation_modifier.gem_level,Gem Level
+term.calculation_modifier.gem_quality,Gem Quality
+term.calculation_modifier.global,Global
+term.calculation_modifier.herald_of_ash_buff,Herald Of Ash Buff
+term.calculation_modifier.ignite_immune,Ignite Immune
+term.calculation_modifier.ignited,Ignited
+term.calculation_modifier.ignore_movement_penalties,Ignore Movement Penalties
+term.calculation_modifier.item_condition,Item Condition
+term.calculation_modifier.level,Level
+term.calculation_modifier.life,Life
+term.calculation_modifier.life_cost,Life Cost
+term.calculation_modifier.life_on_kill,Life On Kill
+term.calculation_modifier.life_recoup,Life Recoup
+term.calculation_modifier.life_regen,Life Regen
+term.calculation_modifier.life_regen_percent,Life Regen Percent
+term.calculation_modifier.lightning_resist,Lightning Resist
+term.calculation_modifier.lightning_resist_max,Lightning Resist Max
+term.calculation_modifier.mana,Mana
+term.calculation_modifier.mana_cost,Mana Cost
+term.calculation_modifier.mana_regen,Mana Regen
+term.calculation_modifier.movement_speed,Movement Speed
+term.calculation_modifier.multiplier_predators_mark_limit,Multiplier: Predators Mark Limit
+term.calculation_modifier.multiplier_scavenged_plating_stacks_limit,Multiplier: Scavenged Plating Stacks Limit
+term.calculation_modifier.no_inherent_mana_regen,No Inherent Mana Regen
+term.calculation_modifier.physical_damage_from_hits_taken_as_chaos,Physical Damage From Hits Taken As Chaos
+term.calculation_modifier.physical_damage_from_hits_taken_as_fire,Physical Damage From Hits Taken As Fire
+term.calculation_modifier.physical_damage_life_leech,Physical Damage Life Leech
+term.calculation_modifier.physical_damage_reduction,Physical Damage Reduction
+term.calculation_modifier.physical_damage_taken_as_fire,Physical Damage Taken As Fire
+term.calculation_modifier.physical_heavy_stun_buildup,Physical Heavy Stun Buildup
+term.calculation_modifier.pierce_all_targets,Pierce All Targets
+term.calculation_modifier.power_charges_max,Power Charges Max
+term.calculation_modifier.projectile_count,Projectile Count
+term.calculation_modifier.rage,Rage
+term.calculation_modifier.rage_regen,Rage Regen
+term.calculation_modifier.rare_or_unique,Rare Or Unique
+term.calculation_modifier.removable_frenzy_charge,Removable Frenzy Charge
+term.calculation_modifier.self_crit_multiplier,Self Crit Multiplier
+term.calculation_modifier.sequential_projectiles,Sequential Projectiles
+term.calculation_modifier.shock_immune,Shock Immune
+term.calculation_modifier.skill_movement_speed,Skill Movement Speed
+term.calculation_modifier.speed,Speed
+term.calculation_modifier.spell_dodge_chance_max,Spell Dodge Chance Max
+term.calculation_modifier.str,Str
+term.calculation_modifier.str_requirements_on_boots,Str Requirements On Boots
+term.calculation_modifier.str_requirements_on_gloves,Str Requirements On Gloves
+term.calculation_modifier.str_requirements_on_helmet,Str Requirements On Helmet
+term.calculation_modifier.stun_threshold,Stun Threshold
+term.calculation_modifier.totem_placement_speed,Totem Placement Speed
+term.calculation_modifier.uses_warcry_power,Uses Warcry Power
+term.calculation_modifier.using_shield,Using Shield
+term.calculation_modifier.warcry,Warcry
+term.calculation_modifier.warcry_speed,Warcry Speed
+term.calculation_modifier.ward_regen_percent,Ward Regen Percent
+term.calculation_modifier.enemy_distance,enemy Distance
+term.calculation_modifier.poise_threshold,Poise Threshold
+term.ailment.electrocute,Electrocute
+term.ailment.heavy_stun,HeavyStun
+term.ailment.pin,Pin
+term.calculation_actor_prefix.enemy,"Enemy "
+term.calculation_source.enemy_config,EnemyConfig
+term.calculation_source.max_level,Max Level
+term.calculation_source.inherited_max_level,Inherited Max Level
+calc.offence.calc_damaging_ailment_outputs.crit_derivation,Crit Dmg Derivation:
+term.calculation_source.gem,Gem
+term.calculation_source.support_gems,Support Gems
+calc.requirements.support_gems,{count} {colour}{attribute} Support Gems
+calc.defence.hit_category.average,n Average
+calc.defence.hit_category.untyped,n Untyped
+calc.defence.hit_category.melee, Melee
+calc.defence.hit_category.projectile, Projectile
+calc.defence.hit_category.spell, Spell
+calc.defence.hit_category.spell_projectile, SpellProjectile
+calc.defence.stun_threshold.energy_shield,{percent}% of Energy Shield
+calc.defence.stun_threshold.mana,{percent}% of Mana
+calc.defence.stun_threshold.life_before_chaos_inoculation,Life before Chaos Inoculation
+calc.defence.stun_threshold.add_energy_shield,{source} and {percent}% of Energy Shield
+calc.offence.accuracy.current_config, ^8(current config)
+calc.offence.ancestral_boost.capped,capped at 100%
+term.calculation_source.uptime_infernal_cry,Uptime Scaled Infernal Cry
+term.calculation_source.bifurcated_crit_bonus,Bifurcated Crit Damage Bonus
+term.calculation_source.empowered_attacks,Empowered Attacks
+term.calculation_source.uptime_empowered_attacks,Uptime Scaled Empowered Attacks
+term.calculation_source.ancestrally_boosted_attacks,Ancestrally Boosted Attacks
+term.calculation_source.uptime_ancestrally_boosted_attacks,Uptime Scaled Ancestrally Boosted Attacks
+term.calculation_source.uptime_ancestrally_boosted_aoe,Uptime Scaled Ancestrally Boosted AoE
+calc.offence.uptime_source.infernal_cry,InfernalCry
+calc.offence.uptime_source.ancestral_empowerment,AncestralEmpowerment
+calc.offence.uptime_source.ancestral_empowerment_combined,AncestralEmpowermentCombined
+calc.offence.uptime_source.fist_of_war,FistOfWar
+calc.offence.uptime_source.ancestral_call,AncestralCall
+calc.offence.boost_source.ancestral_empowerment,ancestral empowerment
+calc.offence.boost_source.fist_of_war,fist of war
+calc.offence.boost_source.ancestral_call,ancestral call
+calc.damage_type_lower.physical,physical
+calc.damage_type_lower.fire,fire
+calc.damage_type_lower.cold,cold
+calc.damage_type_lower.lightning,lightning
+calc.damage_type_lower.chaos,chaos
+calc.damage_type_lower.elemental,elemental
+calc.enemy_boss_type.none,None
+calc.enemy_boss_type.boss,Boss
+calc.enemy_boss_type.pinnacle,Pinnacle
+calc.enemy_boss_type.uber,Uber
+equipment.slot.arm_first,Arm 1
+equipment.slot.arm_second,Arm 2
+equipment.slot.leg_first,Leg 1
+equipment.slot.leg_second,Leg 2
+equipment.rare_preset.plus_2_critical_quiver,+2 Critical Quiver
+equipment.rare_preset.plus_2_energy_shield,+2 Energy Shield
+equipment.rare_preset.plus_2_poison_quiver,+2 Poison Quiver
+equipment.rare_preset.plus_4_chaos_bow,+4 Chaos Bow
+equipment.rare_preset.plus_4_elemental_bow,+4 Elemental Bow
+equipment.rare_preset.plus_4_elemental_spear,+4 Elemental Spear
+equipment.rare_preset.plus_4_lightning_spear,+4 Lightning Spear
+equipment.rare_preset.plus_4_minion_sceptre,+4 Minion Sceptre
+equipment.rare_preset.plus_4_physical_bow,+4 Physical Bow
+equipment.rare_preset.plus_4_physical_spear,+4 Physical Spear
+equipment.rare_preset.plus_6_elemental_crossbow,+6 Elemental Crossbow
+equipment.rare_preset.plus_6_physical_crossbow,+6 Physical Crossbow
+equipment.rare_preset.armour_boots,Armour Boots
+equipment.rare_preset.armour_chest,Armour Chest
+equipment.rare_preset.armour_gloves,Armour Gloves
+equipment.rare_preset.armour_helmet,Armour Helmet
+equipment.rare_preset.armour_shield,Armour Shield
+equipment.rare_preset.armour_energy_shield_boots,Armour/Energy Shield Boots
+equipment.rare_preset.armour_energy_shield_chest,Armour/Energy Shield Chest
+equipment.rare_preset.armour_energy_shield_gloves,Armour/Energy Shield Gloves
+equipment.rare_preset.armour_energy_shield_helmet,Armour/Energy Shield Helmet
+equipment.rare_preset.armour_energy_shield_shield,Armour/Energy Shield Shield
+equipment.rare_preset.armour_evasion_boots,Armour/Evasion Boots
+equipment.rare_preset.armour_evasion_chest,Armour/Evasion Chest
+equipment.rare_preset.armour_evasion_gloves,Armour/Evasion Gloves
+equipment.rare_preset.armour_evasion_helmet,Armour/Evasion Helmet
+equipment.rare_preset.armour_evasion_shield,Armour/Evasion Shield
+equipment.rare_preset.attribute_amulet,Attribute Amulet
+equipment.rare_preset.belt,Belt
+equipment.rare_preset.chaos_resistance_ring,Chaos Resistance Ring
+equipment.rare_preset.chaos_wand,Chaos Wand
+equipment.rare_preset.cold_staff,Cold Staff
+equipment.rare_preset.dexterity_amulet,Dexterity Amulet
+equipment.rare_preset.discipline_sceptre,Discipline Sceptre
+equipment.rare_preset.elemental_1h_mace,Elemental 1H Mace
+equipment.rare_preset.elemental_2h_mace,Elemental 2H Mace
+equipment.rare_preset.elemental_staff,Elemental Staff
+equipment.rare_preset.elemental_talisman,Elemental Talisman
+equipment.rare_preset.elemental_wand,Elemental Wand
+equipment.rare_preset.energy_shield_amulet,Energy Shield Amulet
+equipment.rare_preset.energy_shield_boots,Energy Shield Boots
+equipment.rare_preset.energy_shield_chest,Energy Shield Chest
+equipment.rare_preset.energy_shield_gloves,Energy Shield Gloves
+equipment.rare_preset.energy_shield_helmet,Energy Shield Helmet
+equipment.rare_preset.evasion_boots,Evasion Boots
+equipment.rare_preset.evasion_chest,Evasion Chest
+equipment.rare_preset.evasion_gloves,Evasion Gloves
+equipment.rare_preset.evasion_helmet,Evasion Helmet
+equipment.rare_preset.evasion_shield,Evasion Shield
+equipment.rare_preset.evasion_energy_shield_boots,Evasion/Energy Shield Boots
+equipment.rare_preset.evasion_energy_shield_chest,Evasion/Energy Shield Chest
+equipment.rare_preset.evasion_energy_shield_gloves,Evasion/Energy Shield Gloves
+equipment.rare_preset.evasion_energy_shield_helmet,Evasion/Energy Shield Helmet
+equipment.rare_preset.fire_staff,Fire Staff
+equipment.rare_preset.fire_wand,Fire Wand
+equipment.rare_preset.intelligence_amulet,Intelligence Amulet
+equipment.rare_preset.jewel,Jewel
+equipment.rare_preset.lightning_staff,Lightning Staff
+equipment.rare_preset.malice_sceptre,Malice Sceptre
+equipment.rare_preset.mana_amulet,Mana Amulet
+equipment.rare_preset.mana_ring,Mana Ring
+equipment.rare_preset.movement_speed_chest,Movement Speed Chest
+equipment.rare_preset.physical_1h_mace,Physical 1H Mace
+equipment.rare_preset.physical_2h_mace,Physical 2H Mace
+equipment.rare_preset.physical_staff,Physical Staff
+equipment.rare_preset.physical_talisman,Physical Talisman
+equipment.rare_preset.physical_wand,Physical Wand
+equipment.rare_preset.purity_aura_sceptre,Purity Aura Sceptre
+equipment.rare_preset.radius_jewel,Radius Jewel
+equipment.rare_preset.resistance_ring,Resistance Ring
+equipment.rare_preset.ring,Ring
+equipment.rare_preset.spirit_amulet,Spirit Amulet
+equipment.rare_preset.spirit_chest,Spirit Chest
+equipment.rare_preset.strength_amulet,Strength Amulet
+term.item_league.dawn_of_the_hunt,Dawn of the Hunt
+term.item_league.runes_of_aldur,Runes of Aldur
+term.item_league.rise_of_the_abyssal,Rise of the Abyssal
+term.item_league.fate_of_the_vaal,Fate of the Vaal
+term.boss_skill.atziri_flameblast,Atziri Flameblast
+term.boss_skill.cortex_ground_degen,Cortex Ground Degen
+term.boss_skill.eater_beam,Eater Beam
+term.boss_skill.exarch_ball,Exarch Ball
+term.boss_skill.maven_fireball,Maven Fireball
+term.boss_skill.maven_memory_game,Maven Memory Game
+term.boss_skill.none,None
+term.boss_skill.shaper_ball,Shaper Ball
+term.boss_skill.shaper_beam,Shaper Beam
+term.boss_skill.shaper_slam,Shaper Slam
+term.boss_skill.sirus_meteor,Sirus Meteor
+term.boss_skill_tooltip.atziri_flameblast,The Uber variant has 10 ^xB97123Fire^7 penetration (Applied on Pinnacle And Uber)
+term.boss_skill_tooltip.cortex_ground_degen,Damage Over Time skill
+term.boss_skill_tooltip.eater_beam,Allocating Insatiable Appetite causes the beam to always shock for at least 30%
+term.boss_skill_tooltip.exarch_ball,"Spawns 8-18 waves of balls depending on which fight and which ball phase, Cannot be Blocked, Dodged, or Suppressed"
+term.boss_skill_tooltip.maven_fireball,Allocating Throw the Gauntlet increases Damage by a further 100% (Applied on Uber) and causes the fireball to have 30 ^xB97123Fire^7 penetration (Applied on Uber)
+term.boss_skill_tooltip.maven_memory_game,"Cannot be Blocked, Dodged, or Suppressed. 
+	It is three separate hits, and has a large DoT effect.  Neither is taken into account here.  
+		i.e. Hits before death should be more than 3 to survive"
+term.boss_skill_tooltip.shaper_ball,Allocating Cosmic Wounds increases the penetration to 40% (Applied on Uber) and adds 2 projectiles
+term.boss_skill_tooltip.shaper_beam,Damage Over Time skill
+term.boss_skill_tooltip.shaper_slam,Cannot be Evaded.  Allocating Cosmic Wounds increases Damage by a further 100% (Applied on Uber) and cannot be blocked or dodged
+term.boss_skill_tooltip.sirus_meteor,Earlier ones with less walls do less damage. Allocating The Perfect Storm increases Damage by a further 50% (Applied on Uber)
+term.calculation_source.xesht,Xesht
+calcs.effect.armour_break,Armour Break
+ui.build.open_save_popup.mode.now,now?
+ui.build.open_save_popup.mode.before_exiting,before exiting?
+ui.build.open_save_popup.mode.before_updating,before updating?
+ui.item_list_control.in_set, in set '{title}'
+ui.build.warning.lineage_locations, Locations: {locations}
+calc.offence.use_form.plural,uses
+calc.offence.use_form.singular,use
+ui.notable_dbcontrol.sorting,^7Sorting... ({percent:d}%)
+ui.notable_dbcontrol.no_matches,^7No notables found that match those filters.
+ui.trade_query_generator.request_query.anoint_tooltip,"Controls how anoints are used in the search.
+
+Copy Current: anoints are replaced with the current anoint when possible.
+Usually the best opinion as this ensures the anoint makes sense for your build.
+
+Keep: anoints will not be changed on items.
+Best used when you cannot add one yourself. Note that weights cannot be generated for anoints.
+
+Remove: anoints are completely ignored, and removed from items."
+ui.trade_query_generator.request_query.augment_tooltip,"Controls how augments are used in the search.
+
+Copy Current: augments in weights are skipped and augments are replaced with the current augments when possible.
+Usually the best opinion as this ensures the augments makes sense for your build.
+
+Keep: augments will be included in weights and will not be changed on items.
+Best used when you value an augment greatly, and cannot add it yourself.
+
+Remove: augments are completely ignored, and removed from items."
+ui.item_dbcontrol.sorting,^7Sorting... ({percent:d}%)
+ui.item_dbcontrol.no_matches,^7No items found that match those filters.
+ui.item_dbcontrol.loading,^7Loading...
+ui.item_list_control.empty_list,"^x7F7F7FThis is the list of items that have been added to this build.
+You can add items to this list by dragging them from
+one of the other lists, or by clicking 'Add to build' when
+viewing an item."
+ui.shared_item_list_control.empty_list,"^x7F7F7FThis is a list of items that will be shared between all of
+your builds.
+You can add items to this list by dragging them from
+one of the other lists."
+ui.shared_item_set_list_control.empty_list,"^x7F7F7FThis is a list of item sets that will be shared
+between all of your builds.
+You can add sets to this list by dragging them
+from the build's set list."
+equipment.anoint.action,Anointing
+equipment.anoint.compare,"{action} {node} will give you: "
+equipment.anoint.compare_empty,"{action} nothing will give you: "
+ui.items_tab.character_rune_slot.helmet,^7Helmet Rune 1:
+ui.items_tab.character_rune_slot.body_1,^7Body Rune 1:
+ui.items_tab.character_rune_slot.body_2,^7Body Rune 2:
+ui.items_tab.character_rune_slot.gloves,^7Gloves Rune 1:
+ui.items_tab.character_rune_slot.boots,^7Boots Rune 1:
+term.power_color.red,red
+term.power_color.green,green
+term.power_color.blue,blue
+skill.active.companion,Companion: {minion}
+skill.active.spectre,Spectre: {minion}
+minion.library.spawns,Spawns:
+ui.tree_tab.convert_current.label,Convert to {display}
+ui.tree_tab.convert_all.label,Convert all trees to {display}
+ui.build.loadouts.empty,No Loadouts
+ui.build.loadouts.heading,^7^7Loadouts:
+ui.build.loadouts.manage,^7^7Manage
+ui.build.loadouts.sync,^7^7Sync
+ui.build.loadouts.help,^7^7Help >>
+ui.build_list_control.summary,Level {level} {class}
+build.warning.count,{count:d} Warnings
+tree.heatmap.depth.all,All
+tree.heatmap.depth.custom,Custom
+build.export.written_files,"Wrote {count:d} file(s):
+{paths}"
+build.export.failed_files,"
+
+{count:d} failed:
+{errors}"
+build.export.placeholder.name,Unnamed Build
+build.export.placeholder.author,Author
+build.search.placeholder,(e.g. class:invoker myfilename)
+trade.url.placeholder,Paste trade URL here...
+skill.search.no_matches,<No matches>
+skill.enable_global,Enable {name}:
+calcs.projectile.cannot_split,Cannot split
+calcs.projectile.cannot_fork,Cannot fork
+calcs.projectile.cannot_pierce,Cannot pierce
+calcs.projectile.all_targets,All targets
+skill.search.tag_help,Prefix tag searches with a colon and exclude tags with a dash. e.g. :fire:lightning:-cold:area
+build.level_scaling.tier, (Tier {tier:d})
+term.calculation_source.unique,Unique
+term.calculation_source.physical_damage,Physical Damage
+term.calculation_source.melee_damage,Melee Damage
+term.calculation_source.corruption,Corruption
+skill.default_level.description.1,All gems default to their highest valid non-corrupted gem level.
+skill.default_level.description.2,"Normal gems default to their highest valid corrupted gem level.
+Awakened gems default to their highest valid non-corrupted gem level."
+skill.default_level.description.3,"All gems default to their highest valid non-corrupted gem level that your character meets the level requirement for.
+This hides gems with a minimum level requirement above your character level, preventing them from showing up in the dropdown list."
+minion.category.beast,Beast
+minion.category.humanoid,Humanoid
+minion.category.eldritch,Eldritch
+minion.category.construct,Construct
+minion.category.demon,Demon
+minion.category.undead,Undead
+calcs.full_dps.minion_skill,{minion}: {skill}
+calcs.full_dps.mirage,{skill} (Mirage)
+skill.active.explosion_source,From {source}
+build_note.empty_item_slot,Add a note for this item slot
+build_note.prefix,"Note: "
+build_note.markup_help,"Click to insert tag, then type inside the curly braces."
+calcs.full_dps.best_bleed,Best Bleed DPS
+calcs.full_dps.best_corrupting_blood,Best Corr. Blood DPS
+calcs.full_dps.best_ignite,Best Ignite DPS
+calcs.full_dps.best_burning_ground,Best Burning Ground DPS
+calcs.full_dps.best_poison,Best Poison DPS
+calcs.full_dps.best_caustic_ground,Best Caustic Ground DPS
+calcs.full_dps.full_impale,Full Impale DPS
+calcs.full_dps.full_decay,Full Decay DPS
+calcs.full_dps.full_dot,Full DoT DPS
+calcs.full_dps.full_culling,Full Culling DPS
+build_note.color.normal,NORMAL
+build_note.color.magic,MAGIC
+build_note.color.rare,RARE
+build_note.color.unique,UNIQUE
+build_note.color.relic,RELIC
+build_note.color.gem,GEM
+build_note.color.fire,FIRE
+build_note.color.cold,COLD
+build_note.color.lightning,LIGHTNING
+build_note.color.chaos,CHAOS
+build_note.color.strength,STRENGTH
+build_note.color.dexterity,DEXTERITY
+build_note.color.intelligence,INTELLIGENCE
+build_note.color.positive,POSITIVE
+build_note.color.negative,NEGATIVE
+build_note.color.warning,WARNING
+build_note.color.tip,TIP
+build_note.color.currency,CURRENCY

@@ -15,6 +15,7 @@ function SharedItemSetListClass:SharedItemSetListControl(anchor, rect, itemsTab)
 	self:ListControl(anchor, rect, 16, "VERTICAL", true, main.sharedItemSetList)
 	self.itemsTab = itemsTab
 	self.defaultText = "^x7F7F7FThis is a list of item sets that will be shared\nbetween all of your builds.\nYou can add sets to this list by dragging them\nfrom the build's set list."
+	self.defaultTextKey = 'ui.shared_item_set_list_control.empty_list'
 	self.controls.delete = new("ButtonControl"):ButtonControl({ "BOTTOMLEFT", self, "TOP" }, { 2, -4, 60, 18 }, localisation:Label("ui.shared_item_set_list_control.init.delete.label"), function()
 		self:OnSelDelete(self.selIndex, self.selValue)
 	end)

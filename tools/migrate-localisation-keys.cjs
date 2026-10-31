@@ -4,7 +4,7 @@ const path = require('path');
 const crypto = require('crypto');
 const root = path.resolve(__dirname, '..');
 const run = path.join(root, 'src/Tests/Run');
-const parser = require(path.join(run, 'key-migration/node_modules/luaparse'));
+const parser = require('luaparse');
 const result = { files: [], candidates: [], resources: [], pending: [], errors: [] };
 const bindings = new Map();
 const keys = new Map();
@@ -363,6 +363,10 @@ function scan(file) {
       else if (name === 'EditControl') propose(args[3], true, 'EditControl.prompt');
       else if (name === 'newPlainNumericEdit') propose(args[3], true, 'EditControl.prompt');
       else if (name === 'AddLine') propose(args[1], false, 'Tooltip.AddLine');
+      else if (name === 'AddBuildPlannerNote') {
+        propose(args[1], false, 'Tooltip.BuildPlannerNote.body');
+        if (args[2]) propose(args[2], false, 'Tooltip.BuildPlannerNote.prefix');
+      }
       else if (name === 'DrawString') propose(args[5], false, name);
       else if (name === 'DrawStringWidth') propose(args[2], false, name);
       else if (name === 'SetWindowTitle') propose(args[0], false, name);

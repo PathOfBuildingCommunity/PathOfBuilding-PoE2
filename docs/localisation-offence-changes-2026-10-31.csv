@@ -1,0 +1,634 @@
+language,key,kind,source,before,after
+en,calc.damage_type_lower.chaos,added,chaos,,chaos
+en,calc.damage_type_lower.cold,added,cold,,cold
+en,calc.damage_type_lower.elemental,added,elemental,,elemental
+en,calc.damage_type_lower.fire,added,fire,,fire
+en,calc.damage_type_lower.lightning,added,lightning,,lightning
+en,calc.damage_type_lower.physical,added,physical,,physical
+en,calc.enemy_boss_type.boss,added,Boss,,Boss
+en,calc.enemy_boss_type.none,added,None,,None
+en,calc.enemy_boss_type.pinnacle,added,Pinnacle,,Pinnacle
+en,calc.enemy_boss_type.uber,added,Uber,,Uber
+en,calc.offence.accuracy.current_config,added, ^8(current config),, ^8(current config)
+en,calc.offence.ancestral_boost.capped,added,capped at 100%,,capped at 100%
+en,calc.offence.boost_source.ancestral_call,added,ancestral call,,ancestral call
+en,calc.offence.boost_source.ancestral_empowerment,added,ancestral empowerment,,ancestral empowerment
+en,calc.offence.boost_source.fist_of_war,added,fist of war,,fist of war
+en,calc.offence.uptime_source.ancestral_call,added,AncestralCall,,AncestralCall
+en,calc.offence.uptime_source.ancestral_empowerment,added,AncestralEmpowerment,,AncestralEmpowerment
+en,calc.offence.uptime_source.ancestral_empowerment_combined,added,AncestralEmpowermentCombined,,AncestralEmpowermentCombined
+en,calc.offence.uptime_source.fist_of_war,added,FistOfWar,,FistOfWar
+en,calc.offence.uptime_source.infernal_cry,added,InfernalCry,,InfernalCry
+en,term.calculation_source.ancestrally_boosted_attacks,added,Ancestrally Boosted Attacks,,Ancestrally Boosted Attacks
+en,term.calculation_source.bifurcated_crit_bonus,added,Bifurcated Crit Damage Bonus,,Bifurcated Crit Damage Bonus
+en,term.calculation_source.empowered_attacks,added,Empowered Attacks,,Empowered Attacks
+en,term.calculation_source.uptime_ancestrally_boosted_aoe,added,Uptime Scaled Ancestrally Boosted AoE,,Uptime Scaled Ancestrally Boosted AoE
+en,term.calculation_source.uptime_ancestrally_boosted_attacks,added,Uptime Scaled Ancestrally Boosted Attacks,,Uptime Scaled Ancestrally Boosted Attacks
+en,term.calculation_source.uptime_empowered_attacks,added,Uptime Scaled Empowered Attacks,,Uptime Scaled Empowered Attacks
+en,term.calculation_source.uptime_infernal_cry,added,Uptime Scaled Infernal Cry,,Uptime Scaled Infernal Cry
+zh-CN,calc.damage_type_lower.chaos,added,chaos,,混沌
+zh-CN,calc.damage_type_lower.cold,added,cold,,冰霜
+zh-CN,calc.damage_type_lower.elemental,added,elemental,,元素
+zh-CN,calc.damage_type_lower.fire,added,fire,,火焰
+zh-CN,calc.damage_type_lower.lightning,added,lightning,,闪电
+zh-CN,calc.damage_type_lower.physical,added,physical,,物理
+zh-CN,calc.defence.incoming_damage_breakdown.line_13,modified,	{value:d} {es}Energy Shield ^7({energy_shield:d} remaining),	{value:d} {es}能量护盾 ^7({energy_shield:d} remaining),	{value:d} {es}能量护盾 ^7(剩余{energy_shield:d})
+zh-CN,calc.defence.incoming_damage_breakdown.line_14,modified,	{eternal_life_prevented:d} {positive}Life change prevented by Eternal Life,	{eternal_life_prevented:d} {positive}Life change prevented by Eternal Life,	{eternal_life_prevented:d} {positive}永恒的生命阻止的生命变化
+zh-CN,calc.defence.incoming_damage_breakdown.line_15,modified,	{value:d} {mana}Mana ^7({mana_2:d} remaining),	{value:d} {mana}魔力 ^7({mana_2:d} remaining),	{value:d} {mana}魔力 ^7(剩余{mana_2:d})
+zh-CN,calc.defence.incoming_damage_breakdown.line_16,modified,	{value:d} {life}Life ^7Loss Prevented,	{value:d} {life}生命 ^7Loss Prevented,	{value:d} {life}生命 ^7避免损失
+zh-CN,calc.defence.incoming_damage_breakdown.line_17,modified,	{value:d} {life}Life ^7({life_2:d} remaining),	{value:d} {life}生命 ^7({life_2:d} remaining),	{value:d} {life}生命 ^7(剩余{life_2:d})
+zh-CN,calc.defence.incoming_damage_breakdown.line_18,modified,	{value:d} {ward}Runic Ward ^7({ward_2:d} remaining),	{value:d} {ward}符文结界 ^7({ward_2:d} remaining),	{value:d} {ward}符文结界 ^7(剩余{ward_2:d})
+zh-CN,calc.defence.incoming_damage_breakdown.line_19,modified,	{overkill_damage:d} {negative}Overkill damage,	{overkill_damage:d} {negative}Overkill damage,	{overkill_damage:d} {negative}过量击杀伤害
+zh-CN,calc.defence.incoming_damage_breakdown.line_2,modified,	{value:d} {gem}Total Spectre Life ^7({remaining:d} remaining),	{value:d} {gem}Total Spectre Life ^7({remaining:d} remaining),	{value:d} {gem}幽魂总生命 ^7(剩余{remaining:d})
+zh-CN,calc.defence.incoming_damage_breakdown.line_3,modified,	{value:d} {gem}Total Totem Life ^7({remaining:d} remaining),	{value:d} {gem}Total Totem Life ^7({remaining:d} remaining),	{value:d} {gem}图腾总生命 ^7(剩余{remaining:d})
+zh-CN,calc.defence.incoming_damage_breakdown.line_6,modified,	{value:d} {gem}Total Companion Life ^7({remaining:d} remaining),	{value:d} {gem}Total Companion Life ^7({remaining:d} remaining),	{value:d} {gem}伙伴总生命 ^7(剩余{remaining:d})
+zh-CN,calc.defence.incoming_damage_breakdown.line_7,modified,	{value:d} {gem}Total Allied Energy shield ^7({remaining:d} remaining),	{value:d} {gem}Total Allied Energy shield ^7({remaining:d} remaining),	{value:d} {gem}友军总能量护盾 ^7(剩余{remaining:d})
+zh-CN,calc.enemy_boss_type.boss,added,Boss,,普通首领
+zh-CN,calc.enemy_boss_type.none,added,None,,普通敌人
+zh-CN,calc.enemy_boss_type.pinnacle,added,Pinnacle,,巅峰首领
+zh-CN,calc.enemy_boss_type.uber,added,Uber,,超级巅峰首领
+zh-CN,calc.offence.accuracy.current_config,added, ^8(current config),, ^8(当前配置)
+zh-CN,calc.offence.accuracy.line,modified,Using Main Hand Accuracy due to Mastery: {accuracy},Using Main Hand Accuracy due to Mastery: {accuracy},因专精而使用主手命中值： {accuracy}
+zh-CN,calc.offence.ancestral_boost.capped,added,capped at 100%,,上限为100%
+zh-CN,calc.offence.aura_duration.line_2,modified,x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(持续时间修正)
+zh-CN,calc.offence.boost_source.ancestral_call,added,ancestral call,,先祖召唤
+zh-CN,calc.offence.boost_source.ancestral_empowerment,added,ancestral empowerment,,先祖强化
+zh-CN,calc.offence.boost_source.fist_of_war,added,fist of war,,战争铁拳
+zh-CN,calc.offence.boosted_attack_hit_effect.line,modified,({boosted_attack_avg_dmg:.2f} ^8(average Boosted damage),({boosted_attack_avg_dmg:.2f} ^8(average Boosted damage),({boosted_attack_avg_dmg:.2f} ^8(平均先祖增幅伤害)
+zh-CN,calc.offence.boosted_attack_hit_effect.line_2,modified,x {value:.2f}) ^8(uptime %),x {value:.2f}) ^8(uptime %),x {value:.2f}) ^8(覆盖率)
+zh-CN,calc.offence.breach_flame_life_leech.line_2,modified,x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(残留物效果修正)
+zh-CN,calc.offence.breach_flame_mana_leech.line_2,modified,x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(残留物效果修正)
+zh-CN,calc.offence.burning_ground_dps.line_2,modified,* {ground_mult:.1f}% ^8(percent as Burning ground),* {ground_mult:.1f}% ^8(percent as Burning ground),* {ground_mult:.1f}% ^8(转为燃烧地面的比例)
+zh-CN,calc.offence.burning_ground_dps.line_3,modified,* {eff_mult:.3f} ^8(effective DPS modifier),* {eff_mult:.3f} ^8(effective DPS modifier),* {eff_mult:.3f} ^8(有效每秒伤害修正)
+zh-CN,calc.offence.burning_ground_dps.line_4,modified,= {burning_ground_dps:.1f} ^8per second,= {burning_ground_dps:.1f} ^8per second,= {burning_ground_dps:.1f} ^8每秒
+zh-CN,calc.offence.calc_ancestral_boost.line,modified,min( (1 / {speed:.2f}) ^8(second per attack),min( (1 / {speed:.2f}) ^8(second per attack),min( (1 / {speed:.2f}) ^8(每次攻击耗时)
+zh-CN,calc.offence.calc_ancestral_boost.line_2,modified,"/ {value:.2f}, 1) ^8({skill_name_label} cooldown)","/ {value:.2f}, 1) ^8({skill_name_label} cooldown)","/ {value:.2f}, 1) ^8({skill_name_label}冷却时间)"
+zh-CN,calc.offence.calc_ancestral_boost.line_3,modified,1 + ({value:.2f} ^8({skill_name_label} damage multiplier),1 + ({value:.2f} ^8({skill_name_label} damage multiplier),1 + ({value:.2f} ^8({skill_name_label}伤害倍率)
+zh-CN,calc.offence.calc_ancestral_boost.line_4,modified,x {value:.2f}) ^8({skill_name_label} uptime ratio),x {value:.2f}) ^8({skill_name_label} uptime ratio),x {value:.2f}) ^8({skill_name_label}覆盖率)
+zh-CN,calc.offence.calc_area_of_effect.line,modified,R ^8(base radius)^7 x {value:.2f} ^8(square root of area of effect modifier),R ^8(base radius)^7 x {value:.2f} ^8(square root of area of effect modifier),R ^8(基础半径)^7 x {value:.2f} ^8(效果范围修正的平方根)
+zh-CN,calc.offence.calc_area_of_effect.line_2,modified,x {radius_mod:.2f} ^8(final radius modifier),x {radius_mod:.2f} ^8(final radius modifier),x {radius_mod:.2f} ^8(最终半径修正)
+zh-CN,calc.offence.calc_combined_ancestral_boost.line,modified,min( (1 / {speed:.2f}) ^8(second per attack),min( (1 / {speed:.2f}) ^8(second per attack),min( (1 / {speed:.2f}) ^8(每次攻击耗时)
+zh-CN,calc.offence.calc_combined_ancestral_boost.line_2,modified,1 + ({value:.2f} x {value_2:.2f}) ^8(combined ancestral boost damage multiplier x uptime ratio),1 + ({value:.2f} x {value_2:.2f}) ^8(combined ancestral boost damage multiplier x uptime ratio),1 + ({value:.2f} x {value_2:.2f}) ^8(先祖增幅综合伤害倍率 x 覆盖率)
+zh-CN,calc.offence.calc_combined_ancestral_boost.line_3,modified,"/ {value:.2f}, 1) ^8({skill_name_label} cooldown)","/ {value:.2f}, 1) ^8({skill_name_label} cooldown)","/ {value:.2f}, 1) ^8({skill_name_label}冷却时间)"
+zh-CN,calc.offence.calc_combined_ancestral_boost.line_4,modified,"/ {value:.2f}, 1) ^8({additional_skill_name_label} cooldown)","/ {value:.2f}, 1) ^8({additional_skill_name_label} cooldown)","/ {value:.2f}, 1) ^8({additional_skill_name_label}冷却时间)"
+zh-CN,calc.offence.caustic_ground_dps.line_3,modified,* {eff_mult:.3f} ^8(effective DPS modifier),* {eff_mult:.3f} ^8(effective DPS modifier),* {eff_mult:.3f} ^8(有效每秒伤害修正)
+zh-CN,calc.offence.caustic_ground_dps.line_4,modified,= {caustic_ground_dps:.1f} ^8per second,= {caustic_ground_dps:.1f} ^8per second,= {caustic_ground_dps:.1f} ^8每秒
+zh-CN,calc.offence.chaos_gain_per_flame.line_2,modified,x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(残留物效果修正)
+zh-CN,calc.offence.combine_stat.line,modified,Contribution from Main Hand:,Contribution from Main Hand:,主手贡献：
+zh-CN,calc.offence.combine_stat.line.parameter,modified,Main Hand,Main Hand,主手
+zh-CN,calc.offence.combine_stat.line.parameter_2,modified,Off Hand,Off Hand,副手
+zh-CN,calc.offence.combine_stat.line_3,modified,Contribution from Off Hand:,Contribution from Off Hand:,副手贡献：
+zh-CN,calc.offence.cooldown.line_2,modified,/ {value:.2f} ^8(increased/reduced cooldown recovery),/ {value:.2f} ^8(increased/reduced cooldown recovery),/ {value:.2f} ^8(冷却回复速度提高/降低)
+zh-CN,calc.offence.crit_bifurcates.line,modified,{crit_chance_percentage:.2f}% ^8(pre-bifurcate crit chance),{crit_chance_percentage:.2f}% ^8(pre-bifurcate crit chance),{crit_chance_percentage:.2f}% ^8(分叉前暴击几率)
+zh-CN,calc.offence.crit_bifurcates.line_2,modified,= {bifurcate_multi_chance:.2f}% ^8(chance both crit rolls succeed),= {bifurcate_multi_chance:.2f}% ^8(chance both crit rolls succeed),= {bifurcate_multi_chance:.2f}% ^8(两次暴击判定均成功的几率)
+zh-CN,calc.offence.crit_bifurcates.line_3,modified,/ {effective_crit_chance:.2f}% ^8(chance at least one crit roll succeeds),/ {effective_crit_chance:.2f}% ^8(chance at least one crit roll succeeds),/ {effective_crit_chance:.2f}% ^8(至少一次暴击判定成功的几率)
+zh-CN,calc.offence.crit_bifurcates.line_4,modified,= {value:.2f} ^8(crit Bifurcates effect),= {value:.2f} ^8(crit Bifurcates effect),= {value:.2f} ^8(暴击分叉效果)
+zh-CN,calc.offence.crit_chance.line,modified,/ {repeats:d} ^8(number of repeats),/ {repeats:d} ^8(number of repeats),/ {repeats:d} ^8(重复次数)
+zh-CN,calc.offence.crit_chance.line_2,modified,= {crit_chance:.2f}% average critical strike chance,= {crit_chance:.2f}% average critical strike chance,= {crit_chance:.2f}% 平均暴击几率
+zh-CN,calc.offence.crit_multiplier.line,modified,{value:d}% ^8(additional extra damage),{value:d}% ^8(additional extra damage),{value:d}% ^8(额外附加伤害)
+zh-CN,calc.offence.crit_multiplier.line_2,modified,x {enemy_inc:.2f} ^8(increased/reduced extra crit damage taken by enemy),x {enemy_inc:.2f} ^8(increased/reduced extra crit damage taken by enemy),x {enemy_inc:.2f} ^8(敌人承受额外暴击伤害提高/降低)
+zh-CN,calc.offence.crit_multiplier.line_3,modified,= {value:d}% ^8(extra crit damage),= {value:d}% ^8(extra crit damage),= {value:d}% ^8(额外暴击伤害)
+zh-CN,calc.offence.effective_cooldown.line,modified,Effective Cooldown:,Effective Cooldown:,有效冷却时间：
+zh-CN,calc.offence.exerted_attack_hit_effect.line,modified,({exerted_attack_avg_dmg:.2f} ^8(average exerted damage),({exerted_attack_avg_dmg:.2f} ^8(average exerted damage),({exerted_attack_avg_dmg:.2f} ^8(平均强化伤害)
+zh-CN,calc.offence.exerted_attack_hit_effect.line_2,modified,x {value:.2f}) ^8(uptime %),x {value:.2f}) ^8(uptime %),x {value:.2f}) ^8(覆盖率)
+zh-CN,calc.offence.hit_chance.line,modified,{hit_chance:.2f}% ^8(main hand),{hit_chance:.2f}% ^8(main hand),{hit_chance:.2f}% ^8(主手)
+zh-CN,calc.offence.hit_chance.line_2,modified,{hit_chance:.2f}% ^8(off hand),{hit_chance:.2f}% ^8(off hand),{hit_chance:.2f}% ^8(副手)
+zh-CN,calc.offence.hit_chance.line_3,modified,= {hit_chance:.2f}% ^8(average),= {hit_chance:.2f}% ^8(average),= {hit_chance:.2f}% ^8(平均)
+zh-CN,calc.offence.ice_crystal_life.line,modified,x {ice_crystal_life_mod:.2f} ^8(effect modifiers),x {ice_crystal_life_mod:.2f} ^8(effect modifiers),x {ice_crystal_life_mod:.2f} ^8(效果修正)
+zh-CN,calc.offence.ice_crystal_life.line_2,modified,{base_ice_crystal:.0f} ^8(Base Crystal Life),{base_ice_crystal:.0f} ^8(Base Crystal Life),{base_ice_crystal:.0f} ^8(基础冰晶生命)
+zh-CN,calc.offence.ice_crystal_life.line_3,modified,= {ice_crystal_life:.0f} ^8(Ice Crystal Life),= {ice_crystal_life:.0f} ^8(Ice Crystal Life),= {ice_crystal_life:.0f} ^8(冰晶生命)
+zh-CN,calc.offence.intimidating_avg_dmg.line,modified,{value:.2f}% ^8(base double damage increase to hit 100%),{value:.2f}% ^8(base double damage increase to hit 100%),{value:.2f}% ^8(达到100%双倍伤害几率所需的基础增幅)
+zh-CN,calc.offence.intimidating_avg_dmg.line_2,modified,x {value:d} ^8(double damage multiplier),x {value:d} ^8(double damage multiplier),x {value:d} ^8(双倍伤害倍率)
+zh-CN,calc.offence.intimidating_avg_dmg.line_3,modified,Average Intimidating Cry Damage:,Average Intimidating Cry Damage:,威吓战吼平均伤害：
+zh-CN,calc.offence.intimidating_hit_effect.line,modified,1 + ({intimidating_avg_dmg:.2f} ^8(average exerted damage),1 + ({intimidating_avg_dmg:.2f} ^8(average exerted damage),1 + ({intimidating_avg_dmg:.2f} ^8(平均强化伤害)
+zh-CN,calc.offence.intimidating_hit_effect.line_2,modified,x {value:.2f}) ^8(uptime %),x {value:.2f}) ^8(uptime %),x {value:.2f}) ^8(覆盖率)
+zh-CN,calc.offence.life_gain_per_remnant.line,modified,{base_life_gain:d} ^8(base life per remnant),{base_life_gain:d} ^8(base life per remnant),{base_life_gain:d} ^8(每个残留物的基础生命回复)
+zh-CN,calc.offence.life_gain_per_remnant.line_2,modified,x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(残留物效果修正)
+zh-CN,calc.offence.life_gain_per_remnant.line_3,modified,= {life_gain_per_remnant:d} ^8(life per remnant),= {life_gain_per_remnant:d} ^8(life per remnant),= {life_gain_per_remnant:d} ^8(每个残留物的生命回复)
+zh-CN,calc.offence.mana_gain_per_remnant.line,modified,{base_mana_gain:d} ^8(base mana per remnant),{base_mana_gain:d} ^8(base mana per remnant),{base_mana_gain:d} ^8(每个残留物的基础魔力回复)
+zh-CN,calc.offence.mana_gain_per_remnant.line_2,modified,x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(残留物效果修正)
+zh-CN,calc.offence.mana_gain_per_remnant.line_3,modified,= {mana_gain_per_remnant:d} ^8(mana per remnant),= {mana_gain_per_remnant:d} ^8(mana per remnant),= {mana_gain_per_remnant:d} ^8(每个残留物的魔力回复)
+zh-CN,calc.offence.minion_revival_speed.line,modified,{base_minion_revival_time:.3f}s ^8(Base Revival Time),{base_minion_revival_time:.3f} 秒 ^8(Base Revival Time),{base_minion_revival_time:.3f}s ^8(基础复活时间)
+zh-CN,calc.offence.minion_revival_speed.line_2,modified,x 1 / {minion_revival_speed_mod:.2f} ^8(effect modifiers),x 1 / {minion_revival_speed_mod:.2f} ^8(effect modifiers),x 1 / {minion_revival_speed_mod:.2f} ^8(效果修正)
+zh-CN,calc.offence.minion_revival_speed.line_3,modified,= {minion_revival_speed:.3f}s ^8(Total Revival Time),= {minion_revival_speed:.3f}s ^8(Total Revival Time),= {minion_revival_speed:.3f}s ^8(总复活时间)
+zh-CN,calc.offence.offence.factor,modified,{cast_time:.2f}s ^8(base cast time),{cast_time:.2f} 秒 ^8(base cast time),{cast_time:.2f}s ^8(基础施法时间)
+zh-CN,calc.offence.offence.factor_11,modified,{value:.2f} ^8(increased/reduced throwing speed),{value:.2f} ^8(increased/reduced throwing speed),{value:.2f} ^8(投掷速度提高/降低)
+zh-CN,calc.offence.offence.factor_12,modified,{value:.2f} ^8(more/less throwing speed),{value:.2f} ^8(more/less throwing speed),{value:.2f} ^8(投掷速度总增/总降)
+zh-CN,calc.offence.offence.factor_13,modified,{value:.2f} ^8(additional mine thrown),{value:.2f} ^8(additional mine thrown),{value:.2f} ^8(额外投掷地雷数量)
+zh-CN,calc.offence.offence.factor_14,modified,{value:.2f} ^8(base throwing time),{value:.2f} ^8(base throwing time),{value:.2f} ^8(基础投掷时间)
+zh-CN,calc.offence.offence.factor_15,modified,{base_speed:.2f} ^8(base placement speed),{base_speed:.2f} ^8(base placement speed),{base_speed:.2f} ^8(基础放置速度)
+zh-CN,calc.offence.offence.factor_16,modified,{value:.2f} ^8(increased/reduced placement speed),{value:.2f} ^8(increased/reduced placement speed),{value:.2f} ^8(放置速度提高/降低)
+zh-CN,calc.offence.offence.factor_17,modified,{value:.2f} ^8(more/less placement speed),{value:.2f} ^8(more/less placement speed),{value:.2f} ^8(放置速度总增/总降)
+zh-CN,calc.offence.offence.factor_19,modified,{inc:.2f} ^8(increased/reduced detonation time),{inc:.2f} ^8(increased/reduced detonation time),{inc:.2f} ^8(引爆时间提高/降低)
+zh-CN,calc.offence.offence.factor_2,modified,{value:.2f} ^8(increased/reduced gain frequency),{value:.2f} ^8(increased/reduced gain frequency),{value:.2f} ^8(获取频率提高/降低)
+zh-CN,calc.offence.offence.factor_20,modified,{more:.2f} ^8(more/less detonation time),{more:.2f} ^8(more/less detonation time),{more:.2f} ^8(引爆时间总增/总降)
+zh-CN,calc.offence.offence.factor_25,modified,{accuracy_penalty:.2f} ^8(distance penalty),{accuracy_penalty:.2f} ^8(distance penalty),{accuracy_penalty:.2f} ^8(距离惩罚)
+zh-CN,calc.offence.offence.factor_3,modified,{value:d}% ^8(of cast time),{value:d}% ^8(of cast time),{value:d}% ^8(施法时间占比)
+zh-CN,calc.offence.offence.factor_4,modified,{value:.2f} ^8(increased/reduced cast speed),{value:.2f} ^8(increased/reduced cast speed),{value:.2f} ^8(施法速度提高/降低)
+zh-CN,calc.offence.offence.factor_40,modified,{value:.2f} ^8(increased/reduced effect of chill),{value:.2f} ^8(increased/reduced effect of chill),{value:.2f} ^8(冰缓效果提高/降低)
+zh-CN,calc.offence.offence.factor_41,modified,{more_chill:.2f} ^8(more/less effect of chill),{more_chill:.2f} ^8(more/less effect of chill),{more_chill:.2f} ^8(冰缓效果总增/总降)
+zh-CN,calc.offence.offence.factor_5,modified,{base_speed:.2f} ^8(base throwing rate),{base_speed:.2f} ^8(base throwing rate),{base_speed:.2f} ^8(基础投掷速率)
+zh-CN,calc.offence.offence.factor_6,modified,{value:.2f} ^8(increased/reduced throwing speed),{value:.2f} ^8(increased/reduced throwing speed),{value:.2f} ^8(投掷速度提高/降低)
+zh-CN,calc.offence.offence.factor_7,modified,{value:.2f} ^8(more/less throwing speed),{value:.2f} ^8(more/less throwing speed),{value:.2f} ^8(投掷速度总增/总降)
+zh-CN,calc.offence.offence.factor_9,modified,{value:.2f} ^8(base throwing time),{value:.2f} ^8(base throwing time),{value:.2f} ^8(基础投掷时间)
+zh-CN,calc.offence.offence.line,modified,= {seal_cooldown:.2f}s ^8per Seal,= {seal_cooldown:.2f}s ^8per Seal,= {seal_cooldown:.2f}s ^8每枚封印
+zh-CN,calc.offence.offence.line.parameter,modified,Override,Override,覆盖设定
+zh-CN,calc.offence.offence.line_10,modified,= {trap_throwing_speed:.2f} ^8per second,= {trap_throwing_speed:.2f} ^8per second,= {trap_throwing_speed:.2f} ^8每秒
+zh-CN,calc.offence.offence.line_100,modified,/ {seismic_cry_cooldown:.2f} ^8(average warcry cooldown),/ {seismic_cry_cooldown:.2f} ^8(average warcry cooldown),/ {seismic_cry_cooldown:.2f} ^8(平均战吼冷却时间)
+zh-CN,calc.offence.offence.line_101,modified,({battle_cry_exerts_count:d} ^8(number of exerts),({battle_cry_exerts_count:d} ^8(number of exerts),({battle_cry_exerts_count:d} ^8(可强化次数)
+zh-CN,calc.offence.offence.line_102,modified,/ ({battle_mage_cry_cooldown:.2f} ^8(warcry cooldown),/ ({battle_mage_cry_cooldown:.2f} ^8(warcry cooldown),/ ({battle_mage_cry_cooldown:.2f} ^8(战吼冷却时间)
+zh-CN,calc.offence.offence.line_103,modified,+ {battle_mage_cry_cast_time:.2f}) ^8(warcry casttime),+ {battle_mage_cry_cast_time:.2f}) ^8(warcry casttime),+ {battle_mage_cry_cast_time:.2f}) ^8(战吼施放时间)
+zh-CN,calc.offence.offence.line_104,modified,/ {battle_mage_cry_cooldown:.2f} ^8(average warcry cooldown),/ {battle_mage_cry_cooldown:.2f} ^8(average warcry cooldown),/ {battle_mage_cry_cooldown:.2f} ^8(平均战吼冷却时间)
+zh-CN,calc.offence.offence.line_105,modified,Maximum of:,Maximum of:,取以下最大值：
+zh-CN,calc.offence.offence.line_106,modified,{value:d}% ^8({value_2:s} Uptime),{value:d}% ^8({value_2:s} Uptime),{value:d}% ^8({value_2:s}覆盖率)
+zh-CN,calc.offence.offence.line_107,modified,{value:d}% ^8({value_2:s} Uptime),{value:d}% ^8({value_2:s} Uptime),{value:d}% ^8({value_2:s}覆盖率)
+zh-CN,calc.offence.offence.line_11,modified,= {trap_throwing_time:.2f} ^8seconds per throw,= {trap_throwing_time:.2f} ^8seconds per throw,= {trap_throwing_time:.2f} ^8每次投掷耗时(秒)
+zh-CN,calc.offence.offence.line_115,modified,Crit Chance is Lucky:,Crit Chance is Lucky:,暴击几率幸运：
+zh-CN,calc.offence.offence.line_116,modified,Critical Strike Bifurcates:,Critical Strike Bifurcates:,暴击分叉：
+zh-CN,calc.offence.offence.line_117,modified,Inevitable Critical Hits:,Inevitable Critical Hits:,必定暴击：
+zh-CN,calc.offence.offence.line_147,modified,(1/3) x {total_hit_min:d} + (2/3) x {total_hit_max:d} = {total_hit_avg:.1f} ^8(average from non-crits),(1/3) x {total_hit_min:d} + (2/3) x {total_hit_max:d} = {total_hit_avg:.1f} ^8(average from non-crits),(1/3) x {total_hit_min:d} + (2/3) x {total_hit_max:d} = {total_hit_avg:.1f} ^8(非暴击平均值)
+zh-CN,calc.offence.offence.line_148,modified,(1/3) x {total_crit_min:d} + (2/3) x {total_crit_max:d} = {total_crit_avg:.1f} ^8(average from crits),(1/3) x {total_crit_min:d} + (2/3) x {total_crit_max:d} = {total_crit_avg:.1f} ^8(average from crits),(1/3) x {total_crit_min:d} + (2/3) x {total_crit_max:d} = {total_crit_avg:.1f} ^8(暴击平均值)
+zh-CN,calc.offence.offence.line_15,modified,= {mine_laying_speed:.2f} ^8per second,= {mine_laying_speed:.2f} ^8per second,= {mine_laying_speed:.2f} ^8每秒
+zh-CN,calc.offence.offence.line_151,modified,{average_hit:.1f} ^8(average hit),{average_hit:.1f} ^8(average hit),{average_hit:.1f} ^8(平均击中伤害)
+zh-CN,calc.offence.offence.line_153,modified,x {value:.2f} ^8(number of repeats),x {value:.2f} ^8(number of repeats),x {value:.2f} ^8(重复次数)
+zh-CN,calc.offence.offence.line_155,modified,= {value:.1f} ^8(repeat damage total),= {value:.1f} ^8(repeat damage total),= {value:.1f} ^8(重复伤害总计)
+zh-CN,calc.offence.offence.line_156,modified,+ {average_hit:.1f} ^8(first hit),+ {average_hit:.1f} ^8(first hit),+ {average_hit:.1f} ^8(首次击中)
+zh-CN,calc.offence.offence.line_157,modified,x {average_burst_hits:.2f} ^8(number of hits),x {average_burst_hits:.2f} ^8(number of hits),x {average_burst_hits:.2f} ^8(击中次数)
+zh-CN,calc.offence.offence.line_158,modified,= {average_burst_damage:.1f} ^8(total burst damage),= {average_burst_damage:.1f} ^8(total burst damage),= {average_burst_damage:.1f} ^8(总爆发伤害)
+zh-CN,calc.offence.offence.line_16,modified,= {mine_laying_time:.2f} ^8seconds per throw,= {mine_laying_time:.2f} ^8seconds per throw,= {mine_laying_time:.2f} ^8每次投掷耗时(秒)
+zh-CN,calc.offence.offence.line_168,modified,{bolt_count:d} ^8(bolt count),{bolt_count:d} ^8(bolt count),{bolt_count:d} ^8(弩箭数量)
+zh-CN,calc.offence.offence.line_169,modified,/ (1 - {value:.2f}) ^8(chance to not consume),/ (1 - {value:.2f}) ^8(chance to not consume),/ (1 - {value:.2f}) ^8(不消耗的几率)
+zh-CN,calc.offence.offence.line_17,modified,= {totem_placement_speed:.2f} ^8per second,= {totem_placement_speed:.2f} ^8per second,= {totem_placement_speed:.2f} ^8每秒
+zh-CN,calc.offence.offence.line_170,modified,= {value:.2f} ^8(effective bolt count),= {value:.2f} ^8(effective bolt count),= {value:.2f} ^8(有效弩箭数量)
+zh-CN,calc.offence.offence.line_171,modified,{reload_time:.2f} ^8(reload time),{reload_time:.2f} ^8(reload time),{reload_time:.2f} ^8(装填时间)
+zh-CN,calc.offence.offence.line_172,modified,* (1 - {value:.2f}) ^8(chance to reload instantly),* (1 - {value:.2f}) ^8(chance to reload instantly),* (1 - {value:.2f}) ^8(立即装填的几率)
+zh-CN,calc.offence.offence.line_173,modified,= {effective_reload_time:.2f} ^8(effective reload time),= {effective_reload_time:.2f} ^8(effective reload time),= {effective_reload_time:.2f} ^8(有效装填时间)
+zh-CN,calc.offence.offence.line_174,modified,= {value:.2f}% ^8(average),= {value:.2f}% ^8(average),= {value:.2f}% ^8(平均)
+zh-CN,calc.offence.offence.line_176,modified,{average_damage:.1f} + {average_damage_2:.1f} ^8(skill hits with both weapons at once),{average_damage:.1f} + {average_damage_2:.1f} ^8(skill hits with both weapons at once),{average_damage:.1f} + {average_damage_2:.1f} ^8(技能同时用两把武器击中)
+zh-CN,calc.offence.offence.line_177,modified,({average_damage:.1f} + {average_damage_2:.1f}) / 2 ^8(skill hits once with each weapon),({average_damage:.1f} + {average_damage_2:.1f}) / 2 ^8(skill hits once with each weapon),({average_damage:.1f} + {average_damage_2:.1f}) / 2 ^8(技能用每把武器各击中一次)
+zh-CN,calc.offence.offence.line_178,modified,({average_damage:.1f} + {average_damage_2:.1f}) / 2 ^8(skill alternates weapons),({average_damage:.1f} + {average_damage_2:.1f}) / 2 ^8(skill alternates weapons),({average_damage:.1f} + {average_damage_2:.1f}) / 2 ^8(技能交替使用武器)
+zh-CN,calc.offence.offence.line_179,modified,{pvp_average_damage:.1f} + {pvp_average_damage_2:.1f} ^8(skill hits with both weapons at once),{pvp_average_damage:.1f} + {pvp_average_damage_2:.1f} ^8(skill hits with both weapons at once),{pvp_average_damage:.1f} + {pvp_average_damage_2:.1f} ^8(技能同时用两把武器击中)
+zh-CN,calc.offence.offence.line_18,modified,Primary duration:,Primary duration:,主要持续时间：
+zh-CN,calc.offence.offence.line_180,modified,({pvp_average_damage:.1f} + {pvp_average_damage_2:.1f}) / 2 ^8(skill alternates weapons),({pvp_average_damage:.1f} + {pvp_average_damage_2:.1f}) / 2 ^8(skill alternates weapons),({pvp_average_damage:.1f} + {pvp_average_damage_2:.1f}) / 2 ^8(技能交替使用武器)
+zh-CN,calc.offence.offence.line_181,modified,x {dps_multiplier:g} ^8(DPS multiplier for this skill),x {dps_multiplier:g} ^8(此技能的DPS加成),x {dps_multiplier:g} ^8(此技能的每秒伤害倍率)
+zh-CN,calc.offence.offence.line_19,modified,x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(持续时间修正)
+zh-CN,calc.offence.offence.line_199,modified,x {more_dur:.2f} ^8(more/less duration),x {more_dur:.2f} ^8(more/less duration),x {more_dur:.2f} ^8(持续时间总增/总降)
+zh-CN,calc.offence.offence.line_20,modified,/ {value:.3f} ^8(debuff expires slower/faster),/ {value:.3f} ^8(debuff expires slower/faster),/ {value:.3f} ^8(减益效果消退减慢/加快)
+zh-CN,calc.offence.offence.line_200,modified,/ {value:.2f} ^8(debuff expires slower/faster),/ {value:.2f} ^8(debuff expires slower/faster),/ {value:.2f} ^8(减益效果消退减慢/加快)
+zh-CN,calc.offence.offence.line_202,modified,x {more_dur:.2f} ^8(more/less stun duration),x {more_dur:.2f} ^8(more/less stun duration),x {more_dur:.2f} ^8(晕眩持续时间总增/总降)
+zh-CN,calc.offence.offence.line_203,modified,x {value:.2f} ^8(chance to double stun duration),x {value:.2f} ^8(chance to double stun duration),x {value:.2f} ^8(晕眩持续时间翻倍的几率)
+zh-CN,calc.offence.offence.line_205,modified,"(minimum: {minimum_stun_duration:.2f}s, maximum: {maximum_stun_duration:.2f}s)","(minimum: {minimum_stun_duration:.2f}s, maximum: {maximum_stun_duration:.2f}s)","(最短： {minimum_stun_duration:.2f}s, 最长： {maximum_stun_duration:.2f}s)"
+zh-CN,calc.offence.offence.line_206,modified,/ {enemy_action_speed:.2f} ^8(enemy action speed),/ {enemy_action_speed:.2f} ^8(enemy action speed),/ {enemy_action_speed:.2f} ^8(敌人动作速度)
+zh-CN,calc.offence.offence.line_207,modified,= {value:.2f}s (note that for effects that care about duration this is ignored),= {value:.2f}s (note that for effects that care about duration this is ignored),= {value:.2f}s (依赖持续时间的效果不计此修正)
+zh-CN,calc.offence.offence.line_208,modified,"(minimum: {value:.2f}s, maximum: {value_2:.2f}s)","(minimum: {value:.2f}s, maximum: {value_2:.2f}s)","(最短： {value:.2f}s, 最长： {value_2:.2f}s)"
+zh-CN,calc.offence.offence.line_21,modified,Secondary duration:,Secondary duration:,次要持续时间：
+zh-CN,calc.offence.offence.line_215,modified,x {impale_taken:.2f} ^8(impale enemy damage taken),x {impale_taken:.2f} ^8(impale enemy damage taken),x {impale_taken:.2f} ^8(穿刺目标的承受伤害修正)
+zh-CN,calc.offence.offence.line_218,modified,x {expiration_mult:.2f} ^8(buff expiration multiplier),x {expiration_mult:.2f} ^8(buff expiration multiplier),x {expiration_mult:.2f} ^8(增益消退倍率)
+zh-CN,calc.offence.offence.line_22,modified,x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(持续时间修正)
+zh-CN,calc.offence.offence.line_220,modified,{impale_stored_hit_avg:.2f} ^8(MH average physical hit before mitigation),{impale_stored_hit_avg:.2f} ^8(MH average physical hit before mitigation),{impale_stored_hit_avg:.2f} ^8(主手减免前的平均物理击中伤害)
+zh-CN,calc.offence.offence.line_221,modified,x {value:.2f} ^8(MH chance to hit),x {value:.2f} ^8(MH chance to hit),x {value:.2f} ^8(主手命中几率)
+zh-CN,calc.offence.offence.line_222,modified,"x {value:.2f} ^8(MH impale damage multiplier)
+","x {value:.2f} ^8(MH impale damage multiplier)
+","x {value:.2f} ^8(主手穿刺伤害倍率)
+"
+zh-CN,calc.offence.offence.line_224,modified,{impale_stored_hit_avg:.2f} ^8(OH average physical hit before mitigation),{impale_stored_hit_avg:.2f} ^8(OH average physical hit before mitigation),{impale_stored_hit_avg:.2f} ^8(副手减免前的平均物理击中伤害)
+zh-CN,calc.offence.offence.line_225,modified,x {value:.2f} ^8(OH chance to hit),x {value:.2f} ^8(OH chance to hit),x {value:.2f} ^8(副手命中几率)
+zh-CN,calc.offence.offence.line_226,modified,x {value:.2f} ^8(OH impale damage multiplier),x {value:.2f} ^8(OH impale damage multiplier),x {value:.2f} ^8(副手穿刺伤害倍率)
+zh-CN,calc.offence.offence.line_227,modified,Combined total:,Combined total:,合计：
+zh-CN,calc.offence.offence.line_228,modified,{physical_stored_combined_avg:.2f} ^8(average physical hit before mitigation),{physical_stored_combined_avg:.2f} ^8(average physical hit before mitigation),{physical_stored_combined_avg:.2f} ^8(减免前的平均物理击中伤害)
+zh-CN,calc.offence.offence.line_23,modified,Tertiary duration:,Tertiary duration:,第三持续时间：
+zh-CN,calc.offence.offence.line_230,modified,x {hit_speed:.2f} ^8(hit rate),x {hit_speed:.2f} ^8(hit rate),x {hit_speed:.2f} ^8(击中速率)
+zh-CN,calc.offence.offence.line_231,modified,x {speed:.2f} ^8({value:s} rate),x {speed:.2f} ^8({value:s} rate),x {speed:.2f} ^8({value:s}速率)
+zh-CN,calc.offence.offence.line_232,modified,x {dps_multiplier:g} ^8(dps multiplier for this skill),x {dps_multiplier:g} ^8(此技能的DPS加成),x {dps_multiplier:g} ^8(此技能的每秒伤害倍率)
+zh-CN,calc.offence.offence.line_233,modified,+ {base_cost_no_mult:d} ^8(additional {text} cost),+ {base_cost_no_mult:d} ^8(additional {text} cost),+ {base_cost_no_mult:d} ^8(额外{text}消耗)
+zh-CN,calc.offence.offence.line_234,modified,x {value:.2f} ^8(increased/reduced {text} cost),x {value:.2f} ^8(increased/reduced {text} cost),x {value:.2f} ^8({text}消耗提高/降低)
+zh-CN,calc.offence.offence.line_235,modified,x {more_type:.2f} ^8(more/less {text} cost),x {more_type:.2f} ^8(more/less {text} cost),x {more_type:.2f} ^8({text}消耗总增/总降)
+zh-CN,calc.offence.offence.line_236,modified,/ {cost_efficiency:.2f} ^8({text} cost efficiency),/ {cost_efficiency:.2f} ^8({text} cost efficiency),/ {cost_efficiency:.2f} ^8({text}消耗效能)
+zh-CN,calc.offence.offence.line_237,modified,{total_cost:+d} ^8(total {text} cost),{total_cost:+d} ^8(total {text} cost),{total_cost:+d} ^8({text}总消耗)
+zh-CN,calc.offence.offence.line_239,modified,You can't deal {damage_type} damage,You can't deal {damage_type} damage,你无法造成{damage_type}伤害
+zh-CN,calc.offence.offence.line_24,modified,x {totem_duration_mod:.4f} ^8(duration modifier),x {totem_duration_mod:.4f} ^8(duration modifier),x {totem_duration_mod:.4f} ^8(持续时间修正)
+zh-CN,calc.offence.offence.line_248,modified,x {use_speed:.2f} ^8({time_type} speed),x {use_speed:.2f} ^8({time_type} speed),x {use_speed:.2f} ^8({time_type}速度)
+zh-CN,calc.offence.offence.line_26,modified,x {value:.2f} ^8(mana cost conversion),x {value:.2f} ^8(mana cost conversion),x {value:.2f} ^8(魔力消耗转换)
+zh-CN,calc.offence.offence.line_27,modified,x {additional_escost:.2f} ^8(mana cost conversion),x {additional_escost:.2f} ^8(mana cost conversion),x {additional_escost:.2f} ^8(魔力消耗转换)
+zh-CN,calc.offence.offence.line_28,modified,x {more_cost:.2f} ^8(more/less cost),x {more_cost:.2f} ^8(more/less cost),x {more_cost:.2f} ^8(消耗总增/总降)
+zh-CN,calc.offence.offence.line_29,modified,x {value:.2f} ^8({value_2:d}% paid for with life),x {value:.2f} ^8({value_2:d}% paid for with life),x {value:.2f} ^8(其中{value_2:d}%由生命支付)
+zh-CN,calc.offence.offence.line_31,modified,/ {repeats:.2f} ^8(repeats),/ {repeats:.2f} ^8(repeats),/ {repeats:.2f} ^8(重复次数)
+zh-CN,calc.offence.offence.line_4,modified,/ {value:.2f} ^8(reservation efficiency),/ {value:.2f} ^8(reservation efficiency),/ {value:.2f} ^8(保留效能)
+zh-CN,calc.offence.offence.line_41,modified,= {firing_rate:.2f} ^8bolts per second,= {firing_rate:.2f} ^8bolts 每秒,= {firing_rate:.2f} ^8每秒弩箭数量
+zh-CN,calc.offence.offence.line_42,modified,  1.00s / {firing_rate:.2f} ^8(firing rate),  1.00s / {firing_rate:.2f} ^8(firing rate),  1.00s / {firing_rate:.2f} ^8(射击速率)
+zh-CN,calc.offence.offence.line_43,modified,= {value:.2f}s ^8(time per bolt),= {value:.2f}s ^8(time per bolt),= {value:.2f}s ^8(每支弩箭耗时)
+zh-CN,calc.offence.offence.line_44,modified,  {value:.2f}s ^8(time per bolt),  {value:.2f} 秒 ^8(time per bolt),  {value:.2f}s ^8(每支弩箭耗时)
+zh-CN,calc.offence.offence.line_45,modified,x {effective_bolt_count:.2f} ^8(eff. bolt count),x {effective_bolt_count:.2f} ^8(eff. bolt count),x {effective_bolt_count:.2f} ^8(有效弩箭数量)
+zh-CN,calc.offence.offence.line_46,modified,= {total_firing_time:.2f}s ^8(total firing time),= {total_firing_time:.2f}s ^8(total firing time),= {total_firing_time:.2f}s ^8(总射击时间)
+zh-CN,calc.offence.offence.line_47,modified,  1.00s / {base_reload_time:.2f} ^8(base reload time),  1.00s / {base_reload_time:.2f} ^8(base reload time),  1.00s / {base_reload_time:.2f} ^8(基础装填时间)
+zh-CN,calc.offence.offence.line_48,modified,= {value:.2f} ^8(base reload rate),= {value:.2f} ^8(base reload rate),= {value:.2f} ^8(基础装填速率)
+zh-CN,calc.offence.offence.line_5,modified,x {curse_delay_mod:.4f} ^8(delay modifier),x {curse_delay_mod:.4f} ^8(delay modifier),x {curse_delay_mod:.4f} ^8(延迟修正)
+zh-CN,calc.offence.offence.line_52,modified,= {reload_rate:.2f} ^8(reload rate),= {reload_rate:.2f} ^8(reload rate),= {reload_rate:.2f} ^8(装填速率)
+zh-CN,calc.offence.offence.line_53,modified,   1.00s / {reload_rate:.2f} ^8(reload rate),   1.00s / {reload_rate:.2f} ^8(reload rate),   1.00s / {reload_rate:.2f} ^8(装填速率)
+zh-CN,calc.offence.offence.line_54,modified,= {reload_time:.2f}s ^8(reload time),= {reload_time:.2f}s ^8(reload time),= {reload_time:.2f}s ^8(装填时间)
+zh-CN,calc.offence.offence.line_55,modified,  {total_firing_time:.2f}s ^8(total firing time),  {total_firing_time:.2f} 秒 ^8(total firing time),  {total_firing_time:.2f}s ^8(总射击时间)
+zh-CN,calc.offence.offence.line_56,modified,+ {effective_reload_time:.2f}s ^8(eff. reload time),+ {effective_reload_time:.2f}s ^8(eff. reload time),+ {effective_reload_time:.2f}s ^8(有效装填时间)
+zh-CN,calc.offence.offence.line_57,modified,= {value:.2f}s ^8(total attack time),= {value:.2f}s ^8(total attack time),= {value:.2f}s ^8(总攻击耗时)
+zh-CN,calc.offence.offence.line_58,modified,  {value:.2f}s ^8(total attack time),  {value:.2f} 秒 ^8(total attack time),  {value:.2f}s ^8(总攻击耗时)
+zh-CN,calc.offence.offence.line_59,modified,/ {effective_bolt_count:.2f} ^8(eff. bolt count),/ {effective_bolt_count:.2f} ^8(eff. bolt count),/ {effective_bolt_count:.2f} ^8(有效弩箭数量)
+zh-CN,calc.offence.offence.line_6,modified,/ {curse_activation_mod:.4f} ^8(activation modifier),/ {curse_activation_mod:.4f} ^8(activation modifier),/ {curse_activation_mod:.4f} ^8(激活修正)
+zh-CN,calc.offence.offence.line_60,modified,= {value:.2f}s ^8(eff. attack time),= {value:.2f}s ^8(eff. attack time),= {value:.2f}s ^8(有效攻击耗时)
+zh-CN,calc.offence.offence.line_61,modified, 1 / {value:.2f}s ^8(eff. attack time), 1 / {value:.2f}s ^8(eff. attack time), 1 / {value:.2f}s ^8(有效攻击耗时)
+zh-CN,calc.offence.offence.line_62,modified,= {speed:.2f} ^8(eff. attack rate),= {speed:.2f} ^8(eff. attack rate),= {speed:.2f} ^8(有效攻击速率)
+zh-CN,calc.offence.offence.line_63,modified,1 / {cooldown:.2f} ^8(skill cooldown),1 / {cooldown:.2f} ^8(skill cooldown),1 / {cooldown:.2f} ^8(技能冷却时间)
+zh-CN,calc.offence.offence.line_64,modified,x {repeats:d} ^8(repeat count),x {repeats:d} ^8(repeat count),x {repeats:d} ^8(重复次数)
+zh-CN,calc.offence.offence.line_66,modified,= {speed:.2f} ^8(lower of cast rates),= {speed:.2f} ^8(lower of cast rates),= {speed:.2f} ^8(较低的施法速率)
+zh-CN,calc.offence.offence.line_68,modified,{min_channel_time:.2f}s ^8(minimum channel time),{min_channel_time:.2f} 秒 ^8(minimum channel time),{min_channel_time:.2f}s ^8(最短引导时间)
+zh-CN,calc.offence.offence.line_69,modified,{value:.2f} ^8(attack time per stage),{value:.2f} ^8(attack time per stage),{value:.2f} ^8(每阶段攻击耗时)
+zh-CN,calc.offence.offence.line_70,modified,{value:.2f} ^8(cast time per stage),{value:.2f} ^8(cast time per stage),{value:.2f} ^8(每阶段施法耗时)
+zh-CN,calc.offence.offence.line_71,modified,x {channel_time_multiplier:.2f} ^8(channel time multiplier),x {channel_time_multiplier:.2f} ^8(channel time multiplier),x {channel_time_multiplier:.2f} ^8(引导时间倍率)
+zh-CN,calc.offence.offence.line_72,modified,1 / {hit_time:.2f} ^8(hit time override),1 / {hit_time:.2f} ^8(hit time override),1 / {hit_time:.2f} ^8(击中间隔覆盖设定)
+zh-CN,calc.offence.offence.line_74,modified,{time:.2f} ^8(attack time),{time:.2f} ^8(attack time),{time:.2f} ^8(攻击耗时)
+zh-CN,calc.offence.offence.line_75,modified,{time:.2f} ^8(cast time),{time:.2f} ^8(cast time),{time:.2f} ^8(施法耗时)
+zh-CN,calc.offence.offence.line_76,modified,x {hit_time_multiplier:.2f} ^8(channel time multiplier),x {hit_time_multiplier:.2f} ^8(channel time multiplier),x {hit_time_multiplier:.2f} ^8(引导时间倍率)
+zh-CN,calc.offence.offence.line_77,modified,"1 / min({hit_time:.2f}, {cooldown:.2f}) ^8min(hit time, cooldown)","1 / min({hit_time:.2f}, {cooldown:.2f}) ^8min(hit time, cooldown)","1 / min({hit_time:.2f}, {cooldown:.2f}) ^8min(击中间隔, 冷却时间)"
+zh-CN,calc.offence.offence.line_78,modified,1 / ({hit_time:.2f} + {cooldown:.2f}) ^8(hit time + cooldown),1 / ({hit_time:.2f} + {cooldown:.2f}) ^8(hit time + cooldown),1 / ({hit_time:.2f} + {cooldown:.2f}) ^8(击中间隔 + 冷却时间)
+zh-CN,calc.offence.offence.line_79,modified,1 / {hit_time:.2f} ^8(hit time),1 / {hit_time:.2f} ^8(hit time),1 / {hit_time:.2f} ^8(击中间隔)
+zh-CN,calc.offence.offence.line_80,modified,({ancestral_exerts_count:d} ^8(number of exerts),({ancestral_exerts_count:d} ^8(number of exerts),({ancestral_exerts_count:d} ^8(可强化次数)
+zh-CN,calc.offence.offence.line_82,modified,/ ({ancestral_cry_cooldown:.2f} ^8(warcry cooldown),/ ({ancestral_cry_cooldown:.2f} ^8(warcry cooldown),/ ({ancestral_cry_cooldown:.2f} ^8(战吼冷却时间)
+zh-CN,calc.offence.offence.line_83,modified,+ {ancestral_cry_cast_time:.2f}) ^8(warcry casttime),+ {ancestral_cry_cast_time:.2f}) ^8(warcry casttime),+ {ancestral_cry_cast_time:.2f}) ^8(战吼施放时间)
+zh-CN,calc.offence.offence.line_84,modified,/ {ancestral_cry_cooldown:.2f} ^8(average warcry cooldown),/ {ancestral_cry_cooldown:.2f} ^8(average warcry cooldown),/ {ancestral_cry_cooldown:.2f} ^8(平均战吼冷却时间)
+zh-CN,calc.offence.offence.line_85,modified,({infernal_empowered_count:.2f} ^8(number of empowered),({infernal_empowered_count:.2f} ^8(number of empowered),({infernal_empowered_count:.2f} ^8(强化次数)
+zh-CN,calc.offence.offence.line_86,modified,/ ({infernal_cry_cooldown:.2f} ^8(warcry cooldown),/ ({infernal_cry_cooldown:.2f} ^8(warcry cooldown),/ ({infernal_cry_cooldown:.2f} ^8(战吼冷却时间)
+zh-CN,calc.offence.offence.line_87,modified,+ {infernal_cry_cast_time:.2f}) ^8(warcry cast time),+ {infernal_cry_cast_time:.2f}) ^8(warcry cast time),+ {infernal_cry_cast_time:.2f}) ^8(战吼施放时间)
+zh-CN,calc.offence.offence.line_88,modified,/ {infernal_cry_cooldown:.2f} ^8(average warcry cooldown),/ {infernal_cry_cooldown:.2f} ^8(average warcry cooldown),/ {infernal_cry_cooldown:.2f} ^8(平均战吼冷却时间)
+zh-CN,calc.offence.offence.line_89,modified,({intimidating_exerts_count:d} ^8(number of exerts),({intimidating_exerts_count:d} ^8(number of exerts),({intimidating_exerts_count:d} ^8(可强化次数)
+zh-CN,calc.offence.offence.line_9,modified,* {value:.2f}% ^8(uptime),* {value:.2f}% ^8(uptime),* {value:.2f}% ^8(覆盖率)
+zh-CN,calc.offence.offence.line_90,modified,/ ({intimidating_cry_cooldown:.2f} ^8(warcry cooldown),/ ({intimidating_cry_cooldown:.2f} ^8(warcry cooldown),/ ({intimidating_cry_cooldown:.2f} ^8(战吼冷却时间)
+zh-CN,calc.offence.offence.line_91,modified,+ {intimidating_cry_cast_time:.2f}) ^8(warcry casttime),+ {intimidating_cry_cast_time:.2f}) ^8(warcry casttime),+ {intimidating_cry_cast_time:.2f}) ^8(战吼施放时间)
+zh-CN,calc.offence.offence.line_92,modified,/ {intimidating_cry_cooldown:.2f} ^8(average warcry cooldown),/ {intimidating_cry_cooldown:.2f} ^8(average warcry cooldown),/ {intimidating_cry_cooldown:.2f} ^8(平均战吼冷却时间)
+zh-CN,calc.offence.offence.line_93,modified,({rallying_exerts_count:d} ^8(number of exerts),({rallying_exerts_count:d} ^8(number of exerts),({rallying_exerts_count:d} ^8(可强化次数)
+zh-CN,calc.offence.offence.line_94,modified,/ ({rallying_cry_cooldown:.2f} ^8(warcry cooldown),/ ({rallying_cry_cooldown:.2f} ^8(warcry cooldown),/ ({rallying_cry_cooldown:.2f} ^8(战吼冷却时间)
+zh-CN,calc.offence.offence.line_95,modified,+ {rallying_cry_cast_time:.2f}) ^8(warcry casttime),+ {rallying_cry_cast_time:.2f}) ^8(warcry casttime),+ {rallying_cry_cast_time:.2f}) ^8(战吼施放时间)
+zh-CN,calc.offence.offence.line_96,modified,/ {rallying_cry_cooldown:.2f} ^8(average warcry cooldown),/ {rallying_cry_cooldown:.2f} ^8(average warcry cooldown),/ {rallying_cry_cooldown:.2f} ^8(平均战吼冷却时间)
+zh-CN,calc.offence.offence.line_97,modified,({seismic_exerts_count:d} ^8(number of exerts),({seismic_exerts_count:d} ^8(number of exerts),({seismic_exerts_count:d} ^8(可强化次数)
+zh-CN,calc.offence.offence.line_98,modified,/ ({seismic_cry_cooldown:.2f} ^8(warcry cooldown),/ ({seismic_cry_cooldown:.2f} ^8(warcry cooldown),/ ({seismic_cry_cooldown:.2f} ^8(战吼冷却时间)
+zh-CN,calc.offence.offence.line_99,modified,+ {seismic_cry_cast_time:.2f}) ^8(warcry casttime),+ {seismic_cry_cast_time:.2f}) ^8(warcry casttime),+ {seismic_cry_cast_time:.2f}) ^8(战吼施放时间)
+zh-CN,calc.offence.parry_debuff_duration.line_3,modified,x {value:.2f} ^8(modifier),x {value:.2f} ^8(modifier),x {value:.2f} ^8(修正)
+zh-CN,calc.offence.parry_range_non_proj.line_3,modified,x {value:.1f} ^8(modifier),x {value:.1f} ^8(modifier),x {value:.1f} ^8(修正)
+zh-CN,calc.offence.parry_range_proj.line_3,modified,x {value:.1f} ^8(modifier),x {value:.1f} ^8(modifier),x {value:.1f} ^8(修正)
+zh-CN,calc.offence.perfect_timing.line_2,modified,x {perfect_timing_mod:.2f} ^8(effect modifiers),x {perfect_timing_mod:.2f} ^8(effect modifiers),x {perfect_timing_mod:.2f} ^8(效果修正)
+zh-CN,calc.offence.pvp_total_dps.line_2,modified,x {hit_speed:.2f} ^8(hit rate),x {hit_speed:.2f} ^8(hit rate),x {hit_speed:.2f} ^8(击中速率)
+zh-CN,calc.offence.pvp_total_dps.line_3,modified,x {speed:.2f} ^8({rate_type:s} rate),x {speed:.2f} ^8({rate_type:s} rate),x {speed:.2f} ^8({rate_type:s}速率)
+zh-CN,calc.offence.rallying_avg_dmg.line,modified,{value:.2f} ^8(average damage multiplier per ally),{value:.2f} ^8(average damage multiplier per ally),{value:.2f} ^8(每名友军的平均伤害倍率)
+zh-CN,calc.offence.rallying_avg_dmg.line_2,modified,x {value:d} ^8(number of nearby allies (max=5)),x {value:d} ^8(number of nearby allies (max=5)),x {value:d} ^8(附近友军数量(上限=5))
+zh-CN,calc.offence.rallying_avg_dmg.line_3,modified,Average Rallying Cry Damage:,Average Rallying Cry Damage:,激励战吼平均伤害：
+zh-CN,calc.offence.rallying_hit_effect.line,modified,1 + ({rallying_avg_dmg:.2f} ^8(average exerted damage),1 + ({rallying_avg_dmg:.2f} ^8(average exerted damage),1 + ({rallying_avg_dmg:.2f} ^8(平均强化伤害)
+zh-CN,calc.offence.rallying_hit_effect.line_2,modified,x {value:.2f}) ^8(uptime %),x {value:.2f}) ^8(uptime %),x {value:.2f}) ^8(覆盖率)
+zh-CN,calc.offence.reserve_duration.line_2,modified,x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(持续时间修正)
+zh-CN,calc.offence.soul_gain_prevention_duration.line_2,modified,x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(持续时间修正)
+zh-CN,calc.offence.speed.line,modified,{speed:.2f} ^8(hits twice per attack),{speed:.2f} ^8(hits twice per attack),{speed:.2f} ^8(每次攻击击中两次)
+zh-CN,calc.offence.speed.line_2,modified,Use Offhand Weapon Attack Speed:,Use Offhand Weapon Attack Speed:,使用副手武器攻击速度：
+zh-CN,calc.offence.speed.line_3,modified,Combined hit from both weapons:,Combined hit from both weapons:,两把武器合并击中：
+zh-CN,calc.offence.speed.line_4,modified,Simultaneous hits from each weapon:,Simultaneous hits from each weapon:,两把武器同时击中：
+zh-CN,calc.offence.speed.line_5,modified,Alternating both weapons:,Alternating both weapons:,交替使用两把武器：
+zh-CN,calc.offence.totem_life.line,modified,Totem level: {totem_level},Totem level: {totem_level},图腾等级： {totem_level}
+zh-CN,calc.offence.totem_life.line_2,modified,{value} ^8(base life for a level {totem_level} monster),{value} ^8(base life for a level {totem_level} monster),{value} ^8({totem_level}级怪物的基础生命)
+zh-CN,calc.offence.totem_life.line_3,modified,x {value} ^8(life multiplier for this totem type),x {value} ^8(life multiplier for this totem type),x {value} ^8(此类图腾的生命倍率)
+zh-CN,calc.offence.totem_life.line_4,modified,x {totem_life_mod} ^8(totem life modifier),x {totem_life_mod} ^8(totem life modifier),x {totem_life_mod} ^8(图腾生命修正)
+zh-CN,calc.offence.trap_cooldown.line_2,modified,/ {value:.2f} ^8(increased/reduced cooldown recovery),/ {value:.2f} ^8(increased/reduced cooldown recovery),/ {value:.2f} ^8(冷却回复速度提高/降低)
+zh-CN,calc.offence.uptime_source.ancestral_call,added,AncestralCall,,先祖召唤
+zh-CN,calc.offence.uptime_source.ancestral_empowerment,added,AncestralEmpowerment,,先祖强化
+zh-CN,calc.offence.uptime_source.ancestral_empowerment_combined,added,AncestralEmpowermentCombined,,先祖强化合计
+zh-CN,calc.offence.uptime_source.fist_of_war,added,FistOfWar,,战争铁拳
+zh-CN,calc.offence.uptime_source.infernal_cry,added,InfernalCry,,炽焰战吼
+zh-CN,calc.offence.warcry_effect_mod.line,modified,{unscaled_effect:.2f} ^8(effect modifiers),{unscaled_effect:.2f} ^8(effect modifiers),{unscaled_effect:.2f} ^8(效果修正)
+zh-CN,calc.perform.calc_buff_radius.line,modified,{value:.1f}m ^8(base radius),{value:.1f}m ^8(base radius),{value:.1f}m ^8(基础半径)
+zh-CN,calc.perform.calc_buff_radius.line_2,modified, x {value:.2f}  ^8(inc), x {value:.2f}  ^8(inc), x {value:.2f}  ^8(提高/降低)
+zh-CN,calc.perform.calc_buff_radius.line_3,modified, x {more_radius:.2f}  ^8(more), x {more_radius:.2f}  ^8(more), x {more_radius:.2f}  ^8(总增/总降)
+zh-CN,calc.perform.perform.line,modified,({value:d} / {power_per:d}) ^8(Power / per = base),({value:d} / {power_per:d}) ^8(Power / per = base),({value:d} / {power_per:d}) ^8(威能 / 每次所需威能 = 基础次数)
+zh-CN,calc.perform.perform.line_10,modified,+ {total_global_quality:d} ^8(quality from global modifiers),+ {total_global_quality:d} ^8(quality from global modifiers),+ {total_global_quality:d} ^8(来自全局修正的品质)
+zh-CN,calc.perform.perform.line_2,modified,= (({base_empowers:.2f} + {extra_empowers:.2f}) x {empower_multiplier:.2f}) ^8((base + extra) x more),= (({base_empowers:.2f} + {extra_empowers:.2f}) x {empower_multiplier:.2f}) ^8((base + extra) x more),= (({base_empowers:.2f} + {extra_empowers:.2f}) x {empower_multiplier:.2f}) ^8((基础 + 额外) x 总增倍率)
+zh-CN,calc.perform.perform.line_4,modified,+ {total_support_level:d} ^8(level from support),+ {total_support_level:d} ^8(level from support),+ {total_support_level:d} ^8(来自辅助宝石的等级)
+zh-CN,calc.perform.perform.line_9,modified,+ {total_support_quality:d} ^8(quality from supports),+ {total_support_quality:d} ^8(quality from supports),+ {total_support_quality:d} ^8(来自辅助宝石的品质)
+zh-CN,term.calculation_source.ancestrally_boosted_attacks,added,Ancestrally Boosted Attacks,,先祖加持的攻击
+zh-CN,term.calculation_source.bifurcated_crit_bonus,added,Bifurcated Crit Damage Bonus,,暴击分叉伤害加成
+zh-CN,term.calculation_source.empowered_attacks,added,Empowered Attacks,,强化攻击
+zh-CN,term.calculation_source.uptime_ancestrally_boosted_aoe,added,Uptime Scaled Ancestrally Boosted AoE,,按覆盖率折算的先祖加持范围
+zh-CN,term.calculation_source.uptime_ancestrally_boosted_attacks,added,Uptime Scaled Ancestrally Boosted Attacks,,按覆盖率折算的先祖加持攻击
+zh-CN,term.calculation_source.uptime_empowered_attacks,added,Uptime Scaled Empowered Attacks,,按覆盖率折算的强化攻击
+zh-CN,term.calculation_source.uptime_infernal_cry,added,Uptime Scaled Infernal Cry,,按覆盖率折算的炽焰战吼
+zh-CN,ui.calc_breakdown_control.add_breakdown_section.mult.label,modified,MCM,MCM,保留倍率
+zh-TW,calc.damage_type_lower.chaos,added,chaos,,混沌
+zh-TW,calc.damage_type_lower.cold,added,cold,,冰冷
+zh-TW,calc.damage_type_lower.elemental,added,elemental,,元素
+zh-TW,calc.damage_type_lower.fire,added,fire,,火焰
+zh-TW,calc.damage_type_lower.lightning,added,lightning,,閃電
+zh-TW,calc.damage_type_lower.physical,added,physical,,物理
+zh-TW,calc.defence.incoming_damage_breakdown.line_13,modified,	{value:d} {es}Energy Shield ^7({energy_shield:d} remaining),	{value:d} {es}能量護盾 ^7({energy_shield:d} remaining),	{value:d} {es}能量護盾 ^7(剩餘{energy_shield:d})
+zh-TW,calc.defence.incoming_damage_breakdown.line_14,modified,	{eternal_life_prevented:d} {positive}Life change prevented by Eternal Life,	{eternal_life_prevented:d} {positive}Life change prevented by Eternal Life,	{eternal_life_prevented:d} {positive}永生阻止的生命變化
+zh-TW,calc.defence.incoming_damage_breakdown.line_15,modified,	{value:d} {mana}Mana ^7({mana_2:d} remaining),	{value:d} {mana}魔力 ^7({mana_2:d} remaining),	{value:d} {mana}魔力 ^7(剩餘{mana_2:d})
+zh-TW,calc.defence.incoming_damage_breakdown.line_16,modified,	{value:d} {life}Life ^7Loss Prevented,	{value:d} {life}生命 ^7Loss Prevented,	{value:d} {life}生命 ^7避免損失
+zh-TW,calc.defence.incoming_damage_breakdown.line_17,modified,	{value:d} {life}Life ^7({life_2:d} remaining),	{value:d} {life}生命 ^7({life_2:d} remaining),	{value:d} {life}生命 ^7(剩餘{life_2:d})
+zh-TW,calc.defence.incoming_damage_breakdown.line_18,modified,	{value:d} {ward}Runic Ward ^7({ward_2:d} remaining),	{value:d} {ward}符文結界 ^7({ward_2:d} remaining),	{value:d} {ward}符文結界 ^7(剩餘{ward_2:d})
+zh-TW,calc.defence.incoming_damage_breakdown.line_19,modified,	{overkill_damage:d} {negative}Overkill damage,	{overkill_damage:d} {negative}Overkill damage,	{overkill_damage:d} {negative}過量擊殺傷害
+zh-TW,calc.defence.incoming_damage_breakdown.line_2,modified,	{value:d} {gem}Total Spectre Life ^7({remaining:d} remaining),	{value:d} {gem}Total Spectre Life ^7({remaining:d} remaining),	{value:d} {gem}幽魂總生命 ^7(剩餘{remaining:d})
+zh-TW,calc.defence.incoming_damage_breakdown.line_3,modified,	{value:d} {gem}Total Totem Life ^7({remaining:d} remaining),	{value:d} {gem}Total Totem Life ^7({remaining:d} remaining),	{value:d} {gem}圖騰總生命 ^7(剩餘{remaining:d})
+zh-TW,calc.defence.incoming_damage_breakdown.line_6,modified,	{value:d} {gem}Total Companion Life ^7({remaining:d} remaining),	{value:d} {gem}Total Companion Life ^7({remaining:d} remaining),	{value:d} {gem}夥伴總生命 ^7(剩餘{remaining:d})
+zh-TW,calc.defence.incoming_damage_breakdown.line_7,modified,	{value:d} {gem}Total Allied Energy shield ^7({remaining:d} remaining),	{value:d} {gem}Total Allied Energy shield ^7({remaining:d} remaining),	{value:d} {gem}友軍總能量護盾 ^7(剩餘{remaining:d})
+zh-TW,calc.enemy_boss_type.boss,added,Boss,,一般頭目
+zh-TW,calc.enemy_boss_type.none,added,None,,一般敵人
+zh-TW,calc.enemy_boss_type.pinnacle,added,Pinnacle,,巔峰頭目
+zh-TW,calc.enemy_boss_type.uber,added,Uber,,終極巔峰頭目
+zh-TW,calc.offence.accuracy.current_config,added, ^8(current config),, ^8(目前設定)
+zh-TW,calc.offence.accuracy.line,modified,Using Main Hand Accuracy due to Mastery: {accuracy},Using Main Hand Accuracy due to Mastery: {accuracy},因專精而使用主手命中值： {accuracy}
+zh-TW,calc.offence.ancestral_boost.capped,added,capped at 100%,,上限為100%
+zh-TW,calc.offence.aura_duration.line_2,modified,x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(持續時間修正)
+zh-TW,calc.offence.boost_source.ancestral_call,added,ancestral call,,先祖怒嚎
+zh-TW,calc.offence.boost_source.ancestral_empowerment,added,ancestral empowerment,,先祖強化
+zh-TW,calc.offence.boost_source.fist_of_war,added,fist of war,,拳霸
+zh-TW,calc.offence.boosted_attack_hit_effect.line,modified,({boosted_attack_avg_dmg:.2f} ^8(average Boosted damage),({boosted_attack_avg_dmg:.2f} ^8(average Boosted damage),({boosted_attack_avg_dmg:.2f} ^8(平均先祖增幅傷害)
+zh-TW,calc.offence.boosted_attack_hit_effect.line_2,modified,x {value:.2f}) ^8(uptime %),x {value:.2f}) ^8(uptime %),x {value:.2f}) ^8(覆蓋率)
+zh-TW,calc.offence.breach_flame_life_leech.line_2,modified,x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(殘留物效果修正)
+zh-TW,calc.offence.breach_flame_mana_leech.line_2,modified,x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(殘留物效果修正)
+zh-TW,calc.offence.burning_ground_dps.line,modified,{value:.1f} ^8(ignite damage per second),{value:.1f} ^8(ignite damage per second),{value:.1f} ^8(每秒點燃傷害)
+zh-TW,calc.offence.burning_ground_dps.line_2,modified,* {ground_mult:.1f}% ^8(percent as Burning ground),* {ground_mult:.1f}% ^8(percent as Burning ground),* {ground_mult:.1f}% ^8(轉為燃燒地面的比例)
+zh-TW,calc.offence.burning_ground_dps.line_3,modified,* {eff_mult:.3f} ^8(effective DPS modifier),* {eff_mult:.3f} ^8(effective DPS modifier),* {eff_mult:.3f} ^8(有效每秒傷害修正)
+zh-TW,calc.offence.burning_ground_dps.line_4,modified,= {burning_ground_dps:.1f} ^8per second,= {burning_ground_dps:.1f} ^8per second,= {burning_ground_dps:.1f} ^8每秒
+zh-TW,calc.offence.calc_ancestral_boost.line,modified,min( (1 / {speed:.2f}) ^8(second per attack),min( (1 / {speed:.2f}) ^8(second per attack),min( (1 / {speed:.2f}) ^8(每次攻擊耗時)
+zh-TW,calc.offence.calc_ancestral_boost.line_2,modified,"/ {value:.2f}, 1) ^8({skill_name_label} cooldown)","/ {value:.2f}, 1) ^8({skill_name_label} cooldown)","/ {value:.2f}, 1) ^8({skill_name_label}冷卻時間)"
+zh-TW,calc.offence.calc_ancestral_boost.line_3,modified,1 + ({value:.2f} ^8({skill_name_label} damage multiplier),1 + ({value:.2f} ^8({skill_name_label} damage multiplier),1 + ({value:.2f} ^8({skill_name_label}傷害倍率)
+zh-TW,calc.offence.calc_ancestral_boost.line_4,modified,x {value:.2f}) ^8({skill_name_label} uptime ratio),x {value:.2f}) ^8({skill_name_label} uptime ratio),x {value:.2f}) ^8({skill_name_label}覆蓋率)
+zh-TW,calc.offence.calc_area_of_effect.line,modified,R ^8(base radius)^7 x {value:.2f} ^8(square root of area of effect modifier),R ^8(base radius)^7 x {value:.2f} ^8(square root of area of effect modifier),R ^8(基礎半徑)^7 x {value:.2f} ^8(效果範圍修正的平方根)
+zh-TW,calc.offence.calc_area_of_effect.line_2,modified,x {radius_mod:.2f} ^8(final radius modifier),x {radius_mod:.2f} ^8(final radius modifier),x {radius_mod:.2f} ^8(最終半徑修正)
+zh-TW,calc.offence.calc_combined_ancestral_boost.line,modified,min( (1 / {speed:.2f}) ^8(second per attack),min( (1 / {speed:.2f}) ^8(second per attack),min( (1 / {speed:.2f}) ^8(每次攻擊耗時)
+zh-TW,calc.offence.calc_combined_ancestral_boost.line_2,modified,1 + ({value:.2f} x {value_2:.2f}) ^8(combined ancestral boost damage multiplier x uptime ratio),1 + ({value:.2f} x {value_2:.2f}) ^8(combined ancestral boost damage multiplier x uptime ratio),1 + ({value:.2f} x {value_2:.2f}) ^8(先祖增幅綜合傷害倍率 x 覆蓋率)
+zh-TW,calc.offence.calc_combined_ancestral_boost.line_3,modified,"/ {value:.2f}, 1) ^8({skill_name_label} cooldown)","/ {value:.2f}, 1) ^8({skill_name_label} cooldown)","/ {value:.2f}, 1) ^8({skill_name_label}冷卻時間)"
+zh-TW,calc.offence.calc_combined_ancestral_boost.line_4,modified,"/ {value:.2f}, 1) ^8({additional_skill_name_label} cooldown)","/ {value:.2f}, 1) ^8({additional_skill_name_label} cooldown)","/ {value:.2f}, 1) ^8({additional_skill_name_label}冷卻時間)"
+zh-TW,calc.offence.caustic_ground_dps.line,modified,{value:.1f} ^8(single poison damage per second),{value:.1f} ^8(single poison damage per second),{value:.1f} ^8(單層中毒的每秒傷害)
+zh-TW,calc.offence.caustic_ground_dps.line_2,modified,* {ground_mult:.1f}% ^8(percent as Caustic ground),* {ground_mult:.1f}% ^8(percent as Caustic ground),* {ground_mult:.1f}% ^8(轉為腐蝕地面的比例)
+zh-TW,calc.offence.caustic_ground_dps.line_3,modified,* {eff_mult:.3f} ^8(effective DPS modifier),* {eff_mult:.3f} ^8(effective DPS modifier),* {eff_mult:.3f} ^8(有效每秒傷害修正)
+zh-TW,calc.offence.caustic_ground_dps.line_4,modified,= {caustic_ground_dps:.1f} ^8per second,= {caustic_ground_dps:.1f} ^8per second,= {caustic_ground_dps:.1f} ^8每秒
+zh-TW,calc.offence.chaos_gain_per_flame.line_2,modified,x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(殘留物效果修正)
+zh-TW,calc.offence.combine_stat.line,modified,Contribution from Main Hand:,Contribution from Main Hand:,主手貢獻：
+zh-TW,calc.offence.combine_stat.line.parameter,modified,Main Hand,Main Hand,主手
+zh-TW,calc.offence.combine_stat.line.parameter_2,modified,Off Hand,Off Hand,副手
+zh-TW,calc.offence.combine_stat.line_3,modified,Contribution from Off Hand:,Contribution from Off Hand:,副手貢獻：
+zh-TW,calc.offence.cooldown.line_2,modified,/ {value:.2f} ^8(increased/reduced cooldown recovery),/ {value:.2f} ^8(increased/reduced cooldown recovery),/ {value:.2f} ^8(冷卻恢復速度增加/減少)
+zh-TW,calc.offence.crit_bifurcates.line,modified,{crit_chance_percentage:.2f}% ^8(pre-bifurcate crit chance),{crit_chance_percentage:.2f}% ^8(pre-bifurcate crit chance),{crit_chance_percentage:.2f}% ^8(分叉前暴擊機率)
+zh-TW,calc.offence.crit_bifurcates.line_2,modified,= {bifurcate_multi_chance:.2f}% ^8(chance both crit rolls succeed),= {bifurcate_multi_chance:.2f}% ^8(chance both crit rolls succeed),= {bifurcate_multi_chance:.2f}% ^8(兩次暴擊判定均成功的機率)
+zh-TW,calc.offence.crit_bifurcates.line_3,modified,/ {effective_crit_chance:.2f}% ^8(chance at least one crit roll succeeds),/ {effective_crit_chance:.2f}% ^8(chance at least one crit roll succeeds),/ {effective_crit_chance:.2f}% ^8(至少一次暴擊判定成功的機率)
+zh-TW,calc.offence.crit_bifurcates.line_4,modified,= {value:.2f} ^8(crit Bifurcates effect),= {value:.2f} ^8(crit Bifurcates effect),= {value:.2f} ^8(暴擊分叉效果)
+zh-TW,calc.offence.crit_chance.line,modified,/ {repeats:d} ^8(number of repeats),/ {repeats:d} ^8(number of repeats),/ {repeats:d} ^8(重複次數)
+zh-TW,calc.offence.crit_chance.line_2,modified,= {crit_chance:.2f}% average critical strike chance,= {crit_chance:.2f}% average critical strike chance,= {crit_chance:.2f}% 平均暴擊機率
+zh-TW,calc.offence.crit_multiplier.line,modified,{value:d}% ^8(additional extra damage),{value:d}% ^8(additional extra damage),{value:d}% ^8(額外附加傷害)
+zh-TW,calc.offence.crit_multiplier.line_2,modified,x {enemy_inc:.2f} ^8(increased/reduced extra crit damage taken by enemy),x {enemy_inc:.2f} ^8(increased/reduced extra crit damage taken by enemy),x {enemy_inc:.2f} ^8(敵人承受額外暴擊傷害增加/減少)
+zh-TW,calc.offence.crit_multiplier.line_3,modified,= {value:d}% ^8(extra crit damage),= {value:d}% ^8(extra crit damage),= {value:d}% ^8(額外暴擊傷害)
+zh-TW,calc.offence.decay_duration.line,modified,{value:.2f}s ^8(base duration),{value:.2f} 秒 ^8(base duration),{value:.2f}s ^8(基礎持續時間)
+zh-TW,calc.offence.effective_cooldown.line,modified,Effective Cooldown:,Effective Cooldown:,有效冷卻時間：
+zh-TW,calc.offence.enemy_stun_duration.line,modified,{base:.2f}s ^8(base duration),{base:.2f} 秒 ^8(base duration),{base:.2f}s ^8(基礎持續時間)
+zh-TW,calc.offence.exerted_attack_hit_effect.line,modified,({exerted_attack_avg_dmg:.2f} ^8(average exerted damage),({exerted_attack_avg_dmg:.2f} ^8(average exerted damage),({exerted_attack_avg_dmg:.2f} ^8(平均強化傷害)
+zh-TW,calc.offence.exerted_attack_hit_effect.line_2,modified,x {value:.2f}) ^8(uptime %),x {value:.2f}) ^8(uptime %),x {value:.2f}) ^8(覆蓋率)
+zh-TW,calc.offence.hit_chance.line,modified,{hit_chance:.2f}% ^8(main hand),{hit_chance:.2f}% ^8(main hand),{hit_chance:.2f}% ^8(主手)
+zh-TW,calc.offence.hit_chance.line_2,modified,{hit_chance:.2f}% ^8(off hand),{hit_chance:.2f}% ^8(off hand),{hit_chance:.2f}% ^8(副手)
+zh-TW,calc.offence.hit_chance.line_3,modified,= {hit_chance:.2f}% ^8(average),= {hit_chance:.2f}% ^8(average),= {hit_chance:.2f}% ^8(平均)
+zh-TW,calc.offence.hit_chance.line_4,modified,Both weapons:,Both weapons:,雙持武器：
+zh-TW,calc.offence.hit_chance.line_5,modified,Accuracy Hit Chance: {accuracy_hit_chance}%,Accuracy Hit Chance: {accuracy_hit_chance}%,命中值對應的命中機率： {accuracy_hit_chance}%
+zh-TW,calc.offence.ice_crystal_life.line,modified,x {ice_crystal_life_mod:.2f} ^8(effect modifiers),x {ice_crystal_life_mod:.2f} ^8(effect modifiers),x {ice_crystal_life_mod:.2f} ^8(效果修正)
+zh-TW,calc.offence.ice_crystal_life.line_2,modified,{base_ice_crystal:.0f} ^8(Base Crystal Life),{base_ice_crystal:.0f} ^8(Base Crystal Life),{base_ice_crystal:.0f} ^8(基礎冰晶生命)
+zh-TW,calc.offence.ice_crystal_life.line_3,modified,= {ice_crystal_life:.0f} ^8(Ice Crystal Life),= {ice_crystal_life:.0f} ^8(Ice Crystal Life),= {ice_crystal_life:.0f} ^8(冰晶生命)
+zh-TW,calc.offence.intimidating_avg_dmg.line,modified,{value:.2f}% ^8(base double damage increase to hit 100%),{value:.2f}% ^8(base double damage increase to hit 100%),{value:.2f}% ^8(達到100%雙倍傷害機率所需的基礎增幅)
+zh-TW,calc.offence.intimidating_avg_dmg.line_2,modified,x {value:d} ^8(double damage multiplier),x {value:d} ^8(double damage multiplier),x {value:d} ^8(雙倍傷害倍率)
+zh-TW,calc.offence.intimidating_avg_dmg.line_3,modified,Average Intimidating Cry Damage:,Average Intimidating Cry Damage:,威嚇戰吼平均傷害：
+zh-TW,calc.offence.intimidating_hit_effect.line,modified,1 + ({intimidating_avg_dmg:.2f} ^8(average exerted damage),1 + ({intimidating_avg_dmg:.2f} ^8(average exerted damage),1 + ({intimidating_avg_dmg:.2f} ^8(平均強化傷害)
+zh-TW,calc.offence.intimidating_hit_effect.line_2,modified,x {value:.2f}) ^8(uptime %),x {value:.2f}) ^8(uptime %),x {value:.2f}) ^8(覆蓋率)
+zh-TW,calc.offence.life_gain_per_remnant.line,modified,{base_life_gain:d} ^8(base life per remnant),{base_life_gain:d} ^8(base life per remnant),{base_life_gain:d} ^8(每個殘留物的基礎生命恢復)
+zh-TW,calc.offence.life_gain_per_remnant.line_2,modified,x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(殘留物效果修正)
+zh-TW,calc.offence.life_gain_per_remnant.line_3,modified,= {life_gain_per_remnant:d} ^8(life per remnant),= {life_gain_per_remnant:d} ^8(life per remnant),= {life_gain_per_remnant:d} ^8(每個殘留物的生命恢復)
+zh-TW,calc.offence.mana_gain_per_remnant.line,modified,{base_mana_gain:d} ^8(base mana per remnant),{base_mana_gain:d} ^8(base mana per remnant),{base_mana_gain:d} ^8(每個殘留物的基礎魔力恢復)
+zh-TW,calc.offence.mana_gain_per_remnant.line_2,modified,x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(remnant effect modifier),x {remnant_effect_mod:.2f} ^8(殘留物效果修正)
+zh-TW,calc.offence.mana_gain_per_remnant.line_3,modified,= {mana_gain_per_remnant:d} ^8(mana per remnant),= {mana_gain_per_remnant:d} ^8(mana per remnant),= {mana_gain_per_remnant:d} ^8(每個殘留物的魔力恢復)
+zh-TW,calc.offence.minion_revival_speed.line,modified,{base_minion_revival_time:.3f}s ^8(Base Revival Time),{base_minion_revival_time:.3f} 秒 ^8(Base Revival Time),{base_minion_revival_time:.3f}s ^8(基礎復活時間)
+zh-TW,calc.offence.minion_revival_speed.line_2,modified,x 1 / {minion_revival_speed_mod:.2f} ^8(effect modifiers),x 1 / {minion_revival_speed_mod:.2f} ^8(effect modifiers),x 1 / {minion_revival_speed_mod:.2f} ^8(效果修正)
+zh-TW,calc.offence.minion_revival_speed.line_3,modified,= {minion_revival_speed:.3f}s ^8(Total Revival Time),= {minion_revival_speed:.3f}s ^8(Total Revival Time),= {minion_revival_speed:.3f}s ^8(總復活時間)
+zh-TW,calc.offence.offence.factor,modified,{cast_time:.2f}s ^8(base cast time),{cast_time:.2f} 秒 ^8(base cast time),{cast_time:.2f}s ^8(基礎施法時間)
+zh-TW,calc.offence.offence.factor_10,modified,{time_mod:.2f} ^8(total modifier),{time_mod:.2f} ^8(total modifier),{time_mod:.2f} ^8(總修正)
+zh-TW,calc.offence.offence.factor_11,modified,{value:.2f} ^8(increased/reduced throwing speed),{value:.2f} ^8(increased/reduced throwing speed),{value:.2f} ^8(投擲速度增加/減少)
+zh-TW,calc.offence.offence.factor_12,modified,{value:.2f} ^8(more/less throwing speed),{value:.2f} ^8(more/less throwing speed),{value:.2f} ^8(投擲速度更多/更少)
+zh-TW,calc.offence.offence.factor_13,modified,{value:.2f} ^8(additional mine thrown),{value:.2f} ^8(additional mine thrown),{value:.2f} ^8(額外投擲地雷數量)
+zh-TW,calc.offence.offence.factor_14,modified,{value:.2f} ^8(base throwing time),{value:.2f} ^8(base throwing time),{value:.2f} ^8(基礎投擲時間)
+zh-TW,calc.offence.offence.factor_15,modified,{base_speed:.2f} ^8(base placement speed),{base_speed:.2f} ^8(base placement speed),{base_speed:.2f} ^8(基礎放置速度)
+zh-TW,calc.offence.offence.factor_16,modified,{value:.2f} ^8(increased/reduced placement speed),{value:.2f} ^8(increased/reduced placement speed),{value:.2f} ^8(放置速度增加/減少)
+zh-TW,calc.offence.offence.factor_17,modified,{value:.2f} ^8(more/less placement speed),{value:.2f} ^8(more/less placement speed),{value:.2f} ^8(放置速度更多/更少)
+zh-TW,calc.offence.offence.factor_19,modified,{inc:.2f} ^8(increased/reduced detonation time),{inc:.2f} ^8(increased/reduced detonation time),{inc:.2f} ^8(引爆時間增加/減少)
+zh-TW,calc.offence.offence.factor_2,modified,{value:.2f} ^8(increased/reduced gain frequency),{value:.2f} ^8(increased/reduced gain frequency),{value:.2f} ^8(獲取頻率增加/減少)
+zh-TW,calc.offence.offence.factor_20,modified,{more:.2f} ^8(more/less detonation time),{more:.2f} ^8(more/less detonation time),{more:.2f} ^8(引爆時間更多/更少)
+zh-TW,calc.offence.offence.factor_25,modified,{accuracy_penalty:.2f} ^8(distance penalty),{accuracy_penalty:.2f} ^8(distance penalty),{accuracy_penalty:.2f} ^8(距離懲罰)
+zh-TW,calc.offence.offence.factor_28,modified,{value:.2f} ^8(attack speed),{value:.2f} ^8(attack speed),{value:.2f} ^8(攻擊速度)
+zh-TW,calc.offence.offence.factor_3,modified,{value:d}% ^8(of cast time),{value:d}% ^8(of cast time),{value:d}% ^8(施法時間占比)
+zh-TW,calc.offence.offence.factor_30,modified,{value:.2f} ^8(chance to hit),{value:.2f} ^8(chance to hit),{value:.2f} ^8(命中機率)
+zh-TW,calc.offence.offence.factor_39,modified,{value:.2f} ^8(total modifier),{value:.2f} ^8(total modifier),{value:.2f} ^8(總修正)
+zh-TW,calc.offence.offence.factor_4,modified,{value:.2f} ^8(increased/reduced cast speed),{value:.2f} ^8(increased/reduced cast speed),{value:.2f} ^8(施法速度增加/減少)
+zh-TW,calc.offence.offence.factor_40,modified,{value:.2f} ^8(increased/reduced effect of chill),{value:.2f} ^8(increased/reduced effect of chill),{value:.2f} ^8(冰緩效果增加/減少)
+zh-TW,calc.offence.offence.factor_41,modified,{more_chill:.2f} ^8(more/less effect of chill),{more_chill:.2f} ^8(more/less effect of chill),{more_chill:.2f} ^8(冰緩效果更多/更少)
+zh-TW,calc.offence.offence.factor_5,modified,{base_speed:.2f} ^8(base throwing rate),{base_speed:.2f} ^8(base throwing rate),{base_speed:.2f} ^8(基礎投擲速率)
+zh-TW,calc.offence.offence.factor_6,modified,{value:.2f} ^8(increased/reduced throwing speed),{value:.2f} ^8(increased/reduced throwing speed),{value:.2f} ^8(投擲速度增加/減少)
+zh-TW,calc.offence.offence.factor_7,modified,{value:.2f} ^8(more/less throwing speed),{value:.2f} ^8(more/less throwing speed),{value:.2f} ^8(投擲速度更多/更少)
+zh-TW,calc.offence.offence.factor_9,modified,{value:.2f} ^8(base throwing time),{value:.2f} ^8(base throwing time),{value:.2f} ^8(基礎投擲時間)
+zh-TW,calc.offence.offence.line,modified,= {seal_cooldown:.2f}s ^8per Seal,= {seal_cooldown:.2f}s ^8per Seal,= {seal_cooldown:.2f}s ^8每枚封印
+zh-TW,calc.offence.offence.line.parameter,modified,Override,Override,覆蓋設定
+zh-TW,calc.offence.offence.line_10,modified,= {trap_throwing_speed:.2f} ^8per second,= {trap_throwing_speed:.2f} ^8per second,= {trap_throwing_speed:.2f} ^8每秒
+zh-TW,calc.offence.offence.line_100,modified,/ {seismic_cry_cooldown:.2f} ^8(average warcry cooldown),/ {seismic_cry_cooldown:.2f} ^8(average warcry cooldown),/ {seismic_cry_cooldown:.2f} ^8(平均戰吼冷卻時間)
+zh-TW,calc.offence.offence.line_101,modified,({battle_cry_exerts_count:d} ^8(number of exerts),({battle_cry_exerts_count:d} ^8(number of exerts),({battle_cry_exerts_count:d} ^8(可強化次數)
+zh-TW,calc.offence.offence.line_102,modified,/ ({battle_mage_cry_cooldown:.2f} ^8(warcry cooldown),/ ({battle_mage_cry_cooldown:.2f} ^8(warcry cooldown),/ ({battle_mage_cry_cooldown:.2f} ^8(戰吼冷卻時間)
+zh-TW,calc.offence.offence.line_103,modified,+ {battle_mage_cry_cast_time:.2f}) ^8(warcry casttime),+ {battle_mage_cry_cast_time:.2f}) ^8(warcry casttime),+ {battle_mage_cry_cast_time:.2f}) ^8(戰吼施放時間)
+zh-TW,calc.offence.offence.line_104,modified,/ {battle_mage_cry_cooldown:.2f} ^8(average warcry cooldown),/ {battle_mage_cry_cooldown:.2f} ^8(average warcry cooldown),/ {battle_mage_cry_cooldown:.2f} ^8(平均戰吼冷卻時間)
+zh-TW,calc.offence.offence.line_105,modified,Maximum of:,Maximum of:,取以下最大值：
+zh-TW,calc.offence.offence.line_106,modified,{value:d}% ^8({value_2:s} Uptime),{value:d}% ^8({value_2:s} Uptime),{value:d}% ^8({value_2:s}覆蓋率)
+zh-TW,calc.offence.offence.line_107,modified,{value:d}% ^8({value_2:s} Uptime),{value:d}% ^8({value_2:s} Uptime),{value:d}% ^8({value_2:s}覆蓋率)
+zh-TW,calc.offence.offence.line_11,modified,= {trap_throwing_time:.2f} ^8seconds per throw,= {trap_throwing_time:.2f} ^8seconds per throw,= {trap_throwing_time:.2f} ^8每次投擲耗時(秒)
+zh-TW,calc.offence.offence.line_113,modified,Crit confirmation roll:,Crit confirmation roll:,暴擊確認判定：
+zh-TW,calc.offence.offence.line_114,modified,x {value:.2f} ^8(chance to hit),x {value:.2f} ^8(chance to hit),x {value:.2f} ^8(命中機率)
+zh-TW,calc.offence.offence.line_115,modified,Crit Chance is Lucky:,Crit Chance is Lucky:,暴擊機率幸運：
+zh-TW,calc.offence.offence.line_116,modified,Critical Strike Bifurcates:,Critical Strike Bifurcates:,暴擊分叉：
+zh-TW,calc.offence.offence.line_117,modified,Inevitable Critical Hits:,Inevitable Critical Hits:,必定暴擊：
+zh-TW,calc.offence.offence.line_147,modified,(1/3) x {total_hit_min:d} + (2/3) x {total_hit_max:d} = {total_hit_avg:.1f} ^8(average from non-crits),(1/3) x {total_hit_min:d} + (2/3) x {total_hit_max:d} = {total_hit_avg:.1f} ^8(average from non-crits),(1/3) x {total_hit_min:d} + (2/3) x {total_hit_max:d} = {total_hit_avg:.1f} ^8(非暴擊平均值)
+zh-TW,calc.offence.offence.line_148,modified,(1/3) x {total_crit_min:d} + (2/3) x {total_crit_max:d} = {total_crit_avg:.1f} ^8(average from crits),(1/3) x {total_crit_min:d} + (2/3) x {total_crit_max:d} = {total_crit_avg:.1f} ^8(average from crits),(1/3) x {total_crit_min:d} + (2/3) x {total_crit_max:d} = {total_crit_avg:.1f} ^8(暴擊平均值)
+zh-TW,calc.offence.offence.line_15,modified,= {mine_laying_speed:.2f} ^8per second,= {mine_laying_speed:.2f} ^8per second,= {mine_laying_speed:.2f} ^8每秒
+zh-TW,calc.offence.offence.line_151,modified,{average_hit:.1f} ^8(average hit),{average_hit:.1f} ^8(average hit),{average_hit:.1f} ^8(平均擊中傷害)
+zh-TW,calc.offence.offence.line_153,modified,x {value:.2f} ^8(number of repeats),x {value:.2f} ^8(number of repeats),x {value:.2f} ^8(重複次數)
+zh-TW,calc.offence.offence.line_155,modified,= {value:.1f} ^8(repeat damage total),= {value:.1f} ^8(repeat damage total),= {value:.1f} ^8(重複傷害總計)
+zh-TW,calc.offence.offence.line_156,modified,+ {average_hit:.1f} ^8(first hit),+ {average_hit:.1f} ^8(first hit),+ {average_hit:.1f} ^8(首次擊中)
+zh-TW,calc.offence.offence.line_157,modified,x {average_burst_hits:.2f} ^8(number of hits),x {average_burst_hits:.2f} ^8(number of hits),x {average_burst_hits:.2f} ^8(擊中次數)
+zh-TW,calc.offence.offence.line_158,modified,= {average_burst_damage:.1f} ^8(total burst damage),= {average_burst_damage:.1f} ^8(total burst damage),= {average_burst_damage:.1f} ^8(總爆發傷害)
+zh-TW,calc.offence.offence.line_16,modified,= {mine_laying_time:.2f} ^8seconds per throw,= {mine_laying_time:.2f} ^8seconds per throw,= {mine_laying_time:.2f} ^8每次投擲耗時(秒)
+zh-TW,calc.offence.offence.line_168,modified,{bolt_count:d} ^8(bolt count),{bolt_count:d} ^8(bolt count),{bolt_count:d} ^8(弩箭數量)
+zh-TW,calc.offence.offence.line_169,modified,/ (1 - {value:.2f}) ^8(chance to not consume),/ (1 - {value:.2f}) ^8(chance to not consume),/ (1 - {value:.2f}) ^8(不消耗的機率)
+zh-TW,calc.offence.offence.line_17,modified,= {totem_placement_speed:.2f} ^8per second,= {totem_placement_speed:.2f} ^8per second,= {totem_placement_speed:.2f} ^8每秒
+zh-TW,calc.offence.offence.line_170,modified,= {value:.2f} ^8(effective bolt count),= {value:.2f} ^8(effective bolt count),= {value:.2f} ^8(有效弩箭數量)
+zh-TW,calc.offence.offence.line_171,modified,{reload_time:.2f} ^8(reload time),{reload_time:.2f} ^8(reload time),{reload_time:.2f} ^8(裝填時間)
+zh-TW,calc.offence.offence.line_172,modified,* (1 - {value:.2f}) ^8(chance to reload instantly),* (1 - {value:.2f}) ^8(chance to reload instantly),* (1 - {value:.2f}) ^8(立即裝填的機率)
+zh-TW,calc.offence.offence.line_173,modified,= {effective_reload_time:.2f} ^8(effective reload time),= {effective_reload_time:.2f} ^8(effective reload time),= {effective_reload_time:.2f} ^8(有效裝填時間)
+zh-TW,calc.offence.offence.line_174,modified,= {value:.2f}% ^8(average),= {value:.2f}% ^8(average),= {value:.2f}% ^8(平均)
+zh-TW,calc.offence.offence.line_175,modified,Both weapons:,Both weapons:,雙持武器：
+zh-TW,calc.offence.offence.line_176,modified,{average_damage:.1f} + {average_damage_2:.1f} ^8(skill hits with both weapons at once),{average_damage:.1f} + {average_damage_2:.1f} ^8(skill hits with both weapons at once),{average_damage:.1f} + {average_damage_2:.1f} ^8(技能同時用兩把武器擊中)
+zh-TW,calc.offence.offence.line_177,modified,({average_damage:.1f} + {average_damage_2:.1f}) / 2 ^8(skill hits once with each weapon),({average_damage:.1f} + {average_damage_2:.1f}) / 2 ^8(skill hits once with each weapon),({average_damage:.1f} + {average_damage_2:.1f}) / 2 ^8(技能用每把武器各擊中一次)
+zh-TW,calc.offence.offence.line_178,modified,({average_damage:.1f} + {average_damage_2:.1f}) / 2 ^8(skill alternates weapons),({average_damage:.1f} + {average_damage_2:.1f}) / 2 ^8(skill alternates weapons),({average_damage:.1f} + {average_damage_2:.1f}) / 2 ^8(技能交替使用武器)
+zh-TW,calc.offence.offence.line_179,modified,{pvp_average_damage:.1f} + {pvp_average_damage_2:.1f} ^8(skill hits with both weapons at once),{pvp_average_damage:.1f} + {pvp_average_damage_2:.1f} ^8(skill hits with both weapons at once),{pvp_average_damage:.1f} + {pvp_average_damage_2:.1f} ^8(技能同時用兩把武器擊中)
+zh-TW,calc.offence.offence.line_18,modified,Primary duration:,Primary duration:,主要持續時間：
+zh-TW,calc.offence.offence.line_180,modified,({pvp_average_damage:.1f} + {pvp_average_damage_2:.1f}) / 2 ^8(skill alternates weapons),({pvp_average_damage:.1f} + {pvp_average_damage_2:.1f}) / 2 ^8(skill alternates weapons),({pvp_average_damage:.1f} + {pvp_average_damage_2:.1f}) / 2 ^8(技能交替使用武器)
+zh-TW,calc.offence.offence.line_181,modified,x {dps_multiplier:g} ^8(DPS multiplier for this skill),x {dps_multiplier:g} ^8(DPS multiplier for this skill),x {dps_multiplier:g} ^8(此技能的每秒傷害倍率)
+zh-TW,calc.offence.offence.line_182,modified,x {quantity_multiplier:g} ^8(quantity multiplier for this skill),x {quantity_multiplier:g} ^8(quantity multiplier for this skill),x {quantity_multiplier:g} ^8(此技能的數量倍率)
+zh-TW,calc.offence.offence.line_19,modified,x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(持續時間修正)
+zh-TW,calc.offence.offence.line_197,modified,{duration:.2f}s ^8(base duration),{duration:.2f} 秒 ^8(base duration),{duration:.2f}s ^8(基礎持續時間)
+zh-TW,calc.offence.offence.line_198,modified,x {value:.2f} ^8(increased/reduced duration),x {value:.2f} ^8(increased/reduced duration),x {value:.2f} ^8(持續時間增加/減少)
+zh-TW,calc.offence.offence.line_199,modified,x {more_dur:.2f} ^8(more/less duration),x {more_dur:.2f} ^8(more/less duration),x {more_dur:.2f} ^8(持續時間更多/更少)
+zh-TW,calc.offence.offence.line_20,modified,/ {value:.3f} ^8(debuff expires slower/faster),/ {value:.3f} ^8(debuff expires slower/faster),/ {value:.3f} ^8(減益效果消退減慢/加快)
+zh-TW,calc.offence.offence.line_200,modified,/ {value:.2f} ^8(debuff expires slower/faster),/ {value:.2f} ^8(debuff expires slower/faster),/ {value:.2f} ^8(減益效果消退減慢/加快)
+zh-TW,calc.offence.offence.line_201,modified,x {value:.2f} ^8(increased/reduced stun duration),x {value:.2f} ^8(increased/reduced stun duration),x {value:.2f} ^8(暈眩持續時間增加/減少)
+zh-TW,calc.offence.offence.line_202,modified,x {more_dur:.2f} ^8(more/less stun duration),x {more_dur:.2f} ^8(more/less stun duration),x {more_dur:.2f} ^8(暈眩持續時間更多/更少)
+zh-TW,calc.offence.offence.line_203,modified,x {value:.2f} ^8(chance to double stun duration),x {value:.2f} ^8(chance to double stun duration),x {value:.2f} ^8(暈眩持續時間加倍的機率)
+zh-TW,calc.offence.offence.line_204,modified,/ {value:.2f} ^8(increased/reduced enemy stun recovery),/ {value:.2f} ^8(increased/reduced enemy stun recovery),/ {value:.2f} ^8(敵人暈眩恢復增加/減少)
+zh-TW,calc.offence.offence.line_205,modified,"(minimum: {minimum_stun_duration:.2f}s, maximum: {maximum_stun_duration:.2f}s)","(minimum: {minimum_stun_duration:.2f}s, maximum: {maximum_stun_duration:.2f}s)","(最短： {minimum_stun_duration:.2f}s, 最長： {maximum_stun_duration:.2f}s)"
+zh-TW,calc.offence.offence.line_206,modified,/ {enemy_action_speed:.2f} ^8(enemy action speed),/ {enemy_action_speed:.2f} ^8(enemy action speed),/ {enemy_action_speed:.2f} ^8(敵人動作速度)
+zh-TW,calc.offence.offence.line_207,modified,= {value:.2f}s (note that for effects that care about duration this is ignored),= {value:.2f}s (note that for effects that care about duration this is ignored),= {value:.2f}s (依賴持續時間的效果不計此修正)
+zh-TW,calc.offence.offence.line_208,modified,"(minimum: {value:.2f}s, maximum: {value_2:.2f}s)","(minimum: {value:.2f}s, maximum: {value_2:.2f}s)","(最短： {value:.2f}s, 最長： {value_2:.2f}s)"
+zh-TW,calc.offence.offence.line_209,modified,10% ^8(base value),10% ^8(base value),10% ^8(基礎值)
+zh-TW,calc.offence.offence.line_21,modified,Secondary duration:,Secondary duration:,次要持續時間：
+zh-TW,calc.offence.offence.line_210,modified,x {stored_expected_damage_modifier:.2f} ^8(increased effectiveness),x {stored_expected_damage_modifier:.2f} ^8(increased effectiveness),x {stored_expected_damage_modifier:.2f} ^8(效果增加)
+zh-TW,calc.offence.offence.line_212,modified,x {impale_stored_damage:.3f} ^8(stored damage),x {impale_stored_damage:.3f} ^8(stored damage),x {impale_stored_damage:.3f} ^8(儲存傷害)
+zh-TW,calc.offence.offence.line_213,modified,x {impale_chance:.2f} ^8(impale chance),x {impale_chance:.2f} ^8(impale chance),x {impale_chance:.2f} ^8(穿刺機率)
+zh-TW,calc.offence.offence.line_214,modified,x {value:.2f} ^8(impale enemy physical damage reduction),x {value:.2f} ^8(impale enemy physical damage reduction),x {value:.2f} ^8(穿刺目標的物理傷害減免)
+zh-TW,calc.offence.offence.line_215,modified,x {impale_taken:.2f} ^8(impale enemy damage taken),x {impale_taken:.2f} ^8(impale enemy damage taken),x {impale_taken:.2f} ^8(穿刺目標的承受傷害修正)
+zh-TW,calc.offence.offence.line_216,modified,= {impale_dmgmodifier:.3f} ^8(impale damage multiplier),= {impale_dmgmodifier:.3f} ^8(impale damage multiplier),= {impale_dmgmodifier:.3f} ^8(穿刺傷害倍率)
+zh-TW,calc.offence.offence.line_218,modified,x {expiration_mult:.2f} ^8(buff expiration multiplier),x {expiration_mult:.2f} ^8(buff expiration multiplier),x {expiration_mult:.2f} ^8(增益消退倍率)
+zh-TW,calc.offence.offence.line_22,modified,x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(持續時間修正)
+zh-TW,calc.offence.offence.line_220,modified,{impale_stored_hit_avg:.2f} ^8(MH average physical hit before mitigation),{impale_stored_hit_avg:.2f} ^8(MH average physical hit before mitigation),{impale_stored_hit_avg:.2f} ^8(主手減免前的平均物理擊中傷害)
+zh-TW,calc.offence.offence.line_221,modified,x {value:.2f} ^8(MH chance to hit),x {value:.2f} ^8(MH chance to hit),x {value:.2f} ^8(主手命中機率)
+zh-TW,calc.offence.offence.line_222,modified,"x {value:.2f} ^8(MH impale damage multiplier)
+","x {value:.2f} ^8(MH impale damage multiplier)
+","x {value:.2f} ^8(主手穿刺傷害倍率)
+"
+zh-TW,calc.offence.offence.line_224,modified,{impale_stored_hit_avg:.2f} ^8(OH average physical hit before mitigation),{impale_stored_hit_avg:.2f} ^8(OH average physical hit before mitigation),{impale_stored_hit_avg:.2f} ^8(副手減免前的平均物理擊中傷害)
+zh-TW,calc.offence.offence.line_225,modified,x {value:.2f} ^8(OH chance to hit),x {value:.2f} ^8(OH chance to hit),x {value:.2f} ^8(副手命中機率)
+zh-TW,calc.offence.offence.line_226,modified,x {value:.2f} ^8(OH impale damage multiplier),x {value:.2f} ^8(OH impale damage multiplier),x {value:.2f} ^8(副手穿刺傷害倍率)
+zh-TW,calc.offence.offence.line_227,modified,Combined total:,Combined total:,合計：
+zh-TW,calc.offence.offence.line_228,modified,{physical_stored_combined_avg:.2f} ^8(average physical hit before mitigation),{physical_stored_combined_avg:.2f} ^8(average physical hit before mitigation),{physical_stored_combined_avg:.2f} ^8(減免前的平均物理擊中傷害)
+zh-TW,calc.offence.offence.line_229,modified,x {value:.2f} ^8(impale damage multiplier),x {value:.2f} ^8(impale damage multiplier),x {value:.2f} ^8(穿刺傷害倍率)
+zh-TW,calc.offence.offence.line_23,modified,Tertiary duration:,Tertiary duration:,第三持續時間：
+zh-TW,calc.offence.offence.line_230,modified,x {hit_speed:.2f} ^8(hit rate),x {hit_speed:.2f} ^8(hit rate),x {hit_speed:.2f} ^8(擊中速率)
+zh-TW,calc.offence.offence.line_231,modified,x {speed:.2f} ^8({value:s} rate),x {speed:.2f} ^8({value:s} rate),x {speed:.2f} ^8({value:s}速率)
+zh-TW,calc.offence.offence.line_232,modified,x {dps_multiplier:g} ^8(dps multiplier for this skill),x {dps_multiplier:g} ^8(dps multiplier for this skill),x {dps_multiplier:g} ^8(此技能的每秒傷害倍率)
+zh-TW,calc.offence.offence.line_233,modified,+ {base_cost_no_mult:d} ^8(additional {text} cost),+ {base_cost_no_mult:d} ^8(additional {text} cost),+ {base_cost_no_mult:d} ^8(額外{text}消耗)
+zh-TW,calc.offence.offence.line_234,modified,x {value:.2f} ^8(increased/reduced {text} cost),x {value:.2f} ^8(increased/reduced {text} cost),x {value:.2f} ^8({text}消耗增加/減少)
+zh-TW,calc.offence.offence.line_235,modified,x {more_type:.2f} ^8(more/less {text} cost),x {more_type:.2f} ^8(more/less {text} cost),x {more_type:.2f} ^8({text}消耗更多/更少)
+zh-TW,calc.offence.offence.line_236,modified,/ {cost_efficiency:.2f} ^8({text} cost efficiency),/ {cost_efficiency:.2f} ^8({text} cost efficiency),/ {cost_efficiency:.2f} ^8({text}消耗效能)
+zh-TW,calc.offence.offence.line_237,modified,{total_cost:+d} ^8(total {text} cost),{total_cost:+d} ^8(total {text} cost),{total_cost:+d} ^8({text}總消耗)
+zh-TW,calc.offence.offence.line_239,modified,You can't deal {damage_type} damage,You can't deal {damage_type} damage,你無法造成{damage_type}傷害
+zh-TW,calc.offence.offence.line_24,modified,x {totem_duration_mod:.4f} ^8(duration modifier),x {totem_duration_mod:.4f} ^8(duration modifier),x {totem_duration_mod:.4f} ^8(持續時間修正)
+zh-TW,calc.offence.offence.line_242,modified,Both weapons:,Both weapons:,雙持武器：
+zh-TW,calc.offence.offence.line_248,modified,x {use_speed:.2f} ^8({time_type} speed),x {use_speed:.2f} ^8({time_type} speed),x {use_speed:.2f} ^8({time_type}速度)
+zh-TW,calc.offence.offence.line_26,modified,x {value:.2f} ^8(mana cost conversion),x {value:.2f} ^8(mana cost conversion),x {value:.2f} ^8(魔力消耗轉換)
+zh-TW,calc.offence.offence.line_27,modified,x {additional_escost:.2f} ^8(mana cost conversion),x {additional_escost:.2f} ^8(mana cost conversion),x {additional_escost:.2f} ^8(魔力消耗轉換)
+zh-TW,calc.offence.offence.line_28,modified,x {more_cost:.2f} ^8(more/less cost),x {more_cost:.2f} ^8(more/less cost),x {more_cost:.2f} ^8(消耗更多/更少)
+zh-TW,calc.offence.offence.line_29,modified,x {value:.2f} ^8({value_2:d}% paid for with life),x {value:.2f} ^8({value_2:d}% paid for with life),x {value:.2f} ^8(其中{value_2:d}%由生命支付)
+zh-TW,calc.offence.offence.line_31,modified,/ {repeats:.2f} ^8(repeats),/ {repeats:.2f} ^8(repeats),/ {repeats:.2f} ^8(重複次數)
+zh-TW,calc.offence.offence.line_4,modified,/ {value:.2f} ^8(reservation efficiency),/ {value:.2f} ^8(reservation efficiency),/ {value:.2f} ^8(保留效能)
+zh-TW,calc.offence.offence.line_41,modified,= {firing_rate:.2f} ^8bolts per second,= {firing_rate:.2f} ^8bolts 每秒,= {firing_rate:.2f} ^8每秒弩箭數量
+zh-TW,calc.offence.offence.line_42,modified,  1.00s / {firing_rate:.2f} ^8(firing rate),  1.00s / {firing_rate:.2f} ^8(firing rate),  1.00s / {firing_rate:.2f} ^8(射擊速率)
+zh-TW,calc.offence.offence.line_43,modified,= {value:.2f}s ^8(time per bolt),= {value:.2f}s ^8(time per bolt),= {value:.2f}s ^8(每支弩箭耗時)
+zh-TW,calc.offence.offence.line_44,modified,  {value:.2f}s ^8(time per bolt),  {value:.2f} 秒 ^8(time per bolt),  {value:.2f}s ^8(每支弩箭耗時)
+zh-TW,calc.offence.offence.line_45,modified,x {effective_bolt_count:.2f} ^8(eff. bolt count),x {effective_bolt_count:.2f} ^8(eff. bolt count),x {effective_bolt_count:.2f} ^8(有效弩箭數量)
+zh-TW,calc.offence.offence.line_46,modified,= {total_firing_time:.2f}s ^8(total firing time),= {total_firing_time:.2f}s ^8(total firing time),= {total_firing_time:.2f}s ^8(總射擊時間)
+zh-TW,calc.offence.offence.line_47,modified,  1.00s / {base_reload_time:.2f} ^8(base reload time),  1.00s / {base_reload_time:.2f} ^8(base reload time),  1.00s / {base_reload_time:.2f} ^8(基礎裝填時間)
+zh-TW,calc.offence.offence.line_48,modified,= {value:.2f} ^8(base reload rate),= {value:.2f} ^8(base reload rate),= {value:.2f} ^8(基礎裝填速率)
+zh-TW,calc.offence.offence.line_5,modified,x {curse_delay_mod:.4f} ^8(delay modifier),x {curse_delay_mod:.4f} ^8(delay modifier),x {curse_delay_mod:.4f} ^8(延遲修正)
+zh-TW,calc.offence.offence.line_52,modified,= {reload_rate:.2f} ^8(reload rate),= {reload_rate:.2f} ^8(reload rate),= {reload_rate:.2f} ^8(裝填速率)
+zh-TW,calc.offence.offence.line_53,modified,   1.00s / {reload_rate:.2f} ^8(reload rate),   1.00s / {reload_rate:.2f} ^8(reload rate),   1.00s / {reload_rate:.2f} ^8(裝填速率)
+zh-TW,calc.offence.offence.line_54,modified,= {reload_time:.2f}s ^8(reload time),= {reload_time:.2f}s ^8(reload time),= {reload_time:.2f}s ^8(裝填時間)
+zh-TW,calc.offence.offence.line_55,modified,  {total_firing_time:.2f}s ^8(total firing time),  {total_firing_time:.2f} 秒 ^8(total firing time),  {total_firing_time:.2f}s ^8(總射擊時間)
+zh-TW,calc.offence.offence.line_56,modified,+ {effective_reload_time:.2f}s ^8(eff. reload time),+ {effective_reload_time:.2f}s ^8(eff. reload time),+ {effective_reload_time:.2f}s ^8(有效裝填時間)
+zh-TW,calc.offence.offence.line_57,modified,= {value:.2f}s ^8(total attack time),= {value:.2f}s ^8(total attack time),= {value:.2f}s ^8(總攻擊耗時)
+zh-TW,calc.offence.offence.line_58,modified,  {value:.2f}s ^8(total attack time),  {value:.2f} 秒 ^8(total attack time),  {value:.2f}s ^8(總攻擊耗時)
+zh-TW,calc.offence.offence.line_59,modified,/ {effective_bolt_count:.2f} ^8(eff. bolt count),/ {effective_bolt_count:.2f} ^8(eff. bolt count),/ {effective_bolt_count:.2f} ^8(有效弩箭數量)
+zh-TW,calc.offence.offence.line_6,modified,/ {curse_activation_mod:.4f} ^8(activation modifier),/ {curse_activation_mod:.4f} ^8(activation modifier),/ {curse_activation_mod:.4f} ^8(啟動修正)
+zh-TW,calc.offence.offence.line_60,modified,= {value:.2f}s ^8(eff. attack time),= {value:.2f}s ^8(eff. attack time),= {value:.2f}s ^8(有效攻擊耗時)
+zh-TW,calc.offence.offence.line_61,modified, 1 / {value:.2f}s ^8(eff. attack time), 1 / {value:.2f}s ^8(eff. attack time), 1 / {value:.2f}s ^8(有效攻擊耗時)
+zh-TW,calc.offence.offence.line_62,modified,= {speed:.2f} ^8(eff. attack rate),= {speed:.2f} ^8(eff. attack rate),= {speed:.2f} ^8(有效攻擊速率)
+zh-TW,calc.offence.offence.line_63,modified,1 / {cooldown:.2f} ^8(skill cooldown),1 / {cooldown:.2f} ^8(skill cooldown),1 / {cooldown:.2f} ^8(技能冷卻時間)
+zh-TW,calc.offence.offence.line_64,modified,x {repeats:d} ^8(repeat count),x {repeats:d} ^8(repeat count),x {repeats:d} ^8(重複次數)
+zh-TW,calc.offence.offence.line_66,modified,= {speed:.2f} ^8(lower of cast rates),= {speed:.2f} ^8(lower of cast rates),= {speed:.2f} ^8(較低的施法速率)
+zh-TW,calc.offence.offence.line_68,modified,{min_channel_time:.2f}s ^8(minimum channel time),{min_channel_time:.2f} 秒 ^8(minimum channel time),{min_channel_time:.2f}s ^8(最短引導時間)
+zh-TW,calc.offence.offence.line_69,modified,{value:.2f} ^8(attack time per stage),{value:.2f} ^8(attack time per stage),{value:.2f} ^8(每階段攻擊耗時)
+zh-TW,calc.offence.offence.line_70,modified,{value:.2f} ^8(cast time per stage),{value:.2f} ^8(cast time per stage),{value:.2f} ^8(每階段施法耗時)
+zh-TW,calc.offence.offence.line_71,modified,x {channel_time_multiplier:.2f} ^8(channel time multiplier),x {channel_time_multiplier:.2f} ^8(channel time multiplier),x {channel_time_multiplier:.2f} ^8(引導時間倍率)
+zh-TW,calc.offence.offence.line_72,modified,1 / {hit_time:.2f} ^8(hit time override),1 / {hit_time:.2f} ^8(hit time override),1 / {hit_time:.2f} ^8(擊中間隔覆蓋設定)
+zh-TW,calc.offence.offence.line_74,modified,{time:.2f} ^8(attack time),{time:.2f} ^8(attack time),{time:.2f} ^8(攻擊耗時)
+zh-TW,calc.offence.offence.line_75,modified,{time:.2f} ^8(cast time),{time:.2f} ^8(cast time),{time:.2f} ^8(施法耗時)
+zh-TW,calc.offence.offence.line_76,modified,x {hit_time_multiplier:.2f} ^8(channel time multiplier),x {hit_time_multiplier:.2f} ^8(channel time multiplier),x {hit_time_multiplier:.2f} ^8(引導時間倍率)
+zh-TW,calc.offence.offence.line_77,modified,"1 / min({hit_time:.2f}, {cooldown:.2f}) ^8min(hit time, cooldown)","1 / min({hit_time:.2f}, {cooldown:.2f}) ^8min(hit time, cooldown)","1 / min({hit_time:.2f}, {cooldown:.2f}) ^8min(擊中間隔, 冷卻時間)"
+zh-TW,calc.offence.offence.line_78,modified,1 / ({hit_time:.2f} + {cooldown:.2f}) ^8(hit time + cooldown),1 / ({hit_time:.2f} + {cooldown:.2f}) ^8(hit time + cooldown),1 / ({hit_time:.2f} + {cooldown:.2f}) ^8(擊中間隔 + 冷卻時間)
+zh-TW,calc.offence.offence.line_79,modified,1 / {hit_time:.2f} ^8(hit time),1 / {hit_time:.2f} ^8(hit time),1 / {hit_time:.2f} ^8(擊中間隔)
+zh-TW,calc.offence.offence.line_80,modified,({ancestral_exerts_count:d} ^8(number of exerts),({ancestral_exerts_count:d} ^8(number of exerts),({ancestral_exerts_count:d} ^8(可強化次數)
+zh-TW,calc.offence.offence.line_82,modified,/ ({ancestral_cry_cooldown:.2f} ^8(warcry cooldown),/ ({ancestral_cry_cooldown:.2f} ^8(warcry cooldown),/ ({ancestral_cry_cooldown:.2f} ^8(戰吼冷卻時間)
+zh-TW,calc.offence.offence.line_83,modified,+ {ancestral_cry_cast_time:.2f}) ^8(warcry casttime),+ {ancestral_cry_cast_time:.2f}) ^8(warcry casttime),+ {ancestral_cry_cast_time:.2f}) ^8(戰吼施放時間)
+zh-TW,calc.offence.offence.line_84,modified,/ {ancestral_cry_cooldown:.2f} ^8(average warcry cooldown),/ {ancestral_cry_cooldown:.2f} ^8(average warcry cooldown),/ {ancestral_cry_cooldown:.2f} ^8(平均戰吼冷卻時間)
+zh-TW,calc.offence.offence.line_85,modified,({infernal_empowered_count:.2f} ^8(number of empowered),({infernal_empowered_count:.2f} ^8(number of empowered),({infernal_empowered_count:.2f} ^8(強化次數)
+zh-TW,calc.offence.offence.line_86,modified,/ ({infernal_cry_cooldown:.2f} ^8(warcry cooldown),/ ({infernal_cry_cooldown:.2f} ^8(warcry cooldown),/ ({infernal_cry_cooldown:.2f} ^8(戰吼冷卻時間)
+zh-TW,calc.offence.offence.line_87,modified,+ {infernal_cry_cast_time:.2f}) ^8(warcry cast time),+ {infernal_cry_cast_time:.2f}) ^8(warcry cast time),+ {infernal_cry_cast_time:.2f}) ^8(戰吼施放時間)
+zh-TW,calc.offence.offence.line_88,modified,/ {infernal_cry_cooldown:.2f} ^8(average warcry cooldown),/ {infernal_cry_cooldown:.2f} ^8(average warcry cooldown),/ {infernal_cry_cooldown:.2f} ^8(平均戰吼冷卻時間)
+zh-TW,calc.offence.offence.line_89,modified,({intimidating_exerts_count:d} ^8(number of exerts),({intimidating_exerts_count:d} ^8(number of exerts),({intimidating_exerts_count:d} ^8(可強化次數)
+zh-TW,calc.offence.offence.line_9,modified,* {value:.2f}% ^8(uptime),* {value:.2f}% ^8(uptime),* {value:.2f}% ^8(覆蓋率)
+zh-TW,calc.offence.offence.line_90,modified,/ ({intimidating_cry_cooldown:.2f} ^8(warcry cooldown),/ ({intimidating_cry_cooldown:.2f} ^8(warcry cooldown),/ ({intimidating_cry_cooldown:.2f} ^8(戰吼冷卻時間)
+zh-TW,calc.offence.offence.line_91,modified,+ {intimidating_cry_cast_time:.2f}) ^8(warcry casttime),+ {intimidating_cry_cast_time:.2f}) ^8(warcry casttime),+ {intimidating_cry_cast_time:.2f}) ^8(戰吼施放時間)
+zh-TW,calc.offence.offence.line_92,modified,/ {intimidating_cry_cooldown:.2f} ^8(average warcry cooldown),/ {intimidating_cry_cooldown:.2f} ^8(average warcry cooldown),/ {intimidating_cry_cooldown:.2f} ^8(平均戰吼冷卻時間)
+zh-TW,calc.offence.offence.line_93,modified,({rallying_exerts_count:d} ^8(number of exerts),({rallying_exerts_count:d} ^8(number of exerts),({rallying_exerts_count:d} ^8(可強化次數)
+zh-TW,calc.offence.offence.line_94,modified,/ ({rallying_cry_cooldown:.2f} ^8(warcry cooldown),/ ({rallying_cry_cooldown:.2f} ^8(warcry cooldown),/ ({rallying_cry_cooldown:.2f} ^8(戰吼冷卻時間)
+zh-TW,calc.offence.offence.line_95,modified,+ {rallying_cry_cast_time:.2f}) ^8(warcry casttime),+ {rallying_cry_cast_time:.2f}) ^8(warcry casttime),+ {rallying_cry_cast_time:.2f}) ^8(戰吼施放時間)
+zh-TW,calc.offence.offence.line_96,modified,/ {rallying_cry_cooldown:.2f} ^8(average warcry cooldown),/ {rallying_cry_cooldown:.2f} ^8(average warcry cooldown),/ {rallying_cry_cooldown:.2f} ^8(平均戰吼冷卻時間)
+zh-TW,calc.offence.offence.line_97,modified,({seismic_exerts_count:d} ^8(number of exerts),({seismic_exerts_count:d} ^8(number of exerts),({seismic_exerts_count:d} ^8(可強化次數)
+zh-TW,calc.offence.offence.line_98,modified,/ ({seismic_cry_cooldown:.2f} ^8(warcry cooldown),/ ({seismic_cry_cooldown:.2f} ^8(warcry cooldown),/ ({seismic_cry_cooldown:.2f} ^8(戰吼冷卻時間)
+zh-TW,calc.offence.offence.line_99,modified,+ {seismic_cry_cast_time:.2f}) ^8(warcry casttime),+ {seismic_cry_cast_time:.2f}) ^8(warcry casttime),+ {seismic_cry_cast_time:.2f}) ^8(戰吼施放時間)
+zh-TW,calc.offence.parry_debuff_duration.line_2,modified,{parry_debuff_duration:.2f}s ^8(base duration),{parry_debuff_duration:.2f} 秒 ^8(base duration),{parry_debuff_duration:.2f}s ^8(基礎持續時間)
+zh-TW,calc.offence.parry_debuff_duration.line_3,modified,x {value:.2f} ^8(modifier),x {value:.2f} ^8(modifier),x {value:.2f} ^8(修正)
+zh-TW,calc.offence.parry_range_non_proj.line_3,modified,x {value:.1f} ^8(modifier),x {value:.1f} ^8(modifier),x {value:.1f} ^8(修正)
+zh-TW,calc.offence.parry_range_proj.line_3,modified,x {value:.1f} ^8(modifier),x {value:.1f} ^8(modifier),x {value:.1f} ^8(修正)
+zh-TW,calc.offence.perfect_timing.line_2,modified,x {perfect_timing_mod:.2f} ^8(effect modifiers),x {perfect_timing_mod:.2f} ^8(effect modifiers),x {perfect_timing_mod:.2f} ^8(效果修正)
+zh-TW,calc.offence.pvp_total_dps.line_2,modified,x {hit_speed:.2f} ^8(hit rate),x {hit_speed:.2f} ^8(hit rate),x {hit_speed:.2f} ^8(擊中速率)
+zh-TW,calc.offence.pvp_total_dps.line_3,modified,x {speed:.2f} ^8({rate_type:s} rate),x {speed:.2f} ^8({rate_type:s} rate),x {speed:.2f} ^8({rate_type:s}速率)
+zh-TW,calc.offence.rallying_avg_dmg.line,modified,{value:.2f} ^8(average damage multiplier per ally),{value:.2f} ^8(average damage multiplier per ally),{value:.2f} ^8(每名友軍的平均傷害倍率)
+zh-TW,calc.offence.rallying_avg_dmg.line_2,modified,x {value:d} ^8(number of nearby allies (max=5)),x {value:d} ^8(number of nearby allies (max=5)),x {value:d} ^8(附近友軍數量(上限=5))
+zh-TW,calc.offence.rallying_avg_dmg.line_3,modified,Average Rallying Cry Damage:,Average Rallying Cry Damage:,激勵戰吼平均傷害：
+zh-TW,calc.offence.rallying_hit_effect.line,modified,1 + ({rallying_avg_dmg:.2f} ^8(average exerted damage),1 + ({rallying_avg_dmg:.2f} ^8(average exerted damage),1 + ({rallying_avg_dmg:.2f} ^8(平均強化傷害)
+zh-TW,calc.offence.rallying_hit_effect.line_2,modified,x {value:.2f}) ^8(uptime %),x {value:.2f}) ^8(uptime %),x {value:.2f}) ^8(覆蓋率)
+zh-TW,calc.offence.reserve_duration.line_2,modified,x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(持續時間修正)
+zh-TW,calc.offence.soul_gain_prevention_duration.line_2,modified,x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(duration modifier),x {duration_mod:.4f} ^8(持續時間修正)
+zh-TW,calc.offence.speed.line,modified,{speed:.2f} ^8(hits twice per attack),{speed:.2f} ^8(hits twice per attack),{speed:.2f} ^8(每次攻擊擊中兩次)
+zh-TW,calc.offence.speed.line_2,modified,Use Offhand Weapon Attack Speed:,Use Offhand Weapon Attack Speed:,使用副手武器攻擊速度：
+zh-TW,calc.offence.speed.line_3,modified,Combined hit from both weapons:,Combined hit from both weapons:,兩把武器合併擊中：
+zh-TW,calc.offence.speed.line_4,modified,Simultaneous hits from each weapon:,Simultaneous hits from each weapon:,兩把武器同時擊中：
+zh-TW,calc.offence.speed.line_5,modified,Alternating both weapons:,Alternating both weapons:,交替使用兩把武器：
+zh-TW,calc.offence.total_dot.line,modified,{total_dot_instance:.1f} ^8(Damage per Instance),{total_dot_instance:.1f} ^8(Damage per Instance),{total_dot_instance:.1f} ^8(每個實例的傷害)
+zh-TW,calc.offence.total_dot.line_2,modified,x {speed:.2f} ^8(hits per second),x {speed:.2f} ^8(hits per second),x {speed:.2f} ^8(每秒擊中次數)
+zh-TW,calc.offence.total_dot.line_3,modified,x {duration:.2f} ^8(skill duration),x {duration:.2f} ^8(skill duration),x {duration:.2f} ^8(技能持續時間)
+zh-TW,calc.offence.totem_life.line,modified,Totem level: {totem_level},Totem level: {totem_level},圖騰等級： {totem_level}
+zh-TW,calc.offence.totem_life.line_3,modified,x {value} ^8(life multiplier for this totem type),x {value} ^8(life multiplier for this totem type),x {value} ^8(此類圖騰的生命倍率)
+zh-TW,calc.offence.totem_life.line_4,modified,x {totem_life_mod} ^8(totem life modifier),x {totem_life_mod} ^8(totem life modifier),x {totem_life_mod} ^8(圖騰生命修正)
+zh-TW,calc.offence.trap_cooldown.line_2,modified,/ {value:.2f} ^8(increased/reduced cooldown recovery),/ {value:.2f} ^8(increased/reduced cooldown recovery),/ {value:.2f} ^8(冷卻恢復速度增加/減少)
+zh-TW,calc.offence.uptime_source.ancestral_call,added,AncestralCall,,先祖怒嚎
+zh-TW,calc.offence.uptime_source.ancestral_empowerment,added,AncestralEmpowerment,,先祖強化
+zh-TW,calc.offence.uptime_source.ancestral_empowerment_combined,added,AncestralEmpowermentCombined,,先祖強化合計
+zh-TW,calc.offence.uptime_source.fist_of_war,added,FistOfWar,,拳霸
+zh-TW,calc.offence.uptime_source.infernal_cry,added,InfernalCry,,煉獄戰吼
+zh-TW,calc.offence.warcry_effect_mod.line,modified,{unscaled_effect:.2f} ^8(effect modifiers),{unscaled_effect:.2f} ^8(effect modifiers),{unscaled_effect:.2f} ^8(效果修正)
+zh-TW,calc.perform.calc_buff_radius.line,modified,{value:.1f}m ^8(base radius),{value:.1f}m ^8(base radius),{value:.1f}m ^8(基礎半徑)
+zh-TW,calc.perform.calc_buff_radius.line_2,modified, x {value:.2f}  ^8(inc), x {value:.2f}  ^8(inc), x {value:.2f}  ^8(增加/減少)
+zh-TW,calc.perform.calc_buff_radius.line_3,modified, x {more_radius:.2f}  ^8(more), x {more_radius:.2f}  ^8(more), x {more_radius:.2f}  ^8(更多/更少)
+zh-TW,calc.perform.perform.line,modified,({value:d} / {power_per:d}) ^8(Power / per = base),({value:d} / {power_per:d}) ^8(Power / per = base),({value:d} / {power_per:d}) ^8(威能 / 每次所需威能 = 基礎次數)
+zh-TW,calc.perform.perform.line_10,modified,+ {total_global_quality:d} ^8(quality from global modifiers),+ {total_global_quality:d} ^8(quality from global modifiers),+ {total_global_quality:d} ^8(來自全域修正的品質)
+zh-TW,calc.perform.perform.line_2,modified,= (({base_empowers:.2f} + {extra_empowers:.2f}) x {empower_multiplier:.2f}) ^8((base + extra) x more),= (({base_empowers:.2f} + {extra_empowers:.2f}) x {empower_multiplier:.2f}) ^8((base + extra) x more),= (({base_empowers:.2f} + {extra_empowers:.2f}) x {empower_multiplier:.2f}) ^8((基礎 + 額外) x 更多倍率)
+zh-TW,calc.perform.perform.line_4,modified,+ {total_support_level:d} ^8(level from support),+ {total_support_level:d} ^8(level from support),+ {total_support_level:d} ^8(來自輔助寶石的等級)
+zh-TW,calc.perform.perform.line_9,modified,+ {total_support_quality:d} ^8(quality from supports),+ {total_support_quality:d} ^8(quality from supports),+ {total_support_quality:d} ^8(來自輔助寶石的品質)
+zh-TW,term.calculation_source.ancestrally_boosted_attacks,added,Ancestrally Boosted Attacks,,先祖增強的攻擊
+zh-TW,term.calculation_source.bifurcated_crit_bonus,added,Bifurcated Crit Damage Bonus,,暴擊分叉傷害加成
+zh-TW,term.calculation_source.empowered_attacks,added,Empowered Attacks,,強化攻擊
+zh-TW,term.calculation_source.uptime_ancestrally_boosted_aoe,added,Uptime Scaled Ancestrally Boosted AoE,,按覆蓋率換算的先祖增強範圍
+zh-TW,term.calculation_source.uptime_ancestrally_boosted_attacks,added,Uptime Scaled Ancestrally Boosted Attacks,,按覆蓋率換算的先祖增強攻擊
+zh-TW,term.calculation_source.uptime_empowered_attacks,added,Uptime Scaled Empowered Attacks,,按覆蓋率換算的強化攻擊
+zh-TW,term.calculation_source.uptime_infernal_cry,added,Uptime Scaled Infernal Cry,,按覆蓋率換算的煉獄戰吼
+zh-TW,ui.calc_breakdown_control.add_breakdown_section.mult.label,modified,MCM,MCM,保留倍率

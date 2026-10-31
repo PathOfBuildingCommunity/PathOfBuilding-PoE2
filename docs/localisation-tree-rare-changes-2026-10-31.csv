@@ -1,0 +1,411 @@
+language,catalog,status,key,source,before,after
+en,Messages,added,equipment.rare_preset.armour_boots,Armour Boots,,Armour Boots
+en,Messages,added,equipment.rare_preset.armour_chest,Armour Chest,,Armour Chest
+en,Messages,added,equipment.rare_preset.armour_energy_shield_boots,Armour/Energy Shield Boots,,Armour/Energy Shield Boots
+en,Messages,added,equipment.rare_preset.armour_energy_shield_chest,Armour/Energy Shield Chest,,Armour/Energy Shield Chest
+en,Messages,added,equipment.rare_preset.armour_energy_shield_gloves,Armour/Energy Shield Gloves,,Armour/Energy Shield Gloves
+en,Messages,added,equipment.rare_preset.armour_energy_shield_helmet,Armour/Energy Shield Helmet,,Armour/Energy Shield Helmet
+en,Messages,added,equipment.rare_preset.armour_energy_shield_shield,Armour/Energy Shield Shield,,Armour/Energy Shield Shield
+en,Messages,added,equipment.rare_preset.armour_evasion_boots,Armour/Evasion Boots,,Armour/Evasion Boots
+en,Messages,added,equipment.rare_preset.armour_evasion_chest,Armour/Evasion Chest,,Armour/Evasion Chest
+en,Messages,added,equipment.rare_preset.armour_evasion_gloves,Armour/Evasion Gloves,,Armour/Evasion Gloves
+en,Messages,added,equipment.rare_preset.armour_evasion_helmet,Armour/Evasion Helmet,,Armour/Evasion Helmet
+en,Messages,added,equipment.rare_preset.armour_evasion_shield,Armour/Evasion Shield,,Armour/Evasion Shield
+en,Messages,added,equipment.rare_preset.armour_gloves,Armour Gloves,,Armour Gloves
+en,Messages,added,equipment.rare_preset.armour_helmet,Armour Helmet,,Armour Helmet
+en,Messages,added,equipment.rare_preset.armour_shield,Armour Shield,,Armour Shield
+en,Messages,added,equipment.rare_preset.attribute_amulet,Attribute Amulet,,Attribute Amulet
+en,Messages,added,equipment.rare_preset.belt,Belt,,Belt
+en,Messages,added,equipment.rare_preset.chaos_resistance_ring,Chaos Resistance Ring,,Chaos Resistance Ring
+en,Messages,added,equipment.rare_preset.chaos_wand,Chaos Wand,,Chaos Wand
+en,Messages,added,equipment.rare_preset.cold_staff,Cold Staff,,Cold Staff
+en,Messages,added,equipment.rare_preset.dexterity_amulet,Dexterity Amulet,,Dexterity Amulet
+en,Messages,added,equipment.rare_preset.discipline_sceptre,Discipline Sceptre,,Discipline Sceptre
+en,Messages,added,equipment.rare_preset.elemental_1h_mace,Elemental 1H Mace,,Elemental 1H Mace
+en,Messages,added,equipment.rare_preset.elemental_2h_mace,Elemental 2H Mace,,Elemental 2H Mace
+en,Messages,added,equipment.rare_preset.elemental_staff,Elemental Staff,,Elemental Staff
+en,Messages,added,equipment.rare_preset.elemental_talisman,Elemental Talisman,,Elemental Talisman
+en,Messages,added,equipment.rare_preset.elemental_wand,Elemental Wand,,Elemental Wand
+en,Messages,added,equipment.rare_preset.energy_shield_amulet,Energy Shield Amulet,,Energy Shield Amulet
+en,Messages,added,equipment.rare_preset.energy_shield_boots,Energy Shield Boots,,Energy Shield Boots
+en,Messages,added,equipment.rare_preset.energy_shield_chest,Energy Shield Chest,,Energy Shield Chest
+en,Messages,added,equipment.rare_preset.energy_shield_gloves,Energy Shield Gloves,,Energy Shield Gloves
+en,Messages,added,equipment.rare_preset.energy_shield_helmet,Energy Shield Helmet,,Energy Shield Helmet
+en,Messages,added,equipment.rare_preset.evasion_boots,Evasion Boots,,Evasion Boots
+en,Messages,added,equipment.rare_preset.evasion_chest,Evasion Chest,,Evasion Chest
+en,Messages,added,equipment.rare_preset.evasion_energy_shield_boots,Evasion/Energy Shield Boots,,Evasion/Energy Shield Boots
+en,Messages,added,equipment.rare_preset.evasion_energy_shield_chest,Evasion/Energy Shield Chest,,Evasion/Energy Shield Chest
+en,Messages,added,equipment.rare_preset.evasion_energy_shield_gloves,Evasion/Energy Shield Gloves,,Evasion/Energy Shield Gloves
+en,Messages,added,equipment.rare_preset.evasion_energy_shield_helmet,Evasion/Energy Shield Helmet,,Evasion/Energy Shield Helmet
+en,Messages,added,equipment.rare_preset.evasion_gloves,Evasion Gloves,,Evasion Gloves
+en,Messages,added,equipment.rare_preset.evasion_helmet,Evasion Helmet,,Evasion Helmet
+en,Messages,added,equipment.rare_preset.evasion_shield,Evasion Shield,,Evasion Shield
+en,Messages,added,equipment.rare_preset.fire_staff,Fire Staff,,Fire Staff
+en,Messages,added,equipment.rare_preset.fire_wand,Fire Wand,,Fire Wand
+en,Messages,added,equipment.rare_preset.intelligence_amulet,Intelligence Amulet,,Intelligence Amulet
+en,Messages,added,equipment.rare_preset.jewel,Jewel,,Jewel
+en,Messages,added,equipment.rare_preset.lightning_staff,Lightning Staff,,Lightning Staff
+en,Messages,added,equipment.rare_preset.malice_sceptre,Malice Sceptre,,Malice Sceptre
+en,Messages,added,equipment.rare_preset.mana_amulet,Mana Amulet,,Mana Amulet
+en,Messages,added,equipment.rare_preset.mana_ring,Mana Ring,,Mana Ring
+en,Messages,added,equipment.rare_preset.movement_speed_chest,Movement Speed Chest,,Movement Speed Chest
+en,Messages,added,equipment.rare_preset.physical_1h_mace,Physical 1H Mace,,Physical 1H Mace
+en,Messages,added,equipment.rare_preset.physical_2h_mace,Physical 2H Mace,,Physical 2H Mace
+en,Messages,added,equipment.rare_preset.physical_staff,Physical Staff,,Physical Staff
+en,Messages,added,equipment.rare_preset.physical_talisman,Physical Talisman,,Physical Talisman
+en,Messages,added,equipment.rare_preset.physical_wand,Physical Wand,,Physical Wand
+en,Messages,added,equipment.rare_preset.plus_2_critical_quiver,+2 Critical Quiver,,+2 Critical Quiver
+en,Messages,added,equipment.rare_preset.plus_2_energy_shield,+2 Energy Shield,,+2 Energy Shield
+en,Messages,added,equipment.rare_preset.plus_2_poison_quiver,+2 Poison Quiver,,+2 Poison Quiver
+en,Messages,added,equipment.rare_preset.plus_4_chaos_bow,+4 Chaos Bow,,+4 Chaos Bow
+en,Messages,added,equipment.rare_preset.plus_4_elemental_bow,+4 Elemental Bow,,+4 Elemental Bow
+en,Messages,added,equipment.rare_preset.plus_4_elemental_spear,+4 Elemental Spear,,+4 Elemental Spear
+en,Messages,added,equipment.rare_preset.plus_4_lightning_spear,+4 Lightning Spear,,+4 Lightning Spear
+en,Messages,added,equipment.rare_preset.plus_4_minion_sceptre,+4 Minion Sceptre,,+4 Minion Sceptre
+en,Messages,added,equipment.rare_preset.plus_4_physical_bow,+4 Physical Bow,,+4 Physical Bow
+en,Messages,added,equipment.rare_preset.plus_4_physical_spear,+4 Physical Spear,,+4 Physical Spear
+en,Messages,added,equipment.rare_preset.plus_6_elemental_crossbow,+6 Elemental Crossbow,,+6 Elemental Crossbow
+en,Messages,added,equipment.rare_preset.plus_6_physical_crossbow,+6 Physical Crossbow,,+6 Physical Crossbow
+en,Messages,added,equipment.rare_preset.purity_aura_sceptre,Purity Aura Sceptre,,Purity Aura Sceptre
+en,Messages,added,equipment.rare_preset.radius_jewel,Radius Jewel,,Radius Jewel
+en,Messages,added,equipment.rare_preset.resistance_ring,Resistance Ring,,Resistance Ring
+en,Messages,added,equipment.rare_preset.ring,Ring,,Ring
+en,Messages,added,equipment.rare_preset.spirit_amulet,Spirit Amulet,,Spirit Amulet
+en,Messages,added,equipment.rare_preset.spirit_chest,Spirit Chest,,Spirit Chest
+en,Messages,added,equipment.rare_preset.strength_amulet,Strength Amulet,,Strength Amulet
+zh-CN,Messages,added,equipment.rare_preset.armour_boots,Armour Boots,,护甲鞋
+zh-CN,Messages,added,equipment.rare_preset.armour_chest,Armour Chest,,护甲胸甲
+zh-CN,Messages,added,equipment.rare_preset.armour_energy_shield_boots,Armour/Energy Shield Boots,,护甲能盾鞋
+zh-CN,Messages,added,equipment.rare_preset.armour_energy_shield_chest,Armour/Energy Shield Chest,,护甲能盾胸甲
+zh-CN,Messages,added,equipment.rare_preset.armour_energy_shield_gloves,Armour/Energy Shield Gloves,,护甲能盾手套
+zh-CN,Messages,added,equipment.rare_preset.armour_energy_shield_helmet,Armour/Energy Shield Helmet,,护甲能盾头盔
+zh-CN,Messages,added,equipment.rare_preset.armour_energy_shield_shield,Armour/Energy Shield Shield,,护甲能盾盾牌
+zh-CN,Messages,added,equipment.rare_preset.armour_evasion_boots,Armour/Evasion Boots,,护甲闪避鞋
+zh-CN,Messages,added,equipment.rare_preset.armour_evasion_chest,Armour/Evasion Chest,,护甲闪避胸甲
+zh-CN,Messages,added,equipment.rare_preset.armour_evasion_gloves,Armour/Evasion Gloves,,护甲闪避手套
+zh-CN,Messages,added,equipment.rare_preset.armour_evasion_helmet,Armour/Evasion Helmet,,护甲闪避头盔
+zh-CN,Messages,added,equipment.rare_preset.armour_evasion_shield,Armour/Evasion Shield,,护甲闪避盾牌
+zh-CN,Messages,added,equipment.rare_preset.armour_gloves,Armour Gloves,,护甲手套
+zh-CN,Messages,added,equipment.rare_preset.armour_helmet,Armour Helmet,,护甲头盔
+zh-CN,Messages,added,equipment.rare_preset.armour_shield,Armour Shield,,护甲盾牌
+zh-CN,Messages,added,equipment.rare_preset.attribute_amulet,Attribute Amulet,,属性项链
+zh-CN,Messages,added,equipment.rare_preset.belt,Belt,,腰带
+zh-CN,Messages,added,equipment.rare_preset.chaos_resistance_ring,Chaos Resistance Ring,,混沌抗性戒指
+zh-CN,Messages,added,equipment.rare_preset.chaos_wand,Chaos Wand,,混沌法杖
+zh-CN,Messages,added,equipment.rare_preset.cold_staff,Cold Staff,,冰霜长杖
+zh-CN,Messages,added,equipment.rare_preset.dexterity_amulet,Dexterity Amulet,,敏捷项链
+zh-CN,Messages,added,equipment.rare_preset.discipline_sceptre,Discipline Sceptre,,纪律权杖
+zh-CN,Messages,added,equipment.rare_preset.elemental_1h_mace,Elemental 1H Mace,,元素单手锤
+zh-CN,Messages,added,equipment.rare_preset.elemental_2h_mace,Elemental 2H Mace,,元素双手锤
+zh-CN,Messages,added,equipment.rare_preset.elemental_staff,Elemental Staff,,元素长杖
+zh-CN,Messages,added,equipment.rare_preset.elemental_talisman,Elemental Talisman,,元素魔符
+zh-CN,Messages,added,equipment.rare_preset.elemental_wand,Elemental Wand,,元素法杖
+zh-CN,Messages,added,equipment.rare_preset.energy_shield_amulet,Energy Shield Amulet,,能盾项链
+zh-CN,Messages,added,equipment.rare_preset.energy_shield_boots,Energy Shield Boots,,能盾鞋
+zh-CN,Messages,added,equipment.rare_preset.energy_shield_chest,Energy Shield Chest,,能盾胸甲
+zh-CN,Messages,added,equipment.rare_preset.energy_shield_gloves,Energy Shield Gloves,,能盾手套
+zh-CN,Messages,added,equipment.rare_preset.energy_shield_helmet,Energy Shield Helmet,,能盾头盔
+zh-CN,Messages,added,equipment.rare_preset.evasion_boots,Evasion Boots,,闪避鞋
+zh-CN,Messages,added,equipment.rare_preset.evasion_chest,Evasion Chest,,闪避胸甲
+zh-CN,Messages,added,equipment.rare_preset.evasion_energy_shield_boots,Evasion/Energy Shield Boots,,闪避能盾鞋
+zh-CN,Messages,added,equipment.rare_preset.evasion_energy_shield_chest,Evasion/Energy Shield Chest,,闪避能盾胸甲
+zh-CN,Messages,added,equipment.rare_preset.evasion_energy_shield_gloves,Evasion/Energy Shield Gloves,,闪避能盾手套
+zh-CN,Messages,added,equipment.rare_preset.evasion_energy_shield_helmet,Evasion/Energy Shield Helmet,,闪避能盾头盔
+zh-CN,Messages,added,equipment.rare_preset.evasion_gloves,Evasion Gloves,,闪避手套
+zh-CN,Messages,added,equipment.rare_preset.evasion_helmet,Evasion Helmet,,闪避头盔
+zh-CN,Messages,added,equipment.rare_preset.evasion_shield,Evasion Shield,,闪避盾牌
+zh-CN,Messages,added,equipment.rare_preset.fire_staff,Fire Staff,,火焰长杖
+zh-CN,Messages,added,equipment.rare_preset.fire_wand,Fire Wand,,火焰法杖
+zh-CN,Messages,added,equipment.rare_preset.intelligence_amulet,Intelligence Amulet,,智慧项链
+zh-CN,Messages,added,equipment.rare_preset.jewel,Jewel,,珠宝
+zh-CN,Messages,added,equipment.rare_preset.lightning_staff,Lightning Staff,,闪电长杖
+zh-CN,Messages,added,equipment.rare_preset.malice_sceptre,Malice Sceptre,,恶意权杖
+zh-CN,Messages,added,equipment.rare_preset.mana_amulet,Mana Amulet,,魔力项链
+zh-CN,Messages,added,equipment.rare_preset.mana_ring,Mana Ring,,魔力戒指
+zh-CN,Messages,added,equipment.rare_preset.movement_speed_chest,Movement Speed Chest,,移动速度胸甲
+zh-CN,Messages,added,equipment.rare_preset.physical_1h_mace,Physical 1H Mace,,物理单手锤
+zh-CN,Messages,added,equipment.rare_preset.physical_2h_mace,Physical 2H Mace,,物理双手锤
+zh-CN,Messages,added,equipment.rare_preset.physical_staff,Physical Staff,,物理长杖
+zh-CN,Messages,added,equipment.rare_preset.physical_talisman,Physical Talisman,,物理魔符
+zh-CN,Messages,added,equipment.rare_preset.physical_wand,Physical Wand,,物理法杖
+zh-CN,Messages,added,equipment.rare_preset.plus_2_critical_quiver,+2 Critical Quiver,,+2 暴击箭袋
+zh-CN,Messages,added,equipment.rare_preset.plus_2_energy_shield,+2 Energy Shield,,+2 能盾法器
+zh-CN,Messages,added,equipment.rare_preset.plus_2_poison_quiver,+2 Poison Quiver,,+2 中毒箭袋
+zh-CN,Messages,added,equipment.rare_preset.plus_4_chaos_bow,+4 Chaos Bow,,+4 混沌弓
+zh-CN,Messages,added,equipment.rare_preset.plus_4_elemental_bow,+4 Elemental Bow,,+4 元素弓
+zh-CN,Messages,added,equipment.rare_preset.plus_4_elemental_spear,+4 Elemental Spear,,+4 元素战矛
+zh-CN,Messages,added,equipment.rare_preset.plus_4_lightning_spear,+4 Lightning Spear,,+4 闪电战矛
+zh-CN,Messages,added,equipment.rare_preset.plus_4_minion_sceptre,+4 Minion Sceptre,,+4 召唤生物权杖
+zh-CN,Messages,added,equipment.rare_preset.plus_4_physical_bow,+4 Physical Bow,,+4 物理弓
+zh-CN,Messages,added,equipment.rare_preset.plus_4_physical_spear,+4 Physical Spear,,+4 物理战矛
+zh-CN,Messages,added,equipment.rare_preset.plus_6_elemental_crossbow,+6 Elemental Crossbow,,+6 元素弩
+zh-CN,Messages,added,equipment.rare_preset.plus_6_physical_crossbow,+6 Physical Crossbow,,+6 物理弩
+zh-CN,Messages,added,equipment.rare_preset.purity_aura_sceptre,Purity Aura Sceptre,,净化光环权杖
+zh-CN,Messages,added,equipment.rare_preset.radius_jewel,Radius Jewel,,范围珠宝
+zh-CN,Messages,added,equipment.rare_preset.resistance_ring,Resistance Ring,,抗性戒指
+zh-CN,Messages,added,equipment.rare_preset.ring,Ring,,戒指
+zh-CN,Messages,added,equipment.rare_preset.spirit_amulet,Spirit Amulet,,精魂项链
+zh-CN,Messages,added,equipment.rare_preset.spirit_chest,Spirit Chest,,精魂胸甲
+zh-CN,Messages,added,equipment.rare_preset.strength_amulet,Strength Amulet,,力量项链
+zh-CN,Game,added,game.tree_node.0_5_11184.sd_1,Sinister Jewel Socket,,凶邪珠宝插槽
+zh-CN,Game,added,game.tree_node.0_5_11335.sd_1,Grants {value_1} Passive Skill Point,,获得 {value_1} 个天赋点
+zh-CN,Game,added,game.tree_node.0_5_12183.sd_1,Grants {value_1} Passive Skill Point,,获得 {value_1} 个天赋点
+zh-CN,Game,added,game.tree_node.0_5_12795.sd_2,Grants {value_1} Passive Skill Point,,获得 {value_1} 个天赋点
+zh-CN,Game,added,game.tree_node.0_5_13228.sd_1,"{value_1}% chance that if you would gain Power Charges, you instead gain up to",,有 {value_1}% 的几率在获得暴击球时改为获得最多
+zh-CN,Game,modified,game.tree_node.0_5_13228.sd_2,your maximum number of Power Charges,your maximum number of 暴击球,你的暴击球上限数量
+zh-CN,Game,added,game.tree_node.0_5_13693.dn,Rhythm of Ice,,冰霜之歌
+zh-CN,Game,added,game.tree_node.0_5_13693.sd_2,"{value_1}% increased Cast Speed per Spell Echoed Recently, up to {value_2}%",,每个近期回响的法术使施法速度提高 {value_1}%，最多提高 {value_2}%
+zh-CN,Game,added,game.tree_node.0_5_14226.sd_1,{value_1}% more Skill Speed while Off Hand is empty and you have,,技能速度总增 {value_1}%，条件是副手为空，且
+zh-CN,Game,modified,game.tree_node.0_5_14226.sd_2,a One-Handed Martial Weapon equipped in your Main Hand,技能速度总增 25%。,主手装备单手军用武器
+zh-CN,Game,added,game.tree_node.0_5_14265.dn,Pyromancer,,火焰魔法师
+zh-CN,Game,added,game.tree_node.0_5_14265.sd_3,{value_1}% reduced Movement Speed Penalty from using Fire Skills while moving,,使用火焰技能移动时，移动速度惩罚降低 {value_1}%
+zh-CN,Game,added,game.tree_node.0_5_20205.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值
+zh-CN,Game,added,game.tree_node.0_5_21206.sd_2,"Burning Enemies you kill have a {value_1}% chance to Explode, dealing a",,你击杀的燃烧敌人有 {value_1}% 的几率爆炸，造成
+zh-CN,Game,added,game.tree_node.0_5_21206.sd_3,tenth of their maximum Life as Fire Damage,,其生命上限十分之一的火焰伤害
+zh-CN,Game,added,game.tree_node.0_5_23907.dn,Ice Storm,,冰霜风暴
+zh-CN,Game,added,game.tree_node.0_5_23907.sd_2,Gain {value_1}% of Cold damage as Extra Lightning damage,,获得相当于冰霜伤害 {value_1}% 的额外闪电伤害
+zh-CN,Game,added,game.tree_node.0_5_23960.dn,Sinister Jewel Socket,,凶邪珠宝插槽
+zh-CN,Game,added,game.tree_node.0_5_24483.sd_1,{value_1}% increased Critical Hit Chance against Enemies that are affected,,暴击几率提高 {value_1}%，针对未受到
+zh-CN,Game,added,game.tree_node.0_5_24483.sd_2,by no Elemental Ailments,,任何元素异常状态影响的敌人
+zh-CN,Game,added,game.tree_node.0_5_24721.dn,Brain Freeze,,思维冻结
+zh-CN,Game,added,game.tree_node.0_5_26178.dn,Sinister Jewel Socket,,凶邪珠宝插槽
+zh-CN,Game,added,game.tree_node.0_5_29881.sd_1,Gain Arcane Surge when you Shapeshift to Human form after,,变回人形时获得秘术增幅，前提是已
+zh-CN,Game,added,game.tree_node.0_5_29881.sd_2,being Shapeshifted for at least {value_1} seconds,,持续变形至少 {value_1} 秒
+zh-CN,Game,modified,game.tree_node.0_5_30996.sd_1,"For each colour of Socketed Support Gem that is most numerous, gain:",根据数量最多的镶嵌辅助宝石颜色，获得：,每种镶嵌数量最多的辅助宝石颜色分别提供：
+zh-CN,Game,modified,game.tree_node.0_5_30996.sd_2,Red: Hits against you have no Critical Damage Bonus,红: Hits against you have no Critical Damage Bonus,红色：对你的击中没有暴击伤害加成
+zh-CN,Game,added,game.tree_node.0_5_30996.sd_3,Blue: Skills have {value_1}% less cost,,蓝色：技能消耗总降 {value_1}%
+zh-CN,Game,added,game.tree_node.0_5_30996.sd_4,Green: {value_1}% less Movement Speed Penalty from using Skills while Moving,,绿色：移动时使用技能的移动速度惩罚总降 {value_1}%
+zh-CN,Game,added,game.tree_node.0_5_32151.sd_1,+{value_1}% to all Maximum Elemental Resistances if you have at,,所有元素抗性上限 +{value_1}%，条件是已镶嵌
+zh-CN,Game,added,game.tree_node.0_5_32151.sd_2,"least {value_1} Red, Green and Blue Support Gems Socketed",,红、绿、蓝色辅助宝石各至少 {value_1} 个
+zh-CN,Game,added,game.tree_node.0_5_3367.dn,Sinister Jewel Socket,,凶邪珠宝插槽
+zh-CN,Game,added,game.tree_node.0_5_33852.sd_3,{value_1}% reduced Movement Speed Penalty from using Cold Skills while moving,,使用冰霜技能移动时，移动速度惩罚降低 {value_1}%
+zh-CN,Game,added,game.tree_node.0_5_35058.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值
+zh-CN,Game,added,game.tree_node.0_5_36676.sd_1,Grants {value_1} Passive Skill Point,,获得 {value_1} 个天赋点
+zh-CN,Game,added,game.tree_node.0_5_37078.sd_1,"{value_1}% chance for Enemies you Kill to Explode, dealing {value_2}%",,你击杀的敌人有 {value_1}% 的几率爆炸，造成其生命上限 {value_2}% 的
+zh-CN,Game,modified,game.tree_node.0_5_37078.sd_2,of their maximum Life as Physical Damage,造成其生命上限 100% 的物理伤害,物理伤害
+zh-CN,Game,added,game.tree_node.0_5_37619.dn,Rhythm of Fire,,烈焰之歌
+zh-CN,Game,added,game.tree_node.0_5_38570.sd_1,Gain {value_1}% of Damage as Extra Fire Damage for,,获得相当于伤害 {value_1}% 的额外火焰伤害，按下列数量叠加：
+zh-CN,Game,added,game.tree_node.0_5_38570.sd_2,every different Grenade fired in the past {value_1} seconds,,过去 {value_1} 秒内发射的不同榴弹种类数
+zh-CN,Game,added,game.tree_node.0_5_38813.dn,Devotion to the King,,对王者的忠诚
+zh-CN,Game,modified,game.tree_node.0_5_38813.sd_1,Grants Skill: Queen's Procession,赋予技能: Queen's Procession,赋予技能：王后行列
+zh-CN,Game,added,game.tree_node.0_5_39087.dn,Sinister Jewel Socket,,凶邪珠宝插槽
+zh-CN,Game,added,game.tree_node.0_5_39102.sd_1,"{value_1}% chance that if you would gain Power Charges, you instead gain up to",,有 {value_1}% 的几率在获得暴击球时改为获得最多
+zh-CN,Game,modified,game.tree_node.0_5_39102.sd_2,your maximum number of Power Charges,your maximum number of 暴击球,你的暴击球上限数量
+zh-CN,Game,added,game.tree_node.0_5_39552.sd_3,{value_1} Helmet socket,,{value_1} 个头盔插槽
+zh-CN,Game,added,game.tree_node.0_5_39552.sd_4,{value_1} Body Armour sockets,,{value_1} 个胸甲插槽
+zh-CN,Game,added,game.tree_node.0_5_39552.sd_5,{value_1} Gloves socket,,{value_1} 个手套插槽
+zh-CN,Game,added,game.tree_node.0_5_39552.sd_6,{value_1} Boots socket,,{value_1} 个鞋子插槽
+zh-CN,Game,added,game.tree_node.0_5_39839.dn,Stun Threshold if no recent Stun,,近期未被晕眩时的晕眩阈值
+zh-CN,Game,added,game.tree_node.0_5_40399.sd_1,{value_1}% chance for Trigger skills to refund half of Energy Spent,,触发技能有 {value_1}% 的几率返还一半已消耗的能量
+zh-CN,Game,added,game.tree_node.0_5_40687.dn,Lead by Example,,以身作则
+zh-CN,Game,added,game.tree_node.0_5_43486.sd_1,"{value_1}% chance that if you would gain Power Charges, you instead gain up to",,有 {value_1}% 的几率在获得暴击球时改为获得最多
+zh-CN,Game,modified,game.tree_node.0_5_43486.sd_2,your maximum number of Power Charges,your maximum number of 暴击球,你的暴击球上限数量
+zh-CN,Game,modified,game.tree_node.0_5_4367.sd_1,"Dodging can expend up to {value_1} Owl Feathers, granting Primal Bounty {value_2}% more","额外提高 Dodging can expend up to {value_1} Owl Feathers, granting Primal Bounty {value_2}%",翻滚时最多可消耗 {value_1} 根枭之羽毛，每额外消耗一根，使枭羽馈赠获得 {value_2}% 总增的
+zh-CN,Game,modified,game.tree_node.0_5_4367.sd_2,Empowerment effect per additional Feather expended,强化效果总增 100%,强化效果
+zh-CN,Game,added,game.tree_node.0_5_4519.sd_1,{value_1}% increased Damage if you've dealt a Critical Hit Recently,,近期造成暴击时，伤害提高 {value_1}%
+zh-CN,Game,modified,game.tree_node.0_5_45202.sd_2,No Charge requirement for placing Totems,放置图腾无需充能,放置图腾没有能量球要求
+zh-CN,Game,added,game.tree_node.0_5_47190.sd_1,Grants {value_1} Passive Skill Point,,获得 {value_1} 个天赋点
+zh-CN,Game,added,game.tree_node.0_5_47387.dn,Stormkeeper,,闪电守护者
+zh-CN,Game,added,game.tree_node.0_5_48583.dn,"Life Leech, Armour and Evasion while Leeching",,生命偷取、偷取时的护甲和闪避
+zh-CN,Game,modified,game.tree_node.0_5_49363.sd_3,cost {value_1}% less,额外降低 cost {value_1}%,消耗总降 {value_1}%
+zh-CN,Game,added,game.tree_node.0_5_49363.sd_4,have {value_1}% less duration,,持续时间总降 {value_1}%
+zh-CN,Game,added,game.tree_node.0_5_49976.dn,Damage from Mana,,伤害取自魔力
+zh-CN,Game,added,game.tree_node.0_5_50498.dn,Brain Storm,,思维风暴
+zh-CN,Game,added,game.tree_node.0_5_50817.dn,Damage from Mana,,伤害取自魔力
+zh-CN,Game,added,game.tree_node.0_5_52669.dn,Flamekeeper,,火焰守护者
+zh-CN,Game,added,game.tree_node.0_5_54289.sd_1,"{value_1}% chance that if you would gain Power Charges, you instead gain up to",,有 {value_1}% 的几率在获得暴击球时改为获得最多
+zh-CN,Game,modified,game.tree_node.0_5_54289.sd_2,your maximum number of Power Charges,your maximum number of 暴击球,你的暴击球上限数量
+zh-CN,Game,modified,game.tree_node.0_5_55375.sd_2,"{value_1}% increased Life and Mana Regeneration Rate for each Minion in your Presence, up to a maximum of {value_2}%",当你在场时，每个召唤生物都使生命和魔力再生速率提高 {value_1}%，上限为 {value_2}%,存在范围内每有一个召唤生物，生命和魔力再生速率提高 {value_1}%，最多提高 {value_2}%
+zh-CN,Game,modified,game.tree_node.0_5_56237.sd_1,{value_1}% increased Spell Damage for each different Non-Instant Attack you've used in the past {value_2} seconds,你在过去 {value_2} 秒内施放的每个非立即施放攻击都使法术伤害提高 {value_1}%,过去 {value_2} 秒内使用的每种不同的非瞬发攻击，使法术伤害提高 {value_1}%
+zh-CN,Game,added,game.tree_node.0_5_56910.dn,Battle-hardened,,身经百战
+zh-CN,Game,added,game.tree_node.0_5_57253.sd_2,Grants {value_1} Passive Skill Point,,获得 {value_1} 个天赋点
+zh-CN,Game,added,game.tree_node.0_5_58783.dn,"Life Leech, Armour and Evasion while Leeching",,生命偷取、偷取时的护甲和闪避
+zh-CN,Game,modified,game.tree_node.0_5_58932.sd_3,Spells for which this Sacrifice was fully made deal {value_1}% more Damage,伤害总增 Spells for which this Sacrifice was fully made deal {value_1}%,完整支付上述牺牲的法术，伤害总增 {value_1}%
+zh-CN,Game,added,game.tree_node.0_5_61355.dn,Damage from Mana,,伤害取自魔力
+zh-CN,Game,added,game.tree_node.0_5_62122.dn,Damage from Mana,,伤害取自魔力
+zh-CN,Game,added,game.tree_node.0_5_62152.dn,Sinister Jewel Socket,,凶邪珠宝插槽
+zh-CN,Game,added,game.tree_node.0_5_62936.dn,Damage from Mana,,伤害取自魔力
+zh-CN,Game,added,game.tree_node.0_5_64601.sd_3,Base Unarmed Physical damage replaced with damage based on their Skill Level,,基础徒手物理伤害改为基于技能等级的伤害
+zh-CN,Game,added,game.tree_node.0_5_64601.sd_4,{value_1}% more Attack Speed per {value_2} Item Evasion on Equipped Armour Items,,装备的护甲物品每有 {value_2} 点物品闪避值，攻击速度总增 {value_1}%
+zh-CN,Game,added,game.tree_node.0_5_64601.sd_5,+{value_1}% to Critical Hit Chance per {value_2} Item Energy Shield on Equipped Armour Items,,装备的护甲物品每有 {value_2} 点物品能量护盾，暴击几率 +{value_1}%
+zh-CN,Game,added,game.tree_node.0_5_6748.dn,Damage from Mana,,伤害取自魔力
+zh-CN,Game,added,game.tree_node.0_5_7062.sd_1,Bolts fired by Crossbow Attacks have {value_1}% chance to not,,弩攻击发射的弩箭有 {value_1}% 的几率不
+zh-CN,Game,added,game.tree_node.0_5_7062.sd_2,expend Ammunition if you've Reloaded Recently,,消耗弹药，前提是你近期装填过
+zh-CN,Game,added,game.tree_node.0_5_8272.sd_1,{value_1} Passive Skill Points become Weapon Set Skill Points,,{value_1} 个天赋点变为武器组天赋点
+zh-TW,Messages,added,equipment.rare_preset.armour_boots,Armour Boots,,護甲鞋
+zh-TW,Messages,added,equipment.rare_preset.armour_chest,Armour Chest,,護甲胸甲
+zh-TW,Messages,added,equipment.rare_preset.armour_energy_shield_boots,Armour/Energy Shield Boots,,護甲能盾鞋
+zh-TW,Messages,added,equipment.rare_preset.armour_energy_shield_chest,Armour/Energy Shield Chest,,護甲能盾胸甲
+zh-TW,Messages,added,equipment.rare_preset.armour_energy_shield_gloves,Armour/Energy Shield Gloves,,護甲能盾手套
+zh-TW,Messages,added,equipment.rare_preset.armour_energy_shield_helmet,Armour/Energy Shield Helmet,,護甲能盾頭盔
+zh-TW,Messages,added,equipment.rare_preset.armour_energy_shield_shield,Armour/Energy Shield Shield,,護甲能盾盾牌
+zh-TW,Messages,added,equipment.rare_preset.armour_evasion_boots,Armour/Evasion Boots,,護甲閃避鞋
+zh-TW,Messages,added,equipment.rare_preset.armour_evasion_chest,Armour/Evasion Chest,,護甲閃避胸甲
+zh-TW,Messages,added,equipment.rare_preset.armour_evasion_gloves,Armour/Evasion Gloves,,護甲閃避手套
+zh-TW,Messages,added,equipment.rare_preset.armour_evasion_helmet,Armour/Evasion Helmet,,護甲閃避頭盔
+zh-TW,Messages,added,equipment.rare_preset.armour_evasion_shield,Armour/Evasion Shield,,護甲閃避盾牌
+zh-TW,Messages,added,equipment.rare_preset.armour_gloves,Armour Gloves,,護甲手套
+zh-TW,Messages,added,equipment.rare_preset.armour_helmet,Armour Helmet,,護甲頭盔
+zh-TW,Messages,added,equipment.rare_preset.armour_shield,Armour Shield,,護甲盾牌
+zh-TW,Messages,added,equipment.rare_preset.attribute_amulet,Attribute Amulet,,屬性項鍊
+zh-TW,Messages,added,equipment.rare_preset.belt,Belt,,腰帶
+zh-TW,Messages,added,equipment.rare_preset.chaos_resistance_ring,Chaos Resistance Ring,,混沌抗性戒指
+zh-TW,Messages,added,equipment.rare_preset.chaos_wand,Chaos Wand,,混沌法杖
+zh-TW,Messages,added,equipment.rare_preset.cold_staff,Cold Staff,,冰冷長杖
+zh-TW,Messages,added,equipment.rare_preset.dexterity_amulet,Dexterity Amulet,,敏捷項鍊
+zh-TW,Messages,added,equipment.rare_preset.discipline_sceptre,Discipline Sceptre,,紀律權杖
+zh-TW,Messages,added,equipment.rare_preset.elemental_1h_mace,Elemental 1H Mace,,元素單手錘
+zh-TW,Messages,added,equipment.rare_preset.elemental_2h_mace,Elemental 2H Mace,,元素雙手錘
+zh-TW,Messages,added,equipment.rare_preset.elemental_staff,Elemental Staff,,元素長杖
+zh-TW,Messages,added,equipment.rare_preset.elemental_talisman,Elemental Talisman,,元素護符
+zh-TW,Messages,added,equipment.rare_preset.elemental_wand,Elemental Wand,,元素法杖
+zh-TW,Messages,added,equipment.rare_preset.energy_shield_amulet,Energy Shield Amulet,,能盾項鍊
+zh-TW,Messages,added,equipment.rare_preset.energy_shield_boots,Energy Shield Boots,,能盾鞋
+zh-TW,Messages,added,equipment.rare_preset.energy_shield_chest,Energy Shield Chest,,能盾胸甲
+zh-TW,Messages,added,equipment.rare_preset.energy_shield_gloves,Energy Shield Gloves,,能盾手套
+zh-TW,Messages,added,equipment.rare_preset.energy_shield_helmet,Energy Shield Helmet,,能盾頭盔
+zh-TW,Messages,added,equipment.rare_preset.evasion_boots,Evasion Boots,,閃避鞋
+zh-TW,Messages,added,equipment.rare_preset.evasion_chest,Evasion Chest,,閃避胸甲
+zh-TW,Messages,added,equipment.rare_preset.evasion_energy_shield_boots,Evasion/Energy Shield Boots,,閃避能盾鞋
+zh-TW,Messages,added,equipment.rare_preset.evasion_energy_shield_chest,Evasion/Energy Shield Chest,,閃避能盾胸甲
+zh-TW,Messages,added,equipment.rare_preset.evasion_energy_shield_gloves,Evasion/Energy Shield Gloves,,閃避能盾手套
+zh-TW,Messages,added,equipment.rare_preset.evasion_energy_shield_helmet,Evasion/Energy Shield Helmet,,閃避能盾頭盔
+zh-TW,Messages,added,equipment.rare_preset.evasion_gloves,Evasion Gloves,,閃避手套
+zh-TW,Messages,added,equipment.rare_preset.evasion_helmet,Evasion Helmet,,閃避頭盔
+zh-TW,Messages,added,equipment.rare_preset.evasion_shield,Evasion Shield,,閃避盾牌
+zh-TW,Messages,added,equipment.rare_preset.fire_staff,Fire Staff,,火焰長杖
+zh-TW,Messages,added,equipment.rare_preset.fire_wand,Fire Wand,,火焰法杖
+zh-TW,Messages,added,equipment.rare_preset.intelligence_amulet,Intelligence Amulet,,智慧項鍊
+zh-TW,Messages,added,equipment.rare_preset.jewel,Jewel,,珠寶
+zh-TW,Messages,added,equipment.rare_preset.lightning_staff,Lightning Staff,,閃電長杖
+zh-TW,Messages,added,equipment.rare_preset.malice_sceptre,Malice Sceptre,,惡意權杖
+zh-TW,Messages,added,equipment.rare_preset.mana_amulet,Mana Amulet,,魔力項鍊
+zh-TW,Messages,added,equipment.rare_preset.mana_ring,Mana Ring,,魔力戒指
+zh-TW,Messages,added,equipment.rare_preset.movement_speed_chest,Movement Speed Chest,,移動速度胸甲
+zh-TW,Messages,added,equipment.rare_preset.physical_1h_mace,Physical 1H Mace,,物理單手錘
+zh-TW,Messages,added,equipment.rare_preset.physical_2h_mace,Physical 2H Mace,,物理雙手錘
+zh-TW,Messages,added,equipment.rare_preset.physical_staff,Physical Staff,,物理長杖
+zh-TW,Messages,added,equipment.rare_preset.physical_talisman,Physical Talisman,,物理護符
+zh-TW,Messages,added,equipment.rare_preset.physical_wand,Physical Wand,,物理法杖
+zh-TW,Messages,added,equipment.rare_preset.plus_2_critical_quiver,+2 Critical Quiver,,+2 暴擊箭袋
+zh-TW,Messages,added,equipment.rare_preset.plus_2_energy_shield,+2 Energy Shield,,+2 能盾法器
+zh-TW,Messages,added,equipment.rare_preset.plus_2_poison_quiver,+2 Poison Quiver,,+2 中毒箭袋
+zh-TW,Messages,added,equipment.rare_preset.plus_4_chaos_bow,+4 Chaos Bow,,+4 混沌弓
+zh-TW,Messages,added,equipment.rare_preset.plus_4_elemental_bow,+4 Elemental Bow,,+4 元素弓
+zh-TW,Messages,added,equipment.rare_preset.plus_4_elemental_spear,+4 Elemental Spear,,+4 元素長矛
+zh-TW,Messages,added,equipment.rare_preset.plus_4_lightning_spear,+4 Lightning Spear,,+4 閃電長矛
+zh-TW,Messages,added,equipment.rare_preset.plus_4_minion_sceptre,+4 Minion Sceptre,,+4 召喚物權杖
+zh-TW,Messages,added,equipment.rare_preset.plus_4_physical_bow,+4 Physical Bow,,+4 物理弓
+zh-TW,Messages,added,equipment.rare_preset.plus_4_physical_spear,+4 Physical Spear,,+4 物理長矛
+zh-TW,Messages,added,equipment.rare_preset.plus_6_elemental_crossbow,+6 Elemental Crossbow,,+6 元素十字弓
+zh-TW,Messages,added,equipment.rare_preset.plus_6_physical_crossbow,+6 Physical Crossbow,,+6 物理十字弓
+zh-TW,Messages,added,equipment.rare_preset.purity_aura_sceptre,Purity Aura Sceptre,,淨化光環權杖
+zh-TW,Messages,added,equipment.rare_preset.radius_jewel,Radius Jewel,,範圍珠寶
+zh-TW,Messages,added,equipment.rare_preset.resistance_ring,Resistance Ring,,抗性戒指
+zh-TW,Messages,added,equipment.rare_preset.ring,Ring,,戒指
+zh-TW,Messages,added,equipment.rare_preset.spirit_amulet,Spirit Amulet,,精神項鍊
+zh-TW,Messages,added,equipment.rare_preset.spirit_chest,Spirit Chest,,精神胸甲
+zh-TW,Messages,added,equipment.rare_preset.strength_amulet,Strength Amulet,,力量項鍊
+zh-TW,Game,added,game.tree_node.0_5_11184.sd_1,Sinister Jewel Socket,,不祥珠寶插槽
+zh-TW,Game,modified,game.tree_node.0_5_11230.sd_1,Invocation Skills instead Trigger Spells every {value_1} seconds,祈願技能改為每{value_1}秒觸發[Spell|法術,祈願技能改為每 {value_1} 秒觸發法術
+zh-TW,Game,added,game.tree_node.0_5_11335.sd_1,Grants {value_1} Passive Skill Point,,獲得 {value_1} 點天賦點
+zh-TW,Game,added,game.tree_node.0_5_11526.sd_1,"Arrows gain Critical Hit Chance as they travel farther, up to",,箭矢的暴擊率隨飛行距離提高，最多在
+zh-TW,Game,added,game.tree_node.0_5_11526.sd_2,{value_1}% increased Critical Hit Chance after {value_2} metres,,{value_2} 公尺後增加 {value_1}% 暴擊率
+zh-TW,Game,modified,game.tree_node.0_5_11774.sd_1,{value_1}% chance for Damage of Enemies Hitting you to be Unlucky,敵人擊中你的傷害有{value_1}%機率視為[UnLucky|帶來厄運],敵人擊中你的傷害有 {value_1}% 機率不幸
+zh-TW,Game,added,game.tree_node.0_5_12183.sd_1,Grants {value_1} Passive Skill Point,,獲得 {value_1} 點天賦點
+zh-TW,Game,added,game.tree_node.0_5_12324.sd_1,{value_1}% chance when collecting an Elemental Infusion to gain an,,拾取元素灌注時有 {value_1}% 機率
+zh-TW,Game,added,game.tree_node.0_5_12324.sd_2,additional Elemental Infusion of the same type,,額外獲得一個同類型的元素灌注
+zh-TW,Game,added,game.tree_node.0_5_12795.sd_2,Grants {value_1} Passive Skill Point,,獲得 {value_1} 點天賦點
+zh-TW,Game,modified,game.tree_node.0_5_13228.sd_1,"{value_1}% chance that if you would gain Power Charges, you instead gain up to",若你會獲得暴擊球，有{value_1}%的機率改為獲得,若你會獲得暴擊球，有 {value_1}% 的機率改為獲得
+zh-TW,Game,added,game.tree_node.0_5_13693.sd_2,"{value_1}% increased Cast Speed per Spell Echoed Recently, up to {value_2}%",,每個近期回響的法術增加 {value_1}% 施法速度，最多 {value_2}%
+zh-TW,Game,modified,game.tree_node.0_5_14026.sd_1,{value_1}% increased Damage against Immobilised Enemies while Shapeshifted,變形時增加{value_1}%對[Immobilised禁錮]的敵人造成的傷害,變形時，對無法移動的敵人增加 {value_1}% 傷害
+zh-TW,Game,added,game.tree_node.0_5_14226.sd_1,{value_1}% more Skill Speed while Off Hand is empty and you have,,技能速度更多 {value_1}%，條件是副手為空，且
+zh-TW,Game,modified,game.tree_node.0_5_14226.sd_2,a One-Handed Martial Weapon equipped in your Main Hand,單手軍用武器時，得到25%更多技能速度,主手裝備單手軍用武器
+zh-TW,Game,added,game.tree_node.0_5_14265.dn,Pyromancer,,烈焰法師
+zh-TW,Game,added,game.tree_node.0_5_14265.sd_3,{value_1}% reduced Movement Speed Penalty from using Fire Skills while moving,,移動時使用火焰技能，減少 {value_1}% 移動速度懲罰
+zh-TW,Game,added,game.tree_node.0_5_15606.sd_1,"Consuming Glory grants you {value_1}% increased Attack damage per Glory consumed for {value_2} seconds, up to {value_3}%",,消耗榮耀時，每消耗一點榮耀，增加 {value_1}% 攻擊傷害，持續 {value_2} 秒，最多 {value_3}%
+zh-TW,Game,modified,game.tree_node.0_5_19288.sd_1,Chance to Evade is Unlucky,閃避機率視為[UnLucky|帶來厄運],閃避率不幸
+zh-TW,Game,added,game.tree_node.0_5_20205.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻
+zh-TW,Game,added,game.tree_node.0_5_21206.sd_2,"Burning Enemies you kill have a {value_1}% chance to Explode, dealing a",,你擊殺的燃燒敵人有 {value_1}% 機率爆炸，造成
+zh-TW,Game,added,game.tree_node.0_5_21206.sd_3,tenth of their maximum Life as Fire Damage,,其最大生命十分之一的火焰傷害
+zh-TW,Game,added,game.tree_node.0_5_23710.dn,Lich,,巫妖
+zh-TW,Game,modified,game.tree_node.0_5_23907.dn,Ice Storm,冰冷傷害,冰霜風暴
+zh-TW,Game,modified,game.tree_node.0_5_23907.sd_2,Gain {value_1}% of Cold damage as Extra Lightning damage,獲得等同於{value_1}%冰冷傷害的額外閃電傷害,獲得等同於 {value_1}% 冰冷傷害的額外閃電傷害
+zh-TW,Game,added,game.tree_node.0_5_23960.dn,Sinister Jewel Socket,,不祥珠寶插槽
+zh-TW,Game,modified,game.tree_node.0_5_24483.sd_1,{value_1}% increased Critical Hit Chance against Enemies that are affected,增加{value_1}%對未受元素異常狀態影響敵人的,增加 {value_1}% 暴擊率，針對未受到
+zh-TW,Game,modified,game.tree_node.0_5_24483.sd_2,by no Elemental Ailments,暴擊率,任何元素異常狀態影響的敵人
+zh-TW,Game,modified,game.tree_node.0_5_24721.dn,Brain Freeze,冰冷傷害,思緒凍結
+zh-TW,Game,added,game.tree_node.0_5_24764.sd_1,{value_1}% chance when collecting an Elemental Infusion to gain an,,拾取元素灌注時有 {value_1}% 機率
+zh-TW,Game,added,game.tree_node.0_5_24764.sd_2,additional Elemental Infusion of the same type,,額外獲得一個同類型的元素灌注
+zh-TW,Game,added,game.tree_node.0_5_26178.dn,Sinister Jewel Socket,,不祥珠寶插槽
+zh-TW,Game,added,game.tree_node.0_5_29881.sd_1,Gain Arcane Surge when you Shapeshift to Human form after,,變回人形時獲得秘術增幅，前提是已
+zh-TW,Game,added,game.tree_node.0_5_29881.sd_2,being Shapeshifted for at least {value_1} seconds,,持續變形至少 {value_1} 秒
+zh-TW,Game,added,game.tree_node.0_5_30985.sd_1,{value_1}% chance when collecting an Elemental Infusion to gain an,,拾取元素灌注時有 {value_1}% 機率
+zh-TW,Game,added,game.tree_node.0_5_30985.sd_2,additional Elemental Infusion of the same type,,額外獲得一個同類型的元素灌注
+zh-TW,Game,modified,game.tree_node.0_5_30996.sd_1,"For each colour of Socketed Support Gem that is most numerous, gain:",依據插槽中輔助寶石最多顆的顏色，會獲得,每種鑲嵌數量最多的輔助寶石顏色分別提供：
+zh-TW,Game,modified,game.tree_node.0_5_30996.sd_2,Red: Hits against you have no Critical Damage Bonus,紅: Hits against you have no Critical Damage Bonus,紅色：對你的擊中沒有暴擊傷害加成
+zh-TW,Game,added,game.tree_node.0_5_30996.sd_3,Blue: Skills have {value_1}% less cost,,藍色：技能消耗更少 {value_1}%
+zh-TW,Game,added,game.tree_node.0_5_30996.sd_4,Green: {value_1}% less Movement Speed Penalty from using Skills while Moving,,綠色：移動時使用技能的移動速度懲罰更少 {value_1}%
+zh-TW,Game,added,game.tree_node.0_5_32151.sd_1,+{value_1}% to all Maximum Elemental Resistances if you have at,,全部最大元素抗性 +{value_1}%，條件是已鑲嵌
+zh-TW,Game,added,game.tree_node.0_5_32151.sd_2,"least {value_1} Red, Green and Blue Support Gems Socketed",,紅、綠、藍色輔助寶石各至少 {value_1} 顆
+zh-TW,Game,added,game.tree_node.0_5_3367.dn,Sinister Jewel Socket,,不祥珠寶插槽
+zh-TW,Game,added,game.tree_node.0_5_33812.dn,Warbringer,,戰爭使者
+zh-TW,Game,modified,game.tree_node.0_5_33852.sd_3,{value_1}% reduced Movement Speed Penalty from using Cold Skills while moving,移動使用冰冷技能時減少{value_1}%移動速度懲罰,移動時使用冰冷技能，減少 {value_1}% 移動速度懲罰
+zh-TW,Game,modified,game.tree_node.0_5_34478.sd_2,Companions have a {value_1}% chance to Poison on Hit,盟友有{value_1}%機率擊中時造成[Poison|中毒,夥伴擊中時有 {value_1}% 機率造成中毒
+zh-TW,Game,added,game.tree_node.0_5_35058.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻
+zh-TW,Game,added,game.tree_node.0_5_36676.sd_1,Grants {value_1} Passive Skill Point,,獲得 {value_1} 點天賦點
+zh-TW,Game,added,game.tree_node.0_5_37078.sd_1,"{value_1}% chance for Enemies you Kill to Explode, dealing {value_2}%",,你擊殺的敵人有 {value_1}% 機率爆炸，造成其最大生命 {value_2}% 的
+zh-TW,Game,modified,game.tree_node.0_5_37078.sd_2,of their maximum Life as Physical Damage,其最大生命100%的物理傷害,物理傷害
+zh-TW,Game,modified,game.tree_node.0_5_37187.sd_1,{value_1}% increased Damage against Immobilised Enemies while Shapeshifted,變形時增加{value_1}%對[Immobilised禁錮]的敵人造成的傷害,變形時，對無法移動的敵人增加 {value_1}% 傷害
+zh-TW,Game,added,game.tree_node.0_5_38570.sd_1,Gain {value_1}% of Damage as Extra Fire Damage for,,獲得等同於傷害 {value_1}% 的額外火焰傷害，依下列數量疊加：
+zh-TW,Game,added,game.tree_node.0_5_38570.sd_2,every different Grenade fired in the past {value_1} seconds,,過去 {value_1} 秒內發射的不同榴彈種類數
+zh-TW,Game,added,game.tree_node.0_5_38813.dn,Devotion to the King,,對王者的忠誠
+zh-TW,Game,modified,game.tree_node.0_5_38813.sd_1,Grants Skill: Queen's Procession,賦予技能: Queen's Procession,賦予技能：王后行列
+zh-TW,Game,added,game.tree_node.0_5_39087.dn,Sinister Jewel Socket,,不祥珠寶插槽
+zh-TW,Game,added,game.tree_node.0_5_39552.sd_3,{value_1} Helmet socket,,{value_1} 個頭盔插槽
+zh-TW,Game,added,game.tree_node.0_5_39552.sd_4,{value_1} Body Armour sockets,,{value_1} 個胸甲插槽
+zh-TW,Game,added,game.tree_node.0_5_39552.sd_5,{value_1} Gloves socket,,{value_1} 個手套插槽
+zh-TW,Game,added,game.tree_node.0_5_39552.sd_6,{value_1} Boots socket,,{value_1} 個鞋子插槽
+zh-TW,Game,added,game.tree_node.0_5_39839.dn,Stun Threshold if no recent Stun,,近期未被暈眩時的暈眩門檻
+zh-TW,Game,modified,game.tree_node.0_5_40399.sd_1,{value_1}% chance for Trigger skills to refund half of Energy Spent,有{value_1}%機率使觸發技能返還消耗的一半能量,觸發技能有 {value_1}% 機率返還一半已消耗的能量
+zh-TW,Game,added,game.tree_node.0_5_40687.dn,Lead by Example,,以身作則
+zh-TW,Game,added,game.tree_node.0_5_41401.sd_1,"Gain a Vivid Wisp for every {value_1} metres you move, up to a maximum of {value_2}",,每移動 {value_1} 公尺獲得一個活性鬼靈，最多 {value_2} 個
+zh-TW,Game,modified,game.tree_node.0_5_4367.sd_1,"Dodging can expend up to {value_1} Owl Feathers, granting Primal Bounty {value_2}% more","更多 Dodging can expend up to {value_1} Owl Feathers, granting Primal Bounty {value_2}%",翻滾最多可消耗 {value_1} 片貓頭鷹羽毛，每額外消耗一片，使原始賞金獲得 {value_2}% 更多的
+zh-TW,Game,modified,game.tree_node.0_5_4367.sd_2,Empowerment effect per additional Feather expended,原始賞金100%更多強化效果,強化效果
+zh-TW,Game,added,game.tree_node.0_5_4519.sd_1,{value_1}% increased Damage if you've dealt a Critical Hit Recently,,近期造成暴擊時，增加 {value_1}% 傷害
+zh-TW,Game,modified,game.tree_node.0_5_45202.sd_1,Your Totem Limit is doubled,加倍你的[Totem圖騰]上限,你的圖騰上限加倍
+zh-TW,Game,modified,game.tree_node.0_5_45202.sd_2,No Charge requirement for placing Totems,放置[Totem圖騰]沒有能量球需求,放置圖騰沒有能量球需求
+zh-TW,Game,modified,game.tree_node.0_5_45202.sd_3,Totems reserve {value_1} Spirit each,每根[Totem圖騰]保留{value_1}精魂,每個圖騰保留 {value_1} 點精魂
+zh-TW,Game,added,game.tree_node.0_5_46070.sd_1,"Gain a Primal Owl Feather every {value_1} seconds, up to a maximum of {value_2}",,每 {value_1} 秒獲得一片原始貓頭鷹羽毛，最多 {value_2} 片
+zh-TW,Game,added,game.tree_node.0_5_47190.sd_1,Grants {value_1} Passive Skill Point,,獲得 {value_1} 點天賦點
+zh-TW,Game,modified,game.tree_node.0_5_47387.dn,Stormkeeper,閃電傷害,閃電守護者
+zh-TW,Game,added,game.tree_node.0_5_48583.dn,"Life Leech, Armour and Evasion while Leeching",,生命偷取、偷取時的護甲和閃避
+zh-TW,Game,modified,game.tree_node.0_5_49363.sd_3,cost {value_1}% less,更少 cost {value_1}%,消耗更少 {value_1}%
+zh-TW,Game,modified,game.tree_node.0_5_49363.sd_4,have {value_1}% less duration,have {value_1}% 更少持續時間,持續時間更少 {value_1}%
+zh-TW,Game,added,game.tree_node.0_5_49976.dn,Damage from Mana,,傷害取自魔力
+zh-TW,Game,modified,game.tree_node.0_5_50498.dn,Brain Storm,閃電傷害,思緒風暴
+zh-TW,Game,added,game.tree_node.0_5_50817.dn,Damage from Mana,,傷害取自魔力
+zh-TW,Game,added,game.tree_node.0_5_51546.sd_1,"{value_1}% Surpassing chance per enemy Power to gain Mountain's Teachings on Immobilising an enemy, up to a maximum of {value_2}",,使敵人無法移動時，每點敵人威力提供 {value_1}% 溢出機率獲得一層山之教誨，最多 {value_2} 層
+zh-TW,Game,added,game.tree_node.0_5_51546.sd_2,"Lose a Mountain's Teaching when you are Hit, or when you use or Sustain an Attack that benefits from Mountain's Teachings",,當你被擊中，或使用或維持受山之教誨加成的攻擊時，失去一層山之教誨
+zh-TW,Game,modified,game.tree_node.0_5_52669.dn,Flamekeeper,火焰傷害,烈焰守護者
+zh-TW,Game,added,game.tree_node.0_5_55375.sd_2,"{value_1}% increased Life and Mana Regeneration Rate for each Minion in your Presence, up to a maximum of {value_2}%",,存在範圍內每有一個召喚物，增加 {value_1}% 生命及魔力再生率，最多 {value_2}%
+zh-TW,Game,modified,game.tree_node.0_5_56237.sd_1,{value_1}% increased Spell Damage for each different Non-Instant Attack you've used in the past {value_2} seconds,過去{value_2}秒內使用的每種非立即[Attackl|攻擊]使你增加{value_1}%法術傷害,過去 {value_2} 秒內使用的每種不同的非瞬發攻擊，增加 {value_1}% 法術傷害
+zh-TW,Game,added,game.tree_node.0_5_56857.sd_1,{value_1}% of your current Energy Shield is added to your Armour for,,你目前能量護盾的 {value_1}% 會計入護甲，用於
+zh-TW,Game,added,game.tree_node.0_5_56857.sd_2,determining your Physical Damage Reduction from Armour,,計算護甲提供的物理傷害減免
+zh-TW,Game,added,game.tree_node.0_5_56910.dn,Battle-hardened,,身經百戰
+zh-TW,Game,added,game.tree_node.0_5_57253.sd_2,Grants {value_1} Passive Skill Point,,獲得 {value_1} 點天賦點
+zh-TW,Game,modified,game.tree_node.0_5_58496.sd_1,{value_1}% increased Damage against Immobilised Enemies while Shapeshifted,變形時增加{value_1}%對[Immobilised禁錮]的敵人造成的傷害,變形時，對無法移動的敵人增加 {value_1}% 傷害
+zh-TW,Game,added,game.tree_node.0_5_58783.dn,"Life Leech, Armour and Evasion while Leeching",,生命偷取、偷取時的護甲和閃避
+zh-TW,Game,modified,game.tree_node.0_5_58932.sd_3,Spells for which this Sacrifice was fully made deal {value_1}% more Damage,犧牲完成後該法術造成{value_1}%更多傷害,完整支付上述犧牲的法術，傷害更多 {value_1}%
+zh-TW,Game,added,game.tree_node.0_5_61355.dn,Damage from Mana,,傷害取自魔力
+zh-TW,Game,added,game.tree_node.0_5_62122.dn,Damage from Mana,,傷害取自魔力
+zh-TW,Game,added,game.tree_node.0_5_62152.dn,Sinister Jewel Socket,,不祥珠寶插槽
+zh-TW,Game,added,game.tree_node.0_5_62936.dn,Damage from Mana,,傷害取自魔力
+zh-TW,Game,added,game.tree_node.0_5_64601.sd_3,Base Unarmed Physical damage replaced with damage based on their Skill Level,,基礎徒手物理傷害改為基於技能等級的傷害
+zh-TW,Game,added,game.tree_node.0_5_64601.sd_4,{value_1}% more Attack Speed per {value_2} Item Evasion on Equipped Armour Items,,裝備的護甲物品每有 {value_2} 點物品閃避值，攻擊速度更多 {value_1}%
+zh-TW,Game,added,game.tree_node.0_5_64601.sd_5,+{value_1}% to Critical Hit Chance per {value_2} Item Energy Shield on Equipped Armour Items,,裝備的護甲物品每有 {value_2} 點物品能量護盾，暴擊率 +{value_1}%
+zh-TW,Game,added,game.tree_node.0_5_6748.dn,Damage from Mana,,傷害取自魔力
+zh-TW,Game,added,game.tree_node.0_5_7062.sd_1,Bolts fired by Crossbow Attacks have {value_1}% chance to not,,十字弓攻擊發射的弩箭有 {value_1}% 機率不
+zh-TW,Game,added,game.tree_node.0_5_7062.sd_2,expend Ammunition if you've Reloaded Recently,,消耗彈藥，前提是你近期裝填過
+zh-TW,Game,added,game.tree_node.0_5_8272.sd_1,{value_1} Passive Skill Points become Weapon Set Skill Points,,{value_1} 點天賦點變為武器組天賦點
+zh-TW,Game,modified,game.tree_node.0_5_9328.sd_1,{value_1}% increased Damage against Immobilised Enemies while Shapeshifted,變形時增加{value_1}%對[Immobilised禁錮]的敵人造成的傷害,變形時，對無法移動的敵人增加 {value_1}% 傷害

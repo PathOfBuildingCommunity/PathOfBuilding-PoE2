@@ -1779,6 +1779,9 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 				if conqueredBy.conqueror.type == "abyss" then
 					if isValueInArray(attributes, node.dn) then
 						self:NodeAdditionOrReplacementFromString(node, " \n+3 to Tribute")
+						-- 追加属性复用同一深渊节点的数值模板，保留原属性节点的逐行引用。
+						node.sdDisplay = copyTable(node.sdDisplay)
+						node.sdDisplay[#node.sd] = legionNodes[201].sdDisplay[1]
 					else
 						local legionNode = legionNodes[201] -- abyss_small_tribute
 						self:ReplaceNode(node, legionNode)
@@ -2649,8 +2652,10 @@ function PassiveSpecClass:RestoreUndoState(state, treeVersion)
 	self:SetWindowTitleWithBuildClass()
 end
 
+--- <summary>使用当前职业的显示资源生成窗口标题，保留构筑名称和职业解析身份。</summary>
 function PassiveSpecClass:SetWindowTitleWithBuildClass()
-	main:SetWindowTitleSubtext(string.format("%s (%s)", self.build.buildName, self.curAscendClassId == 0 and self.curClassName or self.curAscendClassName))
+	local class = self.curAscendClassId == 0 and self.curClass or self.curAscendClass
+	main:SetWindowTitleSubtext(string.format("%s (%s)", self.build.buildName, localisation:Field(class, 'name')))
 end
 
 --- Adds a line to or replaces a node given a line to add/replace with

@@ -107,6 +107,7 @@ function listMode:Init(selBuildName, subPath)
 		self:FilterBuildList()
 	end, nil, nil, true)
 	self.controls.searchText:SetPlaceholder("(e.g. class:invoker myfilename)")
+	self.controls.searchText.placeholderKey = "build.search.placeholder"
 	self.controls.searchText.width = buildListWidth
 	self.controls.searchText.x = buildListOffset
 

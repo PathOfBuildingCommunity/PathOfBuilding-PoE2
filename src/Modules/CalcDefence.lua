@@ -2516,7 +2516,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				breakdown.multiChain(breakdown[damageType.."TakenDotMult"], {
 					label = "DoT Multiplier:", labelKey = "ui.calc_defence.build_defence_estimations.label",
 					{ "%.2f ^8(resistance)", (1 - resist / 100), formatKey = "calc.defence.build_defence_estimations.factor", formatParams = { value = 2 } },
-					{ "%.2f ^8(%s damage reduction)", (1 - reduction / 100), damageType:lower(), formatKey = "calc.defence.build_defence_estimations.factor_2", formatParams = { value = 2, value_2 = 3 } },
+					{ "%.2f ^8(%s damage reduction)", (1 - reduction / 100), localisation:Term("damage_type_lower", damageType, damageType:lower()), formatKey = "calc.defence.build_defence_estimations.factor_2", formatParams = { value = 2, value_2 = 3 } },
 					{ "%.2f ^8(increased/reduced damage taken)", (1 + takenInc / 100), formatKey = "calc.defence.build_defence_estimations.factor_3", formatParams = { value = 2 } },
 					{ "%.2f ^8(more/less damage taken)", takenMore, formatKey = "calc.defence.build_defence_estimations.factor_4", formatParams = { taken_more = 2 } },
 					total = s_format("= %.2f", output[damageType.."TakenDotMult"]),
@@ -2748,22 +2748,22 @@ function calcs.buildDefenceEstimations(env, actor)
 		if modDB:Flag(nil, "StunThresholdBasedOnEnergyShieldInsteadOfLife") then
 			local stunThresholdMult = modDB:Sum("BASE", nil, "StunThresholdEnergyShieldPercent")
 			stunThresholdBase = output.EnergyShield * stunThresholdMult / 100
-			stunThresholdSource = stunThresholdMult.."% of Energy Shield"
+			stunThresholdSource = localisation:Text('calc.defence.stun_threshold.energy_shield', { percent = stunThresholdMult })
 		elseif modDB:Flag(nil, "StunThresholdBasedOnManaInsteadOfLife") then
 			local stunThresholdMult = modDB:Sum("BASE", nil, "StunThresholdManaPercent")
 			stunThresholdBase = output.Mana * stunThresholdMult / 100
-			stunThresholdSource = stunThresholdMult.."% of Mana"
+			stunThresholdSource = localisation:Text('calc.defence.stun_threshold.mana', { percent = stunThresholdMult })
 		elseif modDB:Flag(nil, "ChaosInoculation") then
 			stunThresholdBase = modDB:Sum("BASE", nil, "Life")
-			stunThresholdSource = "Life before Chaos Inoculation"
+			stunThresholdSource = localisation:Text('calc.defence.stun_threshold.life_before_chaos_inoculation')
 		else
 			stunThresholdBase = output.Life
-			stunThresholdSource = "Life"
+			stunThresholdSource = localisation:Term('resource', 'Life')
 		end
 		if modDB:Flag(nil, "AddESToStunThreshold") then
 			local ESMult = modDB:Sum("BASE", nil, "ESToStunThresholdPercent")
 			stunThresholdBase = stunThresholdBase + output.EnergyShield * ESMult / 100
-			stunThresholdSource = stunThresholdSource.." and "..ESMult.."% of Energy Shield"
+			stunThresholdSource = localisation:Text('calc.defence.stun_threshold.add_energy_shield', { source = stunThresholdSource, percent = ESMult })
 		end
 		local StunThresholdInc = 1 + modDB:Sum("INC", nil, "StunThreshold") / 100
 		local StunThresholdMore = modDB:More("INC", nil, "StunThreshold")
@@ -2778,10 +2778,11 @@ function calcs.buildDefenceEstimations(env, actor)
 
 		if breakdown then
 			breakdown.StunThreshold = { localisation:Text("calc.defence.stun_threshold.line", { stun_threshold_base = stunThresholdBase, stun_threshold_source = stunThresholdSource }) }
-			for _, source in ipairs({localisation:Text("calc.defence.build_defence_estimations.line_184"), localisation:Text("calc.defence.build_defence_estimations.line_185"), localisation:Text("calc.defence.build_defence_estimations.line_186")}) do
+			-- 来源筛选必须使用原始身份，译文只参与明细显示。
+			for _, source in ipairs({ "Tree", "Item", "Skill" }) do
 				local sourceVal = modDB:Sum("BASE", { source = source }, "StunThreshold")
 				if sourceVal > 0 then
-					t_insert(breakdown.StunThreshold, localisation:Text("calc.defence.build_defence_estimations.line_33", { source_val = sourceVal, source = source }))
+					t_insert(breakdown.StunThreshold, localisation:Text("calc.defence.build_defence_estimations.line_33", { source_val = sourceVal, source = localisation:TermRef('calculation_source', source) }))
 				end
 			end
 			if StunThresholdInc ~= 1 then
@@ -3223,7 +3224,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				t_insert(breakdown[damageType.."TotalPool"], localisation:Text("calc.defence.build_defence_estimations.line_71", { value = output[damageType.."ManaEffectiveLife"] - output.LifeRecoverable }))
 			end
 			if modDB:Flag(nil, "EternalLife") then
-				t_insert(breakdown[damageType.."TotalPool"], localisation:Text("calc.defence.build_defence_estimations.line_72", { value = output.EnergyShieldRecoveryCap / chaosESMultiplier, value_2 = (((damageType == "Chaos" and localisation:Ref("calc.defence.build_defence_estimations.line.parameter_3")) and not modDB:Flag(nil, "ChaosNotDoubleESDamage")) or "") }))
+				t_insert(breakdown[damageType.."TotalPool"], localisation:Text("calc.defence.build_defence_estimations.line_72", { value = output.EnergyShieldRecoveryCap / chaosESMultiplier, value_2 = ((damageType == "Chaos" and not modDB:Flag(nil, "ChaosNotDoubleESDamage") and localisation:Ref("calc.defence.build_defence_estimations.line.parameter_3")) or "") }))
 				t_insert(breakdown[damageType.."TotalPool"], localisation:Text("calc.defence.build_defence_estimations.line_73", { value = poolBeforeWard - output[damageType.."ManaEffectiveLife"] - output.EnergyShieldRecoveryCap / chaosESMultiplier }))
 			elseif esBypass < 1 then
 				t_insert(breakdown[damageType.."TotalPool"], localisation:Text("calc.defence.build_defence_estimations.line_74", { value = poolBeforeWard - output[damageType.."ManaEffectiveLife"] }))
@@ -3356,7 +3357,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				if averageAvoidChance > 0 then
 					t_insert(breakdown["ConfiguredDamageChance"], localisation:Text("calc.defence.build_defence_estimations.line_81", { value = 1 - averageAvoidChance / 100 }))
 				end
-				t_insert(breakdown["ConfiguredDamageChance"], localisation:Text("calc.defence.build_defence_estimations.line_82", { value = output["ConfiguredDamageChance"], value_2 = (damageCategoryConfig == "Average" and "n " or (damageCategoryConfig == "Untyped" and "n " or " "))..damageCategoryConfig }))
+				t_insert(breakdown["ConfiguredDamageChance"], localisation:Text("calc.defence.build_defence_estimations.line_82", { value = output["ConfiguredDamageChance"], value_2 = localisation:TermRef('hit_category_prefix', damageCategoryConfig, (damageCategoryConfig == "Average" and "n " or (damageCategoryConfig == "Untyped" and "n " or " "))..damageCategoryConfig) }))
 			end
 		end
 
@@ -3403,7 +3404,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				if worstOf > 1 then
 					t_insert(breakdown["ConfiguredNotHitChance"], localisation:Text("calc.defence.build_defence_estimations.line_91", { worst_of = worstOf }))
 				end
-				t_insert(breakdown["ConfiguredNotHitChance"], localisation:Text("calc.defence.build_defence_estimations.line_92", { value = 100 - output.ConfiguredNotHitChance, value_2 = (damageCategoryConfig == "Average" and "n " or (damageCategoryConfig == "Untyped" and "n " or " ") )..damageCategoryConfig }))
+				t_insert(breakdown["ConfiguredNotHitChance"], localisation:Text("calc.defence.build_defence_estimations.line_92", { value = 100 - output.ConfiguredNotHitChance, value_2 = localisation:TermRef('hit_category_prefix', damageCategoryConfig, (damageCategoryConfig == "Average" and "n " or (damageCategoryConfig == "Untyped" and "n " or " ") )..damageCategoryConfig) }))
 				breakdown["TotalNumberOfHits"] = {
 					localisation:Text("calc.defence.build_defence_estimations.line_93", { value = output["NumberOfMitigatedDamagingHits"] }),
 					localisation:Text("calc.defence.build_defence_estimations.line_94", { value = 1 - output["ConfiguredNotHitChance"] / 100 }),
@@ -4356,7 +4357,7 @@ function calcs.buildDefenceEstimations(env, actor)
 			end
 			if resourcesLost.energyShield then
 				resourcesLostSum = resourcesLostSum + resourcesLost.energyShield
-				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_176", { es = colorCodes.ES, energy_shield = resourcesLost.energyShield, value = (((damageType == "Chaos" and localisation:Ref("calc.defence.build_defence_estimations.line.parameter_3")) and not modDB:Flag(nil, "ChaosNotDoubleESDamage")) or "") }))
+				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_176", { es = colorCodes.ES, energy_shield = resourcesLost.energyShield, value = ((damageType == "Chaos" and not modDB:Flag(nil, "ChaosNotDoubleESDamage") and localisation:Ref("calc.defence.build_defence_estimations.line.parameter_3")) or "") }))
 			end
 			if resourcesLost.eternalLifePrevented then
 				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_177", { positive = colorCodes.POSITIVE, eternal_life_prevented = resourcesLost.eternalLifePrevented }))

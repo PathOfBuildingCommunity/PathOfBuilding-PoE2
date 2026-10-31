@@ -1921,7 +1921,7 @@ function calcs.perform(env, skipEHP)
 					source = "",
 					rowList = { },
 					colList = {
-						{ label = attr, key = "req" },
+						{ label = attr, labelKey = localisation:TermKey('attribute', attr), key = "req" },
 						{ label = "Source", labelKey = "ui.calc_perform.perform.source.label", key = "source" },
 						{ label = "Source Name", labelKey = "ui.calc_perform.perform.source_name.label", key = "sourceName" },
 					}
@@ -1958,17 +1958,21 @@ function calcs.perform(env, skipEHP)
 						local row = {
 							req = reqBool and colorCodes.NEGATIVE..req or req,
 							reqNum = req,
-							source = reqSource.source,
+							source = reqSource.source, sourceKey = localisation:TermKey('calculation_source', reqSource.source),
 						}
 						if reqSource.source == "Item" then
 							local item = reqSource.sourceItem
 							row.sourceName = colorCodes[item.rarity] .. item.name
+							row.sourceNameDisplay = function() return colorCodes[item.rarity] .. localisation:ItemName(item) end
 							row.sourceNameTooltip = getSourceNameTooltipFunc(item, reqSource)
 						elseif reqSource.source == "Gem" then
 							row.sourceName = s_format("%s%s ^7%d/%d", reqSource.sourceGem.color, reqSource.sourceGem.nameSpec, reqSource.sourceGem.level, reqSource.sourceGem.quality)
+							row.sourceNameDisplay = function() return s_format("%s%s ^7%d/%d", reqSource.sourceGem.color, localisation:SkillName(reqSource.sourceGem), reqSource.sourceGem.level, reqSource.sourceGem.quality) end
 						elseif reqSource.source == "Support Gems" then
 							local attrName = ({Str="Strength",Dex="Dexterity",Int="Intelligence"})[attr]
 							row.sourceName = (reqSource[attr]/5).." "..colorCodes[string.upper(attrName)]..attrName.." Support Gems"
+							row.sourceNameKey = 'calc.requirements.support_gems'
+							row.sourceNameParams = { count = reqSource[attr]/5, colour = colorCodes[string.upper(attrName)], attribute = localisation:TermRef('attribute', attrName) }
 						end
 						t_insert(breakdown["Req"..breakdownAttr].rowList, row)
 					end
