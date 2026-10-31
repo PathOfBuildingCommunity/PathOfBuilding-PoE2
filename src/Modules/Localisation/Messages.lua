@@ -53,6 +53,8 @@ function Messages:LoadCSV(language, text, origin)
 		local location = (origin or language) .. ':' .. rowNumber
 		assert(#row == 2, '显示资源必须有两列: ' .. location)
 		local key, value = row[1], row[2]
+		-- Git 检出和归档可改变 CSV 内嵌换行，显示模板统一使用 LF。
+		value = value:gsub('\r\n', '\n')
 		assert(key:match('^[a-z][a-z0-9_]*[%.a-z0-9_]*$') and not key:find('%.%.') and key:sub(-1) ~= '.', '显示 key 无效: ' .. location)
 		assert(not entries[key], '显示 key 重复: ' .. key .. ' / ' .. location)
 		assert(value ~= '', '显示资源为空: ' .. key .. ' / ' .. location)

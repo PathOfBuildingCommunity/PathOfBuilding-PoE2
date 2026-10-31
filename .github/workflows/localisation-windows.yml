@@ -1,0 +1,46 @@
+name: Check Windows localisation and portable package
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Portable prerelease version to validate (no publishing)
+        required: true
+        default: '0.23.1-multilingual.1'
+permissions:
+  contents: read
+jobs:
+  windows-localisation:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: npm ci --prefix tools
+      - name: Build all CJK atlases from bundled fonts
+        shell: cmd
+        run: build.cmd --all-fonts
+      - name: Check actual atlas pixels and versioned metrics
+        run: |
+          python tools/check-atlas.py --all
+          python tools/export-localisation-font-metrics.py
+          git diff --exit-code -- src/Tests/Fixtures/fonts
+      - name: Run regression with native font resources
+        shell: cmd
+        run: test-localisation.cmd --native-fonts
+      - name: Build and verify portable ZIP from clean Git snapshot
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
+        run: python tools/package-portable.py --version "$env:RELEASE_VERSION" --repository "${{ github.repository }}" --output dist/portable
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows-localisation-portable
+          path: dist/portable
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: windows-localisation-reports
+          path: src/Tests/Run

@@ -67,3 +67,6 @@
 # (https://git-scm.com/docs/gitattributes#_executable)
 ###############################################################################
 runtime/*.exe binary
+
+# 无界面字体指标及其哈希须在各平台保持一致。
+src/Tests/Fixtures/fonts/** text eol=lf
