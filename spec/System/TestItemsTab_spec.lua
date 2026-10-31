@@ -904,10 +904,12 @@ Ruby]])
 				assert.are.equals(2, #ticabaRune.lines)
 				assert.are.equals("Hits against you have 50% reduced Critical Damage Bonus", ticabaRune.lines[1])
 				assert.are.equals("Hits against you have 50% reduced Critical Damage Bonus", ticabaRune.lines[2])
-				assert.are.same({
-					{ line = ticabaRune.lines[1], bonded = false },
-					{ line = ticabaRune.lines[2], bonded = false },
-				}, ticabaRune.modLines)
+				assert.are.equals(2, #ticabaRune.modLines)
+				-- 显示引用属于附加元数据，去重契约继续检查原始词缀与绑定状态。
+				for index, modLine in ipairs(ticabaRune.modLines) do
+					assert.are.equals(ticabaRune.lines[index], modLine.line)
+					assert.is_false(modLine.bonded)
+				end
 			end)
 
 			it("keeps pure Bonded slot entries and uses the regular rune mod as the dropdown label", function ()
