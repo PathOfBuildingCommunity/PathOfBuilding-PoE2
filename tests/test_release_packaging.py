@@ -38,6 +38,7 @@ class ReleasePackagingTests(unittest.TestCase):
                 'src/Settings.xml', 'src/Builds/My Build.xml', 'src/HeadlessWrapper.lua',
                 'src/LaunchInstall.lua', 'src/LaunchServer.lua', 'src/_SimpleGraphic.def.lua',
                 'src/session.log', 'src/process.pid', 'src/Export/ggpk/data/test.json',
+                'src/TreeData/0_5/export.log', 'runtime/SimpleGraphic/Screenshots/frame.jpg',
                 'runtime/imgui.ini', 'runtime/SimpleGraphic/SimpleGraphic.cfg',
                 'runtime/SimpleGraphic/SimpleGraphic.log', 'runtime/FontAtlas.obj',
                 'tools/node_modules/example/LICENSE.md', 'tools/LuaRunner.exe',
