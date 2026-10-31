@@ -28,11 +28,12 @@ original identities and saved user text.
 | English | `en` | Canonical definitions and final fallback | Existing Latin rendering |
 | 简体中文 | `zh-CN` | Chinese messages and game data; gaps fall back to English | Noto Sans SC |
 | 繁體中文 | `zh-TW` | Chinese messages and game data; gaps fall back to English | Noto Sans SC |
-| 日本語 | `ja-JP` | Language entry ready; body text currently falls back to English | Noto Sans JP |
-| 한국어 | `ko-KR` | Language entry ready; body text currently falls back to English | Noto Sans KR |
+| 日本語 | `ja-JP` | Machine translated UI and game text; not manually verified | Noto Sans JP |
+| 한국어 | `ko-KR` | Machine translated UI and game text; not manually verified | Noto Sans KR |
 
-These are four language families with two Chinese variants, not four complete
-translation packages. The selector renders each native language name with its
+These are four language families with two Chinese variants. Japanese and Korean
+body text was translated by Codex and has not been manually verified; see the
+[translation notes](localisation/ja-ko-translations.md). The selector renders each native language name with its
 own font, including when the current interface is English.
 
 The implementation covers interface labels, configuration and calculation
@@ -128,10 +129,24 @@ and the surrounding sentence in the current language.
 For game data, bind the real domain and ID at load/parse time, then call
 `Field(object, 'name')` at display time.
 
+Control properties may contain lazy functions or a companion message key.
+Read display labels through `control:GetProperty('label')` or
+`control:GetProperty('prompt')`, including in tests; reading the raw property
+does not necessarily return the displayed string. Export placeholders and user
+buffers retain their original values.
+
 `{value:.1f}` and `{count:d}` specify named parameter formats. Translations may
 reorder parameters, but must preserve their names and formats. `{{` and `}}`
 represent literal braces. Keep colour codes and the complete sentence in the
 resource. Do not assemble a translatable sentence from English fragments.
+
+The multilingual UI work also includes passive tree interaction and drawing
+fixes. Input events retain their cursor positions, drag release applies the
+remaining movement before clearing state, zoom uses the event position, and
+fully offscreen images skip drawing. Dictionary template indexing reduces
+candidate matching work while preserving matching order and ambiguity rules.
+The [investigation notes](passive-tree-performance.md) retain historical
+measurements; current regression results are in section 8.
 
 ## 4. Build and run from source
 
@@ -249,6 +264,7 @@ Keep human review inputs versioned and generated audit snapshots out of docs:
 | [skill-sources.csv](localisation/sources/skill-sources.csv) | Skill description sources, English hashes, extraction method and Chinese review status |
 | [skill-terminology.csv](localisation/sources/skill-terminology.csv) | Previous/established terminology and supporting evidence |
 | [equipment-terms.csv](localisation/sources/equipment-terms.csv) | Source terms, translations, and provenance |
+| [Japanese/Korean notes](localisation/ja-ko-translations.md) | Codex translation source, terminology and lack of manual verification |
 
 The skill source table covers 1,095 descriptions: 957 English matched source
 entries and 138 project supplements. It is a provenance record for those rows,
@@ -272,6 +288,11 @@ make the check pass. Static scanning cannot prove all indirect flows or dynamic
 states are covered.
 
 ## 8. Verification and known limits
+
+The Japanese and Korean machine translations have passed the catalogue key and
+named parameter checks. They have not been manually proofread or visually
+verified. Integration assertions cover the existing application scenarios and
+five language page smoke checks, not the linguistic accuracy of every entry.
 
 Run the main regression from the repository root:
 
@@ -307,25 +328,30 @@ be a proper name, unit, user text or fallback; inspect context before changing i
 
 <!-- verification-current -->
 Verified locally on Windows on **2026-10-31**, with product code at
-`072e53bbe` and the documentation/tool path cleanup applied. These checks used
-the existing local runner and Chinese atlas; they were not a clean build.
+`772aa51f2` (Japanese/Korean resources and registration included).
+These checks used the existing local runner and Chinese atlas; they were not a
+clean build. The atlas and Chinese dictionary findings below retain their
+earlier verification scope.
 
 | Check | Result |
 | --- | --- |
-| `test-localisation.cmd` | Exit 0; 311 reviewed display occurrences, 216 contract assertions, 423,612 integration assertions |
+| `test-localisation.cmd` | Exit 0; 311 reviewed display occurrences, 218 contract assertions, 423,612 integration assertions |
+| Upstream system specs (official container, local WSL) | 52 files, 903 successes, no failures/errors/pending after adapting three specs to display properties and metadata; the corrected item spec was rerun separately |
+| ModCache regeneration (same container) | Exit 0; regenerated file matches the tracked LF blob, with `./?.lua` added to the source search path as explained below |
+| Passive tree interaction | 28 assertions pass |
 | Display review preservation | All 290 review records retained unchanged; the scanner counts occurrences, not JSON records |
 | `check-atlas.py` | Exit 0; 10 Chinese atlas pages pass RLE row boundary and pixel integrity checks |
-| `audit-locale-resources.py` | Exit 0; display catalogue key/parameter checks report no errors |
+| `audit-locale-resources.py` | Display catalogue audit function reports no key/parameter errors for all five language options; the earlier full audit also covered the Chinese input dictionaries |
 | `audit-localisation-keys.py` | Exit 0; Chinese fallback counts below |
 | `audit-localisation.py` | Exit 0; 19,605 display fields checked per language (`en`, `zh-CN`, `zh-TW`), with no resolution errors |
 
-| Resource count | English | Simplified Chinese | Traditional Chinese |
-| --- | ---: | ---: | ---: |
-| Defined display keys | 123,836 | 123,176 | 123,181 |
-| Missing translations falling back to English | — | 660 | 655 |
-| Of these: world area resources | — | 633 | 630 |
-| Of these: stat description resources | — | 24 | 22 |
-| Of these: equipment modifier resources | — | 3 | 3 |
+| Resource count | English | Simplified Chinese | Traditional Chinese | Japanese | Korean |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Defined display keys | 123,836 | 123,176 | 123,181 | 123,836 | 123,836 |
+| Missing translations falling back to English | — | 660 | 655 | 0 | 0 |
+| Of these: world area resources | — | 633 | 630 | 0 | 0 |
+| Of these: stat description resources | — | 24 | 22 | 0 | 0 |
+| Of these: equipment modifier resources | — | 3 | 3 | 0 | 0 |
 
 The old input dictionary audit separately reports 395/612 placeholder mismatch
 candidates and 2,450/2,485 reverse collision groups (Simplified/Traditional).
@@ -343,15 +369,27 @@ documentation change. Existing missing tree node warnings remain. A reported
 tree search focus issue has no established root cause or verified fix here.
 
 The existing [CI workflow](../.github/workflows/test.yml) runs system specs and
-ModCache checks. This feature PR retains that workflow and provides the local
-localisation regression command above. A local Windows result does not imply
-a hosted CI or cross platform result.
+ModCache checks. On 2026-10-31, all 52 system files were run separately in its
+`ghcr.io/pathofbuildingcommunity/pathofbuilding-tests` image (digest
+`sha256:171dc3da232b8c874882e4ae3b3aa4a6e130a6c9450a31904b312435a6bf5daf`),
+using a source copy without generated font atlases, at `5cdfb5daa`. Three specs
+were adapted to lazy display properties or added display metadata, preserving
+their original English values, line counts and export/persistence expectations.
+The corrected item spec was rerun separately and passed all 77 cases.
+
+The exact upstream ModCache command overrides `LUA_PATH` without `./?.lua` and
+fails to load `Data.VerisiumCrafts` in this image; the same failure reproduces
+on unmodified upstream `dev` at `bb52d6b36`. Adding `./?.lua` to the local
+verification command allows startup and actual ModCache regeneration to
+complete; its output matches the tracked file byte for byte. This feature PR
+retains the upstream workflow. These local container results do not establish
+a passing hosted Actions run or graphical Linux/macOS font support.
 
 ## 9. Upstream review and PR description
 
 Submit against `dev` as required by [CONTRIBUTING.md](../CONTRIBUTING.md).
 Review the final diff in this order: message contract and identity boundaries;
-UI/game call sites and display cache handling; English and Chinese resources;
+UI/game call sites and display cache handling; English, Chinese, Japanese and Korean resources;
 font build/release files; regression fixtures and tools. Large generated tables
 need their generation inputs and process reviewed alongside their output.
 
@@ -360,7 +398,7 @@ verification evidence and representative window screenshots. The feature PR
 does not introduce a separate release pipeline; independent fork releases are
 maintained on a separate release branch.
 
-Suggested PR title: **Add key based localisation with Chinese resources and CJK font support**.
+Suggested PR title: **Add key based localisation with Chinese, Japanese and Korean resources**.
 Adapt the following to the final submitted scope and the repository PR template:
 
 > **Description of the problem being solved:**
@@ -368,14 +406,17 @@ Adapt the following to the final submitted scope and the repository PR template:
 > and game display fields resolve through language resources while original
 > calculation, parser and export identities are preserved. Include Simplified
 > and Traditional Chinese resources, domain aware input/search integration, and
-> Noto CJK font assets. Japanese and Korean entries currently fall back to
-> English body text.
+> Noto CJK font assets and the passive tree interaction/drawing fixes. Also include Codex translated Japanese and Korean body
+> text, which has not been manually verified.
 >
 > **Steps taken to verify a working solution:**
-> Local Windows regression passes: 311 reviewed display occurrences, 216
-> contract assertions, and 423,612 integration assertions. Atlas integrity,
-> resource and field audits pass as described in section 8. These used existing
-> local tools. Independent fork releases are outside this PR.
+> Local Windows regression passes: 311 reviewed display occurrences, 218
+> contract assertions, and 423,612 integration assertions. Catalogue keys and
+> named parameters validate for all five language options. Earlier atlas and
+> field audit results retain the scope described in section 8. Independent fork
+> releases are outside this PR. The upstream container system specs pass all 903
+> cases across 52 files; ModCache regeneration is unchanged with the local source
+> path correction described above.
 
 Fill issue references, a showcase build and before/after screenshots only when
 real evidence is available. Do not treat this suggested text as a published PR
