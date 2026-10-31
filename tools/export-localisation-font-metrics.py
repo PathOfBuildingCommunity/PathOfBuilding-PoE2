@@ -22,7 +22,7 @@ def main() -> None:
             'metrics_sha256': hashlib.sha256(content).hexdigest(),
         }
     sources['generator_sha256'] = hashlib.sha256((root / 'tools/FontAtlas.cpp').read_text(encoding='utf-8').encode('utf-8')).hexdigest()
-    (fixtures / 'sources.json').write_text(json.dumps(sources, indent=2) + '\n', encoding='utf-8')
+    (fixtures / 'sources.json').write_text(json.dumps(sources, indent=2) + '\n', encoding='utf-8', newline='\n')
 
 
 if __name__ == '__main__':
