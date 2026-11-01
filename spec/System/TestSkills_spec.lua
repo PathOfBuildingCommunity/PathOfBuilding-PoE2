@@ -1676,6 +1676,18 @@ describe("TestSkills", function()
 		assert.are.equals(3, grantedGroup.displaySkillList[1].activeEffect.level)
 	end)
 
+	it("applies item quality to skills granted by items", function()
+		local item = new("Item"):Item("New Item\nShrine Sceptre (Purity of Cold)\nQuality: 20\nImplicits: 1\nGrants Skill: Level 1 Purity of Ice")
+		build.itemsTab:AddItem(item, true)
+		build.itemsTab.slots["Weapon 1"]:SetSelItemId(item.id)
+		recalculate()
+
+		local grantedGroup = findGrantedGroup("sourceItem", item)
+		assert.is_not_nil(grantedGroup)
+		assert.are.equals("Purity of Ice", grantedGroup.gemList[1].nameSpec)
+		assert.are.equals(20, grantedGroup.gemList[1].quality)
+	end)
+
 	it("keeps both sets' default attacks and treats a quiver as unarmed", function()
 		local bow = new("Item"):Item("New Item\nCrude Bow")
 		local quiver = new("Item"):Item("New Item\nBroadhead Quiver")
