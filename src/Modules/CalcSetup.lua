@@ -1950,7 +1950,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				activeGemInstance.skillId = grantedSkill.skillId
 				activeGemInstance.gemId = nil
 				activeGemInstance.level = grantedSkill.level
-				activeGemInstance.quality = 0
+				activeGemInstance.quality = grantedSkill.sourceItem and grantedSkill.sourceItem.quality or 0
 				activeGemInstance.enabled = true
 				activeGemInstance.count = 1
 				activeGemInstance.corrupted = false
