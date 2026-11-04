@@ -7774,10 +7774,7 @@ c["Gain Guard equal to 20% of missing Energy Shield for 4 seconds when you Dodge
 c["Gain Guard equal to Current Runic Ward for 10 seconds when Effect ends"]={nil,"Guard equal to Current Runic Ward  when Effect ends "}
 c["Gain Guard equal to Current Runic Ward for 10 seconds when Effect ends Excess Life Recovery added as Guard for 10 seconds"]={nil,"Guard equal to Current Runic Ward  when Effect ends Excess Life Recovery added as Guard  "}
 c["Gain Immunity to Physical Damage for 1.5 seconds on Rampage"]={nil,"Immunity to Physical Damage for 1.5 seconds on"}
-c["Gain Infernal Flame instead of spending Mana for Skill costs"]={nil,"Infernal Flame instead of spending Mana for Skill costs "}
-c["Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum"]={nil,"Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum "}
-c["Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame"]={nil,"Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame "}
-c["Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame 25% of Infernal Flame lost per second if none was gained in the past 2 seconds"]={nil,"Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame 25% of Infernal Flame lost per second if none was gained in the past 2 seconds "}
+c["Gain Infernal Flame instead of spending Mana for Skill costs"]={{[1]={flags=0,keywordFlags=0,name="InfernalFlameInsteadOfManaCost",type="FLAG",value=true}},nil}
 c["Gain Maddening Presence for 10 seconds when you Kill a Rare or Unique Enemy"]={{[1]={[1]={type="Condition",var="KilledUniqueEnemy"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="HasMaddeningPresence",type="FLAG",value=true}}}},nil}
 c["Gain Onslaught for 4 seconds on Hit while at maximum Frenzy Charges"]={{[1]={[1]={stat="FrenzyCharges",thresholdStat="FrenzyChargesMax",type="StatThreshold"},[2]={type="Condition",var="HitRecently"},flags=0,keywordFlags=0,name="Onslaught",type="FLAG",value=true}},nil}
 c["Gain Onslaught for 4 seconds when a Minion Dies"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}}}},"  when a  Dies "}
@@ -8572,11 +8569,7 @@ c["Maximum Block chance is 75%"]={{[1]={flags=0,keywordFlags=0,name="BlockChance
 c["Maximum Chance to Evade is 50%"]={{[1]={flags=0,keywordFlags=0,name="EvadeChanceMax",type="MAX",value=50}},nil}
 c["Maximum Energy Shield cannot be Converted"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldCannotBeConverted",type="FLAG",value=true}},nil}
 c["Maximum Life is 1"]={{[1]={flags=0,keywordFlags=0,name="Life",type="OVERRIDE",value=1}},nil}
-c["Maximum Mana is replaced by twice as much Maximum Infernal Flame"]={nil,"Maximum Mana is replaced by twice as much Maximum Infernal Flame "}
-c["Maximum Mana is replaced by twice as much Maximum Infernal Flame Gain Infernal Flame instead of spending Mana for Skill costs"]={nil,"Maximum Mana is replaced by twice as much Maximum Infernal Flame Gain Infernal Flame instead of spending Mana for Skill costs "}
-c["Maximum Mana is replaced by twice as much Maximum Infernal Flame Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum"]={nil,"Maximum Mana is replaced by twice as much Maximum Infernal Flame Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum "}
-c["Maximum Mana is replaced by twice as much Maximum Infernal Flame Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame"]={nil,"Maximum Mana is replaced by twice as much Maximum Infernal Flame Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame "}
-c["Maximum Mana is replaced by twice as much Maximum Infernal Flame Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame 25% of Infernal Flame lost per second if none was gained in the past 2 seconds"]={nil,"Maximum Mana is replaced by twice as much Maximum Infernal Flame Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame 25% of Infernal Flame lost per second if none was gained in the past 2 seconds "}
+c["Maximum Mana is replaced by twice as much Maximum Infernal Flame"]={{[1]={flags=0,keywordFlags=0,name="ManaReplacedByInfernalFlame",type="FLAG",value=true}},nil}
 c["Maximum Physical Damage Reduction is 50%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageReductionMax",type="MAX",value=50}},nil}
 c["Maximum Quality is 200%"]={{},nil}
 c["Maximum Quality is 40%"]={{},nil}
@@ -10003,7 +9996,6 @@ c["Your speed is Unaffected by Slows while Sprinting"]={nil,"Your speed is Unaff
 c["Your speed is Unaffected by Slows while Sprinting 10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds"]={nil,"Your speed is Unaffected by Slows while Sprinting 10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds "}
 c["Your speed is unaffected by Slows"]={{[1]={flags=0,keywordFlags=0,name="UnaffectedBySlows",type="FLAG",value=true}},nil}
 c["Your spells have 100% chance to Shock against Frozen Enemies"]={nil,"Your spells have 100% chance to Shock against Frozen Enemies "}
-end)();(function()
 c["Zealot's Oath"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Zealot's Oath"},[2]={flags=0,keywordFlags=0,name="Condition:HaveZealot'sOath",type="FLAG",value=true}},nil}
 c["Zealot's Oath during Effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ZealotsOath",type="FLAG",value=true}},nil}
 c["additional Elemental Infusion of the same type"]={nil,"additional Elemental Infusion of the same type "}
@@ -10011,6 +10003,7 @@ c["additional Rune-only sockets:"]={{},nil}
 c["as being boosted by Chilled Ground"]={nil,"as being boosted by Chilled Ground "}
 c["as being boosted by Ignited Ground"]={nil,"as being boosted by Ignited Ground "}
 c["as being boosted by Ignited, Shocked, and Chilled Ground"]={nil,"as being boosted by Ignited, Shocked, and Chilled Ground "}
+end)();(function()
 c["as being boosted by Shocked Ground"]={nil,"as being boosted by Shocked Ground "}
 c["being Shapeshifted for at least 8 seconds"]={nil,"being Shapeshifted for at least 8 seconds "}
 c["for 4 seconds, every 0.25 seconds while raised"]={nil,"for 4 seconds, every 0.25 seconds while raised "}

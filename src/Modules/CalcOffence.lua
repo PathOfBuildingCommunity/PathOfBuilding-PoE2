@@ -2393,6 +2393,20 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 	end
+	-- Pyromantic Pact: Mana costs give Infernal Flame instead of spending Mana
+	if skillModList:Flag(skillCfg, "InfernalFlameInsteadOfManaCost") then
+		for _, cost in ipairs({ "Cost", "PerSecondCost" }) do
+			if output["Mana" .. cost] then
+				output["InfernalFlame" .. cost] = output["Mana" .. cost]
+				output["InfernalFlame" .. cost:gsub("Cost$", "HasCost")] = output["Mana" .. cost:gsub("Cost$", "HasCost")]
+				if breakdown then
+					breakdown["InfernalFlame" .. cost] = breakdown["Mana" .. cost]
+				end
+				output["Mana" .. cost] = 0
+				output["Mana" .. cost:gsub("Cost$", "HasCost")] = false
+			end
+		end
+	end
 	-- Eldritch Battery adds maximum Energy Shield to the Mana available for payable-cost damage.
 	output.ManaCostPayablePool = (output.ManaUnreserved or 0) + (modDB:Flag(nil, "EnergyShieldProtectsMana") and output.EnergyShield or 0)
 

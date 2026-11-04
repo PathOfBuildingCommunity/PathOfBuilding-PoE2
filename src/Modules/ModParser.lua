@@ -3443,6 +3443,8 @@ local specialModList = {
 	} end,
 	-- Witch -- Infernalist
 	["demonflame has no maximum"] = { mod("Multiplier:DemonFlameMaximum", "BASE", 999) },
+	["maximum mana is replaced by twice as much maximum infernal flame"] = { flag("ManaReplacedByInfernalFlame") },
+	["gain infernal flame instead of spending mana for skill costs"] = { flag("InfernalFlameInsteadOfManaCost") },
 	-- Druid -- Shaman
 	["enemies in your presence have exposure"] = {
 		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", 20, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }) }),
