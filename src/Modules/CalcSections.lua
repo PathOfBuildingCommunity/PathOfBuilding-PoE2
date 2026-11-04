@@ -758,6 +758,7 @@ return {
 	{ label = "Reserve Uptime", haveOutput = "ReserveDurationUptime", { format = "{2:output:ReserveDurationUptime}%", { breakdown = "ReserveDurationUptime" }, }, },
 	{ label = "Sustainable Trauma", haveOutput = "SustainableTrauma", { format = "{0:output:SustainableTrauma}", { breakdown = "SustainableTrauma" }, { modName = { "ExtraTrauma", "RepeatCount", "Duration", "PrimaryDuration", "SecondaryDuration", "DamagingAilmentDuration"}, cfg = "skill" }, }, },
 	{ label = "Detonation Time", haveOutput = "DetonationTime", { format = "{3:output:DetonationTime}s", { breakdown = "DetonationTime" }, { modName = { "DetonationTime" }, cfg = "skill" } }},
+	{ label = "Aftershock Chance", haveOutput = "AftershockChance", { format = "{0:output:AftershockChance}%", { modName = { "AftershockChance" }, cfg = "skill" }, }, },
 	{ label = "Repeat Count", haveOutput = "RepeatCount", { format = "{output:Repeats}", { modName = { "RepeatCount" }, cfg = "skill" }, }, },
 	{ label = "Projectile Count", flag = "projectile", { format = "{output:ProjectileCount}", { modName = { "NoAdditionalProjectiles" , "ProjectileCount", "SurpassingProjectileChance", "TwoAdditionalProjectilesChance" }, cfg = "skill" }, }, },
 	{ label = "2 Add. Proj. Chance", haveOutput = "TwoAdditionalProjectiles", { format = "{output:TwoAdditionalProjectiles}%", { modName = { "TwoAdditionalProjectilesChance", "NoAdditionalProjectiles" }, cfg = "skill" }, }, },

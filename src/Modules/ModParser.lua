@@ -2271,6 +2271,17 @@ local explodeFunc = function(chance, amount, type, ...)
 	}
 end
 
+-- Chance for Slams you use yourself to cause an additional Aftershock, optionally only for Mace or Shapeshift Slams
+local function aftershockChance(num, kind)
+	local tags = { { type = "SkillType", skillType = SkillType.Slam } }
+	if kind == "mace " then
+		t_insert(tags, { type = "Condition", var = "UsingMace" })
+	elseif kind == "shapeshift " then
+		t_insert(tags, { type = "SkillType", skillType = SkillType.Shapeshift })
+	end
+	return { mod("AftershockChance", "BASE", num, unpack(tags)) }
+end
+
 -- forward declarations
 local dmgTypes
 -- List of special modifiers
@@ -2710,6 +2721,9 @@ local specialModList = {
 		flag("AncestralEmpowerment", { type = "SkillType", skillType = SkillType.Slam }),
 		flag("Condition:AncestrallyBoosted", { type = "SkillType", skillType = SkillType.Slam }),
 	},
+	["(%d+)%% chance for (%a* ?)slam skills you use yourself to cause an additional aftershock"] = function(num, _, kind) return aftershockChance(num, kind) end,
+	["(%d+)%% chance for (%a* ?)slam skills to cause an additional aftershock"] = function(num, _, kind) return aftershockChance(num, kind) end,
+	["slam skills you use yourself cause an additional aftershock"] = aftershockChance(100, ""),
 	-- Leech Related
 	["life leech is instant"] = { mod("InstantLifeLeech", "BASE", 100), },
 	["mana leech is instant"] = { mod("InstantManaLeech", "BASE", 100), },
