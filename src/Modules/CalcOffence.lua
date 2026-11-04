@@ -4063,6 +4063,14 @@ function calcs.offence(env, actor, activeSkill)
 		output.ScaledDamageEffect = output.ScaledDamageEffect * (1 + output.DoubleDamageEffect + output.TripleDamageEffect)
 
 		output.DpsMultiplier = ( skillData.dpsMultiplier or 1 ) * calcLib.mod(skillModList, skillCfg, "DPS")
+		-- Aftershocks repeat the area of Slams you use yourself: on average one more hit per use at 100% chance
+		if activeSkill.skillTypes[SkillType.Slam] and not activeSkill.skillTypes[SkillType.Triggered] then
+			local aftershockChance = m_min(skillModList:Sum("BASE", skillCfg, "AftershockChance"), 100)
+			if aftershockChance > 0 then
+				output.AftershockChance = aftershockChance
+				output.DpsMultiplier = output.DpsMultiplier * (1 + aftershockChance / 100)
+			end
+		end
 
 		local hitRate = output.HitChance / 100 * (globalOutput.HitSpeed or globalOutput.Speed) * output.DpsMultiplier
 
