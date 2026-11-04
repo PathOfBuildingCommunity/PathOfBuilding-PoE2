@@ -94,6 +94,11 @@ function calcs.doActorLifeManaSpirit(actor, skipBreakdown)
 		local override = modDB:Override(nil, res)
 		output[res.."HasOverride"] = override ~= nil
 		output[res] = override or m_max(round((base * (1 - conv/100) + extra) * (1 + inc/100) * more + total), 1)
+		if res == "Mana" and modDB:Flag(nil, "ManaReplacedByInfernalFlame") then
+			-- Pyromantic Pact: maximum Mana is replaced by twice as much maximum Infernal Flame
+			output.MaximumInfernalFlame = output.Mana * 2
+			output.Mana = 0
+		end
 		if breakdown then
 			if inc ~= 0 or more ~= 1 or conv ~= 0 or extra ~= 0 or total ~= 0 then
 				breakdown[res][1] = s_format("%g ^8(base)", base)
