@@ -1678,6 +1678,9 @@ Huge sets the radius to 11.
 	{ var = "conditionBleedAggravated", type = "check", label = "Is the Bleed Aggravated?", ifMod = "BleedChance", tooltip = "Bleeding deals an extra 100% damage while the target is moving, or if the Bleeding is Aggravated", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:BleedAggravated", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
+	{ var = "multiplierEnemyMissingConcentration", type = "count", label = "Enemy's missing Concentration %:", ifMult = "EnemyMissingConcentrationPercent", tooltip = "How much of the enemy's maximum Concentration you have broken (0-100), for Witchhunter's No Mercy.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:EnemyMissingConcentrationPercent", "BASE", m_min(m_max(val, 0), 100), "Config", { type = "Condition", var = "Effective" })
+	end },
 	{ var = "conditionEnemyFullLife", type = "check", label = "Is the enemy on Full ^xE05030Life?", ifEnemyCond = "FullLife", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:FullLife", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },

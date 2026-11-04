@@ -3311,6 +3311,9 @@ local specialModList = {
 		mod("ExtraSkill", "LIST", { skillId = "SorceryWardPlayer", level = 1 }),
 	},
 	["sorcery ward's barrier can also take physical and chaos damage from hits"] = { flag("Condition:CeremonialAblution") },
+	["deal up to (%d+)%% more damage to enemies based on their missing concentration"] = function(num) return {
+		mod("Damage", "MORE", num / 100, { type = "Multiplier", var = "EnemyMissingConcentrationPercent", limit = 100 }),
+	} end,
 	-- Warrior - Smith of Kitava
 	["body armour grants armour also applies to (%a+) damage taken from hits"] = function(_, dmgType) return {
 		mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", 100, { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL" })
