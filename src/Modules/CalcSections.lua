@@ -2010,6 +2010,26 @@ return {
 		{ label = "Duration", { format = "{0:output:PowerChargesDuration}s", { modName = { "PowerChargesDuration", "ChargeDuration" } } }, },
 	} },
 } },
+{ 1, "Remnants", 3, colorCodes.RAGE, {{ defaultCollapsed = true, label = "Remnants", data = {
+	{ label = "Double Effect", { format = "{1:mod:1}%", { modName = "RemnantDoubleEffectChance", modType = "BASE" }, }, },
+	{ label = "Extra Remnant", { format = "{1:mod:1}%", { modName = "AdditionalRemnantChance", modType = "BASE" }, }, },
+	{ label = "Increased Effect", { format = "{1:mod:1}%", { modName = "RemnantEffect", modType = "INC" }, }, },
+	{ label = "Pickup Range", { format = "{1:mod:1}% increased", { modName = "RemnantPickupRange", modType = "INC" }, }, },
+	{ label = "Life on Pickup", { format = "{1:mod:1}% of max", { modName = "LifeOnRemnantPercent", modType = "BASE" }, }, },
+	{ label = "Mana on Pickup", { format = "{1:mod:1}% of max", { modName = "ManaOnRemnantPercent", modType = "BASE" }, }, },
+} }
+} },
+{ 1, "Infusions", 3, colorCodes.NORMAL, {{ defaultCollapsed = true, label = "Infusions", data = {
+	extra = colorCodes.COLD.."{0:output:ColdInfusionsMax}^7, "..colorCodes.FIRE.."{0:output:FireInfusionsMax}^7, "..colorCodes.LIGHTNING.."{0:output:LightningInfusionsMax}^7, {0:output:VerisiumInfusionsMax}",
+	{ label = "Extra on Pickup", { format = "{1:mod:1}%", { modName = "AdditionalInfusionChance", modType = "BASE" }, }, },
+	{ label = "Increased Duration", { format = "{1:mod:1}%", { modName = "ElementalInfusionDuration", modType = "INC" }, }, },
+	{ label = "Chance to Retain", { format = "{1:mod:1}%", { modName = "InfusionRetentionChance", modType = "BASE" }, }, },
+	{ label = "Max Cold", { format = "{0:output:ColdInfusionsMax}", { modName = { "ElementalInfusionsMax", "ColdInfusionsMax" } }, }, },
+	{ label = "Max Fire", { format = "{0:output:FireInfusionsMax}", { modName = { "ElementalInfusionsMax", "FireInfusionsMax" } }, }, },
+	{ label = "Max Lightning", { format = "{0:output:LightningInfusionsMax}", { modName = { "ElementalInfusionsMax", "LightningInfusionsMax" } }, }, },
+	{ label = "Max Verisium", { format = "{0:output:VerisiumInfusionsMax}", { breakdown = "VerisiumInfusionsMax" }, }, },
+} }
+} },
 -- misc defense
 { 1, "MiscDefences", 3, colorCodes.DEFENCE, {{ defaultCollapsed = false, label = "Other Defences", data = {
 	{ label = "Movement Speed", { format = "x {3:output:EffectiveMovementSpeedMod}", { breakdown = "EffectiveMovementSpeedMod" }, { modName = { "MovementSpeed", "MovementSpeedEqualHighestLinkedPlayers" } }, }, },

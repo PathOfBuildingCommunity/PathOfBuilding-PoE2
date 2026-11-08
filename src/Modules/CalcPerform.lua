@@ -3270,6 +3270,19 @@ function calcs.perform(env, skipEHP)
 		doActorMisc(env, env.minion)
 	end
 
+	output.ColdInfusionsMax = m_max(0, modDB:Sum("BASE", nil, "ElementalInfusionsMax", "ColdInfusionsMax"))
+	output.FireInfusionsMax = m_max(0, modDB:Sum("BASE", nil, "ElementalInfusionsMax", "FireInfusionsMax"))
+	output.LightningInfusionsMax = m_max(0, modDB:Sum("BASE", nil, "ElementalInfusionsMax", "LightningInfusionsMax"))
+	output.VerisiumInfusionsMax = m_max(output.ColdInfusionsMax, output.FireInfusionsMax, output.LightningInfusionsMax)
+	if breakdown then
+		breakdown.VerisiumInfusionsMax = {
+			s_format("%d ^8(maximum Cold Infusions)", output.ColdInfusionsMax),
+			s_format("%d ^8(maximum Fire Infusions)", output.FireInfusionsMax),
+			s_format("%d ^8(maximum Lightning Infusions)", output.LightningInfusionsMax),
+			s_format("= %d ^8(highest Elemental Infusion maximum)", output.VerisiumInfusionsMax),
+		}
+	end
+
 	-- Calculate maximum and apply the strongest non-damaging ailments
 	local ailmentData = data.nonDamagingAilment
 	local ailments = {
