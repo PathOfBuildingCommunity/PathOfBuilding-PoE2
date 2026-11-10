@@ -9,7 +9,6 @@ local connectionProtocol, proxyURL, noSSL = ...
 local xml = require("xml")
 local sha1 = require("sha1")
 local curl = require("lcurl.safe")
-local lzip = require("lzip")
 
 local globalRetryLimit = 10
 local function downloadFileText(source, file)
@@ -217,7 +216,6 @@ downloadFile(localSource, "changelog.txt", scriptPath.."/changelog.txt")
 
 -- Download files that need updating
 local failedFile = false
-local zipFiles = { }
 for index, data in ipairs(updateFiles) do
 	if UpdateProgress then
 		UpdateProgress("Downloading %d/%d", index, #updateFiles)
@@ -227,43 +225,19 @@ for index, data in ipairs(updateFiles) do
 	source = source:gsub("{branch}", localBranch)
 	local fileName = scriptPath.."/Update/"..data.name:gsub("[\\/]","{slash}")
 	data.updateFileName = fileName
-	local zipName = source:match("/([^/]+%.zip)$")
-	if zipName then
-		if not zipFiles[zipName] then
-			ConPrintf("Downloading %s...", zipName)
-			local zipFileName = scriptPath.."/Update/"..zipName
-			downloadFile(source, "", zipFileName)
-			zipFiles[zipName] = lzip.open(zipFileName)
+	local skipDownload
+	local file = io.open(fileName, "rb")
+	if file then
+		local content = file:read("*all")
+		if data.sha1 == sha1(content) or data.sha1 == sha1(content:gsub("\n", "\r\n")) then
+			ConPrintf("Using file from previous update attempt '%s'", fileName)
+			skipDownload = true
 		end
-		local zip = zipFiles[zipName]
-		if zip then
-			local zippedFile = zip:OpenFile(data.name)
-			if zippedFile then
-				local file = io.open(fileName, "wb+")
-				file:write(zippedFile:Read("*a"))
-				file:close()
-				zippedFile:Close()
-			else
-				ConPrintf("Couldn't extract '%s' from '%s' (extract failed)", data.name, zipName)
-			end
-		else
-			ConPrintf("Couldn't extract '%s' from '%s' (zip open failed)", data.name, zipName)
-		end
-	else
-		local skipDownload
-		local file = io.open(fileName, "rb")
-		if file then
-			local content = file:read("*all")
-			if data.sha1 == sha1(content) or data.sha1 == sha1(content:gsub("\n", "\r\n")) then
-				ConPrintf("Using file from previous update attempt '%s'", fileName)
-				skipDownload = true
-			end
-			file:close()
-		end
-		if not skipDownload then
-			ConPrintf("Downloading %s... (%d of %d)", data.name, index, #updateFiles)
-			downloadFile(source, data.name, fileName)
-		end
+		file:close()
+	end
+	if not skipDownload then
+		ConPrintf("Downloading %s... (%d of %d)", data.name, index, #updateFiles)
+		downloadFile(source, data.name, fileName)
 	end
 	local file = io.open(fileName, "rb")
 	if not file then
@@ -276,10 +250,6 @@ for index, data in ipairs(updateFiles) do
 		end
 		file:close()
 	end
-end
-for name, zip in pairs(zipFiles) do
-	zip:Close()
-	os.remove(scriptPath.."/Update/"..name)
 end
 if failedFile then
 	ConPrintf("Update failed: one or more files couldn't be downloaded")
