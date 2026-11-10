@@ -5253,6 +5253,10 @@ function calcs.offence(env, actor, activeSkill)
 			-- The average number of ailment that will be active on the enemy at once
 			local ailmentStacks = output.HitChance / 100 * ailmentChance * output.DpsMultiplier
 			local configStacks = enemyDB:Sum("BASE", nil, "Multiplier:" .. ailment .. "Stacks")
+			-- The ailment is kept alive by something other than re-applying it (eg. Ignited Ground from Oil),
+			-- so it is always present on the enemy regardless of how often the source skill can be used
+			local sustainedAilment = enemyDB:Flag(nil, "Sustained" .. ailment)
+			local sustainedFloorApplied = false
 			if not skillData.triggeredOnDeath then
 				if output.Cooldown then
 					ailmentStacks = ailmentStacks * globalOutput[ailment .. "Duration"] / m_max(output.Cooldown, (output.HitTime or output.Time))
@@ -5267,6 +5271,9 @@ function calcs.offence(env, actor, activeSkill)
 				end
 				if configStacks > 0 then
 					ailmentStacks = configStacks
+				elseif sustainedAilment and ailmentStacks < 1 then
+					ailmentStacks = 1
+					sustainedFloorApplied = true
 				end
 				if ailmentStacks <= 1 then
 					skillModList:NewMod("Condition:Single" .. ailment, "FLAG", true, ailment:lower())
@@ -5295,6 +5302,9 @@ function calcs.offence(env, actor, activeSkill)
 					end
 					if output.DpsMultiplier ~= 1 then
 						t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("* %g ^8(DPS multiplier for this skill)", output.DpsMultiplier))
+					end
+					if sustainedFloorApplied then
+						t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("= 1.00 ^8(raised to a full stack, as the %s is sustained)", ailment))
 					end
 				end
 				t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("/ %d ^8(max number of stacks)", maxStacks))

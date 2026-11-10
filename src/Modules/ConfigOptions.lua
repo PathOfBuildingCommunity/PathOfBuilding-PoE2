@@ -1791,6 +1791,9 @@ Huge sets the radius to 11.
 	{ var = "multiplierIgniteOnEnemy", type = "count", label = "# of ^xB97123Ignites^7 on enemy (if not average):", ifFlag = "IgniteCanStack", implyCond = "Ignited", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:IgniteStacks", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
+	{ var = "conditionSustainedIgnite", type = "check", label = "Is the ^xB97123Ignite ^7sustained?", ifFlag = "ignite", tooltip = "Assumes the ^xB97123Ignite ^7is always present on the enemy, instead of scaling its damage down by how often you can apply it.\nEnable this if something other than the skill itself keeps the ^xB97123Ignite ^7alive, such as ^xB97123Ignited Ground ^7created from Oil re-applying it.\n\nWith this enabled, ^xB97123Ignite ^7Duration no longer increases your damage, while modifiers that make ^xB97123Ignites ^7deal damage faster do.", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("SustainedIgnite", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	end },
 	{ var = "conditionEnemyScorched", type = "check", ifFlag = "inflictScorch", label = "Is the enemy ^xB97123Scorched?", tooltip = "^xB97123Scorched ^7enemies have lowered elemental resistances, up to -30%.\nThis option will also allow you to input the effect of ^xB97123Scorched.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Scorched", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 		enemyModList:NewMod("Condition:ScorchedConfig", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
