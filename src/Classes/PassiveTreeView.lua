@@ -1146,8 +1146,10 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 							end
 						else
 							-- Jewel in socket is not Thread of Hope or similar
+							-- Use the increased radii instead of the base ones if the socketed jewel is upgraded
+							local isIncreased = jewel and spec:GetJewelRadiusIndex(jewel) ~= jewel.jewelRadiusIndex
 							for index, data in ipairs(build.data.jewelRadius) do
-								if hoverNode.nodesInRadius[index][node.id] then
+								if (not data.increased) == (not isIncreased) and hoverNode.nodesInRadius[index][node.id] then
 									-- Draw normal jewel radii
 									if data.inner == 0 then
 										SetDrawColor(data.col)
@@ -1269,8 +1271,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	end
 
 	-- Draw ring overlays for jewel sockets
-	local function drawJewelRadius(jewel, scrX, scrY, tint)
-		local radData = build.data.jewelRadius[jewel.jewelRadiusIndex]
+	local function drawJewelRadius(jewel, scrX, scrY, tint, jewelSpec)
+		-- Use the spec the ring belongs to, so compared trees can differ (e.g. Baryanic Leylines)
+		local radData = build.data.jewelRadius[jewelSpec:GetJewelRadiusIndex(jewel)]
 		local outerSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
 		local innerSize = radData.inner * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale * 1.06
 		SetDrawColor(tint[1], tint[2], tint[3], tint[4])
@@ -1307,6 +1310,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			self:DrawImageRotated(self.jewelShadedInnerRingFlipped, scrX, scrY, innerSize * 2, innerSize * 2, 0.7)
 		end
 	end
+
 	SetDrawLayer(nil, 25)
 	for nodeId in pairs(tree.sockets) do
 		local node = spec.nodes[nodeId]
@@ -1318,6 +1322,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			if node == hoverNode then
 				local effectiveJewel = jewel or cJewel
 				local isThreadOfHope = effectiveJewel and effectiveJewel.jewelRadiusLabel == "Variable"
+				-- Preview the increased radii instead of the base ones if the socketed jewel is upgraded
+				local jewelSpec = jewel and spec or self.compareSpec
+				local isIncreased = effectiveJewel and jewelSpec and jewelSpec:GetJewelRadiusIndex(effectiveJewel) ~= effectiveJewel.jewelRadiusIndex
 				for _, radData in ipairs(build.data.jewelRadius) do
 					local outerSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
 					local innerSize = radData.inner * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
@@ -1330,7 +1337,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 						end
 					else
 						-- Standard jewel: draw the full-disc radii (inner == 0)
-						if innerSize == 0 then
+						if innerSize == 0 and (not radData.increased) == (not isIncreased) then
 							SetDrawColor(radData.col)
 							DrawImage(self.ring, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
 						end
@@ -1341,12 +1348,16 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				local pHasRadius = jewel and jewel.jewelRadiusIndex
 				local cHasRadius = cJewel and cJewel.jewelRadiusIndex
 				local sameJewel = compareJewelsEqual(jewel, cJewel)
+				if sameJewel and pHasRadius and cHasRadius then
+					-- Identical jewels can have different radii when only one spec has a Time-Lost radius upgrade
+					sameJewel = spec:GetJewelRadiusIndex(jewel) == self.compareSpec:GetJewelRadiusIndex(cJewel)
+				end
 				if pHasRadius then
 					local tint = (not self.compareSpec or sameJewel) and JEWEL_RADIUS_TINT_NEUTRAL or JEWEL_RADIUS_TINT_PRIMARY_ONLY
-					drawJewelRadius(jewel, scrX, scrY, tint)
+					drawJewelRadius(jewel, scrX, scrY, tint, spec)
 				end
 				if cHasRadius and not sameJewel then
-					drawJewelRadius(cJewel, scrX, scrY, JEWEL_RADIUS_TINT_COMPARE_ONLY)
+					drawJewelRadius(cJewel, scrX, scrY, JEWEL_RADIUS_TINT_COMPARE_ONLY, self.compareSpec)
 				end
 			end
 		end
@@ -1887,11 +1898,42 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	-- we only want to run the timeLost function on a node that can could be in a jewel socket radius of up to Large
 	-- essentially trying to avoid calling ProcessStats for a Normal/Notable node that can't possibly be affected
 	-- loops potentially every socket (24) until itemsTab is loaded or a jewel socket is hovered, then it will only loop the allocated sockets
+	-- Radius indexes to probe: Very Large (4) plus any Time-Lost upgrade tiers (e.g. Baryanic Leylines'
+	-- "Very Large +40%" at 16) that the current build actually has access to.
+	local radiusProbeIndexes = { 4 }
+	local timeLostRadiusUpgrade = build.calcsTab and build.calcsTab.mainEnv and build.calcsTab.mainEnv.modDB
+		and build.calcsTab.mainEnv.modDB:Sum("INC", nil, "NonUniqueTimeLostJewelRadius") or 0
+	if timeLostRadiusUpgrade > 0 and data.nonUniqueTimeLostJewelRadiusUpgrades then
+		for pct, map in pairs(data.nonUniqueTimeLostJewelRadiusUpgrades) do
+			if pct <= timeLostRadiusUpgrade then
+				for _, upgradedIndex in pairs(map) do
+					local seen = false
+					for _, existing in ipairs(radiusProbeIndexes) do
+						if existing == upgradedIndex then
+							seen = true
+							break
+						end
+					end
+					if not seen then
+						t_insert(radiusProbeIndexes, upgradedIndex)
+					end
+				end
+			end
+		end
+	end
 	local function isNodeInARadius(node)
 		local isInRadius = false
 		for id, socket in pairs(build.itemsTab.sockets) do
 			if build.itemsTab.activeSocketList and socket.inactive == false or socket.inactive == nil then
-				isInRadius = isInRadius or (build.spec.nodes[id] and build.spec.nodes[id].nodesInRadius and build.spec.nodes[id].nodesInRadius[4][node.id] ~= nil)
+				local socketNode = build.spec.nodes[id]
+				if socketNode and socketNode.nodesInRadius then
+					for _, radiusIndex in ipairs(radiusProbeIndexes) do
+						if socketNode.nodesInRadius[radiusIndex] and socketNode.nodesInRadius[radiusIndex][node.id] ~= nil then
+							isInRadius = true
+							break
+						end
+					end
+				end
 				if isInRadius then break end
 			end
 		end
