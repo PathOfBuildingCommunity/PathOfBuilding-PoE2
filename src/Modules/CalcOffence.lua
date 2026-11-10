@@ -2485,16 +2485,29 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 
-		-- Apply all conversions simultaneously
-		for fromType, data in pairs(tempConversions) do
-			if fromType == damageType then
-				activeSkill.conversionTable[damageType].mult = data.mult
-			else
-				activeSkill.conversionTable[damageType][fromType] = data.base
+		-- Apply all conversions simultaneously: set every remaining share first, then add every conversion.
+		-- Doing both in one pass made the result depend on pairs() order: an addition to a type was lost
+		-- when that type's own share was set after it (e.g. a skill's own conversion to Fire plus a global
+		-- conversion to Fire).
+		for _, fromType in ipairs(dmgTypeList) do
+			local data = tempConversions[fromType]
+			if data then
+				if fromType == damageType then
+					activeSkill.conversionTable[damageType].mult = data.mult
+				else
+					activeSkill.conversionTable[damageType][fromType] = data.base
+				end
 			end
-			for toType, amount in pairs(data.conv) do
-				activeSkill.conversionTable[damageType][toType] =
-					(activeSkill.conversionTable[damageType][toType] or 0) + amount
+		end
+		for _, fromType in ipairs(dmgTypeList) do
+			local data = tempConversions[fromType]
+			if data then
+				for _, toType in ipairs(dmgTypeList) do
+					if data.conv[toType] then
+						activeSkill.conversionTable[damageType][toType] =
+							(activeSkill.conversionTable[damageType][toType] or 0) + data.conv[toType]
+					end
+				end
 			end
 		end
 

@@ -41,4 +41,20 @@ describe("TestOffence", function()
 		assert.are.equals(2, build.calcsTab.mainOutput.PhysicalMinBase)
 		assert.are.equals(0.5, build.calcsTab.mainOutput.ColdSummedMinBase)
 	end)
+
+	it("applies a global conversion on top of a skill conversion to the same type independently of table order", function()
+		build.skillsTab:PasteSocketGroup("Exsanguinate 20/0  1")
+		build.configTab.input.customMods = [[
+		20% of Exsanguinate and Reap Physical Damage Converted to Fire Damage
+		75% of Damage Converted to Fire Damage
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		-- Skill conversion first: 20% of Physical to Fire; then 75% of the remaining 80% to Fire.
+		-- The Fire part stays Fire (75% of Fire to Fire is no conversion).
+		local conversion = build.calcsTab.mainEnv.player.mainSkill.conversionTable.Physical
+		assert.are.equals(0.8, conversion.Fire)
+		assert.is_true(math.abs(conversion.mult - 0.2) < 0.000001)
+	end)
 end)
