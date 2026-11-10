@@ -1372,7 +1372,7 @@ function calcs.defence(env, actor)
 			if totalConversion > 100 then
 				local factor = 100 / totalConversion
 				totalConversion = 100
-				for name, val in ipairs(source.conversionRate) do
+				for name, val in pairs(source.conversionRate) do
 					source.conversionRate[name] = val * factor
 				end
 			end
@@ -1410,7 +1410,6 @@ function calcs.defence(env, actor)
 									if breakdown then
 										breakdown.slot(slot, source.name .. " to " .. target.name .. " conversion", { slotName = slot }, targetBase, nil, unpack(target.mods))
 									end
-									source.basePerSlot[slot] = source.basePerSlot[slot] * (100 - source.totalConversion) / 100
 								end
 							end
 							local targetBase = globalBase * rate / 100
@@ -1437,6 +1436,10 @@ function calcs.defence(env, actor)
 				end
 			end
 			if source.defence then
+				-- Every target takes its share from the unconverted base, so reduce the source once, after all targets
+				for _, slot in pairs({ "Helmet", "Gloves", "Boots", "Body Armour", "Weapon 2", "Weapon 3" }) do
+					source.basePerSlot[slot] = source.basePerSlot[slot] * (100 - source.totalConversion) / 100
+				end
 				source.globalBase = globalBase * (100 - source.totalConversion) / 100
 				source.totalBase = totalBase * (100 - source.totalConversion) / 100
 			end
