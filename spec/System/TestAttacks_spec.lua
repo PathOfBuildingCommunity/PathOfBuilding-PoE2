@@ -30,6 +30,50 @@ describe("TestAttacks", function()
 		assert.are.equals(2 + 0.25, build.calcsTab.mainOutput.CritMultiplier)
 	end)
 
+	local function setupBoneshatter(weaponRaw, supports, configInput)
+		newBuild()
+		build.itemsTab:CreateDisplayItemFromRaw(weaponRaw)
+		build.itemsTab:AddDisplayItem()
+		build.skillsTab:PasteSocketGroup("Boneshatter 20/0  1" .. (supports or ""))
+		build.mainSocketGroup = 1
+		for var, value in pairs(configInput or { }) do
+			build.configTab.input[var] = value
+		end
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		return build.calcsTab.mainOutput
+	end
+
+	local plainGreathammer = [[
+		New Item
+		Cultist Greathammer
+	]]
+
+	it("applies keyword-flagged MORE Critical Damage Bonus to attacks", function()
+		-- Base Critical Damage Bonus is 100%, so CritMultiplier = 1 + 1.0 * increased * more
+		local increased = setupBoneshatter(plainGreathammer, nil, { customMods = "50% increased Critical Damage Bonus with Attacks" })
+		assert.are.equals(2.5, increased.CritMultiplier)
+
+		local more = setupBoneshatter(plainGreathammer, nil, { customMods = "50% more Critical Damage Bonus with Attacks" })
+		assert.are.equals(2.5, more.CritMultiplier)
+	end)
+
+	it("applies conditional MORE Accuracy when attacks are Empowered by an attack-flagged source", function()
+		-- The Empty Roar grants Condition:Empowered with ModFlag.Attack; Unerring Power grants more Accuracy while Empowered
+		local emptyRoar = [[
+			Rarity: UNIQUE
+			The Empty Roar
+			Cultist Greathammer
+			All Attacks count as Empowered Attacks
+		]]
+		local unsupported = setupBoneshatter(emptyRoar).MainHand.Accuracy
+		local supported = setupBoneshatter(emptyRoar, "\nUnerring Power 1/0  1").MainHand.Accuracy
+		local configEmpowered = setupBoneshatter(plainGreathammer, "\nUnerring Power 1/0  1", { conditionEmpowered = true }).MainHand.Accuracy
+
+		assert.is_true(supported > unsupported)
+		assert.are.equals(configEmpowered, supported)
+	end)
+
 	it("local Critical Damage Bonus on a weapon does not apply to spells (issue #2199)", function()
 		-- baseline: a spell's crit multi with a plain quarterstaff (no local crit damage)
 		build.itemsTab:CreateDisplayItemFromRaw([[
