@@ -126,6 +126,7 @@ end
 ---@field ignoreForItems? boolean
 ---@field reverseSort? boolean
 ---@field itemField string?
+---@field needsEHP? boolean The stat is only set by the EHP estimation pass
 
 ---@type PowerStat[]
 data.powerStatList = {
@@ -162,13 +163,13 @@ data.powerStatList = {
 	{ stat="MeleeAvoidChance", label="Melee avoid chance" },
 	{ stat="SpellAvoidChance", label="Spell avoid chance" },
 	{ stat="ProjectileAvoidChance", label="Projectile avoid chance" },
-	{ stat="TotalEHP", label="Effective Hit Pool" },
-	{ stat="SecondMinimalMaximumHitTaken", label="Eff. Maximum Hit Taken" },
-	{ stat="PhysicalTakenHit", label="Taken Phys dmg", transform=function(value) return -value end },
-	{ stat="LightningTakenHit", label="Taken Lightning dmg", transform=function(value) return -value end },
-	{ stat="ColdTakenHit", label="Taken Cold dmg", transform=function(value) return -value end },
-	{ stat="FireTakenHit", label="Taken Fire dmg", transform=function(value) return -value end },
-	{ stat="ChaosTakenHit", label="Taken Chaos dmg", transform=function(value) return -value end },
+	{ stat="TotalEHP", label="Effective Hit Pool", needsEHP=true },
+	{ stat="SecondMinimalMaximumHitTaken", label="Eff. Maximum Hit Taken", needsEHP=true },
+	{ stat="PhysicalTakenHit", label="Taken Phys dmg", transform=function(value) return -value end, needsEHP=true },
+	{ stat="LightningTakenHit", label="Taken Lightning dmg", transform=function(value) return -value end, needsEHP=true },
+	{ stat="ColdTakenHit", label="Taken Cold dmg", transform=function(value) return -value end, needsEHP=true },
+	{ stat="FireTakenHit", label="Taken Fire dmg", transform=function(value) return -value end, needsEHP=true },
+	{ stat="ChaosTakenHit", label="Taken Chaos dmg", transform=function(value) return -value end, needsEHP=true },
 	{ stat="CritChance", label="Crit Chance" },
 	{ stat="CritMultiplier", label="Crit Multiplier" },
 	{ stat="BleedChance", label="Bleed Chance" },
