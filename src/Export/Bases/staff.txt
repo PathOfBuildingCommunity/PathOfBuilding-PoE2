@@ -8,6 +8,5 @@ return function(itemBases)
 #type Staff
 #subType Warstaff
 #socketLimit 4
-#baseMatch Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff%d+
-#baseMatch Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaffUnique
+#baseMatch BaseType Metadata/Items/Weapons/TwoHandWeapons/Staves/AbstractWarstaff
 end

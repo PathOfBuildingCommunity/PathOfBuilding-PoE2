@@ -354,6 +354,82 @@ itemBases["Guardian Quarterstaff"] = {
 	weapon = { PhysicalMin = 52, PhysicalMax = 86, CritChanceBase = 10, AttackRateBase = 1.4, Range = 14, },
 	req = { level = 62, dex = 85, int = 34, },
 }
+itemBases["Runeforged Wrapped Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	quality = 20,
+	socketLimit = 4,
+	tags = { default = true, ezomyte_basetype = true, runeforged = true, two_hand_weapon = true, twohand = true, warstaff = true, weapon = true, },
+	implicit = "50% increased Magnitude of Bleeding you inflict",
+	implicitModTypes = { { "bleed", "physical_damage", "damage", "physical", "attack", "ailment" }, },
+	weapon = { PhysicalMin = 93, PhysicalMax = 155, CritChanceBase = 10, AttackRateBase = 1.4, Range = 14, },
+	req = { level = 38, dex = 54, int = 23, },
+}
+itemBases["Runeforged Long Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	quality = 20,
+	socketLimit = 4,
+	tags = { default = true, ezomyte_basetype = true, runeforged = true, two_hand_weapon = true, twohand = true, warstaff = true, weapon = true, },
+	implicit = "16% increased Melee Strike Range with this weapon",
+	implicitModTypes = { { "attack" }, },
+	weapon = { PhysicalMin = 21, PhysicalMax = 43, CritChanceBase = 10, AttackRateBase = 1.4, Range = 14, },
+	req = { level = 38, dex = 54, int = 23, },
+}
+itemBases["Runemastered Long Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	quality = 20,
+	hidden = true,
+	socketLimit = 4,
+	tags = { default = true, ezomyte_basetype = true, runeforged = true, two_hand_weapon = true, twohand = true, warstaff = true, weapon = true, },
+	implicit = "16% increased Melee Strike Range with this weapon",
+	implicitModTypes = { { "attack" }, },
+	weapon = { ColdMin = 43, ColdMax = 89, CritChanceBase = 10, AttackRateBase = 1.4, Range = 14, },
+	req = { level = 55, dex = 76, int = 31, },
+}
+itemBases["Runeforged Gothic Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	quality = 20,
+	socketLimit = 4,
+	tags = { default = true, ezomyte_basetype = true, runeforged = true, two_hand_weapon = true, twohand = true, warstaff = true, weapon = true, },
+	implicitModTypes = { },
+	weapon = { FireMin = 80, FireMax = 134, CritChanceBase = 12, AttackRateBase = 1.4, Range = 14, },
+	req = { level = 38, dex = 54, int = 23, },
+}
+itemBases["Runemastered Gothic Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	quality = 20,
+	hidden = true,
+	socketLimit = 4,
+	tags = { default = true, ezomyte_basetype = true, runeforged = true, two_hand_weapon = true, twohand = true, warstaff = true, weapon = true, },
+	implicit = "Ignites you inflict deal Damage (30-40)% faster",
+	implicitModTypes = { { "elemental_damage", "damage", "elemental", "fire", "ailment" }, },
+	weapon = { FireMin = 118, FireMax = 196, CritChanceBase = 12, AttackRateBase = 1.4, Range = 14, },
+	req = { level = 55, dex = 76, int = 31, },
+}
+itemBases["Runeforged Crescent Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	quality = 20,
+	socketLimit = 4,
+	tags = { default = true, maraketh_basetype = true, runeforged = true, two_hand_weapon = true, twohand = true, warstaff = true, weapon = true, },
+	implicitModTypes = { },
+	weapon = { ColdMin = 39, ColdMax = 81, LightningMin = 39, LightningMax = 81, CritChanceBase = 10, AttackRateBase = 1.5, Range = 14, },
+	req = { level = 40, dex = 56, int = 23, },
+}
+itemBases["Runeforged Steelpoint Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	quality = 20,
+	socketLimit = 4,
+	tags = { default = true, maraketh_basetype = true, runeforged = true, two_hand_weapon = true, twohand = true, warstaff = true, weapon = true, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 90, PhysicalMax = 167, CritChanceBase = 10, AttackRateBase = 1.4, Range = 14, },
+	req = { level = 40, dex = 56, int = 23, },
+}
 itemBases["Sinister Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
