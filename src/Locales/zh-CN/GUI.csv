@@ -1,0 +1,355 @@
+All,全部
+Set Name,设定名称
+Add,添加
+Copy,复制
+Dismiss,忽略
+Default,默认
+Delete,删除
+"Delete All",删除全部
+Enable,启用
+
+
+
+"Check for Update",检查更新
+Checking...,检查中...
+"Update check failed!",检查更新失败!
+"Couldn't download version manifest.",无法下载版本文件清单.
+"Reason: Timeout was reached","原因: 连接超时"
+"Check your internet connectivity.",检查你的互联网连接.
+
+"If you are using a proxy, specify it in Options.","如果需要设置代理,请在选项中设置."
+
+
+
+
+
+
+
+
+"Experience multiplier:",经验比率:
+
+General,一般
+Generate,生成
+Import,导入
+
+
+
+
+
+
+
+New,新建
+"New Folder",新建文件夹
+No,否
+None,无
+Open,打开
+Options,选项
+Rename,重命名
+Save,保存
+
+
+
+Sort,排序
+"Sort by Name",排序(名称)
+"Sort by name",排序(名称)
+"Sort by DPS",排序(DPS)
+
+Level:,等级:
+
+Quality:,品质:
+
+
+
+Start,开始
+
+
+"All Types:",所有类型:
+
+
+
+
+
+
+
+
+
+
+
+
+
+Label:,标签:
+Player:,玩家:
+Search:,搜索:
+
+
+"Socket Groups:",插槽组:
+
+
+
+
+
+"Weapon 1:",武器1:
+"Weapon 2:",武器2:
+Witch,女巫
+Templar,圣堂武僧
+Scion,贵族
+Shadow,暗影刺客
+Marauder,野蛮人
+Ranger,游侠
+Duelist,决斗者
+Normal,一般
+Magic,魔法的
+Rare,稀有的
+Unique,传奇的
+Relic,废墟
+"Unique (Relic)",传奇(遗产)
+"Weapon 1",武器1
+"Weapon 2",武器2
+Boots,鞋子
+Gloves,手套
+Helmet,头部
+"Body Armour",胸甲
+Quiver,箭袋
+Amulet,项链
+Belt,腰带
+Charm,护符
+Gem,技能宝石
+"Abyss Jewel",深渊珠宝
+Jewel,珠宝
+Flask,药剂
+Rarity:,稀有度:
+Name:,名称:
+Type:,类型:
+Base:,基础:
+Create,创建
+Cancel,取消
+Done,完成
+Close,关闭
+Bandit:,盗贼:
+"{0} Passive Points","{0} 天赋点"
+
+"Shaper Item",塑界者物品
+"Elder Item",裂界者物品
+Corrupted,已污染
+Craft,工艺
+Crafted,工艺的
+Crafted:,工艺:
+Enchant,附魔
+Enchanted,附魔的
+Mirrored,已复制
+
+
+Source:,来源:
+Modifier:,修正:
+"Crafting Bench",工艺桌
+Essence,精华
+Prefix,前缀
+Suffix,后缀
+Custom,自定义
+explicit,外延
+implicit,基底
+
+Names,名字
+Modifiers,词缀
+Jewellery,首饰
+"One Handed Melee",单手近战
+"Two Handed Melee",双手近战
+Claw,爪
+Dagger,匕首
+"Two Handed Axe",双手斧
+"Two Handed Mace",双手锤
+"Two Handed Sword",双手剑
+"One Handed Axe",单手斧
+"One Handed Mace",单手锤
+"One Handed Sword",单手剑
+Sceptre,短杖
+Staff,长杖
+Spear,长矛
+"Thrusting One Handed Sword",细剑
+Wand,法杖
+"No league",非联盟
+Abyss,深渊
+Bestiary,猎魔
+Betrayal,反叛
+Beyond,超越
+Bloodlines,血族
+Breach,裂隙
+Delve,地心
+Harbinger,先驱
+Incursion,侵略
+Legion,战乱
+Perandus,卡胖
+Synthesis,忆境
+Talisman,魔符
+"Talisman Hardcore",魔符(HC)
+"Talisman Standard",魔符(标准)
+Warbands,军团
+Current,当前
+"Pre {0}","{0} 版"
+
+
+Enchantment:,附魔:
+Eternal,终极
+Merciless,无情
+
+Labyrinth:,迷宫:
+
+"Corrupt Item",腐化物品
+"Implicit {0}","基底 {0}"
+Corrupt,腐化
+
+
+
+Remove,移除
+
+"Ring 1","戒指 1"
+"Ring 2","戒指 2"
+"Weapon 1 (Swap)","武器 1 (互换)"
+"Weapon 2 (Swap)","武器 2 (互换)"
+Standard,标准
+"Requires Level {0}","需求 等级 {0}"
+
+
+
+
+
+Helmet:,头盔:
+"Body Armour:",胸甲:
+Gloves:,手套:
+Boots:,鞋子:
+Amulet:,项链:
+Belt:,腰带:
+"Ring {0}","戒指 {0}"
+"Charm {0}",护符 {0}
+"Flask {0}","药剂 {0}"
+"Socket {0}","插槽 {0}"
+"{0} Dex","{0} 敏捷"
+"{0} Int","{0} 智慧"
+"{0} Str","{0} 力量"
+
+
+
+"Active Skill {0}","主动技能 {0}"
+"Active Skill {0} Main Minion Skill:","召唤物主技能(主动技能 {0}):"
+
+
+
+
+
+
+"<No spectres in build>","<BD 中没有灵体>"
+
+Resistance:,抗性:
+
+
+"<No skills added yet>:",<未添加任何技能>
+"{0} points to node","{0} 点天赋点到这里"
+
+
+"Activate this flask.",激活这个药剂.
+"Lasts {0} Seconds","持续 {0} 秒"
+"Consumes {0} of {1} Charges on use","每次使用会从 {1} 充能次数中消耗 {0} 次"
+"Recovers {0} Life over {1} Seconds","{1} 秒内回复 {0} 生命"
+"Recovers {0} Mana over {1} Seconds","{1} 秒内回复 {0} 魔力"
+
+
+"Remove this gem.",移除这个宝石.
+"Selecting this gem will give you:",选择这个技能宝石会给你:
+"Are you sure you want to delete all socket groups in this build?","确定要删除 BD 中的所有插槽么?"
+
+"Can support Strength threshold jewels","可以选择 ^xE05030力量 ^7门槛珠宝"
+"Can support Intelligence threshold jewels","可以选择 ^x7070FF智慧 ^7门槛珠宝"
+"Can support Dexterity threshold jewels","可以选择 ^x70FF70敏捷 ^7门槛珠宝"
+"Armour Boots",护甲鞋
+"Armour Chest",护甲胸甲
+"Armour Gloves",护甲手套
+"Armour Helmet",护甲头盔
+"Armour Shield",护甲盾
+"Evasion Boots",闪避鞋
+"Evasion Chest",闪避胸甲
+"Evasion Gloves",闪避手套
+"Evasion Helmet",闪避头盔
+"Evasion Shield",闪避盾
+"Energy Shield Boots",能量护盾鞋
+"Energy Shield Chest",能量护盾胸甲
+"Energy Shield Gloves",能量护盾手套
+"Energy Shield Helmet",能量护盾头盔
+"Energy Shield Shield",能量护盾盾
+"Elemental 1H Axe",元素单手斧
+"Elemental 1H Mace",元素单手锤
+"Elemental 1H Sword",元素单手剑
+"Elemental 2H Axe",元素双手斧
+"Elemental 2H Mace",元素双手锤
+"Elemental 2H Sword",元素双手剑
+"Elemental Bow",元素弓
+"Elemental Claw",元素爪
+"Elemental Dagger",元素匕首
+"Elemental Sceptre",元素短杖
+"Elemental Staff",元素长杖
+"Elemental Wand",元素法杖
+"Physical 1H Axe",物理单手斧
+"Physical 1H Mace",物理单手锤
+"Physical 1H Sword",物理单手剑
+"Physical 2H Axe",物理双手斧
+"Physical 2H Mace",物理双手锤
+"Physical 2H Sword",物理双手剑
+"Physical Bow",物理弓
+"Physical Claw",物理爪
+"Physical Dagger",物理匕首
+"Physical Sceptre",物理短杖
+"Physical Staff",物理长杖
+"Physical Wand",物理法杖
+"Spell Dagger",法术匕首
+"Spell Sceptre",法术短杖
+"Spell Staff",法术长杖
+"Spell Wand",法术法杖
+"Armour/Energy Shield",护甲/能量护盾
+Armour/Evasion,护甲/闪避
+"Armour/Evasion/Energy Shield",护甲/闪避/能量护盾
+"Evasion/Energy Shield",闪避/能量护盾
+Hybrid,复合
+Utility,功能
+
+
+
+
+
+
+
+
+
+"<No skills added yet>",<未添加任何技能>
+"Variant: Current {0} variants)","多版本: 当前 {0} 版)"
+
+(Disabled),^9(禁用)
+"Inactive Gems:",无效技能石:
+"(Cannot apply to any of the active skills)",(无法应用到任何主动技能)
+(Unsupported),(未支持)
+"Note: this group is disabled because it is socketed in the inactive weapon set.","注意: 这组技能已经禁用,因为它装备在备用武器栏."
+"Equipping this item in Abyssal {0} will give you:","(深渊 {0})使用这个物品会给你:"
+"Removing this item from Abyssal {0} will give you:","(深渊 {0})取消这个物品会给你:"
+"Abyssal {0}","深渊 {0}"
+"{0}% to Elemental Resistances","{0}% 元素抗性"
+Prefix:,前缀:
+Suffix:,后缀:
+"{0} Defualt","{0} 默认"
+"Enter folder name:",请输入文件夹名称:
+"No update available",无可用更新
+"You are running the latest version.",你运行的是最新版本
+
+
+
+Anomalous,异常
+Divergent,分歧
+Phantasmal,魅影
+"At {0}% Quality:","当 {0}% 品质时:"
+"Show gem quality variants:",显示技能石品质类型:
+"Puruna, the Challenger",挑战者普鲁纳
+"Corruptor Eedaiak",腐化者艾达尔克
+"Sumter the Twisted",桑特
+"Ancient Architect",古代建筑师
+"Grants Skill:",赋予技能:
+"Grants Skill: {0}",赋予技能: {0}
+"Grants Skill: Level {0} {1}",赋予技能: 等级 {0} {1}
+"Bonded: Buffs on you expire 10% slower",纽带: 你受到的增益消减速度减慢 10%
+"Bonded: Gain 2 Rage on Melee Hit",纽带: 近战击中时获得 2 点怒火

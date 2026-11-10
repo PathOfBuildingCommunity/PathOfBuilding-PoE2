@@ -14,7 +14,7 @@ local dkjson = require "dkjson"
 local tradeHelpers = LoadModule("Classes/TradeHelpers")
 
 local realmList = {
-	{ label = "PoE2", id = "PoE2", realmCode = "poe2", hostName = "https://www.pathofexile.com/", profileURL = "account/view-profile/" },
+	{ label = "PoE2", labelKey = "ui.import_tab.module.po_e2.label", id = "PoE2", realmCode = "poe2", hostName = "https://www.pathofexile.com/", profileURL = "account/view-profile/" },
 }
 
 ---@class ImportTab: ControlHost, Control
@@ -31,13 +31,13 @@ function ImportTabClass:ImportTab(build)
 
 
 	self.charImportMode = "AUTHENTICATION"
-	self.charImportStatus = colorCodes.WARNING.."Not authenticated"
-	self.controls.sectionCharImport = new("SectionControl"):SectionControl({ "TOPLEFT", self, "TOPLEFT" }, { 10, 18, 650, 200 }, "Character Import")
+	self.charImportStatus = localisation:Label("auth.status.signed_out", nil, colorCodes.WARNING)
+	self.controls.sectionCharImport = new("SectionControl"):SectionControl({ "TOPLEFT", self, "TOPLEFT" }, { 10, 18, 650, 200 }, localisation:Label("ui.import_tab.init.section_char_import.label"))
 	self.controls.charImportStatusLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.sectionCharImport, "TOPLEFT" }, { 6, 14, 200, 16 }, function()
-		return "^7Character import status: "..(type(self.charImportStatus) == "function" and self.charImportStatus() or self.charImportStatus)
+		return localisation:Text("ui.import_tab.init.char_import_status_label.label", { value = ((type(self.charImportStatus) == "function" and self.charImportStatus()) or self.charImportStatus) })
 	end)
 
-	self.controls.logoutApiButton = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.controls.charImportStatusLabel, "TOPRIGHT" }, { 4, 0, 180, 16 }, "^7Logout from Path of Exile API", function()
+	self.controls.logoutApiButton = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.controls.charImportStatusLabel, "TOPRIGHT" }, { 4, 0, 180, 16 }, localisation:Label("ui.import_tab.init.logout_api_button.label"), function()
 		main.lastToken = nil
 		main.api.authToken = nil
 		main.lastRefreshToken = nil
@@ -46,7 +46,7 @@ function ImportTabClass:ImportTab(build)
 		main.api.tokenExpiry = nil
 		main:SaveSettings()
 		self.charImportMode = "AUTHENTICATION"
-		self.charImportStatus = colorCodes.WARNING.."Not authenticated"
+		self.charImportStatus = localisation:Label("auth.status.signed_out", nil, colorCodes.WARNING)
 	end)
 	self.controls.logoutApiButton.shown = function()
 		return (self.charImportMode == "SELECTCHAR" or self.charImportMode == "GETACCOUNTNAME") and main.api.authToken ~= nil
@@ -56,11 +56,11 @@ function ImportTabClass:ImportTab(build)
 	self.controls.sectionCharImport.height = function() return self.charImportMode == "AUTHENTICATION" and 60 or 200 end
 
 	-- Stage: Authenticate
-	self.controls.authenticateButton = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.controls.characterImportAnchor, "TOPLEFT" }, { 0, 0, 200, 16 }, "^7Authorize with Path of Exile", function()
+	self.controls.authenticateButton = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.controls.characterImportAnchor, "TOPLEFT" }, { 0, 0, 200, 16 }, localisation:Label("ui.import_tab.init.authenticate_button.label"), function()
 		main.api:FetchAuthToken(function(_, errCode)
 			if main.api.authToken then
 				self.charImportMode = "GETACCOUNTNAME"
-				self.charImportStatus = "Authenticated"
+				self.charImportStatus = localisation:Label("auth.status.signed_in")
 
 				main.lastToken = main.api.authToken
 				main.lastRefreshToken = main.api.refreshToken
@@ -68,36 +68,36 @@ function ImportTabClass:ImportTab(build)
 				main:SaveSettings()
 				self:DownloadCharacterList()
 			elseif errCode and errCode ~= main.api.ERROR_NO_AUTH then
-				self.charImportStatus = colorCodes.NEGATIVE .. "Authentication failed: " .. errCode
+				self.charImportStatus = localisation:Label("auth.status.failed", { err_code = errCode }, colorCodes.NEGATIVE)
 			else
-				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
+				self.charImportStatus = localisation:Label("auth.status.signed_out", nil, colorCodes.WARNING)
 			end
 		end)
 		local clickTime = os.time()
-		self.charImportStatus = function() return "Logging in... (" .. m_max(0, (clickTime + 60) - os.time()) .. ") - URL copied to clipboard" end
+		self.charImportStatus = function() return localisation:Text("auth.status.waiting_browser", { value = m_max(0, (clickTime + 60) - os.time()) }) end
 	end)
 	self.controls.authenticateButton.shown = function()
 		return self.charImportMode == "AUTHENTICATION"
 	end
 
 	-- Stage: fetch characters
-	self.controls.accountNameHeader = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.characterImportAnchor, "TOPLEFT" }, { 0, 0, 200, 16 }, "^7To start importing a character, select your character's realm:")
+	self.controls.accountNameHeader = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.characterImportAnchor, "TOPLEFT" }, { 0, 0, 200, 16 }, localisation:Label("ui.import_tab.init.account_name_header.label"))
 	self.controls.accountNameHeader.shown = function()
 		return self.charImportMode == "GETACCOUNTNAME"
 	end
 	self.controls.accountRealm = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.accountNameHeader, "BOTTOMLEFT" }, { 0, 4, 60, 20 }, realmList)
 	self.controls.accountRealm:SelByValue(main.lastRealm or "PC", "id")
 
-	self.controls.accountNameGo = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.accountNameHeader, "RIGHT" }, { 8, 0, 60, 20 }, "Start", function()
+	self.controls.accountNameGo = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.accountNameHeader, "RIGHT" }, { 8, 0, 60, 20 }, localisation:Label("ui.import_tab.init.account_name_go.label"), function()
 		self:DownloadCharacterList()
 	end)
 
 	-- Stage: select character and import data
-	self.controls.charSelectHeader = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.sectionCharImport, "TOPLEFT" }, { 6, 40, 200, 16 }, "^7Choose character to import data from:")
+	self.controls.charSelectHeader = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.sectionCharImport, "TOPLEFT" }, { 6, 40, 200, 16 }, localisation:Label("ui.import_tab.init.char_select_header.label"))
 	self.controls.charSelectHeader.shown = function()
 		return self.charImportMode == "SELECTCHAR" or self.charImportMode == "IMPORTING"
 	end
-	self.controls.charSelectLeagueLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.charSelectHeader, "BOTTOMLEFT" }, { 0, 6, 0, 14 }, "^7League:")
+	self.controls.charSelectLeagueLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.charSelectHeader, "BOTTOMLEFT" }, { 0, 6, 0, 14 }, localisation:Label("ui.import_tab.init.char_select_league_label.label"))
 	self.controls.charSelectLeague = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.charSelectLeagueLabel, "RIGHT" }, { 4, 0, 150, 18 }, nil, function(index, value)
 		self:BuildCharacterList(value.league)
 	end)
@@ -105,10 +105,10 @@ function ImportTabClass:ImportTab(build)
 	self.controls.charSelect.enabled = function()
 		return self.charImportMode == "SELECTCHAR"
 	end
-	self.controls.charImportHeader = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.charSelect, "BOTTOMLEFT" }, { 0, 16, 200, 16 }, "^7Import:")
-	self.controls.charImportTree = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.charImportHeader, "RIGHT" }, { 8, 0, 170, 20 }, "Passive Tree and Jewels", function()
+	self.controls.charImportHeader = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.charSelect, "BOTTOMLEFT" }, { 0, 16, 200, 16 }, localisation:Label("ui.import_tab.init.char_import_header.label"))
+	self.controls.charImportTree = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.charImportHeader, "RIGHT" }, { 8, 0, 170, 20 }, localisation:Label("ui.import_tab.init.char_import_tree.label_4"), function()
 		if self.build.spec:CountAllocNodes() > 0 then
-			main:OpenConfirmPopup("Character Import", "Importing the passive tree will overwrite your current tree.", "Import", function()
+			main:OpenConfirmPopup(localisation:Text("ui.import_tab.init.char_import_tree.label"), localisation:Text("ui.import_tab.init.char_import_tree.label_3"), localisation:Text("ui.import_tab.init.char_import_tree.label_2"), function()
 				self:DownloadPassiveTree()
 			end)
 		else
@@ -118,32 +118,32 @@ function ImportTabClass:ImportTab(build)
 	self.controls.charImportTree.enabled = function()
 		return self.charImportMode == "SELECTCHAR"
 	end
-	self.controls.charImportTreeClearJewels = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.charImportTree, "RIGHT" }, { 90, 0, 18 }, "Delete jewels:", nil, "Delete all existing jewels when importing.", true)
-	self.controls.charImportItems = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.charImportTree, "LEFT" }, { 0, 36, 110, 20 }, "Items and Skills", function()
+	self.controls.charImportTreeClearJewels = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.charImportTree, "RIGHT" }, { 90, 0, 18 }, localisation:Label("ui.import_tab.init.char_import_tree_clear_jewels.label"), nil, localisation:Label("ui.import_tab.check_box_control.tooltip"), true)
+	self.controls.charImportItems = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.charImportTree, "LEFT" }, { 0, 36, 110, 20 }, localisation:Label("ui.import_tab.init.char_import_items.label"), function()
 		self:DownloadItems()
 	end)
 	self.controls.charImportItems.enabled = function()
 		return self.charImportMode == "SELECTCHAR"
 	end
-	self.controls.charImportItemsClearSkills = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.charImportItems, "RIGHT" }, { 85, 0, 18 }, "Delete skills:", nil, "Delete all existing skills when importing.", true)
-	self.controls.charImportItemsClearItems = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.charImportItems, "RIGHT" }, { 220, 0, 18 }, "Delete equipment:", nil, "Delete all equipped items when importing.", true)
-	self.controls.charImportItemsIgnoreWeaponSwap = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.charImportItems, "RIGHT" }, { 380, 0, 18 }, "Ignore weapon swap:", nil, "Ignore items and skills in weapon swap.", false)
+	self.controls.charImportItemsClearSkills = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.charImportItems, "RIGHT" }, { 85, 0, 18 }, localisation:Label("ui.import_tab.init.char_import_items_clear_skills.label"), nil, localisation:Label("ui.import_tab.check_box_control.tooltip_2"), true)
+	self.controls.charImportItemsClearItems = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.charImportItems, "RIGHT" }, { 220, 0, 18 }, localisation:Label("ui.import_tab.init.char_import_items_clear_items.label"), nil, localisation:Label("ui.import_tab.check_box_control.tooltip_3"), true)
+	self.controls.charImportItemsIgnoreWeaponSwap = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.charImportItems, "RIGHT" }, { 380, 0, 18 }, localisation:Label("ui.import_tab.init.char_import_items_ignore_weapon_swap.label"), nil, localisation:Label("ui.import_tab.check_box_control.tooltip_4"), false)
 
 	-- Build import/export
-	self.controls.sectionBuild = new("SectionControl"):SectionControl({ "TOPLEFT", self.controls.sectionCharImport, "BOTTOMLEFT", true }, { 0, 18, 650, 182 }, "Build Sharing")
-	self.controls.generateCodeLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.sectionBuild, "TOPLEFT" }, { 6, 14, 0, 16 }, "^7Generate a code to share this build with other Path of Building users:")
-	self.controls.generateCode = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.generateCodeLabel, "RIGHT" }, { 4, 0, 80, 20 }, "Generate", function()
+	self.controls.sectionBuild = new("SectionControl"):SectionControl({ "TOPLEFT", self.controls.sectionCharImport, "BOTTOMLEFT", true }, { 0, 18, 650, 182 }, localisation:Label("ui.import_tab.init.section_build.label"))
+	self.controls.generateCodeLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.sectionBuild, "TOPLEFT" }, { 6, 14, 0, 16 }, localisation:Label("ui.import_tab.init.generate_code_label.label"))
+	self.controls.generateCode = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.generateCodeLabel, "RIGHT" }, { 4, 0, 80, 20 }, localisation:Label("ui.import_tab.init.generate_code.label"), function()
 		self.controls.generateCodeOut:SetText(common.base64.encode(Deflate(self.build:SaveDB("code"))):gsub("+","-"):gsub("/","_"))
 	end)
-	self.controls.enablePartyExportBuffs = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.generateCode, "RIGHT" }, { 100, 0, 18 }, "Export Support", function(state)
+	self.controls.enablePartyExportBuffs = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.generateCode, "RIGHT" }, { 100, 0, 18 }, localisation:Label("ui.import_tab.init.enable_party_export_buffs.label"), function(state)
 		self.build.partyTab.enableExportBuffs = state
 		self.build.buildFlag = true
-	end, "This is for party play, to export support character, it enables the exporting of auras, curses and modifiers to the enemy", false)
-	self.controls.generateCodeOut = new("EditControl"):EditControl({ "TOPLEFT", self.controls.generateCodeLabel, "BOTTOMLEFT" }, { 0, 8, 250, 20 }, "", "Code", "%Z")
+	end, localisation:Label("ui.import_tab.check_box_control.tooltip_5"), false)
+	self.controls.generateCodeOut = new("EditControl"):EditControl({ "TOPLEFT", self.controls.generateCodeLabel, "BOTTOMLEFT" }, { 0, 8, 250, 20 }, "", localisation:Label("ui.import_tab.init.generate_code_out.label"), "%Z")
 	self.controls.generateCodeOut.enabled = function()
 		return #self.controls.generateCodeOut.buf > 0
 	end
-	self.controls.generateCodeCopy = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.generateCodeOut, "RIGHT" }, { 8, 0, 60, 20 }, "Copy", function()
+	self.controls.generateCodeCopy = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.generateCodeOut, "RIGHT" }, { 8, 0, 60, 20 }, localisation:Label("ui.import_tab.init.generate_code_copy.label"), function()
 		Copy(self.controls.generateCodeOut.buf)
 		self.controls.generateCodeOut:SetText("")
 	end)
@@ -168,16 +168,16 @@ function ImportTabClass:ImportTab(build)
 		self.exportWebsiteSelected = selectedWebsite.id
 	end)
 	self.controls.exportFrom:SelByValue(self.exportWebsiteSelected or main.lastExportWebsite or "Pastebin", "id")
-	self.controls.generateCodeByLink = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.exportFrom, "RIGHT" }, { 8, 0, 100, 20 }, "Share", function()
+	self.controls.generateCodeByLink = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.exportFrom, "RIGHT" }, { 8, 0, 100, 20 }, localisation:Label("ui.import_tab.init.generate_code_by_link.label_2"), function()
 		local exportWebsite = exportWebsitesList[self.controls.exportFrom.selIndex]
 		local subScriptId = buildSites.UploadBuild(self.controls.generateCodeOut.buf, exportWebsite)
 		if subScriptId then
 			self.controls.generateCodeOut:SetText("")
-			self.controls.generateCodeByLink.label = "Creating link..."
+			self.controls.generateCodeByLink.label = localisation:Label("ui.import_tab.init.generate_code_by_link_label.label")
 			launch:RegisterSubScript(subScriptId, function(pasteLink, errMsg)
-				self.controls.generateCodeByLink.label = "Share"
+				self.controls.generateCodeByLink.label = localisation:Label("ui.import_tab.init.generate_code_by_link_label.label_2")
 				if errMsg then
-					main:OpenMessagePopup(exportWebsite.id, "Error creating link:\n"..errMsg)
+					main:OpenMessagePopup(exportWebsite.id, localisation:Text("ui.import_tab.init.generate_code_by_link.label", { err_msg = errMsg }))
 				else
 					self.controls.generateCodeOut:SetText(exportWebsite.codeOut..pasteLink)
 				end
@@ -200,8 +200,8 @@ function ImportTabClass:ImportTab(build)
 		end
 		return #self.controls.generateCodeOut.buf > 0
 	end
-	self.controls.generateCodeNote = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.generateCodeOut, "BOTTOMLEFT" }, { 0, 4, 0, 14 }, "^7Note: this code can be very long; you can use 'Share' to shrink it.")
-	self.controls.importCodeHeader = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.generateCodeNote, "BOTTOMLEFT" }, { 0, 26, 0, 16 }, "^7To import a build, enter URL or code here:")
+	self.controls.generateCodeNote = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.generateCodeOut, "BOTTOMLEFT" }, { 0, 4, 0, 14 }, localisation:Label("ui.import_tab.init.generate_code_note.label"))
+	self.controls.importCodeHeader = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.generateCodeNote, "BOTTOMLEFT" }, { 0, 26, 0, 16 }, localisation:Label("ui.import_tab.init.import_code_header.label"))
 
 	local importCodeHandle = function (buf)
 		self.importCodeSite = nil
@@ -218,7 +218,7 @@ function ImportTabClass:ImportTab(build)
 			self.controls.importCodeMode.selIndex = 2
 		end
 
-		self.importCodeDetail = colorCodes.NEGATIVE.."Invalid input"
+		self.importCodeDetail = localisation:Label("import.validation.invalid_input", nil, colorCodes.NEGATIVE)
 		local urlText = buf:gsub("^[%s?]+", ""):gsub("[%s?]+$", "") -- Quick Trim
 		if urlText:match("youtube%.com/redirect%?") or urlText:match("google%.com/url%?") then
 			local nested_url = urlText:gsub(".*[?&]q=([^&]+).*", "%1")
@@ -229,7 +229,7 @@ function ImportTabClass:ImportTab(build)
 			if urlText:match(buildSites.websiteList[j].matchURL) then
 				self.controls.importCodeIn.text = urlText
 				self.importCodeValid = true
-				self.importCodeDetail = colorCodes.POSITIVE.."URL is valid ("..buildSites.websiteList[j].label..")"
+				self.importCodeDetail = localisation:Label("import.validation.valid_url", { label = localisation:Field(buildSites.websiteList[j], 'label') }, colorCodes.POSITIVE)
 				self.importCodeSite = j
 				if buf ~= urlText then
 					self.controls.importCodeIn:SetText(urlText, false)
@@ -242,20 +242,20 @@ function ImportTabClass:ImportTab(build)
 		if launch.devMode and urlText:match("^%{.*%}$") ~= nil then
 			local jsonData, _, errDecode = dkjson.decode(urlText)
 			if errDecode then
-				self.importCodeDetail = colorCodes.NEGATIVE.."Invalid JSON format (decode error)"
+				self.importCodeDetail = localisation:Label("import.validation.json_decode_error", nil, colorCodes.NEGATIVE)
 				return
 			end
 			if not jsonData.character then
-				self.importCodeDetail = colorCodes.NEGATIVE.."Invalid JSON format (character missing)"
+				self.importCodeDetail = localisation:Label("import.validation.json_character_missing", nil, colorCodes.NEGATIVE)
 				return
 			end
 			jsonData = jsonData.character
 			if not jsonData.equipment or not jsonData.passives then
-				self.importCodeDetail = colorCodes.NEGATIVE.."Invalid JSON format (equipment or passives missing)"
+				self.importCodeDetail = localisation:Label("import.validation.json_sections_missing", nil, colorCodes.NEGATIVE)
 				return
 			end
 			self.importCodeJson = jsonData
-			self.importCodeDetail = colorCodes.POSITIVE.."JSON is valid"
+			self.importCodeDetail = localisation:Label("import.validation.valid_json", nil, colorCodes.POSITIVE)
 			self.importCodeValid = true
 			return
 		end
@@ -268,7 +268,7 @@ function ImportTabClass:ImportTab(build)
 			Copy(xmlText)
 		end
 		self.importCodeValid = true
-		self.importCodeDetail = colorCodes.POSITIVE.."Code is valid"
+		self.importCodeDetail = localisation:Label("import.validation.valid_code", nil, colorCodes.POSITIVE)
 		self.importCodeXML = xmlText
 	end
 
@@ -278,7 +278,7 @@ function ImportTabClass:ImportTab(build)
 		end
 
 		if self.controls.importCodeMode.selIndex == 1 then
-			main:OpenConfirmPopup("Build Import", colorCodes.WARNING.."Warning:^7 Importing to the current build will erase ALL existing data for this build.", "Import", function()
+			main:OpenConfirmPopup(localisation:Text("ui.import_tab.init.import_selected_build.message"), colorCodes.WARNING .. localisation:Text("ui.import_tab.init.import_selected_build.message_4"), localisation:Text("ui.import_tab.init.char_import_tree.label_2"), function()
 				self.build:Shutdown()
 				self.build:Init(self.build.dbFileName, self.build.buildName, self.importCodeXML, false, self.importCodeSite and self.controls.importCodeIn.buf or nil)
 				self.build.viewMode = "TREE"
@@ -289,7 +289,7 @@ function ImportTabClass:ImportTab(build)
 				if self.build.compareTab:ImportBuild(self.importCodeXML, "Imported comparison") then
 					self.build.viewMode = "COMPARE"
 				else
-					main:OpenMessagePopup("Import Error", "Failed to import build for comparison.")
+					main:OpenMessagePopup(localisation:Text("ui.import_tab.init.import_selected_build.message_3"), localisation:Text("ui.import_tab.init.import_selected_build.message_2"))
 				end
 			end
 		else
@@ -307,13 +307,13 @@ function ImportTabClass:ImportTab(build)
 	end
 	self.controls.importCodeState = new("LabelControl"):LabelControl({ "LEFT", self.controls.importCodeIn, "RIGHT" }, { 8, 0, 0, 16 })
 	self.controls.importCodeState.label = function()
-		return self.importCodeDetail or ""
+		return (type(self.importCodeDetail) == 'function' and self.importCodeDetail() or self.importCodeDetail) or ""
 	end
-	self.controls.importCodeMode = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.importCodeIn, "BOTTOMLEFT" }, { 0, 4, 200, 20 }, { "Import to this build", "Import to a new build", "Import as comparison" })
+	self.controls.importCodeMode = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.importCodeIn, "BOTTOMLEFT" }, { 0, 4, 200, 20 }, localisation:List({ "Import to this build", "Import to a new build", "Import as comparison" }, { [1] = "ui.import_tab.init.import_code_mode.label_3", [2] = "ui.import_tab.init.import_code_mode.label_2", [3] = "ui.import_tab.init.import_code_mode.label" }))
 	self.controls.importCodeMode.enabled = function()
 		return (self.build.dbFileName or self.controls.importCodeMode.selIndex == 3) and self.importCodeValid
 	end
-	self.controls.importCodeGo = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.importCodeMode, "RIGHT" }, { 8, 0, 160, 20 }, "Import", function()
+	self.controls.importCodeGo = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.importCodeMode, "RIGHT" }, { 8, 0, 160, 20 }, localisation:Label("ui.import_tab.init.import_code_go.label"), function()
 		if self.importCodeSite and not self.importCodeXML then
 			self.importCodeFetching = true
 			local selectedWebsite = buildSites.websiteList[self.importCodeSite]
@@ -340,7 +340,7 @@ function ImportTabClass:ImportTab(build)
 		importSelectedBuild()
 	end)
 	self.controls.importCodeGo.label = function ()
-		return self.importCodeFetching and "Retrieving paste.." or "Import"
+		return self.importCodeFetching and localisation:Text("ui.import_tab.init.import_code_go_label.message_2") or localisation:Text("ui.import_tab.init.import_code_go_label.message")
 	end
 	self.controls.importCodeGo.enabled = function()
 		return self.importCodeValid and not self.importCodeFetching
@@ -359,58 +359,60 @@ function ImportTabClass:ImportTab(build)
 		local spec = self.build.treeTab and self.build.treeTab.specList[self.exportSpecIndex]
 		self.controls.poe2ExportPath:SetText(BuildExportPoE2.BuildPath(buildName, spec and spec.treeVersion, self.controls.poe2ExportPath.buf))
 	end
-	self.controls.sectionPoE2Export = new("SectionControl"):SectionControl({ "TOPLEFT", self.controls.sectionBuild, "BOTTOMLEFT", true }, { 0, 18, 650, 330 }, "Export to in-game build planner")
-	self.controls.poe2ExportDesc = new("LabelControl"):LabelControl({"TOPLEFT",self.controls.sectionPoE2Export,"TOPLEFT"}, {6, 14, 0, 16}, "^7Save this build as a .build file the in-game build planner can load.")
-	self.controls.poe2ExportDesc2 = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.poe2ExportDesc, "BOTTOMLEFT" }, { 0, 2, 0, 14 }, "^8Each file holds one passive tree, one skill set and one item set.")
+	self.controls.sectionPoE2Export = new("SectionControl"):SectionControl({ "TOPLEFT", self.controls.sectionBuild, "BOTTOMLEFT", true }, { 0, 18, 650, 330 }, localisation:Label("ui.import_tab.init.section_po_e2_export.label"))
+	self.controls.poe2ExportDesc = new("LabelControl"):LabelControl({"TOPLEFT",self.controls.sectionPoE2Export,"TOPLEFT"}, {6, 14, 0, 16}, localisation:Label("ui.import_tab.init.poe2_export_desc.label"))
+	self.controls.poe2ExportDesc2 = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.poe2ExportDesc, "BOTTOMLEFT" }, { 0, 2, 0, 14 }, localisation:Label("ui.import_tab.init.poe2_export_desc2.label"))
 
-	self.controls.buildPlannerBuildName = new("EditControl"):EditControl({ "TOPLEFT", self.controls.poe2ExportDesc2, "BOTTOMLEFT" }, { 0, 8, 200, 20 }, nil, "Build name", nil, nil, function()
+	self.controls.buildPlannerBuildName = new("EditControl"):EditControl({ "TOPLEFT", self.controls.poe2ExportDesc2, "BOTTOMLEFT" }, { 0, 8, 200, 20 }, nil, localisation:Label("ui.import_tab.init.build_planner_build_name.label"), nil, nil, function()
 		updateBuildPlannerPath()
 	end)
 	self.controls.buildPlannerBuildName:SetPlaceholder("Unnamed Build")
-	self.controls.buildPlannerAuthorName = new("EditControl"):EditControl({"LEFT",self.controls.buildPlannerBuildName,"RIGHT"}, {8, 0, 200, 20}, nil, "Author name", nil, nil)
+	self.controls.buildPlannerBuildName.placeholderKey = "build.export.placeholder.name"
+	self.controls.buildPlannerAuthorName = new("EditControl"):EditControl({"LEFT",self.controls.buildPlannerBuildName,"RIGHT"}, {8, 0, 200, 20}, nil, localisation:Label("ui.import_tab.init.build_planner_author_name.label"), nil, nil)
 	self.controls.buildPlannerAuthorName:SetPlaceholder("Author")
-	self.controls.buildPlannerTreeLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 0, 8, 0, 16 }, "^7Tree")
-	self.controls.buildPlannerSkillLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 188, 8, 0, 16 }, "^7Skill")
-	self.controls.buildPlannerItemLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 376, 8, 0, 16 }, "^7Item")
+	self.controls.buildPlannerAuthorName.placeholderKey = "build.export.placeholder.author"
+	self.controls.buildPlannerTreeLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 0, 8, 0, 16 }, localisation:Label("ui.import_tab.init.build_planner_tree_label.label"))
+	self.controls.buildPlannerSkillLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 188, 8, 0, 16 }, localisation:Label("ui.import_tab.init.build_planner_skill_label.label"))
+	self.controls.buildPlannerItemLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 376, 8, 0, 16 }, localisation:Label("ui.import_tab.init.build_planner_item_label.label"))
 	self.controls.buildPlannerSpec = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.buildPlannerTreeLabel, "BOTTOMLEFT" }, { 0, 2, 180, 20 }, {}, function(index, value)
 		self.exportSpecIndex = value.key
 		updateBuildPlannerPath()
-	end, "^7Which passive tree to export")
+	end, localisation:Label("ui.import_tab.drop_down_control.tooltip"))
 	self.controls.buildPlannerSkillSet = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.buildPlannerSpec, "RIGHT" }, { 8, 0, 180, 20 }, {}, function(index, value)
 		self.exportSkillSetId = value.key
-	end, "^7Which skill set to export")
+	end, localisation:Label("ui.import_tab.drop_down_control.tooltip_2"))
 	self.controls.buildPlannerItemSet = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.buildPlannerSkillSet, "RIGHT" }, { 8, 0, 180, 20 }, {}, function(index, value)
 		self.exportItemSetId = value.key
-	end, "^7Which item set to export")
-	self.controls.buildPlannerUseGeneratedItemText = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", self.controls.buildPlannerSpec, "BOTTOMLEFT" }, { 0, 2, 18 }, "Generated text for empty item notes", function()
+	end, localisation:Label("ui.import_tab.drop_down_control.tooltip_3"))
+	self.controls.buildPlannerUseGeneratedItemText = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", self.controls.buildPlannerSpec, "BOTTOMLEFT" }, { 0, 2, 18 }, localisation:Label("ui.import_tab.init.build_planner_use_generated_item_text.label"), function()
 		self.build.modFlag = true
-	end, "^7For items without a note, generate a note that contains the current mods, item name and item base", true)
+	end, localisation:Label("ui.import_tab.check_box_control.tooltip_6"), true)
 	self.controls.buildPlannerUseGeneratedItemText.labelRight = true
 	self:RefreshBuildPlannerSets()
 
-	self.controls.buildPlannerDescLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerSpec, "BOTTOMLEFT" }, { 0, 28, 0, 16 }, "^7Description:")
+	self.controls.buildPlannerDescLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerSpec, "BOTTOMLEFT" }, { 0, 28, 0, 16 }, localisation:Label("ui.import_tab.init.build_planner_desc_label.label"))
 	self.controls.buildPlannerDescription = new("EditControl"):EditControl({"TOPLEFT",self.controls.buildPlannerDescLabel,"BOTTOMLEFT"}, {0, 8, 560, 64}, "", nil, "^%C\t\n", nil, nil, 16)
-	self.controls.poe2ExportPath = new("EditControl"):EditControl({ "TOPLEFT", self.controls.buildPlannerDescription, "BOTTOMLEFT" }, { 0, 8, 560, 20 }, BuildExportPoE2.BuildPath(self.controls.buildPlannerBuildName.placeholder), "Path", nil, 260)
+	self.controls.poe2ExportPath = new("EditControl"):EditControl({ "TOPLEFT", self.controls.buildPlannerDescription, "BOTTOMLEFT" }, { 0, 8, 560, 20 }, BuildExportPoE2.BuildPath(self.controls.buildPlannerBuildName.placeholder), localisation:Label("ui.import_tab.init.poe2_export_path.label"), nil, 260)
 	updateBuildPlannerPath()
 	self.controls.poe2ExportPath.shown = function() return self.controls.poe2ExportShowPath.state end
 	self.controls.poe2ExportPathDisplay = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerDescription, "BOTTOMLEFT" }, { 0, 10, 0, 16 }, function()
-		return "^8Save location: " .. BuildExportPoE2.DisplayPath(self.controls.poe2ExportPath.buf)
+		return localisation:Text("ui.import_tab.init.poe2_export_path_display.label", { value = BuildExportPoE2.DisplayPath(self.controls.poe2ExportPath.buf) })
 	end)
 	self.controls.poe2ExportPathDisplay.shown = function() return not self.controls.poe2ExportShowPath.state end
 	local function displayPath(path)
 		return self.controls.poe2ExportShowPath.state and path or BuildExportPoE2.DisplayPath(path)
 	end
-	self.controls.poe2ExportOpenFolder = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.controls.buildPlannerDescription, "BOTTOMLEFT" }, { 0, 36, 110, 20 }, "Open Folder", function()
+	self.controls.poe2ExportOpenFolder = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.controls.buildPlannerDescription, "BOTTOMLEFT" }, { 0, 36, 110, 20 }, localisation:Label("ui.import_tab.init.poe2_export_open_folder.label_3"), function()
 		local path = self.controls.poe2ExportPath.buf
 		local directory = path:match("^(.*[/\\])") or "."
 		local err = OpenURL(directory)
 		if err then
-			main:OpenMessagePopup("Error", "Couldn't open the folder:\n" .. displayPath(directory) .. "\n\n" .. err)
+			main:OpenMessagePopup(localisation:Text("ui.import_tab.init.poe2_export_open_folder.label_2"), localisation:Text("ui.import_tab.init.poe2_export_open_folder.label", { value = displayPath(directory), err = err }))
 		end
 	end)
-	self.controls.poe2ExportOpenFolder.tooltipText = "^7Open the BuildPlanner export folder."
-	self.controls.poe2ExportShowPath = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.poe2ExportOpenFolder, "RIGHT" }, { 120, 1, 18 }, "Show full path", nil, "^7Reveal the editable absolute save path.", false)
-	self.controls.poe2ExportSave = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.controls.buildPlannerDescription, "BOTTOMLEFT" }, { 0, 64, 140, 20 }, "Export Selected Sets", function()
+	self.controls.poe2ExportOpenFolder.tooltipText = localisation:Label("ui.import_tab.init.poe2_export_open_folder_tooltip_text.label")
+	self.controls.poe2ExportShowPath = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.poe2ExportOpenFolder, "RIGHT" }, { 120, 1, 18 }, localisation:Label("ui.import_tab.init.poe2_export_show_path.label"), nil, localisation:Label("ui.import_tab.check_box_control.tooltip_7"), false)
+	self.controls.poe2ExportSave = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.controls.buildPlannerDescription, "BOTTOMLEFT" }, { 0, 64, 140, 20 }, localisation:Label("ui.import_tab.init.poe2_export_save.label_2"), function()
 		local path = self.controls.poe2ExportPath.buf
 		local function doWrite()
 			local ok, err = BuildExportPoE2.WriteFile(self.build, path, self:GetBuildPlannerMetadata(), {
@@ -419,16 +421,16 @@ function ImportTabClass:ImportTab(build)
 				itemSetId = self.exportItemSetId,
 			})
 			if not ok then
-				main:OpenMessagePopup("Error", "Couldn't save the build file to:\n" .. displayPath(path) .. "\n\n" .. err .. "\nMake sure the save folder exists and is writable.")
+				main:OpenMessagePopup(localisation:Text("ui.import_tab.init.poe2_export_open_folder.label_2"), localisation:Text("ui.import_tab.do_write.poe2_export_save.label_2", { value = displayPath(path), err = err }))
 			else
-				main:OpenMessagePopup("Success", string.format("Build file exported successfully to:\n%s", displayPath(path)))
+				main:OpenMessagePopup(localisation:Text("ui.import_tab.do_write.poe2_export_save.label_3"), localisation:Text("ui.import_tab.do_write.poe2_export_save.label", { value = displayPath(path) }))
 			end
 		end
 		-- Confirm overwrite if the file already exists.
 		local existing = io.open(path, "r")
 		if existing then
 			existing:close()
-			main:OpenConfirmPopup("Overwrite?", "A file already exists at:\n" .. displayPath(path) .. "\n\nOverwrite it?", "Overwrite", doWrite)
+			main:OpenConfirmPopup(localisation:Text("ui.import_tab.init.poe2_export_save.label_3"), localisation:Text("ui.import_tab.init.poe2_export_save.label", { value = displayPath(path) }), localisation:Text("ui.import_tab.init.poe2_export_save.label_4"), doWrite)
 		else
 			doWrite()
 		end
@@ -436,8 +438,8 @@ function ImportTabClass:ImportTab(build)
 	self.controls.poe2ExportSave.enabled = function()
 		return self.controls.poe2ExportPath.buf and self.controls.poe2ExportPath.buf ~= ""
 	end
-	self.controls.poe2ExportSave.tooltipText = "^7Writes a single file containing the three sets picked above."
-	self.controls.poe2ExportSaveAll = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.poe2ExportSave, "RIGHT" }, { 8, 0, 140, 20 }, "Export All Loadouts", function()
+	self.controls.poe2ExportSave.tooltipText = localisation:Label("ui.import_tab.init.poe2_export_save_tooltip_text.label")
+	self.controls.poe2ExportSaveAll = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.poe2ExportSave, "RIGHT" }, { 8, 0, 140, 20 }, localisation:Label("ui.import_tab.init.poe2_export_save_all.label"), function()
 		local path = self.controls.poe2ExportPath.buf
 		local loadouts = BuildExportPoE2.GetLoadouts(self.build)
 		local function doWrite()
@@ -446,11 +448,11 @@ function ImportTabClass:ImportTab(build)
 			for _, writtenPath in ipairs(written) do
 				t_insert(displayedPaths, displayPath(writtenPath))
 			end
-			local msg = s_format("Wrote %d file(s):\n%s", #written, t_concat(displayedPaths, "\n"))
+			local msg = localisation:Text("build.export.written_files", { count = #written, paths = t_concat(displayedPaths, "\n") })
 			if #errors > 0 then
-				msg = msg .. s_format("\n\n%d failed:\n%s", #errors, t_concat(errors, "\n"))
+				msg = msg .. localisation:Text("build.export.failed_files", { count = #errors, errors = t_concat(errors, "\n") })
 			end
-			main:OpenMessagePopup("Loadout export", msg)
+			main:OpenMessagePopup(localisation:Text("ui.import_tab.do_write.poe2_export_save_all.label"), msg)
 		end
 		local existingFiles = {}
 		for _, loadout in ipairs(loadouts) do
@@ -463,9 +465,9 @@ function ImportTabClass:ImportTab(build)
 			end
 		end
 		if #existingFiles > 0 then
-			main:OpenConfirmPopup("Overwrite?",
-				s_format("%d file(s) already exist:\n%s\n\nOverwrite them?", #existingFiles, t_concat(existingFiles, "\n")),
-				"Overwrite", doWrite)
+			main:OpenConfirmPopup(localisation:Text("ui.import_tab.init.poe2_export_save.label_3"),
+				localisation:Text("ui.import_tab.init.poe2_export_save_all.label_2", { value = #existingFiles, value_2 = t_concat(existingFiles, "\n") }),
+				localisation:Text("ui.import_tab.init.poe2_export_save.label_4"), doWrite)
 		else
 			doWrite()
 		end
@@ -473,7 +475,7 @@ function ImportTabClass:ImportTab(build)
 	self.controls.poe2ExportSaveAll.enabled = function()
 		return self.controls.poe2ExportPath.buf and self.controls.poe2ExportPath.buf ~= ""
 	end
-	self.controls.poe2ExportSaveAll.tooltipText = "^7Exports one file per loadout. The loadout name is appended to each filename."
+	self.controls.poe2ExportSaveAll.tooltipText = localisation:Label("ui.import_tab.init.poe2_export_save_all_tooltip_text.label")
 
 	-- validate the status of the api the first time
 	self:RefreshAuthStatus()
@@ -498,14 +500,14 @@ function ImportTabClass:RefreshBuildPlannerSets()
 	-- these shouldn't really ever be empty as even a fresh build will have default sets active
 	local treeList = {}
 	for index, spec in ipairs(build.treeTab.specList) do
-		t_insert(treeList, { label = spec.title or "Default", key = index })
+		t_insert(treeList, { label = spec.title or "Default", labelKey = not spec.title and "term.calculation_source.default" or spec.titleKey, key = index })
 	end
 
 	local skillList = {}
 	for _, setId in ipairs(build.skillsTab.skillSetOrderList) do
 		local skillSet = build.skillsTab.skillSets[setId]
 		if skillSet then
-			t_insert(skillList, { label = skillSet.title or "Default", key = setId })
+			t_insert(skillList, { label = skillSet.title or "Default", labelKey = not skillSet.title and "term.calculation_source.default" or skillSet.titleKey, key = setId })
 		end
 	end
 
@@ -513,7 +515,7 @@ function ImportTabClass:RefreshBuildPlannerSets()
 	for _, setId in ipairs(build.itemsTab.itemSetOrderList) do
 		local itemSet = build.itemsTab.itemSets[setId]
 		if itemSet then
-			t_insert(itemList, { label = itemSet.title or "Default", key = setId })
+			t_insert(itemList, { label = itemSet.title or "Default", labelKey = not itemSet.title and "term.calculation_source.default" or itemSet.titleKey, key = setId })
 		end
 	end
 
@@ -534,14 +536,14 @@ function ImportTabClass:RefreshAuthStatus()
 			if valid then
 				if self.charImportMode == "AUTHENTICATION" then
 					self.charImportMode = "GETACCOUNTNAME"
-					self.charImportStatus = "Authenticated"
+					self.charImportStatus = localisation:Label("auth.status.signed_in")
 				end
 				if updateSettings then
 					self:SaveApiSettings()
 				end
 			else
 				self.charImportMode = "AUTHENTICATION"
-				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
+				self.charImportStatus = localisation:Label("auth.status.signed_out", nil, colorCodes.WARNING)
 			end
 		end)
 end
@@ -623,7 +625,7 @@ function ImportTabClass:DownloadCharacterList()
 	end
 
 	self.charImportMode = "DOWNLOADCHARLIST"
-	self.charImportStatus = "Retrieving character list..."
+	self.charImportStatus = localisation:Label("import.character_list.loading")
 	local realm = realmList[self.controls.accountRealm.selIndex]
 	main.api:DownloadCharacterList(realm.realmCode, function(body, errMsg, updateSettings)
 		if updateSettings then
@@ -631,44 +633,44 @@ function ImportTabClass:DownloadCharacterList()
 		end
 		if errMsg == main.api.ERROR_NO_AUTH then
 			self.charImportMode = "AUTHENTICATION"
-			self.charImportStatus = colorCodes.WARNING.."Not authenticated"
+			self.charImportStatus = localisation:Label("auth.status.signed_out", nil, colorCodes.WARNING)
 			return
 		elseif errMsg == "Response code: 401" then
-			self.charImportStatus = colorCodes.NEGATIVE.."Sign-in is required."
+			self.charImportStatus = localisation:Label("import.character_list.sign_in_required", nil, colorCodes.NEGATIVE)
 			self.charImportMode = "GETSESSIONID"
 			return
 		elseif errMsg == "Response code: 403" then
-			self.charImportStatus = colorCodes.NEGATIVE.."Account profile is private."
+			self.charImportStatus = localisation:Label("import.character_list.private_profile", nil, colorCodes.NEGATIVE)
 			self.charImportMode = "GETSESSIONID"
 			return
 		elseif errMsg == "Response code: 404" then
-			self.charImportStatus = colorCodes.NEGATIVE.."Account name is incorrect."
+			self.charImportStatus = localisation:Label("import.character_list.invalid_account", nil, colorCodes.NEGATIVE)
 			self.charImportMode = "GETACCOUNTNAME"
 			return
 		elseif errMsg == "Response code: 429" then
-			self.charImportStatus = function() return colorCodes.NEGATIVE.."Requests are being sent too fast, try again in " .. tostring(m_max(0, body - os.time())) .. " seconds." end
+			self.charImportStatus = function() return colorCodes.NEGATIVE .. localisation:Text("import.status.rate_limited", { value = tostring(m_max(0, body - os.time())) }) end
 			self.charImportMode = "GETACCOUNTNAME"
 			return
 		elseif errMsg then
-			self.charImportStatus = colorCodes.NEGATIVE.."Error retrieving character list, try again ("..errMsg:gsub("\n"," ")..")"
+			self.charImportStatus = localisation:Label("import.character_list.request_failed", { value = errMsg:gsub("\n"," ") }, colorCodes.NEGATIVE)
 			self.charImportMode = "GETACCOUNTNAME"
 			return
 		end
 		local charList, _pos, errDecode = dkjson.decode(body)
 		if errDecode then
-			self.charImportStatus = colorCodes.NEGATIVE.."Error processing character list, try again later"
+			self.charImportStatus = localisation:Label("import.character_list.decode_failed", nil, colorCodes.NEGATIVE)
 			self.charImportMode = "GETACCOUNTNAME"
 			return
 		end
 		charList = charList.characters
 		--ConPrintTable(charList)
 		if #charList == 0 then
-			self.charImportStatus = colorCodes.NEGATIVE.."The account has no characters to import."
+			self.charImportStatus = localisation:Label("import.character_list.empty", nil, colorCodes.NEGATIVE)
 			self.charImportMode = "GETACCOUNTNAME"
 			return
 		end
 
-		self.charImportStatus = "Character list successfully retrieved."
+		self.charImportStatus = localisation:Label("import.character_list.loaded")
 		self.charImportMode = "SELECTCHAR"
 		self.lastRealm = realm.id
 		main.lastRealm = realm.id
@@ -692,7 +694,7 @@ function ImportTabClass:DownloadCharacterList()
 			})
 		end
 		t_insert(self.controls.charSelectLeague.list, {
-			label = "All",
+			label = "All", labelKey = "ui.import_tab.download_character_list.label",
 		})
 		-- set the league combo to the last used if possible, used for previously imported characters
 			if self.lastLeague then
@@ -766,7 +768,7 @@ end
 
 function ImportTabClass:DownloadCharacter(callback)
 	self.charImportMode = "IMPORTING"
-	self.charImportStatus = "Retrieving character data..."
+	self.charImportStatus = localisation:Label("import.character.loading")
 	local realm = realmList[self.controls.accountRealm.selIndex]
 	local charSelect = self.controls.charSelect
 	local charData = charSelect.list[charSelect.selIndex].char
@@ -778,18 +780,18 @@ function ImportTabClass:DownloadCharacter(callback)
 		if errMsg then
 			if errMsg == main.api.ERROR_NO_AUTH then
 				self.charImportMode = "AUTHENTICATION"
-				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
+				self.charImportStatus = localisation:Label("auth.status.signed_out", nil, colorCodes.WARNING)
 				return
 			elseif errMsg == "Response code: 429" then
-				self.charImportStatus = function() return colorCodes.NEGATIVE.."Requests are being sent too fast, try again in " .. tostring(m_max(0, body - os.time())) .. " seconds." end
+				self.charImportStatus = function() return colorCodes.NEGATIVE .. localisation:Text("import.status.rate_limited", { value = tostring(m_max(0, body - os.time())) }) end
 				self.charImportMode = "GETACCOUNTNAME"
 				return
 			else
-				self.charImportStatus = colorCodes.NEGATIVE.."Error importing character data, try again ("..errMsg:gsub("\n"," ")..")"
+				self.charImportStatus = localisation:Label("import.character.request_error", { value = errMsg:gsub("\n"," ") }, colorCodes.NEGATIVE)
 				return
 			end
 		elseif body == "false" then
-			self.charImportStatus = colorCodes.NEGATIVE.."Failed to retrieve character data, try again."
+			self.charImportStatus = localisation:Label("import.character.request_failed", nil, colorCodes.NEGATIVE)
 			return
 		end
 		self.lastCharacterHash = common.sha1(charData.name)
@@ -805,7 +807,7 @@ function ImportTabClass:DownloadCharacter(callback)
 		--out:close()
 
 		if errParsing then
-			self.charImportStatus = colorCodes.NEGATIVE.."Error processing character data, try again later."
+			self.charImportStatus = localisation:Label("import.character.decode_failed", nil, colorCodes.NEGATIVE)
 			return
 		end
 		fullCharData = fullCharData.character
@@ -925,8 +927,9 @@ function ImportTabClass:ImportQuestRewardConfig(questStats)
 end
 
 function ImportTabClass:ImportPassiveTreeAndJewels(charData)
+	charData = localisation:Character(charData)
 	local charPassiveData = charData.passives
-	self.charImportStatus = colorCodes.POSITIVE.."Passive tree and jewels successfully imported."
+	self.charImportStatus = localisation:Label("import.character.tree_imported", nil, colorCodes.POSITIVE)
 	self.build.spec.jewel_data = copyTable(charPassiveData.jewel_data)
 	--ConPrintTable(charPassiveData)
 	if self.controls.charImportTreeClearJewels.state then
@@ -1095,6 +1098,7 @@ local function applySocketGroupReimportState(socketGroup, state)
 end
 
 function ImportTabClass:ImportItemsAndSkills(charData)
+	charData = localisation:Character(charData)
 	local charItemData = charData.equipment
 	if self.controls.charImportItemsClearItems.state then
 		for _, slot in pairs(self.build.itemsTab.slots) do
@@ -1131,7 +1135,7 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 		self.build.skillsTab.controls.groupList.selValue = nil
 		self.build.skillsTab:SetDisplayGroup()
 	end
-	self.charImportStatus = colorCodes.POSITIVE.."Items and skills successfully imported."
+	self.charImportStatus = localisation:Label("import.character.items_imported", nil, colorCodes.POSITIVE)
 	--ConPrintTable(charItemData)
 	for _, itemData in ipairs(charItemData) do
 		self:ImportItem(itemData)

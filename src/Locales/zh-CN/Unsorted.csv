@@ -1,0 +1,211 @@
+Value,数值
+Stat,状态
+Skill,技能
+
+Source,来源
+Source Name,来源名称
+Item,物品
+Global,全域
+Total,总计
+Buff,增益效果
+Inc/red,增/减
+More/less,多/少
+Converted Damage,转换伤害
+{0}% to Fire,{0}% 到火焰
+{0}% to Cold,{0}% 到冰霜
+{0}% to Lightning,{0}% 到闪电
+{0}% to Chaos,{0}% 到混沌
+Physical Damage Gain As Fire,物理伤害的额外火焰
+Physical Damage Gain As Cold,物理伤害的额外冰霜
+Physical Damage Gain As Lightning,物理伤害的额外闪电
+Physical Damage Gain As Chaos,物理伤害的额外混沌
+Base,基础
+Type,类型
+Mitigation,减免
+Final,最终
+Resist,抗性
+Elemental,元素
+Total from Tree:,天赋总计:
+Total from Item:,物品总计:
+Total from Base:,基础总计:
+Total from Skill:,技能总计:
+Total from Dexterity:,敏捷总计:
+Total from Intelligence:,智慧总计:
+Total from Strength:,力量总计:
+{0} base,{0} 基础
+From,来自
+Player,玩家
+Total damage:,总伤害:
+Damage from Crits:,来自暴击伤害:
+Damage from Non-crits:,来自非暴击伤害:
+Reduction from Armour: {0}%,护甲减少: {0}%
+Physical:,物理:
+Lightning:,闪电:
+Cold:,冰霜:
+Fire:,火焰:
+Chaos:,混沌:
+Base damage:,基础伤害:
+"Portion of total damage: {0}%","总伤害占比: {0}%"
+"Hit damage:",击中伤害:
+"Skill types",技能类型
+"= {0} per second","= {0} 每秒"
+"{0}% increased","提高 {0}%"
+"{0}% reduced","降低 {0}%"
+"{0}% more","额外提高 {0}%"
+"{0}% less","额外降低 {0}%"
+"Recharge rate:",回复速度:
+"Max: {0}%","上限: {0}%"
+"Total: {0}%","总计: {0}%"
+"Average enemy accuracy: {0}","敌人命中值: {0}"
+"Approximate evade chance: {0}%","闪避几率: {0}%"
+"Elemental Resist",元素抗性
+"Fire Resist Max",火焰抗性上限
+"Fire Resist",火焰抗性
+"Cold Resist Max",冰霜抗性上限
+"Cold Resist",冰霜抗性
+"Lightning Resist Max",闪电抗性上限
+"Lightning Resist",闪电抗性
+"Chaos Resist Max",混沌抗性上限
+"Chaos Resist",混沌抗性
+"Physical Damage Reduction",物理伤害降低
+"{0}% as Physical","{0}% 物理"
+"{0}% as Fire","{0}% 为火焰"
+"{0}% as Cold","{0}% 为冰霜"
+"{0}% as Lightning","{0}% 为闪电"
+"{0}% as Chaos","{0}% 为混沌"
+Resistance,抗性
+"Average Damage",平均伤害
+"Attack Rate",攻击速率
+"Cast Rate",施法速率
+"Hit Rate",击中速率
+"Trap Throwing Time",陷阱投郑间隔
+"Trap Cooldown",陷阱冷却
+"Totem Placement Time",图腾放置间隔
+"Hit Chance",命中率
+
+"DoT DPS","持续伤 DPS"
+"Bleed DPS","流血 DPS"
+"Ignite DPS","点燃 DPS"
+"Total Damage per Ignite",每次点燃总伤害
+"Total DPS inc. Ignite","总+点燃 DPS"
+"Average Dmg. inc. Ignite","总+点燃平均伤害"
+"Poison DPS","中毒 DPS"
+"Total Damage per Poison","每次中毒总伤害"
+"Total DPS inc. Poison","总+中毒 DPS"
+"Average Dmg. inc. Poison","总+中毒平均伤害"
+"Decay DPS","腐蚀 DPS"
+"AoE Radius","范围效果半径"
+"Strength Required",力量需求
+"Dexterity Required",敏捷需求
+"Intelligence Required",智慧需求
+"Total Life",最大生命
+"%Inc Life from Tree",生命加成(天赋)
+"Unreserved Life",未保留生命
+"Life Leech/On Hit Rate",生命偷取(击中速率)
+"Life Leech/Gain per Hit",生命偷取(击中获得)
+"Total Mana",最大魔力
+"%Inc Mana from Tree",魔力加成(天赋)
+"Unreserved Mana",未保留魔力
+"Mana Regen",魔力再生
+"Mana Leech/On Hit Rate",魔力偷取(击中速率)
+"Mana Leech/Gain per Hit",魔力偷取(击中获得)
+"%Inc ES from Tree","ES 加成(天赋)"
+"Energy Shield Regen",能量护盾再生
+"Energy Shield Regen:",能量护盾回复:
+"Energy Shield Recharge",能量护盾回复
+"ES Leech/On Hit Rate","ES 偷取(击中速率)"
+"ES Leech/Gain per Hit","ES 偷取(击中获得)"
+"Evasion rating",闪避值
+"%Inc Evasion from Tree",闪避加成(天赋)
+"%Inc Armour from Tree",护甲加成(天赋)
+"Phys. Damage Reduction",物理伤害减免
+"Movement Speed Modifier",移动速度加成
+"Block Chance",攻击格挡几率
+"Spell Block Chance",法术格挡几率
+"Attack Dodge Chance",攻击躲避几率
+"Spell Dodge Chance",法术躲避几率
+"Fire Res. Over Max",火焰抗性(溢出)
+"Cold Res. Over Max",冰霜抗性(溢出)
+"Lightning Res. Over Max",闪电抗性(溢出)
+"Chaos Res. Over Max",混沌抗性(溢出)
+
+Speed,速度
+"{0} (base throwing speed)","{0} (基础投射物速度)"
+"{0} (increased/reduced throwing speed)","{0} (提高/降低 投射物速度)"
+"{0} (more/less throwing speed)","{0} (额外提高/额外降低 投射物速度)"
+"{0} (action speed modifier)","{0} (行动速度加成)"
+"{0} (base)","{0} (基础)"
+"/ {0} (increased/reduced cooldown recovery)","/ {0} (提高/降低 冷却回复)"
+"{0} (base placement speed)","{0} (基础放置速度)"
+"{0} (increased/reduced placement speed)","{0} (提高/降低 放置速度)"
+"{0} (more/less placement speed)","{0} (额外提高/额外降低 放置速度)"
+" (base life for a level {0} monster)"," ({0} 级怪物基础生命)"
+"x {0} (life multiplier for this totem type)","x {0} (此类图腾生命倍率)"
+"x {0} (totem life modifier)","x {0} (图腾生命加成)"
+"- %d (- mana cost)","- {0} (- 魔力消耗)"
+"x {0} (portion of instances created by main hand)","x {0} (主手实例部分)"
+"x {0} (portion of instances created by off hand)","x {0} (副手实例部分)"
+"{0} + {0} (base)","{0} + {0} (基础)"
+"= {0}% (crit chance)","= {0}% (暴击机率)"
+"{0}% (additional extra damage)","{0}% (额外的额外伤害)"
+"x {0} (increased/reduced extra crit damage taken by enemy)","x {0} (提高/降低 敌人额外暴击伤害)"
+"= {0}% (extra crit damage)","= {0}% (额外暴击伤害)"
+"{0} to {1} x {2} (base damage from {3} multiplied by base damage multiplier)","{0} to {1}) x {2} (来自 {3} 倍基础伤害的基础伤害)"
+"{0} to {1} x {2} (added damage multiplied by damage effectiveness)","{0} 至 {1} x {2} (更多 伤害倍数 从 伤害效果)"
+"{0} x {1} - {2} (damage from non-crits)","{0} x {1} - {2} (来自非暴击伤害)"
+"+ {0} x {1} (damage from crits)","+ {0} x {1} (来自暴击伤害)"
+"{0} x {1} - {2} (chance from non-crits)","{0} x {1} - {2} (非暴击几率)"
+"+ {0} x {1} (chance from crits)","+ {0} x {1} (暴击几率)"
+"{0} (source damage)","{0} (源伤害)"
+"{0} (source damage from non-crits)","{0} (非暴击源伤害)"
+"{0} (source damage from crits)","{0} (暴击源伤害)"
+"x {0} (bleed deals {1}% per second)","x {0} (每秒流血 {1}%)"
+"{0} (total damage per second)","{0} (每秒总伤害)"
+"{0} (damage rate modifier)","{0} (伤害生效速率加成)"
+"/ {0} (damage rate modifier)","/ {0} (伤害速度加成)"
+"Ignite mode: {0} (can be changed in the Configuration tab)","点燃方式: {0} (可以在 配置 选项卡中更改)"
+"Enemy Physical Hit Damage: {0} (can be overridden in the Configuration tab)","敌人击中物理伤害: {0} (可以在 配置 选项卡中调整)"
+"{0} (ignite chance)","{0} (点燃几率)"
+"+ {0} x {1} (portion of damage from crits)","+ {0} x {1} (来自暴击伤害百分比)"
+"{0} base Fire Resist Max","{0} 基础火焰抗性上限"
+"{0} base Cold Resist Max","{0} 基础冰霜抗性上限"
+"{0} base Lightning Resist Max","{0} 基础闪电抗性上限"
+"{0} base Chaos Resist Max","{0} 基础混沌抗性上限"
+"{0} base Elemental Resist","{0} 基础元素抗性"
+"{0} base Fire Resist","{0} 基础火焰抗性"
+"{0} base Cold Resist","{0} 基础冰霜抗性"
+"{0} base Lightning Resist","{0} 基础闪电抗性"
+"{0} base Chaos Resist","{0} 基础混沌抗性"
+"{0} per {1} Str","每 {1} 力量 {0}"
+"{0}% per {1} Str","每 {1} 力量 {0}%"
+"{0} per {1} Dex","每 {1} 敏捷 {0}"
+"{0} per {1} Int","每 {1} 智慧 {0}"
+"{0} per {1} Mana","每 {1} 魔力 {0}"
+"{0} + {1} per Level","{0} + 每级 {1}"
+Name,名称
+Reservation,保留
+"Mana Regeneration:",魔力再生:
+"Life Regen Percent",生命再生百分比
+"Mana Regen Percent",魔力再生百分比
+"Armour And Evasion",护甲与闪避
+"{0}% increased Armour And Evasion","护甲与闪避提高 {0}%"
+"{0}% increased Evasion","闪避提高 {0}%"
+Conversion,转换
+"Life to Energy Shield",生命到能量护盾
+"{0}{1}% per second)","{0}{1}% 每秒)"
+"Chance on Non-crit: {0}%","非暴击几率: {0}%"
+"Chance on Crit: {0}%","暴击几率: {0}%"
+"Combined chance:",综合几率:
+"For freeze to apply, target must have no more than {0} life.","要冻结敌人, 目标生命不能低于 {0}"
+"For shock to apply, target must have no more than {0} life.","要感电敌人, 目标生命不能低于 {0}"
+"{0} Power Charges","{0} 暴击球"
+"{0} Endurance Charges","{0} 耐力球"
+"{0} Frenzy Charges","{0} 狂怒球"
+"{0} Inspiration Charges","{0} 启迪球"
+"Tailwind","提速尾流"
+"Exclusive to",限定
+"Enemy resistance: {0}%","敌人抗性: {0}%"
+Cannot pierce,无法穿透
+Cannot fork,无法分叉
+Cannot chain,无法连锁
+"Eff. Maximum Hit Taken:",有效最大击中伤承受值:

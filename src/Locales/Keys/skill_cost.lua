@@ -1,0 +1,22 @@
+-- 按业务身份保留显示字段引用，避免单个 Lua 函数超过常量表上限。
+return {
+	["ES"] = { ["ResourceString"] = "game.skill_cost.es.resource_string" },
+	["ESPerMinute"] = { ["ResourceString"] = "game.skill_cost.esperminute.resource_string" },
+	["ESPercent"] = { ["ResourceString"] = "game.skill_cost.espercent.resource_string" },
+	["ESPercentPerMinute"] = { ["ResourceString"] = "game.skill_cost.espercentperminute.resource_string" },
+	["Life"] = { ["ResourceString"] = "game.skill_cost.life.resource_string" },
+	["LifePerMinute"] = { ["ResourceString"] = "game.skill_cost.lifeperminute.resource_string" },
+	["LifePercent"] = { ["ResourceString"] = "game.skill_cost.lifepercent.resource_string" },
+	["LifePercentPerMinute"] = { ["ResourceString"] = "game.skill_cost.lifepercentperminute.resource_string" },
+	["Mana"] = { ["ResourceString"] = "game.skill_cost.mana.resource_string" },
+	["ManaPerMinute"] = { ["ResourceString"] = "game.skill_cost.manaperminute.resource_string" },
+	["ManaPercent"] = { ["ResourceString"] = "game.skill_cost.manapercent.resource_string" },
+	["ManaPercentPerMinute"] = { ["ResourceString"] = "game.skill_cost.manapercentperminute.resource_string" },
+	["Rage"] = { ["ResourceString"] = "game.skill_cost.rage.resource_string" },
+	["RagePerMinute"] = { ["ResourceString"] = "game.skill_cost.rageperminute.resource_string" },
+	["Soul"] = { ["ResourceString"] = "game.skill_cost.soul.resource_string" },
+	["UnreservedManaPercent"] = { ["ResourceString"] = "game.skill_cost.unreservedmanapercent.resource_string" },
+	["Ward"] = { ["ResourceString"] = "game.skill_cost.ward.resource_string" },
+	["WardPerMinute"] = { ["ResourceString"] = "game.skill_cost.wardperminute.resource_string" },
+	["WardPercent"] = { ["ResourceString"] = "game.skill_cost.wardpercent.resource_string" },
+}

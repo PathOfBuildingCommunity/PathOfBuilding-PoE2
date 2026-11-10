@@ -15,7 +15,7 @@ local CompareEntryClass = newClass("CompareEntry", "ControlHost")
 function CompareEntryClass:CompareEntry(xmlText, label)
 	self:ControlHost()
 
-	self.label = label or "Comparison Build"
+	self.label = label or localisation:Label("ui.compare_entry.init.label")
 	self.buildName = label or "Comparison Build"
 	self.xmlText = xmlText
 
@@ -254,6 +254,7 @@ function CompareEntryClass:Rebuild()
 	wipeGlobalCache()
 	self.outputRevision = self.outputRevision + 1
 	self.calcsTab:BuildOutput()
+	self.displayLanguage = localisation.language
 	self.buildFlag = false
 end
 
@@ -294,7 +295,7 @@ function CompareEntryClass:RefreshSkillSelectControls(controls, mainGroup, suffi
 	controls.mainSocketGroup.selIndex = mainGroup
 	wipeTable(controls.mainSocketGroup.list)
 	for i, socketGroup in pairs(self.skillsTab.socketGroupList) do
-		controls.mainSocketGroup.list[i] = { val = i, label = socketGroup.displayLabel }
+		controls.mainSocketGroup.list[i] = { val = i, label = socketGroup.displayLabel, labelDisplay = function() return localisation:SocketGroupName(socketGroup) end }
 	end
 	controls.mainSocketGroup:CheckDroppedWidth(true)
 
@@ -310,7 +311,7 @@ function CompareEntryClass:RefreshSkillSelectControls(controls, mainGroup, suffi
 	end
 
 	if #controls.mainSocketGroup.list == 0 then
-		controls.mainSocketGroup.list[1] = { val = 1, label = "<No skills added yet>" }
+		controls.mainSocketGroup.list[1] = { val = 1, label = "<No skills added yet>", labelKey = "ui.compare_entry.refresh_skill_select_controls.main_socket_group_list_1.label" }
 		hideAllSkillControls()
 		return
 	end
@@ -333,7 +334,7 @@ function CompareEntryClass:RefreshSkillSelectControls(controls, mainGroup, suffi
 		local explodeSource = activeSkill.activeEffect.srcInstance.explodeSource
 		local explodeSourceName = explodeSource and (explodeSource.name or explodeSource.dn)
 		local colourCoded = explodeSourceName and ("From "..colorCodes[explodeSource.rarity or "NORMAL"]..explodeSourceName)
-		t_insert(controls.mainSkill.list, { val = i, label = colourCoded or self.calcsTab.calcs.getActiveSkillDisplayName(activeSkill) })
+		t_insert(controls.mainSkill.list, { val = i, label = colourCoded or self.calcsTab.calcs.getActiveSkillDisplayName(activeSkill), labelDisplay = function() return localisation:ActiveSkillSelectionName(activeSkill) end })
 	end
 	controls.mainSkill.enabled = #displaySkillList > 1
 	controls.mainSkill.selIndex = mainActiveSkill
@@ -371,7 +372,7 @@ function CompareEntryClass:RefreshSkillSelectControls(controls, mainGroup, suffi
 		wipeTable(controls.statSet.list)
 		for i, statSet in ipairs(activeEffect.grantedEffect.statSets) do
 			t_insert(controls.statSet.list,
-				{ val = i, label = statSet.label, grantedEffectId = activeEffect.grantedEffect.id })
+				{ val = i, label = statSet.label, labelKey = statSet.labelKey, grantedEffectId = activeEffect.grantedEffect.id })
 		end
 		controls.statSet.selIndex = activeEffect.srcInstance["statSet" .. suffix] and
 		activeEffect.srcInstance["statSet" .. suffix][activeEffect.grantedEffect.id] or 1
@@ -410,6 +411,7 @@ function CompareEntryClass:RefreshMinionControls(controls, activeSkill, activeEf
 			if minion then
 				t_insert(controls.mainSkillMinion.list, {
 					label = minion.name,
+					labelKey = minion.nameKey,
 					minionId = minionId,
 				})
 			end
@@ -422,7 +424,8 @@ function CompareEntryClass:RefreshMinionControls(controls, activeSkill, activeEf
 	wipeTable(controls.mainSkillMinionSkill.list)
 	if activeSkill.minion then
 		for _, minionSkill in ipairs(activeSkill.minion.activeSkillList) do
-			t_insert(controls.mainSkillMinionSkill.list, minionSkill.activeEffect.grantedEffect.name)
+			local effect = minionSkill.activeEffect.grantedEffect
+			t_insert(controls.mainSkillMinionSkill.list, { label = effect.name, labelKey = effect.nameKey })
 		end
 		controls.mainSkillMinionSkill.selIndex = activeEffect.srcInstance["skillMinionSkill" .. suffix] or 1
 		controls.mainSkillMinionSkill.shown = true
@@ -430,7 +433,7 @@ function CompareEntryClass:RefreshMinionControls(controls, activeSkill, activeEf
 		wipeTable(controls.mainSkillMinionSkillStatSet.list)
 		for _, statSet in ipairs(activeSkill.minion.activeSkillList[controls.mainSkillMinionSkill.selIndex].activeEffect.grantedEffect.statSets) do
 			t_insert(controls.mainSkillMinionSkillStatSet.list,
-				{ label = statSet.label, grantedEffectId = activeEffect.grantedEffect.id })
+				{ label = statSet.label, labelKey = statSet.labelKey, grantedEffectId = activeEffect.grantedEffect.id })
 		end
 		local minionStatSetIndexLookup = activeEffect.srcInstance["skillMinionSkillStatSetIndexLookup" .. suffix]
 		controls.mainSkillMinionSkillStatSet.selIndex = minionStatSetIndexLookup and
@@ -455,25 +458,26 @@ function CompareEntryClass:OpenSpectreLibrary()
 	-- No spectre library in comparison entry
 end
 
-function CompareEntryClass:AddStatComparesToTooltip(tooltip, baseOutput, compareOutput, header, nodeCount)
+function CompareEntryClass:AddStatComparesToTooltip(tooltip, baseOutput, compareOutput, header, nodeCount, newBlock)
 	-- Reuse the stat comparison logic
 	local count = 0
 	if self.calcsTab and self.calcsTab.mainEnv and self.calcsTab.mainEnv.player and self.calcsTab.mainEnv.player.mainSkill then
 		if self.calcsTab.mainEnv.player.mainSkill.minion and baseOutput.Minion and compareOutput.Minion then
-			count = count + self:CompareStatList(tooltip, self.minionDisplayStats, self.calcsTab.mainEnv.minion, baseOutput.Minion, compareOutput.Minion, header.."\n^7Minion:", nodeCount)
+			count = count + self:CompareStatList(tooltip, self.minionDisplayStats, self.calcsTab.mainEnv.minion, baseOutput.Minion, compareOutput.Minion, header.."\n^7Minion:", nodeCount, newBlock)
 			if count > 0 then
+				newBlock = false
 				header = "^7Player:"
 			else
 				header = header.."\n^7Player:"
 			end
 		end
-		count = count + self:CompareStatList(tooltip, self.displayStats, self.calcsTab.mainEnv.player, baseOutput, compareOutput, header, nodeCount)
+		count = count + self:CompareStatList(tooltip, self.displayStats, self.calcsTab.mainEnv.player, baseOutput, compareOutput, header, nodeCount, newBlock)
 	end
 	return count
 end
 
 -- Stat comparison
-function CompareEntryClass:CompareStatList(tooltip, statList, actor, baseOutput, compareOutput, header, nodeCount)
+function CompareEntryClass:CompareStatList(tooltip, statList, actor, baseOutput, compareOutput, header, nodeCount, newBlock)
 	local s_format = string.format
 	local count = 0
 	if not actor or not actor.mainSkill then
@@ -517,7 +521,7 @@ function CompareEntryClass:CompareStatList(tooltip, statList, actor, baseOutput,
 				end
 				if (diff > 0.001 or diff < -0.001) and (not statData.condFunc or statData.condFunc(statVal1, compareOutput) or statData.condFunc(statVal2, baseOutput)) then
 					if count == 0 then
-						tooltip:AddLine(14, header)
+						tooltip:AddLine(14, header, nil, nil, nil, newBlock)
 					end
 					local color = ((statData.lowerIsBetter and diff < 0) or (not statData.lowerIsBetter and diff > 0)) and colorCodes.POSITIVE or colorCodes.NEGATIVE
 					local val = diff * ((statData.pc or statData.mod) and 100 or 1)
@@ -527,7 +531,7 @@ function CompareEntryClass:CompareStatList(tooltip, statList, actor, baseOutput,
 						valStr = number:gsub("0+$", ""):gsub("%.$", "") .. suffix
 					end
 					valStr = formatNumSep(valStr)
-					local line = s_format("%s%s %s", color, valStr, statData.label)
+					local line = s_format("%s%s %s", color, valStr, localisation:Field(statData, "label"))
 					if statData.compPercent and statVal1 ~= 0 and statVal2 ~= 0 then
 						local pc = statVal1 / statVal2 * 100 - 100
 						line = line .. s_format(" (%+.1f%%)", pc)
@@ -558,22 +562,22 @@ do
 			end
 			local omni = math.floor(highestAttribute * (100/omniSatisfy))
 			if omni and (omni > 0 or omni > self.calcsTab.mainOutput.Omni) then
-				t_insert(req, s_format("%s%d ^x7F7F7FOmni", main:StatColor(omni, 0, self.calcsTab.mainOutput.Omni), omni))
+				t_insert(req, localisation:Text("equipment.requirement.omniscience_value", { colour = main:StatColor(omni, 0, self.calcsTab.mainOutput.Omni), value = omni }))
 			end
 		else
 			if str and (str > 14 or str > self.calcsTab.mainOutput.Str) then
-				t_insert(req, s_format("%s%d ^x7F7F7FStr", main:StatColor(str, strBase, self.calcsTab.mainOutput.Str), str))
+				t_insert(req, localisation:Text("equipment.requirement.attribute_value", { colour = main:StatColor(str, strBase, self.calcsTab.mainOutput.Str), value = str, label_colour = "^x7F7F7F", attribute = localisation:TermRef("attribute", "Str") }))
 			end
 			if dex and (dex > 14 or dex > self.calcsTab.mainOutput.Dex) then
-				t_insert(req, s_format("%s%d ^x7F7F7FDex", main:StatColor(dex, dexBase, self.calcsTab.mainOutput.Dex), dex))
+				t_insert(req, localisation:Text("equipment.requirement.attribute_value", { colour = main:StatColor(dex, dexBase, self.calcsTab.mainOutput.Dex), value = dex, label_colour = "^x7F7F7F", attribute = localisation:TermRef("attribute", "Dex") }))
 			end
 			if int and (int > 14 or int > self.calcsTab.mainOutput.Int) then
-				t_insert(req, s_format("%s%d ^x7F7F7FInt", main:StatColor(int, intBase, self.calcsTab.mainOutput.Int), int))
+				t_insert(req, localisation:Text("equipment.requirement.attribute_value", { colour = main:StatColor(int, intBase, self.calcsTab.mainOutput.Int), value = int, label_colour = "^x7F7F7F", attribute = localisation:TermRef("attribute", "Int") }))
 			end
 		end
 		if req[1] then
 			local fontSizeBig = main.showFlavourText and 18 or 16
-			tooltip:AddLine(fontSizeBig, "^x7F7F7FRequires "..table.concat(req, "^x7F7F7F, "), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, localisation:Text("ui.compare_entry.add_requirements_to_tooltip.tooltip", { value = table.concat(req, "^x7F7F7F, ") }), "FONTIN SC")
 			tooltip:AddSeparator(10)
 		end
 		wipeTable(req)

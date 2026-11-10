@@ -120,9 +120,9 @@ describe("ImportTab BuildPlanner export option", function()
 		local importTab = build.importTab
 		local option = importTab.controls.buildPlannerUseGeneratedItemText
 
-		assert.are.equal("Tree", StripEscapes(importTab.controls.buildPlannerTreeLabel.label))
-		assert.are.equal("Skill", StripEscapes(importTab.controls.buildPlannerSkillLabel.label))
-		assert.are.equal("Item", StripEscapes(importTab.controls.buildPlannerItemLabel.label))
+		assert.are.equal("Tree", StripEscapes(importTab.controls.buildPlannerTreeLabel:GetProperty("label")))
+		assert.are.equal("Skill", StripEscapes(importTab.controls.buildPlannerSkillLabel:GetProperty("label")))
+		assert.are.equal("Item", StripEscapes(importTab.controls.buildPlannerItemLabel:GetProperty("label")))
 		assert.are.equal("TOPLEFT", option.anchor.point)
 		assert.are.equal(importTab.controls.buildPlannerSpec, option.anchor.other)
 		assert.is_true(option.labelRight)

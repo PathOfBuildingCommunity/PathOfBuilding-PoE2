@@ -158,15 +158,18 @@ function TooltipClass:CheckForUpdate(...)
 			doUpdate = true
 		end
 	end
-	if doUpdate or self.updateParams.notSupportedModTooltips ~= main.notSupportedModTooltips then
+	if doUpdate or self.updateParams.notSupportedModTooltips ~= main.notSupportedModTooltips or self.updateParams.language ~= localisation.language then
 		self.updateParams.notSupportedModTooltips = main.notSupportedModTooltips
+		-- 缓存中的提示框行包含译文，切换语言后必须重新生成。
+		self.updateParams.language = localisation.language
 		self:Clear()
 		return true
 	end
 end
 
-function TooltipClass:AddLine(size, text, font, background, modLine)
+function TooltipClass:AddLine(size, text, font, background, modLine, newBlock)
 	if text then
+		-- 调用点已解析资源引用，拆行和测宽使用同一份文案。
 		local fontToUse
 		if main.showFlavourText then
 			fontToUse = font or "VAR"
@@ -174,12 +177,15 @@ function TooltipClass:AddLine(size, text, font, background, modLine)
 			fontToUse = "VAR"
 		end
 		local activeColour
+		local firstLine = true
 		for line in s_gmatch(text .. "\n", "([^\n]*)\n") do
-			if line:match("^.*(Equipping)") == "Equipping" or line:match("^.*(Removing)") == "Removing" then
+			-- 分块由调用点明确指定，不能依赖任何语言的句子内容。
+			if firstLine and newBlock then
 				t_insert(self.blocks, { height = size + 2})
 			else
 				self.blocks[#self.blocks].height = self.blocks[#self.blocks].height + size + 2
 			end
+			firstLine = false
 			if self.maxWidth then
 				for _, wrappedLine in ipairs(main:WrapString(line, size, self.maxWidth - H_PAD)) do
 					if activeColour then wrappedLine = activeColour .. wrappedLine end
@@ -333,6 +339,8 @@ function TooltipClass:GetSize()
 			if #recipeNameShort > 3 and recipeNameShort:sub(-3) == "Oil" then
 				recipeNameShort = recipeNameShort:sub(1, #recipeNameShort - 3)
 			end
+			-- 材料测宽和绘制使用相同的当前语言术语，原配方名称继续用于图标与业务逻辑。
+			recipeNameShort = localisation:Term("anoint_material", recipeName, recipeNameShort)
 			imageX = imageX + DrawStringWidth(recipeTextSize, font, recipeNameShort) + title.size * 1.25
 		end
 		ttW = m_max(ttW, imageX)
@@ -407,6 +415,7 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 				if #rn > 3 and rn:sub(-3) == "Oil" then
 					rn = rn:sub(1, #rn - 3)
 				end
+				rn = localisation:Term("anoint_material", r.name, rn)
 				local textW = DrawStringWidth(recipeTextSize, font, rn)
 				local iconW = titleSize
 				table.insert(oilWidths, {rn, r.sprite, textW, iconW})

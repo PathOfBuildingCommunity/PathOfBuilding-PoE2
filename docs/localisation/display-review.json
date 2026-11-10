@@ -1,0 +1,2612 @@
+[
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/BuildSetListControl.lua\",\"OpenPopup.title\",\"options.popupTitle\",\"main:OpenPopup(370, 110, options.popupTitle, controls, \\\"save\\\", \\\"edit\\\", \\\"cancel\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/BuildSetListControl.lua",
+    "line": 241,
+    "category": "user-title-or-resolved",
+    "reason": "用户路径、配装名和构筑名原样保留；系统标题/比较报告在调用点绑定或解析资源。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ButtonControl.lua\",\"label\",\"label\",\"self.label = label\"]",
+    "count": 1,
+    "file": "src/Classes/ButtonControl.lua",
+    "line": 12,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ButtonControl.lua\",\"DrawString\",\"label\",\"DrawString(x + width / 2, y + 2 - overSize, \\\"CENTER_X\\\", height - 4 + overSize * 2, \\\"VAR\\\", label)\"]",
+    "count": 1,
+    "file": "src/Classes/ButtonControl.lua",
+    "line": 93,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CalcBreakdownControl.lua\",\"DrawStringWidth\",\"line\",\"section.width = m_max(section.width, DrawStringWidth(section.textSize, \\\"VAR\\\", line) + 8 + (4 * num))\"]",
+    "count": 1,
+    "file": "src/Classes/CalcBreakdownControl.lua",
+    "line": 104,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CalcBreakdownControl.lua\",\"DrawStringWidth\",\"line\",\"section.width = m_max(section.width, DrawStringWidth(section.textSize, \\\"VAR\\\", line) + 8)\"]",
+    "count": 1,
+    "file": "src/Classes/CalcBreakdownControl.lua",
+    "line": 106,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CalcBreakdownControl.lua\",\"DrawStringWidth\",\"display\",\"col.width = m_max(col.width or 0, DrawStringWidth(16, \\\"VAR\\\", localisation:Field(col, \\\"label\\\")) + 6, DrawStringWidth(12, \\\"VAR\\\", display) + 6 + (4 * num))\"]",
+    "count": 1,
+    "file": "src/Classes/CalcBreakdownControl.lua",
+    "line": 119,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CalcBreakdownControl.lua\",\"DrawStringWidth\",\"display\",\"col.width = m_max(col.width or 0, DrawStringWidth(16, \\\"VAR\\\", localisation:Field(col, \\\"label\\\")) + 6, DrawStringWidth(12, \\\"VAR\\\", display) + 6)\"]",
+    "count": 1,
+    "file": "src/Classes/CalcBreakdownControl.lua",
+    "line": 121,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CalcBreakdownControl.lua\",\"DrawStringWidth\",\"section.footer\",\"self.contentWidth = m_max(self.contentWidth, 6 + DrawStringWidth(12, \\\"VAR\\\", section.footer))\"]",
+    "count": 1,
+    "file": "src/Classes/CalcBreakdownControl.lua",
+    "line": 135,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CalcBreakdownControl.lua\",\"Tooltip.AddLine\",\"line\",\"tooltip:AddLine(14, line)\"]",
+    "count": 1,
+    "file": "src/Classes/CalcBreakdownControl.lua",
+    "line": 428,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CalcBreakdownControl.lua\",\"DrawString\",\"line\",\"DrawString(x + 4, lineY, \\\"LEFT\\\", section.textSize, \\\"VAR\\\", formatNumSep(line))\"]",
+    "count": 1,
+    "file": "src/Classes/CalcBreakdownControl.lua",
+    "line": 777,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CalcSectionControl.lua\",\"ButtonControl\",\"subSec.collapsed\",\"return subSec.collapsed and \\\"+\\\" or \\\"-\\\"\"]",
+    "count": 1,
+    "file": "src/Classes/CalcSectionControl.lua",
+    "line": 51,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CheckBoxControl.lua\",\"label\",\"label\",\"self.label = label\"]",
+    "count": 1,
+    "file": "src/Classes/CheckBoxControl.lua",
+    "line": 13,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CheckBoxControl.lua\",\"DrawStringWidth\",\"label\",\"self.labelWidth = DrawStringWidth(self.width - 4, \\\"VAR\\\", label) + 5\"]",
+    "count": 1,
+    "file": "src/Classes/CheckBoxControl.lua",
+    "line": 33,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CheckBoxControl.lua\",\"DrawString\",\"label\",\"DrawString(x + size + 5, y + 2, \\\"LEFT\\\", size - 4, \\\"VAR\\\", label)\"]",
+    "count": 1,
+    "file": "src/Classes/CheckBoxControl.lua",
+    "line": 103,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CheckBoxControl.lua\",\"DrawString\",\"label\",\"DrawString(x - 5, y + 2, \\\"RIGHT_X\\\", size - 4, \\\"VAR\\\", label)\"]",
+    "count": 1,
+    "file": "src/Classes/CheckBoxControl.lua",
+    "line": 105,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareBuySimilar.lua\",\"LabelControl\",\"displayText\",\"displayText)\"]",
+    "count": 1,
+    "file": "src/Classes/CompareBuySimilar.lua",
+    "line": 505,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareBuySimilar.lua\",\"OpenPopup.title\",\"title\",\"main:OpenPopup(popupWidth, popupHeight, title, controls, \\\"search\\\", nil, \\\"close\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/CompareBuySimilar.lua",
+    "line": 539,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareCalcsHelpers.lua\",\"Tooltip.AddLine\",\"line\",\"tooltip:AddLine(12, line)\"]",
+    "count": 3,
+    "file": "src/Classes/CompareCalcsHelpers.lua",
+    "line": 285,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareCalcsHelpers.lua\",\"DrawStringWidth\",\"row[col.key]\",\"col.width = math.max(col.width, DrawStringWidth(12, \\\"VAR\\\", row[col.key]) + 6)\"]",
+    "count": 1,
+    "file": "src/Classes/CompareCalcsHelpers.lua",
+    "line": 417,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareEntry.lua\",\"label\",\"label\",\"self.label = label or localisation:Label(\\\"ui.compare_entry.init.label\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/CompareEntry.lua",
+    "line": 18,
+    "category": "user-title-or-resolved",
+    "reason": "用户路径、配装名和构筑名原样保留；系统标题/比较报告在调用点绑定或解析资源。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareEntry.lua\",\"Tooltip.AddLine\",\"header\",\"tooltip:AddLine(14, header, nil, nil, nil, newBlock)\"]",
+    "count": 1,
+    "file": "src/Classes/CompareEntry.lua",
+    "line": 524,
+    "category": "user-title-or-resolved",
+    "reason": "用户路径、配装名和构筑名原样保留；系统标题/比较报告在调用点绑定或解析资源。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareEntry.lua\",\"Tooltip.AddLine\",\"line\",\"tooltip:AddLine(14, line)\"]",
+    "count": 1,
+    "file": "src/Classes/CompareEntry.lua",
+    "line": 539,
+    "category": "user-title-or-resolved",
+    "reason": "用户路径、配装名和构筑名原样保留；系统标题/比较报告在调用点绑定或解析资源。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareTab.lua\",\"DrawStringWidth\",\"candidate\",\"if lineEnd >= lineStart and DrawStringWidth(14, \\\"VAR\\\", candidate) > width then\"]",
+    "count": 1,
+    "file": "src/Classes/CompareTab.lua",
+    "line": 32,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareTab.lua\",\"ButtonControl\",\"self.configToggle\",\"return self.configToggle and localisation:Text(\\\"ui.compare_tab.init_controls.config_toggle_btn.label\\\") or localisation:Text(\\\"ui.compare_tab.init_controls.config_toggle_btn.label_2\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/CompareTab.lua",
+    "line": 978,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareTab.lua\",\"tooltipText\",\"sourceControl.tooltipText\",\"control.tooltipText = sourceControl.tooltipText\"]",
+    "count": 1,
+    "file": "src/Classes/CompareTab.lua",
+    "line": 1218,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareTab.lua\",\"label\",\"stateText\",\"return (type(stateText) == 'function' and stateText() or stateText) or \\\"\\\"\"]",
+    "count": 1,
+    "file": "src/Classes/CompareTab.lua",
+    "line": 1533,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareTab.lua\",\"DrawStringWidth\",\"primaryName\",\"local primaryNameW = DrawStringWidth(headerHeight, \\\"VAR\\\", primaryName)\"]",
+    "count": 1,
+    "file": "src/Classes/CompareTab.lua",
+    "line": 3193,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareTab.lua\",\"DrawStringWidth\",\"compareName\",\"local compareNameW = DrawStringWidth(headerHeight, \\\"VAR\\\", compareName)\"]",
+    "count": 1,
+    "file": "src/Classes/CompareTab.lua",
+    "line": 3194,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareTab.lua\",\"DrawString\",\"formatted\",\"DrawString(x, drawY, \\\"LEFT\\\", fontSize, \\\"VAR\\\", formatted)\"]",
+    "count": 1,
+    "file": "src/Classes/CompareTab.lua",
+    "line": 3636,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareTab.lua\",\"DrawStringWidth\",\"diffLabel\",\"maxDiffW = m_max(maxDiffW, DrawStringWidth(14, \\\"VAR\\\", diffLabel))\"]",
+    "count": 1,
+    "file": "src/Classes/CompareTab.lua",
+    "line": 3712,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareTab.lua\",\"AddStatComparesToTooltip.header\",\"header\",\"local count = self.primaryBuild:AddStatComparesToTooltip(self.itemTooltip, calcBase, output, header, nil, true)\"]",
+    "count": 1,
+    "file": "src/Classes/CompareTab.lua",
+    "line": 3969,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareTab.lua\",\"Tooltip.AddLine\",\"header\",\"self.itemTooltip:AddLine(14, header, nil, nil, nil, true)\"]",
+    "count": 1,
+    "file": "src/Classes/CompareTab.lua",
+    "line": 3971,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareTab.lua\",\"DrawStringWidth\",\"line\",\"local w = groupHeaderTextX + DrawStringWidth(gemFontSize, \\\"VAR\\\", line)\"]",
+    "count": 1,
+    "file": "src/Classes/CompareTab.lua",
+    "line": 4260,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareTab.lua\",\"DrawStringWidth\",\"labelText\",\"local labelWidth = DrawStringWidth(14, \\\"VAR\\\", labelText)\"]",
+    "count": 1,
+    "file": "src/Classes/CompareTab.lua",
+    "line": 4895,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareTab.lua\",\"DrawString\",\"labelText\",\"DrawString(boxX + 9, boxY - 6, \\\"LEFT\\\", 14, \\\"VAR\\\", labelText)\"]",
+    "count": 1,
+    "file": "src/Classes/CompareTab.lua",
+    "line": 4901,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/CompareTab.lua\",\"DrawStringWidth\",\"labelStr\",\"local labelSize = DrawStringWidth(14, \\\"VAR\\\", labelStr) > 228 and 12 or 14\"]",
+    "count": 1,
+    "file": "src/Classes/CompareTab.lua",
+    "line": 4917,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ConfigSetListControl.lua\",\"OpenPopup.title\",\"specName\",\"main:OpenPopup(370, 100, specName and localisation:Label(\\\"ui.config_set_list_control.rename_config_set.label\\\") or localisation:Label(\\\"ui.config_set_list_control.rename_config_set.label_2\\\"), controls, \\\"save\\\", \\\"edit\\\", \\\"cancel\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/ConfigSetListControl.lua",
+    "line": 90,
+    "category": "user-title-or-resolved",
+    "reason": "用户路径、配装名和构筑名原样保留；系统标题/比较报告在调用点绑定或解析资源。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ConfigTab.lua\",\"AddStatComparesToTooltip.header\",\"curState\",\"configTab.build:AddStatComparesToTooltip(tooltip, calcBase, output, curState and localisation:Text(\\\"ui.config_tab.custom_mod_block_control.enable_check_tooltip_func.message\\\") or localisation:Text(\\\"ui.config_tab.custom_mod_block_control.enable_check_tooltip_func.message_2\\\"))\"]",
+    "count": 1,
+    "file": "src/Classes/ConfigTab.lua",
+    "line": 82,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ConfigTab.lua\",\"ButtonControl\",\"self.toggleConfigs\",\"return self.toggleConfigs and localisation:Text(\\\"ui.config_tab.init.toggle_configs.label\\\") or localisation:Text(\\\"ui.config_tab.init.toggle_configs.label_2\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/ConfigTab.lua",
+    "line": 192,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ConfigTab.lua\",\"ButtonControl\",\"section.collapsed\",\"return section.collapsed and \\\"+\\\" or \\\"-\\\"\"]",
+    "count": 1,
+    "file": "src/Classes/ConfigTab.lua",
+    "line": 301,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ConfigTab.lua\",\"tooltipText\",\"out\",\"return out\"]",
+    "count": 1,
+    "file": "src/Classes/ConfigTab.lua",
+    "line": 392,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ConfigTab.lua\",\"Tooltip.AddLine\",\"tooltipText\",\"tooltip:AddLine(14, tooltipText)\"]",
+    "count": 1,
+    "file": "src/Classes/ConfigTab.lua",
+    "line": 790,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/DraggerControl.lua\",\"label\",\"label\",\"self.label = label\"]",
+    "count": 1,
+    "file": "src/Classes/DraggerControl.lua",
+    "line": 12,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/DraggerControl.lua\",\"DrawString\",\"label\",\"DrawString(x + width / 2, y + 2 - overSize, \\\"CENTER_X\\\", height - 4 + overSize * 2, \\\"VAR\\\", label)\"]",
+    "count": 1,
+    "file": "src/Classes/DraggerControl.lua",
+    "line": 97,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/DropDownControl.lua\",\"DrawStringWidth\",\"selDetail\",\"local dx = DrawStringWidth(lineHeight, \\\"VAR\\\", selDetail)\"]",
+    "count": 1,
+    "file": "src/Classes/DropDownControl.lua",
+    "line": 354,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/DropDownControl.lua\",\"DrawString\",\"selDetail\",\"DrawString(width - dx - 22, 0, \\\"LEFT\\\", lineHeight, \\\"VAR\\\", selDetail)\"]",
+    "count": 1,
+    "file": "src/Classes/DropDownControl.lua",
+    "line": 355,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/DropDownControl.lua\",\"DrawStringWidth\",\"detail\",\"dx = DrawStringWidth(lineHeight, \\\"VAR\\\", detail)\"]",
+    "count": 1,
+    "file": "src/Classes/DropDownControl.lua",
+    "line": 422,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/DropDownControl.lua\",\"DrawString\",\"detail\",\"DrawString(width - dx - 4 - 22, y, \\\"LEFT\\\", lineHeight, \\\"VAR\\\", detail)\"]",
+    "count": 1,
+    "file": "src/Classes/DropDownControl.lua",
+    "line": 423,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/EditControl.lua\",\"DrawString\",\"self.displayPlaceholder\",\"DrawString(-self.controls.scrollBarH.offset, -self.controls.scrollBarV.offset, \\\"LEFT\\\", textHeight, self.font, self.displayPlaceholder)\"]",
+    "count": 1,
+    "file": "src/Classes/EditControl.lua",
+    "line": 303,
+    "category": "control-or-user-buffer",
+    "reason": "prompt/placeholder 由 GetProperty 的显式资源属性解析；buf/pre/sel/post/line 是用户缓冲区或其测宽片段，保持原文。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/EditControl.lua\",\"DrawString\",\"inactiveText\",\"DrawString(-self.controls.scrollBarH.offset, -self.controls.scrollBarV.offset, \\\"LEFT\\\", textHeight, self.font, inactiveText)\"]",
+    "count": 1,
+    "file": "src/Classes/EditControl.lua",
+    "line": 308,
+    "category": "control-or-user-buffer",
+    "reason": "prompt/placeholder 由 GetProperty 的显式资源属性解析；buf/pre/sel/post/line 是用户缓冲区或其测宽片段，保持原文。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/EditControl.lua\",\"DrawString\",\"self.buf\",\"DrawString(-self.controls.scrollBarH.offset, -self.controls.scrollBarV.offset, \\\"LEFT\\\", textHeight, self.font, self.buf)\"]",
+    "count": 1,
+    "file": "src/Classes/EditControl.lua",
+    "line": 312,
+    "category": "control-or-user-buffer",
+    "reason": "prompt/placeholder 由 GetProperty 的显式资源属性解析；buf/pre/sel/post/line 是用户缓冲区或其测宽片段，保持原文。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/EditControl.lua\",\"DrawString\",\"line\",\"DrawString(textX, textY, \\\"LEFT\\\", textHeight, self.font, line)\"]",
+    "count": 1,
+    "file": "src/Classes/EditControl.lua",
+    "line": 338,
+    "category": "control-or-user-buffer",
+    "reason": "prompt/placeholder 由 GetProperty 的显式资源属性解析；buf/pre/sel/post/line 是用户缓冲区或其测宽片段，保持原文。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/EditControl.lua\",\"DrawString\",\"pre\",\"DrawString(textX, textY, \\\"LEFT\\\", textHeight, self.font, pre)\"]",
+    "count": 3,
+    "file": "src/Classes/EditControl.lua",
+    "line": 343,
+    "category": "control-or-user-buffer",
+    "reason": "prompt/placeholder 由 GetProperty 的显式资源属性解析；buf/pre/sel/post/line 是用户缓冲区或其测宽片段，保持原文。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/EditControl.lua\",\"DrawString\",\"sel\",\"DrawString(textX, textY, \\\"LEFT\\\", textHeight, self.font, sel)\"]",
+    "count": 2,
+    "file": "src/Classes/EditControl.lua",
+    "line": 358,
+    "category": "control-or-user-buffer",
+    "reason": "prompt/placeholder 由 GetProperty 的显式资源属性解析；buf/pre/sel/post/line 是用户缓冲区或其测宽片段，保持原文。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/EditControl.lua\",\"DrawString\",\"post\",\"DrawString(textX, textY, \\\"LEFT\\\", textHeight, self.font, post)\"]",
+    "count": 2,
+    "file": "src/Classes/EditControl.lua",
+    "line": 368,
+    "category": "control-or-user-buffer",
+    "reason": "prompt/placeholder 由 GetProperty 的显式资源属性解析；buf/pre/sel/post/line 是用户缓冲区或其测宽片段，保持原文。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/EditControl.lua\",\"DrawString\",\"post\",\"DrawString(textX + selWidth, textY, \\\"LEFT\\\", textHeight, self.font, post)\"]",
+    "count": 1,
+    "file": "src/Classes/EditControl.lua",
+    "line": 403,
+    "category": "control-or-user-buffer",
+    "reason": "prompt/placeholder 由 GetProperty 的显式资源属性解析；buf/pre/sel/post/line 是用户缓冲区或其测宽片段，保持原文。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/EditControl.lua\",\"DrawString\",\"self.displayPlaceholder\",\"DrawString(textX, textY, \\\"LEFT\\\", textHeight, self.font, self.displayPlaceholder)\"]",
+    "count": 1,
+    "file": "src/Classes/EditControl.lua",
+    "line": 413,
+    "category": "control-or-user-buffer",
+    "reason": "prompt/placeholder 由 GetProperty 的显式资源属性解析；buf/pre/sel/post/line 是用户缓冲区或其测宽片段，保持原文。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ExtBuildListControl.lua\",\"DrawStringWidth\",\"provider.name\",\"self.providerMaxLength = m_max(self.providerMaxLength, DrawStringWidth(16, self.font, provider.name) + 30)\"]",
+    "count": 1,
+    "file": "src/Classes/ExtBuildListControl.lua",
+    "line": 35,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ExtBuildListControl.lua\",\"DrawStringWidth\",\"title\",\"local stringWidth = DrawStringWidth(16, self.font, title)\"]",
+    "count": 1,
+    "file": "src/Classes/ExtBuildListControl.lua",
+    "line": 74,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ExtBuildListControl.lua\",\"ButtonControl\",\"title\",\"local button = new(\\\"ButtonControl\\\"):ButtonControl(anchor, { 0, lastControl and 0 or -20, stringWidth + 10, 20 }, title, function()\"]",
+    "count": 1,
+    "file": "src/Classes/ExtBuildListControl.lua",
+    "line": 79,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ExtBuildListControl.lua\",\"DrawString\",\"text\",\"DrawString(left, top - self.controls.scrollBarV.offset, align, height, font, text)\"]",
+    "count": 1,
+    "file": "src/Classes/ExtBuildListControl.lua",
+    "line": 240,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ExtBuildListControl.lua\",\"DrawString\",\"line\",\"self:DrawString(x, currentHeight, \\\"LEFT\\\", 18, \\\"VAR BOLD\\\", line)\"]",
+    "count": 1,
+    "file": "src/Classes/ExtBuildListControl.lua",
+    "line": 320,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ExtBuildListControl.lua\",\"DrawString\",\"line\",\"self:DrawString(x, currentHeight, \\\"LEFT\\\", 16, self.font, line)\"]",
+    "count": 1,
+    "file": "src/Classes/ExtBuildListControl.lua",
+    "line": 332,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ExtBuildListControl.lua\",\"DrawStringWidth\",\"build.version\",\"self:DrawImage(nil, x + authorWidth + DrawStringWidth(14, self.font, build.version) + 30, currentHeight - 7, 1, 28)\"]",
+    "count": 1,
+    "file": "src/Classes/ExtBuildListControl.lua",
+    "line": 351,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ExtBuildListControl.lua\",\"DrawStringWidth\",\"dpsText\",\"local dpsWidth = DrawStringWidth(14, self.font, dpsText)\"]",
+    "count": 1,
+    "file": "src/Classes/ExtBuildListControl.lua",
+    "line": 378,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ExtBuildListControl.lua\",\"DrawStringWidth\",\"lifeText\",\"local lifeWidth = DrawStringWidth(14, self.font, lifeText)\"]",
+    "count": 1,
+    "file": "src/Classes/ExtBuildListControl.lua",
+    "line": 379,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ExtBuildListControl.lua\",\"DrawStringWidth\",\"ehpText\",\"local ehpWidth = DrawStringWidth(14, self.font, ehpText)\"]",
+    "count": 1,
+    "file": "src/Classes/ExtBuildListControl.lua",
+    "line": 380,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ExtBuildListControl.lua\",\"DrawString\",\"dpsText\",\"self:DrawString(x, currentHeight, \\\"LEFT\\\", 14, self.font, dpsText)\"]",
+    "count": 1,
+    "file": "src/Classes/ExtBuildListControl.lua",
+    "line": 382,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ExtBuildListControl.lua\",\"DrawString\",\"lifeText\",\"self:DrawString(x + dpsWidth + 20, currentHeight, \\\"LEFT\\\", 14, self.font, lifeText)\"]",
+    "count": 1,
+    "file": "src/Classes/ExtBuildListControl.lua",
+    "line": 386,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ExtBuildListControl.lua\",\"DrawString\",\"ehpText\",\"self:DrawString(x + dpsWidth + lifeWidth + 40, currentHeight, \\\"LEFT\\\", 14, self.font, ehpText)\"]",
+    "count": 1,
+    "file": "src/Classes/ExtBuildListControl.lua",
+    "line": 391,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/GemSelectControl.lua\",\"DrawString\",\"gemText\",\"DrawString(0, y, \\\"LEFT\\\", height - 4, \\\"VAR\\\", gemText)\"]",
+    "count": 1,
+    "file": "src/Classes/GemSelectControl.lua",
+    "line": 566,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/GemTooltip.lua\",\"Tooltip.AddLine\",\"line\",\"tooltip:AddLine(fontSizeBig, line, \\\"FONTIN SC\\\", bg)\"]",
+    "count": 1,
+    "file": "src/Classes/GemTooltip.lua",
+    "line": 36,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ImportTab.lua\",\"OpenMessagePopup.title\",\"exportWebsite.id\",\"main:OpenMessagePopup(exportWebsite.id, localisation:Text(\\\"ui.import_tab.init.generate_code_by_link.label\\\", { err_msg = errMsg }))\"]",
+    "count": 1,
+    "file": "src/Classes/ImportTab.lua",
+    "line": 180,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ImportTab.lua\",\"label\",\"self.importCodeDetail\",\"return (type(self.importCodeDetail) == 'function' and self.importCodeDetail() or self.importCodeDetail) or \\\"\\\"\"]",
+    "count": 1,
+    "file": "src/Classes/ImportTab.lua",
+    "line": 310,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ImportTab.lua\",\"label\",\"self.importCodeFetching\",\"return self.importCodeFetching and localisation:Text(\\\"ui.import_tab.init.import_code_go_label.message_2\\\") or localisation:Text(\\\"ui.import_tab.init.import_code_go_label.message\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/ImportTab.lua",
+    "line": 343,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ImportTab.lua\",\"OpenMessagePopup.message\",\"msg\",\"main:OpenMessagePopup(localisation:Text(\\\"ui.import_tab.do_write.poe2_export_save_all.label\\\"), msg)\"]",
+    "count": 1,
+    "file": "src/Classes/ImportTab.lua",
+    "line": 455,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemSetListControl.lua\",\"OpenPopup.title\",\"setName\",\"main:OpenPopup(370, 100, setName and localisation:Label(\\\"ui.item_set_list_control.rename_item_set.label\\\") or localisation:Label(\\\"ui.item_set_list_control.rename_item_set.label_2\\\"), controls, \\\"save\\\", \\\"edit\\\", \\\"cancel\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/ItemSetListControl.lua",
+    "line": 90,
+    "category": "user-title-or-resolved",
+    "reason": "用户路径、配装名和构筑名原样保留；系统标题/比较报告在调用点绑定或解析资源。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemSlotControl.lua\",\"label\",\"slotLabel\",\"self.label = slotLabel or slotName\"]",
+    "count": 1,
+    "file": "src/Classes/ItemSlotControl.lua",
+    "line": 104,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemSlotControl.lua\",\"label\",\"slotName\",\"self.label = slotLabel or slotName\"]",
+    "count": 1,
+    "file": "src/Classes/ItemSlotControl.lua",
+    "line": 104,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemsTab.lua\",\"label\",\"self.items[self.displayItem.id]\",\"return self.items[self.displayItem.id] and localisation:Text(\\\"ui.items_tab.init.add_display_item_label.message_2\\\") or localisation:Text(\\\"ui.items_tab.init.add_display_item_label.message\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/ItemsTab.lua",
+    "line": 444,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemsTab.lua\",\"Tooltip.AddLine\",\"line\",\"tooltip:AddLine(18, line)\"]",
+    "count": 1,
+    "file": "src/Classes/ItemsTab.lua",
+    "line": 1006,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemsTab.lua\",\"label\",\"label\",\"self.controls[\\\"displayItemCustomModifier\\\"..i].label = label\"]",
+    "count": 1,
+    "file": "src/Classes/ItemsTab.lua",
+    "line": 2554,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemsTab.lua\",\"ButtonControl\",\"self.displayItem\",\"controls.save = new(\\\"ButtonControl\\\"):ButtonControl(nil, { -45, 470, 80, 20 }, self.displayItem and localisation:Label(\\\"ui.items_tab.edit_display_item_text.save.label\\\") or localisation:Label(\\\"ui.items_tab.craft_item.save.label\\\"), function()\"]",
+    "count": 1,
+    "file": "src/Classes/ItemsTab.lua",
+    "line": 2907,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemsTab.lua\",\"OpenPopup.title\",\"self.displayItem\",\"main:OpenPopup(500, 500, self.displayItem and localisation:Label(\\\"ui.items_tab.edit_display_item_text.label_2\\\") or localisation:Label(\\\"ui.items_tab.edit_display_item_text.label\\\"), controls, nil, \\\"edit\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/ItemsTab.lua",
+    "line": 2938,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemsTab.lua\",\"AddStatComparesToTooltip.header\",\"header\",\"local numChanges = self.build:AddStatComparesToTooltip(tooltip, outputBase, outputNew, header)\"]",
+    "count": 1,
+    "file": "src/Classes/ItemsTab.lua",
+    "line": 3016,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemsTab.lua\",\"DrawStringWidth\",\"label\",\"return DrawStringWidth(16, \\\"VAR\\\", label) + 10\"]",
+    "count": 1,
+    "file": "src/Classes/ItemsTab.lua",
+    "line": 3056,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemsTab.lua\",\"ButtonControl\",\"saveLabel\",\"controls.save = new(\\\"ButtonControl\\\"):ButtonControl({ \\\"BOTTOMLEFT\\\", nil, \\\"BOTTOM\\\" }, { saveLabelX, -4, saveLabelWidth, 20 }, saveLabel, function()\"]",
+    "count": 1,
+    "file": "src/Classes/ItemsTab.lua",
+    "line": 3062,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemsTab.lua\",\"label\",\"label\",\"controls[\\\"rollRangeLabel\\\"..i].label = label\"]",
+    "count": 1,
+    "file": "src/Classes/ItemsTab.lua",
+    "line": 3245,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemsTab.lua\",\"LabelControl\",\"label\",\"controls[\\\"rollRangeLabel\\\" .. i] = new(\\\"LabelControl\\\"):LabelControl({ \\\"LEFT\\\", controls[\\\"rollRangeSlider\\\" .. i], \\\"RIGHT\\\" }, { 5, 0, 200, 16 }, label)\"]",
+    "count": 1,
+    "file": "src/Classes/ItemsTab.lua",
+    "line": 3258,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemsTab.lua\",\"Tooltip.AddLine\",\"line\",\"tooltip:AddLine(fontSizeBig, line, \\\"FONTIN SC\\\")\"]",
+    "count": 2,
+    "file": "src/Classes/ItemsTab.lua",
+    "line": 3952,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemsTab.lua\",\"Tooltip.AddLine\",\"extraTooltip\",\"tooltip:AddLine(fontSizeBig, extraTooltip, \\\"FONTIN SC\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/ItemsTab.lua",
+    "line": 4050,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemsTab.lua\",\"Tooltip.AddLine\",\"formattedModLine\",\"tooltip:AddLine(fontSizeBig, formattedModLine, \\\"FONTIN SC\\\", bg, modLine)\"]",
+    "count": 1,
+    "file": "src/Classes/ItemsTab.lua",
+    "line": 4090,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemsTab.lua\",\"Tooltip.AddLine\",\"stat\",\"tooltip:AddLine(14, stat)\"]",
+    "count": 2,
+    "file": "src/Classes/ItemsTab.lua",
+    "line": 4393,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemsTab.lua\",\"AddStatComparesToTooltip.header\",\"header\",\"self.build:AddStatComparesToTooltip(tooltip, calcBase, output, header)\"]",
+    "count": 2,
+    "file": "src/Classes/ItemsTab.lua",
+    "line": 4403,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemsTab.lua\",\"AddStatComparesToTooltip.header\",\"header\",\"self.build:AddStatComparesToTooltip(tooltip, calcBase, output, header, nil, true)\"]",
+    "count": 1,
+    "file": "src/Classes/ItemsTab.lua",
+    "line": 4469,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/LabelControl.lua\",\"label\",\"label\",\"self.label = label\"]",
+    "count": 1,
+    "file": "src/Classes/LabelControl.lua",
+    "line": 14,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ListControl.lua\",\"DrawString\",\"label\",\"DrawString(x + self.labelPositionOffset[1], y - 20 + self.labelPositionOffset[2], \\\"LEFT\\\", 16, self.font, label)\"]",
+    "count": 1,
+    "file": "src/Classes/ListControl.lua",
+    "line": 193,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ListControl.lua\",\"DrawStringWidth\",\"text\",\"local textWidth = DrawStringWidth(textHeight, colFont, text)\"]",
+    "count": 1,
+    "file": "src/Classes/ListControl.lua",
+    "line": 232,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ListControl.lua\",\"DrawStringWidth\",\"text\",\"textWidth = DrawStringWidth(textHeight, colFont, text)\"]",
+    "count": 1,
+    "file": "src/Classes/ListControl.lua",
+    "line": 236,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ListControl.lua\",\"DrawString\",\"text\",\"DrawString(colOffset, lineY + textOffsetY, \\\"LEFT\\\", textHeight, colFont, text)\"]",
+    "count": 1,
+    "file": "src/Classes/ListControl.lua",
+    "line": 287,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ListControl.lua\",\"DrawString\",\"text\",\"DrawString(colOffset + 16 + 2, lineY + textOffsetY, \\\"LEFT\\\", textHeight, colFont, text)\"]",
+    "count": 1,
+    "file": "src/Classes/ListControl.lua",
+    "line": 290,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ListControl.lua\",\"DrawString\",\"label\",\"DrawString(colOffset + colWidth/2, 4, \\\"CENTER_X\\\", 12, \\\"VAR\\\", label)\"]",
+    "count": 1,
+    "file": "src/Classes/ListControl.lua",
+    "line": 309,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/MinionListControl.lua\",\"label\",\"label\",\"self.label = label or localisation:Label(\\\"ui.minion_list_control.init.label\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/MinionListControl.lua",
+    "line": 35,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/MinionListControl.lua\",\"label\",\"label\",\"self.label = label or localisation:Label(\\\"ui.minion_list_control.init.label_2\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/MinionListControl.lua",
+    "line": 43,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/MinionListControl.lua\",\"label\",\"label\",\"self.label = label or localisation:Label(\\\"ui.minion_list_control.spawn_list_control.label\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/MinionListControl.lua",
+    "line": 155,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/NotableDBControl.lua\",\"Tooltip.AddLine\",\"line\",\"tooltip:AddLine(16, line)\"]",
+    "count": 1,
+    "file": "src/Classes/NotableDBControl.lua",
+    "line": 318,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/NotesTab.lua\",\"LabelControl\",\"notesDesc\",\"self.controls.notesDesc = new(\\\"LabelControl\\\"):LabelControl({ \\\"TOPLEFT\\\", self, \\\"TOPLEFT\\\" }, { 8, 8, 150, 16 }, notesDesc)\"]",
+    "count": 1,
+    "file": "src/Classes/NotesTab.lua",
+    "line": 21,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/PartyTab.lua\",\"LabelControl\",\"notesDesc\",\"self.controls.notesDesc = new(\\\"LabelControl\\\"):LabelControl({\\\"TOPLEFT\\\",self,\\\"TOPLEFT\\\"}, {8, 8, 150, theme.stringHeight}, notesDesc)\"]",
+    "count": 1,
+    "file": "src/Classes/PartyTab.lua",
+    "line": 65,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/PartyTab.lua\",\"label\",\"self.importCodeDetail\",\"return (type(self.importCodeDetail) == 'function' and self.importCodeDetail() or self.importCodeDetail) or \\\"\\\"\"]",
+    "count": 1,
+    "file": "src/Classes/PartyTab.lua",
+    "line": 296,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/PassiveMasteryControl.lua\",\"DrawStringWidth\",\"list[j].label\",\"rect[3] = m_max(rect[3], DrawStringWidth(16, \\\"VAR\\\", list[j].label) + 5)\"]",
+    "count": 1,
+    "file": "src/Classes/PassiveMasteryControl.lua",
+    "line": 30,
+    "category": "historical-ui-boundary",
+    "reason": "历史精通/永恒珠宝搜索的共享字段；当前 PoE2 树无精通数据，仍列入静态边界，不宣称已逐项中文覆盖。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/PassiveSpecListControl.lua\",\"OpenPopup.title\",\"popupTitle\",\"main:OpenPopup(370, 100, popupTitle, controls, \\\"save\\\", \\\"edit\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/PassiveSpecListControl.lua",
+    "line": 74,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/PassiveTreeView.lua\",\"Tooltip.AddLine\",\"launch.devModeAlt\",\"tooltip:AddLine(24, launch.devModeAlt and (node.iname .. \\\" [\\\"..node.id..\\\"]\\\") or nodeName, \\\"FONTIN\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/PassiveTreeView.lua",
+    "line": 1659,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/PassiveTreeView.lua\",\"Tooltip.AddLine\",\"nodeName\",\"tooltip:AddLine(24, launch.devModeAlt and (node.iname .. \\\" [\\\"..node.id..\\\"]\\\") or nodeName, \\\"FONTIN\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/PassiveTreeView.lua",
+    "line": 1659,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/PassiveTreeView.lua\",\"Tooltip.AddLine\",\"line\",\"tooltip:AddLine(fontSizeBig, line, \\\"FONTIN SC\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/PassiveTreeView.lua",
+    "line": 1827,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/PassiveTreeView.lua\",\"AddStatComparesToTooltip.header\",\"realloc\",\"local count = build:AddStatComparesToTooltip(tooltip, calcBase, nodeOutput, realloc and localisation:Text(\\\"ui.passive_tree_view.add_node_tooltip.count.message_3\\\") or node.alloc and localisation:Text(\\\"ui.passive_tree_view.add_node_tooltip.count.message_6\\\") or isGranted and localisation:Text(\\\"ui.passive_tree_view.add_node_tooltip.count.message_4\\\") or localisation:Text(\\\"ui.passive_tree_view.add_node_tooltip.count.message_2\\\"))\"]",
+    "count": 1,
+    "file": "src/Classes/PassiveTreeView.lua",
+    "line": 2014,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/PassiveTreeView.lua\",\"AddStatComparesToTooltip.header\",\"node.alloc\",\"local count = build:AddStatComparesToTooltip(tooltip, calcBase, nodeOutput, realloc and localisation:Text(\\\"ui.passive_tree_view.add_node_tooltip.count.message_3\\\") or node.alloc and localisation:Text(\\\"ui.passive_tree_view.add_node_tooltip.count.message_6\\\") or isGranted and localisation:Text(\\\"ui.passive_tree_view.add_node_tooltip.count.message_4\\\") or localisation:Text(\\\"ui.passive_tree_view.add_node_tooltip.count.message_2\\\"))\"]",
+    "count": 1,
+    "file": "src/Classes/PassiveTreeView.lua",
+    "line": 2014,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/PassiveTreeView.lua\",\"AddStatComparesToTooltip.header\",\"isGranted\",\"local count = build:AddStatComparesToTooltip(tooltip, calcBase, nodeOutput, realloc and localisation:Text(\\\"ui.passive_tree_view.add_node_tooltip.count.message_3\\\") or node.alloc and localisation:Text(\\\"ui.passive_tree_view.add_node_tooltip.count.message_6\\\") or isGranted and localisation:Text(\\\"ui.passive_tree_view.add_node_tooltip.count.message_4\\\") or localisation:Text(\\\"ui.passive_tree_view.add_node_tooltip.count.message_2\\\"))\"]",
+    "count": 1,
+    "file": "src/Classes/PassiveTreeView.lua",
+    "line": 2014,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/PassiveTreeView.lua\",\"AddStatComparesToTooltip.header\",\"node.alloc\",\"count = count + build:AddStatComparesToTooltip(tooltip, calcBase, pathOutput, node.alloc and localisation:Text(\\\"ui.passive_tree_view.add_node_tooltip.count.message_5\\\") or localisation:Text(\\\"ui.passive_tree_view.add_node_tooltip.count.message\\\"), pathLength)\"]",
+    "count": 1,
+    "file": "src/Classes/PassiveTreeView.lua",
+    "line": 2016,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/PassiveTreeView.lua\",\"Tooltip.AddLine\",\"colorCodes.TIP\",\"tooltip:AddLine(14, colorCodes.TIP)\"]",
+    "count": 4,
+    "file": "src/Classes/PassiveTreeView.lua",
+    "line": 2036,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/PathControl.lua\",\"DrawStringWidth\",\"folder.label\",\"button.width = DrawStringWidth(self.height - 8, \\\"VAR\\\", folder.label) + 10\"]",
+    "count": 1,
+    "file": "src/Classes/PathControl.lua",
+    "line": 46,
+    "category": "user-title-or-resolved",
+    "reason": "用户路径、配装名和构筑名原样保留；系统标题/比较报告在调用点绑定或解析资源。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/PopupDialog.lua\",\"DrawStringWidth\",\"title\",\"local titleWidth = DrawStringWidth(16, \\\"VAR\\\", title)\"]",
+    "count": 1,
+    "file": "src/Classes/PopupDialog.lua",
+    "line": 53,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/PopupDialog.lua\",\"DrawString\",\"title\",\"DrawString(titleX + 4, y - 7, \\\"LEFT\\\", 16, \\\"VAR\\\", title)\"]",
+    "count": 1,
+    "file": "src/Classes/PopupDialog.lua",
+    "line": 60,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/PowerReportListControl.lua\",\"label\",\"report\",\"self.label = report and localisation:Label(\\\"ui.power_report_list_control.set_report.label\\\") or localisation:Label(\\\"ui.power_report_list_control.init.label\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/PowerReportListControl.lua",
+    "line": 50,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ResizableEditControl.lua\",\"EditControl.prompt\",\"prompt\",\"self:EditControl(anchor, rect, init, prompt, filter, limit, changeFunc, lineHeight, allowZoom, clearable)\"]",
+    "count": 1,
+    "file": "src/Classes/ResizableEditControl.lua",
+    "line": 13,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/SectionControl.lua\",\"label\",\"label\",\"self.label = label\"]",
+    "count": 1,
+    "file": "src/Classes/SectionControl.lua",
+    "line": 12,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/SectionControl.lua\",\"DrawStringWidth\",\"label\",\"local labelWidth = DrawStringWidth(14, \\\"VAR\\\", label)\"]",
+    "count": 1,
+    "file": "src/Classes/SectionControl.lua",
+    "line": 26,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/SectionControl.lua\",\"DrawString\",\"label\",\"DrawString(x + 9, y - 6, \\\"LEFT\\\", 14, \\\"VAR\\\", label)\"]",
+    "count": 1,
+    "file": "src/Classes/SectionControl.lua",
+    "line": 32,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/SharedItemSetListControl.lua\",\"OpenPopup.title\",\"sharedItemSet.title\",\"main:OpenPopup(370, 100, sharedItemSet.title and localisation:Label(\\\"ui.shared_item_set_list_control.rename_set.label_2\\\") or localisation:Label(\\\"ui.shared_item_set_list_control.rename_set.label_3\\\"), controls, \\\"save\\\", \\\"edit\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/SharedItemSetListControl.lua",
+    "line": 49,
+    "category": "user-title-or-resolved",
+    "reason": "用户路径、配装名和构筑名原样保留；系统标题/比较报告在调用点绑定或解析资源。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/SkillSetListControl.lua\",\"OpenPopup.title\",\"skillSetName\",\"main:OpenPopup(370, 100, skillSetName and localisation:Label(\\\"ui.skill_set_list_control.rename_skill_set.label\\\") or localisation:Label(\\\"ui.skill_set_list_control.rename_skill_set.label_2\\\"), controls, \\\"save\\\", \\\"edit\\\", \\\"cancel\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/SkillSetListControl.lua",
+    "line": 100,
+    "category": "user-title-or-resolved",
+    "reason": "用户路径、配装名和构筑名原样保留；系统标题/比较报告在调用点绑定或解析资源。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/SkillsTab.lua\",\"AddStatComparesToTooltip.header\",\"self.displayGroup.enabled\",\"self.build:AddStatComparesToTooltip(tooltip, calcBase, output, self.displayGroup.enabled and localisation:Text(\\\"ui.skills_tab.init.group_enabled_tooltip_func.message\\\") or localisation:Text(\\\"ui.skills_tab.init.group_enabled_tooltip_func.message_2\\\"))\"]",
+    "count": 1,
+    "file": "src/Classes/SkillsTab.lua",
+    "line": 216,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/SkillsTab.lua\",\"Tooltip.AddLine\",\"line\",\"tooltip:AddLine(16, line)\"]",
+    "count": 1,
+    "file": "src/Classes/SkillsTab.lua",
+    "line": 987,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/SkillsTab.lua\",\"AddStatComparesToTooltip.header\",\"self.displayGroup.gemList[index].enabled\",\"self.build:AddStatComparesToTooltip(tooltip, calcBase, output, self.displayGroup.gemList[index].enabled and localisation:Text(\\\"ui.skills_tab.create_gem_slot.slot_enabled_tooltip_func.message\\\") or localisation:Text(\\\"ui.skills_tab.create_gem_slot.slot_enabled_tooltip_func.message_2\\\"))\"]",
+    "count": 1,
+    "file": "src/Classes/SkillsTab.lua",
+    "line": 1060,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TextListControl.lua\",\"DrawString\",\"lineInfo[colIndex]\",\"DrawString(textX, lineY, align, lineInfo.height, lineInfo.font or \\\"VAR\\\", lineInfo[colIndex])\"]",
+    "count": 1,
+    "file": "src/Classes/TextListControl.lua",
+    "line": 51,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TimelessJewelListControl.lua\",\"Tooltip.AddLine\",\"sortedNodeList\",\"tooltip:AddLine(16, sortedNodeList)\"]",
+    "count": 1,
+    "file": "src/Classes/TimelessJewelListControl.lua",
+    "line": 87,
+    "category": "historical-ui-boundary",
+    "reason": "历史精通/永恒珠宝搜索的共享字段；当前 PoE2 树无精通数据，仍列入静态边界，不宣称已逐项中文覆盖。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/Tooltip.lua\",\"DrawStringWidth\",\"data.text\",\"ttW = m_max(ttW, DrawStringWidth(data.size, data.font, data.text))\"]",
+    "count": 1,
+    "file": "src/Classes/Tooltip.lua",
+    "line": 325,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/Tooltip.lua\",\"DrawStringWidth\",\"title.text\",\"local imageX = DrawStringWidth(title.size, font, title.text) + title.size\"]",
+    "count": 1,
+    "file": "src/Classes/Tooltip.lua",
+    "line": 333,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/Tooltip.lua\",\"DrawStringWidth\",\"recipeNameShort\",\"imageX = imageX + DrawStringWidth(recipeTextSize, font, recipeNameShort) + title.size * 1.25\"]",
+    "count": 1,
+    "file": "src/Classes/Tooltip.lua",
+    "line": 344,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/Tooltip.lua\",\"DrawStringWidth\",\"self.lines[1].text\",\"staticttW = m_max(staticttW, DrawStringWidth(self.lines[1].size, self.lines[1].font, self.lines[1].text) + 50)\"]",
+    "count": 1,
+    "file": "src/Classes/Tooltip.lua",
+    "line": 362,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/Tooltip.lua\",\"DrawStringWidth\",\"title.text\",\"local totalWidth = DrawStringWidth(titleSize, font, title.text)\"]",
+    "count": 1,
+    "file": "src/Classes/Tooltip.lua",
+    "line": 411,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/Tooltip.lua\",\"DrawStringWidth\",\"rn\",\"local textW = DrawStringWidth(recipeTextSize, font, rn)\"]",
+    "count": 1,
+    "file": "src/Classes/Tooltip.lua",
+    "line": 419,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/Tooltip.lua\",\"DrawStringWidth\",\"title.text\",\"curX = curX + DrawStringWidth(titleSize, font, title.text) + (H_PAD / 2)\"]",
+    "count": 1,
+    "file": "src/Classes/Tooltip.lua",
+    "line": 429,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/Tooltip.lua\",\"DrawStringWidth\",\"data.text\",\"extraColumnWidth = m_max(extraColumnWidth, DrawStringWidth(data.size, font, data.text) + H_PAD)\"]",
+    "count": 1,
+    "file": "src/Classes/Tooltip.lua",
+    "line": 480,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/Tooltip.lua\",\"DrawStringWidth\",\"self.lines[1].text\",\"local titleW = DrawStringWidth(self.lines[1].size, self.lines[1].font, self.lines[1].text)\"]",
+    "count": 1,
+    "file": "src/Classes/Tooltip.lua",
+    "line": 560,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/Tooltip.lua\",\"DrawStringWidth\",\"line[6]\",\"local textW = DrawStringWidth(line[4], line[5], line[6])\"]",
+    "count": 1,
+    "file": "src/Classes/Tooltip.lua",
+    "line": 782,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TooltipHost.lua\",\"tooltipText\",\"tooltipText\",\"self.tooltipText = tooltipText\"]",
+    "count": 1,
+    "file": "src/Classes/TooltipHost.lua",
+    "line": 11,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TooltipHost.lua\",\"Tooltip.AddLine\",\"tooltipText\",\"self.tooltip:AddLine(14, tooltipText)\"]",
+    "count": 1,
+    "file": "src/Classes/TooltipHost.lua",
+    "line": 23,
+    "category": "shared-display-boundary",
+    "reason": "通用控件仅接收调用点已解析的显示属性或用户文字；绘制与测宽使用同一值，不在此推断翻译身份。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TradeHelpers.lua\",\"DrawString\",\"label\",\"DrawString(x + w / 2, btnY + 1, \\\"CENTER_X\\\", 14, \\\"VAR\\\", label)\"]",
+    "count": 1,
+    "file": "src/Classes/TradeHelpers.lua",
+    "line": 445,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TradeHelpers.lua\",\"DrawStringWidth\",\"display\",\"if DrawStringWidth(16, \\\"VAR\\\", display) <= maxW then\"]",
+    "count": 1,
+    "file": "src/Classes/TradeHelpers.lua",
+    "line": 477,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TradeHelpers.lua\",\"DrawString\",\"labelText\",\"DrawString(labelX, drawY + 2, \\\"LEFT\\\", 16, \\\"VAR\\\", labelText)\"]",
+    "count": 1,
+    "file": "src/Classes/TradeHelpers.lua",
+    "line": 532,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TradeHelpers.lua\",\"DrawStringWidth\",\"labelText\",\"local labelW = DrawStringWidth(16, \\\"VAR\\\", labelText)\"]",
+    "count": 1,
+    "file": "src/Classes/TradeHelpers.lua",
+    "line": 535,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TradeHelpers.lua\",\"DrawString\",\"diffLabel\",\"DrawString(diffX, drawY + 3, \\\"LEFT\\\", 14, \\\"VAR\\\", diffLabel)\"]",
+    "count": 1,
+    "file": "src/Classes/TradeHelpers.lua",
+    "line": 549,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TradeHelpers.lua\",\"EditControl.prompt\",\"prompt\",\"local ctrl = new(\\\"EditControl\\\"):EditControl(anchor, rect, init, prompt, format, limit, changeFunc)\"]",
+    "count": 1,
+    "file": "src/Classes/TradeHelpers.lua",
+    "line": 590,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TradeQuery.lua\",\"ButtonControl\",\"self.loginStatus\",\"self.controls.poesessidButton = new(\\\"ButtonControl\\\"):ButtonControl({ \\\"TOPLEFT\\\", self.controls.setSelect, \\\"TOPLEFT\\\" }, { 0, row_height + row_vertical_padding, 188, row_height }, self.loginStatus, function()\"]",
+    "count": 1,
+    "file": "src/Classes/TradeQuery.lua",
+    "line": 330,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TradeQuery.lua\",\"ButtonControl\",\"price\",\"return price and localisation:Text(\\\"ui.trade_query.price_item_row_display.controls_whisper_button_row_idx.label_4\\\", { price = price }) or localisation:Text(\\\"ui.trade_query.price_item_row_display.controls_whisper_button_row_idx.label_3\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/TradeQuery.lua",
+    "line": 1355,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TradeQuery.lua\",\"ButtonControl\",\"price\",\"return price and localisation:Text(\\\"ui.trade_query.price_item_row_display.controls_whisper_button_row_idx.label_2\\\", { price = price }) or localisation:Text(\\\"ui.trade_query.price_item_row_display.controls_whisper_button_row_idx.label\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/TradeQuery.lua",
+    "line": 1357,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TradeQuery.lua\",\"Tooltip.AddLine\",\"text\",\"tooltip:AddLine(16, text)\"]",
+    "count": 1,
+    "file": "src/Classes/TradeQuery.lua",
+    "line": 1394,
+    "category": "resolved-or-external",
+    "reason": "帮助/状态及统计句使用显式资源；网站 ID、版本、交易价格、作者和构筑标题保持来源原值。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TradeQueryGenerator.lua\",\"DropDownControl.tooltip\",\"augmentTooltip\",\"controls.augmentBehaviour = new(\\\"DropDownControl\\\"):DropDownControl({ \\\"TOPLEFT\\\", lastItemAnchor, \\\"BOTTOMLEFT\\\" }, { 0, 5, 110, 18 }, localisation:List({ \\\"Copy Current\\\", \\\"Keep\\\", \\\"Remove\\\" }, { [1] = \\\"ui.trade_query_generator.request_query.augment_behaviour.label\\\", [2] = \\\"ui.trade_query_generator.request_query.augment_behaviour.label_2\\\", [3] = \\\"ui.trade_query_generator.request_query.augment_behaviour.label_3\\\" }), function(state) end, augmentTooltip)\"]",
+    "count": 1,
+    "file": "src/Classes/TradeQueryGenerator.lua",
+    "line": 1172,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TradeQueryGenerator.lua\",\"DropDownControl.tooltip\",\"augmentTooltip\",\"controls.anointBehaviour = new(\\\"DropDownControl\\\"):DropDownControl({ \\\"TOPLEFT\\\", lastItemAnchor, \\\"BOTTOMLEFT\\\" }, { 0, 5, 110, 18 }, localisation:List({ \\\"Copy Current\\\", \\\"Keep\\\", \\\"Remove\\\" }, { [1] = \\\"ui.trade_query_generator.request_query.augment_behaviour.label\\\", [2] = \\\"ui.trade_query_generator.request_query.augment_behaviour.label_2\\\", [3] = \\\"ui.trade_query_generator.request_query.augment_behaviour.label_3\\\" }), function(state) end, augmentTooltip)\"]",
+    "count": 1,
+    "file": "src/Classes/TradeQueryGenerator.lua",
+    "line": 1182,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TradeQueryGenerator.lua\",\"tooltipText\",\"controls.jewelSlot\",\"controls.generateQuery.tooltipText = controls.jewelSlot and localisation:Label(\\\"ui.trade_query_generator.request_query.generate_query_tooltip_text.label\\\") or nil\"]",
+    "count": 1,
+    "file": "src/Classes/TradeQueryGenerator.lua",
+    "line": 1340,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TreeTab.lua\",\"ButtonControl\",\"self.controls.powerReportList.shown\",\"function() return self.controls.powerReportList.shown and localisation:Text(\\\"ui.tree_tab.init.power_report.label\\\") or localisation:Text(\\\"ui.tree_tab.init.power_report.label_2\\\") end, function()\"]",
+    "count": 1,
+    "file": "src/Classes/TreeTab.lua",
+    "line": 269,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TreeTab.lua\",\"label\",\"message\",\"self.controls.powerReportList.label = message\"]",
+    "count": 1,
+    "file": "src/Classes/TreeTab.lua",
+    "line": 296,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TreeTab.lua\",\"ButtonControl\",\"buildConvertButtonLabel\",\"self.controls.specConvert = new(\\\"ButtonControl\\\"):ButtonControl({ \\\"LEFT\\\", self.controls.specConvertText, \\\"RIGHT\\\" }, { 8, 0, function() return DrawStringWidth(16, \\\"VAR\\\", buildConvertButtonLabel()) + 20 end, 20 }, buildConvertButtonLabel, function()\"]",
+    "count": 1,
+    "file": "src/Classes/TreeTab.lua",
+    "line": 339,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TreeTab.lua\",\"ButtonControl\",\"buildConvertAllButtonLabel\",\"self.controls.specConvertAll = new(\\\"ButtonControl\\\"):ButtonControl({ \\\"LEFT\\\", self.controls.specConvert, \\\"RIGHT\\\" }, { 8, 0, function() return DrawStringWidth(16, \\\"VAR\\\", buildConvertAllButtonLabel()) + 20 end, 20 }, buildConvertAllButtonLabel, function()\"]",
+    "count": 1,
+    "file": "src/Classes/TreeTab.lua",
+    "line": 342,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/TreeTab.lua\",\"OpenPopup.title\",\"node.name\",\"main:OpenPopup(controls.effect.width + 12, controls.effect.height + 60, node.name, controls)\"]",
+    "count": 1,
+    "file": "src/Classes/TreeTab.lua",
+    "line": 915,
+    "category": "historical-ui-boundary",
+    "reason": "历史精通/永恒珠宝搜索的共享字段；当前 PoE2 树无精通数据，仍列入静态边界，不宣称已逐项中文覆盖。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"DrawStringWidth\",\"self.buildName\",\"local bnw = DrawStringWidth(16, \\\"VAR\\\", self.buildName)\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 140,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"Tooltip.AddLine\",\"self.buildName\",\"miscTooltip:AddLine(16, self.buildName)\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 162,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"DrawStringWidth\",\"control.str\",\"return DrawStringWidth(16, \\\"FIXED\\\", control.str) + 8\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 183,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"DrawString\",\"control.str\",\"DrawString(x + 4, y + 2, \\\"LEFT\\\", 16, \\\"FIXED\\\", control.str)\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 193,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"Tooltip.AddLine\",\"control.req\",\"miscTooltip:AddLine(16, control.req)\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 197,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"ButtonControl\",\"self.characterLevelAutoMode\",\"self.controls.levelScalingButton = new(\\\"ButtonControl\\\"):ButtonControl({ \\\"LEFT\\\", self.controls.pointDisplay, \\\"RIGHT\\\" }, { 8, 0, 50, 20 }, self.characterLevelAutoMode and localisation:Label(\\\"ui.build.init.level_scaling_button.label\\\") or localisation:Label(\\\"ui.build.init.level_scaling_button.label_2\\\"), function()\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 202,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"label\",\"self.characterLevelAutoMode\",\"self.controls.levelScalingButton.label = self.characterLevelAutoMode and localisation:Label(\\\"ui.build.init.level_scaling_button_label.label\\\") or localisation:Label(\\\"ui.build.init.level_scaling_button_label.label_2\\\")\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 204,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"Tooltip.AddLine\",\"line\",\"tooltip:AddLine(14, line)\"]",
+    "count": 2,
+    "file": "src/Modules/Build.lua",
+    "line": 241,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"DrawStringWidth\",\"control.str\",\"return control.str and DrawStringWidth(16, \\\"FIXED\\\", control.str) + 8 or 0\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 497,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"DrawString\",\"control.str\",\"DrawString(x, y + 2, \\\"LEFT\\\", 16, \\\"FIXED\\\", control.str)\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 506,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"Tooltip.AddLine\",\"v\",\"for k,v in pairs(self.controls.warnings.lines) do miscTooltip:AddLine(16, v) end\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 510,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"OpenPopup.title\",\"self.dbFileName\",\"main:OpenPopup(470, 255, self.dbFileName and localisation:Label(\\\"ui.build.open_save_as_popup.label_3\\\") or localisation:Label(\\\"ui.build.open_save_as_popup.label_2\\\"), controls, \\\"save\\\", \\\"edit\\\", \\\"close\\\")\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 1650,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"DrawString\",\"self.minion\",\"DrawString(xPos + 45, yPos, \\\"CENTER_X\\\", 18, \\\"VAR BOLD\\\", self.minion and (\\\"^7\\\" .. localisation:Field(self.minion, 'name')) or localisation:Text(\\\"ui.build.open_spectre_library.minion_name_label_draw.message\\\"))\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 1886,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"DrawString\",\"self.lifeValue\",\"DrawString(xPos + (labelWidth / 2), yPos + 24, \\\"CENTER_X\\\", 16, \\\"VAR\\\", self.lifeValue)\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 1908,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"DrawString\",\"self.energyShieldValue\",\"DrawString(xPos + (labelWidth / 2), yPos + 24, \\\"CENTER_X\\\", 16, \\\"VAR\\\", self.energyShieldValue)\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 1925,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"DrawString\",\"self.armourValue\",\"DrawString(xPos + (labelWidth / 2), yPos + 24, \\\"CENTER_X\\\", 16, \\\"VAR\\\", self.armourValue)\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 1942,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"DrawString\",\"self.evasionValue\",\"DrawString(xPos + (labelWidth / 2), yPos + 24, \\\"CENTER_X\\\", 16, \\\"VAR\\\", self.evasionValue)\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 1959,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"DrawString\",\"self.blockValue\",\"DrawString(xPos + (labelWidth / 2), yPos + 24, \\\"CENTER_X\\\", 16, \\\"VAR\\\", self.blockValue)\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 1976,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"DrawString\",\"self.resistsValue\",\"DrawString(xPos + (labelWidth / 2), yPos + 24, \\\"CENTER_X\\\", 16, \\\"VAR\\\", self.resistsValue)\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 1993,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"DrawString\",\"self.movementSpeedValue\",\"DrawString(xPos + (labelWidth / 2), yPos + 24, \\\"CENTER_X\\\", 16, \\\"VAR\\\", self.movementSpeedValue)\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 2010,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Build.lua\",\"Tooltip.AddLine\",\"header\",\"tooltip:AddLine(14, header, nil, nil, nil, newBlock)\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 2589,
+    "category": "domain-display-boundary",
+    "reason": "领域显示来自 Field/Line/ModLine/Term 或已解析报告；条件、数值和用户命名不进行全局翻译。审阅按当前来源，新增或修改表达式须重新检查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"label\",\"launch.updateCheckRunning\",\"return launch.updateCheckRunning and launch.updateProgress or localisation:Text(\\\"ui.main.init.check_update_label.message\\\")\"]",
+    "count": 1,
+    "file": "src/Modules/Main.lua",
+    "line": 244,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"label\",\"launch.updateProgress\",\"return launch.updateCheckRunning and launch.updateProgress or localisation:Text(\\\"ui.main.init.check_update_label.message\\\")\"]",
+    "count": 1,
+    "file": "src/Modules/Main.lua",
+    "line": 244,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"DrawStringWidth\",\"self.showDragText\",\"local strWidth = DrawStringWidth(16, \\\"VAR\\\", self.showDragText)\"]",
+    "count": 1,
+    "file": "src/Modules/Main.lua",
+    "line": 475,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"DrawString\",\"self.showDragText\",\"DrawString(cursorX + 1, cursorY - 7, \\\"LEFT\\\", 16, \\\"VAR\\\", self.showDragText)\"]",
+    "count": 1,
+    "file": "src/Modules/Main.lua",
+    "line": 480,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"PopupDialog.title\",\"title\",\"local popup = new(\\\"PopupDialog\\\"):PopupDialog(width, height, title, controls, enterControl, defaultControl, escapeControl, scrollBarFunc, resizeFunc)\"]",
+    "count": 1,
+    "file": "src/Modules/Main.lua",
+    "line": 1687,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"LabelControl\",\"line\",\"t_insert(controls, new(\\\"LabelControl\\\"):LabelControl(nil, { 0, 20 + numMsgLines * 16, 0, 16 }, line))\"]",
+    "count": 3,
+    "file": "src/Modules/Main.lua",
+    "line": 1700,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"OpenPopup.title\",\"title\",\"return self:OpenPopup(m_max(DrawStringWidth(16, \\\"VAR\\\", msg) + 30, 190), 70 + numMsgLines * 16, title, controls, \\\"close\\\")\"]",
+    "count": 2,
+    "file": "src/Modules/Main.lua",
+    "line": 1706,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"DrawStringWidth\",\"msg\",\"return self:OpenPopup(m_max(DrawStringWidth(16, \\\"VAR\\\", msg) + 30, 190), 70 + numMsgLines * 16, title, controls, \\\"close\\\")\"]",
+    "count": 2,
+    "file": "src/Modules/Main.lua",
+    "line": 1706,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"DrawStringWidth\",\"confirmLabel\",\"local confirmWidth = m_max(80, DrawStringWidth(16, \\\"VAR\\\", confirmLabel) + 10)\"]",
+    "count": 1,
+    "file": "src/Modules/Main.lua",
+    "line": 1716,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"DrawStringWidth\",\"extraLabel\",\"local extraWidth = m_max(80, DrawStringWidth(16, \\\"VAR\\\", extraLabel) + 10)\"]",
+    "count": 1,
+    "file": "src/Modules/Main.lua",
+    "line": 1720,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"ButtonControl\",\"label\",\"local ctrl = new(\\\"ButtonControl\\\"):ButtonControl(nil, { centerX, buttonY, width, 20 }, label, function()\"]",
+    "count": 1,
+    "file": "src/Modules/Main.lua",
+    "line": 1728,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"OpenPopup.title\",\"title\",\"return self:OpenPopup(m_max(DrawStringWidth(16, \\\"VAR\\\", msg) + 30, totalWidth + 40), 70 + numMsgLines * 16, title, controls, \\\"confirm\\\")\"]",
+    "count": 1,
+    "file": "src/Modules/Main.lua",
+    "line": 1742,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"DrawStringWidth\",\"msg\",\"return self:OpenPopup(m_max(DrawStringWidth(16, \\\"VAR\\\", msg) + 30, totalWidth + 40), 70 + numMsgLines * 16, title, controls, \\\"confirm\\\")\"]",
+    "count": 1,
+    "file": "src/Modules/Main.lua",
+    "line": 1742,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"ButtonControl\",\"confirmLabel\",\"controls.confirm = new(\\\"ButtonControl\\\"):ButtonControl(nil, { -5 - m_ceil(confirmWidth / 2), 40 + numMsgLines * 16, confirmWidth, 20 }, confirmLabel, function()\"]",
+    "count": 1,
+    "file": "src/Modules/Main.lua",
+    "line": 1745,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"OpenPopup.title\",\"title\",\"return self:OpenPopup(m_max(DrawStringWidth(16, \\\"VAR\\\", msg) + 30, 190), 70 + numMsgLines * 16, title, controls, \\\"confirm\\\")\"]",
+    "count": 1,
+    "file": "src/Modules/Main.lua",
+    "line": 1752,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"DrawStringWidth\",\"msg\",\"return self:OpenPopup(m_max(DrawStringWidth(16, \\\"VAR\\\", msg) + 30, 190), 70 + numMsgLines * 16, title, controls, \\\"confirm\\\")\"]",
+    "count": 1,
+    "file": "src/Modules/Main.lua",
+    "line": 1752,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"tooltipText\",\"hoverText\",\"controls[\\\"font\\\" .. style.label].tooltipText = hoverText\"]",
+    "count": 1,
+    "file": "src/Modules/Main.lua",
+    "line": 1797,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"tooltipText\",\"hoverText\",\"controls[\\\"color\\\" .. code].tooltipText = hoverText\"]",
+    "count": 1,
+    "file": "src/Modules/Main.lua",
+    "line": 1808,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"OpenPopup.title\",\"title\",\"self:OpenPopup(624, buttonY + 40, title or localisation:Label(\\\"ui.main.open_note_edit_popup.label\\\"), controls, \\\"save\\\", \\\"edit\\\", \\\"cancel\\\")\"]",
+    "count": 1,
+    "file": "src/Modules/Main.lua",
+    "line": 1843,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"tooltipText\",\"url\",\"controls.help.tooltipText = url\"]",
+    "count": 1,
+    "file": "src/Modules/Main.lua",
+    "line": 1896,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"SetWindowTitle\",\"APP_NAME\",\"SetWindowTitle(APP_NAME)\"]",
+    "count": 1,
+    "file": "src/Modules/Main.lua",
+    "line": 1905,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Launch.lua\",\"SetWindowTitle\",\"APP_NAME\",\"SetWindowTitle(APP_NAME)\"]",
+    "count": 1,
+    "file": "src/Launch.lua",
+    "line": 12,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Launch.lua\",\"DrawString\",\"self.doRestart\",\"DrawString(0, screenH/2, \\\"CENTER\\\", 24, \\\"FIXED\\\", self.doRestart)\"]",
+    "count": 1,
+    "file": "src/Launch.lua",
+    "line": 132,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Launch.lua\",\"DrawStringWidth\",\"txt\",\"local w = DrawStringWidth(20, \\\"VAR\\\", txt) + 20\"]",
+    "count": 1,
+    "file": "src/Launch.lua",
+    "line": 404,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Launch.lua\",\"DrawString\",\"txt\",\"DrawString(0, oy + 10, \\\"CENTER\\\", 20, \\\"VAR\\\", txt)\"]",
+    "count": 1,
+    "file": "src/Launch.lua",
+    "line": 414,
+    "category": "shared-message-or-native",
+    "reason": "通用弹窗/通知接收来源解析后的文案，另含路径、URL、品牌和进度；不在最终绘制文本上反查。"
+  },
+  {
+    "mode": "--display-state",
+    "identity": "[\"src/Classes/CalcBreakdownControl.lua\",\"display.AddModSection.cond\",\"tag.var\",\"local cond = (tag.var or tag.varList) and \\\": \\\"..(tag.neg and localisation:Text(\\\"ui.calc_breakdown_control.display.add_mod_section.cond.parameter\\\") or \\\"\\\")..self:FormatVarNameOrList(tag.var, tag.varList) or \\\"\\\"\"]",
+    "count": 1,
+    "file": "src/Classes/CalcBreakdownControl.lua",
+    "line": 501,
+    "category": "resolved-state-or-value",
+    "reason": "状态由 Text/Field/FormatVarNameOrList 解析；其余是布尔条件、数值格式或已解析的侧栏行。"
+  },
+  {
+    "mode": "--display-state",
+    "identity": "[\"src/Classes/CalcBreakdownControl.lua\",\"display.AddModSection.cond\",\"tag.varList\",\"local cond = (tag.var or tag.varList) and \\\": \\\"..(tag.neg and localisation:Text(\\\"ui.calc_breakdown_control.display.add_mod_section.cond.parameter\\\") or \\\"\\\")..self:FormatVarNameOrList(tag.var, tag.varList) or \\\"\\\"\"]",
+    "count": 1,
+    "file": "src/Classes/CalcBreakdownControl.lua",
+    "line": 501,
+    "category": "resolved-state-or-value",
+    "reason": "状态由 Text/Field/FormatVarNameOrList 解析；其余是布尔条件、数值格式或已解析的侧栏行。"
+  },
+  {
+    "mode": "--display-state",
+    "identity": "[\"src/Classes/CalcBreakdownControl.lua\",\"format.FormatModValue\",\"value\",\"return value and localisation:Text(\\\"ui.calc_breakdown_control.format.format_mod_value_7\\\") or localisation:Text(\\\"ui.calc_breakdown_control.format.format_mod_value_8\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/CalcBreakdownControl.lua",
+    "line": 594,
+    "category": "resolved-state-or-value",
+    "reason": "状态由 Text/Field/FormatVarNameOrList 解析；其余是布尔条件、数值格式或已解析的侧栏行。"
+  },
+  {
+    "mode": "--display-state",
+    "identity": "[\"src/Classes/CalcBreakdownControl.lua\",\"format.FormatModValue\",\"value\",\"return value\"]",
+    "count": 1,
+    "file": "src/Classes/CalcBreakdownControl.lua",
+    "line": 602,
+    "category": "resolved-state-or-value",
+    "reason": "状态由 Text/Field/FormatVarNameOrList 解析；其余是布尔条件、数值格式或已解析的侧栏行。"
+  },
+  {
+    "mode": "--display-state",
+    "identity": "[\"src/Classes/CompareCalcsHelpers.lua\",\"format.FormatCalcModValue\",\"value\",\"return value and localisation:Text(\\\"ui.compare_calcs_helpers.format.format_calc_mod_value_7\\\") or localisation:Text(\\\"ui.compare_calcs_helpers.format.format_calc_mod_value_8\\\")\"]",
+    "count": 1,
+    "file": "src/Classes/CompareCalcsHelpers.lua",
+    "line": 31,
+    "category": "resolved-state-or-value",
+    "reason": "状态由 Text/Field/FormatVarNameOrList 解析；其余是布尔条件、数值格式或已解析的侧栏行。"
+  },
+  {
+    "mode": "--display-state",
+    "identity": "[\"src/Classes/CompareTab.lua\",\"display.DrawConfig.labelText\",\"sec.name\",\"local labelText = sec.name\"]",
+    "count": 1,
+    "file": "src/Classes/CompareTab.lua",
+    "line": 4891,
+    "category": "resolved-state-or-value",
+    "reason": "状态由 Text/Field/FormatVarNameOrList 解析；其余是布尔条件、数值格式或已解析的侧栏行。"
+  },
+  {
+    "mode": "--display-state",
+    "identity": "[\"src/Modules/Build.lua\",\"sidebar.AddDisplayStatList\",\"lhsString\",\"lhsString,\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 2407,
+    "category": "resolved-state-or-value",
+    "reason": "状态由 Text/Field/FormatVarNameOrList 解析；其余是布尔条件、数值格式或已解析的侧栏行。"
+  },
+  {
+    "mode": "--display-state",
+    "identity": "[\"src/Modules/Build.lua\",\"sidebar.AddDisplayStatList\",\"formattedStat\",\"formattedStat,\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 2458,
+    "category": "resolved-state-or-value",
+    "reason": "状态由 Text/Field/FormatVarNameOrList 解析；其余是布尔条件、数值格式或已解析的侧栏行。"
+  },
+  {
+    "mode": "--display-state",
+    "identity": "[\"src/Modules/Build.lua\",\"warning.AddDisplayStatList\",\"v\",\"InsertIfNew(self.controls.warnings.lines, v)\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 2471,
+    "category": "resolved-state-or-value",
+    "reason": "状态由 Text/Field/FormatVarNameOrList 解析；其余是布尔条件、数值格式或已解析的侧栏行。"
+  },
+  {
+    "mode": "--display-state",
+    "identity": "[\"src/Modules/Build.lua\",\"sidebar.RefreshStatList\",\"self.calcsTab.mainEnv.player.mainSkill.disableReason\",\"t_insert(statBoxList, { height = 14, align = \\\"CENTER_X\\\", x = 140, self.calcsTab.mainEnv.player.mainSkill.disableReason })\"]",
+    "count": 1,
+    "file": "src/Modules/Build.lua",
+    "line": 2570,
+    "category": "resolved-state-or-value",
+    "reason": "状态由 Text/Field/FormatVarNameOrList 解析；其余是布尔条件、数值格式或已解析的侧栏行。"
+  },
+  {
+    "mode": "--display-state",
+    "identity": "[\"src/Modules/CalcActiveSkill.lua\",\"state.buildActiveSkillModList.disableReason\",\"activeSkill.disableReason\",\"activeSkill.disableReason = activeSkill.disableReason or localisation:Text(\\\"ui.calc_active_skill.state.build_active_skill_mod_list.disable_reason_3\\\")\"]",
+    "count": 1,
+    "file": "src/Modules/CalcActiveSkill.lua",
+    "line": 554,
+    "category": "resolved-state-or-value",
+    "reason": "状态由 Text/Field/FormatVarNameOrList 解析；其余是布尔条件、数值格式或已解析的侧栏行。"
+  },
+  {
+    "mode": "--display-state",
+    "identity": "[\"src/Modules/CalcActiveSkill.lua\",\"state.buildActiveSkillModList.disableReason\",\"activeSkill.disableReason\",\"activeSkill.disableReason = activeSkill.disableReason or localisation:Text(\\\"ui.calc_active_skill.state.build_active_skill_mod_list.disable_reason_4\\\")\"]",
+    "count": 1,
+    "file": "src/Modules/CalcActiveSkill.lua",
+    "line": 562,
+    "category": "resolved-state-or-value",
+    "reason": "状态由 Text/Field/FormatVarNameOrList 解析；其余是布尔条件、数值格式或已解析的侧栏行。"
+  },
+  {
+    "mode": "--display-state",
+    "identity": "[\"src/Modules/CalcActiveSkill.lua\",\"state.buildActiveSkillModList.disableReason\",\"activeSkill.disableReason\",\"activeSkill.disableReason = activeSkill.disableReason or localisation:Text(\\\"ui.calc_active_skill.state.build_active_skill_mod_list.disable_reason_5\\\")\"]",
+    "count": 1,
+    "file": "src/Modules/CalcActiveSkill.lua",
+    "line": 565,
+    "category": "resolved-state-or-value",
+    "reason": "状态由 Text/Field/FormatVarNameOrList 解析；其余是布尔条件、数值格式或已解析的侧栏行。"
+  },
+  {
+    "mode": "--display-state",
+    "identity": "[\"src/Modules/CalcTriggers.lua\",\"state.defaultTriggerHandler.infoMessage\",\"actor.mainSkill.triggeredBy\",\"actor.mainSkill.infoMessage = actor.mainSkill.triggeredBy and localisation:Field(actor.mainSkill.triggeredBy.grantedEffect, \\\"name\\\") or localisation:Text(\\\"ui.calc_triggers.state.default_trigger_handler.info_message_2\\\", { trigger_name = localisation:Field(config, \\\"triggerName\\\") })\"]",
+    "count": 1,
+    "file": "src/Modules/CalcTriggers.lua",
+    "line": 886,
+    "category": "resolved-state-or-value",
+    "reason": "状态由 Text/Field/FormatVarNameOrList 解析；其余是布尔条件、数值格式或已解析的侧栏行。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"Tree\",\"for _, source in ipairs({ \\\"Tree\\\", \\\"Item\\\", \\\"Skill\\\" }) do\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 2782,
+    "category": "business-enum",
+    "reason": "Tree/Item/Skill 是来源筛选身份；PreEffectiveCritChance/CritChance 是计算输出索引，不应翻译业务值。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"Item\",\"for _, source in ipairs({ \\\"Tree\\\", \\\"Item\\\", \\\"Skill\\\" }) do\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 2782,
+    "category": "business-enum",
+    "reason": "Tree/Item/Skill 是来源筛选身份；PreEffectiveCritChance/CritChance 是计算输出索引，不应翻译业务值。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"Skill\",\"for _, source in ipairs({ \\\"Tree\\\", \\\"Item\\\", \\\"Skill\\\" }) do\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 2782,
+    "category": "business-enum",
+    "reason": "Tree/Item/Skill 是来源筛选身份；PreEffectiveCritChance/CritChance 是计算输出索引，不应翻译业务值。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.offence.line\",\"PreEffectiveCritChance\",\"for _, critStat in ipairs({ \\\"PreEffectiveCritChance\\\", \\\"CritChance\\\" }) do\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 4798,
+    "category": "business-enum",
+    "reason": "Tree/Item/Skill 是来源筛选身份；PreEffectiveCritChance/CritChance 是计算输出索引，不应翻译业务值。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.offence.line\",\"CritChance\",\"for _, critStat in ipairs({ \\\"PreEffectiveCritChance\\\", \\\"CritChance\\\" }) do\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 4798,
+    "category": "business-enum",
+    "reason": "Tree/Item/Skill 是来源筛选身份；PreEffectiveCritChance/CritChance 是计算输出索引，不应翻译业务值。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcBreakdown.lua\",\"report.multiChain.line\",\"chain.total\",\"t_insert(out, chain.total)\"]",
+    "count": 1,
+    "file": "src/Modules/CalcBreakdown.lua",
+    "line": 40,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcBreakdown.lua\",\"report.slot.line\",\"{\\r\\n\\t\\t\\tbase = base,\\r\\n\\t\\t\\tinc = (inc ~= 0) and s_format(\\\" x %.2f\\\", 1 + inc/100),\\r\\n\\t\\t\\tmore = (more ~= 1) and s_format(\\\" x %.2f\\\", more),\\r\\n\\t\\t\\ttotal = s_format(\\\"%.2f\\\", total or (base * (1 + inc / 100) * more)),\\r\\n\\t\\t\\tsource = source, sourceKey = localisation:TermKey((source == \\\"Global\\\" or source == \\\"Conversion\\\") and \\\"calculation_source\\\" or \\\"equipment.slot\\\", source),\\r\\n\\t\\t\\tsourceName = sourceName,\\r\\n\\t\\t\\titem = not sourceName and actor.itemList[source],\\r\\n\\t\\t}\",\"t_insert(breakdown[...].slots, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcBreakdown.lua",
+    "line": 87,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcBreakdown.lua\",\"report.area.line\",\"label\",\"t_insert(out, label)\"]",
+    "count": 1,
+    "file": "src/Modules/CalcBreakdown.lua",
+    "line": 100,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.doActorLifeManaSpiritReservation.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\t\\tskillName = activeSkill.activeEffect.grantedEffect.name, skillNameKey = activeSkill.activeEffect.grantedEffect.nameKey,\\r\\n\\t\\t\\t\\t\\t\\t\\tbase = values.baseFlat,\\r\\n\\t\\t\\t\\t\\t\\t\\tmult = mult ~= 1 and (\\\"x \\\"..mult),\\r\\n\\t\\t\\t\\t\\t\\t\\tmore = values.more ~= 1 and (\\\"x \\\"..values.more),\\r\\n\\t\\t\\t\\t\\t\\t\\tinc = values.inc ~= 0 and (\\\"x \\\"..(1 + values.inc / 100)),\\r\\n\\t\\t\\t\\t\\t\\t\\tefficiency = values.efficiency ~= 0 and (\\\"x \\\" .. round(100 / (100 + values.efficiency), 4)),\\r\\n\\t\\t\\t\\t\\t\\t\\tefficiencyMore = values.efficiencyMore ~= 1 and (\\\"x \\\"..values.efficiencyMore),\\r\\n\\t\\t\\t\\t\\t\\t\\tcount = values.count and (\\\"x \\\" ..values.count),\\r\\n\\t\\t\\t\\t\\t\\t\\ttotal = values.reservedFlat,\\r\\n\\t\\t\\t\\t\\t\\t}\",\"t_insert(breakdown[name..\\\"Reserved\\\"].reservations, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 301,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.doActorLifeManaSpiritReservation.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\t\\tskillName = activeSkill.activeEffect.grantedEffect.name, skillNameKey = activeSkill.activeEffect.grantedEffect.nameKey,\\r\\n\\t\\t\\t\\t\\t\\t\\tbase = values.basePercent .. \\\"%\\\",\\r\\n\\t\\t\\t\\t\\t\\t\\tmult = mult ~= 1 and (\\\"x \\\"..mult),\\r\\n\\t\\t\\t\\t\\t\\t\\tmore = values.more ~= 1 and (\\\"x \\\"..values.more),\\r\\n\\t\\t\\t\\t\\t\\t\\tinc = values.inc ~= 0 and (\\\"x \\\"..(1 + values.inc / 100)),\\r\\n\\t\\t\\t\\t\\t\\t\\tefficiency = values.efficiency ~= 0 and (\\\"x \\\" .. round(100 / (100 + values.efficiency), 4)),\\r\\n\\t\\t\\t\\t\\t\\t\\tefficiencyMore = values.efficiencyMore ~= 1 and (\\\"x \\\"..values.efficiencyMore),\\r\\n\\t\\t\\t\\t\\t\\t\\ttotal = values.reservedPercent .. \\\"%\\\",\\r\\n\\t\\t\\t\\t\\t\\t}\",\"t_insert(breakdown[name..\\\"Reserved\\\"].reservations, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 319,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.defence.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\t\\t\\tbase = wardBase,\\r\\n\\t\\t\\t\\t\\t\\t\\t\\tinc = (inc ~= 0) and s_format(\\\" x %.2f\\\", 1 + inc/100),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\tmore = (more ~= 1) and s_format(\\\" x %.2f\\\", more),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\ttotal = s_format(\\\"%.2f\\\", wardBase * (1 + inc / 100) * more),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\tsource = slot, sourceKey = localisation:TermKey(\\\"equipment.slot\\\", slot),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\titem = actor.itemList[slot],\\r\\n\\t\\t\\t\\t\\t\\t\\t}\",\"t_insert(breakdown[\\\"Ward\\\"].slots, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 1228,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.defence.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\t\\t\\tbase = energyShieldBase,\\r\\n\\t\\t\\t\\t\\t\\t\\t\\tmore = (more ~= 1) and s_format(\\\" x %.2f\\\", more),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\ttotal = s_format(\\\"%.2f\\\", energyShieldBase * more),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\tsource = slot, sourceKey = localisation:TermKey(\\\"equipment.slot\\\", slot),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\titem = actor.itemList[slot],\\r\\n\\t\\t\\t\\t\\t\\t\\t}\",\"t_insert(breakdown[\\\"EnergyShield\\\"].slots, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 1253,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.defence.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\tbase = wardBase,\\r\\n\\t\\t\\t\\t\\t\\tinc = (inc ~= 0) and s_format(\\\" x %.2f\\\", 1 + inc/100),\\r\\n\\t\\t\\t\\t\\t\\tmore = (more ~= 1) and s_format(\\\" x %.2f\\\", more),\\r\\n\\t\\t\\t\\t\\t\\ttotal = s_format(\\\"%.2f\\\", wardBase * (1 + inc / 100) * more),\\r\\n\\t\\t\\t\\t\\t\\tsource = \\\"Global\\\", sourceKey = \\\"term.calculation_source.global\\\",\\r\\n\\t\\t\\t\\t\\t\\titem = actor.itemList[\\\"Global\\\"],\\r\\n\\t\\t\\t\\t\\t}\",\"t_insert(breakdown[\\\"Ward\\\"].slots, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 1313,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.defence.line\",\"{\\r\\n\\t\\t\\t\\t\\tbase = energyShieldBase,\\r\\n\\t\\t\\t\\t\\tinc = (inc ~= 0) and s_format(\\\" x %.2f\\\", 1 + inc/100),\\r\\n\\t\\t\\t\\t\\tmore = (more ~= 1) and s_format(\\\" x %.2f\\\", more),\\r\\n\\t\\t\\t\\t\\ttotal = s_format(\\\"%.2f\\\", energyShieldBase * (1 + inc / 100) * more),\\r\\n\\t\\t\\t\\t\\tsource = \\\"Global\\\", sourceKey = \\\"term.calculation_source.global\\\",\\r\\n\\t\\t\\t\\t\\titem = actor.itemList[\\\"Global\\\"],\\r\\n\\t\\t\\t\\t}\",\"t_insert(breakdown[\\\"EnergyShield\\\"].slots, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 1333,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"{\\r\\n\\t\\t\\t\\t\\ttype = s_format(\\\"%s\\\", damageType), typeKey = localisation:TermKey(\\\"damage_type\\\", damageType),\\r\\n\\t\\t\\t\\t\\tvalue = s_format(\\\"%d\\\", enemyDamage),\\r\\n\\t\\t\\t\\t\\tmult = s_format(\\\"%.2f\\\", enemyDamageMult),\\r\\n\\t\\t\\t\\t\\tcrit = s_format(\\\"%.2f\\\", output[\\\"EnemyCritEffect\\\"]),\\r\\n\\t\\t\\t\\t\\tconvMult = s_format(\\\"%s%d\\\", conversionExtra > 0 and \\\"+\\\" or (conversionExtra < 0 and \\\"-\\\" or \\\"\\\"), conversionExtra >= 0 and conversionExtra or -conversionExtra),\\r\\n\\t\\t\\t\\t\\tfinal = s_format(\\\"%d\\\", output[damageType..\\\"EnemyDamage\\\"]),\\r\\n\\t\\t\\t\\t\\tfrom = s_format(\\\"%s\\\", sourceStr), fromKey = localisation:TermKey(\\\"calculation_source\\\", sourceStr),\\r\\n\\t\\t\\t\\t}\",\"t_insert(breakdown[\\\"totalEnemyDamage\\\"].rowList, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 2375,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"{\\r\\n\\t\\t\\t\\t\\ttype = s_format(\\\"%s\\\", damageType), typeKey = localisation:TermKey(\\\"damage_type\\\", damageType),\\r\\n\\t\\t\\t\\t\\tvalue = s_format(\\\"%d\\\", output[damageType..\\\"TakenDamage\\\"]),\\r\\n\\t\\t\\t\\t}\",\"t_insert(breakdown[damageType..\\\"TakenDamage\\\"].rowList, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 2422,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\t\\ttype = s_format(\\\"%s\\\", damageType), typeKey = localisation:TermKey(\\\"damage_type\\\", damageType),\\r\\n\\t\\t\\t\\t\\t\\t\\tvalue = s_format(\\\"%d\\\", damage),\\r\\n\\t\\t\\t\\t\\t\\t}\",\"t_insert(breakdown[damageConvertedType..\\\"TakenDamage\\\"].rowList, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 2435,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"{\\r\\n\\t\\t\\t\\t\\ttype = s_format(\\\"%s\\\", damageType), typeKey = localisation:TermKey(\\\"damage_type\\\", damageType),\\r\\n\\t\\t\\t\\t\\tvalue = s_format(\\\"%d\\\", output[damageType..\\\"TakenDamage\\\"]),\\r\\n\\t\\t\\t\\t}\",\"t_insert(breakdown[\\\"totalTakenDamage\\\"].rowList, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 2458,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\ttype = localisation:Text(\\\"calc.defence.build_defence_estimations.line_140\\\", { conversion = conversion, taken_type = localisation:TermRef(\\\"damage_type\\\", takenType) }),\\r\\n\\t\\t\\t\\t\\t\\tpool = s_format(\\\"%d\\\", output[takenType ..\\\"TotalHitPool\\\"]),\\r\\n\\t\\t\\t\\t\\t\\tincoming = s_format(\\\"%.0f\\\", incoming),\\r\\n\\t\\t\\t\\t\\t\\tmulti = s_format(\\\"x%.3f\\\", nanToZero / incoming),\\r\\n\\t\\t\\t\\t\\t\\ttaken = s_format(\\\"%.0f\\\", nanToZero),\\r\\n\\t\\t\\t\\t\\t}\",\"t_insert(breakdown[maxHitCurType].rowList, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 3823,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\t\\t\\ttype = damageType, typeKey = localisation:TermKey(\\\"damage_type\\\", damageType),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\ttype2 = damageConvertedType, type2Key = localisation:TermKey(\\\"damage_type\\\", damageConvertedType),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\tbase = s_format(\\\"%.1f\\\", baseVal),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\tconv = s_format(\\\"x %.2f%%\\\", convertPercent),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\tmult = s_format(\\\"x %.2f\\\", output[damageConvertedType..\\\"TakenDotMult\\\"]),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\ttotal = s_format(\\\"%.1f\\\", total),\\r\\n\\t\\t\\t\\t\\t\\t\\t}\",\"t_insert(breakdown.TotalBuildDegen.rowList, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 3898,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\t\\t\\ttype = damageType, typeKey = localisation:TermKey(\\\"damage_type\\\", damageType),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\tbase = s_format(\\\"%.1f\\\", baseVal),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\tconv = s_format(\\\"x %.2f%%\\\", convertPercent),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\tmult = s_format(\\\"x %.2f\\\", output[damageConvertedType..\\\"TakenDotMult\\\"]),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\ttotal = s_format(\\\"%.1f\\\", total),\\r\\n\\t\\t\\t\\t\\t\\t\\t}\",\"t_insert(breakdown[damageConvertedType..\\\"BuildDegen\\\"].rowList, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 3916,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\t\\ttype = s_format(\\\"%s\\\", damageType), typeKey = localisation:TermKey(\\\"damage_type\\\", damageType),\\r\\n\\t\\t\\t\\t\\t\\t\\tdegen = s_format(\\\"%.2f\\\", lifeDegen),\\r\\n\\t\\t\\t\\t\\t\\t}\",\"t_insert(breakdown.NetLifeRegen.rowList, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 3987,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\t\\ttype = s_format(\\\"%s\\\", damageType), typeKey = localisation:TermKey(\\\"damage_type\\\", damageType),\\r\\n\\t\\t\\t\\t\\t\\t\\tdegen = s_format(\\\"%.2f\\\", manaDegen),\\r\\n\\t\\t\\t\\t\\t\\t}\",\"t_insert(breakdown.NetManaRegen.rowList, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 3991,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\t\\ttype = s_format(\\\"%s\\\", damageType), typeKey = localisation:TermKey(\\\"damage_type\\\", damageType),\\r\\n\\t\\t\\t\\t\\t\\t\\tdegen = s_format(\\\"%.2f\\\", energyShieldDegen),\\r\\n\\t\\t\\t\\t\\t\\t}\",\"t_insert(breakdown.NetEnergyShieldRegen.rowList, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 3995,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tsource = source, sourceKey = localisation:TermKey(\\\"calculation_source\\\", source),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\ttype = damageType, typeKey = localisation:TermKey(\\\"damage_type\\\", damageType),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\ttype2 = damageConvertedType, type2Key = localisation:TermKey(\\\"damage_type\\\", damageConvertedType),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tbase = s_format(\\\"%.1f\\\", baseVal),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tconv = s_format(\\\"x %.2f%%\\\", convertPercent),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tmult = s_format(\\\"x %.2f\\\", output[damageConvertedType..\\\"TakenDotMult\\\"]),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\ttotal = s_format(\\\"%.1f\\\", total),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t}\",\"t_insert(breakdown.TotalDegen.rowList, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 4069,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tsource = source, sourceKey = localisation:TermKey(\\\"calculation_source\\\", source),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\ttype = damageType, typeKey = localisation:TermKey(\\\"damage_type\\\", damageType),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tbase = s_format(\\\"%.1f\\\", baseVal),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tconv = s_format(\\\"x %.2f%%\\\", convertPercent),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tmult = s_format(\\\"x %.2f\\\", output[damageConvertedType..\\\"TakenDotMult\\\"]),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\ttotal = s_format(\\\"%.1f\\\", total),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t}\",\"t_insert(breakdown[damageConvertedType..\\\"EnemyDegen\\\"].rowList, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 4089,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tsource = source, sourceKey = localisation:TermKey(\\\"calculation_source\\\", source),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\ttype = ailment.damageType, typeKey = localisation:TermKey(\\\"damage_type\\\", ailment.damageType),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\ttype2 = damageConvertedType, type2Key = localisation:TermKey(\\\"damage_type\\\", damageConvertedType),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tbase = s_format(\\\"%.1f\\\", baseVal),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tconv = s_format(\\\"x %.2f%%\\\", convertPercent),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tmult = s_format(\\\"x %.2f\\\", output[damageConvertedType..\\\"TakenDotMult\\\"]),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\ttotal = s_format(\\\"%.1f\\\", total),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t}\",\"t_insert(breakdown.TotalDegen.rowList, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 4138,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tsource = source, sourceKey = localisation:TermKey(\\\"calculation_source\\\", source),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\ttype = ailment.damageType, typeKey = localisation:TermKey(\\\"damage_type\\\", ailment.damageType),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tbase = s_format(\\\"%.1f\\\", baseVal),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tconv = s_format(\\\"x %.2f%%\\\", convertPercent),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tmult = s_format(\\\"x %.2f\\\", output[damageConvertedType..\\\"TakenDotMult\\\"]),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\ttotal = s_format(\\\"%.1f\\\", total),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t}\",\"t_insert(breakdown[damageConvertedType..\\\"EnemyDegen\\\"].rowList, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 4158,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\t\\t\\ttype = s_format(\\\"%s\\\", damageType), typeKey = localisation:TermKey(\\\"damage_type\\\", damageType),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\tdegen = s_format(\\\"%.2f\\\", lifeDegen),\\r\\n\\t\\t\\t\\t\\t\\t\\t}\",\"t_insert(breakdown.ComprehensiveNetLifeRegen.rowList, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 4232,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\t\\t\\ttype = s_format(\\\"%s\\\", damageType), typeKey = localisation:TermKey(\\\"damage_type\\\", damageType),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\tdegen = s_format(\\\"%.2f\\\", manaDegen),\\r\\n\\t\\t\\t\\t\\t\\t\\t}\",\"t_insert(breakdown.ComprehensiveNetManaRegen.rowList, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 4236,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\t\\t\\ttype = s_format(\\\"%s\\\", damageType), typeKey = localisation:TermKey(\\\"damage_type\\\", damageType),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\tdegen = s_format(\\\"%.2f\\\", energyShieldDegen),\\r\\n\\t\\t\\t\\t\\t\\t\\t}\",\"t_insert(breakdown.ComprehensiveNetEnergyShieldRegen.rowList, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 4240,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcDefence.lua\",\"report.buildDefenceEstimations.line\",\"{\\r\\n\\t\\t\\t\\ttype = s_format(\\\"%s\\\", damageType), typeKey = localisation:TermKey(\\\"damage_type\\\", damageType),\\r\\n\\t\\t\\t\\tincoming = localisation:Text(\\\"calc.defence.build_defence_estimations.line_160\\\", { value = output[damageType..\\\"TakenDamage\\\"] }),\\r\\n\\t\\t\\t\\tmult = localisation:Text(\\\"calc.defence.build_defence_estimations.line_161\\\", { value = output[damageType..\\\"TakenHitMult\\\"] }),\\r\\n\\t\\t\\t\\tvalue = s_format(\\\"%d\\\", m_ceil(output[damageType..\\\"TakenHit\\\"])),\\r\\n\\t\\t\\t}\",\"t_insert(breakdown[\\\"totalTakenHit\\\"].rowList, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcDefence.lua",
+    "line": 4291,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.calcDamage.line\",\"{\\r\\n\\t\\t\\t\\tsource = damageType, sourceKey = localisation:TermKey(\\\"damage_type\\\", damageType),\\r\\n\\t\\t\\t\\tconvSrc = (addMin ~= 0 or addMax ~= 0) and (localisation:Text(\\\"calc.damage.range\\\", { minimum = addMin, maximum = addMax })),\\r\\n\\t\\t\\t\\ttotal = localisation:Text(\\\"calc.damage.range\\\", { minimum = addMin, maximum = addMax }),\\r\\n\\t\\t\\t\\tconvDst = convDst and localisation:Text(\\\"calc.offence.calc_damage.line\\\", { value = conversionTable[damageType][convDst] * 100, conv_dst = localisation:TermRef(\\\"damage_type\\\", convDst) }),\\r\\n\\t\\t\\t}\",\"t_insert(breakdown.damageTypes, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 192,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.calcDamage.line\",\"{\\r\\n\\t\\t\\tsource = damageType, sourceKey = localisation:TermKey(\\\"damage_type\\\", damageType),\\r\\n\\t\\t\\tbase = localisation:Text(\\\"calc.damage.range\\\", { minimum = summedMin, maximum = summedMax }),\\r\\n\\t\\t\\tinc = (inc ~= 1 and \\\"x \\\"..inc),\\r\\n\\t\\t\\tmore = (more ~= 1 and \\\"x \\\"..more),\\r\\n\\t\\t\\tconvSrc = (addMin ~= 0 or addMax ~= 0) and (localisation:Text(\\\"calc.damage.range\\\", { minimum = addMin, maximum = addMax })),\\r\\n\\t\\t\\ttotal = localisation:Text(\\\"calc.damage.range\\\", { minimum = (round(summedMin * inc * more) + addMin), maximum = (round(summedMax * inc * more) + addMax) }),\\r\\n\\t\\t\\tconvDst = convDst and conversionTable[damageType][convDst] > 0 and localisation:Text(\\\"calc.offence.calc_damage.line\\\", { value = conversionTable[damageType][convDst] * 100, conv_dst = localisation:TermRef(\\\"damage_type\\\", convDst) }),\\r\\n\\t\\t}\",\"t_insert(breakdown.damageTypes, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 210,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.setMoltenStrikeTertiaryRadiusBreakdown.line\",\"label\",\"t_insert(breakdownRadius, label)\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 327,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.setMoltenStrikeTertiaryRadiusBreakdown.line\",\"{ name = \\\"r\\\", value = s_format(\\\"%d\\\", deadzoneRadius), description = \\\"fixed deadzone radius\\\", descriptionKey = \\\"ui.calc_offence.field.description\\\" }\",\"t_insert(breakdownRadius.rowList, { name = \\\"r\\\", value = s_format(\\\"%d\\\", deadzoneRadius), description = \\\"fixed deadzone radius\\\", descriptionKey = \\\"ui.calc_offence.field.description\\\" })\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 357,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.setMoltenStrikeTertiaryRadiusBreakdown.line\",\"{ name = \\\"R\\\", value = s_format(\\\"%d\\\", baseRadius), description = \\\"base outer radius\\\", descriptionKey = \\\"ui.calc_offence.field.description_2\\\" }\",\"t_insert(breakdownRadius.rowList, { name = \\\"R\\\", value = s_format(\\\"%d\\\", baseRadius), description = \\\"base outer radius\\\", descriptionKey = \\\"ui.calc_offence.field.description_2\\\" })\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 358,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.setMoltenStrikeTertiaryRadiusBreakdown.line\",\"{ name = \\\"a\\\", value = s_format(\\\"%.2f\\\", currentAreaMod), description = \\\"net AoE multiplier (scales area)\\\", descriptionKey = \\\"ui.calc_offence.field.description_3\\\" }\",\"t_insert(breakdownRadius.rowList, { name = \\\"a\\\", value = s_format(\\\"%.2f\\\", currentAreaMod), description = \\\"net AoE multiplier (scales area)\\\", descriptionKey = \\\"ui.calc_offence.field.description_3\\\" })\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 359,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.setMoltenStrikeTertiaryRadiusBreakdown.line\",\"{ name = \\\"s\\\", value = s_format(\\\"%.2f\\\", currentSpeedMod), description = \\\"net projectile speed multiplier (scales range)\\\", descriptionKey = \\\"ui.calc_offence.field.description_4\\\" }\",\"t_insert(breakdownRadius.rowList, { name = \\\"s\\\", value = s_format(\\\"%.2f\\\", currentSpeedMod), description = \\\"net projectile speed multiplier (scales range)\\\", descriptionKey = \\\"ui.calc_offence.field.description_4\\\" })\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 360,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.calcAreaOfEffect.line\",\"skillData.radiusTertiaryLabel\",\"t_insert(out, skillData.radiusTertiaryLabel)\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 641,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.calcAreaOfEffect.line\",\"adjustedBaseRadius\",\"t_insert(baseRadii, adjustedBaseRadius)\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 648,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.offence.line\",null,\"t_insert(breakdown[costName], s_format(\\\"= %\\\"..(val.upfront and \\\"d\\\" or \\\".2f\\\")..(val.percent and \\\"%%\\\" or \\\"\\\"), output[costName]))\"]",
+    "count": 2,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 2392,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.offence.line\",\"{ distance = distance }\",\"t_insert(hitChances, #hitChances, { distance = distance })\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 2794,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.offence.line\",\"{ distance = distance }\",\"t_insert(hitChances, { distance = distance })\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 2796,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.offence.line\",\"line\",\"t_insert(combinedBreakdown, line)\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 4804,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.calcDamagingAilmentOutputs.line\",null,\"t_insert(breakdown[ailment .. \\\"DPS\\\"], s_format(\\\"= %.1f\\\", baseVal, 1))\"]",
+    "count": 2,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 5452,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.offence.line\",\"ailmentData[ailment].min\",\"t_insert(val.effList, ailmentData[ailment].min)\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 5737,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.offence.line\",\"maximum\",\"t_insert(val.effList, maximum)\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 5743,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.offence.line\",\"current\",\"t_insert(val.effList, current)\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 5746,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.offence.line\",\"desired\",\"t_insert(val.effList, desired)\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 5749,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.offence.line\",\"{\\r\\n\\t\\t\\t\\t\\t\\t\\t\\teffect = s_format(valueFormat, value)..(next(labels) ~= nil and \\\" ^8(\\\"..table.concat(labels, \\\", \\\")..\\\")\\\" or \\\"\\\"),\\r\\n\\t\\t\\t\\t\\t\\t\\t\\tthresh = threshString,\\r\\n\\t\\t\\t\\t\\t\\t\\t}\",\"t_insert(breakdown[ailment..\\\"DPS\\\"].rowList, {\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 5780,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.offence.line\",null,\"effect = s_format(valueFormat, value)..(next(labels) ~= nil and \\\" ^8(\\\"..table.concat(labels, \\\", \\\")..\\\")\\\" or \\\"\\\"),\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 5781,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.offence.line\",\"line\",\"t_insert(breakdown.SelfHitDamage, line)\"]",
+    "count": 2,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 6238,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcOffence.lua\",\"report.offence.line\",\"output.HitSpeed\",\"t_insert(breakdown.ImpaleDPS, output.HitSpeed and localisation:Text(\\\"calc.offence.offence.line_230\\\", { hit_speed = output.HitSpeed }) or localisation:Text(\\\"calc.offence.offence.line_231\\\", { speed = output.Speed, value = ((skillFlags.attack and localisation:Ref(\\\"calc.offence.offence.line.parameter_9\\\")) or localisation:Ref(\\\"calc.offence.offence.line.parameter_10\\\")) }))\"]",
+    "count": 1,
+    "file": "src/Modules/CalcOffence.lua",
+    "line": 6400,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcPerform.lua\",\"report.perform.line\",\"row\",\"t_insert(breakdown[\\\"Req\\\"..breakdownAttr].rowList, row)\"]",
+    "count": 1,
+    "file": "src/Modules/CalcPerform.lua",
+    "line": 1977,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcTriggers.lua\",\"report.CWCHandler.line\",\"simBreakdown.extraSimInfo\",\"t_insert(breakdown.SkillTriggerRate, simBreakdown.extraSimInfo)\"]",
+    "count": 1,
+    "file": "src/Modules/CalcTriggers.lua",
+    "line": 348,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcTriggers.lua\",\"report.CWCHandler.line\",\"str\",\"t_insert(t, str)\"]",
+    "count": 1,
+    "file": "src/Modules/CalcTriggers.lua",
+    "line": 362,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcTriggers.lua\",\"report.CWCHandler.line\",\"row\",\"t_insert(breakdown.SimData.rowList, row)\"]",
+    "count": 1,
+    "file": "src/Modules/CalcTriggers.lua",
+    "line": 373,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcTriggers.lua\",\"report.defaultTriggerHandler.line\",\"line\",\"t_insert(breakdown.SkillTriggerRate, 1, line)\"]",
+    "count": 1,
+    "file": "src/Modules/CalcTriggers.lua",
+    "line": 824,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcTriggers.lua\",\"report.defaultTriggerHandler.line\",\"simBreakdown.extraSimInfo\",\"t_insert(breakdown.SkillTriggerRate, simBreakdown.extraSimInfo)\"]",
+    "count": 1,
+    "file": "src/Modules/CalcTriggers.lua",
+    "line": 836,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcTriggers.lua\",\"report.defaultTriggerHandler.line\",\"str\",\"t_insert(t, str)\"]",
+    "count": 1,
+    "file": "src/Modules/CalcTriggers.lua",
+    "line": 850,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "--breakdowns",
+    "identity": "[\"src/Modules/CalcTriggers.lua\",\"report.defaultTriggerHandler.line\",\"row\",\"t_insert(breakdown.SimData.rowList, row)\"]",
+    "count": 1,
+    "file": "src/Modules/CalcTriggers.lua",
+    "line": 861,
+    "category": "report-data-or-resolved",
+    "reason": "计算报告接收数值、带显示 key 的表格行或上游已解析句子；业务标签与公式字段保留。当前未赋值的历史半径标签不虚构资源。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/GemTooltip.lua\",\"Tooltip.BuildPlannerNote.body\",\"gemInstance.note\",\"tooltip:AddBuildPlannerNote(14, gemInstance.note, \\\"^7\\\" .. localisation:Text(\\\"build_note.prefix\\\"))\"]",
+    "count": 1,
+    "file": "src/Classes/GemTooltip.lua",
+    "line": 400,
+    "category": "control-or-user-buffer",
+    "reason": "构筑备注正文来自用户；物品槽无备注时的系统提示已使用 build_note.empty_item_slot。技能及天赋前缀独立引用 build_note.prefix，不翻译用户富文本正文。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/ItemSlotControl.lua\",\"Tooltip.BuildPlannerNote.body\",\"self.note\",\"tooltip:AddBuildPlannerNote(14, self.note and self.note ~= \\\"\\\" and self.note or localisation:Text(\\\"build_note.empty_item_slot\\\"))\"]",
+    "count": 2,
+    "file": "src/Classes/ItemSlotControl.lua",
+    "line": 61,
+    "category": "control-or-user-buffer",
+    "reason": "构筑备注正文来自用户；物品槽无备注时的系统提示已使用 build_note.empty_item_slot。技能及天赋前缀独立引用 build_note.prefix，不翻译用户富文本正文。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Classes/PassiveTreeView.lua\",\"Tooltip.BuildPlannerNote.body\",\"existing\",\"tooltip:AddBuildPlannerNote(14, existing, \\\"^7\\\" .. localisation:Text(\\\"build_note.prefix\\\"))\"]",
+    "count": 1,
+    "file": "src/Classes/PassiveTreeView.lua",
+    "line": 2111,
+    "category": "control-or-user-buffer",
+    "reason": "构筑备注正文来自用户；物品槽无备注时的系统提示已使用 build_note.empty_item_slot。技能及天赋前缀独立引用 build_note.prefix，不翻译用户富文本正文。"
+  },
+  {
+    "mode": "",
+    "identity": "[\"src/Modules/Main.lua\",\"Tooltip.BuildPlannerNote.body\",\"controls.edit.buf\",\"tooltip:AddBuildPlannerNote(14, controls.edit.buf)\"]",
+    "count": 1,
+    "file": "src/Modules/Main.lua",
+    "line": 1834,
+    "category": "control-or-user-buffer",
+    "reason": "构筑备注正文来自用户；物品槽无备注时的系统提示已使用 build_note.empty_item_slot。技能及天赋前缀独立引用 build_note.prefix，不翻译用户富文本正文。"
+  }
+]

@@ -184,7 +184,7 @@ end
 
 function CompareTabClass:InitControls()
 	-- Sub-tab buttons
-	local subTabs = { "Summary", "Tree", "Skills", "Items", "Calcs", "Config" }
+	local subTabs = localisation:List({ "Summary", "Tree", "Skills", "Items", "Calcs", "Config" }, { [1] = "comparison.tab.summary", [2] = "comparison.tab.tree", [3] = "comparison.tab.skills", [4] = "comparison.tab.items", [5] = "comparison.tab.calcs", [6] = "comparison.tab.config" })
 	local subTabModes = { "SUMMARY", "TREE", "SKILLS", "ITEMS", "CALCS", "CONFIG" }
 
 	self.controls.subTabAnchor = new("Control"):Control(nil, { 0, 0, 0, 20 })
@@ -194,7 +194,7 @@ function CompareTabClass:InitControls()
 		local anchor = i == 1
 			and {"TOPLEFT", self.controls.subTabAnchor, "TOPLEFT"}
 			or {"LEFT", self.controls[prevName], "RIGHT"}
-		self.controls["subTab" .. tabName] = new("ButtonControl"):ButtonControl(anchor, { i == 1 and 0 or 4, 0, 72, 20 }, tabName, function()
+		self.controls["subTab" .. tabName] = new("ButtonControl"):ButtonControl(anchor, { i == 1 and 0 or 4, 0, 72, 20 }, function() return localisation:ListLabel(subTabs, i) end, function()
 			-- Clear tree overlay compareSpec when leaving TREE mode
 			if self.compareViewMode == "TREE" and self.treeOverlayMode
 					and self.primaryBuild.treeTab and self.primaryBuild.treeTab.viewer then
@@ -215,7 +215,7 @@ function CompareTabClass:InitControls()
 	end
 
 	-- Build B selector dropdown
-	self.controls.compareBuildLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.subTabAnchor, "TOPLEFT" }, { 0, -88, 0, 16 }, "^7Compare with:")
+	self.controls.compareBuildLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.subTabAnchor, "TOPLEFT" }, { 0, -88, 0, 16 }, localisation:Label("ui.compare_tab.init_controls.compare_build_label.label"))
 	self.controls.compareBuildSelect = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.compareBuildLabel, "RIGHT" }, { 4, 0, 250, 20 }, {}, function(index, value)
 		if index and index > 0 and index <= #self.compareEntries then
 			self.activeCompareIndex = index
@@ -227,12 +227,12 @@ function CompareTabClass:InitControls()
 	end
 
 	-- Import button (opens import popup)
-	self.controls.importBtn = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.compareBuildSelect, "RIGHT" }, { 8, 0, 100, 20 }, "Import...", function()
+	self.controls.importBtn = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.compareBuildSelect, "RIGHT" }, { 8, 0, 100, 20 }, localisation:Label("ui.compare_tab.init_controls.import_btn.label"), function()
 		self:OpenImportPopup()
 	end)
 
 	-- Re-import current build button
-	self.controls.reimportBtn = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.importBtn, "RIGHT" }, { 4, 0, 140, 20 }, "Re-import Current", function()
+	self.controls.reimportBtn = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.importBtn, "RIGHT" }, { 4, 0, 140, 20 }, localisation:Label("ui.compare_tab.init_controls.reimport_btn.label"), function()
 		self:ReimportPrimary()
 	end)
 	self.controls.reimportBtn.tooltipFunc = function(tooltip)
@@ -242,15 +242,15 @@ function CompareTabClass:InitControls()
 			local charSelect = importTab.controls.charSelect
 			local charData = charSelect and charSelect.list and charSelect.list[charSelect.selIndex]
 			if charData and charData.char then
-				tooltip:AddLine(16, "Re-import character from the game server:")
+				tooltip:AddLine(16, localisation:Text("ui.compare_tab.init_controls.reimport_btn_tooltip_func.tooltip_3"))
 				tooltip:AddLine(14, "^7" .. charData.char.name .. " (" .. charData.char.class .. ", " .. charData.char.league .. ")")
 			else
-				tooltip:AddLine(16, "Re-import the currently selected character.")
+				tooltip:AddLine(16, localisation:Text("ui.compare_tab.init_controls.reimport_btn_tooltip_func.tooltip_4"))
 			end
-			tooltip:AddLine(14, "^7Refreshes passive tree, jewels, items, and skills.")
+			tooltip:AddLine(14, localisation:Text("ui.compare_tab.init_controls.reimport_btn_tooltip_func.tooltip_5"))
 		else
-			tooltip:AddLine(16, "^7No character selected.")
-			tooltip:AddLine(14, "^7Go to Import/Export Build tab and select a character first.")
+			tooltip:AddLine(16, localisation:Text("ui.compare_tab.init_controls.reimport_btn_tooltip_func.tooltip_2"))
+			tooltip:AddLine(14, localisation:Text("ui.compare_tab.init_controls.reimport_btn_tooltip_func.tooltip"))
 		end
 	end
 	self.controls.reimportBtn.enabled = function()
@@ -259,7 +259,7 @@ function CompareTabClass:InitControls()
 	end
 
 	-- Remove comparison build button
-	self.controls.removeBtn = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.reimportBtn, "RIGHT" }, { 4, 0, 70, 20 }, "Remove", function()
+	self.controls.removeBtn = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.reimportBtn, "RIGHT" }, { 4, 0, 70, 20 }, localisation:Label("ui.compare_tab.init_controls.remove_btn.label"), function()
 		if self.activeCompareIndex > 0 and self.activeCompareIndex <= #self.compareEntries then
 			self:RemoveBuild(self.activeCompareIndex)
 		end
@@ -276,7 +276,7 @@ function CompareTabClass:InitControls()
 	end
 
 	-- Tree spec selector for comparison build
-	self.controls.compareSpecLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.subTabAnchor, "TOPLEFT" }, { 0, -54, 0, 16 }, "^7Tree set:")
+	self.controls.compareSpecLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.subTabAnchor, "TOPLEFT" }, { 0, -54, 0, 16 }, localisation:Label("ui.compare_tab.init_controls.compare_spec_label.label"))
 	self.controls.compareSpecLabel.shown = setsEnabled
 	self.controls.compareSpecSelect = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.compareSpecLabel, "RIGHT" }, { 2, 0, 150, 20 }, {}, function(index, value)
 		local entry = self:GetActiveCompare()
@@ -293,7 +293,7 @@ function CompareTabClass:InitControls()
 	self.controls.compareSpecSelect.enableDroppedWidth = true
 
 	-- Skill set selector for comparison build
-	self.controls.compareSkillSetLabel = new("LabelControl"):LabelControl({ "LEFT", self.controls.compareSpecSelect, "RIGHT" }, { 8, 0, 0, 16 }, "^7Skill set:")
+	self.controls.compareSkillSetLabel = new("LabelControl"):LabelControl({ "LEFT", self.controls.compareSpecSelect, "RIGHT" }, { 8, 0, 0, 16 }, localisation:Label("ui.compare_tab.init_controls.compare_skill_set_label.label"))
 	self.controls.compareSkillSetLabel.shown = setsEnabled
 	self.controls.compareSkillSetSelect = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.compareSkillSetLabel, "RIGHT" }, { 2, 0, 150, 20 }, {}, function(index, value)
 		local entry = self:GetActiveCompare()
@@ -303,7 +303,7 @@ function CompareTabClass:InitControls()
 	end)
 	self.controls.compareSkillSetSelect.enabled = setsEnabled
 	-- Item set selector for comparison build
-	self.controls.compareItemSetLabel = new("LabelControl"):LabelControl({ "LEFT", self.controls.compareSkillSetSelect, "RIGHT" }, { 8, 0, 0, 16 }, "^7Item set:")
+	self.controls.compareItemSetLabel = new("LabelControl"):LabelControl({ "LEFT", self.controls.compareSkillSetSelect, "RIGHT" }, { 8, 0, 0, 16 }, localisation:Label("ui.compare_tab.init_controls.compare_item_set_label.label"))
 	self.controls.compareItemSetLabel.shown = setsEnabled
 	self.controls.compareItemSetSelect = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.compareItemSetLabel, "RIGHT" }, { 2, 0, 150, 20 }, {}, function(index, value)
 		local entry = self:GetActiveCompare()
@@ -313,7 +313,7 @@ function CompareTabClass:InitControls()
 	end)
 	self.controls.compareItemSetSelect.enabled = setsEnabled
 	-- Config set selector for comparison build
-	self.controls.compareConfigSetLabel = new("LabelControl"):LabelControl({ "LEFT", self.controls.compareItemSetSelect, "RIGHT" }, { 8, 0, 0, 16 }, "^7Config set:")
+	self.controls.compareConfigSetLabel = new("LabelControl"):LabelControl({ "LEFT", self.controls.compareItemSetSelect, "RIGHT" }, { 8, 0, 0, 16 }, localisation:Label("ui.compare_tab.init_controls.compare_config_set_label.label"))
 	self.controls.compareConfigSetLabel.shown = setsEnabled
 	self.controls.compareConfigSetSelect = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.compareConfigSetLabel, "RIGHT" }, { 2, 0, 150, 20 }, {}, function(index, value)
 		local entry = self:GetActiveCompare()
@@ -332,7 +332,7 @@ function CompareTabClass:InitControls()
 	-- ============================================================
 	-- Comparison build main skill selector (row between sets and sub-tabs)
 	-- ============================================================
-	self.controls.cmpSkillLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.subTabAnchor, "TOPLEFT" }, { 0, -32, 0, 16 }, "^7Skill:")
+	self.controls.cmpSkillLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.subTabAnchor, "TOPLEFT" }, { 0, -32, 0, 16 }, localisation:Label("ui.compare_tab.init_controls.cmp_skill_label.label"))
 	self.controls.cmpSkillLabel.shown = setsEnabled
 
 	-- Socket group dropdown
@@ -389,7 +389,7 @@ function CompareTabClass:InitControls()
 	self.controls.cmpSkillPart.shown = false
 
 	-- Stage count
-	self.controls.cmpStageCountLabel = new("LabelControl"):LabelControl({ "LEFT", self.controls.cmpSkillPart, "RIGHT" }, { 6, 0, 0, 16 }, "^7Stages:")
+	self.controls.cmpStageCountLabel = new("LabelControl"):LabelControl({ "LEFT", self.controls.cmpSkillPart, "RIGHT" }, { 6, 0, 0, 16 }, localisation:Label("ui.compare_tab.init_controls.cmp_stage_count_label.label"))
 	self.controls.cmpStageCountLabel.shown = function() return self.controls.cmpStageCount.shown end
 	self.controls.cmpStageCount = new("EditControl"):EditControl({ "LEFT", self.controls.cmpStageCountLabel, "RIGHT" }, { 4, 0, 52, 20 }, "", nil, "%D", 5, function(buf)
 		local entry = self:GetActiveCompare()
@@ -408,7 +408,7 @@ function CompareTabClass:InitControls()
 	self.controls.cmpStageCount.shown = false
 
 	-- Mine count
-	self.controls.cmpMineCountLabel = new("LabelControl"):LabelControl({ "LEFT", self.controls.cmpStageCount, "RIGHT" }, { 6, 0, 0, 16 }, "^7Mines:")
+	self.controls.cmpMineCountLabel = new("LabelControl"):LabelControl({ "LEFT", self.controls.cmpStageCount, "RIGHT" }, { 6, 0, 0, 16 }, localisation:Label("ui.compare_tab.init_controls.cmp_mine_count_label.label"))
 	self.controls.cmpMineCountLabel.shown = function() return self.controls.cmpMineCount.shown end
 	self.controls.cmpMineCount = new("EditControl"):EditControl({ "LEFT", self.controls.cmpMineCountLabel, "RIGHT" }, { 4, 0, 52, 20 }, "", nil, "%D", 5, function(buf)
 		local entry = self:GetActiveCompare()
@@ -485,10 +485,10 @@ function CompareTabClass:InitControls()
 	-- Calcs view skill detail controls (per-build, independent of sidebar & regular Calcs tab)
 	-- ============================================================
 	local calcsBuffModeDropList = {
-		{ label = "Unbuffed", buffMode = "UNBUFFED" },
-		{ label = "Buffed", buffMode = "BUFFED" },
-		{ label = "In Combat", buffMode = "COMBAT" },
-		{ label = "Effective DPS", buffMode = "EFFECTIVE" },
+		{ label = "Unbuffed", labelKey = "ui.compare_tab.init_controls.calcs_buff_mode_drop_list.label_4", buffMode = "UNBUFFED" },
+		{ label = "Buffed", labelKey = "ui.compare_tab.init_controls.calcs_buff_mode_drop_list.label", buffMode = "BUFFED" },
+		{ label = "In Combat", labelKey = "ui.compare_tab.init_controls.calcs_buff_mode_drop_list.label_3", buffMode = "COMBAT" },
+		{ label = "Effective DPS", labelKey = "ui.compare_tab.init_controls.calcs_buff_mode_drop_list.label_2", buffMode = "EFFECTIVE" },
 	}
 	-- Primary build calcs skill controls
 	self.controls.primCalcsSocketGroup = new("DropDownControl"):DropDownControl(nil, { 0, 0, 200, 18 }, {}, function(index, value)
@@ -550,7 +550,7 @@ function CompareTabClass:InitControls()
 	self.controls.primCalcsShowMinion = new("CheckBoxControl"):CheckBoxControl(nil, { 0, 0, 18 }, nil, function(state)
 		self.primaryBuild.calcsTab.input.showMinion = state
 		self.primaryBuild.buildFlag = true
-	end, "Show stats for the minion instead of the player.")
+	end, localisation:Label("ui.compare_tab.check_box_control.tooltip"))
 	self.controls.primCalcsShowMinion.shown = false
 
 	self.controls.primCalcsMinion = new("DropDownControl"):DropDownControl(nil, { 0, 0, 140, 18 }, {}, function(index, value)
@@ -693,7 +693,7 @@ function CompareTabClass:InitControls()
 			entry.calcsTab.input.showMinion = state
 			entry.buildFlag = true
 		end
-	end, "Show stats for the minion instead of the player.")
+	end, localisation:Label("ui.compare_tab.check_box_control.tooltip"))
 	self.controls.cmpCalcsShowMinion.shown = false
 
 	self.controls.cmpCalcsMinion = new("DropDownControl"):DropDownControl(nil, { 0, 0, 140, 18 }, {}, function(index, value)
@@ -769,9 +769,9 @@ function CompareTabClass:InitControls()
 	end)
 	self.controls.cmpCalcsMode.shown = false
 
-	self.controls.calcsShowOnlyDifferencesCheck = new("CheckBoxControl"):CheckBoxControl(nil, { 0, 0, 18 }, "Show only differences", function(state)
+	self.controls.calcsShowOnlyDifferencesCheck = new("CheckBoxControl"):CheckBoxControl(nil, { 0, 0, 18 }, localisation:Label("ui.compare_tab.init_controls.calcs_show_only_differences_check.label"), function(state)
 		self.calcsShowOnlyDifferences = state
-	end, "Show only rows that differ between both builds. Disable to include unchanged rows.")
+	end, localisation:Label("ui.compare_tab.check_box_control.tooltip_2"))
 	self.controls.calcsShowOnlyDifferencesCheck.shown = function()
 		return self.compareViewMode == "CALCS" and self:GetActiveCompare() ~= nil
 	end
@@ -796,7 +796,7 @@ function CompareTabClass:InitControls()
 	end
 
 	-- Overlay toggle checkbox
-	self.controls.treeOverlayCheck = new("CheckBoxControl"):CheckBoxControl(nil, { 0, 0, 20 }, "Overlay comparison", function(state)
+	self.controls.treeOverlayCheck = new("CheckBoxControl"):CheckBoxControl(nil, { 0, 0, 20 }, localisation:Label("ui.compare_tab.init_controls.tree_overlay_check.label"), function(state)
 		self.treeOverlayMode = state
 		self.treeSearchNeedsSync = true
 		if not state and self.primaryBuild.treeTab and self.primaryBuild.treeTab.viewer then
@@ -806,7 +806,7 @@ function CompareTabClass:InitControls()
 	self.controls.treeOverlayCheck.shown = treeFooterShown
 
 	-- Overlay-mode search (single search for primary viewer)
-	self.controls.overlayTreeSearch = new("EditControl"):EditControl(nil, { 0, 0, 300, 20 }, "", "Search", "%c", 100, function(buf)
+	self.controls.overlayTreeSearch = new("EditControl"):EditControl(nil, { 0, 0, 300, 20 }, "", localisation:Label("ui.compare_tab.init_controls.overlay_tree_search.label"), "%c", 100, function(buf)
 		if self.primaryBuild.treeTab and self.primaryBuild.treeTab.viewer then
 			self.primaryBuild.treeTab.viewer.searchStr = buf
 		end
@@ -816,7 +816,7 @@ function CompareTabClass:InitControls()
 	end
 
 	-- Items expanded mode toggle
-	self.controls.itemsExpandedCheck = new("CheckBoxControl"):CheckBoxControl(nil, { 0, 0, 20 }, "Expanded mode", function(state)
+	self.controls.itemsExpandedCheck = new("CheckBoxControl"):CheckBoxControl(nil, { 0, 0, 20 }, localisation:Label("ui.compare_tab.init_controls.items_expanded_check.label"), function(state)
 		self.itemsExpandedMode = state
 		self.scrollY = 0
 	end)
@@ -828,7 +828,7 @@ function CompareTabClass:InitControls()
 	local itemsShown = function()
 		return self.compareViewMode == "ITEMS" and self:GetActiveCompare() ~= nil
 	end
-	self.controls.primaryItemSetLabel = new("LabelControl"):LabelControl(nil, { 0, 0, 0, 16 }, "^7Item set:")
+	self.controls.primaryItemSetLabel = new("LabelControl"):LabelControl(nil, { 0, 0, 0, 16 }, localisation:Label("ui.compare_tab.init_controls.compare_item_set_label.label"))
 	self.controls.primaryItemSetLabel.shown = itemsShown
 	self.controls.primaryItemSetSelect = new("DropDownControl"):DropDownControl(nil, { 0, 0, 216, 20 }, {}, function(index, value)
 		if self.primaryBuild.itemsTab and self.primaryBuild.itemsTab.itemSetOrderList[index] then
@@ -840,7 +840,7 @@ function CompareTabClass:InitControls()
 	self.controls.primaryItemSetSelect.shown = itemsShown
 
 	-- Item set dropdown for compare build
-	self.controls.compareItemSetLabel2 = new("LabelControl"):LabelControl(nil, { 0, 0, 0, 16 }, "^7Item set:")
+	self.controls.compareItemSetLabel2 = new("LabelControl"):LabelControl(nil, { 0, 0, 0, 16 }, localisation:Label("ui.compare_tab.init_controls.compare_item_set_label.label"))
 	self.controls.compareItemSetLabel2.shown = itemsShown
 	self.controls.compareItemSetSelect2 = new("DropDownControl"):DropDownControl(nil, { 0, 0, 216, 20 }, {}, function(index, value)
 		local entry = self:GetActiveCompare()
@@ -852,7 +852,7 @@ function CompareTabClass:InitControls()
 	self.controls.compareItemSetSelect2.shown = itemsShown
 
 	-- Tree set dropdown for primary build
-	self.controls.primaryTreeSetLabel = new("LabelControl"):LabelControl(nil, { 0, 0, 0, 16 }, "^7Tree set:")
+	self.controls.primaryTreeSetLabel = new("LabelControl"):LabelControl(nil, { 0, 0, 0, 16 }, localisation:Label("ui.compare_tab.init_controls.compare_spec_label.label"))
 	self.controls.primaryTreeSetLabel.shown = itemsShown
 	self.controls.primaryTreeSetSelect = new("DropDownControl"):DropDownControl(nil, { 0, 0, 216, 20 }, {}, function(index, value)
 		if self.primaryBuild.treeTab and self.primaryBuild.treeTab.specList[index] then
@@ -866,7 +866,7 @@ function CompareTabClass:InitControls()
 	self.controls.primaryTreeSetSelect.enableDroppedWidth = true
 
 	-- Tree set dropdown for compare build
-	self.controls.compareTreeSetLabel = new("LabelControl"):LabelControl(nil, { 0, 0, 0, 16 }, "^7Tree set:")
+	self.controls.compareTreeSetLabel = new("LabelControl"):LabelControl(nil, { 0, 0, 0, 16 }, localisation:Label("ui.compare_tab.init_controls.compare_spec_label.label"))
 	self.controls.compareTreeSetLabel.shown = itemsShown
 	self.controls.compareTreeSetSelect = new("DropDownControl"):DropDownControl(nil, { 0, 0, 216, 20 }, {}, function(index, value)
 		local entry = self:GetActiveCompare()
@@ -907,7 +907,7 @@ function CompareTabClass:InitControls()
 	self.controls.leftVersionSelect.shown = treeFooterShown
 
 	-- Left search (footer, side-by-side only)
-	self.controls.leftTreeSearch = new("EditControl"):EditControl({ "TOPLEFT", self.controls.leftFooterAnchor, "TOPLEFT" }, { 0, 0, 200, 20 }, "", "Search", "%c", 100, function(buf)
+	self.controls.leftTreeSearch = new("EditControl"):EditControl({ "TOPLEFT", self.controls.leftFooterAnchor, "TOPLEFT" }, { 0, 0, 200, 20 }, "", localisation:Label("ui.compare_tab.init_controls.overlay_tree_search.label"), "%c", 100, function(buf)
 		if self.primaryBuild.treeTab and self.primaryBuild.treeTab.viewer then
 			self.primaryBuild.treeTab.viewer.searchStr = buf
 		end
@@ -940,7 +940,7 @@ function CompareTabClass:InitControls()
 	self.controls.rightVersionSelect.shown = treeFooterShown
 
 	-- Copy compared tree to primary build
-	self.controls.copySpecBtn = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.rightVersionSelect, "RIGHT" }, { 4, 0, 76, 20 }, "Copy tree", function()
+	self.controls.copySpecBtn = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.rightVersionSelect, "RIGHT" }, { 4, 0, 76, 20 }, localisation:Label("ui.compare_tab.init_controls.copy_spec_btn.label"), function()
 		self:CopyCompareSpecToPrimary(false)
 	end)
 	self.controls.copySpecBtn.shown = treeFooterShown
@@ -949,14 +949,14 @@ function CompareTabClass:InitControls()
 		return entry and entry.treeTab and entry.treeTab.specList[entry.treeTab.activeSpec] ~= nil
 	end
 
-	self.controls.copySpecUseBtn = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.copySpecBtn, "RIGHT" }, { 2, 0, 100, 20 }, "Copy and use", function()
+	self.controls.copySpecUseBtn = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.copySpecBtn, "RIGHT" }, { 2, 0, 100, 20 }, localisation:Label("ui.compare_tab.init_controls.copy_spec_use_btn.label"), function()
 		self:CopyCompareSpecToPrimary(true)
 	end)
 	self.controls.copySpecUseBtn.shown = treeFooterShown
 	self.controls.copySpecUseBtn.enabled = self.controls.copySpecBtn.enabled
 
 	-- Right search (footer, side-by-side only)
-	self.controls.rightTreeSearch = new("EditControl"):EditControl({ "TOPLEFT", self.controls.rightFooterAnchor, "TOPLEFT" }, { 0, 0, 200, 20 }, "", "Search", "%c", 100, function(buf)
+	self.controls.rightTreeSearch = new("EditControl"):EditControl({ "TOPLEFT", self.controls.rightFooterAnchor, "TOPLEFT" }, { 0, 0, 200, 20 }, "", localisation:Label("ui.compare_tab.init_controls.overlay_tree_search.label"), "%c", 100, function(buf)
 		local entry = self:GetActiveCompare()
 		if entry and entry.treeTab and entry.treeTab.viewer then
 			entry.treeTab.viewer.searchStr = buf
@@ -966,7 +966,7 @@ function CompareTabClass:InitControls()
 
 	-- Config view: "Copy Config from Compare Build" button
 	self.controls.copyConfigBtn = new("ButtonControl"):ButtonControl(nil, { 0, 0, 240, 20 },
-		"Copy Config from Compare Build",
+		localisation:Label("ui.compare_tab.init_controls.copy_config_btn.label"),
 		function() self:CopyCompareConfig() end)
 	self.controls.copyConfigBtn.shown = function()
 		return self.compareViewMode == "CONFIG" and self:GetActiveCompare() ~= nil
@@ -975,7 +975,7 @@ function CompareTabClass:InitControls()
 	-- Config view: "Show All / Hide Ineligible" toggle button
 	self.controls.configToggleBtn = new("ButtonControl"):ButtonControl(nil, { 0, 0, 240, 20 },
 		function()
-			return self.configToggle and "Hide Ineligible Configurations" or "Show All Configurations"
+			return self.configToggle and localisation:Text("ui.compare_tab.init_controls.config_toggle_btn.label") or localisation:Text("ui.compare_tab.init_controls.config_toggle_btn.label_2")
 		end,
 		function()
 			self.configToggle = not self.configToggle
@@ -985,7 +985,7 @@ function CompareTabClass:InitControls()
 	end
 
 	-- Config view: search bar
-	self.controls.configSearchEdit = new("EditControl"):EditControl(nil, { 0, 0, 240, 20 }, "", "Search", "%c", 100, nil, nil, nil, true)
+	self.controls.configSearchEdit = new("EditControl"):EditControl(nil, { 0, 0, 240, 20 }, "", localisation:Label("ui.compare_tab.init_controls.overlay_tree_search.label"), "%c", 100, nil, nil, nil, true)
 	self.controls.configSearchEdit.shown = function()
 		return self.compareViewMode == "CONFIG" and self:GetActiveCompare() ~= nil
 	end
@@ -994,7 +994,7 @@ function CompareTabClass:InitControls()
 	local configShown = function()
 		return self.compareViewMode == "CONFIG" and self:GetActiveCompare() ~= nil
 	end
-	self.controls.configPrimarySetLabel = new("LabelControl"):LabelControl(nil, { 0, 0, 0, 16 }, "^7Config set:")
+	self.controls.configPrimarySetLabel = new("LabelControl"):LabelControl(nil, { 0, 0, 0, 16 }, localisation:Label("ui.compare_tab.init_controls.compare_config_set_label.label"))
 	self.controls.configPrimarySetLabel.shown = configShown
 	self.controls.configPrimarySetSelect = new("DropDownControl"):DropDownControl(nil, { 0, 0, 150, 20 }, nil, function(index, value)
 		local configTab = self.primaryBuild.configTab
@@ -1018,7 +1018,7 @@ function CompareTabClass:InitControls()
 	end
 
 	-- Metric dropdown
-	local powerStatList = { { label = "-- Select Metric --", stat = nil } }
+	local powerStatList = { { label = "-- Select Metric --", labelKey = "ui.compare_tab.init_controls.power_stat_list.label", stat = nil } }
 	for _, entry in ipairs(data.powerStatList) do
 		if entry.stat and not entry.ignoreForNodes then
 			t_insert(powerStatList, entry)
@@ -1041,42 +1041,42 @@ function CompareTabClass:InitControls()
 		if mode == "OUT" or self.controls.comparePowerStatSelect.dropped then
 			return
 		end
-		tooltip:AddLine(14, "Select a metric to calculate power report")
+		tooltip:AddLine(14, localisation:Text("ui.compare_tab.init_controls.compare_power_stat_select_tooltip_func.tooltip"))
 	end
 
 	-- Category checkboxes
-	self.controls.comparePowerTreeCheck = new("CheckBoxControl"):CheckBoxControl(nil, { 0, 0, 18 }, "Tree:", function(state)
+	self.controls.comparePowerTreeCheck = new("CheckBoxControl"):CheckBoxControl(nil, { 0, 0, 18 }, localisation:Label("ui.compare_tab.init_controls.compare_power_tree_check.label"), function(state)
 		self.comparePowerCategories.treeNodes = state
 		self.comparePowerDirty = true
-	end, "Include passive tree nodes from compared build")
+	end, localisation:Label("ui.compare_tab.check_box_control.tooltip_3"))
 	self.controls.comparePowerTreeCheck.shown = powerReportShown
 	self.controls.comparePowerTreeCheck.state = true
 
-	self.controls.comparePowerItemsCheck = new("CheckBoxControl"):CheckBoxControl(nil, { 0, 0, 18 }, "Items:", function(state)
+	self.controls.comparePowerItemsCheck = new("CheckBoxControl"):CheckBoxControl(nil, { 0, 0, 18 }, localisation:Label("ui.compare_tab.init_controls.compare_power_items_check.label"), function(state)
 		self.comparePowerCategories.items = state
 		self.comparePowerDirty = true
-	end, "Include items from compared build")
+	end, localisation:Label("ui.compare_tab.check_box_control.tooltip_4"))
 	self.controls.comparePowerItemsCheck.shown = powerReportShown
 	self.controls.comparePowerItemsCheck.state = true
 
-	self.controls.comparePowerGemsCheck = new("CheckBoxControl"):CheckBoxControl(nil, { 0, 0, 18 }, "Skill gems:", function(state)
+	self.controls.comparePowerGemsCheck = new("CheckBoxControl"):CheckBoxControl(nil, { 0, 0, 18 }, localisation:Label("ui.compare_tab.init_controls.compare_power_gems_check.label"), function(state)
 		self.comparePowerCategories.skillGems = state
 		self.comparePowerDirty = true
-	end, "Include skill gem groups unique to compared build")
+	end, localisation:Label("ui.compare_tab.check_box_control.tooltip_5"))
 	self.controls.comparePowerGemsCheck.shown = powerReportShown
 	self.controls.comparePowerGemsCheck.state = true
 
-	self.controls.comparePowerSupportGemsCheck = new("CheckBoxControl"):CheckBoxControl(nil, { 0, 0, 18 }, "Support gems:", function(state)
+	self.controls.comparePowerSupportGemsCheck = new("CheckBoxControl"):CheckBoxControl(nil, { 0, 0, 18 }, localisation:Label("ui.compare_tab.init_controls.compare_power_support_gems_check.label"), function(state)
 		self.comparePowerCategories.supportGems = state
 		self.comparePowerDirty = true
-	end, "Include support gems from compared build's active skill")
+	end, localisation:Label("ui.compare_tab.check_box_control.tooltip_6"))
 	self.controls.comparePowerSupportGemsCheck.shown = powerReportShown
 	self.controls.comparePowerSupportGemsCheck.state = true
 
-	self.controls.comparePowerConfigCheck = new("CheckBoxControl"):CheckBoxControl(nil, { 0, 0, 18 }, "Config:", function(state)
+	self.controls.comparePowerConfigCheck = new("CheckBoxControl"):CheckBoxControl(nil, { 0, 0, 18 }, localisation:Label("ui.compare_tab.init_controls.compare_power_config_check.label"), function(state)
 		self.comparePowerCategories.config = state
 		self.comparePowerDirty = true
-	end, "Include config option differences from compared build")
+	end, localisation:Label("ui.compare_tab.check_box_control.tooltip_7"))
 	self.controls.comparePowerConfigCheck.shown = powerReportShown
 	self.controls.comparePowerConfigCheck.state = true
 
@@ -1156,7 +1156,7 @@ function CompareTabClass:FormatConfigValue(varData, val)
 	elseif varData.type == "list" and varData.list then
 		for _, item in ipairs(varData.list) do
 			if item.val == val then
-				return item.label or tostring(val)
+				return localisation:Field(item, "label") or tostring(val)
 			end
 		end
 		return tostring(val)
@@ -1245,7 +1245,7 @@ function CompareTabClass:RebuildConfigControls(compareEntry)
 		if varData.section then
 			-- Skip "Custom Modifiers" section
 			if varData.section ~= "Custom Modifiers" then
-				currentSection = { name = varData.section, col = varData.col, items = {} }
+				currentSection = { name = varData.section, source = varData, col = varData.col, items = {} }
 				t_insert(self.configSections, currentSection)
 			else
 				currentSection = nil
@@ -1460,11 +1460,11 @@ function CompareTabClass:GetJewelComparisonSlots(compareEntry)
 			local label = slotName
 			local pSocket = self.primaryBuild.itemsTab.sockets and self.primaryBuild.itemsTab.sockets[nodeId]
 			if pSocket and pSocket.label then
-				label = pSocket.label
+				label = localisation:Field(pSocket, 'label')
 			else
 				local cSocket = compareEntry.itemsTab.sockets and compareEntry.itemsTab.sockets[nodeId]
 				if cSocket and cSocket.label then
-					label = cSocket.label
+					label = localisation:Field(cSocket, 'label')
 				end
 			end
 
@@ -1519,7 +1519,7 @@ function CompareTabClass:OpenImportPopup()
 	-- Use a local variable for state text so it doesn't go into the controls table
 	-- (PopupDialog iterates all controls table entries and expects them to be control objects)
 	local stateText = ""
-	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, "^7Paste a build code or URL to import as comparison:")
+	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, localisation:Label("ui.compare_tab.open_import_popup.label_2"))
 	controls.input = new("EditControl"):EditControl(nil, { 0, 50, 450, 20 }, "", nil, nil, nil, nil, nil, nil, true)
 	controls.input.enterFunc = function()
 		if controls.input.buf and controls.input.buf ~= "" then
@@ -1527,12 +1527,12 @@ function CompareTabClass:OpenImportPopup()
 		end
 	end
 
-	controls.name = new("EditControl"):EditControl(nil, { 0, 80, 450, 20 }, "", "Name (optional)", nil, 100, nil)
+	controls.name = new("EditControl"):EditControl(nil, { 0, 80, 450, 20 }, "", localisation:Label("ui.compare_tab.open_import_popup.name.label"), nil, 100, nil)
 	controls.state = new("LabelControl"):LabelControl({ "TOPLEFT", controls.name, "BOTTOMLEFT" }, { 0, 4, 0, 16 })
 	controls.state.label = function()
-		return stateText or ""
+		return (type(stateText) == 'function' and stateText() or stateText) or ""
 	end
-	controls.go = new("ButtonControl"):ButtonControl(nil, { -118, 130, 80, 20 }, "Import", function()
+	controls.go = new("ButtonControl"):ButtonControl(nil, { -118, 130, 80, 20 }, localisation:Label("ui.compare_tab.open_import_popup.go.label"), function()
 		local buf = controls.input.buf
 		if not buf or buf == "" then
 			return
@@ -1542,7 +1542,7 @@ function CompareTabClass:OpenImportPopup()
 		-- Check if it's a URL
 		for _, site in ipairs(buildSites.websiteList) do
 			if buf:match(site.matchURL) then
-				stateText = colorCodes.WARNING .. "Downloading..."
+				stateText = localisation:Label("comparison.import.downloading", nil, colorCodes.WARNING)
 				buildSites.DownloadBuild(buf, site, function(isSuccess, codeData)
 					if isSuccess then
 						local xmlText = Inflate(common.base64.decode(codeData:gsub("-","+"):gsub("_","/")))
@@ -1550,7 +1550,7 @@ function CompareTabClass:OpenImportPopup()
 							self:ImportBuild(xmlText, customName or ("Imported from " .. site.label))
 							main:ClosePopup()
 						else
-							stateText = colorCodes.NEGATIVE .. "Failed to decode build data"
+							stateText = localisation:Label("comparison.import.decode_failed", nil, colorCodes.NEGATIVE)
 						end
 					else
 						stateText = colorCodes.NEGATIVE .. tostring(codeData)
@@ -1566,17 +1566,17 @@ function CompareTabClass:OpenImportPopup()
 			self:ImportBuild(xmlText, customName or "Imported build")
 			main:ClosePopup()
 		else
-			stateText = colorCodes.NEGATIVE .. "Invalid build code"
+			stateText = localisation:Label("comparison.import.invalid_code", nil, colorCodes.NEGATIVE)
 		end
 	end)
-	controls.importFolder = new("ButtonControl"):ButtonControl(nil, { 0, 130, 140, 20 }, "Import from Folder", function()
+	controls.importFolder = new("ButtonControl"):ButtonControl(nil, { 0, 130, 140, 20 }, localisation:Label("ui.compare_tab.open_import_popup.import_folder.label"), function()
 		main:ClosePopup()
 		self:OpenImportFolderPopup()
 	end)
-	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 118, 130, 80, 20 }, "Cancel", function()
+	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 118, 130, 80, 20 }, localisation:Label("ui.compare_tab.open_import_popup.cancel.label"), function()
 		main:ClosePopup()
 	end)
-	main:OpenPopup(500, 160, "Import Comparison Build", controls, "go", "input", "cancel")
+	main:OpenPopup(500, 160, localisation:Label("ui.compare_tab.open_import_popup.label"), controls, "go", "input", "cancel")
 end
 
 -- Open the "Import from Folder" popup: browse the user's local builds folder and
@@ -1618,28 +1618,29 @@ function CompareTabClass:OpenImportFolderPopup()
 	local function importBuildEntry(build)
 		local fileHnd = io.open(build.fullFileName, "r")
 		if not fileHnd then
-			main:OpenMessagePopup("Import Error", "Couldn't open '"..build.fullFileName.."'.")
+			main:OpenMessagePopup(localisation:Text("ui.compare_tab.import_build_entry.message_4"), localisation:Text("ui.compare_tab.import_build_entry.message_2", { full_file_name = build.fullFileName }))
 			return
 		end
 		local xmlText = fileHnd:read("*a")
 		fileHnd:close()
 		if not xmlText or xmlText == "" then
-			main:OpenMessagePopup("Import Error", "Build file is empty or unreadable.")
+			main:OpenMessagePopup(localisation:Text("ui.compare_tab.import_build_entry.message_4"), localisation:Text("ui.compare_tab.import_build_entry.message"))
 			return
 		end
 		if self:ImportBuild(xmlText, build.buildName) then
 			main:ClosePopup()
 		else
-			main:OpenMessagePopup("Import Error", "Failed to import build for comparison.")
+			main:OpenMessagePopup(localisation:Text("ui.compare_tab.import_build_entry.message_4"), localisation:Text("ui.compare_tab.import_build_entry.message_3"))
 		end
 	end
 
 	-- Search box and sort dropdown sit above the build list.
-	controls.searchText = new("EditControl"):EditControl({ "TOPLEFT", nil, "TOPLEFT" }, { 15, 25, 450, 20 }, "", "Search", "%c%(%)", 100, function(buf)
+	controls.searchText = new("EditControl"):EditControl({ "TOPLEFT", nil, "TOPLEFT" }, { 15, 25, 450, 20 }, "", localisation:Label("ui.compare_tab.init_controls.overlay_tree_search.label"), "%c%(%)", 100, function(buf)
 		searchText = buf
 		listHost:FilterBuildList()
 	end, nil, nil, true)
 	controls.searchText:SetPlaceholder("(e.g. class:invoker myfilename)")
+	controls.searchText.placeholderKey = "build.search.placeholder"
 	controls.sort = new("DropDownControl"):DropDownControl({ "TOPLEFT", nil, "TOPLEFT" }, { 475, 25, 210, 20 }, buildListHelpers.buildSortDropList, function(index, value)
 		sortMode = value.sortMode
 		main.buildSortMode = value.sortMode
@@ -1680,18 +1681,18 @@ function CompareTabClass:OpenImportFolderPopup()
 	-- Populate the initial list now that the control (and its path control) exist.
 	listHost:BuildList()
 
-	controls.open = new("ButtonControl"):ButtonControl({ "TOPLEFT", nil, "TOPLEFT" }, { 255, 465, 80, 20 }, "Open", function()
+	controls.open = new("ButtonControl"):ButtonControl({ "TOPLEFT", nil, "TOPLEFT" }, { 255, 465, 80, 20 }, localisation:Label("ui.compare_tab.open_import_folder_popup.open.label"), function()
 		local sel = controls.buildList.selValue
 		if sel then
 			controls.buildList:LoadBuild(sel)
 		end
 	end)
 	controls.open.enabled = function() return controls.buildList.selValue ~= nil end
-	controls.close = new("ButtonControl"):ButtonControl({ "TOPLEFT", nil, "TOPLEFT" }, { 365, 465, 80, 20 }, "Close", function()
+	controls.close = new("ButtonControl"):ButtonControl({ "TOPLEFT", nil, "TOPLEFT" }, { 365, 465, 80, 20 }, localisation:Label("ui.compare_tab.open_import_folder_popup.close.label"), function()
 		main:ClosePopup()
 	end)
 
-	main:OpenPopup(700, 500, "Import from Folder", controls, "open", "searchText", "close")
+	main:OpenPopup(700, 500, localisation:Label("ui.compare_tab.open_import_folder_popup.label"), controls, "open", "searchText", "close")
 end
 
 -- ============================================================
@@ -1726,7 +1727,7 @@ function CompareTabClass:Draw(viewPort, inputEvents)
 	local compareEntry = self:GetActiveCompare()
 
 	-- Rebuild compare entry if its buildFlag is set (e.g. after version convert or spec change)
-	if compareEntry and compareEntry.buildFlag then
+	if compareEntry and (compareEntry.buildFlag or compareEntry.displayLanguage ~= localisation.language) then
 		compareEntry:Rebuild()
 	end
 
@@ -1832,9 +1833,9 @@ function CompareTabClass:Draw(viewPort, inputEvents)
 		SetViewport(contentVP.x, contentVP.y, contentVP.width, contentVP.height)
 		SetDrawColor(1, 1, 1)
 		DrawString(0, 40, "CENTER", 20, "VAR",
-			"^7No comparison build loaded.")
+			localisation:Text("ui.compare_tab.draw.message_2"))
 		DrawString(0, 70, "CENTER", 16, "VAR",
-			"^7Click " .. colorCodes.POSITIVE .. "Import..." .. "^7 above to import a build to compare against.")
+			localisation:Text("ui.compare_tab.draw.message", { positive = colorCodes.POSITIVE }))
 		SetViewport()
 	else
 		-- Position items expanded mode checkbox and item set dropdowns (inside content area, top-left)
@@ -1844,7 +1845,7 @@ function CompareTabClass:Draw(viewPort, inputEvents)
 			self.controls.itemsExpandedCheck.y = contentVP.y + 8
 
 			local colWidth = self.itemsColWidth or m_floor(contentVP.width / 2)
-			local itemSetLabelW = DrawStringWidth(16, "VAR", "^7Item set:") + 4
+			local itemSetLabelW = DrawStringWidth(16, "VAR", localisation:Text("ui.compare_tab.draw.item_set_label_w.message")) + 4
 			local scrollOffsetX = -((self.controls.itemsHScrollBar and self.controls.itemsHScrollBar.offset) or 0)
 
 			-- Item set dropdowns
@@ -2167,7 +2168,7 @@ function CompareTabClass:LayoutConfigView(contentVP, compareEntry)
 	local hasSearch = searchStr and searchStr:match("%S")
 	local function searchMatch(varData)
 		if not hasSearch then return true end
-		local err, match = PCall(string.matchOrPattern, (varData.label or ""):lower(), searchStr)
+		local err, match = PCall(string.matchOrPattern, ((varData.label or "") .. "\n" .. (localisation:Field(varData, "label") or "")):lower(), searchStr)
 		return not err and match
 	end
 
@@ -2196,7 +2197,7 @@ function CompareTabClass:LayoutConfigView(contentVP, compareEntry)
 		if #rows > 0 then
 			local sectionHeight = sectionInnerPad + #rows * rowHeight + 8
 			t_insert(visibleSections, {
-				name = section.name,
+				name = localisation:Field(section.source, "section"),
 				col = section.col,
 				rows = rows,
 				height = sectionHeight,
@@ -3088,7 +3089,7 @@ function CompareTabClass:ComparePowerBuilder(compareEntry, powerStat, categories
 						-- Only include configs with non-zero impact
 						if not impactIsZero then
 							-- Build display name with value change description
-							local displayName = varData.label or varData.var
+							local displayName = localisation:Field(varData, "label") or varData.var
 							displayName = displayName:gsub(":$", "")
 
 							local pDisplay = stripColors(self:FormatConfigValue(varData, pVal))
@@ -3188,7 +3189,7 @@ function CompareTabClass:DrawSummary(vp, compareEntry)
 	local col2R = LAYOUT.summaryCol2Right
 
 	local primaryName = self:GetShortBuildName(self.primaryBuild.buildName)
-	local compareName = compareEntry.label or "Compare Build"
+	local compareName = compareEntry.label or localisation:Text("comparison.default_name")
 	local primaryNameW = DrawStringWidth(headerHeight, "VAR", primaryName)
 	local compareNameW = DrawStringWidth(headerHeight, "VAR", compareName)
 
@@ -3199,11 +3200,11 @@ function CompareTabClass:DrawSummary(vp, compareEntry)
 
 	SetViewport(vp.x, vp.y, vp.width, headerReserve)
 	SetDrawColor(1, 1, 1)
-	DrawString(col1, 4, "LEFT", headerHeight, "VAR", "^7Stat")
+	DrawString(col1, 4, "LEFT", headerHeight, "VAR", localisation:Text("ui.compare_tab.draw_summary.message_4"))
 	DrawString(col2R, 4, "RIGHT_X", headerHeight, "VAR", colorCodes.POSITIVE .. primaryName)
 	DrawString(col3R, 4, "RIGHT_X", headerHeight, "VAR",
 		colorCodes.WARNING .. compareName)
-	DrawString(col4, 4, "LEFT", headerHeight, "VAR", "^7Difference")
+	DrawString(col4, 4, "LEFT", headerHeight, "VAR", localisation:Text("ui.compare_tab.draw_summary.message_2"))
 	SetDrawColor(0.5, 0.5, 0.5)
 	DrawImage(nil, 4, headerHeight + 8, vp.width - 8, 2)
 
@@ -3229,7 +3230,7 @@ function CompareTabClass:DrawSummary(vp, compareEntry)
 
 	-- Header
 	SetDrawColor(1, 1, 1)
-	DrawString(LAYOUT.powerReportLeft, drawY, "LEFT", 20, "VAR", "^7Compare Power Report")
+	DrawString(LAYOUT.powerReportLeft, drawY, "LEFT", 20, "VAR", localisation:Text("ui.compare_tab.draw_summary.message"))
 	drawY = drawY + 24
 
 	-- Run the coroutine driver (advances calculation each frame)
@@ -3245,7 +3246,7 @@ function CompareTabClass:DrawSummary(vp, compareEntry)
 	self.controls.comparePowerStatSelect.y = controlY
 
 	-- Label for dropdown
-	DrawString(LAYOUT.powerReportLeft, drawY, "LEFT", 16, "VAR", "^7Metric:")
+	DrawString(LAYOUT.powerReportLeft, drawY, "LEFT", 16, "VAR", localisation:Text("ui.compare_tab.draw_summary.message_3"))
 
 	-- Category checkboxes (positioned to the right of dropdown)
 	local checkX = ctrlBaseX + 280
@@ -3286,6 +3287,8 @@ function CompareTabClass:DrawSummary(vp, compareEntry)
 	-- Update the impact column label to match the selected stat
 	if self.comparePowerStat then
 		listControl.impactColumn.label = self.comparePowerStat.label or ""
+		listControl.impactColumn.labelKey = self.comparePowerStat.labelKey
+		listControl.impactColumn.labelParams = self.comparePowerStat.labelParams
 	end
 
 	-- Position the list control (absolute screen coordinates).
@@ -3371,7 +3374,7 @@ function CompareTabClass:DrawStatList(drawY, displayStats, primaryOutput, compar
 
 				-- Draw stat row
 				local labelColor = statData.color or "^7"
-				DrawString(col1, drawY, "LEFT", lineHeight, "VAR", labelColor .. (statData.label or statData.stat))
+				DrawString(col1, drawY, "LEFT", lineHeight, "VAR", labelColor .. (localisation:Field(statData, "label") or statData.stat))
 				DrawString(col2R, drawY, "RIGHT_X", lineHeight, "VAR", "^7" .. primaryStr)
 				DrawString(col3R, drawY, "RIGHT_X", lineHeight, "VAR", colorCodes.SPLITPERSONALITY .. compareStr)
 				if diffStr ~= "" then
@@ -3386,7 +3389,7 @@ function CompareTabClass:DrawStatList(drawY, displayStats, primaryOutput, compar
 				local valStr = statData.val or ""
 				local primaryShown = statData.condFunc(primaryOutput)
 				local compareShown = statData.condFunc(compareOutput)
-				DrawString(col1, drawY, "LEFT", lineHeight, "VAR", labelColor .. statData.label)
+				DrawString(col1, drawY, "LEFT", lineHeight, "VAR", labelColor .. localisation:Field(statData, "label"))
 				DrawString(col2R, drawY, "RIGHT_X", lineHeight, "VAR", "^7" .. (primaryShown and valStr or "-"))
 				DrawString(col3R, drawY, "RIGHT_X", lineHeight, "VAR", colorCodes.WARNING .. (compareShown and valStr or "-"))
 				drawY = drawY + lineHeight + 1
@@ -3497,7 +3500,7 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 	local drawY = startY
 
 	if not item then
-		DrawString(x, drawY, "LEFT", fontSize, "VAR", "^8(empty)")
+		DrawString(x, drawY, "LEFT", fontSize, "VAR", localisation:Text("ui.compare_tab.draw_item_expanded.message_10"))
 		return lineHeight
 	end
 
@@ -3513,24 +3516,24 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 			local weaponData = item.weaponData and item.weaponData[1]
 			if weaponData then
 				if weaponData.PhysicalDPS then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FPhys DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.PhysicalDPS))
+					DrawString(x, drawY, "LEFT", fontSize, "VAR", localisation:Text("ui.compare_tab.draw_item_expanded.message_16", { magic = colorCodes.MAGIC, physical_dps = weaponData.PhysicalDPS }))
 					drawY = drawY + lineHeight
 				end
 				if weaponData.ElementalDPS then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FEle DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.ElementalDPS))
+					DrawString(x, drawY, "LEFT", fontSize, "VAR", localisation:Text("ui.compare_tab.draw_item_expanded.message_9", { magic = colorCodes.MAGIC, elemental_dps = weaponData.ElementalDPS }))
 					drawY = drawY + lineHeight
 				end
 				if weaponData.ChaosDPS then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FChaos DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.ChaosDPS))
+					DrawString(x, drawY, "LEFT", fontSize, "VAR", localisation:Text("ui.compare_tab.draw_item_expanded.message_4", { magic = colorCodes.MAGIC, chaos_dps = weaponData.ChaosDPS }))
 					drawY = drawY + lineHeight
 				end
 				if weaponData.TotalDPS then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FTotal DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.TotalDPS))
+					DrawString(x, drawY, "LEFT", fontSize, "VAR", localisation:Text("ui.compare_tab.draw_item_expanded.message_20", { magic = colorCodes.MAGIC, total_dps = weaponData.TotalDPS }))
 					drawY = drawY + lineHeight
 				end
-				DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FCrit: " .. colorCodes.MAGIC .. "%.2f%%", weaponData.CritChance))
+				DrawString(x, drawY, "LEFT", fontSize, "VAR", localisation:Text("ui.compare_tab.draw_item_expanded.message_7", { magic = colorCodes.MAGIC, crit_chance = weaponData.CritChance }))
 				drawY = drawY + lineHeight
-				DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FAPS: " .. colorCodes.MAGIC .. "%.2f", weaponData.AttackRate))
+				DrawString(x, drawY, "LEFT", fontSize, "VAR", localisation:Text("ui.compare_tab.draw_item_expanded.message", { magic = colorCodes.MAGIC, attack_rate = weaponData.AttackRate }))
 				drawY = drawY + lineHeight
 			end
 		elseif base.armour then
@@ -3542,23 +3545,23 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 				local energyShield = item:GetArmourDataValue("EnergyShield", level)
 				local ward = item:GetArmourDataValue("Ward", level)
 				if armour > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FArmour: " .. colorCodes.MAGIC .. "%d", armour))
+					DrawString(x, drawY, "LEFT", fontSize, "VAR", localisation:Text("ui.compare_tab.draw_item_expanded.message_2", { magic = colorCodes.MAGIC, armour = armour }))
 					drawY = drawY + lineHeight
 				end
 				if evasion > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FEvasion: " .. colorCodes.MAGIC .. "%d", evasion))
+					DrawString(x, drawY, "LEFT", fontSize, "VAR", localisation:Text("ui.compare_tab.draw_item_expanded.message_12", { magic = colorCodes.MAGIC, evasion = evasion }))
 					drawY = drawY + lineHeight
 				end
 				if energyShield > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FES: " .. colorCodes.MAGIC .. "%d", energyShield))
+					DrawString(x, drawY, "LEFT", fontSize, "VAR", localisation:Text("ui.compare_tab.draw_item_expanded.message_11", { magic = colorCodes.MAGIC, energy_shield = energyShield }))
 					drawY = drawY + lineHeight
 				end
 				if ward > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FRunic Ward: " .. colorCodes.MAGIC .. "%d", ward))
+					DrawString(x, drawY, "LEFT", fontSize, "VAR", localisation:Text("ui.compare_tab.draw_item_expanded.message_18", { magic = colorCodes.MAGIC, ward = ward }))
 					drawY = drawY + lineHeight
 				end
 				if armourData.BlockChance and armourData.BlockChance > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FBlock: " .. colorCodes.MAGIC .. "%d%%", armourData.BlockChance))
+					DrawString(x, drawY, "LEFT", fontSize, "VAR", localisation:Text("ui.compare_tab.draw_item_expanded.message_3", { magic = colorCodes.MAGIC, block_chance = armourData.BlockChance }))
 					drawY = drawY + lineHeight
 				end
 			end
@@ -3566,19 +3569,19 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 			local flaskData = item.flaskData
 			if flaskData then
 				if flaskData.lifeTotal then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FLife: " .. colorCodes.MAGIC .. "%d ^x7F7F7F(%.1fs)", flaskData.lifeTotal, flaskData.duration or 0))
+					DrawString(x, drawY, "LEFT", fontSize, "VAR", localisation:Text("ui.compare_tab.draw_item_expanded.message_13", { magic = colorCodes.MAGIC, life_total = flaskData.lifeTotal, value = (flaskData.duration or 0) }))
 					drawY = drawY + lineHeight
 				end
 				if flaskData.manaTotal then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FMana: " .. colorCodes.MAGIC .. "%d ^x7F7F7F(%.1fs)", flaskData.manaTotal, flaskData.duration or 0))
+					DrawString(x, drawY, "LEFT", fontSize, "VAR", localisation:Text("ui.compare_tab.draw_item_expanded.message_14", { magic = colorCodes.MAGIC, mana_total = flaskData.manaTotal, value = (flaskData.duration or 0) }))
 					drawY = drawY + lineHeight
 				end
 				if not flaskData.lifeTotal and not flaskData.manaTotal and flaskData.duration then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FDuration: " .. colorCodes.MAGIC .. "%.2fs", flaskData.duration))
+					DrawString(x, drawY, "LEFT", fontSize, "VAR", localisation:Text("ui.compare_tab.draw_item_expanded.message_8", { magic = colorCodes.MAGIC, duration = flaskData.duration }))
 					drawY = drawY + lineHeight
 				end
 				if flaskData.chargesUsed and flaskData.chargesMax then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FCharges: " .. colorCodes.MAGIC .. "%d/%d", flaskData.chargesUsed, flaskData.chargesMax))
+					DrawString(x, drawY, "LEFT", fontSize, "VAR", localisation:Text("ui.compare_tab.draw_item_expanded.message_5", { magic = colorCodes.MAGIC, charges_used = flaskData.chargesUsed, charges_max = flaskData.chargesMax }))
 					drawY = drawY + lineHeight
 				end
 				-- Flask buff mods
@@ -3594,7 +3597,7 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 
 		-- Quality (if not shown in type-specific section)
 		if item.quality and item.quality > 0 and not base.weapon and not base.armour and not base.flask then
-			DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FQuality: " .. colorCodes.MAGIC .. "+%d%%", item.quality))
+			DrawString(x, drawY, "LEFT", fontSize, "VAR", localisation:Text("ui.compare_tab.draw_item_expanded.message_17", { magic = colorCodes.MAGIC, quality = item.quality }))
 			drawY = drawY + lineHeight
 		end
 	end
@@ -3643,15 +3646,15 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 
 	-- Corrupted/Split/Mirrored
 	if item.corrupted then
-		DrawString(x, drawY, "LEFT", fontSize, "VAR", colorCodes.NEGATIVE .. "Corrupted")
+		DrawString(x, drawY, "LEFT", fontSize, "VAR", colorCodes.NEGATIVE .. localisation:Text("ui.compare_tab.draw_item_expanded.message_6"))
 		drawY = drawY + lineHeight
 	end
 	if item.split then
-		DrawString(x, drawY, "LEFT", fontSize, "VAR", colorCodes.NEGATIVE .. "Split")
+		DrawString(x, drawY, "LEFT", fontSize, "VAR", colorCodes.NEGATIVE .. localisation:Text("ui.compare_tab.draw_item_expanded.message_19"))
 		drawY = drawY + lineHeight
 	end
 	if item.mirrored then
-		DrawString(x, drawY, "LEFT", fontSize, "VAR", colorCodes.NEGATIVE .. "Mirrored")
+		DrawString(x, drawY, "LEFT", fontSize, "VAR", colorCodes.NEGATIVE .. localisation:Text("ui.compare_tab.draw_item_expanded.message_15"))
 		drawY = drawY + lineHeight
 	end
 
@@ -3700,11 +3703,11 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 
 	local maxDiffW = 0
 	for _, diffLabel in ipairs({
-		"^8(both empty)",
-		colorCodes.POSITIVE .. "(match)",
-		colorCodes.NEGATIVE .. "(missing)",
-		colorCodes.TIP .. "(extra)",
-		colorCodes.WARNING .. "(different)",
+		"^8" .. localisation:Text("comparison.item.status.empty"),
+		colorCodes.POSITIVE .. localisation:Text("comparison.item.status.match"),
+		colorCodes.NEGATIVE .. localisation:Text("comparison.item.status.missing"),
+		colorCodes.TIP .. localisation:Text("comparison.item.status.extra"),
+		colorCodes.WARNING .. localisation:Text("comparison.item.status.different"),
 	}) do
 		maxDiffW = m_max(maxDiffW, DrawStringWidth(14, "VAR", diffLabel))
 	end
@@ -3866,7 +3869,7 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 
 	-- Convert drawY to absolute screen coords for control positioning
 	local absY = vp.y + checkboxOffset + drawY
-	local treeSetLabelW = DrawStringWidth(16, "VAR", "^7Tree set:") + 4
+	local treeSetLabelW = DrawStringWidth(16, "VAR", localisation:Text("ui.compare_tab.draw_items.tree_set_label_w.message")) + 4
 
 	self.controls.primaryTreeSetLabel.x = vp.x + scrollOffsetX + 10
 	self.controls.primaryTreeSetLabel.y = absY + 2
@@ -3894,7 +3897,7 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 	if #jewelSlots > 0 then
 		-- Section header
 		SetDrawColor(1, 1, 1)
-		DrawString(scrollOffsetX + 10, drawY, "LEFT", 16, "VAR", "^7-- Jewels --")
+		DrawString(scrollOffsetX + 10, drawY, "LEFT", 16, "VAR", localisation:Text("ui.compare_tab.draw_items.message"))
 		drawY = drawY + 20
 
 		for _, jEntry in ipairs(jewelSlots) do
@@ -3956,17 +3959,17 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 			end
 
 			local output = calcFunc(override)
-			local slotLabel = pSlot and pSlot.label or hoverEquipSlotName
+			local slotLabel = pSlot and localisation:Field(pSlot, 'label') or localisation:Term('equipment.slot', hoverEquipSlotName)
 			local header
 			if selItem then
-				header = string.format("^7Equipping this item in %s will give you:\n(replacing %s%s^7)", slotLabel, colorCodes[selItem.rarity] or "^7", selItem.name)
+				header = '^7' .. localisation:Text('equipment.compare.replace', { slot = slotLabel, item = (colorCodes[selItem.rarity] or '^7') .. localisation:ItemName(selItem) })
 			else
-				header = string.format("^7Equipping this item in %s will give you:", slotLabel)
+				header = '^7' .. localisation:Text('equipment.compare.equip', { slot = slotLabel })
 			end
-			local count = self.primaryBuild:AddStatComparesToTooltip(self.itemTooltip, calcBase, output, header)
+			local count = self.primaryBuild:AddStatComparesToTooltip(self.itemTooltip, calcBase, output, header, nil, true)
 			if count == 0 then
-				self.itemTooltip:AddLine(14, header)
-				self.itemTooltip:AddLine(14, "^7No changes.")
+				self.itemTooltip:AddLine(14, header, nil, nil, nil, true)
+				self.itemTooltip:AddLine(14, localisation:Text("ui.compare_tab.draw_items.tooltip"))
 			end
 		end
 		SetDrawLayer(nil, 100)
@@ -4482,9 +4485,9 @@ function CompareTabClass:DrawCalcsSkillHeader(vp, compareEntry, headerHeight, pr
 		local cursorX, cursorY = GetCursorPos()
 		local wrapWidth = colWidth - 8
 		local infoLines = {
-			{ label = "Aura/Buff Skills", key = "BuffList", breakdown = "SkillBuffs" },
-			{ label = "Combat Buffs", key = "CombatList" },
-			{ label = "Curses/Debuffs", key = "CurseList", breakdown = "SkillDebuffs" },
+			{ label = "Aura/Buff Skills", labelKey = "ui.compare_tab.draw_calcs_skill_header.buff_list.label", key = "BuffList", breakdown = "SkillBuffs" },
+			{ label = "Combat Buffs", labelKey = "ui.compare_tab.draw_calcs_skill_header.combat_list.label", key = "CombatList" },
+			{ label = "Curses/Debuffs", labelKey = "ui.compare_tab.draw_calcs_skill_header.curse_list.label", key = "CurseList", breakdown = "SkillDebuffs" },
 		}
 		for _, info in ipairs(infoLines) do
 			local primaryValue = primaryOutput and primaryOutput[info.key]
@@ -4646,7 +4649,7 @@ function CompareTabClass:DrawCalcs(vp, compareEntry)
 				end
 				local keepSubSection = #rows > 0 or (self.calcsShowOnlyDifferences and not subSectionExtraMatches(subSec.data, primaryActor, compareActor))
 				if keepSubSection then
-					t_insert(subSecInfo, { label = subSec.label, rows = rows, data = subSec.data })
+					t_insert(subSecInfo, { label = localisation:Field(subSec, "label"), rows = rows, data = subSec.data })
 					sectionHasRows = true
 				end
 			end
@@ -4731,8 +4734,8 @@ function CompareTabClass:DrawCalcs(vp, compareEntry)
 				if subSec.data and subSec.data.extra then
 					local extraTextW = DrawStringWidth(16, "VAR BOLD", subSec.label .. ":")
 					local extraX = x + 3 + extraTextW + 8
-					local primaryExtraOk, primaryExtraText = pcall(formatCalcStr, subSec.data.extra, primaryActor)
-					local compareExtraOk, compareExtraText = pcall(formatCalcStr, subSec.data.extra, compareActor)
+					local primaryExtraOk, primaryExtraText = pcall(formatCalcField, subSec.data, "extra", primaryActor)
+					local compareExtraOk, compareExtraText = pcall(formatCalcField, subSec.data, "extra", compareActor)
 					if primaryExtraOk and compareExtraOk then
 						DrawString(extraX, lineY + 3, "LEFT", 16, "VAR",
 							colorCodes.POSITIVE .. primaryExtraText .. "  ^8|  " .. colorCodes.WARNING .. compareExtraText)
@@ -4760,7 +4763,7 @@ function CompareTabClass:DrawCalcs(vp, compareEntry)
 						SetDrawColor(rowData.bgCol or "^0")
 						DrawImage(nil, x + 3, lineY + 1, cardWidth - 6, 16)
 						hoverColData = colData
-						hoverRowLabel = rowData.label
+						hoverRowLabel = localisation:Field(rowData, "label")
 						hoverRowX = x
 						hoverRowY = lineY
 						hoverRowW = cardWidth
@@ -4774,7 +4777,7 @@ function CompareTabClass:DrawCalcs(vp, compareEntry)
 						DrawImage(nil, x + 2, lineY, labelWidth - 2, 18)
 					end
 					local textColor = rowData.color or "^7"
-					DrawString(x + labelWidth, lineY + 1, "RIGHT_X", 16, "VAR", textColor .. rowData.label .. "^7:")
+					DrawString(x + labelWidth, lineY + 1, "RIGHT_X", 16, "VAR", textColor .. localisation:Field(rowData, "label") .. "^7:")
 
 					-- Primary value column
 					if not rowHovered then
@@ -4784,7 +4787,7 @@ function CompareTabClass:DrawCalcs(vp, compareEntry)
 						DrawImage(nil, x + valCol1X, lineY, valColWidth, 18)
 					end
 					if colData and colData.format then
-						local ok, str = pcall(formatCalcStr, colData.format, primaryActor, colData)
+						local ok, str = pcall(formatCalcField, colData, "format", primaryActor, colData)
 						if ok and str then
 							DrawString(x + valCol1X + 2, lineY + 9 - textSize / 2, "LEFT", textSize, "VAR", "^7" .. str)
 						end
@@ -4798,7 +4801,7 @@ function CompareTabClass:DrawCalcs(vp, compareEntry)
 						DrawImage(nil, x + valCol2X, lineY, valColWidth, 18)
 					end
 					if colData and colData.format then
-						local ok, str = pcall(formatCalcStr, colData.format, compareActor, colData)
+						local ok, str = pcall(formatCalcField, colData, "format", compareActor, colData)
 						if ok and str then
 							DrawString(x + valCol2X + 2, lineY + 9 - textSize / 2, "LEFT", textSize, "VAR", "^7" .. str)
 						end
@@ -4887,7 +4890,7 @@ function CompareTabClass:DrawConfig(vp, compareEntry, headerOnly)
 			-- Draw section label badge
 			local labelText = sec.name
 			if sec.diffCount > 0 then
-				labelText = labelText .. "  (" .. sec.diffCount .. " diff)"
+				labelText = localisation:Text("ui.compare_tab.display.draw_config.label_text", { label_text = labelText, diff_count = sec.diffCount })
 			end
 			local labelWidth = DrawStringWidth(14, "VAR", labelText)
 			SetDrawColor(0.66, 0.66, 0.66)
@@ -4910,7 +4913,7 @@ function CompareTabClass:DrawConfig(vp, compareEntry, headerOnly)
 						SetDrawLayer(nil, 0)
 					end
 					-- Label (reduce font size for long labels, matching ConfigTab behavior)
-					local labelStr = varData.label or varData.var
+					local labelStr = localisation:Field(varData, "label") or varData.var
 					local labelSize = DrawStringWidth(14, "VAR", labelStr) > 228 and 12 or 14
 					SetDrawColor(1, 1, 1)
 					DrawString(boxX + labelOffset, rowY + 2, "LEFT", labelSize, "VAR",
@@ -4924,7 +4927,7 @@ function CompareTabClass:DrawConfig(vp, compareEntry, headerOnly)
 
 	if #self.configSectionLayout == 0 then
 		DrawString(10, -self.scrollY, "LEFT", 16, "VAR",
-			colorCodes.POSITIVE .. "No configuration options to display.")
+			colorCodes.POSITIVE .. localisation:Text("ui.compare_tab.draw_config.message"))
 	end
 
 	SetViewport()

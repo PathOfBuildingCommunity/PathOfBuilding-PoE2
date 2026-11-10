@@ -1,0 +1,145 @@
+You can't deal Physical damage,你无法造成物理伤害
+You can't deal Lightning damage,你无法造成闪电伤害
+You can't deal Cold damage,你无法造成冰霜伤害
+You can't deal Fire damage,你无法造成火焰伤害
+You can't deal Chaos damage,你无法造成混沌伤害
+{0} to {1} (total damage),{0} 至 {1} (总伤害)
+(40% converted to other damage types),(40%转换为其他伤害类型)
+(90% converted to other damage types),(90%转换为其他伤害类型)
+(100% converted to other damage types),(100%转换为其他伤害类型)
+All targets,所有目标
+(base),(基础)
+(action speed modifier),(行动速度修正)
+= {0} casts per second,= {0} 每秒施放
+(total modifier),(总修正)
+= {0} seconds per attack,= {0} 攻击用时
+Both weapons:,全部武器:
+{0} + {1} (skill hits with both weapons at once),{0} + {1} ( 2 把武器同时使用技能击中)
+{0} + {1} / {2} (skill alternates weapons),{0} + {1} / {2} (武器交替使用技能)
+{0} to {1} (base damage from weapon),{0} 至 {1} (武器基础伤害)
+x {0} (base damage multiplier),x {0} (基础伤害效用)
++ {0} to {1} (added damage),+ {0} 至 {1} (附加伤害)
+x {0} (damage effectiveness),x {0} (附加伤害效用)
+"x {0} (duration modifier)","x {0} (持续时间修正)"
+"/ {0} (debuff expires slower/faster)","/ {0} (减益效果消退 更慢/更快)"
+(cost multiplier),(消耗加成)
+(base mana cost),(基础魔力消耗)
+(base life cost),(基础生命消耗)
+(additional mana cost),(附加魔力消耗)
+(additional life cost),(附加生命消耗)
+(increased/reduced mana cost),(魔力消耗提高/降低)
+(increased/reduced life cost),(生命消耗提高/降低)
+(more/less mana cost),(魔力消耗总增/总降)
+(more/less life cost),(生命消耗总增/总降)
+(total mana cost),(总魔力消耗)
+(total life cost),(总生命消耗)
+(attack speed),(每秒攻击)
+(cast speed),(每秒施法)
+Enemy level: {0} (can be overridden in the Configuration tab),敌人等级: {0} (可以在配置选项卡中决定)
+Average enemy evasion: {0},平均敌人闪避值: {0}
+Approximate hit chance: {0}%,近似命中几率: {0}%
+Accuracy Hit Chance: {0}%,纯命中几率计算命中率: {0}%
+Enemy Block Chance: {0}%,敌人格挡率: {0}%
+(chance to hit),(击中几率)
+"x {0} (ruthless blow effect modifier)","x {0} (无情效果修正)"
+(fist of war effect modifier),(战争铁拳效果修正)
+(combined ailment warcry effect modifier),(结合异常状态战吼效果修正)
+(DPS multiplier for this skill),(此技能的DPS加成)
+(quantity multiplier for this skill),(此技能的数量加成)
+NOTE: Calculation uses new Weighted Avg Ailment formula,注:计算采用新的加权平均异常公式
+(BleedDuration / Attack Time),(流血持续时间 / 攻击用时)
+(active number of totems),(生效的图腾数)
+(max number of stacks),(最大层数)
+Dmg Derivation:,伤害由来:
+(Bleed DoT Multi),(流血持续伤害加成)
+Non-Crit Dmg Derivation:,非暴击伤害由来:
+(Bleed DoT Multi for Non-Crit),(非暴击流血持续伤害加成)
+Crit Dmg Derivation:,暴击伤害由来:
+(Bleed DoT Multi for Crit),(暴击流血持续伤害加成)
+"{0} (ailment effect modifier)","{0} (异常状态效果修正)"
+(damage rate modifier),(伤害生效速率修正)
+(bleed stacks),(流血层数)
+(bleed chance based on chance to hit each second),(基于每秒命中几率的流血几率)
+(effective DPS modifier from enemy debuffs),(来自敌人减益的有效DPS修正)
+(Uncapped raw Bleed DPS),(未封顶原始流血DPS)
+(Capped Bleed DPS),(封顶流血DPS)
+(base duration),(基础持续时间)
+Ailment mode: CRIT,^7异常状态模式:暴击
+Ailment mode: Crits Only,^7异常状态模式:仅暴击
+Ailment mode: Average Damage,^7异常状态模式:平均伤害
+(can be changed in the Configuration tab),^8(可在配置选项卡更改)
+(single poison damage per second),(每秒单中毒伤害)
+(percent as Caustic ground),(腐蚀地面所用百分比)
+(effect mult),(有效加成)
+(poison deals 30% per second),(中毒每秒造成30%伤害)
+(Uncapped raw Poison DPS),(未封顶原始中毒DPS)
+(Capped Poison DPS),(封顶中毒DPS)
+(damage per second),(每秒伤害)
+(poison duration),(中毒持续时间)
+= {0} damage per poison stack,= {0} 每层中毒伤害
+"{0} (poison chance)","{0} (中毒几率)"
+"{0} (hit chance)","{0} (击中几率)"
+(hits per second),(每秒击中)
+(dps multiplier for this skill),(此技能的DPS加成)
+(stack multiplier for this skill),(此技能的层数加成)
+Capped to 1,封顶至1
+(IgniteDuration / Cast Time),(点燃持续时间 / 施法用时)
+(Ignite DoT Multi),(点燃持续伤害加成)
+(Ignite DoT Multi for Non-Crit),(非暴击点燃持续伤害加成)
+(Ignite DoT Multi for Crit),(暴击点燃持续伤害加成)
+(ignite damage per second),(每秒点燃伤害)
+(percent as burning ground),(燃烧地面所用百分比)
+(ignite deals 90% per second),(点燃每秒造成90%伤害)
+(burn rate modifier),(点燃生效速率)
+(ignite stacks),(点燃层数)
+(Uncapped raw Ignite DPS),(未封顶原始点燃DPS)
+(Capped Ignite DPS),(封顶点燃DPS)
+(ignite duration),(点燃持续时间)
+= {0} damage per ignite stack,= {0} 每层点燃伤害
+(capped at 40%),(封顶为40%)
+(increased effect of chill),(冰缓效果提高)
+(Ailment Threshold is about equal to Life except on bosses where it is about half of their life),(异常状态阈值与生命值相等，除了boss以一半生命值计算)
+Resulting ailment effect:,导致的异常状态效果:
+Resulting ailment effect (with a {0}% Shock on the enemy):,导致的异常状态效果(同时敌人受到{0}%程度的感电):
+"(ailment threshold is about equal to life, except on bosses that have specific ailment thresholds)","^8(异常状态阈值大约等于生命值，除了boss有特定的异常状态阈值)"
+"(the above table shows that when the enemy has X ailment threshold, you chill for Y)","(上表显示，当敌人的异常状态阈值为X时，你的冰缓效果为Y)"
+"(the above table shows that when the enemy has X ailment threshold, you shock for Y)","(上表显示，当敌人的异常状态阈值为X时，你的感电效果为Y)"
+"(the above table shows that when the enemy has X ailment threshold, you brittle for Y)","(上表显示，当敌人的异常状态阈值为X时，你的易碎效果为Y)"
+"(the above table shows that when the enemy has X ailment threshold, you sap for Y)","(上表显示，当敌人的异常状态阈值为X时，你的精疲力尽效果为Y)"
+"(the above table shows that when the enemy has X ailment threshold, you scorch for Y)","(上表显示，当敌人的异常状态阈值为X时，你的灼烧效果为Y)"
+Ailment Threshold,异常状态阈值
+Chill Effect,冰缓效果
+Shock Effect,感电效果
+Brittle Effect,易碎效果
+Sap Effect,精疲力尽效果
+Scorch Effect,灼烧效果
+(current),^8(当前)
+(desired),^8(期望)
+(maximum),^8(最大)
+(minimum),^8(最小)
+(increased/reduced duration),(持续时间 提高/降低)
+x {0} (more/less duration),x {0} (持续时间 总增/总降)
+(increased/reduced stun duration),(晕眩持续时间 提高/降低)
+(increased/reduced enemy stun recovery),(敌人晕眩回复 提高/降低)
+(base value),(基础值)
+(increased effectiveness),(效果提高)
+"(number of stacks, can be overridden in the Configuration tab)","(层数,可在配置选项卡决定)"
+(stored damage),(存储伤害)
+(impale chance),(穿刺几率)
+(impale enemy physical damage reduction),(被穿刺敌人的物理减伤)
+(impale damage multiplier),(穿刺伤害加成)
+(Damage per Instance),(每个实例的伤害)
+(skill duration),(技能持续时间)
+(average physical hit),(平均物理击中伤害)
+x {0} (multiplier from {1}% chance to deal triple damage),x {0} ({1}%几率造成三倍伤害的加成)
+x {0} (multiplier from {1}% chance to deal double damage),x {0} ({1}%几率造成双倍伤害的加成)
+x {0} (effective DPS modifier),x {0} (有效DPS修正)
+Crit confirmation roll:,暴击确保性:
+{0} - {1} (portion of damage from non-crits),{0} - {1} (来自非暴击伤害百分比)
+(portion of damage from crits),(來自暴击伤害百分比)
+{0} (average hit),{0} (平均击中伤害)
+x {0} (chance to hit),x {0} (击中几率)
+{0} (average damage),{0} (平均伤害)
+x {0} (hit rate),x {0} (击中速率)
+x {0} (attack rate),x {0} (攻击速率)
+x {0} (cast rate),x {0} (施法速率)

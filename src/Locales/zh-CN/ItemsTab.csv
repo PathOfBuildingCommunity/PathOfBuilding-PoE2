@@ -1,0 +1,120 @@
+Item set:,物品集:
+Manage...,管理...
+Trade for these items,交易这些物品
+Contains searches from the official trading site to help find,包含来自官方交易网站的搜索
+similar or better items for this build,以帮助找到对此构筑类似或更好的物品
+Passive tree:,天赋树:
+Equipped items:,已装备物品:
+Weapon Set:,武器集:
+Import from:,导入自:
+Uniques,传奇
+Rare Templates,稀有模板物品
+Craft item...,制作物品...
+Create custom...,创建自定义物品...
+"Double-click an item from one of the lists,","双击列表中的一个物品，"
+or copy and paste an item from in game,或从游戏中复制粘贴出一个物品
+(hover over the item and Ctrl+C) to view or edit,(悬停在项目上并按Ctrl+C)，以查看或编辑
+the item and add it to your build. You can ,物品并将其添加到你的构筑中。
+also clone an item within Path of Building by ,你也可以使用Ctrl+C和Ctrl+V，
+copying and pasting it with Ctrl+C and Ctrl+V.,在Path of Building中复制并粘贴一个物品。
+"You can Control + Click an item to equip it, or ",你可以Ctrl+点击一个物品来装备它，
+drag it onto the slot.  This will also add it to ,或者把它拖到插槽上。
+your build if it's from the unique/template list.,如果它来自传奇/模板列表，
+"If there's 2 slots an item can go in, ",这也会将它添加到你的构筑中。
+holding Shift will put it in the second.,如果一个物品有2个插槽，按住Shift键会把它放在第二个插槽。
+Add to build,添加到构筑
+Edit...,编辑...
+Apply Enchantment...,添加迷宫附魔...
+Apply Enchantment 2...,添加迷宫附魔2...
+Anoint...,涂油...
+Anoint 2...,涂油2...
+Anoint 3...,涂油3...
+Anoint 4...,涂油4...
+Corrupt...,腐化...
+Add Implicit...,添加基底...
+Catalyst,催化剂
+Abrasive (Attack),研磨催化剂(攻击)
+Accelerating (Speed),加速催化剂(速度)
+Fertile (Life & Mana),丰沃催化剂(生命&魔力)
+Imbued (Caster),灌注催化剂(施法)
+Intrinsic (Attribute),内在催化剂(属性)
+Noxious (Physical & Chaos),有害催化剂(物理伤害&混沌伤害)
+Prismatic (Resistance),棱光催化剂(抗性)
+Tempering (Defense),回火催化剂(防御)
+Turbulent (Elemental),猛烈催化剂(元素伤害)
+Unstable (Critical),不稳定的催化剂(暴击)
+Quality,品质
+Added Passives:,增加天赋:
+Affix,词缀
+Level,等级
+Tags,标签
+Add modifier...,添加词缀...
+Adding this mod will give: ,添加此词缀将给予:
+New Item,新物品
+Manage Item Sets,管理物品集
+The item is invalid.,此物品无效
+Check that the item's title and base name are in the correct format.,检查物品的标题和基底名称的格式是否正确。
+"For Rare and Unique items, the first 2 lines must be the title and base name. E.g.:","对于稀有和传奇物品，最开始两行必须是标题和基底名，例如:"
+"For Normal and Magic items, the base name must be somewhere in the first line. E.g.:","对于普通和魔法物品，基底名必须处于第一行，例如:"
+Craft Item,创建物品
+Edit Item Text,编辑物品文本
+Create Custom Item from Text,从文本创建自定义物品
+Skill:,技能:
+All Skills:,所有技能:
+"Show all skills, not just those used by this build.","显示所有技能,而不是只显示当前 BD 的技能."
+Enchant Item,附魔物品
+Heist,夺宝
+Harvest,庄园
+No Anoint,无涂油
+Anoint Item,给物品涂油
+Scourge,天灾腐化
+Corrupted Item,腐化物品
+Veiled,解密
+Add Modifier to Item,添加词缀到物品
+Add Implicit to Item,新增基底词缀至物品
+Fractured Item,分裂物品
+Synthesised Item,忆境物品
+Elemental DPS,元素DPS
+Attacks per Second,每秒攻击次数
+Weapon Range,武器范围
+Chance to Block,格挡几率
+Evasion Rating,闪避值
+Ward,结界
+Recovers {0} Life instantly,立即回复{0}生命
+Recovers {0} Mana instantly,立即回复{0}魔力
+Limited to,仅限
+Radius,范围
+Large,大
+Medium,中
+Small,小
+Attributes in Radius,范围内属性
+Split,已分裂
+Flask effect modifier: {0}%,^8药剂效果修正: ^7{0}%
+Charge gain modifier: {0}%,^8充能获得修正: ^7{0}%
+Charges generated: {0} per second,充能生成: 每秒^7{0}
+Chance to not consume charges: {0}%,不消耗充能几率: ^7{0}%
+"Flask uptime: {0}% average, {1}% minimum",药剂上线时段: 平均^7{0}%^8，最小^7{1}%^8
+Flask uptime: {0}%,药剂上线时段: ^7{0}%
+Effective flask stats:,有效药剂统计:
+Deactivating this flask will give you:,药剂失效后会使你:
+Activating this flask will give you:,药剂生效后会使你:
+
+"Equipping this item in Socket {0} will give you:","(插槽 {0})装备这个物品会使你:"
+"Removing this item from Socket {0} will give you:","(插槽 {0})移除这个物品会使你: "
+"Equipping this item in Weapon {0} will give you:","(武器 {0})装备这个物品会使你:"
+"Removing this item from Weapon {0} will give you:","(武器 {0})移除这个物品会使你:"
+"Equipping this item in Ring {0} will give you:","(戒指 {0})装备这个物品会使你:"
+"Removing this item from Ring {0} will give you:","(戒指 {0})移除这个物品会使你:"
+"Equipping this item in Belt will give you:",(腰带)装备这个物品会使你:
+"Removing this item from Belt will give you:",(腰带)移除这个物品会使你:
+"Equipping this item in Amulet will give you:",(项链)装备这个物品会使你:
+"Removing this item from Amulet will give you:",(项链)移除这个物品会使你:
+"Equipping this item in Boots will give you:",(鞋子)装备这个物品会使你:
+"Removing this item from Boots will give you:",(鞋子)移除这个物品会使你:
+"Equipping this item in Helmet will give you:",(头盔)装备这个物品会使你:
+"Removing this item from Helmet will give you:",(头盔)移除这个物品会使你:
+"Equipping this item in Body Armour will give you:",(胸甲)装备这个物品会使你:
+"Removing this item from Body Armour will give you:",(胸甲)移除这个物品会使你:
+"Equipping this item in Gloves will give you:",(手套)装备这个物品会使你:
+"Removing this item from Gloves will give you:",(手套)移除这个物品会使你:
+replacing,替换

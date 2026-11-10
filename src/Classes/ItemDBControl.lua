@@ -36,9 +36,9 @@ function ItemDBClass:ItemDBControl(anchor, rect, itemsTab, db, dbType)
 	self.sortOrder = { }
 	self.sortMode = "NAME"
 	self.leaguesAndTypesLoaded = false
-	self.leagueList = { "Any league", "No league" }
-	self.typeList = { "Any type", "Armour", "Jewellery", "One Handed Melee", "Two Handed Melee" }
-	self.slotList = { "Any slot", "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring", "Belt", "Jewel" }
+	self.leagueList = localisation:List({ "Any league", "No league" }, { [1] = "ui.item_dbcontrol.init.league_list.message", [2] = "ui.item_dbcontrol.init.league_list.message_2" })
+	self.typeList = localisation:List({ "Any type", "Armour", "Jewellery", "One Handed Melee", "Two Handed Melee" }, { [1] = "ui.item_dbcontrol.init.type_list.message", [2] = "ui.item_dbcontrol.init.type_list.message_2", [3] = "ui.item_dbcontrol.init.type_list.message_3", [4] = "ui.item_dbcontrol.init.type_list.message_4", [5] = "ui.item_dbcontrol.init.type_list.message_5" })
+	self.slotList = localisation:List({ "Any slot", "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring", "Belt", "Jewel" }, { [1] = "ui.item_dbcontrol.init.slot_list.message_2", [2] = "ui.item_dbcontrol.init.slot_list.message_10", [3] = "ui.item_dbcontrol.init.slot_list.message_11", [4] = "ui.item_dbcontrol.init.slot_list.message_7", [5] = "ui.item_dbcontrol.init.slot_list.message_4", [6] = "ui.item_dbcontrol.init.slot_list.message_6", [7] = "ui.item_dbcontrol.init.slot_list.message_5", [8] = "ui.item_dbcontrol.init.slot_list.message", [9] = "ui.item_dbcontrol.init.slot_list.message_9", [10] = "ui.item_dbcontrol.init.slot_list.message_3", [11] = "ui.item_dbcontrol.init.slot_list.message_8" })
 	local baseY = dbType == "RARE" and -22 or -62
 	self.controls.slot = new("DropDownControl"):DropDownControl({ "BOTTOMLEFT", self, "TOPLEFT" }, { 0, baseY, 179, 18 }, self.slotList, function(index, value)
 		self.listBuildFlag = true
@@ -53,17 +53,17 @@ function ItemDBClass:ItemDBControl(anchor, rect, itemsTab, db, dbType)
 		self.controls.league = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.sort, "RIGHT" }, { 2, 0, 179, 18 }, self.leagueList, function(index, value)
 			self.listBuildFlag = true
 		end)
-		self.controls.requirement = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.sort, "BOTTOMLEFT" }, { 0, 11, 179, 18 }, { "Any requirements", "Current level", "Current attributes", "Current useable" }, function(index, value)
+		self.controls.requirement = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.sort, "BOTTOMLEFT" }, { 0, 11, 179, 18 }, localisation:List({ "Any requirements", "Current level", "Current attributes", "Current useable" }, { [1] = "ui.item_dbcontrol.init.requirement.label", [2] = "ui.item_dbcontrol.init.requirement.label_3", [3] = "ui.item_dbcontrol.init.requirement.label_2", [4] = "ui.item_dbcontrol.init.requirement.label_4" }), function(index, value)
 			self.listBuildFlag = true
 		end)
-		self.controls.obtainable = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.requirement, "RIGHT" }, { 2, 0, 179, 18 }, { "Obtainable", "Any source", "Unobtainable", "Vendor Recipe", "Upgraded", "Boss Item", "Corruption" }, function(index, value)
+		self.controls.obtainable = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.requirement, "RIGHT" }, { 2, 0, 179, 18 }, localisation:List({ "Obtainable", "Any source", "Unobtainable", "Vendor Recipe", "Upgraded", "Boss Item", "Corruption" }, { [1] = "ui.item_dbcontrol.init.obtainable.label_4", [2] = "ui.item_dbcontrol.init.obtainable.label", [3] = "ui.item_dbcontrol.init.obtainable.label_5", [4] = "ui.item_dbcontrol.init.obtainable.label_7", [5] = "ui.item_dbcontrol.init.obtainable.label_6", [6] = "ui.item_dbcontrol.init.obtainable.label_2", [7] = "ui.item_dbcontrol.init.obtainable.label_3" }), function(index, value)
 			self.listBuildFlag = true
 		end)
 	end
-	self.controls.search = new("EditControl"):EditControl({ "BOTTOMLEFT", self, "TOPLEFT" }, { 0, -2, 258, 18 }, "", "Search", "%c", 100, function()
+	self.controls.search = new("EditControl"):EditControl({ "BOTTOMLEFT", self, "TOPLEFT" }, { 0, -2, 258, 18 }, "", localisation:Label("ui.item_dbcontrol.init.search.label"), "%c", 100, function()
 		self.listBuildFlag = true
 	end, nil, nil, true)
-	self.controls.searchMode = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.search, "RIGHT" }, { 2, 0, 100, 18 }, { "Anywhere", "Names", "Modifiers" }, function(index, value)
+	self.controls.searchMode = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.search, "RIGHT" }, { 2, 0, 100, 18 }, localisation:List({ "Anywhere", "Names", "Modifiers" }, { [1] = "ui.item_dbcontrol.init.search_mode.label", [2] = "ui.item_dbcontrol.init.search_mode.label_3", [3] = "ui.item_dbcontrol.init.search_mode.label_2" }), function(index, value)
 		self.listBuildFlag = true
 	end)
 	self:BuildSortOrder()
@@ -88,6 +88,7 @@ function ItemDBClass:LoadLeaguesAndTypes()
 	for type in pairsSortByKey(typeFlag) do
 		t_insert(self.typeList, type)
 	end
+	localisation:BindDataList('equipment_type', self.typeList, 'name')
 	self.leaguesAndTypesLoaded = true
 end
 
@@ -155,35 +156,38 @@ function ItemDBClass:DoesItemMatchFilters(item)
 		local found = false
 		local mode = self.controls.searchMode.selIndex
 		if mode == 1 or mode == 2 then
-			local err, match = PCall(string.matchOrPattern, item.name:lower(), searchStr)
+			local err, match = PCall(string.matchOrPattern, item.name:lower(), searchStr, true)
+			if not err and not match then
+				err, match = PCall(string.matchOrPattern, localisation:ItemName(item):lower(), searchStr, true)
+			end
 			if not err and match then
 				found = true
 			end
 		end
 		if mode == 1 or mode == 3 then
 			for _, line in pairs(item.enchantModLines) do
-				local err, match = PCall(string.matchOrPattern, line.line:lower(), searchStr)
+				local err, match = PCall(localisation.MatchModLine, localisation, line, searchStr)
 				if not err and match then
 					found = true
 					break
 				end
 			end
 			for _, line in pairs(item.runeModLines) do
-				local err, match = PCall(string.matchOrPattern, line.line:lower(), searchStr)
+				local err, match = PCall(localisation.MatchModLine, localisation, line, searchStr)
 				if not err and match then
 					found = true
 					break
 				end
 			end
 			for _, line in pairs(item.implicitModLines) do
-				local err, match = PCall(string.matchOrPattern, line.line:lower(), searchStr)
+				local err, match = PCall(localisation.MatchModLine, localisation, line, searchStr)
 				if not err and match then
 					found = true
 					break
 				end
 			end
 			for _, line in pairs(item.explicitModLines) do
-				local err, match = PCall(string.matchOrPattern, line.line:lower(), searchStr)
+				local err, match = PCall(localisation.MatchModLine, localisation, line, searchStr)
 				if not err and match then
 					found = true
 					break
@@ -219,6 +223,7 @@ function ItemDBClass:BuildSortOrder()
 		if not stat.ignoreForItems then
 			t_insert(self.sortDropList, {
 				label="Sort by "..stat.label,
+				labelKey = 'ui.item_dbcontrol.build_sort_order.label', labelParams = { stat = localisation:Ref(stat.labelKey, stat.labelParams) },
 				sortMode=stat.itemField or stat.stat,
 				itemField=stat.itemField,
 				stat=stat.stat,
@@ -265,6 +270,7 @@ function ItemDBClass:ListBuilder()
 			local now = GetTime()
 			if now - start > 50 then
 				self.defaultText = "^7Sorting... ("..m_floor(itemIndex/#list*100).."%)"
+				self.defaultTextKey, self.defaultTextParams = 'ui.item_dbcontrol.sorting', { percent = m_floor(itemIndex/#list*100) }
 				coroutine.yield()
 				start = now
 			end
@@ -295,6 +301,7 @@ function ItemDBClass:ListBuilder()
 
 	self.list = list
 	self.defaultText = "^7No items found that match those filters."
+	self.defaultTextKey, self.defaultTextParams = 'ui.item_dbcontrol.no_matches', nil
 end
 
 function ItemDBClass:Draw(viewPort)
@@ -318,6 +325,7 @@ function ItemDBClass:Draw(viewPort)
 	end
 	if self.db.loading then
 		self.defaultText = "^7Loading..."
+		self.defaultTextKey, self.defaultTextParams = 'ui.item_dbcontrol.loading', nil
 	elseif not self.leaguesAndTypesLoaded then
 		self:LoadLeaguesAndTypes()
 	end
@@ -326,7 +334,7 @@ end
 
 function ItemDBClass:GetRowValue(column, index, item)
 	if item and column == 1 then
-		return colorCodes[item.rarity] .. item.name
+		return colorCodes[item.rarity] .. localisation:ItemName(item)
 	end
 end
 

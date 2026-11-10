@@ -66,9 +66,9 @@ function TimelessJewelListControlClass:AddValueTooltip(tooltip, index, data)
 	tooltip:Clear()
 	if not self.noTooltip then
 		if self.list[index].label:match("B2B2B2") == nil then
-			tooltip:AddLine(16, "^7Double click to add this jewel to your build.")
+			tooltip:AddLine(16, localisation:Text("ui.timeless_jewel_list_control.add_value_tooltip.tooltip_2"))
 		else
-			tooltip:AddLine(16, "^7" .. self.sharedList.type.label .. " " .. data.seed .. " was successfully added to your build.")
+			tooltip:AddLine(16, "^7" .. localisation:Text("ui.timeless_jewel_list_control.add_value_tooltip.tooltip_4", { label = localisation:Field(self.sharedList.type, 'label'), seed = data.seed }))
 		end
 		local treeData = self.build.spec.tree
 		local sortedNodeLists = { }
@@ -82,13 +82,13 @@ function TimelessJewelListControlClass:AddValueTooltip(tooltip, index, data)
 			end
 		end
 		if next(sortedNodeLists) then
-			tooltip:AddLine(16, "^7Node List:")
+			tooltip:AddLine(16, localisation:Text("ui.timeless_jewel_list_control.add_value_tooltip.tooltip_3"))
 			for _, sortedNodeList in pairs(sortedNodeLists) do
 				tooltip:AddLine(16, sortedNodeList)
 			end
 		end
 		if data.total > 0 then
-			tooltip:AddLine(16, "^7Combined Node Weight: " .. data.total)
+			tooltip:AddLine(16, localisation:Text("ui.timeless_jewel_list_control.add_value_tooltip.tooltip", { total = data.total }))
 		end
 	end
 end

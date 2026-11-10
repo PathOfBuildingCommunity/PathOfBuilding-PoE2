@@ -96,24 +96,24 @@ function calcs.doActorLifeManaSpirit(actor, skipBreakdown)
 		output[res] = override or m_max(round((base * (1 - conv/100) + extra) * (1 + inc/100) * more + total), 1)
 		if breakdown then
 			if inc ~= 0 or more ~= 1 or conv ~= 0 or extra ~= 0 or total ~= 0 then
-				breakdown[res][1] = s_format("%g ^8(base)", base)
+				breakdown[res][1] = localisation:Text("calc.defence.do_actor_life_mana_spirit.line", { base = base })
 				if conv ~= 0 then
-					t_insert(breakdown[res], s_format("x %.2f ^8(converted from)", 1 - conv/100))
+					t_insert(breakdown[res], localisation:Text("calc.defence.do_actor_life_mana_spirit.line_2", { value = 1 - conv/100 }))
 				end
 				if extra ~= 0 then
-					t_insert(breakdown[res], s_format("+ %g ^8(converted to)", extra))
+					t_insert(breakdown[res], localisation:Text("calc.defence.do_actor_life_mana_spirit.line_3", { extra = extra }))
 				end
 				if conv ~= 0 or extra ~= 0 then
 					t_insert(breakdown[res], s_format("= %g", round(base * (1 - conv/100) + extra)))
 				end
 				if inc ~= 0 then
-					t_insert(breakdown[res], s_format("x %.2f ^8(increased/reduced)", 1 + inc/100))
+					t_insert(breakdown[res], localisation:Text("calc.defence.do_actor_life_mana_spirit.line_4", { value = 1 + inc/100 }))
 				end
 				if more ~= 1 then
-					t_insert(breakdown[res], s_format("x %.2f ^8(more/less)", more))
+					t_insert(breakdown[res], localisation:Text("calc.defence.do_actor_life_mana_spirit.line_5", { more = more }))
 				end
 				if total ~= 0 then
-					t_insert(breakdown[res], s_format("+ %g ^8(total)", total))
+					t_insert(breakdown[res], localisation:Text("calc.defence.do_actor_life_mana_spirit.line_6", { total = total }))
 				end
 				if inc ~= 0 or more ~= 1 or total ~= 0 then
 					t_insert(breakdown[res], s_format("= %g", output[res]))
@@ -299,7 +299,7 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 					actor["reserved_"..name.."Base"] = actor["reserved_"..name.."Base"] + values.reservedFlat
 					if breakdown then
 						t_insert(breakdown[name.."Reserved"].reservations, {
-							skillName = activeSkill.activeEffect.grantedEffect.name,
+							skillName = activeSkill.activeEffect.grantedEffect.name, skillNameKey = activeSkill.activeEffect.grantedEffect.nameKey,
 							base = values.baseFlat,
 							mult = mult ~= 1 and ("x "..mult),
 							more = values.more ~= 1 and ("x "..values.more),
@@ -317,7 +317,7 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 					actor["reserved_"..name.."Percent"] = actor["reserved_"..name.."Percent"] + values.reservedPercent
 					if breakdown then
 						t_insert(breakdown[name.."Reserved"].reservations, {
-							skillName = activeSkill.activeEffect.grantedEffect.name,
+							skillName = activeSkill.activeEffect.grantedEffect.name, skillNameKey = activeSkill.activeEffect.grantedEffect.nameKey,
 							base = values.basePercent .. "%",
 							mult = mult ~= 1 and ("x "..mult),
 							more = values.more ~= 1 and ("x "..values.more),
@@ -410,14 +410,14 @@ function calcs.applyDmgTakenConversion(activeSkill, output, breakdown, sourceTyp
 			totalDamageTaken = totalDamageTaken + finalDamage
 
 			if breakdown then
-				t_insert(damageBreakdown, damageType.." Damage Taken")
+				t_insert(damageBreakdown, localisation:Text("calc.defence.apply_dmg_taken_conversion.line", { damage_type = localisation:TermRef("damage_type", damageType) }))
 				if damageTakenAs ~= 1 then
-					t_insert(damageBreakdown, s_format("^8=^7 %d^8 (Base Damage)^7 * %.2f^8 (Damage taken as %s)", baseDmg, damageTakenAs, damageType))
+					t_insert(damageBreakdown, localisation:Text("calc.defence.apply_dmg_taken_conversion.line_2", { base_dmg = baseDmg, damage_taken_as = damageTakenAs, damage_type = localisation:TermRef("damage_type", damageType) }))
 				end
 				if combinedMult ~= 1 then
-					t_insert(damageBreakdown, s_format("^8=^7 %d^8 (%s Damage)^7 * %.4f^8 (Damage taken multi)", damage, damageType, combinedMult))
+					t_insert(damageBreakdown, localisation:Text("calc.defence.apply_dmg_taken_conversion.line_3", { damage = damage, damage_type = localisation:TermRef("damage_type", damageType), combined_mult = combinedMult }))
 				end
-				t_insert(damageBreakdown, s_format("^8=^7 %d^8 (%s Damage taken)", finalDamage, damageType))
+				t_insert(damageBreakdown, localisation:Text("calc.defence.apply_dmg_taken_conversion.line_4", { final_damage = finalDamage, damage_type = localisation:TermRef("damage_type", damageType) }))
 				t_insert(damageBreakdown, s_format(""))
 			end
 		end
@@ -706,65 +706,65 @@ end
 local function incomingDamageBreakdown(breakdownTable, poolsRemaining, output)
 	--region Breakdown inserts
 	if output.FrostShieldLife and output.FrostShieldLife > 0 then
-		t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Frost Shield Life ^7(%d remaining)", output.FrostShieldLife - poolsRemaining.AlliesTakenBeforeYou["frostShield"].remaining, poolsRemaining.AlliesTakenBeforeYou["frostShield"].remaining))
+		t_insert(breakdownTable, localisation:Text("calc.defence.incoming_damage_breakdown.line", { gem = colorCodes.GEM, value = output.FrostShieldLife - poolsRemaining.AlliesTakenBeforeYou["frostShield"].remaining, remaining = poolsRemaining.AlliesTakenBeforeYou["frostShield"].remaining }))
 	end
 	if output.TotalSpectreLife and output.TotalSpectreLife > 0 then
-		t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Total Spectre Life ^7(%d remaining)", output.TotalSpectreLife - poolsRemaining.AlliesTakenBeforeYou["spectres"].remaining, poolsRemaining.AlliesTakenBeforeYou["spectres"].remaining))
+		t_insert(breakdownTable, localisation:Text("calc.defence.incoming_damage_breakdown.line_2", { gem = colorCodes.GEM, value = output.TotalSpectreLife - poolsRemaining.AlliesTakenBeforeYou["spectres"].remaining, remaining = poolsRemaining.AlliesTakenBeforeYou["spectres"].remaining }))
 	end
 	if output.TotalTotemLife and output.TotalTotemLife > 0 then
-		t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Total Totem Life ^7(%d remaining)", output.TotalTotemLife - poolsRemaining.AlliesTakenBeforeYou["totems"].remaining, poolsRemaining.AlliesTakenBeforeYou["totems"].remaining))
+		t_insert(breakdownTable, localisation:Text("calc.defence.incoming_damage_breakdown.line_3", { gem = colorCodes.GEM, value = output.TotalTotemLife - poolsRemaining.AlliesTakenBeforeYou["totems"].remaining, remaining = poolsRemaining.AlliesTakenBeforeYou["totems"].remaining }))
 	end
 	if output.TotalVaalRejuvenationTotemLife and output.TotalVaalRejuvenationTotemLife > 0 then
-		t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Total Vaal Rejuvenation Totem Life ^7(%d remaining)", output.TotalVaalRejuvenationTotemLife - poolsRemaining.AlliesTakenBeforeYou["vaalRejuvenationTotems"].remaining, poolsRemaining.AlliesTakenBeforeYou["vaalRejuvenationTotems"].remaining))
+		t_insert(breakdownTable, localisation:Text("calc.defence.incoming_damage_breakdown.line_4", { gem = colorCodes.GEM, value = output.TotalVaalRejuvenationTotemLife - poolsRemaining.AlliesTakenBeforeYou["vaalRejuvenationTotems"].remaining, remaining = poolsRemaining.AlliesTakenBeforeYou["vaalRejuvenationTotems"].remaining }))
 	end
 	if output.TotalRadianceSentinelLife and output.TotalRadianceSentinelLife > 0 then
-		t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Total Sentinel of Radiance Life ^7(%d remaining)", output.TotalRadianceSentinelLife - poolsRemaining.AlliesTakenBeforeYou["radianceSentinel"].remaining, poolsRemaining.AlliesTakenBeforeYou["radianceSentinel"].remaining))
+		t_insert(breakdownTable, localisation:Text("calc.defence.incoming_damage_breakdown.line_5", { gem = colorCodes.GEM, value = output.TotalRadianceSentinelLife - poolsRemaining.AlliesTakenBeforeYou["radianceSentinel"].remaining, remaining = poolsRemaining.AlliesTakenBeforeYou["radianceSentinel"].remaining }))
 	end
 	if output.TotalCompanionLife and output.TotalCompanionLife > 0 then
-		t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Total Companion Life ^7(%d remaining)", output.TotalCompanionLife - poolsRemaining.AlliesTakenBeforeYou["companion"].remaining, poolsRemaining.AlliesTakenBeforeYou["companion"].remaining))
+		t_insert(breakdownTable, localisation:Text("calc.defence.incoming_damage_breakdown.line_6", { gem = colorCodes.GEM, value = output.TotalCompanionLife - poolsRemaining.AlliesTakenBeforeYou["companion"].remaining, remaining = poolsRemaining.AlliesTakenBeforeYou["companion"].remaining }))
 	end
 	if output.AlliedEnergyShield and output.AlliedEnergyShield > 0 then
-		t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Total Allied Energy shield ^7(%d remaining)", output.AlliedEnergyShield - poolsRemaining.AlliesTakenBeforeYou["soulLink"].remaining, poolsRemaining.AlliesTakenBeforeYou["soulLink"].remaining))
+		t_insert(breakdownTable, localisation:Text("calc.defence.incoming_damage_breakdown.line_7", { gem = colorCodes.GEM, value = output.AlliedEnergyShield - poolsRemaining.AlliesTakenBeforeYou["soulLink"].remaining, remaining = poolsRemaining.AlliesTakenBeforeYou["soulLink"].remaining }))
 	end
 	for _, damageType in ipairs(dmgTypeList) do
 		if poolsRemaining.resourcesLostToTypeDamage[damageType].aegis then
-			t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."%s Aegis charge ^7(%d remaining)", poolsRemaining.resourcesLostToTypeDamage[damageType].aegis, damageType, poolsRemaining.Aegis[damageType]))
+			t_insert(breakdownTable, localisation:Text("calc.defence.incoming_damage_breakdown.line_8", { gem = colorCodes.GEM, aegis = poolsRemaining.resourcesLostToTypeDamage[damageType].aegis, damage_type = localisation:TermRef("damage_type", damageType), value = poolsRemaining.Aegis[damageType] }))
 		end
 	end
 	if output.sharedElementalAegis and output.sharedElementalAegis ~= poolsRemaining.Aegis.sharedElemental then
-		t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Elemental Aegis charge ^7(%d remaining)", output.sharedElementalAegis - poolsRemaining.Aegis.sharedElemental, poolsRemaining.Aegis.sharedElemental))
+		t_insert(breakdownTable, localisation:Text("calc.defence.incoming_damage_breakdown.line_9", { gem = colorCodes.GEM, value = output.sharedElementalAegis - poolsRemaining.Aegis.sharedElemental, shared_elemental = poolsRemaining.Aegis.sharedElemental }))
 	end
 	if output.sharedAegis and output.sharedAegis > 0 then
-		t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Shared Aegis charge ^7(%d remaining)", output.sharedAegis - poolsRemaining.Aegis.shared, poolsRemaining.Aegis.shared))
+		t_insert(breakdownTable, localisation:Text("calc.defence.incoming_damage_breakdown.line_10", { gem = colorCodes.GEM, value = output.sharedAegis - poolsRemaining.Aegis.shared, shared = poolsRemaining.Aegis.shared }))
 	end
 	local eternalLifePrevented = 0
 	for _, damageType in ipairs(dmgTypeList) do
 		eternalLifePrevented = eternalLifePrevented + (poolsRemaining.resourcesLostToTypeDamage[damageType].eternalLifePrevented or 0)
 		if poolsRemaining.resourcesLostToTypeDamage[damageType].guard then
-			t_insert(breakdownTable, s_format("\n\t%d "..colorCodes.SCOURGE.."%s Guard charge ^7(%d remaining)", poolsRemaining.resourcesLostToTypeDamage[damageType].guard, damageType, poolsRemaining.Guard[damageType]))
+			t_insert(breakdownTable, localisation:Text("calc.defence.incoming_damage_breakdown.line_11", { scourge = colorCodes.SCOURGE, guard = poolsRemaining.resourcesLostToTypeDamage[damageType].guard, damage_type = localisation:TermRef("damage_type", damageType), value = poolsRemaining.Guard[damageType] }))
 		end
 	end
 	if output.sharedGuardAbsorb and output.sharedGuardAbsorb > 0 then
-		t_insert(breakdownTable, s_format("\t%d "..colorCodes.SCOURGE.."Shared Guard charge ^7(%d remaining)", output.sharedGuardAbsorb - poolsRemaining.Guard.shared, poolsRemaining.Guard.shared))
+		t_insert(breakdownTable, localisation:Text("calc.defence.incoming_damage_breakdown.line_12", { scourge = colorCodes.SCOURGE, value = output.sharedGuardAbsorb - poolsRemaining.Guard.shared, shared = poolsRemaining.Guard.shared }))
 	end
 	if output.EnergyShieldRecoveryCap ~= poolsRemaining.EnergyShield and output.EnergyShieldRecoveryCap and output.EnergyShieldRecoveryCap > 0 then
-		t_insert(breakdownTable, s_format("\t%d "..colorCodes.ES.."Energy Shield ^7(%d remaining)", output.EnergyShieldRecoveryCap - poolsRemaining.EnergyShield, poolsRemaining.EnergyShield))
+		t_insert(breakdownTable, localisation:Text("calc.defence.incoming_damage_breakdown.line_13", { es = colorCodes.ES, value = output.EnergyShieldRecoveryCap - poolsRemaining.EnergyShield, energy_shield = poolsRemaining.EnergyShield }))
 	end
 	if eternalLifePrevented > 0 then
-		t_insert(breakdownTable, s_format("\t%d "..colorCodes.POSITIVE.."Life change prevented by Eternal Life", eternalLifePrevented))
+		t_insert(breakdownTable, localisation:Text("calc.defence.incoming_damage_breakdown.line_14", { positive = colorCodes.POSITIVE, eternal_life_prevented = eternalLifePrevented }))
 	end
 	if output.ManaUnreserved ~= poolsRemaining.Mana and output.ManaUnreserved and output.ManaUnreserved > 0 then
-		t_insert(breakdownTable, s_format("\t%d "..colorCodes.MANA.."Mana ^7(%d remaining)", output.ManaUnreserved - poolsRemaining.Mana, poolsRemaining.Mana))
+		t_insert(breakdownTable, localisation:Text("calc.defence.incoming_damage_breakdown.line_15", { mana = colorCodes.MANA, value = output.ManaUnreserved - poolsRemaining.Mana, mana_2 = poolsRemaining.Mana }))
 	end
 	if poolsRemaining.LifeLossLostOverTime + poolsRemaining.LifeBelowHalfLossLostOverTime > 0 then
-		t_insert(breakdownTable, s_format("\t%d "..colorCodes.LIFE.."Life ^7Loss Prevented", poolsRemaining.LifeLossLostOverTime + poolsRemaining.LifeBelowHalfLossLostOverTime))
+		t_insert(breakdownTable, localisation:Text("calc.defence.incoming_damage_breakdown.line_16", { life = colorCodes.LIFE, value = poolsRemaining.LifeLossLostOverTime + poolsRemaining.LifeBelowHalfLossLostOverTime }))
 	end
-	t_insert(breakdownTable, s_format("\t%d "..colorCodes.LIFE.."Life ^7(%d remaining)", output.LifeRecoverable - poolsRemaining.Life, poolsRemaining.Life))
+	t_insert(breakdownTable, localisation:Text("calc.defence.incoming_damage_breakdown.line_17", { life = colorCodes.LIFE, value = output.LifeRecoverable - poolsRemaining.Life, life_2 = poolsRemaining.Life }))
 	if output.Ward and output.Ward > 0 then
-		t_insert(breakdownTable, s_format("\t%d "..colorCodes.WARD.."Runic Ward ^7(%d remaining)", output.Ward - poolsRemaining.Ward, poolsRemaining.Ward))
+		t_insert(breakdownTable, localisation:Text("calc.defence.incoming_damage_breakdown.line_18", { ward = colorCodes.WARD, value = output.Ward - poolsRemaining.Ward, ward_2 = poolsRemaining.Ward }))
 	end
 	if poolsRemaining.OverkillDamage >= 1 then
-		t_insert(breakdownTable, s_format("\t%d "..colorCodes.NEGATIVE.."Overkill damage", poolsRemaining.OverkillDamage))
+		t_insert(breakdownTable, localisation:Text("calc.defence.incoming_damage_breakdown.line_19", { negative = colorCodes.NEGATIVE, overkill_damage = poolsRemaining.OverkillDamage }))
 	end
 	--endregion
 
@@ -777,12 +777,12 @@ local function calcRecoup(output, breakdown, modDB, recoup, recoupType, damageTy
 	if breakdown then
 		if output[recoupType .. "RecoveryRateMod"] ~= 1 then
 			breakdown[damageType .. recoupType .. "Recoup"] = {
-				s_format("%d%% ^8(base)", recoup),
-				s_format("* %.2f ^8(recovery rate modifier)", output[recoupType .. "RecoveryRateMod"]),
-				s_format("= %.1f%% over %d seconds", output[damageType .. recoupType .. "Recoup"], (modDB:Flag(nil, "4Second" .. recoupType .. "Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4 or 8)
+				localisation:Text("calc.defence.calc_recoup.line", { recoup = recoup }),
+				localisation:Text("calc.defence.calc_recoup.line_2", { value = output[recoupType .. "RecoveryRateMod"] }),
+				localisation:Text("calc.defence.calc_recoup.line_3", { value = output[damageType .. recoupType .. "Recoup"], value_2 = (((modDB:Flag(nil, "4Second" .. recoupType .. "Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4) or 8) })
 			}
 		else
-			breakdown[damageType .. recoupType .. "Recoup"] = { s_format("%d%% over %d seconds", output[damageType .. recoupType .. "Recoup"], (modDB:Flag(nil, "4Second" .. recoupType .. "Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4 or 8) }
+			breakdown[damageType .. recoupType .. "Recoup"] = { localisation:Text("calc.defence.calc_recoup.line_4", { value = output[damageType .. recoupType .. "Recoup"], value_2 = (((modDB:Flag(nil, "4Second" .. recoupType .. "Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4) or 8) }) }
 		end
 	end
 end
@@ -975,14 +975,14 @@ function calcs.defence(env, actor)
 		output["MissingTotem"..elem.."Resist"] = m_max(0, totemMax - totemFinal)
 		if breakdown then
 			breakdown[elem.."Resist"] = {
-				"Min: "..min.."%",
-				"Max: "..max.."%",
-				"Total: "..total.."%",
+				localisation:Text("calc.defence.defence.line_18", { min = min }),
+				localisation:Text("calc.defence.defence.line_19", { max = max }),
+				localisation:Text("calc.defence.defence.line_20", { total = total }),
 			}
 			breakdown["Totem"..elem.."Resist"] = {
-				"Min: "..min.."%",
-				"Max: "..totemMax.."%",
-				"Total: "..totemTotal.."%",
+				localisation:Text("calc.defence.defence.line_18", { min = min }),
+				localisation:Text("calc.defence.defence.line_21", { totem_max = totemMax }),
+				localisation:Text("calc.defence.defence.line_22", { totem_total = totemTotal }),
 			}
 		end
 	end
@@ -1060,13 +1060,13 @@ function calcs.defence(env, actor)
 	end
 	if breakdown then
 		breakdown.BlockChance = {
-			"Base: "..baseBlockChance.."%",
-			"Max: "..output.BlockChanceMax.."%",
-			"Total: "..output.BlockChance+output.BlockChanceOverCap.."%",
+			localisation:Text("calc.defence.block_chance.line", { base_block_chance = baseBlockChance }),
+			localisation:Text("calc.defence.block_chance.line_2", { block_chance_max = output.BlockChanceMax }),
+			localisation:Text("calc.defence.block_chance.line_3", { value = output.BlockChance+output.BlockChanceOverCap }),
 		}
 		breakdown.SpellBlockChance = {
-			"Max: "..output.SpellBlockChanceMax.."%",
-			"Total: "..output.SpellBlockChance+output.SpellBlockChanceOverCap.."%",
+			localisation:Text("calc.defence.spell_block_chance.line", { spell_block_chance_max = output.SpellBlockChanceMax }),
+			localisation:Text("calc.defence.spell_block_chance.line_2", { value = output.SpellBlockChance+output.SpellBlockChanceOverCap }),
 		}
 	end
 	if modDB:Flag(nil, "CannotBlockAttacks") or enemyDB:Flag(nil, "CannotBeBlocked") then
@@ -1230,7 +1230,7 @@ function calcs.defence(env, actor)
 								inc = (inc ~= 0) and s_format(" x %.2f", 1 + inc/100),
 								more = (more ~= 1) and s_format(" x %.2f", more),
 								total = s_format("%.2f", wardBase * (1 + inc / 100) * more),
-								source = slot,
+								source = slot, sourceKey = localisation:TermKey("equipment.slot", slot),
 								item = actor.itemList[slot],
 							})
 						end
@@ -1254,7 +1254,7 @@ function calcs.defence(env, actor)
 								base = energyShieldBase,
 								more = (more ~= 1) and s_format(" x %.2f", more),
 								total = s_format("%.2f", energyShieldBase * more),
-								source = slot,
+								source = slot, sourceKey = localisation:TermKey("equipment.slot", slot),
 								item = actor.itemList[slot],
 							})
 						end
@@ -1315,7 +1315,7 @@ function calcs.defence(env, actor)
 						inc = (inc ~= 0) and s_format(" x %.2f", 1 + inc/100),
 						more = (more ~= 1) and s_format(" x %.2f", more),
 						total = s_format("%.2f", wardBase * (1 + inc / 100) * more),
-						source = "Global",
+						source = "Global", sourceKey = "term.calculation_source.global",
 						item = actor.itemList["Global"],
 					})
 				end
@@ -1335,7 +1335,7 @@ function calcs.defence(env, actor)
 					inc = (inc ~= 0) and s_format(" x %.2f", 1 + inc/100),
 					more = (more ~= 1) and s_format(" x %.2f", more),
 					total = s_format("%.2f", energyShieldBase * (1 + inc / 100) * more),
-					source = "Global",
+					source = "Global", sourceKey = "term.calculation_source.global",
 					item = actor.itemList["Global"],
 				})
 			end
@@ -1408,7 +1408,7 @@ function calcs.defence(env, actor)
 										target.globalBase = target.globalBase + targetBase
 									end
 									if breakdown then
-										breakdown.slot(slot, source.name .. " to " .. target.name .. " conversion", { slotName = slot }, targetBase, nil, unpack(target.mods))
+										breakdown.slot(slot, localisation:Text("calc.resource.conversion", { source = localisation:TermRef("calculation_resource", source.name), target = localisation:TermRef("calculation_resource", target.name) }), { slotName = slot }, targetBase, nil, unpack(target.mods))
 									end
 									source.basePerSlot[slot] = source.basePerSlot[slot] * (100 - source.totalConversion) / 100
 								end
@@ -1418,7 +1418,7 @@ function calcs.defence(env, actor)
 							target.globalBase = target.globalBase + targetBase
 							target.totalBase = target.totalBase + targetTotalBase
 							if breakdown then
-								breakdown.slot("Global", source.name .. " to " .. target.name .. " conversion", nil, targetBase, nil, unpack(target.mods))
+								breakdown.slot("Global", localisation:Text("calc.resource.conversion", { source = localisation:TermRef("calculation_resource", source.name), target = localisation:TermRef("calculation_resource", target.name) }), nil, targetBase, nil, unpack(target.mods))
 							end
 						end
 					else
@@ -1430,7 +1430,7 @@ function calcs.defence(env, actor)
 							target.globalBase = target.globalBase + targetBase
 							target.totalBase = target.totalBase + targetTotalBase
 							if breakdown then
-								breakdown.slot("Conversion", source.name .. " to " .. target.name, nil, targetBase, nil, unpack(target.mods))
+								breakdown.slot("Conversion", localisation:Text("calc.resource.transfer", { source = localisation:TermRef("calculation_resource", source.name), target = localisation:TermRef("calculation_resource", target.name) }), nil, targetBase, nil, unpack(target.mods))
 							end
 						end
 					end
@@ -1531,33 +1531,33 @@ function calcs.defence(env, actor)
 			end
 			if breakdown then
 				breakdown.EvadeChance = {
-					s_format("Enemy level: %d ^8(%s the Configuration tab)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),
-					s_format("Average enemy accuracy: %d", enemyAccuracy),
-					s_format("Approximate evade chance: %d%%", output.EvadeChance),
+					localisation:Text("calc.defence.evade_chance.line", { enemy_level = env.enemyLevel, value = ((env.configInput.enemyLevel and localisation:Ref("calc.defence.evade_chance.line.parameter")) or localisation:Ref("calc.defence.evade_chance.line.parameter_2")) }),
+					localisation:Text("calc.defence.evade_chance.line_2", { enemy_accuracy = enemyAccuracy }),
+					localisation:Text("calc.defence.evade_chance.line_3", { evade_chance = output.EvadeChance }),
 				}
 				breakdown.MeleeEvadeChance = {
-					s_format("Enemy level: %d ^8(%s the Configuration tab)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),
-					s_format("Average enemy accuracy: %d", enemyAccuracy),
-					s_format("Effective Evasion: %d", output.MeleeEvasion),
-					s_format("Approximate melee evade chance: %d%%", output.MeleeEvadeChance),
+					localisation:Text("calc.defence.melee_evade_chance.line", { enemy_level = env.enemyLevel, value = ((env.configInput.enemyLevel and localisation:Ref("calc.defence.melee_evade_chance.line.parameter")) or localisation:Ref("calc.defence.melee_evade_chance.line.parameter_2")) }),
+					localisation:Text("calc.defence.melee_evade_chance.line_2", { enemy_accuracy = enemyAccuracy }),
+					localisation:Text("calc.defence.melee_evade_chance.line_3", { melee_evasion = output.MeleeEvasion }),
+					localisation:Text("calc.defence.melee_evade_chance.line_4", { melee_evade_chance = output.MeleeEvadeChance }),
 				}
 				breakdown.ProjectileEvadeChance = {
-					s_format("Enemy level: %d ^8(%s the Configuration tab)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),
-					s_format("Average enemy accuracy: %d", enemyAccuracy),
-					s_format("Effective Evasion: %d", output.ProjectileEvasion),
-					s_format("Approximate projectile evade chance: %d%%", output.ProjectileEvadeChance),
+					localisation:Text("calc.defence.projectile_evade_chance.line", { enemy_level = env.enemyLevel, value = ((env.configInput.enemyLevel and localisation:Ref("calc.defence.projectile_evade_chance.line.parameter")) or localisation:Ref("calc.defence.projectile_evade_chance.line.parameter_2")) }),
+					localisation:Text("calc.defence.projectile_evade_chance.line_2", { enemy_accuracy = enemyAccuracy }),
+					localisation:Text("calc.defence.projectile_evade_chance.line_3", { projectile_evasion = output.ProjectileEvasion }),
+					localisation:Text("calc.defence.projectile_evade_chance.line_4", { projectile_evade_chance = output.ProjectileEvadeChance }),
 				}
 				breakdown.SpellEvadeChance = {
-					s_format("Enemy level: %d ^8(%s the Configuration tab)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),
-					s_format("Average enemy accuracy: %d", enemyAccuracy),
-					s_format("Effective Evasion: %d", output.SpellEvasion),
-					s_format("Approximate spell evade chance: %d%%", output.SpellEvadeChance),
+					localisation:Text("calc.defence.spell_evade_chance.line", { enemy_level = env.enemyLevel, value = ((env.configInput.enemyLevel and localisation:Ref("calc.defence.spell_evade_chance.line.parameter")) or localisation:Ref("calc.defence.spell_evade_chance.line.parameter_2")) }),
+					localisation:Text("calc.defence.spell_evade_chance.line_2", { enemy_accuracy = enemyAccuracy }),
+					localisation:Text("calc.defence.spell_evade_chance.line_3", { spell_evasion = output.SpellEvasion }),
+					localisation:Text("calc.defence.spell_evade_chance.line_4", { spell_evade_chance = output.SpellEvadeChance }),
 				}
 				breakdown.SpellProjectileEvadeChance = {
-					s_format("Enemy level: %d ^8(%s the Configuration tab)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),
-					s_format("Average enemy accuracy: %d", enemyAccuracy),
-					s_format("Effective Evasion: %d", output.SpellProjectileEvasion),
-					s_format("Approximate spell projectile evade chance: %d%%", output.SpellProjectileEvadeChance),
+					localisation:Text("calc.defence.spell_projectile_evade_chance.line", { enemy_level = env.enemyLevel, value = ((env.configInput.enemyLevel and localisation:Ref("calc.defence.spell_projectile_evade_chance.line.parameter")) or localisation:Ref("calc.defence.spell_projectile_evade_chance.line.parameter_2")) }),
+					localisation:Text("calc.defence.spell_projectile_evade_chance.line_2", { enemy_accuracy = enemyAccuracy }),
+					localisation:Text("calc.defence.spell_projectile_evade_chance.line_3", { spell_projectile_evasion = output.SpellProjectileEvasion }),
+					localisation:Text("calc.defence.spell_projectile_evade_chance.line_4", { spell_projectile_evade_chance = output.SpellProjectileEvadeChance }),
 				}
 			end
 		end
@@ -1571,9 +1571,9 @@ function calcs.defence(env, actor)
 		output.DeflectEffect = m_min(m_max(data.misc.DeflectEffect + modDB:Sum("BASE", nil, "DeflectEffect"), 0), 100)
 		if breakdown then
 			breakdown.DeflectChance = {
-				s_format("Enemy level: %d ^8(%s the Configuration tab)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),
-				s_format("Average enemy accuracy: %d", enemyAccuracy),
-				s_format("Approximate deflect chance: %d%%", output.DeflectChance),
+				localisation:Text("calc.defence.deflect_chance.line", { enemy_level = env.enemyLevel, value = ((env.configInput.enemyLevel and localisation:Ref("calc.defence.deflect_chance.line.parameter")) or localisation:Ref("calc.defence.deflect_chance.line.parameter_2")) }),
+				localisation:Text("calc.defence.deflect_chance.line_2", { enemy_accuracy = enemyAccuracy }),
+				localisation:Text("calc.defence.deflect_chance.line_3", { deflect_chance = output.DeflectChance }),
 			}
 		end
 	end
@@ -1631,14 +1631,14 @@ function calcs.defence(env, actor)
 
 	if breakdown then
 		breakdown.AttackDodgeChance = {
-			"Base: "..totalAttackDodgeChance.."%",
-			"Max: "..attackDodgeChanceMax.."%",
-			"Total: "..output.AttackDodgeChance+output.AttackDodgeChanceOverCap.."%",
+			localisation:Text("calc.defence.attack_dodge_chance.line", { total_attack_dodge_chance = totalAttackDodgeChance }),
+			localisation:Text("calc.defence.attack_dodge_chance.line_2", { attack_dodge_chance_max = attackDodgeChanceMax }),
+			localisation:Text("calc.defence.attack_dodge_chance.line_3", { value = output.AttackDodgeChance+output.AttackDodgeChanceOverCap }),
 		}
 		breakdown.SpellDodgeChance = {
-			"Base: "..totalSpellDodgeChance.."%",
-			"Max: "..spellDodgeChanceMax.."%",
-			"Total: "..output.SpellDodgeChance+output.SpellDodgeChanceOverCap.."%",
+			localisation:Text("calc.defence.spell_dodge_chance.line", { total_spell_dodge_chance = totalSpellDodgeChance }),
+			localisation:Text("calc.defence.spell_dodge_chance.line_2", { spell_dodge_chance_max = spellDodgeChanceMax }),
+			localisation:Text("calc.defence.spell_dodge_chance.line_3", { value = output.SpellDodgeChance+output.SpellDodgeChanceOverCap }),
 		}
 	end
 
@@ -1684,8 +1684,8 @@ function calcs.defence(env, actor)
 	output.MaxLifeLeechRate = output.Life * output.MaxLifeLeechRatePercent / 100
 	if breakdown then
 		breakdown.MaxLifeLeechRate = {
-			s_format("%d ^8(maximum life)", output.Life),
-			s_format("x %d%% ^8(percentage of life to maximum leech rate)", output.MaxLifeLeechRatePercent),
+			localisation:Text("calc.defence.max_life_leech_rate.line", { life = output.Life }),
+			localisation:Text("calc.defence.max_life_leech_rate.line_2", { max_life_leech_rate_percent = output.MaxLifeLeechRatePercent }),
 			s_format("= %.1f", output.MaxLifeLeechRate)
 		}
 	end
@@ -1693,8 +1693,8 @@ function calcs.defence(env, actor)
 	output.MaxEnergyShieldLeechRate = output.EnergyShield * calcLib.val(modDB, "MaxEnergyShieldLeechRate") / 100
 	if breakdown then
 		breakdown.MaxEnergyShieldLeechRate = {
-			s_format("%d ^8(maximum energy shield)", output.EnergyShield),
-			s_format("x %d%% ^8(percentage of energy shield to maximum leech rate)", calcLib.val(modDB, "MaxEnergyShieldLeechRate")),
+			localisation:Text("calc.defence.max_energy_shield_leech_rate.line", { energy_shield = output.EnergyShield }),
+			localisation:Text("calc.defence.max_energy_shield_leech_rate.line_2", { value = calcLib.val(modDB, "MaxEnergyShieldLeechRate") }),
 			s_format("= %.1f", output.MaxEnergyShieldLeechRate)
 		}
 	end
@@ -1702,8 +1702,8 @@ function calcs.defence(env, actor)
 	output.MaxManaLeechRate = output.Mana * calcLib.val(modDB, "MaxManaLeechRate") / 100
 	if breakdown then
 		breakdown.MaxManaLeechRate = {
-			s_format("%d ^8(maximum mana)", output.Mana),
-			s_format("x %d%% ^8(percentage of mana to maximum leech rate)", calcLib.val(modDB, "MaxManaLeechRate")),
+			localisation:Text("calc.defence.max_mana_leech_rate.line", { mana = output.Mana }),
+			localisation:Text("calc.defence.max_mana_leech_rate.line_2", { value = calcLib.val(modDB, "MaxManaLeechRate") }),
 			s_format("= %.1f", output.MaxManaLeechRate)
 		}
 	end
@@ -1761,29 +1761,29 @@ function calcs.defence(env, actor)
 		if breakdown then
 			breakdown[resource.."RegenRecovery"] = { }
 			breakdown.multiChain(breakdown[resource.."RegenRecovery"], {
-				label = resourceName.." Regeneration:",
-				base = { "%.1f ^8(base)", baseRegen },
-				{ "%.2f ^8(increased/reduced)", 1 + inc/100 },
-				{ "%.2f ^8(more/less)", more },
-				total = s_format("= %.1f ^8per second", regenRate)
+				label = resourceName.." Regeneration:", labelKey = "calc.resource.regeneration", labelParams = { resource = localisation:TermRef("resource", resourceName) },
+				base = { "%.1f ^8(base)", baseRegen, formatKey = "calc.defence.defence.factor", formatParams = { base_regen = 2 } },
+				{ "%.2f ^8(increased/reduced)", 1 + inc/100, formatKey = "calc.defence.defence.factor_2", formatParams = { value = 2 } },
+				{ "%.2f ^8(more/less)", more, formatKey = "calc.defence.defence.factor_3", formatParams = { more = 2 } },
+				total = localisation:Text("calc.defence.defence.line", { regen_rate = regenRate })
 			})
 			if modDB:Flag(nil, "UnaffectedBy"..resource.."Regen") then
-				t_insert(breakdown[resource.."RegenRecovery"], "Unaffected by "..resourceName.." Regen")
+				t_insert(breakdown[resource.."RegenRecovery"], localisation:Text("calc.defence.defence.line_2", { resource_name = localisation:TermRef("resource", resourceName) }))
 			end
 			if degenRate ~= 0 then
-				t_insert(breakdown[resource.."RegenRecovery"], s_format("- %.1f ^8(degen)", degenRate))
-				t_insert(breakdown[resource.."RegenRecovery"], s_format("= %.1f ^8per second", (modDB:Flag(nil, "UnaffectedBy"..resource.."Regen") and 0 or regenRate) - degenRate))
+				t_insert(breakdown[resource.."RegenRecovery"], localisation:Text("calc.defence.defence.line_3", { degen_rate = degenRate }))
+				t_insert(breakdown[resource.."RegenRecovery"], localisation:Text("calc.defence.defence.line_4", { value = (modDB:Flag(nil, "UnaffectedBy"..resource.."Regen") and 0 or regenRate) - degenRate }))
 			end
 			if recoveryRate ~= 0 then
-				t_insert(breakdown[resource.."RegenRecovery"], s_format("+ %.1f ^8(recovery)", recoveryRate))
-				t_insert(breakdown[resource.."RegenRecovery"], s_format("= %.1f ^8per second", output[resource.."RegenRecovery"] - overflowRecovery))
+				t_insert(breakdown[resource.."RegenRecovery"], localisation:Text("calc.defence.defence.line_5", { recovery_rate = recoveryRate }))
+				t_insert(breakdown[resource.."RegenRecovery"], localisation:Text("calc.defence.defence.line_6", { value = output[resource.."RegenRecovery"] - overflowRecovery }))
 			end
 			if overflowRecovery ~= 0 then
-				t_insert(breakdown[resource.."RegenRecovery"], s_format("+ %.1f ^8(overflow recovery)", overflowRecovery))
-				t_insert(breakdown[resource.."RegenRecovery"], s_format("= %.1f ^8per second", output[resource.."RegenRecovery"]))
+				t_insert(breakdown[resource.."RegenRecovery"], localisation:Text("calc.defence.defence.line_7", { overflow_recovery = overflowRecovery }))
+				t_insert(breakdown[resource.."RegenRecovery"], localisation:Text("calc.defence.defence.line_8", { value = output[resource.."RegenRecovery"] }))
 			end
 			if resource == "Life" and modDB:Flag(nil, "ZealotsOath") then
-				t_insert(breakdown[resource.."RegenRecovery"], s_format("Excess recovery applied to Energy Shield", output[resource.."RegenRecovery"]))
+				t_insert(breakdown[resource.."RegenRecovery"], localisation:Text("calc.defence.defence.line_17"))
 			end
 		end
 	end
@@ -1801,17 +1801,17 @@ function calcs.defence(env, actor)
 			if breakdown then
 				breakdown.LifeRecharge = { }
 				breakdown.multiChain(breakdown.LifeRecharge, {
-					label = "Recharge rate:",
-					base = { "%.1f ^8(%.1f%% per second)", output.Life * data.misc.EnergyShieldRechargeBase, data.misc.EnergyShieldRechargeBase * 100 },
-					{ "%.2f ^8(increased/reduced)", 1 + inc/100 },
-					{ "%.2f ^8(more/less)", more },
-					total = s_format("= %.1f ^8per second", recharge),
+					label = "Recharge rate:", labelKey = "ui.calc_defence.defence.label_2",
+					base = { "%.1f ^8(%.1f%% per second)", output.Life * data.misc.EnergyShieldRechargeBase, data.misc.EnergyShieldRechargeBase * 100, formatKey = "calc.defence.defence.factor_4", formatParams = { value = 2, value_2 = 3 } },
+					{ "%.2f ^8(increased/reduced)", 1 + inc/100, formatKey = "calc.defence.defence.factor_2", formatParams = { value = 2 } },
+					{ "%.2f ^8(more/less)", more, formatKey = "calc.defence.defence.factor_3", formatParams = { more = 2 } },
+					total = localisation:Text("calc.defence.defence.line_9", { recharge = recharge }),
 				})
 				breakdown.multiChain(breakdown.LifeRecharge, {
-					label = "Effective Recharge rate:",
+					label = "Effective Recharge rate:", labelKey = "ui.calc_defence.defence.label",
 					base = { "%.1f", recharge },
-					{ "%.2f ^8(recovery rate modifier)", output.LifeRecoveryRateMod },
-					total = s_format("= %.1f ^8per second", output.LifeRecharge),
+					{ "%.2f ^8(recovery rate modifier)", output.LifeRecoveryRateMod, formatKey = "calc.defence.defence.factor_5", formatParams = { life_recovery_rate_mod = 2 } },
+					total = localisation:Text("calc.defence.defence.line_10", { life_recharge = output.LifeRecharge }),
 				})
 			end
 		else
@@ -1820,17 +1820,17 @@ function calcs.defence(env, actor)
 			if breakdown then
 				breakdown.EnergyShieldRecharge = { }
 				breakdown.multiChain(breakdown.EnergyShieldRecharge, {
-					label = "Recharge rate:",
-					base = { "%.1f ^8(%.1f%% per second)", output.EnergyShield * data.misc.EnergyShieldRechargeBase, data.misc.EnergyShieldRechargeBase * 100 },
-					{ "%.2f ^8(increased/reduced)", 1 + inc/100 },
-					{ "%.2f ^8(more/less)", more },
-					total = s_format("= %.1f ^8per second", recharge),
+					label = "Recharge rate:", labelKey = "ui.calc_defence.defence.label_2",
+					base = { "%.1f ^8(%.1f%% per second)", output.EnergyShield * data.misc.EnergyShieldRechargeBase, data.misc.EnergyShieldRechargeBase * 100, formatKey = "calc.defence.defence.factor_6", formatParams = { value = 2, value_2 = 3 } },
+					{ "%.2f ^8(increased/reduced)", 1 + inc/100, formatKey = "calc.defence.defence.factor_2", formatParams = { value = 2 } },
+					{ "%.2f ^8(more/less)", more, formatKey = "calc.defence.defence.factor_3", formatParams = { more = 2 } },
+					total = localisation:Text("calc.defence.defence.line_9", { recharge = recharge }),
 				})
 				breakdown.multiChain(breakdown.EnergyShieldRecharge, {
-					label = "Effective Recharge rate:",
+					label = "Effective Recharge rate:", labelKey = "ui.calc_defence.defence.label",
 					base = { "%.1f", recharge },
-					{ "%.2f ^8(recovery rate modifier)", output.EnergyShieldRecoveryRateMod },
-					total = s_format("= %.1f ^8per second", output.EnergyShieldRecharge),
+					{ "%.2f ^8(recovery rate modifier)", output.EnergyShieldRecoveryRateMod, formatKey = "calc.defence.defence.factor_7", formatParams = { energy_shield_recovery_rate_mod = 2 } },
+					total = localisation:Text("calc.defence.defence.line_11", { energy_shield_recharge = output.EnergyShieldRecharge }),
 				})
 			end
 		end
@@ -1839,8 +1839,8 @@ function calcs.defence(env, actor)
 		if breakdown then
 			if output.EnergyShieldRechargeDelay ~= rechargeBase then
 				breakdown.EnergyShieldRechargeDelay = {
-					s_format("%.2fs ^8(base)", rechargeBase),
-					s_format("/ %.2f ^8(faster start)", 1 + modDB:Sum("INC", nil, "EnergyShieldRechargeFaster") / 100),
+					localisation:Text("calc.defence.energy_shield_recharge_delay.line", { recharge_base = rechargeBase }),
+					localisation:Text("calc.defence.energy_shield_recharge_delay.line_2", { value = 1 + modDB:Sum("INC", nil, "EnergyShieldRechargeFaster") / 100 }),
 					s_format("= %.2fs", output.EnergyShieldRechargeDelay)
 				}
 			end
@@ -1890,15 +1890,15 @@ function calcs.defence(env, actor)
 					if breakdown then
 						breakdown["PhysicalDamageMitigated"..resource.."PseudoRecoup"] = { }
 						if output[resource.."RecoveryRateMod"] ~= 1 or inc ~= 0 or more ~= 1 then
-							t_insert(breakdown["PhysicalDamageMitigated"..resource.."PseudoRecoup"], s_format("%d%% ^8(base)", PhysicalDamageMitigatedPseudoRecoup))
+							t_insert(breakdown["PhysicalDamageMitigated"..resource.."PseudoRecoup"], localisation:Text("calc.defence.defence.line_12", { physical_damage_mitigated_pseudo_recoup = PhysicalDamageMitigatedPseudoRecoup }))
 							if inc ~= 0 or more ~= 1 then
-								t_insert(breakdown["PhysicalDamageMitigated"..resource.."PseudoRecoup"], s_format("* %.2f ^8(regeneration rate modifier)", (1 + inc/100) * more))
+								t_insert(breakdown["PhysicalDamageMitigated"..resource.."PseudoRecoup"], localisation:Text("calc.defence.defence.line_13", { value = (1 + inc/100) * more }))
 							end
 							if output[resource.."RecoveryRateMod"] ~= 1 then
-								t_insert(breakdown["PhysicalDamageMitigated"..resource.."PseudoRecoup"], s_format("* %.2f ^8(recovery rate modifier)", output[resource.."RecoveryRateMod"]))
+								t_insert(breakdown["PhysicalDamageMitigated"..resource.."PseudoRecoup"], localisation:Text("calc.defence.defence.line_14", { value = output[resource.."RecoveryRateMod"] }))
 							end
 						end
-						t_insert(breakdown["PhysicalDamageMitigated"..resource.."PseudoRecoup"], s_format("= %.1f%% over %d seconds", output["PhysicalDamageMitigated"..resource.."PseudoRecoup"], output["PhysicalDamageMitigated"..resource.."PseudoRecoupDuration"]))
+						t_insert(breakdown["PhysicalDamageMitigated"..resource.."PseudoRecoup"], localisation:Text("calc.defence.defence.line_15", { value = output["PhysicalDamageMitigated"..resource.."PseudoRecoup"], value_2 = output["PhysicalDamageMitigated"..resource.."PseudoRecoupDuration"] }))
 					end
 				end
 			end
@@ -1931,9 +1931,9 @@ function calcs.defence(env, actor)
 	if breakdown then
 		breakdown.EffectiveMovementSpeedMod = { }
 		breakdown.multiChain(breakdown.EffectiveMovementSpeedMod, {
-			{ "%.3f ^8(movement speed modifier)", output.MovementSpeedMod },
-			{ "%.2f ^8(action speed modifier)", output.ActionSpeedMod },
-			total = s_format("= %.3f ^8(effective movement speed modifier)", output.EffectiveMovementSpeedMod)
+			{ "%.3f ^8(movement speed modifier)", output.MovementSpeedMod, formatKey = "calc.defence.defence.factor_8", formatParams = { movement_speed_mod = 2 } },
+			{ "%.2f ^8(action speed modifier)", output.ActionSpeedMod, formatKey = "calc.defence.defence.factor_9", formatParams = { action_speed_mod = 2 } },
+			total = localisation:Text("calc.defence.defence.line_16", { effective_movement_speed_mod = output.EffectiveMovementSpeedMod })
 		})
 	end
 
@@ -2267,16 +2267,16 @@ function calcs.buildDefenceEstimations(env, actor)
 	else
 		if breakdown then
 			breakdown["totalEnemyDamage"] = {
-				label = "Total damage from the enemy",
+				label = "Total damage from the enemy", labelKey = "ui.calc_defence.build_defence_estimations.breakdown_total_enemy_damage.label",
 				rowList = { },
 				colList = {
-					{ label = "Type", key = "type" },
-					{ label = "Value", key = "value" },
-					{ label = "Mult", key = "mult" },
-					{ label = "Crit", key = "crit" },
-					{ label = "Conversion", key = "convMult" },
-					{ label = "Final", key = "final" },
-					{ label = "From", key = "from" },
+					{ label = "Type", labelKey = "ui.calc_defence.build_defence_estimations.type.label_2", key = "type" },
+					{ label = "Value", labelKey = "ui.calc_defence.build_defence_estimations.value.label", key = "value" },
+					{ label = "Mult", labelKey = "ui.calc_defence.build_defence_estimations.mult.label", key = "mult" },
+					{ label = "Crit", labelKey = "ui.calc_defence.build_defence_estimations.crit.label", key = "crit" },
+					{ label = "Conversion", labelKey = "ui.calc_defence.build_defence_estimations.conv_mult.label", key = "convMult" },
+					{ label = "Final", labelKey = "ui.calc_defence.build_defence_estimations.final.label", key = "final" },
+					{ label = "From", labelKey = "ui.calc_defence.build_defence_estimations.from.label", key = "from" },
 				},
 			}
 		end
@@ -2364,22 +2364,22 @@ function calcs.buildDefenceEstimations(env, actor)
 			output["totalEnemyDamage"] = output["totalEnemyDamage"] + output[damageType.."EnemyDamage"]
 			if breakdown then
 				breakdown[damageType.."EnemyDamage"] = {
-				s_format("from %s: %d", sourceStr, enemyDamage),
-				s_format("* %.2f (modifiers to enemy damage)", enemyDamageMult),
-				s_format("* %.3f (enemy crit effect)", output["EnemyCritEffect"]),
+				localisation:Text("calc.defence.build_defence_estimations.line", { source_str = localisation:TermRef("calculation_source", sourceStr), enemy_damage = enemyDamage }),
+				localisation:Text("calc.defence.build_defence_estimations.line_2", { enemy_damage_mult = enemyDamageMult }),
+				localisation:Text("calc.defence.build_defence_estimations.line_3", { value = output["EnemyCritEffect"] }),
 				}
 				if conversionExtra ~= 0 then
-					t_insert(breakdown[damageType.."EnemyDamage"], s_format("%s %d (enemy damage conversion)", conversionExtra > 0 and "+" or "-", conversionExtra >= 0 and conversionExtra or -conversionExtra))
+					t_insert(breakdown[damageType.."EnemyDamage"], localisation:Text("calc.defence.build_defence_estimations.line_4", { value = ((conversionExtra > 0 and "+") or "-"), value_2 = ((conversionExtra >= 0 and conversionExtra) or -conversionExtra) }))
 				end
 				t_insert(breakdown[damageType.."EnemyDamage"], s_format("= %d", output[damageType.."EnemyDamage"]))
 				t_insert(breakdown["totalEnemyDamage"].rowList, {
-					type = s_format("%s", damageType),
+					type = s_format("%s", damageType), typeKey = localisation:TermKey("damage_type", damageType),
 					value = s_format("%d", enemyDamage),
 					mult = s_format("%.2f", enemyDamageMult),
 					crit = s_format("%.2f", output["EnemyCritEffect"]),
 					convMult = s_format("%s%d", conversionExtra > 0 and "+" or (conversionExtra < 0 and "-" or ""), conversionExtra >= 0 and conversionExtra or -conversionExtra),
 					final = s_format("%d", output[damageType.."EnemyDamage"]),
-					from = s_format("%s", sourceStr),
+					from = s_format("%s", sourceStr), fromKey = localisation:TermKey("calculation_source", sourceStr),
 				})
 			end
 		end
@@ -2412,15 +2412,15 @@ function calcs.buildDefenceEstimations(env, actor)
 			output[damageType.."TakenDamage"] = output[damageType.."EnemyDamage"] * actor.damageShiftTable[damageType][damageType] / 100
 			if breakdown then
 				breakdown[damageType.."TakenDamage"] = {
-					label = "Taken",
+					label = "Taken", labelKey = "ui.calc_defence.build_defence_estimations.breakdown_damage_type_taken_damage.label",
 					rowList = { },
 					colList = {
-						{ label = "Type", key = "type" },
-						{ label = "Value", key = "value" },
+						{ label = "Type", labelKey = "ui.calc_defence.build_defence_estimations.type.label_2", key = "type" },
+						{ label = "Value", labelKey = "ui.calc_defence.build_defence_estimations.value.label", key = "value" },
 					},
 				}
 				t_insert(breakdown[damageType.."TakenDamage"].rowList, {
-					type = s_format("%s", damageType),
+					type = s_format("%s", damageType), typeKey = localisation:TermKey("damage_type", damageType),
 					value = s_format("%d", output[damageType.."TakenDamage"]),
 				})
 			end
@@ -2433,7 +2433,7 @@ function calcs.buildDefenceEstimations(env, actor)
 					output[damageConvertedType.."TakenDamage"] = output[damageConvertedType.."TakenDamage"] + damage
 					if breakdown and damage > 0 then
 						t_insert(breakdown[damageConvertedType.."TakenDamage"].rowList, {
-							type = s_format("%s", damageType),
+							type = s_format("%s", damageType), typeKey = localisation:TermKey("damage_type", damageType),
 							value = s_format("%d", damage),
 						})
 					end
@@ -2444,11 +2444,11 @@ function calcs.buildDefenceEstimations(env, actor)
 		output["totalTakenDamage"] = 0
 		if breakdown then
 			breakdown["totalTakenDamage"] = {
-				label = "Total damage taken from the enemy after taken as",
+				label = "Total damage taken from the enemy after taken as", labelKey = "ui.calc_defence.build_defence_estimations.breakdown_total_taken_damage.label",
 				rowList = { },
 				colList = {
-					{ label = "Type", key = "type" },
-					{ label = "Value", key = "value" },
+					{ label = "Type", labelKey = "ui.calc_defence.build_defence_estimations.type.label_2", key = "type" },
+					{ label = "Value", labelKey = "ui.calc_defence.build_defence_estimations.value.label", key = "value" },
 				},
 			}
 		end
@@ -2456,7 +2456,7 @@ function calcs.buildDefenceEstimations(env, actor)
 			output["totalTakenDamage"] = output["totalTakenDamage"] + output[damageType.."TakenDamage"]
 			if breakdown then
 				t_insert(breakdown["totalTakenDamage"].rowList, {
-					type = s_format("%s", damageType),
+					type = s_format("%s", damageType), typeKey = localisation:TermKey("damage_type", damageType),
 					value = s_format("%d", output[damageType.."TakenDamage"]),
 				})
 			end
@@ -2514,11 +2514,11 @@ function calcs.buildDefenceEstimations(env, actor)
 			if breakdown then
 				breakdown[damageType.."TakenDotMult"] = { }
 				breakdown.multiChain(breakdown[damageType.."TakenDotMult"], {
-					label = "DoT Multiplier:",
-					{ "%.2f ^8(resistance)", (1 - resist / 100) },
-					{ "%.2f ^8(%s damage reduction)", (1 - reduction / 100), damageType:lower() },
-					{ "%.2f ^8(increased/reduced damage taken)", (1 + takenInc / 100) },
-					{ "%.2f ^8(more/less damage taken)", takenMore },
+					label = "DoT Multiplier:", labelKey = "ui.calc_defence.build_defence_estimations.label",
+					{ "%.2f ^8(resistance)", (1 - resist / 100), formatKey = "calc.defence.build_defence_estimations.factor", formatParams = { value = 2 } },
+					{ "%.2f ^8(%s damage reduction)", (1 - reduction / 100), localisation:Term("damage_type_lower", damageType, damageType:lower()), formatKey = "calc.defence.build_defence_estimations.factor_2", formatParams = { value = 2, value_2 = 3 } },
+					{ "%.2f ^8(increased/reduced damage taken)", (1 + takenInc / 100), formatKey = "calc.defence.build_defence_estimations.factor_3", formatParams = { value = 2 } },
+					{ "%.2f ^8(more/less damage taken)", takenMore, formatKey = "calc.defence.build_defence_estimations.factor_4", formatParams = { taken_more = 2 } },
 					total = s_format("= %.2f", output[damageType.."TakenDotMult"]),
 				})
 			end
@@ -2529,13 +2529,13 @@ function calcs.buildDefenceEstimations(env, actor)
 	output["totalTakenHit"] = 0
 	if breakdown then
 		breakdown["totalTakenHit"] = {
-			label = "Total damage taken after mitigation",
+			label = "Total damage taken after mitigation", labelKey = "ui.calc_defence.build_defence_estimations.breakdown_total_taken_hit.label",
 			rowList = { },
 			colList = {
-				{ label = "Type", key = "type" },
-				{ label = "Incoming", key = "incoming" },
-				{ label = "Mult", key = "mult" },
-				{ label = "Value", key = "value" },
+				{ label = "Type", labelKey = "ui.calc_defence.build_defence_estimations.type.label_2", key = "type" },
+				{ label = "Incoming", labelKey = "ui.calc_defence.build_defence_estimations.incoming.label", key = "incoming" },
+				{ label = "Mult", labelKey = "ui.calc_defence.build_defence_estimations.mult.label", key = "mult" },
+				{ label = "Value", labelKey = "ui.calc_defence.build_defence_estimations.value.label", key = "value" },
 			},
 		}
 	end
@@ -2608,34 +2608,34 @@ function calcs.buildDefenceEstimations(env, actor)
 			breakdown[damageType.."DamageReduction"] = { }
 			if armourReduct ~= 0 then
 				if (percentOfArmourApplies ~= (damageType == "Physical" and 100 or 0)) and (percentOfArmourApplies > 0) then
-					t_insert(breakdown[damageType.."DamageReduction"], s_format("%d%% percent of Armour applies", percentOfArmourApplies))
-					t_insert(breakdown[damageType.."DamageReduction"], s_format("Armour contributing to reduction: %d", effectiveArmourFromArmour))
+					t_insert(breakdown[damageType.."DamageReduction"], localisation:Text("calc.defence.build_defence_estimations.line_5", { percent_of_armour_applies = percentOfArmourApplies }))
+					t_insert(breakdown[damageType.."DamageReduction"], localisation:Text("calc.defence.build_defence_estimations.line_6", { effective_armour_from_armour = effectiveArmourFromArmour }))
 				end
 				if effectiveArmourFromArmour == effectiveAppliedArmour then
-					t_insert(breakdown[damageType.."DamageReduction"], s_format("Reduction from Armour: %d%%", armourReduct))
+					t_insert(breakdown[damageType.."DamageReduction"], localisation:Text("calc.defence.build_defence_estimations.line_7", { armour_reduct = armourReduct }))
 				else
 					for source, amount in pairs(effectiveArmourFromOther) do
 						local label = source:gsub("(%l)(%u)", "%1 %2")
-						t_insert(breakdown[damageType.."DamageReduction"], s_format("%d%% percent of %s applies", mapArmourFromOther[source], label))
-						t_insert(breakdown[damageType.."DamageReduction"], s_format("%s contributing to reduction: %d",label, amount))
+						t_insert(breakdown[damageType.."DamageReduction"], localisation:Text("calc.defence.build_defence_estimations.line_8", { value = mapArmourFromOther[source], label = label }))
+						t_insert(breakdown[damageType.."DamageReduction"], localisation:Text("calc.defence.build_defence_estimations.line_9", { label = label, amount = amount }))
 					end
-					t_insert(breakdown[damageType.."DamageReduction"], s_format("Combined Defence used for reduction: %d", effectiveAppliedArmour))
-					t_insert(breakdown[damageType.."DamageReduction"], s_format("Reduction from combined Defence: %d%%", armourReduct))
+					t_insert(breakdown[damageType.."DamageReduction"], localisation:Text("calc.defence.build_defence_estimations.line_10", { effective_applied_armour = effectiveAppliedArmour }))
+					t_insert(breakdown[damageType.."DamageReduction"], localisation:Text("calc.defence.build_defence_estimations.line_11", { armour_reduct = armourReduct }))
 				end
 				if resMult ~= 1 then
-					t_insert(breakdown[damageType.."DamageReduction"], s_format("Enemy Hit Damage After Resistance: %d ^8(total incoming damage)", damage * resMult))
+					t_insert(breakdown[damageType.."DamageReduction"], localisation:Text("calc.defence.build_defence_estimations.line_12", { value = damage * resMult }))
 				else
-					t_insert(breakdown[damageType.."DamageReduction"], s_format("Enemy Hit Damage: %d ^8(total incoming damage)", damage))
+					t_insert(breakdown[damageType.."DamageReduction"], localisation:Text("calc.defence.build_defence_estimations.line_13", { damage = damage }))
 				end
 			end
 			if reduction ~= 0 then
-				t_insert(breakdown[damageType.."DamageReduction"], s_format("Base %s Damage Reduction: %d%%", damageType, reduction))
+				t_insert(breakdown[damageType.."DamageReduction"], localisation:Text("calc.defence.build_defence_estimations.line_14", { damage_type = localisation:TermRef("damage_type", damageType), reduction = reduction }))
 			end
 			if enemyOverwhelm ~= 0 then
-				t_insert(breakdown[damageType.."DamageReduction"], s_format("Enemy Overwhelm %s Damage: %d%%", damageType, enemyOverwhelm))
+				t_insert(breakdown[damageType.."DamageReduction"], localisation:Text("calc.defence.build_defence_estimations.line_15", { damage_type = localisation:TermRef("damage_type", damageType), enemy_overwhelm = enemyOverwhelm }))
 			end
 			if (armourReduct ~= 0 and 1 or 0) + (reduction ~= 0 and 1 or 0) + (enemyOverwhelm ~= 0 and 1 or 0) >= 2 then
-				t_insert(breakdown[damageType.."DamageReduction"], s_format("Total %s Damage Reduction: %d%%", damageType, 100 - reductMult * 100))
+				t_insert(breakdown[damageType.."DamageReduction"], localisation:Text("calc.defence.build_defence_estimations.line_16", { damage_type = localisation:TermRef("damage_type", damageType), value = 100 - reductMult * 100 }))
 			end
 		end
 		local takenMult = output[damageType.."TakenHitMult"]
@@ -2667,43 +2667,43 @@ function calcs.buildDefenceEstimations(env, actor)
 		if breakdown then
 			breakdown[damageType.."TakenHitMult"] = { }
 			if reduction ~= 0 then
-				t_insert(breakdown[damageType.."TakenHitMult"], s_format("Base %s Damage Taken: %.2f", damageType, 1 - reduction / 100))
+				t_insert(breakdown[damageType.."TakenHitMult"], localisation:Text("calc.defence.build_defence_estimations.line_17", { damage_type = localisation:TermRef("damage_type", damageType), value = 1 - reduction / 100 }))
 			end
 			if armourReduct ~= 0 then
 				if (percentOfArmourApplies ~= (damageType == "Physical" and 100 or 0)) and (percentOfArmourApplies > 0) then
-					t_insert(breakdown[damageType.."TakenHitMult"], s_format("%d%% percent of Armour applies", percentOfArmourApplies))
+					t_insert(breakdown[damageType.."TakenHitMult"], localisation:Text("calc.defence.build_defence_estimations.line_5", { percent_of_armour_applies = percentOfArmourApplies }))
 				end
 				if effectiveArmourFromArmour == effectiveAppliedArmour then
-					t_insert(breakdown[damageType.."TakenHitMult"], s_format("Reduction from Armour: %.2f", 1 - armourReduct / 100))
+					t_insert(breakdown[damageType.."TakenHitMult"], localisation:Text("calc.defence.build_defence_estimations.line_18", { value = 1 - armourReduct / 100 }))
 				else
 					if effectiveArmourFromArmour > 0 then
-						t_insert(breakdown[damageType.."TakenHitMult"], s_format("Armour contributing to reduction: %d", effectiveArmourFromArmour))
+						t_insert(breakdown[damageType.."TakenHitMult"], localisation:Text("calc.defence.build_defence_estimations.line_6", { effective_armour_from_armour = effectiveArmourFromArmour }))
 					end
 					for source, amount in pairs(effectiveArmourFromOther) do
 						local label = source:gsub("(%l)(%u)", "%1 %2")
-						t_insert(breakdown[damageType.."TakenHitMult"], s_format("%d%% percent of %s applies", mapArmourFromOther[source], label))
-						t_insert(breakdown[damageType.."TakenHitMult"], s_format("%s contributing to reduction: %d",label, amount))
+						t_insert(breakdown[damageType.."TakenHitMult"], localisation:Text("calc.defence.build_defence_estimations.line_8", { value = mapArmourFromOther[source], label = label }))
+						t_insert(breakdown[damageType.."TakenHitMult"], localisation:Text("calc.defence.build_defence_estimations.line_9", { label = label, amount = amount }))
 					end
-					t_insert(breakdown[damageType.."TakenHitMult"], s_format("Combined Defence used for reduction: %d", effectiveAppliedArmour))
-					t_insert(breakdown[damageType.."TakenHitMult"], s_format("Reduction from combined Defence: %.2f", 1 - armourReduct / 100))
+					t_insert(breakdown[damageType.."TakenHitMult"], localisation:Text("calc.defence.build_defence_estimations.line_10", { effective_applied_armour = effectiveAppliedArmour }))
+					t_insert(breakdown[damageType.."TakenHitMult"], localisation:Text("calc.defence.build_defence_estimations.line_19", { value = 1 - armourReduct / 100 }))
 				end
 			end
 			if enemyOverwhelm ~= 0 then
-				t_insert(breakdown[damageType.."TakenHitMult"], s_format("+ Enemy Overwhelm %s Damage: %.2f", damageType, enemyOverwhelm / 100))
+				t_insert(breakdown[damageType.."TakenHitMult"], localisation:Text("calc.defence.build_defence_estimations.line_20", { damage_type = localisation:TermRef("damage_type", damageType), value = enemyOverwhelm / 100 }))
 			end
 			if reduction ~= 0 or armourReduct ~= 0 or enemyOverwhelm ~= 0 then
 				t_insert(breakdown[damageType.."TakenHitMult"], s_format("= %.2f", reductMult))
 			end
 			if resist ~= 0 then
-				t_insert(breakdown[damageType.."TakenHitMult"], s_format("Resistance: %.2f", 1 - resist / 100))
+				t_insert(breakdown[damageType.."TakenHitMult"], localisation:Text("calc.defence.build_defence_estimations.line_21", { value = 1 - resist / 100 }))
 			end
 			if enemyPen ~= 0 then
-				t_insert(breakdown[damageType.."TakenHitMult"], s_format("+ Enemy Pen: %.2f", enemyPen / 100))
+				t_insert(breakdown[damageType.."TakenHitMult"], localisation:Text("calc.defence.build_defence_estimations.line_22", { value = enemyPen / 100 }))
 			end
 			if resist <= 0 and enemyPen ~=0 then
-				t_insert(breakdown[damageType.."TakenHitMult"], s_format("= %.2f ^8(Negative resistance unaffected by penetration)", resMult))
+				t_insert(breakdown[damageType.."TakenHitMult"], localisation:Text("calc.defence.build_defence_estimations.line_23", { res_mult = resMult }))
 			elseif (resist - enemyPen) < 0 then
-				t_insert(breakdown[damageType.."TakenHitMult"], s_format("= %.2f ^8(Penetration cannot bring resistances below 0)", resMult))
+				t_insert(breakdown[damageType.."TakenHitMult"], localisation:Text("calc.defence.build_defence_estimations.line_24", { res_mult = resMult }))
 			elseif resist ~= 0 then
 				t_insert(breakdown[damageType.."TakenHitMult"], s_format("= %.2f", resMult))
 			end
@@ -2711,31 +2711,31 @@ function calcs.buildDefenceEstimations(env, actor)
 				t_insert(breakdown[damageType.."TakenHitMult"], s_format("%.2f x %.2f = %.3f", resMult, reductMult, baseMult))
 			end
 			if takenFlat ~= 0 then
-				t_insert(breakdown[damageType.."TakenHitMult"], s_format("+ Flat: %d", takenFlat))
+				t_insert(breakdown[damageType.."TakenHitMult"], localisation:Text("calc.defence.build_defence_estimations.line_25", { taken_flat = takenFlat }))
 			end
 			if takenMult ~= 1 then
-				t_insert(breakdown[damageType.."TakenHitMult"], s_format("x Taken: %.3f", takenMult))
+				t_insert(breakdown[damageType.."TakenHitMult"], localisation:Text("calc.defence.build_defence_estimations.line_26", { taken_mult = takenMult }))
 			end
 			if spellSuppressMult ~= 1 then
-				t_insert(breakdown[damageType.."TakenHitMult"], s_format("x Spell Suppression: %.3f", spellSuppressMult))
+				t_insert(breakdown[damageType.."TakenHitMult"], localisation:Text("calc.defence.build_defence_estimations.line_27", { spell_suppress_mult = spellSuppressMult }))
 			end
 			if deflectMulti ~= 1 then
-				t_insert(breakdown[damageType.."TakenHitMult"], s_format("x Deflection: %.3f", deflectMulti))
+				t_insert(breakdown[damageType.."TakenHitMult"], localisation:Text("calc.defence.build_defence_estimations.line_28", { deflect_multi = deflectMulti }))
 			end
 			if impaleDamage ~= 0 then
-				t_insert(breakdown[damageType.."TakenHitMult"], s_format("+ Impale: %.1f", impaleDamage))
+				t_insert(breakdown[damageType.."TakenHitMult"], localisation:Text("calc.defence.build_defence_estimations.line_29", { impale_damage = impaleDamage }))
 			end
 			if takenFlat ~= 0 or afterReductionMulti ~= 1 or impaleDamage ~= 0 then
 				t_insert(breakdown[damageType.."TakenHitMult"], s_format("= %.3f", output[damageType.."TakenHitMult"]))
 			end
 			if output.AnyTakenReflect then
 				breakdown[damageType.."TakenReflectMult"] = {
-					s_format("Resistance: %.3f", 1 - resist / 100),
+					localisation:Text("calc.defence.build_defence_estimations.line_30", { value = 1 - resist / 100 }),
 				}
 				if enemyPen > 0 then
-					t_insert(breakdown[damageType.."TakenReflectMult"], s_format("Enemy Pen: %.2f", enemyPen))
+					t_insert(breakdown[damageType.."TakenReflectMult"], localisation:Text("calc.defence.build_defence_estimations.line_31", { enemy_pen = enemyPen }))
 				end
-				t_insert(breakdown[damageType.."TakenReflectMult"], s_format("Taken: %.3f", takenMultReflect))
+				t_insert(breakdown[damageType.."TakenReflectMult"], localisation:Text("calc.defence.build_defence_estimations.line_32", { taken_mult_reflect = takenMultReflect }))
 				t_insert(breakdown[damageType.."TakenReflectMult"], s_format("= %.3f", finalReflect))
 			end
 		end
@@ -2748,22 +2748,22 @@ function calcs.buildDefenceEstimations(env, actor)
 		if modDB:Flag(nil, "StunThresholdBasedOnEnergyShieldInsteadOfLife") then
 			local stunThresholdMult = modDB:Sum("BASE", nil, "StunThresholdEnergyShieldPercent")
 			stunThresholdBase = output.EnergyShield * stunThresholdMult / 100
-			stunThresholdSource = stunThresholdMult.."% of Energy Shield"
+			stunThresholdSource = localisation:Text('calc.defence.stun_threshold.energy_shield', { percent = stunThresholdMult })
 		elseif modDB:Flag(nil, "StunThresholdBasedOnManaInsteadOfLife") then
 			local stunThresholdMult = modDB:Sum("BASE", nil, "StunThresholdManaPercent")
 			stunThresholdBase = output.Mana * stunThresholdMult / 100
-			stunThresholdSource = stunThresholdMult.."% of Mana"
+			stunThresholdSource = localisation:Text('calc.defence.stun_threshold.mana', { percent = stunThresholdMult })
 		elseif modDB:Flag(nil, "ChaosInoculation") then
 			stunThresholdBase = modDB:Sum("BASE", nil, "Life")
-			stunThresholdSource = "Life before Chaos Inoculation"
+			stunThresholdSource = localisation:Text('calc.defence.stun_threshold.life_before_chaos_inoculation')
 		else
 			stunThresholdBase = output.Life
-			stunThresholdSource = "Life"
+			stunThresholdSource = localisation:Term('resource', 'Life')
 		end
 		if modDB:Flag(nil, "AddESToStunThreshold") then
 			local ESMult = modDB:Sum("BASE", nil, "ESToStunThresholdPercent")
 			stunThresholdBase = stunThresholdBase + output.EnergyShield * ESMult / 100
-			stunThresholdSource = stunThresholdSource.." and "..ESMult.."% of Energy Shield"
+			stunThresholdSource = localisation:Text('calc.defence.stun_threshold.add_energy_shield', { source = stunThresholdSource, percent = ESMult })
 		end
 		local StunThresholdInc = 1 + modDB:Sum("INC", nil, "StunThreshold") / 100
 		local StunThresholdMore = modDB:More("INC", nil, "StunThreshold")
@@ -2777,33 +2777,34 @@ function calcs.buildDefenceEstimations(env, actor)
 		output.StunAvoidChance = 100 - notAvoidChance
 
 		if breakdown then
-			breakdown.StunThreshold = { s_format("%d ^8(base from %s)", stunThresholdBase, stunThresholdSource) }
-			for _, source in ipairs({"Tree", "Item", "Skill"}) do
+			breakdown.StunThreshold = { localisation:Text("calc.defence.stun_threshold.line", { stun_threshold_base = stunThresholdBase, stun_threshold_source = stunThresholdSource }) }
+			-- 来源筛选必须使用原始身份，译文只参与明细显示。
+			for _, source in ipairs({ "Tree", "Item", "Skill" }) do
 				local sourceVal = modDB:Sum("BASE", { source = source }, "StunThreshold")
 				if sourceVal > 0 then
-					t_insert(breakdown.StunThreshold, s_format("+ %d ^8(base from %s)", sourceVal, source))
+					t_insert(breakdown.StunThreshold, localisation:Text("calc.defence.build_defence_estimations.line_33", { source_val = sourceVal, source = localisation:TermRef('calculation_source', source) }))
 				end
 			end
 			if StunThresholdInc ~= 1 then
-				t_insert(breakdown.StunThreshold, s_format("* %.2f ^8(increased threshold)", StunThresholdInc))
+				t_insert(breakdown.StunThreshold, localisation:Text("calc.defence.build_defence_estimations.line_34", { stun_threshold_inc = StunThresholdInc }))
 			end
 			if StunThresholdMore ~= 1 then
-				t_insert(breakdown.StunThreshold, s_format("* %.2f ^8(more threshold)", StunThresholdMore))
+				t_insert(breakdown.StunThreshold, localisation:Text("calc.defence.build_defence_estimations.line_35", { stun_threshold_more = StunThresholdMore }))
 			end
 			if StunThresholdInc ~= 1 or StunThresholdMore ~= 1 then
 				t_insert(breakdown.StunThreshold, s_format("= %d", output.StunThreshold))
 			end
 			breakdown.StunAvoidChance = {
-				colorCodes.CUSTOM.."NOTE: Having any energy shield when the hit occurs grants 50% chance to avoid stun.",
-				colorCodes.CUSTOM.."POB only applies this modifier when ES > Total incoming damage.",
+				colorCodes.CUSTOM .. localisation:Text("calc.defence.stun_avoid_chance.line"),
+				colorCodes.CUSTOM .. localisation:Text("calc.defence.stun_avoid_chance.line_2"),
 			}
 		end
 		if output.StunAvoidChance >= 100 then
 			output.StunDuration = 0
 			output.BlockDuration = 0
 			if breakdown then
-				breakdown.StunDuration = {"Cannot be Stunned"}
-				breakdown.BlockDuration = {"Cannot be Stunned"}
+				breakdown.StunDuration = {localisation:Text("calc.defence.stun_duration.line_2")}
+				breakdown.BlockDuration = {localisation:Text("calc.defence.block_duration.line_2")}
 			end
 		else
 			local stunDuration = (1 + modDB:Sum("INC", nil, "StunDuration") / 100)
@@ -2813,22 +2814,22 @@ function calcs.buildDefenceEstimations(env, actor)
 			output.StunDuration = m_ceil(baseStunDuration * stunDuration / stunRecovery * data.misc.ServerTickRate) / data.misc.ServerTickRate
 			output.BlockDuration = m_ceil(baseStunDuration * stunDuration / stunAndBlockRecovery * data.misc.ServerTickRate) / data.misc.ServerTickRate
 			if breakdown then
-				breakdown.StunDuration = {s_format("%.2fs ^8(base)", baseStunDuration)}
-				breakdown.BlockDuration = {s_format("%.2fs ^8(base)", baseStunDuration)}
+				breakdown.StunDuration = {localisation:Text("calc.defence.stun_duration.line", { base_stun_duration = baseStunDuration })}
+				breakdown.BlockDuration = {localisation:Text("calc.defence.block_duration.line", { base_stun_duration = baseStunDuration })}
 				if stunDuration ~= 1 then
-					t_insert(breakdown.StunDuration, s_format("* %.2f ^8(increased duration)", stunDuration))
-					t_insert(breakdown.BlockDuration, s_format("* %.2f ^8(increased duration)", stunDuration))
+					t_insert(breakdown.StunDuration, localisation:Text("calc.defence.build_defence_estimations.line_36", { stun_duration = stunDuration }))
+					t_insert(breakdown.BlockDuration, localisation:Text("calc.defence.build_defence_estimations.line_36", { stun_duration = stunDuration }))
 				end
 				if stunRecovery ~= 1 then
-					t_insert(breakdown.StunDuration, s_format("/ %.2f ^8(increased/reduced recovery)", stunRecovery))
+					t_insert(breakdown.StunDuration, localisation:Text("calc.defence.build_defence_estimations.line_37", { stun_recovery = stunRecovery }))
 				end
 				if stunAndBlockRecovery ~= 1 then
-					t_insert(breakdown.BlockDuration, s_format("/ %.2f ^8(increased/reduced block recovery)", stunAndBlockRecovery))
+					t_insert(breakdown.BlockDuration, localisation:Text("calc.defence.build_defence_estimations.line_38", { stun_and_block_recovery = stunAndBlockRecovery }))
 				end
-				t_insert(breakdown.StunDuration, s_format("rounded up to nearest server tick"))
+				t_insert(breakdown.StunDuration, localisation:Text("calc.defence.build_defence_estimations.line_39"))
 				t_insert(breakdown.StunDuration, s_format("= %.2fs", output.StunDuration))
 
-				t_insert(breakdown.BlockDuration, s_format("rounded up to nearest server tick"))
+				t_insert(breakdown.BlockDuration, localisation:Text("calc.defence.build_defence_estimations.line_39"))
 				t_insert(breakdown.BlockDuration, s_format("= %.2fs", output.BlockDuration))
 			end
 		end
@@ -2843,16 +2844,16 @@ function calcs.buildDefenceEstimations(env, actor)
 		output.SelfStunChance = (baseStunChance > data.misc.MinStunChanceNeeded and baseStunChance or 0) * notAvoidChance / 100
 		if breakdown then
 			breakdown.SelfStunChance = {
-				s_format("%d%% ^8(stun multiplier)", data.misc.StunBaseMult),
-				s_format("* %.1f ^8(effective enemy stun damage)", effectiveEnemyDamage),
-				s_format("/ %d ^8(stun threshold)", output.StunThreshold)
+				localisation:Text("calc.defence.self_stun_chance.line", { stun_base_mult = data.misc.StunBaseMult }),
+				localisation:Text("calc.defence.self_stun_chance.line_2", { effective_enemy_damage = effectiveEnemyDamage }),
+				localisation:Text("calc.defence.self_stun_chance.line_3", { stun_threshold = output.StunThreshold })
 			}
 			if baseStunChance < data.misc.MinStunChanceNeeded then
 				t_insert(breakdown.SelfStunChance, s_format("= %.2f%%", baseStunChance))
-				t_insert(breakdown.SelfStunChance, s_format("Stun Chance has to be more than %d%% to stun.", data.misc.MinStunChanceNeeded))
+				t_insert(breakdown.SelfStunChance, localisation:Text("calc.defence.build_defence_estimations.line_40", { min_stun_chance_needed = data.misc.MinStunChanceNeeded }))
 			else
 				if notAvoidChance ~= 100 then
-					t_insert(breakdown.SelfStunChance, s_format("* %.2f ^8(1 - chance to avoid stun)", notAvoidChance / 100))
+					t_insert(breakdown.SelfStunChance, localisation:Text("calc.defence.build_defence_estimations.line_41", { value = notAvoidChance / 100 }))
 				end
 				t_insert(breakdown.SelfStunChance, s_format("= %.2f%%", output.SelfStunChance))
 			end
@@ -2894,32 +2895,32 @@ function calcs.buildDefenceEstimations(env, actor)
 
 		if breakdown then
 			breakdown["preventedLifeLossTotal"] = {
-				s_format("Total life protected:"),
+				localisation:Text("calc.defence.build_defence_estimations.line_42"),
 			}
 			if output["preventedLifeLoss"] ~= 0 then
-				t_insert(breakdown["preventedLifeLossTotal"], s_format("%.2f ^8(portion taken over 4 seconds instead)", output["preventedLifeLoss"] / 100))
+				t_insert(breakdown["preventedLifeLossTotal"], localisation:Text("calc.defence.build_defence_estimations.line_43", { value = output["preventedLifeLoss"] / 100 }))
 			end
 			if output["preventedLifeLossBelowHalf"] ~= 0 then
 				if portionLife ~= 1 then
 					if output["preventedLifeLoss"] ~= 0 then
 						t_insert(breakdown["preventedLifeLossTotal"], s_format(""))
 					end
-					t_insert(breakdown["preventedLifeLossTotal"], s_format("%s%.2f ^8(initial portion taken by petrified blood)", output["preventedLifeLoss"] ~= 0 and "+ " or "", initialLifeLossBelowHalfPrevented / 100))
+					t_insert(breakdown["preventedLifeLossTotal"], localisation:Text("calc.defence.build_defence_estimations.line_44", { value = ((output["preventedLifeLoss"] ~= 0 and "+ ") or ""), value_2 = initialLifeLossBelowHalfPrevented / 100 }))
 					if output["preventedLifeLoss"] ~= 0 then
-						t_insert(breakdown["preventedLifeLossTotal"], s_format("* %.2f ^8(portion not already taken over time)", (1 - output["preventedLifeLoss"] / 100)))
+						t_insert(breakdown["preventedLifeLossTotal"], localisation:Text("calc.defence.build_defence_estimations.line_45", { value = 1 - output["preventedLifeLoss"] / 100 }))
 					end
-					t_insert(breakdown["preventedLifeLossTotal"], s_format("* %.2f ^8(portion of life on low life)", portionLife))
-					t_insert(breakdown["preventedLifeLossTotal"], s_format("= %.2f ^8(final portion taken by petrified blood)", output["preventedLifeLossBelowHalf"] * portionLife / 100))
+					t_insert(breakdown["preventedLifeLossTotal"], localisation:Text("calc.defence.build_defence_estimations.line_46", { portion_life = portionLife }))
+					t_insert(breakdown["preventedLifeLossTotal"], localisation:Text("calc.defence.build_defence_estimations.line_47", { value = output["preventedLifeLossBelowHalf"] * portionLife / 100 }))
 					t_insert(breakdown["preventedLifeLossTotal"], s_format(""))
 				else
-					t_insert(breakdown["preventedLifeLossTotal"], s_format("%s%.2f ^8(%s taken by petrified blood)", output["preventedLifeLoss"] ~= 0 and "+ " or "", initialLifeLossBelowHalfPrevented / 100, output["preventedLifeLoss"] ~= 0 and "initial portion" or "portion"))
+					t_insert(breakdown["preventedLifeLossTotal"], localisation:Text("calc.defence.build_defence_estimations.line_48", { value = ((output["preventedLifeLoss"] ~= 0 and "+ ") or ""), value_2 = initialLifeLossBelowHalfPrevented / 100, value_3 = ((output["preventedLifeLoss"] ~= 0 and localisation:Ref("calc.defence.build_defence_estimations.line.parameter")) or localisation:Ref("calc.defence.build_defence_estimations.line.parameter_2")) }))
 					if output["preventedLifeLoss"] ~= 0 then
-						t_insert(breakdown["preventedLifeLossTotal"], s_format("* %.2f ^8(portion not already taken over time)", (1 - output["preventedLifeLoss"] / 100)))
-						t_insert(breakdown["preventedLifeLossTotal"], s_format("= %.2f ^8(final portion taken by petrified blood)", output["preventedLifeLossBelowHalf"] / 100))
+						t_insert(breakdown["preventedLifeLossTotal"], localisation:Text("calc.defence.build_defence_estimations.line_45", { value = 1 - output["preventedLifeLoss"] / 100 }))
+						t_insert(breakdown["preventedLifeLossTotal"], localisation:Text("calc.defence.build_defence_estimations.line_49", { value = output["preventedLifeLossBelowHalf"] / 100 }))
 					end
 				end
 			end
-			t_insert(breakdown["preventedLifeLossTotal"], s_format("%.2f ^8(portion taken from life)", 1 - output["preventedLifeLossTotal"] / 100))
+			t_insert(breakdown["preventedLifeLossTotal"], localisation:Text("calc.defence.build_defence_estimations.line_50", { value = 1 - output["preventedLifeLossTotal"] / 100 }))
 		end
 	end
 
@@ -2975,12 +2976,12 @@ function calcs.buildDefenceEstimations(env, actor)
 		if breakdown then
 			if output["sharedMindOverMatter"] then
 				breakdown["sharedMindOverMatter"] = {
-					s_format("Total life protected:"),
+					localisation:Text("calc.defence.build_defence_estimations.line_42"),
 					s_format("%d ^8(%s)", sourcePool, manatext),
-					s_format("/ %.2f ^8(portion taken from mana)", output["sharedMindOverMatter"] / 100),
-					s_format("x %.2f ^8(portion taken from life)", 1 - output["sharedMindOverMatter"] / 100),
+					localisation:Text("calc.defence.build_defence_estimations.line_51", { value = output["sharedMindOverMatter"] / 100 }),
+					localisation:Text("calc.defence.build_defence_estimations.line_52", { value = 1 - output["sharedMindOverMatter"] / 100 }),
 					s_format("= %d", poolProtected),
-					s_format("Effective life: %d", output["sharedManaEffectiveLife"])
+					localisation:Text("calc.defence.build_defence_estimations.line_53", { value = output["sharedManaEffectiveLife"] })
 				}
 			end
 		end
@@ -3022,12 +3023,12 @@ function calcs.buildDefenceEstimations(env, actor)
 			if breakdown then
 				if output[damageType.."MindOverMatter"] then
 					breakdown[damageType.."MindOverMatter"] = {
-						s_format("Total life protected:"),
+						localisation:Text("calc.defence.build_defence_estimations.line_42"),
 						s_format("%d ^8(%s)", sourcePool, manatext),
-						s_format("/ %.2f ^8(portion taken from mana)", MindOverMatter / 100),
-						s_format("x %.2f ^8(portion taken from life)", 1 - MindOverMatter / 100),
+						localisation:Text("calc.defence.build_defence_estimations.line_54", { value = MindOverMatter / 100 }),
+						localisation:Text("calc.defence.build_defence_estimations.line_55", { value = 1 - MindOverMatter / 100 }),
 						s_format("= %d", poolProtected),
-						s_format("Effective life: %d", output[damageType.."ManaEffectiveLife"])
+						localisation:Text("calc.defence.build_defence_estimations.line_56", { value = output[damageType.."ManaEffectiveLife"] })
 					}
 				end
 			end
@@ -3046,10 +3047,10 @@ function calcs.buildDefenceEstimations(env, actor)
 		local lifeProtected = output["sharedGuardAbsorb"] / (output["sharedGuardAbsorbRate"] / 100) * (1 - output["sharedGuardAbsorbRate"] / 100)
 		if breakdown then
 			breakdown["sharedGuardAbsorb"] = {
-				s_format("Total life protected:"),
-				s_format("%d ^8(guard limit)", output["sharedGuardAbsorb"]),
-				s_format("/ %.2f ^8(portion taken from guard)", output["sharedGuardAbsorbRate"] / 100),
-				s_format("x %.2f ^8(portion taken from life and energy shield)", 1 - output["sharedGuardAbsorbRate"] / 100),
+				localisation:Text("calc.defence.build_defence_estimations.line_42"),
+				localisation:Text("calc.defence.build_defence_estimations.line_57", { value = output["sharedGuardAbsorb"] }),
+				localisation:Text("calc.defence.build_defence_estimations.line_58", { value = output["sharedGuardAbsorbRate"] / 100 }),
+				localisation:Text("calc.defence.build_defence_estimations.line_59", { value = 1 - output["sharedGuardAbsorbRate"] / 100 }),
 				s_format("= %d", lifeProtected)
 			}
 		end
@@ -3064,10 +3065,10 @@ function calcs.buildDefenceEstimations(env, actor)
 			local lifeProtected = output[damageType.."GuardAbsorb"] / (output[damageType.."GuardAbsorbRate"] / 100) * (1 - output[damageType.."GuardAbsorbRate"] / 100)
 			if breakdown then
 				breakdown[damageType.."GuardAbsorb"] = {
-					s_format("Total life protected:"),
-					s_format("%d ^8(guard limit)", output[damageType.."GuardAbsorb"]),
-					s_format("/ %.2f ^8(portion taken from guard)", output[damageType.."GuardAbsorbRate"] / 100),
-					s_format("x %.2f ^8(portion taken from life and energy shield)", 1 - output[damageType.."GuardAbsorbRate"] / 100),
+					localisation:Text("calc.defence.build_defence_estimations.line_42"),
+					localisation:Text("calc.defence.build_defence_estimations.line_60", { value = output[damageType.."GuardAbsorb"] }),
+					localisation:Text("calc.defence.build_defence_estimations.line_61", { value = output[damageType.."GuardAbsorbRate"] / 100 }),
+					localisation:Text("calc.defence.build_defence_estimations.line_62", { value = 1 - output[damageType.."GuardAbsorbRate"] / 100 }),
 					s_format("= %d", lifeProtected),
 				}
 			end
@@ -3108,10 +3109,10 @@ function calcs.buildDefenceEstimations(env, actor)
 		local lifeProtected = output["FrostShieldLife"] / (output["FrostShieldDamageMitigation"] / 100) * (1 - output["FrostShieldDamageMitigation"] / 100)
 		if breakdown then
 			breakdown["FrostShieldLife"] = {
-				s_format("Total life protected:"),
-				s_format("%d ^8(frost shield limit)", output["FrostShieldLife"]),
-				s_format("/ %.2f ^8(portion taken from frost shield)", output["FrostShieldDamageMitigation"] / 100),
-				s_format("x %.2f ^8(portion taken from life and energy shield)", 1 - output["FrostShieldDamageMitigation"] / 100),
+				localisation:Text("calc.defence.build_defence_estimations.line_42"),
+				localisation:Text("calc.defence.build_defence_estimations.line_63", { value = output["FrostShieldLife"] }),
+				localisation:Text("calc.defence.build_defence_estimations.line_64", { value = output["FrostShieldDamageMitigation"] / 100 }),
+				localisation:Text("calc.defence.build_defence_estimations.line_65", { value = 1 - output["FrostShieldDamageMitigation"] / 100 }),
 				s_format("= %d", lifeProtected),
 			}
 		end
@@ -3123,7 +3124,7 @@ function calcs.buildDefenceEstimations(env, actor)
 			if breakdown then
 				breakdown["TotalSpectreLife"] = { }
 				if modDB:Override(nil, "TotalSpectreLife") then
-					t_insert(breakdown["TotalSpectreLife"], s_format("%d ^8(from config)", output["TotalSpectreLife"]))
+					t_insert(breakdown["TotalSpectreLife"], localisation:Text("calc.defence.build_defence_estimations.line_66", { value = output["TotalSpectreLife"] }))
 				else
 					for _, spectre in ipairs(actor.spectreLifeList or { }) do
 						t_insert(breakdown["TotalSpectreLife"], s_format("%d ^8(%s)", spectre.life, spectre.name))
@@ -3159,7 +3160,7 @@ function calcs.buildDefenceEstimations(env, actor)
 			if breakdown then
 				breakdown["TotalCompanionLife"] = { }
 				if modDB:Override(nil, "TotalCompanionLife") then
-					t_insert(breakdown["TotalCompanionLife"], s_format("%d ^8(from config)", output["TotalCompanionLife"]))
+					t_insert(breakdown["TotalCompanionLife"], localisation:Text("calc.defence.build_defence_estimations.line_67", { value = output["TotalCompanionLife"] }))
 				else
 					for _, companion in ipairs(actor.companionLifeList or { }) do
 						t_insert(breakdown["TotalCompanionLife"], s_format("%d ^8(%s)", companion.life, companion.name))
@@ -3167,8 +3168,8 @@ function calcs.buildDefenceEstimations(env, actor)
 				end
 				if companionMitigationFromDeflected ~= 0 then
 					breakdown["CompanionAllyDamageMitigation"] = {
-						s_format("%d%% ^8(taken from hits)", companionMitigation),
-						s_format("+ %d%% x %.2f ^8(taken from deflected hits, scaled by deflect chance)", companionMitigationFromDeflected, (output.DeflectChance or 0) / 100),
+						localisation:Text("calc.defence.build_defence_estimations.line_68", { companion_mitigation = companionMitigation }),
+						localisation:Text("calc.defence.build_defence_estimations.line_69", { companion_mitigation_from_deflected = companionMitigationFromDeflected, value = (output.DeflectChance or 0) / 100 }),
 						s_format("= %.1f%%", output["CompanionAllyDamageMitigation"]),
 					}
 				end
@@ -3217,21 +3218,21 @@ function calcs.buildDefenceEstimations(env, actor)
 		output[damageType.."TotalPool"] = poolBeforeWard + ward
 		if breakdown then
 			breakdown[damageType.."TotalPool"] = {
-				s_format("Life: %d", output.LifeRecoverable)
+				localisation:Text("calc.defence.build_defence_estimations.line_70", { life_recoverable = output.LifeRecoverable })
 			}
 			if output[damageType.."ManaEffectiveLife"] ~= output.LifeRecoverable then
-				t_insert(breakdown[damageType.."TotalPool"], s_format("Mana through MoM: %d", output[damageType.."ManaEffectiveLife"] - output.LifeRecoverable))
+				t_insert(breakdown[damageType.."TotalPool"], localisation:Text("calc.defence.build_defence_estimations.line_71", { value = output[damageType.."ManaEffectiveLife"] - output.LifeRecoverable }))
 			end
 			if modDB:Flag(nil, "EternalLife") then
-				t_insert(breakdown[damageType.."TotalPool"], s_format("Energy Shield: %d%s", output.EnergyShieldRecoveryCap / chaosESMultiplier, damageType == "Chaos" and "^8 (ES takes double damage from chaos)" and not modDB:Flag(nil, "ChaosNotDoubleESDamage") or ""))
-				t_insert(breakdown[damageType.."TotalPool"], s_format("Life change prevented by Eternal Life: %d", poolBeforeWard - output[damageType.."ManaEffectiveLife"] - output.EnergyShieldRecoveryCap / chaosESMultiplier))
+				t_insert(breakdown[damageType.."TotalPool"], localisation:Text("calc.defence.build_defence_estimations.line_72", { value = output.EnergyShieldRecoveryCap / chaosESMultiplier, value_2 = ((damageType == "Chaos" and not modDB:Flag(nil, "ChaosNotDoubleESDamage") and localisation:Ref("calc.defence.build_defence_estimations.line.parameter_3")) or "") }))
+				t_insert(breakdown[damageType.."TotalPool"], localisation:Text("calc.defence.build_defence_estimations.line_73", { value = poolBeforeWard - output[damageType.."ManaEffectiveLife"] - output.EnergyShieldRecoveryCap / chaosESMultiplier }))
 			elseif esBypass < 1 then
-				t_insert(breakdown[damageType.."TotalPool"], s_format("Non-bypassed Energy Shield: %d", poolBeforeWard - output[damageType.."ManaEffectiveLife"]))
+				t_insert(breakdown[damageType.."TotalPool"], localisation:Text("calc.defence.build_defence_estimations.line_74", { value = poolBeforeWard - output[damageType.."ManaEffectiveLife"] }))
 			end
 			if ward > 0 then
-				t_insert(breakdown[damageType.."TotalPool"], s_format("Runic Ward: %d", ward))
+				t_insert(breakdown[damageType.."TotalPool"], localisation:Text("calc.defence.build_defence_estimations.line_75", { ward = ward }))
 			end
-			t_insert(breakdown[damageType.."TotalPool"], s_format("Total Pool: %d", output[damageType.."TotalPool"]))
+			t_insert(breakdown[damageType.."TotalPool"], localisation:Text("calc.defence.build_defence_estimations.line_76", { value = output[damageType.."TotalPool"] }))
 		end
 	end
 
@@ -3342,21 +3343,21 @@ function calcs.buildDefenceEstimations(env, actor)
 			output["NumberOfMitigatedDamagingHits"] = (output["ConfiguredDamageChance"] ~= 100 or DamageIn["TrackRecoupable"] or DamageIn["TrackLifeLossOverTime"] or DamageIn.GainWhenHit) and numberOfHitsToDie(output, actor, DamageIn) or output["NumberOfDamagingHits"]
 			if breakdown then
 				breakdown["ConfiguredDamageChance"] = {
-					s_format("%.2f ^8(chance for block to fail)", 1 - BlockChance)
+					localisation:Text("calc.defence.build_defence_estimations.line_77", { value = 1 - BlockChance })
 				}
 				if output.ShowBlockEffect then
-					t_insert(breakdown["ConfiguredDamageChance"], s_format("x %.2f ^8(block effect)", output.BlockEffect / 100))
+					t_insert(breakdown["ConfiguredDamageChance"], localisation:Text("calc.defence.build_defence_estimations.line_78", { value = output.BlockEffect / 100 }))
 				end
 				if suppressionEffect ~= 1 then
-					t_insert(breakdown["ConfiguredDamageChance"], s_format("x %.3f ^8(suppression effect)", suppressionEffect))
+					t_insert(breakdown["ConfiguredDamageChance"], localisation:Text("calc.defence.build_defence_estimations.line_79", { suppression_effect = suppressionEffect }))
 				end
 				if effectiveDeflectMulti ~= 1 then
-					t_insert(breakdown["ConfiguredDamageChance"], s_format("x %.3f ^8(deflect effect)", effectiveDeflectMulti))
+					t_insert(breakdown["ConfiguredDamageChance"], localisation:Text("calc.defence.build_defence_estimations.line_80", { effective_deflect_multi = effectiveDeflectMulti }))
 				end
 				if averageAvoidChance > 0 then
-					t_insert(breakdown["ConfiguredDamageChance"], s_format("x %.2f ^8(chance for avoidance to fail)", 1 - averageAvoidChance / 100))
+					t_insert(breakdown["ConfiguredDamageChance"], localisation:Text("calc.defence.build_defence_estimations.line_81", { value = 1 - averageAvoidChance / 100 }))
 				end
-				t_insert(breakdown["ConfiguredDamageChance"], s_format("= %.1f%% ^8(of damage taken from a%s hit)", output["ConfiguredDamageChance"], (damageCategoryConfig == "Average" and "n " or (damageCategoryConfig == "Untyped" and "n " or " "))..damageCategoryConfig))
+				t_insert(breakdown["ConfiguredDamageChance"], localisation:Text("calc.defence.build_defence_estimations.line_82", { value = output["ConfiguredDamageChance"], value_2 = localisation:TermRef('hit_category_prefix', damageCategoryConfig, (damageCategoryConfig == "Average" and "n " or (damageCategoryConfig == "Untyped" and "n " or " "))..damageCategoryConfig) }))
 			end
 		end
 
@@ -3367,47 +3368,47 @@ function calcs.buildDefenceEstimations(env, actor)
 				breakdown.ConfiguredNotHitChance = { }
 				if damageCategoryConfig == "Melee" or damageCategoryConfig == "Projectile" then
 					if output[damageCategoryConfig.."EvadeChance"] > 0 then
-						t_insert(breakdown["ConfiguredNotHitChance"], s_format("%.2f ^8(chance for evasion to fail)", 1 - output[damageCategoryConfig.."EvadeChance"] / 100))
+						t_insert(breakdown["ConfiguredNotHitChance"], localisation:Text("calc.defence.build_defence_estimations.line_83", { value = 1 - output[damageCategoryConfig.."EvadeChance"] / 100 }))
 					end
 					if output.AttackDodgeChance > 0 then
-						t_insert(breakdown["ConfiguredNotHitChance"], s_format("x %.2f ^8(chance for dodge to fail)", 1 - output.AttackDodgeChance / 100))
+						t_insert(breakdown["ConfiguredNotHitChance"], localisation:Text("calc.defence.build_defence_estimations.line_84", { value = 1 - output.AttackDodgeChance / 100 }))
 					end
 					if damageCategoryConfig == "Projectile" and not output.specificTypeAvoidance and output.AvoidProjectilesChance > 0 then
-						t_insert(breakdown["ConfiguredNotHitChance"], s_format("x %.2f ^8(chance for avoidance to fail)", 1 - output.AvoidProjectilesChance / 100))
+						t_insert(breakdown["ConfiguredNotHitChance"], localisation:Text("calc.defence.build_defence_estimations.line_85", { value = 1 - output.AvoidProjectilesChance / 100 }))
 					end
 				elseif damageCategoryConfig == "Spell" or damageCategoryConfig == "SpellProjectile" then
 					if output[damageCategoryConfig.."EvadeChance"] > 0 then
-						t_insert(breakdown["ConfiguredNotHitChance"], s_format("%.2f ^8(chance for evasion to fail)", 1 - output[damageCategoryConfig.."EvadeChance"] / 100))
+						t_insert(breakdown["ConfiguredNotHitChance"], localisation:Text("calc.defence.build_defence_estimations.line_83", { value = 1 - output[damageCategoryConfig.."EvadeChance"] / 100 }))
 					end
 					if output.SpellDodgeChance > 0 then
-						t_insert(breakdown["ConfiguredNotHitChance"], s_format("%.2f ^8(chance for dodge to fail)", 1 - output.SpellDodgeChance / 100))
+						t_insert(breakdown["ConfiguredNotHitChance"], localisation:Text("calc.defence.build_defence_estimations.line_86", { value = 1 - output.SpellDodgeChance / 100 }))
 					end
 					if damageCategoryConfig == "SpellProjectile" and not output.specificTypeAvoidance and output.AvoidProjectilesChance > 0 then
-						t_insert(breakdown["ConfiguredNotHitChance"], s_format("x %.2f ^8(chance for avoidance to fail)", 1 - output.AvoidProjectilesChance / 100))
+						t_insert(breakdown["ConfiguredNotHitChance"], localisation:Text("calc.defence.build_defence_estimations.line_85", { value = 1 - output.AvoidProjectilesChance / 100 }))
 					end
 				elseif damageCategoryConfig == "Average" then
 					if output.MeleeEvadeChance > 0 or output.ProjectileEvadeChance > 0 or output.SpellNotHitChance > 0 or output.SpellProjectileNotHitChance > 0 then
-						t_insert(breakdown["ConfiguredNotHitChance"], s_format("%.2f ^8(chance for evasion to fail)", 1 - (output.MeleeEvadeChance + output.ProjectileEvadeChance + output.SpellNotHitChance + output.SpellProjectileNotHitChance) / 4 / 100))
+						t_insert(breakdown["ConfiguredNotHitChance"], localisation:Text("calc.defence.build_defence_estimations.line_87", { value = 1 - (output.MeleeEvadeChance + output.ProjectileEvadeChance + output.SpellNotHitChance + output.SpellProjectileNotHitChance) / 4 / 100 }))
 					end
 					if output.AttackDodgeChance > 0  or output.SpellDodgeChance > 0 then
-						t_insert(breakdown["ConfiguredNotHitChance"], s_format("x%.2f ^8(chance for dodge to fail)", 1 - (output.AttackDodgeChance + output.SpellDodgeChance) / 2 / 100))
+						t_insert(breakdown["ConfiguredNotHitChance"], localisation:Text("calc.defence.build_defence_estimations.line_88", { value = 1 - (output.AttackDodgeChance + output.SpellDodgeChance) / 2 / 100 }))
 					end
 					if not output.specificTypeAvoidance and output.AvoidProjectilesChance > 0 then
-						t_insert(breakdown["ConfiguredNotHitChance"], s_format("x %.2f ^8(chance for avoidance to fail)", 1 - output.AvoidProjectilesChance / 2 / 100))
+						t_insert(breakdown["ConfiguredNotHitChance"], localisation:Text("calc.defence.build_defence_estimations.line_89", { value = 1 - output.AvoidProjectilesChance / 2 / 100 }))
 					end
 				end
 				if output.AvoidAllDamageFromHitsChance > 0 then
-					t_insert(breakdown["ConfiguredNotHitChance"], s_format("x %.2f ^8(chance for damage avoidance to fail)", 1 - output.AvoidAllDamageFromHitsChance / 100))
+					t_insert(breakdown["ConfiguredNotHitChance"], localisation:Text("calc.defence.build_defence_estimations.line_90", { value = 1 - output.AvoidAllDamageFromHitsChance / 100 }))
 				end
 				local worstOf = env.configInput.EHPUnluckyWorstOf or 1
 				if worstOf > 1 then
-					t_insert(breakdown["ConfiguredNotHitChance"], s_format("unlucky worst of %d", worstOf))
+					t_insert(breakdown["ConfiguredNotHitChance"], localisation:Text("calc.defence.build_defence_estimations.line_91", { worst_of = worstOf }))
 				end
-				t_insert(breakdown["ConfiguredNotHitChance"], s_format("= %d%% ^8(chance to be hit by a%s hit)", 100 - output.ConfiguredNotHitChance, (damageCategoryConfig == "Average" and "n " or (damageCategoryConfig == "Untyped" and "n " or " ") )..damageCategoryConfig))
+				t_insert(breakdown["ConfiguredNotHitChance"], localisation:Text("calc.defence.build_defence_estimations.line_92", { value = 100 - output.ConfiguredNotHitChance, value_2 = localisation:TermRef('hit_category_prefix', damageCategoryConfig, (damageCategoryConfig == "Average" and "n " or (damageCategoryConfig == "Untyped" and "n " or " ") )..damageCategoryConfig) }))
 				breakdown["TotalNumberOfHits"] = {
-					s_format("%.2f ^8(Number of mitigated hits)", output["NumberOfMitigatedDamagingHits"]),
-					s_format("/ %.2f ^8(Chance to even be hit)", 1 - output["ConfiguredNotHitChance"] / 100),
-					s_format("= %.2f ^8(total average number of hits you can take)", output["TotalNumberOfHits"]),
+					localisation:Text("calc.defence.build_defence_estimations.line_93", { value = output["NumberOfMitigatedDamagingHits"] }),
+					localisation:Text("calc.defence.build_defence_estimations.line_94", { value = 1 - output["ConfiguredNotHitChance"] / 100 }),
+					localisation:Text("calc.defence.build_defence_estimations.line_95", { value = output["TotalNumberOfHits"] }),
 				}
 			end
 		end
@@ -3416,9 +3417,9 @@ function calcs.buildDefenceEstimations(env, actor)
 		output["TotalEHP"] = output["TotalNumberOfHits"] * output["totalEnemyDamageIn"]
 		if breakdown then
 			breakdown["TotalEHP"] = {
-				s_format("%.2f ^8(total average number of hits you can take)", output["TotalNumberOfHits"]),
-				s_format("x %d ^8(total incoming damage)", output["totalEnemyDamageIn"]),
-				s_format("= %d ^8(total damage you can take)", output["TotalEHP"]),
+				localisation:Text("calc.defence.build_defence_estimations.line_96", { value = output["TotalNumberOfHits"] }),
+				localisation:Text("calc.defence.build_defence_estimations.line_97", { value = output["totalEnemyDamageIn"] }),
+				localisation:Text("calc.defence.build_defence_estimations.line_98", { value = output["TotalEHP"] }),
 			}
 		end
 
@@ -3430,9 +3431,9 @@ function calcs.buildDefenceEstimations(env, actor)
 			output["EHPSurvivalTime"] = output["TotalNumberOfHits"] * output.enemySkillTime
 			if breakdown then
 				breakdown["EHPSurvivalTime"] = {
-					s_format("%.2f ^8(total average number of hits you can take)", output["TotalNumberOfHits"]),
-					s_format("x %.2f ^8enemy attack/cast time", output.enemySkillTime),
-					s_format("= %.2f seconds ^8(total time it would take to die)", output["EHPSurvivalTime"]),
+					localisation:Text("calc.defence.build_defence_estimations.line_96", { value = output["TotalNumberOfHits"] }),
+					localisation:Text("calc.defence.build_defence_estimations.line_99", { enemy_skill_time = output.enemySkillTime }),
+					localisation:Text("calc.defence.build_defence_estimations.line_100", { value = output["EHPSurvivalTime"] }),
 				}
 			end
 		end
@@ -3479,16 +3480,16 @@ function calcs.buildDefenceEstimations(env, actor)
 				local multipleTypes = 0
 				breakdown[recoupType.."RecoupRecoveryMax"] = { }
 				if (output[recoupType.."Recoup"] or 0) > 0 then
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("%d ^8(total damage taken during ehp calcs)", totalDamage))
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("* %.2f ^8(percent of damage recouped)", output[recoupType.."Recoup"] / 100))
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], localisation:Text("calc.defence.build_defence_estimations.line_101", { total_damage = totalDamage }))
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], localisation:Text("calc.defence.build_defence_estimations.line_102", { value = output[recoupType.."Recoup"] / 100 }))
 					multipleTypes = multipleTypes + 1
 				end
 				if (output["Elemental"..recoupType.."Recoup"] or 0) > 0 and totalElementalDamage > 0 then
 					if multipleTypes > 0 then
 						t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format(""))
 					end
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("%s%d ^8(total elemental damage taken during ehp calcs)", multipleTypes > 0 and "+" or "", totalDamage))
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("* %.2f ^8(percent of damage recouped)", output["Elemental"..recoupType.."Recoup"] / 100))
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], localisation:Text("calc.defence.build_defence_estimations.line_103", { value = ((multipleTypes > 0 and "+") or ""), total_damage = totalDamage }))
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], localisation:Text("calc.defence.build_defence_estimations.line_104", { value = output["Elemental"..recoupType.."Recoup"] / 100 }))
 					multipleTypes = multipleTypes + 1
 				end
 				for _, damageType in ipairs(dmgTypeList) do
@@ -3496,33 +3497,33 @@ function calcs.buildDefenceEstimations(env, actor)
 						if multipleTypes > 0 then
 							t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format(""))
 						end
-						t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("%s%d ^8(total %s damage taken during ehp calcs)", multipleTypes > 0 and "+" or "", totalDamage, damageType))
-						t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("* %.2f ^8(percent of damage recouped)", output[damageType..recoupType.."Recoup"] / 100))
+						t_insert(breakdown[recoupType.."RecoupRecoveryMax"], localisation:Text("calc.defence.build_defence_estimations.line_105", { value = ((multipleTypes > 0 and "+") or ""), total_damage = totalDamage, damage_type = localisation:TermRef("damage_type", damageType) }))
+						t_insert(breakdown[recoupType.."RecoupRecoveryMax"], localisation:Text("calc.defence.build_defence_estimations.line_106", { value = output[damageType..recoupType.."Recoup"] / 100 }))
 						multipleTypes = multipleTypes + 1
 					end
 				end
-				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("= %d ^8(total damage recoup amount)", output["Total"..recoupType.."RecoupRecovery"]))
+				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], localisation:Text("calc.defence.build_defence_estimations.line_107", { value = output["Total"..recoupType.."RecoupRecovery"] }))
 				breakdown[recoupType.."RecoupRecoveryAvg"] = copyTable(breakdown[recoupType.."RecoupRecoveryMax"])
-				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("/ %.2f ^8(over %d seconds)", recoupTime, recoupTime))
+				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], localisation:Text("calc.defence.build_defence_estimations.line_108", { recoup_time = recoupTime, recoup_time_2 = recoupTime }))
 				if output["Total"..recoupType.."PseudoRecoup"] > 0 then
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("+ %.2f ^8(total damage mitigated pseudo recoup amount)", output["Total"..recoupType.."PseudoRecoup"]))
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("/ %.2f ^8(over %d seconds)", PseudoRecoupDuration, PseudoRecoupDuration))
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], localisation:Text("calc.defence.build_defence_estimations.line_109", { value = output["Total"..recoupType.."PseudoRecoup"] }))
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], localisation:Text("calc.defence.build_defence_estimations.line_110", { pseudo_recoup_duration = PseudoRecoupDuration, pseudo_recoup_duration_2 = PseudoRecoupDuration }))
 				end
 				if extraPseudoRecoup[recoupType] then
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("+ %.2f ^8(total damage mitigated pseudo recoup amount)", extraPseudoRecoup[recoupType][1]))
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("/ %.2f ^8(over %d seconds)", extraPseudoRecoup[recoupType][2], extraPseudoRecoup[recoupType][2]))
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], localisation:Text("calc.defence.build_defence_estimations.line_111", { value = extraPseudoRecoup[recoupType][1] }))
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], localisation:Text("calc.defence.build_defence_estimations.line_112", { value = extraPseudoRecoup[recoupType][2], value_2 = extraPseudoRecoup[recoupType][2] }))
 				end
-				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("= %.2f per second ^8", output[recoupType.."RecoupRecoveryMax"]))
-				t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("/ %.2f ^8(total time of the recoup (survival time + %d seconds))", (output["EHPSurvivalTime"] + recoupTime), recoupTime))
+				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], localisation:Text("calc.defence.build_defence_estimations.line_113", { value = output[recoupType.."RecoupRecoveryMax"] }))
+				t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], localisation:Text("calc.defence.build_defence_estimations.line_114", { value = output["EHPSurvivalTime"] + recoupTime, recoup_time = recoupTime }))
 				if output["Total"..recoupType.."PseudoRecoup"] > 0 then
-					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("+ %.2f ^8(total damage mitigated pseudo recoup amount)", output["Total"..recoupType.."PseudoRecoup"]))
-					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("/ %.2f ^8(total time of the recoup (survival time + %d seconds)", (output["EHPSurvivalTime"] + PseudoRecoupDuration), PseudoRecoupDuration))
+					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], localisation:Text("calc.defence.build_defence_estimations.line_109", { value = output["Total"..recoupType.."PseudoRecoup"] }))
+					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], localisation:Text("calc.defence.build_defence_estimations.line_115", { value = output["EHPSurvivalTime"] + PseudoRecoupDuration, pseudo_recoup_duration = PseudoRecoupDuration }))
 				end
 				if extraPseudoRecoup[recoupType] then
-					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("+ %.2f ^8(total damage mitigated pseudo recoup amount)", extraPseudoRecoup[recoupType][1]))
-					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("/ %.2f ^8(total time of the recoup (survival time + %d seconds)", (output["EHPSurvivalTime"] + extraPseudoRecoup[recoupType][2]), extraPseudoRecoup[recoupType][2]))
+					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], localisation:Text("calc.defence.build_defence_estimations.line_111", { value = extraPseudoRecoup[recoupType][1] }))
+					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], localisation:Text("calc.defence.build_defence_estimations.line_116", { value = output["EHPSurvivalTime"] + extraPseudoRecoup[recoupType][2], value_2 = extraPseudoRecoup[recoupType][2] }))
 				end
-				t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("= %.2f per second ^8", output[recoupType.."RecoupRecoveryAvg"]))
+				t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], localisation:Text("calc.defence.build_defence_estimations.line_117", { value = output[recoupType.."RecoupRecoveryAvg"] }))
 			end
 		end
 	end
@@ -3536,30 +3537,30 @@ function calcs.buildDefenceEstimations(env, actor)
 		if breakdown then
 			breakdown["LifeLossLostMax"] = { }
 			if output["LifeLossLostOverTime"] ~= 0 then
-				t_insert(breakdown["LifeLossLostMax"], s_format("( %d ^8(total damage prevented by Grasping Wounds / Sacrifice of Flesh)", output["LifeLossLostOverTime"]))
+				t_insert(breakdown["LifeLossLostMax"], localisation:Text("calc.defence.build_defence_estimations.line_118", { value = output["LifeLossLostOverTime"] }))
 				if LifeLossLost ~= 0 then
-					t_insert(breakdown["LifeLossLostMax"], s_format("* %.2f ^8(percent of damage taken from Sacrifice of Flesh)", LifeLossLost))
+					t_insert(breakdown["LifeLossLostMax"], localisation:Text("calc.defence.build_defence_estimations.line_119", { life_loss_lost = LifeLossLost }))
 				end
 			end
 			if output["LifeBelowHalfLossLostOverTime"] ~= 0 then
-				t_insert(breakdown["LifeLossLostMax"], s_format("%s %d ^8(total damage prevented by petrified blood)", output["LifeLossLostOverTime"] ~= 0 and "+" or "(", output["LifeBelowHalfLossLostOverTime"]))
-				t_insert(breakdown["LifeLossLostMax"], s_format("* %.2f ^8(percent of damage taken from petrified blood)", LifeLossBelowHalfLost))
+				t_insert(breakdown["LifeLossLostMax"], localisation:Text("calc.defence.build_defence_estimations.line_120", { value = ((output["LifeLossLostOverTime"] ~= 0 and "+") or "("), value_2 = output["LifeBelowHalfLossLostOverTime"] }))
+				t_insert(breakdown["LifeLossLostMax"], localisation:Text("calc.defence.build_defence_estimations.line_121", { life_loss_below_half_lost = LifeLossBelowHalfLost }))
 			end
-			t_insert(breakdown["LifeLossLostMax"], s_format(") / %.2f ^8(over 4 seconds)", 4))
-			t_insert(breakdown["LifeLossLostMax"], s_format("= %.2f per second", output["LifeLossLostMax"]))
+			t_insert(breakdown["LifeLossLostMax"], localisation:Text("calc.defence.build_defence_estimations.line_122", { value = 4 }))
+			t_insert(breakdown["LifeLossLostMax"], localisation:Text("calc.defence.build_defence_estimations.line_123", { value = output["LifeLossLostMax"] }))
 			breakdown["LifeLossLostAvg"] = { }
 			if output["LifeLossLostOverTime"] ~= 0 then
-				t_insert(breakdown["LifeLossLostAvg"], s_format("( %d ^8(total damage prevented by Grasping Wounds / Sacrifice of Flesh)", output["LifeLossLostOverTime"]))
+				t_insert(breakdown["LifeLossLostAvg"], localisation:Text("calc.defence.build_defence_estimations.line_118", { value = output["LifeLossLostOverTime"] }))
 				if LifeLossLost ~= 0 then
-					t_insert(breakdown["LifeLossLostAvg"], s_format("* %.2f ^8(percent of damage taken from Sacrifice of Flesh)", LifeLossLost))
+					t_insert(breakdown["LifeLossLostAvg"], localisation:Text("calc.defence.build_defence_estimations.line_119", { life_loss_lost = LifeLossLost }))
 				end
 			end
 			if output["LifeBelowHalfLossLostOverTime"] ~= 0 then
-				t_insert(breakdown["LifeLossLostAvg"], s_format("%s %d ^8(total damage prevented by petrified blood)", output["LifeLossLostOverTime"] ~= 0 and "+" or "(", output["LifeBelowHalfLossLostOverTime"]))
-				t_insert(breakdown["LifeLossLostAvg"], s_format("* %.2f ^8(percent of damage taken from petrified blood)", LifeLossBelowHalfLost))
+				t_insert(breakdown["LifeLossLostAvg"], localisation:Text("calc.defence.build_defence_estimations.line_120", { value = ((output["LifeLossLostOverTime"] ~= 0 and "+") or "("), value_2 = output["LifeBelowHalfLossLostOverTime"] }))
+				t_insert(breakdown["LifeLossLostAvg"], localisation:Text("calc.defence.build_defence_estimations.line_121", { life_loss_below_half_lost = LifeLossBelowHalfLost }))
 			end
-			t_insert(breakdown["LifeLossLostAvg"], s_format(") / %.2f ^8(total time of the degen (survival time + 4 seconds))", (output["EHPSurvivalTime"] + 4)))
-			t_insert(breakdown["LifeLossLostAvg"], s_format("= %.2f per second", output["LifeLossLostAvg"]))
+			t_insert(breakdown["LifeLossLostAvg"], localisation:Text("calc.defence.build_defence_estimations.line_124", { value = output["EHPSurvivalTime"] + 4 }))
+			t_insert(breakdown["LifeLossLostAvg"], localisation:Text("calc.defence.build_defence_estimations.line_125", { value = output["LifeLossLostAvg"] }))
 		end
 	end
 
@@ -3571,14 +3572,14 @@ function calcs.buildDefenceEstimations(env, actor)
 			output["showNetRecoup"] = true
 			if breakdown then
 				breakdown["netLifeRecoupAndLossLostOverTimeMax"] = {
-					s_format("%.2f ^8(total life recouped per second)", output["LifeRecoupRecoveryMax"]),
-					s_format("- %.2f ^8(total life taken over time per second)", output["LifeLossLostMax"]),
-					s_format("= %.2f per second", output["netLifeRecoupAndLossLostOverTimeMax"]),
+					localisation:Text("calc.defence.build_defence_estimations.line_126", { value = output["LifeRecoupRecoveryMax"] }),
+					localisation:Text("calc.defence.build_defence_estimations.line_127", { value = output["LifeLossLostMax"] }),
+					localisation:Text("calc.defence.build_defence_estimations.line_128", { value = output["netLifeRecoupAndLossLostOverTimeMax"] }),
 				}
 				breakdown["netLifeRecoupAndLossLostOverTimeAvg"] = {
-					s_format("%.2f ^8(total life recouped per second)", output["LifeRecoupRecoveryAvg"]),
-					s_format("- %.2f ^8(total life taken over time per second)", output["LifeLossLostAvg"]),
-					s_format("= %.2f per second", output["netLifeRecoupAndLossLostOverTimeAvg"]),
+					localisation:Text("calc.defence.build_defence_estimations.line_129", { value = output["LifeRecoupRecoveryAvg"] }),
+					localisation:Text("calc.defence.build_defence_estimations.line_130", { value = output["LifeLossLostAvg"] }),
+					localisation:Text("calc.defence.build_defence_estimations.line_131", { value = output["netLifeRecoupAndLossLostOverTimeAvg"] }),
 				}
 			end
 		end
@@ -3603,29 +3604,29 @@ function calcs.buildDefenceEstimations(env, actor)
 		if breakdown then
 			breakdown.PvPTotalTakenHit = { }
 			local percentBoth = (percentageNonElemental > 0) and (percentageElemental > 0)
-			t_insert(breakdown.PvPTotalTakenHit, s_format("Pvp Formula is (D/(T*M))^E*T*%s, where D is the damage, T is the time taken,", percentBoth and "M*P" or "M" ))
-			t_insert(breakdown.PvPTotalTakenHit, s_format(" M is the multiplier%s", percentBoth and ", E is the exponent and P is the percentage of that type (ele or non ele)" or " and E is the exponent" ))
+			t_insert(breakdown.PvPTotalTakenHit, localisation:Text("calc.defence.build_defence_estimations.line_132", { value = ((percentBoth and "M*P") or "M") }))
+			t_insert(breakdown.PvPTotalTakenHit, localisation:Text("calc.defence.build_defence_estimations.line_133", { value = ((percentBoth and localisation:Ref("calc.defence.build_defence_estimations.line.parameter_4")) or localisation:Ref("calc.defence.build_defence_estimations.line.parameter_5")) }))
 			if percentBoth then
-				t_insert(breakdown.PvPTotalTakenHit, s_format("(M= %.1f for ele and %.1f for non-ele)(E= %.2f for ele and %.2f for non-ele)", PvpElemental2, PvpNonElemental2, PvpElemental1, PvpNonElemental1))
+				t_insert(breakdown.PvPTotalTakenHit, localisation:Text("calc.defence.build_defence_estimations.line_134", { pvp_elemental2 = PvpElemental2, pvp_non_elemental2 = PvpNonElemental2, pvp_elemental1 = PvpElemental1, pvp_non_elemental1 = PvpNonElemental1 }))
 				t_insert(breakdown.PvPTotalTakenHit, s_format("(%.1f / (%.2f * %.1f)) ^ %.2f * %.2f * %.1f * %.2f = %.1f", output["totalTakenHit"], PvpTvalue,  PvpNonElemental2, PvpNonElemental1, PvpTvalue, PvpNonElemental2, percentageNonElemental, portionNonElemental))
 				t_insert(breakdown.PvPTotalTakenHit, s_format("(%.1f / (%.2f * %.1f)) ^ %.2f * %.2f * %.1f * %.2f = %.1f", output["totalTakenHit"], PvpTvalue,  PvpElemental2, PvpElemental1, PvpTvalue, PvpElemental2, percentageElemental, portionElemental))
-				t_insert(breakdown.PvPTotalTakenHit, s_format("(portionNonElemental + portionElemental)%s", PvpMultiplier ~= 1 and " * PvP multiplier" or " "))
+				t_insert(breakdown.PvPTotalTakenHit, localisation:Text("calc.defence.build_defence_estimations.line_135", { value = ((PvpMultiplier ~= 1 and localisation:Ref("calc.defence.build_defence_estimations.line.parameter_6")) or " ") }))
 				if PvpMultiplier ~= 1 then
 					t_insert(breakdown.PvPTotalTakenHit, s_format("(%.1f + %.1f) * %g", portionNonElemental, portionElemental, PvpMultiplier))
 				else
 					t_insert(breakdown.PvPTotalTakenHit, s_format("%.1f + %.1f", portionNonElemental, portionElemental))
 				end
 			elseif percentageElemental <= 0 then
-				t_insert(breakdown.PvPTotalTakenHit, s_format("(M= %.1f for non-ele)(E= %.2f for non-ele)", PvpNonElemental2, PvpNonElemental1))
+				t_insert(breakdown.PvPTotalTakenHit, localisation:Text("calc.defence.build_defence_estimations.line_136", { pvp_non_elemental2 = PvpNonElemental2, pvp_non_elemental1 = PvpNonElemental1 }))
 				t_insert(breakdown.PvPTotalTakenHit, s_format("(%.1f / (%.2f * %.1f)) ^ %.2f * %.2f * %.1f = %.1f", output["totalTakenHit"], PvpTvalue,  PvpNonElemental2, PvpNonElemental1, PvpTvalue, PvpNonElemental2, portionNonElemental))
 				if PvpMultiplier ~= 1 then
-					t_insert(breakdown.PvPTotalTakenHit, s_format("%.1f * %g ^8(portionNonElemental * PvP multiplier)", portionNonElemental, PvpMultiplier))
+					t_insert(breakdown.PvPTotalTakenHit, localisation:Text("calc.defence.build_defence_estimations.line_137", { portion_non_elemental = portionNonElemental, pvp_multiplier = PvpMultiplier }))
 				end
 			elseif percentageNonElemental <= 0 then
-				t_insert(breakdown.PvPTotalTakenHit, s_format("(M= %.1f for ele)(E= %.2f for ele)", PvpElemental2, PvpElemental1))
+				t_insert(breakdown.PvPTotalTakenHit, localisation:Text("calc.defence.build_defence_estimations.line_138", { pvp_elemental2 = PvpElemental2, pvp_elemental1 = PvpElemental1 }))
 				t_insert(breakdown.PvPTotalTakenHit, s_format("(%.1f / (%.2f * %.1f)) ^ %.2f * %.2f * %.1f = %.1f", output["totalTakenHit"], PvpTvalue,  PvpElemental2, PvpElemental1, PvpTvalue, PvpElemental2, portionElemental))
 				if PvpMultiplier ~= 1 then
-					t_insert(breakdown.PvPTotalTakenHit, s_format("%.1f * %g ^8(portionElemental * PvP multiplier)", portionElemental, PvpMultiplier))
+					t_insert(breakdown.PvPTotalTakenHit, localisation:Text("calc.defence.build_defence_estimations.line_139", { portion_elemental = portionElemental, pvp_multiplier = PvpMultiplier }))
 				end
 			end
 			t_insert(breakdown.PvPTotalTakenHit, s_format("= %.1f", output.PvPTotalTakenHit))
@@ -3800,14 +3801,14 @@ function calcs.buildDefenceEstimations(env, actor)
 
 			if breakdown then
 				breakdown[maxHitCurType] = {
-					label = "Maximum hit damage breakdown",
+					label = "Maximum hit damage breakdown", labelKey = "ui.calc_defence.build_defence_estimations.breakdown_max_hit_cur_type.label",
 					rowList = {},
 					colList = {
-						{ label = "Type", key = "type" },
-						{ label = "Pool", key = "pool" },
-						{ label = "Incoming", key = "incoming" },
-						{ label = "Multi", key = "multi" },
-						{ label = "Taken", key = "taken" },
+						{ label = "Type", labelKey = "ui.calc_defence.build_defence_estimations.type.label_2", key = "type" },
+						{ label = "Pool", labelKey = "ui.calc_defence.build_defence_estimations.pool.label", key = "pool" },
+						{ label = "Incoming", labelKey = "ui.calc_defence.build_defence_estimations.incoming.label", key = "incoming" },
+						{ label = "Multi", labelKey = "ui.calc_defence.build_defence_estimations.multi.label", key = "multi" },
+						{ label = "Taken", labelKey = "ui.calc_defence.build_defence_estimations.breakdown_damage_type_taken_damage.label", key = "taken" },
 					},
 				}
 
@@ -3820,7 +3821,7 @@ function calcs.buildDefenceEstimations(env, actor)
 					local nanToZero = takenAmt == takenAmt and takenAmt or 0
 					takenDamages[takenType] = nanToZero
 					t_insert(breakdown[maxHitCurType].rowList, {
-						type = s_format("%d%% as %s", conversion, takenType),
+						type = localisation:Text("calc.defence.build_defence_estimations.line_140", { conversion = conversion, taken_type = localisation:TermRef("damage_type", takenType) }),
 						pool = s_format("%d", output[takenType .."TotalHitPool"]),
 						incoming = s_format("%.0f", incoming),
 						multi = s_format("x%.3f", nanToZero / incoming),
@@ -3829,18 +3830,18 @@ function calcs.buildDefenceEstimations(env, actor)
 				end
 
 				local fullMulti = fullTaken / finalMaxHit / enemyDamageMult
-				t_insert(breakdown[maxHitCurType], "^8Maximum hit is calculated in reverse -")
-				t_insert(breakdown[maxHitCurType], "^8from health pools, via damage reductions, to the max hit:")
-				t_insert(breakdown[maxHitCurType], s_format("%d ^8(used pool)", fullTaken))
+				t_insert(breakdown[maxHitCurType], localisation:Text("calc.defence.build_defence_estimations.line_141"))
+				t_insert(breakdown[maxHitCurType], localisation:Text("calc.defence.build_defence_estimations.line_142"))
+				t_insert(breakdown[maxHitCurType], localisation:Text("calc.defence.build_defence_estimations.line_143", { full_taken = fullTaken }))
 				if round(fullMulti, 2) ~= 1 then
-					t_insert(breakdown[maxHitCurType], s_format("/ %.2f ^8(modifiers to damage taken)", fullMulti))
+					t_insert(breakdown[maxHitCurType], localisation:Text("calc.defence.build_defence_estimations.line_144", { full_multi = fullMulti }))
 				end
 				if enemyDamageMult ~= 1 then
-					t_insert(breakdown[maxHitCurType], s_format("/ %.2f ^8(modifiers to enemy damage)", enemyDamageMult))
+					t_insert(breakdown[maxHitCurType], localisation:Text("calc.defence.build_defence_estimations.line_145", { enemy_damage_mult = enemyDamageMult }))
 				end
-				t_insert(breakdown[maxHitCurType], s_format("= %.0f ^8maximum survivable enemy damage%s", finalMaxHit, useConversionSmoothing and " (approximate)" or ""))
+				t_insert(breakdown[maxHitCurType], localisation:Text("calc.defence.build_defence_estimations.line_146", { final_max_hit = finalMaxHit, value = ((useConversionSmoothing and localisation:Ref("calc.defence.build_defence_estimations.line.parameter_7")) or "") }))
 
-				t_insert(breakdown[maxHitCurType], "^8Such a hit would drain the following resources:")
+				t_insert(breakdown[maxHitCurType], "^8" .. localisation:Text("calc.defence.build_defence_estimations.line_147"))
 				breakdown[maxHitCurType] = incomingDamageBreakdown(breakdown[maxHitCurType], calcs.reducePoolsByDamage(nil, takenDamages, actor), output)
 			end
 		end
@@ -3864,9 +3865,9 @@ function calcs.buildDefenceEstimations(env, actor)
 		output[damageType.."DotEHP"] = output[damageType.."TotalPool"] / output[damageType.."TakenDotMult"]
 		if breakdown then
 			breakdown[damageType.."DotEHP"] = {
-				s_format("Total Pool: %d", output[damageType.."TotalPool"]),
-				s_format("Dot Damage Taken modifier: %.2f", output[damageType.."TakenDotMult"]),
-				s_format("Total Effective Dot Pool: %d", output[damageType.."DotEHP"]),
+				localisation:Text("calc.defence.build_defence_estimations.line_76", { value = output[damageType.."TotalPool"] }),
+				localisation:Text("calc.defence.build_defence_estimations.line_148", { value = output[damageType.."TakenDotMult"] }),
+				localisation:Text("calc.defence.build_defence_estimations.line_149", { value = output[damageType.."DotEHP"] }),
 			}
 		end
 	end
@@ -3886,17 +3887,17 @@ function calcs.buildDefenceEstimations(env, actor)
 							breakdown.TotalBuildDegen = breakdown.TotalBuildDegen or {
 								rowList = { },
 								colList = {
-									{ label = "Base Type", key = "type" },
-									{ label = "Final Type", key = "type2" },
-									{ label = "Base", key = "base" },
-									{ label = "Taken As Percent", key = "conv" },
-									{ label = "Multiplier", key = "mult" },
-									{ label = "Total", key = "total" },
+									{ label = "Base Type", labelKey = "ui.calc_defence.build_defence_estimations.type.label", key = "type" },
+									{ label = "Final Type", labelKey = "ui.calc_defence.build_defence_estimations.type2.label", key = "type2" },
+									{ label = "Base", labelKey = "ui.calc_defence.build_defence_estimations.base.label", key = "base" },
+									{ label = "Taken As Percent", labelKey = "ui.calc_defence.build_defence_estimations.conv.label", key = "conv" },
+									{ label = "Multiplier", labelKey = "ui.calc_defence.build_defence_estimations.mult.label_2", key = "mult" },
+									{ label = "Total", labelKey = "ui.calc_defence.build_defence_estimations.total.label", key = "total" },
 								}
 							}
 							t_insert(breakdown.TotalBuildDegen.rowList, {
-								type = damageType,
-								type2 = damageConvertedType,
+								type = damageType, typeKey = localisation:TermKey("damage_type", damageType),
+								type2 = damageConvertedType, type2Key = localisation:TermKey("damage_type", damageConvertedType),
 								base = s_format("%.1f", baseVal),
 								conv = s_format("x %.2f%%", convertPercent),
 								mult = s_format("x %.2f", output[damageConvertedType.."TakenDotMult"]),
@@ -3905,15 +3906,15 @@ function calcs.buildDefenceEstimations(env, actor)
 							breakdown[damageConvertedType.."BuildDegen"] = breakdown[damageConvertedType.."BuildDegen"] or {
 								rowList = { },
 								colList = {
-									{ label = "Base Type", key = "type" },
-									{ label = "Base", key = "base" },
-									{ label = "Taken As Percent", key = "conv" },
-									{ label = "Multiplier", key = "mult" },
-									{ label = "Total", key = "total" },
+									{ label = "Base Type", labelKey = "ui.calc_defence.build_defence_estimations.type.label", key = "type" },
+									{ label = "Base", labelKey = "ui.calc_defence.build_defence_estimations.base.label", key = "base" },
+									{ label = "Taken As Percent", labelKey = "ui.calc_defence.build_defence_estimations.conv.label", key = "conv" },
+									{ label = "Multiplier", labelKey = "ui.calc_defence.build_defence_estimations.mult.label_2", key = "mult" },
+									{ label = "Total", labelKey = "ui.calc_defence.build_defence_estimations.total.label", key = "total" },
 								}
 							}
 							t_insert(breakdown[damageConvertedType.."BuildDegen"].rowList, {
-								type = damageType,
+								type = damageType, typeKey = localisation:TermKey("damage_type", damageType),
 								base = s_format("%.1f", baseVal),
 								conv = s_format("x %.2f%%", convertPercent),
 								mult = s_format("x %.2f", output[damageConvertedType.."TakenDotMult"]),
@@ -3936,27 +3937,27 @@ function calcs.buildDefenceEstimations(env, actor)
 			local totalEnergyShieldDegen = 0
 			if breakdown then
 				breakdown.NetLifeRegen = {
-						label = "Total Life Degen",
+						label = "Total Life Degen", labelKey = "ui.calc_defence.build_defence_estimations.breakdown_net_life_regen.label",
 						rowList = { },
 						colList = {
-							{ label = "Type", key = "type" },
-							{ label = "Degen", key = "degen" },
+							{ label = "Type", labelKey = "ui.calc_defence.build_defence_estimations.type.label_2", key = "type" },
+							{ label = "Degen", labelKey = "ui.calc_defence.build_defence_estimations.degen.label", key = "degen" },
 						},
 					}
 				breakdown.NetManaRegen = {
-						label = "Total Mana Degen",
+						label = "Total Mana Degen", labelKey = "ui.calc_defence.build_defence_estimations.breakdown_net_mana_regen.label",
 						rowList = { },
 						colList = {
-							{ label = "Type", key = "type" },
-							{ label = "Degen", key = "degen" },
+							{ label = "Type", labelKey = "ui.calc_defence.build_defence_estimations.type.label_2", key = "type" },
+							{ label = "Degen", labelKey = "ui.calc_defence.build_defence_estimations.degen.label", key = "degen" },
 						},
 					}
 				breakdown.NetEnergyShieldRegen = {
-						label = "Total Energy Shield Degen",
+						label = "Total Energy Shield Degen", labelKey = "ui.calc_defence.build_defence_estimations.breakdown_net_energy_shield_regen.label",
 						rowList = { },
 						colList = {
-							{ label = "Type", key = "type" },
-							{ label = "Degen", key = "degen" },
+							{ label = "Type", labelKey = "ui.calc_defence.build_defence_estimations.type.label_2", key = "type" },
+							{ label = "Degen", labelKey = "ui.calc_defence.build_defence_estimations.degen.label", key = "degen" },
 						},
 					}
 			end
@@ -3984,15 +3985,15 @@ function calcs.buildDefenceEstimations(env, actor)
 					totalEnergyShieldDegen = totalEnergyShieldDegen + energyShieldDegen
 					if breakdown then
 						t_insert(breakdown.NetLifeRegen.rowList, {
-							type = s_format("%s", damageType),
+							type = s_format("%s", damageType), typeKey = localisation:TermKey("damage_type", damageType),
 							degen = s_format("%.2f", lifeDegen),
 						})
 						t_insert(breakdown.NetManaRegen.rowList, {
-							type = s_format("%s", damageType),
+							type = s_format("%s", damageType), typeKey = localisation:TermKey("damage_type", damageType),
 							degen = s_format("%.2f", manaDegen),
 						})
 						t_insert(breakdown.NetEnergyShieldRegen.rowList, {
-							type = s_format("%s", damageType),
+							type = s_format("%s", damageType), typeKey = localisation:TermKey("damage_type", damageType),
 							degen = s_format("%.2f", energyShieldDegen),
 						})
 					end
@@ -4003,22 +4004,22 @@ function calcs.buildDefenceEstimations(env, actor)
 			output.NetEnergyShieldRegen = output.NetEnergyShieldRegen - totalEnergyShieldDegen
 			output.TotalNetRegen = output.NetLifeRegen + output.NetManaRegen + output.NetEnergyShieldRegen + output.NetWardRegen
 			if breakdown then
-				t_insert(breakdown.NetLifeRegen, s_format("%.1f ^8(total life regen)", output.LifeRegenRecovery))
-				t_insert(breakdown.NetLifeRegen, s_format("- %.1f ^8(total life degen)", totalLifeDegen))
+				t_insert(breakdown.NetLifeRegen, localisation:Text("calc.defence.build_defence_estimations.line_150", { life_regen_recovery = output.LifeRegenRecovery }))
+				t_insert(breakdown.NetLifeRegen, localisation:Text("calc.defence.build_defence_estimations.line_151", { total_life_degen = totalLifeDegen }))
 				t_insert(breakdown.NetLifeRegen, s_format("= %.1f", output.NetLifeRegen))
-				t_insert(breakdown.NetManaRegen, s_format("%.1f ^8(total mana regen)", output.ManaRegenRecovery))
-				t_insert(breakdown.NetManaRegen, s_format("- %.1f ^8(total mana degen)", totalManaDegen))
+				t_insert(breakdown.NetManaRegen, localisation:Text("calc.defence.build_defence_estimations.line_152", { mana_regen_recovery = output.ManaRegenRecovery }))
+				t_insert(breakdown.NetManaRegen, localisation:Text("calc.defence.build_defence_estimations.line_153", { total_mana_degen = totalManaDegen }))
 				t_insert(breakdown.NetManaRegen, s_format("= %.1f", output.NetManaRegen))
-				breakdown.NetWardRegen = { s_format("%.1f ^8(total runic ward regen)", output.WardRegenRecovery) }
-				t_insert(breakdown.NetEnergyShieldRegen, s_format("%.1f ^8(total energy shield regen)", output.EnergyShieldRegenRecovery))
-				t_insert(breakdown.NetEnergyShieldRegen, s_format("- %.1f ^8(total energy shield degen)", totalEnergyShieldDegen))
+				breakdown.NetWardRegen = { localisation:Text("calc.defence.net_ward_regen.line", { ward_regen_recovery = output.WardRegenRecovery }) }
+				t_insert(breakdown.NetEnergyShieldRegen, localisation:Text("calc.defence.build_defence_estimations.line_154", { energy_shield_regen_recovery = output.EnergyShieldRegenRecovery }))
+				t_insert(breakdown.NetEnergyShieldRegen, localisation:Text("calc.defence.build_defence_estimations.line_155", { total_energy_shield_degen = totalEnergyShieldDegen }))
 				t_insert(breakdown.NetEnergyShieldRegen, s_format("= %.1f", output.NetEnergyShieldRegen))
 				breakdown.TotalNetRegen = {
-					s_format("Net Life Regen: %.1f", output.NetLifeRegen),
-					s_format("+ Net Mana Regen: %.1f", output.NetManaRegen),
-					s_format("+ Net Energy Shield Regen: %.1f", output.NetEnergyShieldRegen),
-					s_format("+ Net Runic Ward Regen: %.1f", output.NetWardRegen),
-					s_format("= Total Net Regen: %.1f", output.TotalNetRegen)
+					localisation:Text("calc.defence.total_net_regen.line", { net_life_regen = output.NetLifeRegen }),
+					localisation:Text("calc.defence.total_net_regen.line_2", { net_mana_regen = output.NetManaRegen }),
+					localisation:Text("calc.defence.total_net_regen.line_3", { net_energy_shield_regen = output.NetEnergyShieldRegen }),
+					localisation:Text("calc.defence.total_net_regen.line_4", { net_ward_regen = output.NetWardRegen }),
+					localisation:Text("calc.defence.total_net_regen.line_5", { total_net_regen = output.TotalNetRegen })
 				}
 			end
 		end
@@ -4056,19 +4057,19 @@ function calcs.buildDefenceEstimations(env, actor)
 									breakdown.TotalDegen = breakdown.TotalDegen or {
 										rowList = { },
 										colList = {
-											{ label = "Source", key = "source" },
-											{ label = "Base Type", key = "type" },
-											{ label = "Final Type", key = "type2" },
-											{ label = "Base", key = "base" },
-											{ label = "Taken As Percent", key = "conv" },
-											{ label = "Multiplier", key = "mult" },
-											{ label = "Total", key = "total" },
+											{ label = "Source", labelKey = "ui.calc_defence.build_defence_estimations.source.label", key = "source" },
+											{ label = "Base Type", labelKey = "ui.calc_defence.build_defence_estimations.type.label", key = "type" },
+											{ label = "Final Type", labelKey = "ui.calc_defence.build_defence_estimations.type2.label", key = "type2" },
+											{ label = "Base", labelKey = "ui.calc_defence.build_defence_estimations.base.label", key = "base" },
+											{ label = "Taken As Percent", labelKey = "ui.calc_defence.build_defence_estimations.conv.label", key = "conv" },
+											{ label = "Multiplier", labelKey = "ui.calc_defence.build_defence_estimations.mult.label_2", key = "mult" },
+											{ label = "Total", labelKey = "ui.calc_defence.build_defence_estimations.total.label", key = "total" },
 										}
 									}
 									t_insert(breakdown.TotalDegen.rowList, {
-										source = source,
-										type = damageType,
-										type2 = damageConvertedType,
+										source = source, sourceKey = localisation:TermKey("calculation_source", source),
+										type = damageType, typeKey = localisation:TermKey("damage_type", damageType),
+										type2 = damageConvertedType, type2Key = localisation:TermKey("damage_type", damageConvertedType),
 										base = s_format("%.1f", baseVal),
 										conv = s_format("x %.2f%%", convertPercent),
 										mult = s_format("x %.2f", output[damageConvertedType.."TakenDotMult"]),
@@ -4077,17 +4078,17 @@ function calcs.buildDefenceEstimations(env, actor)
 									breakdown[damageConvertedType.."EnemyDegen"] = breakdown[damageConvertedType.."EnemyDegen"] or {
 										rowList = { },
 										colList = {
-											{ label = "Source", key = "source" },
-											{ label = "Base Type", key = "type" },
-											{ label = "Base", key = "base" },
-											{ label = "Taken As Percent", key = "conv" },
-											{ label = "Multiplier", key = "mult" },
-											{ label = "Total", key = "total" },
+											{ label = "Source", labelKey = "ui.calc_defence.build_defence_estimations.source.label", key = "source" },
+											{ label = "Base Type", labelKey = "ui.calc_defence.build_defence_estimations.type.label", key = "type" },
+											{ label = "Base", labelKey = "ui.calc_defence.build_defence_estimations.base.label", key = "base" },
+											{ label = "Taken As Percent", labelKey = "ui.calc_defence.build_defence_estimations.conv.label", key = "conv" },
+											{ label = "Multiplier", labelKey = "ui.calc_defence.build_defence_estimations.mult.label_2", key = "mult" },
+											{ label = "Total", labelKey = "ui.calc_defence.build_defence_estimations.total.label", key = "total" },
 										}
 									}
 									t_insert(breakdown[damageConvertedType.."EnemyDegen"].rowList, {
-										source = source,
-										type = damageType,
+										source = source, sourceKey = localisation:TermKey("calculation_source", source),
+										type = damageType, typeKey = localisation:TermKey("damage_type", damageType),
 										base = s_format("%.1f", baseVal),
 										conv = s_format("x %.2f%%", convertPercent),
 										mult = s_format("x %.2f", output[damageConvertedType.."TakenDotMult"]),
@@ -4125,19 +4126,19 @@ function calcs.buildDefenceEstimations(env, actor)
 									breakdown.TotalDegen = breakdown.TotalDegen or {
 										rowList = { },
 										colList = {
-											{ label = "Source", key = "source" },
-											{ label = "Base Type", key = "type" },
-											{ label = "Final Type", key = "type2" },
-											{ label = "Base", key = "base" },
-											{ label = "Taken As Percent", key = "conv" },
-											{ label = "Multiplier", key = "mult" },
-											{ label = "Total", key = "total" },
+											{ label = "Source", labelKey = "ui.calc_defence.build_defence_estimations.source.label", key = "source" },
+											{ label = "Base Type", labelKey = "ui.calc_defence.build_defence_estimations.type.label", key = "type" },
+											{ label = "Final Type", labelKey = "ui.calc_defence.build_defence_estimations.type2.label", key = "type2" },
+											{ label = "Base", labelKey = "ui.calc_defence.build_defence_estimations.base.label", key = "base" },
+											{ label = "Taken As Percent", labelKey = "ui.calc_defence.build_defence_estimations.conv.label", key = "conv" },
+											{ label = "Multiplier", labelKey = "ui.calc_defence.build_defence_estimations.mult.label_2", key = "mult" },
+											{ label = "Total", labelKey = "ui.calc_defence.build_defence_estimations.total.label", key = "total" },
 										}
 									}
 									t_insert(breakdown.TotalDegen.rowList, {
-										source = source,
-										type = ailment.damageType,
-										type2 = damageConvertedType,
+										source = source, sourceKey = localisation:TermKey("calculation_source", source),
+										type = ailment.damageType, typeKey = localisation:TermKey("damage_type", ailment.damageType),
+										type2 = damageConvertedType, type2Key = localisation:TermKey("damage_type", damageConvertedType),
 										base = s_format("%.1f", baseVal),
 										conv = s_format("x %.2f%%", convertPercent),
 										mult = s_format("x %.2f", output[damageConvertedType.."TakenDotMult"]),
@@ -4146,17 +4147,17 @@ function calcs.buildDefenceEstimations(env, actor)
 									breakdown[damageConvertedType.."EnemyDegen"] = breakdown[damageConvertedType.."EnemyDegen"] or {
 										rowList = { },
 										colList = {
-											{ label = "Source", key = "source" },
-											{ label = "Base Type", key = "type" },
-											{ label = "Base", key = "base" },
-											{ label = "Taken As Percent", key = "conv" },
-											{ label = "Multiplier", key = "mult" },
-											{ label = "Total", key = "total" },
+											{ label = "Source", labelKey = "ui.calc_defence.build_defence_estimations.source.label", key = "source" },
+											{ label = "Base Type", labelKey = "ui.calc_defence.build_defence_estimations.type.label", key = "type" },
+											{ label = "Base", labelKey = "ui.calc_defence.build_defence_estimations.base.label", key = "base" },
+											{ label = "Taken As Percent", labelKey = "ui.calc_defence.build_defence_estimations.conv.label", key = "conv" },
+											{ label = "Multiplier", labelKey = "ui.calc_defence.build_defence_estimations.mult.label_2", key = "mult" },
+											{ label = "Total", labelKey = "ui.calc_defence.build_defence_estimations.total.label", key = "total" },
 										}
 									}
 									t_insert(breakdown[damageConvertedType.."EnemyDegen"].rowList, {
-										source = source,
-										type = ailment.damageType,
+										source = source, sourceKey = localisation:TermKey("calculation_source", source),
+										type = ailment.damageType, typeKey = localisation:TermKey("damage_type", ailment.damageType),
 										base = s_format("%.1f", baseVal),
 										conv = s_format("x %.2f%%", convertPercent),
 										mult = s_format("x %.2f", output[damageConvertedType.."TakenDotMult"]),
@@ -4180,27 +4181,27 @@ function calcs.buildDefenceEstimations(env, actor)
 				local totalEnergyShieldDegen = 0
 				if breakdown then
 					breakdown.ComprehensiveNetLifeRegen = {
-							label = "Total Life Degen",
+							label = "Total Life Degen", labelKey = "ui.calc_defence.build_defence_estimations.breakdown_net_life_regen.label",
 							rowList = { },
 							colList = {
-								{ label = "Type", key = "type" },
-								{ label = "Degen", key = "degen" },
+								{ label = "Type", labelKey = "ui.calc_defence.build_defence_estimations.type.label_2", key = "type" },
+								{ label = "Degen", labelKey = "ui.calc_defence.build_defence_estimations.degen.label", key = "degen" },
 							},
 						}
 					breakdown.ComprehensiveNetManaRegen = {
-							label = "Total Mana Degen",
+							label = "Total Mana Degen", labelKey = "ui.calc_defence.build_defence_estimations.breakdown_net_mana_regen.label",
 							rowList = { },
 							colList = {
-								{ label = "Type", key = "type" },
-								{ label = "Degen", key = "degen" },
+								{ label = "Type", labelKey = "ui.calc_defence.build_defence_estimations.type.label_2", key = "type" },
+								{ label = "Degen", labelKey = "ui.calc_defence.build_defence_estimations.degen.label", key = "degen" },
 							},
 						}
 					breakdown.ComprehensiveNetEnergyShieldRegen = {
-							label = "Total Energy Shield Degen",
+							label = "Total Energy Shield Degen", labelKey = "ui.calc_defence.build_defence_estimations.breakdown_net_energy_shield_regen.label",
 							rowList = { },
 							colList = {
-								{ label = "Type", key = "type" },
-								{ label = "Degen", key = "degen" },
+								{ label = "Type", labelKey = "ui.calc_defence.build_defence_estimations.type.label_2", key = "type" },
+								{ label = "Degen", labelKey = "ui.calc_defence.build_defence_estimations.degen.label", key = "degen" },
 							},
 						}
 				end
@@ -4229,15 +4230,15 @@ function calcs.buildDefenceEstimations(env, actor)
 						totalEnergyShieldDegen = totalEnergyShieldDegen + energyShieldDegen
 						if breakdown then
 							t_insert(breakdown.ComprehensiveNetLifeRegen.rowList, {
-								type = s_format("%s", damageType),
+								type = s_format("%s", damageType), typeKey = localisation:TermKey("damage_type", damageType),
 								degen = s_format("%.2f", lifeDegen),
 							})
 							t_insert(breakdown.ComprehensiveNetManaRegen.rowList, {
-								type = s_format("%s", damageType),
+								type = s_format("%s", damageType), typeKey = localisation:TermKey("damage_type", damageType),
 								degen = s_format("%.2f", manaDegen),
 							})
 							t_insert(breakdown.ComprehensiveNetEnergyShieldRegen.rowList, {
-								type = s_format("%s", damageType),
+								type = s_format("%s", damageType), typeKey = localisation:TermKey("damage_type", damageType),
 								degen = s_format("%.2f", energyShieldDegen),
 							})
 						end
@@ -4248,34 +4249,34 @@ function calcs.buildDefenceEstimations(env, actor)
 				output.ComprehensiveNetEnergyShieldRegen = output.ComprehensiveNetEnergyShieldRegen + (output.EnergyShieldRecoupRecoveryAvg or 0) - totalEnergyShieldDegen
 				output.ComprehensiveTotalNetRegen = output.ComprehensiveNetLifeRegen + output.ComprehensiveNetManaRegen + output.ComprehensiveNetWardRegen + output.ComprehensiveNetEnergyShieldRegen
 				if breakdown then
-					t_insert(breakdown.ComprehensiveNetLifeRegen, s_format("%.1f ^8(total life regen)", output.LifeRegenRecovery))
+					t_insert(breakdown.ComprehensiveNetLifeRegen, localisation:Text("calc.defence.build_defence_estimations.line_150", { life_regen_recovery = output.LifeRegenRecovery }))
 					if (output.LifeRecoupRecoveryAvg or 0) ~= 0 then
-						t_insert(breakdown.ComprehensiveNetLifeRegen, s_format("+ %.1f ^8(average life recoup)", (output.LifeRecoupRecoveryAvg or 0)))
+						t_insert(breakdown.ComprehensiveNetLifeRegen, localisation:Text("calc.defence.build_defence_estimations.line_156", { value = (output.LifeRecoupRecoveryAvg or 0) }))
 					end
-					t_insert(breakdown.ComprehensiveNetLifeRegen, s_format("- %.1f ^8(total life degen)", totalLifeDegen))
+					t_insert(breakdown.ComprehensiveNetLifeRegen, localisation:Text("calc.defence.build_defence_estimations.line_151", { total_life_degen = totalLifeDegen }))
 					if (output.LifeLossLostAvg or 0) ~= 0 then
-						t_insert(breakdown.ComprehensiveNetLifeRegen, s_format("- %.1f ^8(average life lost over time)", (output.LifeLossLostAvg or 0)))
+						t_insert(breakdown.ComprehensiveNetLifeRegen, localisation:Text("calc.defence.build_defence_estimations.line_157", { value = (output.LifeLossLostAvg or 0) }))
 					end
 					t_insert(breakdown.ComprehensiveNetLifeRegen, s_format("= %.1f", output.ComprehensiveNetLifeRegen))
-					t_insert(breakdown.ComprehensiveNetManaRegen, s_format("%.1f ^8(total mana regen)", output.ManaRegenRecovery))
+					t_insert(breakdown.ComprehensiveNetManaRegen, localisation:Text("calc.defence.build_defence_estimations.line_152", { mana_regen_recovery = output.ManaRegenRecovery }))
 					if (output.ManaRecoupRecoveryAvg or 0) ~= 0 then
-						t_insert(breakdown.ComprehensiveNetManaRegen, s_format("+ %.1f ^8(average mana recoup)", (output.ManaRecoupRecoveryAvg or 0)))
+						t_insert(breakdown.ComprehensiveNetManaRegen, localisation:Text("calc.defence.build_defence_estimations.line_158", { value = (output.ManaRecoupRecoveryAvg or 0) }))
 					end
-					t_insert(breakdown.ComprehensiveNetManaRegen, s_format("- %.1f ^8(total mana degen)", totalManaDegen))
+					t_insert(breakdown.ComprehensiveNetManaRegen, localisation:Text("calc.defence.build_defence_estimations.line_153", { total_mana_degen = totalManaDegen }))
 					t_insert(breakdown.ComprehensiveNetManaRegen, s_format("= %.1f", output.ComprehensiveNetManaRegen))
-					breakdown.ComprehensiveNetWardRegen = { s_format("%.1f ^8(total runic ward regen)", output.WardRegenRecovery) }
-					t_insert(breakdown.ComprehensiveNetEnergyShieldRegen, s_format("%.1f ^8(total energy shield regen)", output.EnergyShieldRegenRecovery))
+					breakdown.ComprehensiveNetWardRegen = { localisation:Text("calc.defence.comprehensive_net_ward_regen.line", { ward_regen_recovery = output.WardRegenRecovery }) }
+					t_insert(breakdown.ComprehensiveNetEnergyShieldRegen, localisation:Text("calc.defence.build_defence_estimations.line_154", { energy_shield_regen_recovery = output.EnergyShieldRegenRecovery }))
 					if (output.EnergyShieldRecoupRecoveryAvg or 0) ~= 0 then
-						t_insert(breakdown.ComprehensiveNetEnergyShieldRegen, s_format("+ %.1f ^8(average energy shield recoup)", (output.EnergyShieldRecoupRecoveryAvg or 0)))
+						t_insert(breakdown.ComprehensiveNetEnergyShieldRegen, localisation:Text("calc.defence.build_defence_estimations.line_159", { value = (output.EnergyShieldRecoupRecoveryAvg or 0) }))
 					end
-					t_insert(breakdown.ComprehensiveNetEnergyShieldRegen, s_format("- %.1f ^8(total energy shield degen)", totalEnergyShieldDegen))
+					t_insert(breakdown.ComprehensiveNetEnergyShieldRegen, localisation:Text("calc.defence.build_defence_estimations.line_155", { total_energy_shield_degen = totalEnergyShieldDegen }))
 					t_insert(breakdown.ComprehensiveNetEnergyShieldRegen, s_format("= %.1f", output.ComprehensiveNetEnergyShieldRegen))
 					breakdown.ComprehensiveTotalNetRegen = {
-						s_format("Net Life Regen: %.1f", output.ComprehensiveNetLifeRegen),
-						s_format("+ Net Mana Regen: %.1f", output.ComprehensiveNetManaRegen),
-						s_format("+ Net Runic Ward Regen: %.1f", output.ComprehensiveNetWardRegen),
-						s_format("+ Net Energy Shield Regen: %.1f", output.ComprehensiveNetEnergyShieldRegen),
-						s_format("= Total Net Regen: %.1f", output.ComprehensiveTotalNetRegen)
+						localisation:Text("calc.defence.comprehensive_total_net_regen.line", { comprehensive_net_life_regen = output.ComprehensiveNetLifeRegen }),
+						localisation:Text("calc.defence.comprehensive_total_net_regen.line_2", { comprehensive_net_mana_regen = output.ComprehensiveNetManaRegen }),
+						localisation:Text("calc.defence.comprehensive_total_net_regen.line_3", { comprehensive_net_ward_regen = output.ComprehensiveNetWardRegen }),
+						localisation:Text("calc.defence.comprehensive_total_net_regen.line_4", { comprehensive_net_energy_shield_regen = output.ComprehensiveNetEnergyShieldRegen }),
+						localisation:Text("calc.defence.comprehensive_total_net_regen.line_5", { comprehensive_total_net_regen = output.ComprehensiveTotalNetRegen })
 					}
 				end
 			end
@@ -4288,15 +4289,15 @@ function calcs.buildDefenceEstimations(env, actor)
 		for _, damageType in ipairs(dmgTypeList) do
 			takenHit[damageType] = output[damageType.."TakenHit"] > 0 and output[damageType.."TakenHit"] or nil
 			t_insert(breakdown["totalTakenHit"].rowList, {
-				type = s_format("%s", damageType),
-				incoming = s_format("%.1f incoming damage", output[damageType.."TakenDamage"]),
-				mult = s_format("x %.3f damage mult", output[damageType.."TakenHitMult"] ),
+				type = s_format("%s", damageType), typeKey = localisation:TermKey("damage_type", damageType),
+				incoming = localisation:Text("calc.defence.build_defence_estimations.line_160", { value = output[damageType.."TakenDamage"] }),
+				mult = localisation:Text("calc.defence.build_defence_estimations.line_161", { value = output[damageType.."TakenHitMult"] }),
 				value = s_format("%d", m_ceil(output[damageType.."TakenHit"])),
 			})
 		end
 		local poolsRemaining = calcs.reducePoolsByDamage(nil, takenHit, actor)
 
-		t_insert(breakdown["totalTakenHit"], "Such a hit would drain the following resources:")
+		t_insert(breakdown["totalTakenHit"], localisation:Text("calc.defence.build_defence_estimations.line_147"))
 		breakdown["totalTakenHit"] = incomingDamageBreakdown(breakdown["totalTakenHit"], poolsRemaining, output)
 
 		for _, damageType in ipairs(dmgTypeList) do
@@ -4304,84 +4305,84 @@ function calcs.buildDefenceEstimations(env, actor)
 			local resourcesLost = poolsRemaining.resourcesLostToTypeDamage[damageType]
 			local resourcesLostSum = 0
 
-			t_insert(breakdownTable, s_format("Final %s Damage taken:", damageType))
-			t_insert(breakdownTable, s_format("%.1f incoming damage", output[damageType.."TakenDamage"]))
-			t_insert(breakdownTable, s_format("x %.3f damage mult", output[damageType.."TakenHitMult"]))
+			t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_163", { damage_type = localisation:TermRef("damage_type", damageType) }))
+			t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_160", { value = output[damageType.."TakenDamage"] }))
+			t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_161", { value = output[damageType.."TakenHitMult"] }))
 			t_insert(breakdownTable, s_format("= %.1f", output[damageType.."TakenHit"]))
 
-			t_insert(breakdownTable, "This part of the hit drains the following resources:")
+			t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_164"))
 			if resourcesLost.frostShield then
 				resourcesLostSum = resourcesLostSum + resourcesLost.frostShield
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Frost Shield Life", resourcesLost.frostShield))
+				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_165", { gem = colorCodes.GEM, frost_shield = resourcesLost.frostShield }))
 			end
 			if resourcesLost.spectres then
 				resourcesLostSum = resourcesLostSum + resourcesLost.spectres
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Total Spectre Life", resourcesLost.spectres))
+				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_166", { gem = colorCodes.GEM, spectres = resourcesLost.spectres }))
 			end
 			if resourcesLost.totems then
 				resourcesLostSum = resourcesLostSum + resourcesLost.totems
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Total Totem Life", resourcesLost.totems))
+				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_167", { gem = colorCodes.GEM, totems = resourcesLost.totems }))
 			end
 			if resourcesLost.vaalRejuvenationTotems then
 				resourcesLostSum = resourcesLostSum + resourcesLost.vaalRejuvenationTotems
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Total Vaal Rejuvenation Totem Life", resourcesLost.vaalRejuvenationTotems))
+				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_168", { gem = colorCodes.GEM, vaal_rejuvenation_totems = resourcesLost.vaalRejuvenationTotems }))
 			end
 			if resourcesLost.radianceSentinel then
 				resourcesLostSum = resourcesLostSum + resourcesLost.radianceSentinel
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Total Sentinel of Radiance Life", resourcesLost.radianceSentinel))
+				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_169", { gem = colorCodes.GEM, radiance_sentinel = resourcesLost.radianceSentinel }))
 			end
 			if resourcesLost.soulLink then
 				resourcesLostSum = resourcesLostSum + resourcesLost.soulLink
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Total Allied Energy shield", resourcesLost.soulLink))
+				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_170", { gem = colorCodes.GEM, soul_link = resourcesLost.soulLink }))
 			end
 			if resourcesLost.aegis then
 				resourcesLostSum = resourcesLostSum + resourcesLost.aegis
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."%s Aegis charge", resourcesLost.aegis, damageType))
+				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_171", { gem = colorCodes.GEM, aegis = resourcesLost.aegis, damage_type = localisation:TermRef("damage_type", damageType) }))
 			end
 			if resourcesLost.sharedElementalAegis then
 				resourcesLostSum = resourcesLostSum + resourcesLost.sharedElementalAegis
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Elemental Aegis charge", resourcesLost.sharedElementalAegis))
+				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_172", { gem = colorCodes.GEM, shared_elemental_aegis = resourcesLost.sharedElementalAegis }))
 			end
 			if resourcesLost.sharedAegis then
 				resourcesLostSum = resourcesLostSum + resourcesLost.sharedAegis
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Shared Aegis charge", resourcesLost.sharedAegis))
+				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_173", { gem = colorCodes.GEM, shared_aegis = resourcesLost.sharedAegis }))
 			end
 			if resourcesLost.guard then
 				resourcesLostSum = resourcesLostSum + resourcesLost.guard
-				t_insert(breakdownTable, s_format("\n\t%d "..colorCodes.SCOURGE.."%s Guard charge", resourcesLost.guard, damageType))
+				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_174", { scourge = colorCodes.SCOURGE, guard = resourcesLost.guard, damage_type = localisation:TermRef("damage_type", damageType) }))
 			end
 			if resourcesLost.sharedGuard then
 				resourcesLostSum = resourcesLostSum + resourcesLost.sharedGuard
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.SCOURGE.."Shared Guard charge", resourcesLost.sharedGuard))
+				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_175", { scourge = colorCodes.SCOURGE, shared_guard = resourcesLost.sharedGuard }))
 			end
 			if resourcesLost.energyShield then
 				resourcesLostSum = resourcesLostSum + resourcesLost.energyShield
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.ES.."Energy Shield%s", resourcesLost.energyShield, damageType == "Chaos" and "^8 (ES takes double damage from chaos)" and not modDB:Flag(nil, "ChaosNotDoubleESDamage") or ""))
+				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_176", { es = colorCodes.ES, energy_shield = resourcesLost.energyShield, value = ((damageType == "Chaos" and not modDB:Flag(nil, "ChaosNotDoubleESDamage") and localisation:Ref("calc.defence.build_defence_estimations.line.parameter_3")) or "") }))
 			end
 			if resourcesLost.eternalLifePrevented then
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.POSITIVE.."Life change prevented by Eternal Life", resourcesLost.eternalLifePrevented))
+				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_177", { positive = colorCodes.POSITIVE, eternal_life_prevented = resourcesLost.eternalLifePrevented }))
 			end
 			if resourcesLost.mana then
 				resourcesLostSum = resourcesLostSum + resourcesLost.mana
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.MANA.."Mana", resourcesLost.mana))
+				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_178", { mana = colorCodes.MANA, mana_2 = resourcesLost.mana }))
 			end
 			if resourcesLost.lifeLossPrevented and resourcesLost.lifeLossPrevented > 0 then
 				resourcesLostSum = resourcesLostSum + resourcesLost.lifeLossPrevented
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.LIFE.."Life ^7Loss Prevented", resourcesLost.lifeLossPrevented))
+				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_179", { life = colorCodes.LIFE, life_loss_prevented = resourcesLost.lifeLossPrevented }))
 			end
 			if resourcesLost.life and resourcesLost.life > 0 then
 				resourcesLostSum = resourcesLostSum + resourcesLost.life
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.LIFE.."Life", resourcesLost.life))
+				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_180", { life = colorCodes.LIFE, life_2 = resourcesLost.life }))
 			end
 			if resourcesLost.runicWard then
 				resourcesLostSum = resourcesLostSum + resourcesLost.runicWard
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.WARD.."Runic Ward", resourcesLost.runicWard))
+				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_181", { ward = colorCodes.WARD, runic_ward = resourcesLost.runicWard }))
 			end
 			if resourcesLost.overkill then
 				resourcesLostSum = resourcesLostSum + resourcesLost.overkill
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.NEGATIVE.."Overkill damage", resourcesLost.overkill))
+				t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_182", { negative = colorCodes.NEGATIVE, overkill = resourcesLost.overkill }))
 			end
-			t_insert(breakdownTable, s_format("\t^8(%d total)", resourcesLostSum))
+			t_insert(breakdownTable, localisation:Text("calc.defence.build_defence_estimations.line_183", { resources_lost_sum = resourcesLostSum }))
 			breakdown[damageType.."TakenHit"] = breakdownTable
 		end
 	end

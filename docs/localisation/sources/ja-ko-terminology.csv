@@ -1,0 +1,206 @@
+english,ja-JP,ko-KR
+Strength,筋力,힘
+Dexterity,敏捷性,민첩
+Intelligence,知性,지능
+Str,筋力,힘
+Dex,敏捷性,민첩
+Int,知性,지능
+Life,ライフ,생명력
+Mana,マナ,마나
+Spirit,スピリット,정신력
+Energy Shield,エナジーシールド,에너지 보호막
+Armour,アーマー,방어도
+Evasion,回避,회피
+Evasion Rating,回避力,회피
+Accuracy Rating,命中力,정확도
+Fire,火,화염
+Cold,冷気,냉기
+Lightning,雷,번개
+Chaos,混沌,카오스
+Physical,物理,물리
+Fire Damage,火ダメージ,화염 피해
+Cold Damage,冷気ダメージ,냉기 피해
+Lightning Damage,雷ダメージ,번개 피해
+Chaos Damage,混沌ダメージ,카오스 피해
+Physical Damage,物理ダメージ,물리 피해
+Fire Resistance,火耐性,화염 저항
+Cold Resistance,冷気耐性,냉기 저항
+Lightning Resistance,雷耐性,번개 저항
+Chaos Resistance,混沌耐性,카오스 저항
+Elemental Resistances,元素耐性,원소 저항
+Damage,ダメージ,피해
+Attack,アタック,공격
+Spell,スペル,주문
+Attack Speed,アタックスピード,공격 속도
+Cast Speed,キャストスピード,시전 속도
+Movement Speed,移動スピード,이동 속도
+Critical Hit Chance,クリティカルヒット率,치명타 명중 확률
+Critical Hit Damage,クリティカルヒットダメージ,치명타 피해
+Minion,ミニオン,소환수
+Minions,ミニオン,소환수
+Projectile,投射物,투사체
+Projectiles,投射物,투사체
+Melee,近接,근접
+Support,サポート,보조
+Skills,スキル,스킬
+Skill,スキル,스킬
+Equipment,装備,장비
+Bleeding,出血,출혈
+Bleed,出血,출혈
+Poison,毒,중독
+Ignite,発火,점화
+Chill,冷却,냉각
+Freeze,凍結,동결
+Shock,感電,감전
+Stun,スタン,기절
+Warrior,ウォリアー,전사
+Ranger,レンジャー,레인저
+Witch,ウィッチ,위치
+Sorceress,ソーサレス,소서리스
+Mercenary,マーセナリー,용병
+Monk,モンク,수도승
+Huntress,ハントレス,헌트리스
+Druid,ドルイド,드루이드
+Normal,ノーマル,일반
+Magic,マジック,마법
+Rare,レア,희귀
+Unique,ユニーク,고유
+Save,保存,저장
+Cancel,キャンセル,취소
+Close,閉じる,닫기
+Delete,削除,삭제
+Import,インポート,가져오기
+Export,エクスポート,내보내기
+Search,検索,검색
+Yes,はい,예
+No,いいえ,아니요
+None,なし,없음
+Options,オプション,옵션
+Notes,メモ,메모
+Items,アイテム,아이템
+Configuration,設定,설정
+Calculations,計算,계산
+Passive Skill Tree,パッシブスキルツリー,패시브 스킬 트리
+English,English,English
+日本語,日本語,日本語
+한국어,한국어,한국어
+DPS,DPS,DPS
+DoT,DoT,DoT
+Path of Building,Path of Building,Path of Building
+Authentication failed: {err_code},認証に失敗しました: {err_code},인증 실패: {err_code}
+Authenticated,認証済み,인증됨
+Not authenticated,未認証,인증되지 않음
+Logging in... ({value}),ログイン中... ({value}),로그인 중... ({value})
+Logging in... ({value}) - URL copied to clipboard,ログイン中... ({value}) - URLをクリップボードにコピーしました,로그인 중... ({value}) - URL이 클립보드에 복사되었습니다
+You do not have enough {resource} to use: {skills},{skills}の使用に必要な{resource}が不足しています,{skills} 사용에 필요한 {resource}이(가) 부족합니다
+attack,アタック,공격
+cast,キャスト,시전
+mine laying,マイン設置,지뢰 설치
+effective reload,実効リロード,실효 재장전
+totem placement,トーテム設置,토템 설치
+trap throwing,トラップ投擲,덫 투척
+trigger,トリガー,발동
+full unleash,全解放,완전 촉발
+{ailment} Effect,{ailment}の効果,{ailment} 효과
+Resulting ailment effect,最終的な状態異常の効果,최종 상태 이상 효과
+Resulting ailment effect{ramping},最終的な状態異常の効果{ramping},최종 상태 이상 효과{ramping}
+Contribution from Non-crits:,非クリティカルヒットの寄与:,비치명타의 기여:
+Contribution from Crits:,クリティカルヒットの寄与:,치명타의 기여:
+Effective DoT multiplier:,実効継続ダメージ倍率:,실효 지속 피해 배율:
+Damage over Time,継続ダメージ,지속 피해
+Damage over Time Multiplier,継続ダメージ倍率,지속 피해 배율
+Critical Strike Chance,クリティカルヒット率,치명타 명중 확률
+Critical Strike Multiplier,クリティカルダメージ倍率,치명타 피해 배율
+Increased,増加,증가
+Reduced,減少,감소
+More,乗算増加,증폭
+Less,乗算減少,감폭
+Total DPS,合計DPS,총 DPS
+Full DPS,総合DPS,종합 DPS
+Average Hit,平均ヒットダメージ,평균 명중 피해
+Effective Hit Pool,実効耐久値,유효 생명력 풀
+Armour and Evasion,アーマーおよび回避力,방어도 및 회피
+Maximum Life,最大ライフ,최대 생명력
+Maximum Mana,最大マナ,최대 마나
+Maximum Energy Shield,最大エナジーシールド,최대 에너지 보호막
+Life Regeneration,ライフ自動回復,생명력 재생
+Mana Regeneration,マナ自動回復,마나 재생
+Energy Shield Recharge,エナジーシールドリチャージ,에너지 보호막 재충전
+Block Chance,ブロック率,막기 확률
+Hit Chance,命中率,명중 확률
+Ailment,状態異常,상태 이상
+Ailments,状態異常,상태 이상
+Minion Skills,ミニオンスキル,소환수 스킬
+Main Skill,メインスキル,주력 스킬
+Skill Gems,スキルジェム,스킬 젬
+Support Gems,サポートジェム,보조 젬
+Passive Points,パッシブポイント,패시브 포인트
+Ascendancy Points,アセンダンシーポイント,전직 포인트
+Import/Export Build,ビルドのインポート／エクスポート,빌드 가져오기/내보내기
+Build,ビルド,빌드
+New Build,新規ビルド,새 빌드
+Save As,名前を付けて保存,다른 이름으로 저장
+Reset,リセット,초기화
+Apply,適用,적용
+Default,デフォルト,기본값
+Enabled,有効,활성화
+Disabled,無効,비활성화
+Level,レベル,레벨
+Quality,品質,퀄리티
+Required Level,要求レベル,요구 레벨
+Weapon,武器,무기
+Helmet,兜,투구
+Body Armour,鎧,갑옷
+Gloves,手袋,장갑
+Boots,靴,장화
+Shield,盾,방패
+Ring,指輪,반지
+Amulet,アミュレット,목걸이
+Belt,ベルト,허리띠
+Flask,フラスコ,플라스크
+Jewel,ジュエル,주얼
+Quiver,矢筒,화살통
+Socket,ソケット,홈
+Sockets,ソケット,홈
+Charm,チャーム,호신부
+Charms,チャーム,호신부
+NORMAL,ノーマル,일반
+MAGIC,マジック,마법
+RARE,レア,희귀
+UNIQUE,ユニーク,고유
+RELIC,レリック,유물
+GEM,ジェム,젬
+FIRE,火,화염
+COLD,冷気,냉기
+LIGHTNING,雷,번개
+CHAOS,混沌,카오스
+STRENGTH,筋力,힘
+DEXTERITY,敏捷性,민첩
+INTELLIGENCE,知性,지능
+POSITIVE,プラス,긍정
+NEGATIVE,マイナス,부정
+WARNING,警告,경고
+TIP,ヒント,팁
+CURRENCY,カレンシー,화폐
+Note: ,メモ: ,메모: 
+Add a note for this item slot,この装備スロットにメモを追加,이 장비 슬롯에 메모 추가
+"Click to insert tag, then type inside the curly braces.",クリックしてタグを挿入し、波括弧内に入力してください。,클릭하여 태그를 삽입한 뒤 중괄호 안에 입력하세요.
+Beast,獣,야수
+Humanoid,人型,인간형
+Eldritch,異界,섬뜩
+Construct,構造物,구조물
+Demon,悪魔,악마
+Undead,アンデッド,언데드
+From {source},{source}由来,{source}에서 발생
+{skill} (Mirage),{skill}（ミラージュ）,{skill} (환영)
+Best Bleed DPS,最大出血DPS,최대 출혈 DPS
+Best Corr. Blood DPS,最大穢れた血DPS,최대 타락한 피 DPS
+Best Ignite DPS,最大発火DPS,최대 점화 DPS
+Best Burning Ground DPS,最大炎上領域DPS,최대 용암 지대 DPS
+Best Poison DPS,最大毒DPS,최대 중독 DPS
+Best Caustic Ground DPS,最大腐食領域DPS,최대 부식성 지대 DPS
+Full Impale DPS,合計串刺しDPS,총 꿰뚫기 DPS
+Full Decay DPS,合計腐敗DPS,총 부패 DPS
+Full DoT DPS,合計継続ダメージDPS,총 지속 피해 DPS
+Full Culling DPS,合計カリングDPS,총 마무리 타격 DPS
+ ^8[{value}{percentage} per point], ^8[1ポイントごとに{value}{percentage}], ^8[포인트당 {value}{percentage}]

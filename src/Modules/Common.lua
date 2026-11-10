@@ -19,6 +19,7 @@ local s_char = string.char
 local b_rshift = bit.rshift
 local b_and = bit.band
 local b_xor = bit.bxor
+local utf8 = require('lua-utf8')
 
 common = { }
 
@@ -322,7 +323,8 @@ function sanitiseText(text)
 	if not text then return nil end
 	-- Something something unicode support something grumble
 	-- Only do these replacements if a char from 128-255 or '<' is found first
-	return text:find("[\128-\255<]") and text
+	if not text:find("[\128-\255<]") then return text end
+	local cleaned = text
 		:gsub("%b<>", "")
 		:gsub("\226\128\144", "-") -- U+2010 HYPHEN
 		:gsub("\226\128\145", "-") -- U+2011 NON-BREAKING HYPHEN
@@ -341,9 +343,10 @@ function sanitiseText(text)
 		:gsub("\151", "-") -- U+2014 EM DASH
 		:gsub("\228", "a") -- U+00E4 LATIN SMALL LETTER A WITH DIAERESIS
 		:gsub("\246", "o") -- U+00F6 LATIN SMALL LETTER O WITH DIAERESIS
-		-- unsupported
-		:gsub("[\128-\255]", "?")
-		or text
+	-- UTF-8 输入在 Unicode 运行时中可以直接交给本地化层；旧的非 UTF-8 字节仍回退为问号。
+	local ok = pcall(utf8.len, cleaned)
+	if ok then return cleaned end
+	return cleaned:gsub("[\128-\255]", "?")
 end
 
 -- Convert int to 4 bytes string

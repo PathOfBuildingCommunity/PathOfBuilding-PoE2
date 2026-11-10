@@ -1,0 +1,64 @@
+<< Back,<< 返回
+Current build,当前 BD
+Save As,另存为
+Manual,手动
+
+
+Enter name for this loadout:,为此装备配置输入名字:
+
+
+
+
+
+
+Import/Export Build,导入/导出构筑
+Notes,备注
+Configuration,配置
+Tree,天赋树
+Skills,技能
+Items,物品
+Calcs,计算
+Party,队伍
+Compare,比较
+
+Main Skill:,主技能:
+
+Tip: You can drag items from the Items tab onto this dropdown to equip them onto the minion.,提示:你可以将物品从“物品”选项卡中拖拽到这个下拉菜单中以将其装备到召唤物上。
+
+{0} Warnings,{0} 警告
+
+
+No Loadouts,无装备配置
+Loadouts:,装备配置:
+New Loadout,新装备配置
+Sync,同步
+Help >>,帮助 >>
+
+Labyrinth: Normal Lab,帝王迷宮: 普通
+Labyrinth: Cruel Lab,帝王迷宮: 残酷
+Labyrinth: Merciless Lab,帝王迷宮: 无情
+Labyrinth: Uber Lab,帝王迷宮: 终极
+
+You have too many passive points allocated,你分配了过多的天赋点
+You have too many ascendancy points allocated,你分配了过多的升华点
+You have too many secondary ascendancy points allocated,你分配了过多的次级升华点
+Required Level: {0},需求的等级: {0}
+Estimated Progress:,预计的进展:
+Act: {0},章节: {0}
+Questpoints: {0},任务天赋点: {0}
+Extra Skillpoints: {0},额外技能点: {0}
+
+
+
+This build has unsaved changes.,这个构筑的变更还未保存。
+Do you want to save them now?,是否现在立即保存?
+Do you want to save them before exiting?,是否在退出前立即保存?
+Do you want to save them before updating?,是否在更新前立即保存?
+Don't Save,不保存
+Save Changes,保存变更
+Enter new build name:,输入新构筑的名称:
+Folder:,文件夹:
+New Folder...,新建文件夹...
+
+Spectres in your Library must be assigned to an active,^7你灵体库中的灵体必须激活一名
+Raise Spectre gem for their buffs and curses to activate,^7召唤灵体技能石导致的增益与诅咒

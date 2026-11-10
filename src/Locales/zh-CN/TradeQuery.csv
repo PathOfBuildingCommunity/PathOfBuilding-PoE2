@@ -1,0 +1,32 @@
+Failed to Get PoE League List response,获取联盟列表回应失败
+
+PoE Ninja Rate Limit Exceeded: {0},达到PoE Ninja速率限制: {0}
+Failed to Get PoE Ninja response,获取PoE Ninja回应失败
+
+
+
+Get Currency Conversion Rates,获取通货兑换比率
+Trader,交易器
+
+Update Currency Conversion Rates,升级通货兑换比率
+Currency Rates are not available,通货兑换比率不可用
+Currency Conversion rates are pulled from PoE Ninja,通货兑换比率拉取自PoE Ninja
+The data is only available for the PC realm.,此数据仅PC版可用
+Currency Rates are very recent,通货兑换比率是绝对最新的
+Currency Rates are recent,通货兑换比率是近期的
+Updates are limited to once per hour and not necessary more than once per day,升级被限制为每小时最多一次，每天没必要多次进行
+Conversion Rates are less than an hour old ({0} seconds old),通货兑换比率过时不超过一小时(过时{0}秒)
+
+No Matching Results,无匹配结果
+
+"Price sorting is not available, falling back to Stat Value sort.",价格排序不可用，回落到统计值排序。
+
+Find best,寻找最佳
+trade/search,交易/搜索
+Searching...,搜索中……
+Price Item,给物品定价
+Creates a weighted search to find the highest Stat Value items for this slot.,创建一个加权搜索以查找此槽的最高统计值项。
+Paste trade URL here...,粘贴交易URL至此……
+Control + click to open in web-browser,Control + click以在浏览器中打开
+You must set your POESESSID to use search feature,你必须设置poessid以使用搜索功能
+Enter a valid trade URL,输入一个有效的URL

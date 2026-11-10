@@ -1,0 +1,28 @@
+﻿"To import a build it must be exported with ""Export support"" enabled in the import/export tab",要导入一个构筑，它必须在导入/导出选项卡中勾选“导出支援”后导出再使用，
+"	Auras with the highest effect will take priority, your curses will take priority over a support's",	具有最高效果的光环将被优先计算，而你的诅咒则优先于支援的
+	All of these effects can be found in the Calcs tab,	所有这些效果都可以在计算选项卡中找到
+Enter a build code/URL below:,在下方输入一个构筑代码/URL:
+Party Member Stats,队伍成员统计数据
+Warcry Skills,战吼技能
+Link Skills,羁绊技能
+EnemyConditions,敌人情况
+EnemyMods,敌人修正
+Invalid input,无效输入
+Destination for Import/clear,导入/清除的对象
+Currently Links Skills do not export,当前的羁绊技能不会导出
+Append,附加
+This sets the import button to append to the current party lists instead of replacing them (curses will still replace),这会将导入按钮的功能设置为将角色附加到当前的队伍列表中，而不是替换它们(诅咒仍然会替换)。
+Clear,清除
+Clears all the party tab imported data,清除所有队伍选项卡内已导入的数据
+Show Advanced Info,显示进阶信息
+"This shows the advanced info like what stats each aura/curse etc are adding, as well as enables the ability to edit them without a re-export","这会显示进阶信息，比每个光环/诅咒等添加的统计数据，以及无需重新导出即可编辑它们的能力"
+"Do not edit any boxes unless you know what you are doing, use copy/paste or import instead","不要编辑任何框，除非你知道你在做什么，使用复制/粘贴或导入代替"
+Disable Party Effects,禁用队伍效果
+"Removes the effects of the supports, without removing the data","移除支援效果但不移除支援数据"
+"Use ""rebuild all"" to apply the effects again","使用“重建全部”以重新应用效果"
+Rebuild All,重建全部
+Reparse all the inputs incase they have been disabled or they have changed since loading the build or importing,重新解析所有输入，以应对它们被禁用或在加载构筑&导入后发生更改的情况
+Auras,光环
+Enemy Conditions,敌人情况
+Enemy Modifiers,敌人修正
+Curses,诅咒

@@ -1,0 +1,448 @@
+%Inc Life,生命增加百分比
+(Not supported in PoB yet),(PoB 尚未支援)
+(Unused),(未使用)
+(Used in '{0}'),(用於「{0}」)
+(hover over the item and Ctrl+C) to view or edit,（游標指向物品後按 Ctrl+C），即可查看、
+(replacing {0}),(替換 {0})
+Activations per Brand,每個烙印啟動次數
+Aegis Buckler,神盾輕盾
+Aged Tower Shield,陳舊塔盾
+Amethyst Charm,紫晶護符
+Ancestor Tower Shield,先祖塔盾
+Ancient Buckler,遠古輕盾
+Antidote Charm,解毒護符
+Antler Focus,靈鹿法器
+Any Loadout,所有配裝
+Array Buckler,排列輕盾
+Arrayed Focus,陣列法器
+Attachment Range,附著範圍
+Attuned Focus,調諧法器
+Aura Effect Mod,光環效果詞綴
+Aureate Targe,鍍金圓盾
+Average Burst Damage,平均爆發傷害
+Avg. Mines per Throw,平均每次投擲地雷數
+Avg. Traps per Throw,平均每次投擲陷阱數
+Avian Targe,飛羽圓盾
+Baroque Targe,巴洛克圓盾
+Barricade Tower Shield,障壁塔盾
+Blacksteel Crest Shield,烏鋼紋章盾
+Blacksteel Tower Shield,黑鋼塔盾
+Bladeguard Buckler,刃衛輕盾
+Blazon Crest Shield,家徽紋章盾
+Block Chance,格擋機率
+Blunt Quiver,鈍箭袋
+Bounces Count,彈射數
+Braced Tower Shield,加固塔盾
+Broadhead Quiver,寬頭箭袋
+Bulwark Tower Shield,守護塔盾
+Burning Ground DPS,燃燒地面每秒傷害
+Calm Leg,沉靜之腿
+Carved Targe,雕刻圓盾
+Cast Time,施放時間
+Caster Arm,施法之臂
+Caustic Ground DPS,腐蝕地面每秒傷害
+Channel Time,引導時間
+Chaos Max Hit,混沌最大承傷
+Chiseled Targe,鑿刻圓盾
+Cleansing Charm,淨化護符
+Coiled Buckler,盤繞輕盾
+Cold Max Hit,冰霜最大承傷
+Combat Arm,戰鬥之臂
+Commanding Arm,統御之臂
+Corrupting Blood DPS,腐化之血每秒傷害
+Crescent Targe,新月圓盾
+Crit Bifurcate Chance,暴擊分岔機率
+Crucible Tower Shield,磨煉塔盾
+Crystal Focus,水晶法器
+Culling DPS,撲殺秒傷
+Cultist Focus,教徒法器
+Cultist Tower Shield,教徒塔盾
+Current Loadout,目前配裝
+Curse Effect Mod,詛咒效果詞綴
+Damage inc. Impale,含穿刺傷害
+Decay DPS,腐蝕秒傷
+Decrepifying Arm,衰弱之臂
+Defiant Tower Shield,抗爭塔盾
+Deflect Chance,偏轉機率
+Deflective Arm,偏轉之臂
+Deified Crest Shield,神化紋章盾
+Dekharan Crest Shield,部下紋章盾
+Del Unused,刪除閒置
+Descry Crest Shield,遠見紋章盾
+Desert Buckler,沙漠輕盾
+Dex,敏捷
+"Double-click an item from one of the lists,",按兩下清單中的物品，
+Druidic Focus,德魯伊法器
+ES Cost per second,每秒能盾消耗
+ES Recovery,能量護盾回復
+ES Regen,能量護盾再生
+Edged Buckler,刃緣輕盾
+Effective Hit Pool,有效承傷池
+Effective Trigger Rate,有效觸發速度
+Effigial Tower Shield,靈像塔盾
+Elegant Focus,優雅法器
+Elemental Max Hit,元素最大承傷
+Emblem Crest Shield,徽印紋章盾
+Empyreal Crest Shield,蒼穹紋章盾
+Enemy Life Equivalent,等效敵人生命
+Energy Blade One Handed,單手能量之刃
+Energy Blade Two Handed,雙手能量之刃
+Energy Shield Cost,能量護盾消耗
+Engraved Crest Shield,紋刻紋章盾
+Engraved Focus,紋刻法器
+Eternal,永恆
+Evasive Leg,閃避之腿
+Ezomyte,艾茲麥
+Feathered Targe,羽毛圓盾
+Fire Max Hit,火焰最大承傷
+Fire Quiver,火焰箭袋
+Firing Rate,射擊頻率
+Flail,連枷
+Fork Count,分裂數量
+Fortress Tower Shield,要塞塔盾
+Full Dot DPS,完整持續傷害每秒傷害
+Fur-lined Targe,皮襯圓盾
+Gargantuan Life Flask,巨大生命藥劑
+Gargantuan Mana Flask,巨大魔力藥劑
+Glacial Fortress,冰川堡壘
+Glowering Crest Shield,怒視紋章盾
+Golden Targe,耀金圓盾
+Goldworked Tower Shield,黃金塔盾
+Grand Targe,宏偉圓盾
+Guarding Arm,守護之臂
+Gutspike Buckler,挑腸輕盾
+Hallowed Focus,祝聖法器
+Hardwood Targe,硬木圓盾
+Heraldric Tower Shield,紋章塔盾
+"If there's 2 slots an item can go in,",若物品可放入兩個裝備欄，
+Impale DPS,穿刺秒傷
+Impale Damage,穿刺傷害
+Int,智慧
+Intricate Crest Shield,錯綜紋章盾
+Iron Buckler,鍛鐵輕盾
+Ironwood Targe,鐵木圓盾
+Jingling Buckler,響聲輕盾
+Jingling Crest Shield,響聲紋章盾
+Jingling Focus,響聲法器
+Kalguuran,卡爾葛
+Karui,卡魯
+Laminate Buckler,層壓輕盾
+Leather Buckler,皮革輕盾
+Lesser Life Flask,小型生命藥劑
+Lesser Mana Flask,小型魔力藥劑
+Level,等級
+Leyline Focus,地脈法器
+Life Cost,生命消耗
+Life Cost per second,每秒生命消耗
+Life Recoverable,可恢復的生命
+Life Recovery,生命回復
+Lightning Max Hit,閃電最大承傷
+MH Accuracy,命中(主手)
+Magus Focus,賢者法器
+Mammoth Targe,猛獁圓盾
+Mana Cost per second,每秒魔力消耗
+Mana Recovery,魔力回復
+Mana Regen,魔力回復
+Maraketh,馬拉克斯
+Max Chain Count,最大連鎖數量
+Max Number of Seals,封印數量上限
+May your resolve never waver.,願你的決心永不動搖。
+Mercenary Targe,傭兵圓盾
+Metalworked Tower Shield,金屬塔盾
+Mine Throwing Time,地雷丟擲時間
+Mirage Burning Ground DPS,幻影燃燒地面每秒傷害
+Mirage Caustic Ground DPS,幻影腐蝕地面每秒傷害
+Mosaic Targe,鑲嵌圓盾
+Movement Speed Modifier,移動速度修正
+Net ES Recovery,能量護盾淨回復
+Net Life Recovery,生命淨回復
+Net Mana Recovery,魔力淨回復
+Net Runic Ward Recovery,符文結界淨回復
+Noble Tower Shield,高貴塔盾
+OH Accuracy,命中(副手)
+Omen Crest Shield,預兆紋章盾
+Omni,全知
+One Hand Axe,單手斧
+One Hand Mace,單手錘
+One Hand Sword,單手劍
+Ornate Buckler,華麗輕盾
+Painted Crest Shield,彩繪紋章盾
+Pearl Buckler,珍珠輕盾
+Pelage Targe,毛皮圓盾
+Penetrating Quiver,穿透箭袋
+Phalanx Tower Shield,方陣塔盾
+Phys Max Hit,物理最大承傷
+Plated Buckler,鋼板輕盾
+Plumed Focus,羽飾法器
+Polished Targe,拋光圓盾
+Pre {0},{0} 之前
+Presence Radius,存在半徑
+Primed Quiver,灌注箭袋
+"Proj, Split Count",投射物分裂數
+Proj. Speed Mod,投射物速度詞綴
+PvP Average Damage,對戰平均傷害
+PvP Average Hit,對戰平均擊中傷害
+PvP Hit DPS,對戰擊中每秒傷害
+PvP Hit Taken,對戰承受擊中傷害
+Quantity Multiplier,數量倍率
+Quartered Crest Shield,四分紋章盾
+Rage Cost,盛怒消耗
+Rage Cost per second,每秒盛怒消耗
+Rage Regen,盛怒回復
+Raise Shield,舉盾
+Rampart Tower Shield,壁壘塔盾
+Recoverable ES,可恢復的能盾
+Reload Time,裝填時間
+Removing this item from {0} will give you:,從{0}卸下此物品後的變化：
+Requires,需求
+Reservation DPS,保留每秒傷害
+Reserve Duration,保留持續時間
+Reserved Darkness,已保留黑暗
+Restorative Leg,恢復之腿
+Ridged Buckler,脊狀輕盾
+Ringed Buckler,環紋輕盾
+Rondel de Ezo,艾茲麥迴旋曲
+Royal Tower Shield,皇族塔盾
+Ruby Charm,紅玉護符
+Runed Focus,符文法器
+Runeforged Aegis Buckler,符鍛神盾輕盾
+Runeforged Ancestor Tower Shield,符鍛先祖塔盾
+Runeforged Ancient Buckler,符鍛遠古輕盾
+Runeforged Antler Focus,符鍛靈鹿法器
+Runeforged Array Buckler,符鍛排列輕盾
+Runeforged Arrayed Focus,符鍛陣列法器
+Runeforged Attuned Focus,符鍛調諧法器
+Runeforged Aureate Targe,符鍛鍍金圓盾
+Runeforged Avian Targe,符鍛飛羽圓盾
+Runeforged Baroque Targe,符鍛巴洛克圓盾
+Runeforged Barricade Tower Shield,符鍛障壁塔盾
+Runeforged Blacksteel Crest Shield,符鍛烏鋼紋章盾
+Runeforged Blacksteel Tower Shield,符鍛黑鋼塔盾
+Runeforged Bladeguard Buckler,符鍛刃衛輕盾
+Runeforged Blazon Crest Shield,符鍛家徽紋章盾
+Runeforged Braced Tower Shield,符鍛加固塔盾
+Runeforged Bulwark Tower Shield,符鍛守護塔盾
+Runeforged Carved Targe,符鍛雕刻圓盾
+Runeforged Chiseled Targe,符鍛鑿刻圓盾
+Runeforged Crescent Targe,符鍛新月圓盾
+Runeforged Crucible Tower Shield,符鍛磨煉塔盾
+Runeforged Crystal Focus,符鍛水晶法器
+Runeforged Cultist Focus,符鍛教徒法器
+Runeforged Defiant Tower Shield,符鍛抗爭塔盾
+Runeforged Deified Crest Shield,符鍛神化紋章盾
+Runeforged Dekharan Crest Shield,符鍛部下紋章盾
+Runeforged Desert Buckler,符鍛沙漠輕盾
+Runeforged Druidic Focus,符鍛德魯伊法器
+Runeforged Edged Buckler,符鍛刃緣輕盾
+Runeforged Effigial Tower Shield,符鍛靈像塔盾
+Runeforged Elegant Focus,符鍛優雅法器
+Runeforged Emblem Crest Shield,符鍛徽印紋章盾
+Runeforged Empyreal Crest Shield,符鍛蒼穹紋章盾
+Runeforged Engraved Focus,符鍛紋刻法器
+Runeforged Feathered Targe,符鍛羽毛圓盾
+Runeforged Fortress Tower Shield,符鍛要塞塔盾
+Runeforged Glowering Crest Shield,符鍛怒視紋章盾
+Runeforged Golden Targe,符鍛耀金圓盾
+Runeforged Goldworked Tower Shield,符鍛黃金塔盾
+Runeforged Grand Targe,符鍛宏偉圓盾
+Runeforged Gutspike Buckler,符鍛挑腸輕盾
+Runeforged Hallowed Focus,符鍛祝聖法器
+Runeforged Hardwood Targe,符鍛硬木圓盾
+Runeforged Heraldric Tower Shield,符鍛紋章塔盾
+Runeforged Intricate Crest Shield,符鍛錯綜紋章盾
+Runeforged Iron Buckler,符鍛鍛鐵輕盾
+Runeforged Jingling Buckler,符鍛響聲輕盾
+Runeforged Jingling Crest Shield,符鍛響聲紋章盾
+Runeforged Laminate Buckler,符鍛層壓輕盾
+Runeforged Leather Buckler,符鍛皮革輕盾
+Runeforged Leyline Focus,符鍛地脈法器
+Runeforged Magus Focus,符鍛賢者法器
+Runeforged Mammoth Targe,符鍛猛獁圓盾
+Runeforged Mosaic Targe,符鍛鑲嵌圓盾
+Runeforged Noble Tower Shield,符鍛高貴塔盾
+Runeforged Omen Crest Shield,符鍛預兆紋章盾
+Runeforged Ornate Buckler,符鍛華麗輕盾
+Runeforged Painted Tower Shield,符鍛彩繪塔盾
+Runeforged Pearl Buckler,符鍛珍珠輕盾
+Runeforged Pelage Targe,符鍛毛皮圓盾
+Runeforged Phalanx Tower Shield,符鍛方陣塔盾
+Runeforged Plated Buckler,符鍛鋼板輕盾
+Runeforged Plumed Focus,符鍛羽飾法器
+Runeforged Polished Targe,符鍛拋光圓盾
+Runeforged Quartered Crest Shield,符鍛四分紋章盾
+Runeforged Rampart Tower Shield,符鍛壁壘塔盾
+Runeforged Ridged Buckler,符鍛脊狀輕盾
+Runeforged Ringed Buckler,符鍛環紋輕盾
+Runeforged Royal Tower Shield,符鍛皇族塔盾
+Runeforged Runed Focus,符鍛符文法器
+Runeforged Sacred Focus,符鍛神聖法器
+Runeforged Sectarian Crest Shield,符鍛宗派紋章盾
+Runeforged Seer Crest Shield,符鍛先知紋章盾
+Runeforged Sekheman Crest Shield,符鍛絲克瑪紋章盾
+Runeforged Sigil Crest Shield,符鍛符印紋章盾
+Runeforged Soaring Targe,符鍛翱翔圓盾
+Runeforged Spiked Buckler,符鍛尖刺輕盾
+Runeforged Spikeward Buckler,符鍛尖衛輕盾
+Runeforged Splintered Tower Shield,符鍛朽木塔盾
+Runeforged Stoic Crest Shield,符鍛堅毅紋章盾
+Runeforged Stone Targe,符鍛岩石圓盾
+Runeforged Stone Tower Shield,符鍛岩石塔盾
+Runeforged Stratified Targe,符鍛分層圓盾
+Runeforged Studded Targe,符鍛鑲釘圓盾
+Runeforged Tasalian Focus,符鍛塔薩利法器
+Runeforged Tawhoan Tower Shield,符鍛塔赫亞塔盾
+Runeforged Tonal Focus,符鍛音調法器
+Runeforged Twig Focus,符鍛枝條法器
+Runeforged Vaal Crest Shield,符鍛瓦爾紋章盾
+Runeforged Vaal Tower Shield,符鍛瓦爾塔盾
+Runeforged Voodoo Focus,符鍛巫毒法器
+Runeforged Warden Bow,符鍛守護者之弓
+Runeforged Wayward Crest Shield,符鍛剛愎紋章盾
+Runeforged Whorl Focus,符鍛渦紋法器
+Runeforged Wooden Buckler,符鍛木頭輕盾
+Runeforged Woven Focus,符鍛編織法器
+Runemastered Antler Focus,符煉靈鹿法器
+Runemastered Array Buckler,符煉排列輕盾
+Runemastered Barricade Tower Shield,符煉障壁塔盾
+Runemastered Blacksteel Tower Shield,符煉黑鋼塔盾
+Runemastered Blazon Crest Shield,符煉家徽紋章盾
+Runemastered Braced Tower Shield,符煉加固塔盾
+Runemastered Crescent Targe,符煉新月圓盾
+Runemastered Crucible Tower Shield,符煉磨煉塔盾
+Runemastered Crystal Focus,符煉水晶法器
+Runemastered Effigial Tower Shield,符煉靈像塔盾
+Runemastered Emblem Crest Shield,符煉徽印紋章盾
+Runemastered Engraved Focus,符煉紋刻法器
+Runemastered Glacial Fortress,符煉冰川堡壘
+Runemastered Hardwood Targe,符煉硬木圓盾
+Runemastered Heraldric Tower Shield,符煉紋章塔盾
+Runemastered Intricate Crest Shield,符煉錯綜紋章盾
+Runemastered Iron Buckler,符煉鍛鐵輕盾
+Runemastered Jingling Crest Shield,符煉響聲紋章盾
+Runemastered Leather Buckler,符煉皮革輕盾
+Runemastered Omen Crest Shield,符煉預兆紋章盾
+Runemastered Ornate Buckler,符煉華麗輕盾
+Runemastered Painted Tower Shield,符煉彩繪塔盾
+Runemastered Plated Buckler,符煉鋼板輕盾
+Runemastered Plumed Focus,符煉羽飾法器
+Runemastered Rampart Tower Shield,符煉壁壘塔盾
+Runemastered Ridged Buckler,符煉脊狀輕盾
+Runemastered Sigil Crest Shield,符煉符印紋章盾
+Runemastered Spiked Buckler,符煉尖刺輕盾
+Runemastered Splintered Tower Shield,符煉朽木塔盾
+Runemastered Tonal Focus,符煉音調法器
+Runemastered Twig Focus,符煉枝條法器
+Runemastered Vaal Tower Shield,符煉瓦爾塔盾
+Runemastered Venerable Defender,符煉古老護衛盾
+Runemastered Voodoo Focus,符煉巫毒法器
+Runemastered Wooden Buckler,符煉木頭輕盾
+Runemastered Woven Focus,符煉編織法器
+Runic Ward,符文結界
+Runic Ward Cost,符文結界消耗
+Runic Ward Cost / s,每秒符文結界消耗
+Runic Ward Cost per second,每秒符文結界消耗
+Runic Ward Recovery,符文結界回復
+Runic Ward Regen,符文結界再生
+Sacral Quiver,聖禮箭袋
+Sacred Focus,神聖法器
+Sapphire Charm,藍玉護符
+Seal Gain Frequency,封印獲取頻率
+Search,搜尋
+Secondary Duration,附加持續時間
+Sectarian Crest Shield,宗派紋章盾
+Seer Crest Shield,先知紋章盾
+Sekheman Crest Shield,絲克瑪紋章盾
+Serrated Quiver,鋸齒箭袋
+Sigil Crest Shield,符印紋章盾
+Silver Charm,白銀護符
+Skill DPS,技能秒傷
+Skill Movement Speed,技能移動速度
+Soaring Targe,翱翔圓盾
+Soul Cost,靈魂消耗
+Soul Gain Prevent.,無法獲取靈魂時長
+Spell Evade Chance,法術閃避機率
+Spell Proj. Evade Chance,法術投射物閃避機率
+Spell Suppression Chance,法術壓抑機率
+Spiked Buckler,尖刺輕盾
+Spikeward Buckler,尖衛輕盾
+Sprinters Leg,疾跑之腿
+Staghorn Focus,雄鹿角法器
+Staunching Charm,止血護符
+Stoic Crest Shield,堅毅紋章盾
+Stone Targe,岩石圓盾
+Stone Tower Shield,岩石塔盾
+Stored Uses,儲存使用次數
+Str,力量
+Stratified Targe,分層圓盾
+Studded Targe,鑲釘圓盾
+Sturdy Leg,強健之腿
+Surefooted Leg,穩步之腿
+Sustainable Trauma,可持續創傷
+Tasalian Focus,塔薩利法器
+Tethering Bands,束縛環帶
+This is a list of items that will be shared between all of,這裡的物品可在所有構築間共用。
+This is the list of items that have been added to this build.,這是已加入目前構築的物品清單。
+Time to Gain Max Seals,獲取全部封印所需時間
+Tip: Hold Shift to display a tooltip for the granted skill.,提示：按住 Shift 查看賦予技能的說明。
+Tip: Hold Shift to display a tooltip for the granted skills.,提示：按住 Shift 查看賦予技能的說明。
+Tip: Press Ctrl+D in the Items tab to disable the display of stat differences.,提示：在物品頁按 Ctrl+D 隱藏屬性差異。
+Tip: Press Ctrl+D in the Items tab to enable the display of stat differences.,提示：在物品頁按 Ctrl+D 顯示屬性差異。
+Tip: Press Ctrl+D to disable the display of stat differences.,提示：按 Ctrl+D 隱藏屬性差異。
+Tip: Press Ctrl+D to enable the display of stat differences.,提示：按 Ctrl+D 顯示屬性差異。
+Tonal Focus,音調法器
+Topaz Charm,黃玉護符
+Total DPS inc. Bleed,含流血每秒總傷害
+Total DPS inc. Impale,總計秒傷(含穿刺)
+Total Damage per Bleed,每次流血總傷害
+Total Darkness,黑暗總量
+Total Degen,總計每秒扣血
+Total Explode Chance,總爆炸機率
+Total Mana,魔力總量
+Total Mirage DPS,總計幻影射手秒傷
+Total Net Recovery,總淨回復
+Total Spirit,精魂總量
+Total Wisp DPS,鬼靈每秒總傷害
+Toxic Quiver,劇毒箭袋
+Transcendent Arm,超凡手臂
+Transcendent Leg,超凡腿部
+Transcendent Life Flask,超凡生命藥劑
+Transcendent Limb,超凡肢體
+Tribute,貢品
+Twig Focus,枝條法器
+Two Hand Axe,雙手斧
+Two Hand Mace,雙手錘
+Two Hand Sword,雙手劍
+Two-Point Quiver,雙尖箭袋
+Uncap. Hit Chance,未封頂命中率
+Unreserved Spirit,未保留精魂
+Unused Items,未使用物品
+Vaal,瓦爾
+Vaal Crest Shield,瓦爾紋章盾
+Vaal Tower Shield,瓦爾塔盾
+Variant: Current ({0} variants),變體：目前（共 {0} 種）
+Variant: {0},變體：{0}
+Variant: {0} ({1} variants),變體：{0}（共 {1} 種）
+Venerable Defender,古老護衛盾
+Version: {0},版本：{0}
+Visceral Quiver,內臟箭袋
+Volant Quiver,速射箭袋
+Voodoo Focus,巫毒法器
+Warstaff,戰杖
+Wayward Crest Shield,剛愎紋章盾
+Whorl Focus,渦紋法器
+Wooden Buckler,木頭輕盾
+Woven Focus,編織法器
+Wreath Focus,花環法器
+"You can Control + Click an item to equip it, or",按住 Ctrl 點擊物品即可裝備，
+You can add items to this list by dragging them from,可從其他清單拖入物品，
+also clone an item within Path of Building by,也可在 PoB 內按 Ctrl+C 和 Ctrl+V
+copying and pasting it with Ctrl+C and Ctrl+V.,複製物品。
+drag it onto the slot.  This will also add it to,或將它拖入裝備欄。傳奇和範本清單的
+holding Shift will put it in the second.,按住 Shift 會放入第二個欄位。
+"one of the other lists, or by clicking 'Add to build' when",或在查看物品時點擊「加入構築」，
+one of the other lists.,將它們加入此處。
+or copy and paste an item from in game,或在遊戲中複製物品並貼到此處
+the item and add it to your build. You can,編輯並加入構築。
+viewing an item.,將物品加入此處。
+your build if it's from the unique/template list.,物品還會同時加入目前構築。
+your builds., 

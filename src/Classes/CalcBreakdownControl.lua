@@ -113,11 +113,12 @@ function CalcBreakdownClass:SetBreakdownData(displayData, pinned, forceActor)
 			for _, col in pairs(section.colList) do
 				for _, row in pairs(section.rowList) do
 					if row[col.key] then
+						local display = localisation:Field(row, col.key)
 						local _, num = string.gsub(row[col.key], "%d%d%d%d", "") -- count how many commas will be added
 						if main.showThousandsSeparators and num > 0 then
-							col.width = m_max(col.width or 0, DrawStringWidth(16, "VAR", col.label) + 6, DrawStringWidth(12, "VAR", row[col.key]) + 6 + (4 * num))
+							col.width = m_max(col.width or 0, DrawStringWidth(16, "VAR", localisation:Field(col, "label")) + 6, DrawStringWidth(12, "VAR", display) + 6 + (4 * num))
 						else
-							col.width = m_max(col.width or 0, DrawStringWidth(16, "VAR", col.label) + 6, DrawStringWidth(12, "VAR", row[col.key]) + 6)
+							col.width = m_max(col.width or 0, DrawStringWidth(16, "VAR", localisation:Field(col, "label")) + 6, DrawStringWidth(12, "VAR", display) + 6)
 						end
 					end
 				end
@@ -192,8 +193,8 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 		-- Generic table
 		local section = {
 			type = "TABLE",
-			label = breakdown.label,
-			footer = breakdown.footer,
+			label = localisation:Field(breakdown, "label"),
+			footer = localisation:Field(breakdown, "footer"),
 			rowList = rowList,
 			colList = breakdown.colList,
 		}
@@ -206,15 +207,15 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 			type = "TABLE",
 			rowList = breakdown.reservations,
 			colList = {
-				{ label = "Skill", key = "skillName" },
-				{ label = "Base", key = "base" },
-				{ label = "MCM", key = "mult" },
-				{ label = "More/less", key = "more" },
-				{ label = "Inc/red", key = "inc" },
-				{ label = "Efficiency", key = "efficiency" },
-				{ label = "Efficiency More/less", key = "efficiencyMore" },
-				{ label = "Count", key = "count" },
-				{ label = "Reservation", key = "total" },
+				{ label = "Skill", labelKey = "ui.calc_breakdown_control.add_breakdown_section.skill_name.label", key = "skillName" },
+				{ label = "Base", labelKey = "ui.calc_breakdown_control.add_breakdown_section.base.label", key = "base" },
+				{ label = "MCM", labelKey = "ui.calc_breakdown_control.add_breakdown_section.mult.label", key = "mult" },
+				{ label = "More/less", labelKey = "ui.calc_breakdown_control.add_breakdown_section.more.label", key = "more" },
+				{ label = "Inc/red", labelKey = "ui.calc_breakdown_control.add_breakdown_section.inc.label", key = "inc" },
+				{ label = "Efficiency", labelKey = "ui.calc_breakdown_control.add_breakdown_section.efficiency.label", key = "efficiency" },
+				{ label = "Efficiency More/less", labelKey = "ui.calc_breakdown_control.add_breakdown_section.efficiency_more.label", key = "efficiencyMore" },
+				{ label = "Count", labelKey = "ui.calc_breakdown_control.add_breakdown_section.count.label", key = "count" },
+				{ label = "Reservation", labelKey = "ui.calc_breakdown_control.add_breakdown_section.total.label", key = "total" },
 			}
 		}
 		t_insert(self.sectionList, section)
@@ -225,13 +226,13 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 			type = "TABLE",
 			rowList = breakdown.damageTypes,
 			colList = {
-				{ label = "From", key = "source", right = true },
-				{ label = "Base", key = "base" },
-				{ label = "Inc/red", key = "inc" },
-				{ label = "More/less", key = "more" },
-				{ label = "Converted Damage", key = "convSrc" },
-				{ label = "Total", key = "total" },
-				{ label = "Conversion", key = "convDst" },
+				{ label = "From", labelKey = "ui.calc_breakdown_control.add_breakdown_section.source.label", key = "source", right = true },
+				{ label = "Base", labelKey = "ui.calc_breakdown_control.add_breakdown_section.base.label", key = "base" },
+				{ label = "Inc/red", labelKey = "ui.calc_breakdown_control.add_breakdown_section.inc.label", key = "inc" },
+				{ label = "More/less", labelKey = "ui.calc_breakdown_control.add_breakdown_section.more.label", key = "more" },
+				{ label = "Converted Damage", labelKey = "ui.calc_breakdown_control.add_breakdown_section.conv_src.label", key = "convSrc" },
+				{ label = "Total", labelKey = "ui.calc_breakdown_control.add_breakdown_section.total.label_2", key = "total" },
+				{ label = "Conversion", labelKey = "ui.calc_breakdown_control.add_breakdown_section.conv_dst.label", key = "convDst" },
 			}
 		}
 		t_insert(self.sectionList, section)
@@ -244,9 +245,9 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 		if (sectionData.gearOnly) then
 			-- Only show basic table for gear and base ES/Armour/Evasion value
 			colList = {
-				{ label = "Value", key = "base", right = true },
-				{ label = "Source", key = "source" },
-				{ label = "Name", key = "sourceLabel" },
+				{ label = "Value", labelKey = "ui.calc_breakdown_control.add_breakdown_section.base.label_2", key = "base", right = true },
+				{ label = "Source", labelKey = "ui.calc_breakdown_control.add_breakdown_section.source.label_2", key = "source" },
+				{ label = "Name", labelKey = "ui.calc_breakdown_control.add_breakdown_section.source_label.label", key = "sourceLabel" },
 			}
 
 			rowList = {}
@@ -257,12 +258,12 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 			end
 		else
 			colList = {
-				{ label = "Base", key = "base", right = true },
-				{ label = "Inc/red", key = "inc" },
-				{ label = "More/less", key = "more" },
-				{ label = "Total", key = "total", right = true },
-				{ label = "Source", key = "source" },
-				{ label = "Name", key = "sourceLabel" },
+				{ label = "Base", labelKey = "ui.calc_breakdown_control.add_breakdown_section.base.label", key = "base", right = true },
+				{ label = "Inc/red", labelKey = "ui.calc_breakdown_control.add_breakdown_section.inc.label", key = "inc" },
+				{ label = "More/less", labelKey = "ui.calc_breakdown_control.add_breakdown_section.more.label", key = "more" },
+				{ label = "Total", labelKey = "ui.calc_breakdown_control.add_breakdown_section.total.label_2", key = "total", right = true },
+				{ label = "Source", labelKey = "ui.calc_breakdown_control.add_breakdown_section.source.label_2", key = "source" },
+				{ label = "Name", labelKey = "ui.calc_breakdown_control.add_breakdown_section.source_label.label", key = "sourceLabel" },
 			}
 
 			rowList = breakdown.slots
@@ -280,7 +281,7 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 		t_insert(self.sectionList, section)
 		for _, row in pairs(section.rowList) do
 			if row.item then
-				row.sourceLabel = colorCodes[row.item.rarity]..row.item.name
+				row.sourceLabel = colorCodes[row.item.rarity]..localisation:ItemName(row.item)
 				row.sourceLabelTooltip = function(tooltip)
 					self.calcsTab.build.itemsTab:AddItemTooltip(tooltip, row.item, row.source)
 				end
@@ -330,15 +331,15 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 	-- Create section data
 	local section = {
 		type = "TABLE",
-		label = sectionData.label,
+		label = localisation:Field(sectionData, "label"),
 		rowList = rowList,
 		colList = {
-			{ label = "Value", key = "displayValue" },
-			{ label = "Stat", key = "name" },
-			{ label = "Skill types", key = "flags" },
-			{ label = "Notes", key = "tags" },
-			{ label = "Source", key = "source" },
-			{ label = "Source Name", key = "sourceName" },
+			{ label = "Value", labelKey = "ui.calc_breakdown_control.add_breakdown_section.base.label_2", key = "displayValue" },
+			{ label = "Stat", labelKey = "ui.calc_breakdown_control.add_mod_section.name.label", key = "name" },
+			{ label = "Skill types", labelKey = "ui.calc_breakdown_control.add_mod_section.flags.label", key = "flags" },
+			{ label = "Notes", labelKey = "ui.calc_breakdown_control.add_mod_section.tags.label", key = "tags" },
+			{ label = "Source", labelKey = "ui.calc_breakdown_control.add_breakdown_section.source.label_2", key = "source" },
+			{ label = "Source Name", labelKey = "ui.calc_breakdown_control.add_mod_section.source_name.label", key = "sourceName" },
 		},
 	}
 	t_insert(self.sectionList, section)
@@ -388,7 +389,7 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 							total = round((total - 1) * 100)
 						end
 						if total and total ~= 0 then
-							t_insert(lines, self:FormatModValue(total, modType) .. " " .. modName:gsub("(%l)(%u)","%1 %2"))
+							t_insert(lines, self:FormatModValue(total, modType) .. " " .. localisation:Term('calculation_modifier', modName, (modName:gsub("(%l)(%u)","%1 %2"))))
 						end
 					end
 				else
@@ -418,11 +419,11 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 			row.name = self:FormatModName(row.mod.name)
 		end
 		local sourceType = row.mod.source:match("[^:]+") or ""
-		row.source = sourceType
+		row.source = localisation:Term('calculation_source', sourceType, sourceType)
 		if not modList and not sectionData.modSource then
 			-- No modifier source specified, add the source type to the table
 			row.sourceTooltip = function(tooltip)
-				tooltip:AddLine(16, "Total from "..sourceType..":")
+				tooltip:AddLine(16, localisation:Text("ui.calc_breakdown_control.add_mod_section.row_source_tooltip.tooltip", { source_type = localisation:TermRef('calculation_source', sourceType, sourceType) }))
 				for _, line in ipairs(sourceTotals[sourceType]) do
 					tooltip:AddLine(14, line)
 				end
@@ -433,7 +434,7 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 			local itemId = row.mod.source:match("Item:(%d+):.+")
 			local item = build.itemsTab.items[tonumber(itemId)]
 			if item then
-				row.sourceName = colorCodes[item.rarity]..item.name
+				row.sourceName = colorCodes[item.rarity]..localisation:ItemName(item)
 				row.sourceNameTooltip = function(tooltip)
 					local args = row.mod.sourceSlot
 					if row.mod.sourceSlot == "Jewel" and row.mod.sourceSlotNum ~= nil and build.spec.nodes[row.mod.sourceSlotNum] and build.spec.nodes[row.mod.sourceSlotNum].containJewelSocket then
@@ -448,20 +449,27 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 			if nodeId then
 				local nodeIdNumber = tonumber(nodeId)
 				local node = build.spec.nodes[nodeIdNumber] or build.spec.switchableNodes[nodeIdNumber] or build.spec.tree.nodes[nodeIdNumber]
-				row.sourceName = node.dn
+				row.sourceName = localisation:Field(node, 'dn')
 				row.sourceNameNode = node
 			end
 		elseif sourceType == "Many Sources" then
 			row.sourceName = row.mod.source:match("Many Sources:(.+)")
 		elseif sourceType == "Skill" then
 			-- Extract skill name
-			row.sourceName = build.data.skills[row.mod.source:match("Skill:(.+)")].name
+			row.sourceName = localisation:Field(build.data.skills[row.mod.source:match("Skill:(.+)")], 'name')
 		elseif sourceType == "Pantheon" then
 			row.sourceName = row.mod.source:match("Pantheon:(.+)")
 		elseif sourceType == "Spectre" then
 			row.sourceName = row.mod.source:match("Spectre:(.+)")
 		elseif sourceType == "Quest" then
 			row.sourceName = row.mod.source:match("Quest:(.+)")
+			-- 按任务来源身份复用配置页的章节和区域引用，未知来源仍保留原文。
+			for _, quest in ipairs(build.data.questRewards) do
+				if row.mod.source == "Quest:" .. quest.Description .. ": " .. quest.Area then
+					row.sourceName = localisation:Text('quest.reward.label', { act = localisation:Ref(quest.DescriptionKey), area = localisation:Ref(quest.AreaKey) })
+					break
+				end
+			end
 		elseif sourceType == "Custom" then
 			row.sourceName = row.mod.source:match("Custom:(.+)")
 		elseif sourceType == "Rune" then
@@ -479,6 +487,8 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 				end
 			end
 			table.sort(flagNames)
+			-- 按原身份排序后翻译显示名称，保留修饰词的位标志和顺序。
+			for index, name in ipairs(flagNames) do flagNames[index] = localisation:Term('calculation_flag', name, name) end
 			row.flags = table.concat(flagNames, ", ")
 		end
 		row.tags = nil
@@ -488,27 +498,27 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 			for _, tag in ipairs(row.mod) do
 				local desc
 				if tag.type == "Condition" or tag.type == "ActorCondition" then
-					local cond = (tag.var or tag.varList) and ": "..(tag.neg and "Not " or "")..self:FormatVarNameOrList(tag.var, tag.varList) or ""
-					desc = (tag.actor and (tag.actor:sub(1,1):upper()..tag.actor:sub(2).." ") or "").."Condition"..cond
+					local cond = (tag.var or tag.varList) and ": "..(tag.neg and localisation:Text("ui.calc_breakdown_control.display.add_mod_section.cond.parameter") or "")..self:FormatVarNameOrList(tag.var, tag.varList) or ""
+					desc = localisation:Text("ui.calc_breakdown_control.display.add_mod_section.desc", { value = ((tag.actor and localisation:Term('calculation_actor_prefix', tag.actor, tag.actor:sub(1,1):upper()..tag.actor:sub(2).." ")) or ""), cond = cond })
 				elseif tag.type == "Multiplier" then
 					local base = tag.base and (self:FormatModBase(row.mod, tag.base).." + "..math.abs(row.mod.value).." ") or baseVal
-					desc = base.."per "..(tag.div and (tag.div.." ") or "")..self:FormatVarNameOrList(tag.var, tag.varList)
+					desc = localisation:Text("ui.calc_breakdown_control.display.add_mod_section.desc_2", { base = base, value = ((tag.div and tag.div.." ") or ""), value_2 = self:FormatVarNameOrList(tag.var, tag.varList) })
 					baseVal = ""
 				elseif tag.type == "PerStat" then
 					local base = tag.base and (self:FormatModBase(row.mod, tag.base).." + "..math.abs(row.mod.value).." ") or baseVal
-					desc = base.."per "..(tag.div or 1).." "..(tag.actor and (tag.actor.." ") or "")..self:FormatVarNameOrList(tag.stat, tag.statList)
+					desc = localisation:Text("ui.calc_breakdown_control.display.add_mod_section.desc_3", { base = base, value = (tag.div or 1), value_2 = ((tag.actor and tag.actor.." ") or ""), value_3 = self:FormatVarNameOrList(tag.stat, tag.statList) })
 					baseVal = ""
 				elseif tag.type == "PercentStat" then
 					local finalPercent = (row.mod.value * ((tag.percent or 1) / 100)) * 100
 					local base = tag.base and (self:FormatModBase(row.mod, tag.base).." + "..math.abs(finalPercent).." ") or self:FormatModBase(row.mod, finalPercent)
-					desc = base.."% of "..(tag.actor and (tag.actor.." ") or "")..self:FormatVarNameOrList(tag.percentVar or tag.stat, tag.statList)
+					desc = localisation:Text("ui.calc_breakdown_control.display.add_mod_section.desc_4", { base = base, value = ((tag.actor and tag.actor.." ") or ""), value_2 = self:FormatVarNameOrList(tag.percentVar or tag.stat, tag.statList) })
 					baseVal = ""
 				elseif tag.type == "MultiplierThreshold" or tag.type == "StatThreshold" then
-					desc = "If "..self:FormatVarNameOrList(tag.var or tag.stat, tag.varList or tag.statList)..(tag.upper and " <= " or " >= ")..(tag.thresholdPercent and tag.thresholdPercent.."% " or "")..(tag.threshold or self:FormatModName(tag.thresholdVar or tag.thresholdStat))
+					desc = localisation:Text("ui.calc_breakdown_control.display.add_mod_section.desc_5", { value = self:FormatVarNameOrList(tag.var or tag.stat, tag.varList or tag.statList), value_2 = ((tag.upper and " <= ") or " >= "), value_3 = ((tag.thresholdPercent and tag.thresholdPercent.."% ") or ""), value_4 = (tag.threshold or self:FormatModName(tag.thresholdVar or tag.thresholdStat)) })
 				elseif tag.type == "SkillName" then
-					desc = "Skill: "..(tag.skillNameList and table.concat(tag.skillNameList, " / ") or tag.skillName)
+					desc = localisation:Text("ui.calc_breakdown_control.display.add_mod_section.desc_6", { value = ((tag.skillNameList and table.concat(tag.skillNameList, " / ")) or tag.skillName) })
 				elseif tag.type == "SkillId" then
-					desc = "Skill: "..build.data.skills[tag.skillId].name
+					desc = localisation:Text("ui.calc_breakdown_control.display.add_mod_section.desc_7", { name = localisation:Field(build.data.skills[tag.skillId], 'name') })
 				elseif tag.type == "SkillType" then
 					if tag.skillTypeList then
 						local typeNames = { }
@@ -516,26 +526,26 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 							local formattedSkillType = self:FormatModName(SkillTypeName[skillType] or tostring(skillType))
 							t_insert(typeNames, formattedSkillType)
 						end
-						desc = "Skill type: "..(tag.neg and "Not " or "")..table.concat(typeNames, " / ")
+						desc = localisation:Text("ui.calc_breakdown_control.display.add_mod_section.desc_8", { value = ((tag.neg and localisation:Ref("ui.calc_breakdown_control.display.add_mod_section.desc.parameter")) or ""), value_2 = table.concat(typeNames, " / ") })
 					else
-						desc = "Skill type: "..(tag.neg and "Not " or "")..self:FormatModName(SkillTypeName[tag.skillType])
+						desc = localisation:Text("ui.calc_breakdown_control.display.add_mod_section.desc_9", { value = ((tag.neg and localisation:Ref("ui.calc_breakdown_control.display.add_mod_section.desc.parameter")) or ""), value_2 = self:FormatModName(SkillTypeName[tag.skillType]) })
 					end
 				elseif tag.type == "GemTag" then
-					desc = "Gem tag: "..(tag.neg and "Not " or "")..self:FormatVarNameOrList(tag.gemTag, tag.gemTagList)
+					desc = localisation:Text("ui.calc_breakdown_control.display.add_mod_section.desc_10", { value = ((tag.neg and localisation:Ref("ui.calc_breakdown_control.display.add_mod_section.desc.parameter")) or ""), value_2 = self:FormatVarNameOrList(tag.gemTag, tag.gemTagList) })
 				elseif tag.type == "BaseFlag" then
-					desc = "Base flag: "..(tag.neg and "Not " or "")..self:FormatModName(tostring(tag.baseFlag))
+					desc = localisation:Text("ui.calc_breakdown_control.display.add_mod_section.desc_11", { value = ((tag.neg and localisation:Ref("ui.calc_breakdown_control.display.add_mod_section.desc.parameter")) or ""), value_2 = self:FormatModName(tostring(tag.baseFlag)) })
 				elseif tag.type == "SlotNumber" then
-					desc = "When in slot #"..tag.num
+					desc = localisation:Text("ui.calc_breakdown_control.display.add_mod_section.desc_12", { num = tag.num })
 				elseif tag.type == "GlobalEffect" then
 					desc = self:FormatModName(tag.effectType)
 				elseif tag.type == "Limit" then
 					if tag.neg then
-						desc = "Limited to "..(tag.limitVar and "-"..self:FormatModName(tag.limitVar) or self:FormatModBase(row.mod, -tag.limit))
+						desc = localisation:Text("ui.calc_breakdown_control.display.add_mod_section.desc_13", { value = ((tag.limitVar and "-"..self:FormatModName(tag.limitVar)) or self:FormatModBase(row.mod, -tag.limit)) })
 					else
-						desc = "Limited to "..(tag.limitVar and self:FormatModName(tag.limitVar) or self:FormatModBase(row.mod, tag.limit))
+						desc = localisation:Text("ui.calc_breakdown_control.display.add_mod_section.desc_14", { value = ((tag.limitVar and self:FormatModName(tag.limitVar)) or self:FormatModBase(row.mod, tag.limit)) })
 					end
 				elseif tag.type == "MonsterTag" then
-					desc = "Monster Tag: "..(tag.monsterTagList and table.concat(tag.monsterTagList, "/") or tag.monsterTag)
+					desc = localisation:Text("ui.calc_breakdown_control.display.add_mod_section.desc_15", { value = ((tag.monsterTagList and table.concat(tag.monsterTagList, "/")) or tag.monsterTag) })
 				else
 					desc = self:FormatModName(tag.type)
 				end
@@ -548,11 +558,15 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 end
 
 function CalcBreakdownClass:FormatModName(modName)
-	return modName:gsub("([%l%d]:?)(%u)","%1 %2"):gsub("(%l)(%d)","%1 %2")
+	-- 仅翻译已登记的显示术语，未知计算身份仍按原规则拆分英文。
+	return localisation:Term('calculation_modifier', modName, (modName:gsub("([%l%d]:?)(%u)","%1 %2"):gsub("(%l)(%d)","%1 %2")))
 end
 
 function CalcBreakdownClass:FormatVarNameOrList(var, varList)
-	return var and self:FormatModName(var) or self:FormatModName(table.concat(varList, " / "))
+	if var then return self:FormatModName(var) end
+	local names = { }
+	for index, name in ipairs(varList) do names[index] = self:FormatModName(name) end
+	return table.concat(names, " / ")
 end
 
 function CalcBreakdownClass:FormatModBase(mod, base)
@@ -561,26 +575,26 @@ end
 
 function CalcBreakdownClass:FormatModValue(value, modType)
 	if modType == "BASE" then
-		return string.format("%+g base", value)
+		return localisation:Text("ui.calc_breakdown_control.format.format_mod_value", { value = value })
 	elseif modType == "INC" then
 		if value >= 0 then
-			return value.."% increased"
+			return localisation:Text("ui.calc_breakdown_control.format.format_mod_value_2", { value = value })
 		else
-			return -value.."% reduced"
+			return localisation:Text("ui.calc_breakdown_control.format.format_mod_value_3", { value = -value })
 		end
 	elseif modType == "MORE" then
 		if value >= 0 then
-			return value.."% more"
+			return localisation:Text("ui.calc_breakdown_control.format.format_mod_value_4", { value = value })
 		else
-			return -value.."% less"
+			return localisation:Text("ui.calc_breakdown_control.format.format_mod_value_5", { value = -value })
 		end
 	elseif modType == "OVERRIDE" then
-		return "Override: "..value
+		return localisation:Text("ui.calc_breakdown_control.format.format_mod_value_6", { value = value })
 	elseif modType == "FLAG" then
-		return value and "True" or "False"
+		return value and localisation:Text("ui.calc_breakdown_control.format.format_mod_value_7") or localisation:Text("ui.calc_breakdown_control.format.format_mod_value_8")
 	elseif modType == "LIST" then
 		if value.mod then
-			return "Modifier: "..self:FormatModName(value.mod.name)
+			return localisation:Text("ui.calc_breakdown_control.format.format_mod_value_9", { value = self:FormatModName(value.mod.name) })
 		else
 			return "?"
 		end
@@ -607,7 +621,7 @@ function CalcBreakdownClass:DrawBreakdownTable(viewPort, x, y, section)
 				DrawImage(nil, colX - 2, y, 1, section.height - (section.label and 16 or 0) - (section.footer and 12 or 0))
 			end
 			SetDrawColor(1, 1, 1)
-			DrawString(colX, y + 2, "LEFT", 16, "VAR", col.label)
+			DrawString(colX, y + 2, "LEFT", 16, "VAR", localisation:Field(col, "label"))
 			colX = colX + col.width
 		end
 	end
@@ -618,16 +632,17 @@ function CalcBreakdownClass:DrawBreakdownTable(viewPort, x, y, section)
 		DrawImage(nil, x + 2, rowY - 1, section.width - 4, 1)
 		for _, col in ipairs(section.colList) do
 			if col.width and row[col.key] then
+				local display = tostring(localisation:Field(row, col.key))
 				-- This row has an entry for this column, draw it
 				local _, alpha = string.gsub(row[col.key], "%a", " ") -- counts letters in the string
 				local _, notes = string.gsub(row[col.key], " to ", " ") -- counts " to " in the string
 				local _, paren = string.gsub(row[col.key], "%b()", " ") -- counts parenthesis in the string
 				if (alpha == 0 or notes > 0 or paren > 0) and col.right then
-					DrawString(col.x + col.width - 4, rowY + 1, "RIGHT_X", 12, "VAR", "^7"..formatNumSep(tostring(row[col.key])))
+					DrawString(col.x + col.width - 4, rowY + 1, "RIGHT_X", 12, "VAR", "^7"..formatNumSep(display))
 				elseif (alpha == 0 or notes > 0 or paren > 0) then
-					DrawString(col.x, rowY + 1, "LEFT", 12, "VAR", "^7"..formatNumSep(tostring(row[col.key])))
+					DrawString(col.x, rowY + 1, "LEFT", 12, "VAR", "^7"..formatNumSep(display))
 				else
-					DrawString(col.x, rowY + 1, "LEFT", 12, "VAR", "^7"..tostring(row[col.key]))
+					DrawString(col.x, rowY + 1, "LEFT", 12, "VAR", "^7"..display)
 				end
 				local ttFunc = row[col.key.."Tooltip"]
 				local ttNode = row[col.key.."Node"]

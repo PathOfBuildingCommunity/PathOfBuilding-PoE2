@@ -115,10 +115,12 @@ function PassiveTreeClass:PassiveTree(treeVersion)
 
 	for classId, class in pairs(self.classes) do
 		class.classes = class.ascendancies
+		localisation:BindFields('tree_class', class.internalId or classId, class)
 		class.classes[0] = { name = "None" }
 		self.classNameMap[class.name] = classId
 		self.classIntegerIdMap[class.integerId] = classId
 		for ascendClassId, ascendClass in pairs(class.classes) do
+			localisation:BindFields('tree_ascendancy', ascendClass.internalId or (class.internalId or classId) .. ':' .. ascendClassId, ascendClass)
 			self.ascendNameMap[ascendClass.id or ascendClass.name] = {
 				classId = classId,
 				class = class,
@@ -216,6 +218,8 @@ function PassiveTreeClass:PassiveTree(treeVersion)
 		node.o = node.orbit
 		node.oidx = node.orbitIndex
 		node.dn = node.name
+		localisation:BindFields('tree_node', treeVersion .. ':' .. node.id, node)
+		node.localisationDomain, node.localisationId = 'tree_node', treeVersion .. ':' .. node.id
 		node.sd = node.stats or {}
 
 		node.__index = node
@@ -436,7 +440,9 @@ function PassiveTreeClass:PassiveTree(treeVersion)
 	end
 	
 	-- Build ModList for legion jewels
-	for _, node in pairs(self.legion.nodes) do
+	for id, node in pairs(self.legion.nodes) do
+		localisation:BindFields('tree_legion', id, node)
+		node.localisationDomain, node.localisationId = 'tree_legion', tostring(id)
 		-- Determine node type
 		if node.m then
 			node.type = "Mastery"
@@ -541,6 +547,10 @@ function PassiveTreeClass:ProcessStats(node, startIndex)
 	if node.type == "Keystone" then
 		node.keystoneMod = modLib.createMod("Keystone", "LIST", node.dn, "Tree"..node.id)
 	end
+	if node.localisationDomain then
+		localisation:BindLines(node.localisationDomain, node.localisationId, node, 'sd')
+		localisation:BindLines(node.localisationDomain, node.localisationId, node, 'reminderText')
+	end
 end
 
 -- Common processing code for nodes (used for both real tree nodes and subgraph nodes)
@@ -597,6 +607,11 @@ function PassiveTreeClass:ProcessNode(node)
 			end
 			switchNode.dn = switchNode.name
 			switchNode.sd = switchNode.stats
+			-- 名称沿用父节点时复用其显示身份；不同名称和属性仍使用选项自己的引用。
+			switchNode.dnKey = switchNode.dn == node.dn and node.dnKey or false
+			switchNode.flavourTextKey = false
+			switchNode.localisationDomain, switchNode.localisationId = node.localisationDomain, node.localisationId .. ':option:' .. class
+			localisation:BindFields(switchNode.localisationDomain, switchNode.localisationId, switchNode)
 
 			if switchNode.jewelOverlay then
 				ConPrintf("SwitchNode with jewelOverlay found: "..switchNode.name)
@@ -609,6 +624,9 @@ function PassiveTreeClass:ProcessNode(node)
 			end
 
 			self:ProcessStats(switchNode)
+			-- 未覆盖属性或提示正文的选项继续使用父节点已经核对的逐行显示引用。
+			if switchNode.sd == node.sd then switchNode.sdDisplay = node.sdDisplay end
+			if switchNode.reminderText == node.reminderText then switchNode.reminderTextDisplay = node.reminderTextDisplay end
 		end
 	end
 end

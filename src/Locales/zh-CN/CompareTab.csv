@@ -1,0 +1,55 @@
+Summary,概要
+Config,配置
+
+Compare with:,比较于:
+Import...,导入...
+Re-import Current,重导入当前
+Re-import character from the game server:,从游戏服务器重新导入角色:
+Re-import the currently selected character.,重新导入当前选择的角色
+"Refreshes passive tree, jewels, items, and skills.","刷新天赋树、珠宝、物品和技能"
+No character selected.,未选择角色。
+Go to Import/Export Build tab and select a character first.,先去导入/导出页面选择一个角色。
+Tree set:,天赋树集:
+Show only differences,仅显示差异
+Show only rows that differ between both builds. Disable to include unchanged rows.,仅显示两构筑不同的行。禁用以计入不变的行。
+Overlay comparison,覆盖层比较
+Expanded mode,展开模式
+Copy tree,复制天赋树
+Copy and use,复制并使用
+Copy Config from Compare Build,从比较构筑复制配置
+-- Select Metric --,-- 选择参数 --
+Select a metric to calculate power report,选择一项参数以计算强度报告
+Tree:,天赋树:
+Include passive tree nodes from compared build,计入来自被比较构筑的天赋树节点
+Items:,物品:
+Include items from compared build,计入来自被比较构筑的物品
+Skill gems:,技能宝石:
+Include skill gem groups unique to compared build,计入来自被比较构筑的独特技能宝石组
+Support gems:,辅助宝石:
+Include support gems from compared build's active skill,计入来自被比较构筑的激活的技能的辅助技能宝石们
+Config:,配置:
+Include config option differences from compared build,计入来自被比较构筑的不同配置选项
+Your Build,你的构筑
+Paste a build code or URL to import as comparison:,粘贴一个构筑代码或网址以供导入作为比较对象:
+Name (optional):,名称(可选):
+Failed to decode build data,无法解码构筑数据
+Invalid build code,构筑代码无效
+Import from Folder,从文件夹导入
+Import Comparison Build,导入比较用构筑
+Import Error,导入出错
+Build file is empty or unreadable.,构筑文件为空或不可读
+Failed to import build for comparison.,导入构筑以比较失败。
+
+No comparison build loaded.,未加载比较用构筑。
+Click Import... above to import a build to compare against.,单击导入...以导入一个用于比较的构筑。
+
+Aura/Buff Skills: ,光环/增益技能:
+Combat Buffs: ,战斗增益:
+Curses/Debuffs: ,诅咒/减益:
+
+Compare Power Report,比较强度报告
+Metric:,参数:
+
+Calc Mode:,计算模式:
+
+No configuration options to display.,无可显示的配置选项

@@ -18,6 +18,7 @@ function ExtBuildListProviderClass:ExtBuildListProvider(listTitles)
 		self.buildList = {}
 		self.activeList = nil
 		self.statusMsg = nil
+		self.statusMsgKey, self.statusMsgParams = nil, nil
 
 	return self
 end

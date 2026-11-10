@@ -1,0 +1,6 @@
+{
+  "name": "pob2-localisation-tools",
+  "private": true,
+  "scripts": { "check:localisation": "node check-localisation-display.cjs" },
+  "devDependencies": { "luaparse": "0.3.1" }
+}
