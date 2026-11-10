@@ -35,6 +35,34 @@ Implicits: 0
 	after_each(function()
 		BuildExportPoE2.WriteFile = originalWriteFile
 		BuildExportPoE2.WriteAllLoadouts = originalWriteAllLoadouts
+		main.buildPlannerPath = nil
+	end)
+
+	it("uses the standard BuildPlanner folder when no path is configured", function()
+		main.buildPlannerPath = nil
+		assert.are.equal(BuildExportPoE2.StandardDir(), BuildExportPoE2.DefaultDir())
+		main.buildPlannerPath = "   "
+		assert.are.equal(BuildExportPoE2.StandardDir(), BuildExportPoE2.DefaultDir())
+	end)
+
+	it("uses the configured build planner path", function()
+		main.buildPlannerPath = "C:\\Users\\Me\\OneDrive\\Documents\\My Games\\Path of Exile 2\\BuildPlanner"
+		assert.are.equal(main.buildPlannerPath .. "\\", BuildExportPoE2.DefaultDir())
+		assert.are.equal(main.buildPlannerPath .. "\\My Build.build", BuildExportPoE2.BuildPath("My Build"))
+		assert.are.equal("...\\Path of Exile 2\\BuildPlanner\\My Build.build", BuildExportPoE2.DisplayPath(BuildExportPoE2.BuildPath("My Build")))
+
+		main.buildPlannerPath = "/home/me/planner/"
+		assert.are.equal("/home/me/planner/", BuildExportPoE2.DefaultDir())
+		assert.are.equal(".../me/planner/My Build.build", BuildExportPoE2.DisplayPath(BuildExportPoE2.BuildPath("My Build")))
+	end)
+
+	it("resets the import tab export path to the configured folder", function()
+		local importTab = build.importTab
+		importTab.controls.buildPlannerBuildName:SetText("My Build", true)
+		main.buildPlannerPath = "/home/me/planner/"
+		importTab:ResetBuildPlannerPath()
+		local treeVersion = build.treeTab.specList[importTab.exportSpecIndex].treeVersion:gsub("_", ".")
+		assert.are.equal("/home/me/planner/My Build [" .. treeVersion .. "].build", importTab.controls.poe2ExportPath.buf)
 	end)
 
 	it("uses game ids for active and support gems", function()
