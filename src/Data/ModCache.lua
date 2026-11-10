@@ -9969,7 +9969,7 @@ c["Your Heavy Stun buildup empties 1% faster per 10 Tribute 5% increased Armour,
 c["Your Heavy Stun buildup empties 35% faster"]={nil,"Your Heavy Stun buildup empties 35% faster "}
 c["Your Heavy Stun buildup empties 50% faster"]={nil,"Your Heavy Stun buildup empties 50% faster "}
 c["Your Heavy Stun buildup empties 50% faster if you've successfully Parried Recently"]={nil,"Your Heavy Stun buildup empties 50% faster if you've successfully Parried Recently "}
-c["Your Hits are Crushing Blows"]={nil,"Your Hits are Crushing Blows "}
+c["Your Hits are Crushing Blows"]={{[1]={flags=0,keywordFlags=0,name="CrushingBlows",type="FLAG",value=true}},nil}
 c["Your Hits can Penetrate Elemental Resistances down to a minimum of -50%"]={{[1]={flags=0,keywordFlags=262144,name="ElementalPenetrationMinimum",type="BASE",value=-50}},nil}
 c["Your Hits can only Kill Frozen Enemies"]={nil,"Your Hits can only Kill Frozen Enemies "}
 c["Your Hits cannot Stun enemies"]={nil,"Your Hits cannot Stun enemies "}
