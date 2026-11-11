@@ -41,4 +41,23 @@ describe("TestOffence", function()
 		assert.are.equals(2, build.calcsTab.mainOutput.PhysicalMinBase)
 		assert.are.equals(0.5, build.calcsTab.mainOutput.ColdSummedMinBase)
 	end)
+
+	it("caps the hit rate of a hit interval skill at its effect's uptime when it is used less often than it lasts", function()
+		build.skillsTab:PasteSocketGroup("Firestorm 20/0  1\nHourglass 1/0  1")
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.mainOutput
+		-- The cooldown makes the skill slower than its storm lasts: the storm is up Speed x Duration of the time.
+		assert.is_true(output.Speed * output.Duration < 1)
+		assert.is_true(math.abs(output.HitSpeed - output.Speed * output.Duration / output.HitTime) < 0.000001)
+	end)
+
+	it("keeps one hit per interval for a hit interval skill used at least once per duration", function()
+		build.skillsTab:PasteSocketGroup("Firestorm 20/0  1")
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.mainOutput
+		assert.is_true(output.Speed * output.Duration >= 1)
+		assert.is_true(math.abs(output.HitSpeed - 1 / output.HitTime) < 0.000001)
+	end)
 end)

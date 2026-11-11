@@ -3139,6 +3139,12 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			output.HitTime = skillData.hitTimeOverride
 			output.HitSpeed = 1 / output.HitTime
+			-- An effect lasting Duration that is used Speed times a second is up at most Speed x Duration of the time
+			-- (e.g. a cooldown makes the skill slower than its effect lasts). Seals use hitTimeOverride for the time to gather seals.
+			local effectDuration = globalOutput and globalOutput.Duration
+			if effectDuration and effectDuration > 0 and (output.Speed or 0) > 0 and not skillModList:Flag(nil, "HasSeals") then
+				output.HitSpeed = m_min(output.HitSpeed, output.Speed * effectDuration / output.HitTime)
+			end
 			--Brands always have hitTimeOverride
 			if skillFlags.brand and not skillModList:Flag(nil, "UnlimitedBrandDuration") then
 				output.BrandTicks = m_floor(output.Duration * output.HitSpeed)
@@ -3247,6 +3253,12 @@ function calcs.offence(env, actor, activeSkill)
 		if skillData.hitTimeOverride and not skillData.triggeredOnDeath then
 			output.HitTime = skillData.hitTimeOverride
 			output.HitSpeed = 1 / output.HitTime
+			-- An effect lasting Duration that is used Speed times a second is up at most Speed x Duration of the time
+			-- (e.g. a cooldown makes the skill slower than its effect lasts). Seals use hitTimeOverride for the time to gather seals.
+			local effectDuration = globalOutput and globalOutput.Duration
+			if effectDuration and effectDuration > 0 and (output.Speed or 0) > 0 and not skillModList:Flag(nil, "HasSeals") then
+				output.HitSpeed = m_min(output.HitSpeed, output.Speed * effectDuration / output.HitTime)
+			end
 		elseif skillData.timeOverride and not skillData.triggeredOnDeath then
 			output.Time = skillData.timeOverride
 		elseif skillData.hitTimeMultiplier and output.Time and not skillData.triggeredOnDeath then
