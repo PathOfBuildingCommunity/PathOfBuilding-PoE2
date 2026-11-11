@@ -225,6 +225,7 @@ return calcs
 ---@field weaponModList1? ModList
 ---@field sourceGemPropertyInfo? table<any, TabulatedMod[]>
 ---@field override? CalcOverride
+---@field triggerSourceCache? table<string, CachedSkillData> Trigger source calculations shared by one calculator override's passes
 ---@field virtuousMoteSkillCount? table<string, number>
 ---@field skillsUsed? table<string, boolean>
 ---@field conditionsUsed? table<string, Mod[]>

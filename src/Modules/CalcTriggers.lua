@@ -178,10 +178,17 @@ local function hitEnergy(env, actor, metaData, energyMult, maxEnergy, config)
 		local usedByPlayer = not (skill.skillTypes[SkillType.OtherThingUsesSkill] or skill.skillTypes[SkillType.UsedByProxy] or flags.totem or flags.trap or flags.mine)
 		if canHit(skill) and not isTriggered(skill) and usedByPlayer and not flags.disable and (not config.sourceCond or config.sourceCond(skill)) then
 			local uuid = cacheSkillUUID(skill, env)
-			if not GlobalCache.cachedData[env.mode][uuid] or env.mode == "CALCULATOR" then
-				calcs.buildActiveSkill(env, env.mode, skill, uuid)
+			local sourceCache = env.triggerSourceCache
+			local cachedData = sourceCache and sourceCache[uuid]
+			if not cachedData then
+				if not GlobalCache.cachedData[env.mode][uuid] or env.mode == "CALCULATOR" then
+					calcs.buildActiveSkill(env, env.mode, skill, uuid)
+				end
+				cachedData = GlobalCache.cachedData[env.mode][uuid]
+				if sourceCache then
+					sourceCache[uuid] = cachedData
+				end
 			end
-			local cachedData = GlobalCache.cachedData[env.mode][uuid]
 			if cachedData then
 				local energy, rate = calcHitEnergy(env, cachedData, metaData, config)
 				local energyPerHit = energy and m_floor(energy * energyMult * 100 + 1e-9) / 100

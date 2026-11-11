@@ -119,9 +119,10 @@ function calcs.getMiscCalculator(build)
 			local accelerate = fastEnv and fastCalcOptions or nil
 			fastEnv = calcs.initEnv(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = fastEnv, accelerate = accelerate })
 			fastEnv.override = override
+			fastEnv.triggerSourceCache = {}
 			calcs.perform(fastEnv, fastCalcOptions.skipEHP)
 			if (useFullDPS ~= false or build.viewMode == "TREE") and usedFullDPS then
-				local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil})
+				local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil, triggerSourceCache = fastEnv.triggerSourceCache })
 				fastEnv.player.output.SkillDPS = fullDPS.skills
 				fastEnv.player.output.FullDPS = fullDPS.combinedDPS
 				fastEnv.player.output.FullDotDPS = fullDPS.TotalDotDPS
@@ -129,14 +130,13 @@ function calcs.getMiscCalculator(build)
 			return fastEnv.player.output
 		end
 		local env, cachedPlayerDB, cachedEnemyDB, cachedMinionDB = calcs.initEnv(build, "CALCULATOR", override)
-		-- we need to preserve the override somewhere for use by possible trigger-based build-outs with overrides
-		env.override = override
+		env.triggerSourceCache = {}
 		calcs.perform(env)
 		if (useFullDPS ~= false or build.viewMode == "TREE") and usedFullDPS then
 			-- prevent upcoming calculation from using Cached Data and thus forcing it to re-calculate new FullDPS roll-up
 			-- without this, FullDPS increase/decrease when for node/item/gem comparison would be all 0 as it would be comparing
 			-- A with A (due to cache reuse) instead of A with B
-			local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil})
+			local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil, triggerSourceCache = env.triggerSourceCache })
 			env.player.output.SkillDPS = fullDPS.skills
 			env.player.output.FullDPS = fullDPS.combinedDPS
 			env.player.output.FullDotDPS = fullDPS.TotalDotDPS
@@ -268,6 +268,7 @@ end
 
 function calcs.calcFullDPS(build, mode, override, specEnv)
 	local fullEnv, cachedPlayerDB, cachedEnemyDB, cachedMinionDB = calcs.initEnv(build, mode, override, specEnv)
+	fullEnv.triggerSourceCache = mode == "CALCULATOR" and (specEnv and specEnv.triggerSourceCache or {}) or nil
 	local usedEnv = nil
 	-- Optional per-skill result cache driven by input diffing (specEnv.fullDPSCache):
 	-- with capture set, each skill's harvested results are stored in the cache store along
@@ -319,6 +320,7 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 				if not skillEnv then
 					skillEnv = calcs.initEnv(build, mode, getSocketGroupOverride(build, override, activeSkill.socketGroup))
 				end
+				skillEnv.triggerSourceCache = fullEnv.triggerSourceCache
 			end
 			activeSkill = findActiveSkillInEnv(skillEnv, sourceSkill) or activeSkill
 			local uuid = cacheStore and cacheSkillUUID(activeSkill, skillEnv)
