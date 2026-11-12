@@ -208,6 +208,9 @@ return function(mod, flag, skill)
 ["generic_ongoing_trigger_1_maximum_energy_per_Xms_total_cast_time"] = {
 	skill("energyPerCastTimeMs", nil),
 },
+["trigger_skills_refund_half_energy_spent_chance_%"] = {
+	mod("EnergyRefundChance", "BASE", nil),
+},
 ["trigger_meta_gem_damage_+%_final"] = {
 	mod("Damage", "MORE", nil),
 },

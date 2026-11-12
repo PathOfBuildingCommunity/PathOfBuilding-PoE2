@@ -3574,6 +3574,8 @@ local specialModList = {
 	["meta skills gain (%d+)%% more energy"] = function(num) return { mod("EnergyGenerated", "MORE", num, { type = "SkillType", skillType = SkillType.Meta }) } end,
 	["meta skills gain (%d+)%% increased energy if you've dealt a critical hit recently"] = function(num) return { mod("EnergyGenerated", "INC", num, { type = "SkillType", skillType = SkillType.Meta }, { type = "Condition", var = "CritRecently" }) } end,
 	["meta skills gain (%d+)%% increased energy while on full mana"] = function(num) return { mod("EnergyGenerated", "INC", num, { type = "SkillType", skillType = SkillType.Meta }, { type = "Condition", var = "FullMana" }) } end,
+	["(%d+)%% chance for trigger skills to refund half of energy spent"] = function(num) return { mod("EnergyRefundChance", "BASE", num, { type = "SkillType", skillType = SkillType.Triggers }) } end,
+	["trigger skills refund half of energy spent"] = { mod("EnergyRefundChance", "BASE", 100, { type = "SkillType", skillType = SkillType.Triggers }) },
 	-- Global gem modifiers
 	["gems socketed in red sockets have [%+%-](%d+) to level"] = function(num) return { mod("GemProperty", "LIST", { keyword = "all", key = "level", value = num, keyOfScaledMod = "value"  }, { type = "SocketedIn", slotName = "{SlotName}", socketColor = "R" }) } end,
 	["gems socketed in green sockets have [%+%-](%d+)%% to quality"] = function(num) return { mod("GemProperty", "LIST", { keyword = "all", key = "quality", value = num, keyOfScaledMod = "value"  }, { type = "SocketedIn", slotName = "{SlotName}", socketColor = "G" }) } end,

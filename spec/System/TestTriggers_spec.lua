@@ -191,6 +191,63 @@ describe("TestTriggers", function()
 		end)
 	end)
 
+	describe("Energy Retention", function()
+		-- Cast on Dodge with no added distance gains 4 metres per roll at 3.14 Energy per metre
+		local energyPerMetre = 2 * 1.57
+
+		it("refunds half of the triggered skill's Energy cost on 35% of triggers", function()
+			build.skillsTab:PasteSocketGroup("Cast on Dodge 20/0  1\nSpark 20/0  1\nEnergy Retention 1/0  1")
+			runCallback("OnFrame")
+			selectSkill(1, 2)
+			setConfig("dodgeRollsPerSecond", 1)
+			-- 70 Energy takes 23 metres, or 12 metres after a refund of 35
+			local metres = 0.65 * math.ceil(70 / energyPerMetre) + 0.35 * math.ceil(35 / energyPerMetre)
+			assertNear(4 / metres, build.calcsTab.mainOutput.SkillTriggerRate)
+		end)
+
+		it("rolls the refund separately for each triggered skill", function()
+			build.skillsTab:PasteSocketGroup("Cast on Dodge 20/0  1\nComet 20/0  1\nSpark 20/0  1\nEnergy Retention 1/0  1")
+			runCallback("OnFrame")
+			selectSkill(1, 2)
+			setConfig("dodgeRollsPerSecond", 1)
+			-- Comet refunds 150 and Spark refunds 35 of the 370 maximum Energy
+			local metres = 0
+			for _, outcome in ipairs({ { 0, 0.65 * 0.65 }, { 35, 0.65 * 0.35 }, { 150, 0.35 * 0.65 }, { 185, 0.35 * 0.35 } }) do
+				metres = metres + outcome[2] * math.ceil((370 - outcome[1]) / energyPerMetre)
+			end
+			assertNear(4 / metres, build.calcsTab.mainOutput.SkillTriggerRate)
+		end)
+
+		it("supports the item modifiers", function()
+			local mods, extra = modLib.parseMod("7% chance for Trigger skills to refund half of Energy Spent")
+			assert.is_nil(extra)
+			assert.are.equals("EnergyRefundChance", mods[1].name)
+			assert.are.equals(7, mods[1].value)
+			assert.are.equals(SkillType.Triggers, mods[1][1].skillType)
+
+			build.configTab.input.customMods = "25% chance for Trigger skills to refund half of Energy Spent"
+			build.skillsTab:PasteSocketGroup("Cast on Dodge 20/0  1\nSpark 20/0  1")
+			runCallback("OnFrame")
+			selectSkill(1, 2)
+			setConfig("dodgeRollsPerSecond", 1)
+			local metres = 0.75 * math.ceil(70 / energyPerMetre) + 0.25 * math.ceil(35 / energyPerMetre)
+			assertNear(4 / metres, build.calcsTab.mainOutput.SkillTriggerRate)
+
+			build.configTab.input.customMods = "Trigger skills refund half of Energy spent"
+			setConfig("dodgeRollsPerSecond", 1)
+			assertNear(4 / math.ceil(35 / energyPerMetre), build.calcsTab.mainOutput.SkillTriggerRate)
+		end)
+
+		it("caps the refund chance at 100%", function()
+			build.configTab.input.customMods = "Trigger skills refund half of Energy spent"
+			build.skillsTab:PasteSocketGroup("Cast on Dodge 20/0  1\nSpark 20/0  1\nEnergy Retention 1/0  1")
+			runCallback("OnFrame")
+			selectSkill(1, 2)
+			setConfig("dodgeRollsPerSecond", 1)
+			assertNear(4 / math.ceil(35 / energyPerMetre), build.calcsTab.mainOutput.SkillTriggerRate)
+		end)
+	end)
+
 	describe("Cast on Critical", function()
 		local function setupCastOnCritical()
 			build.skillsTab:PasteSocketGroup("Spark 20/0  1")

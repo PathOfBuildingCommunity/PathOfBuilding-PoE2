@@ -279,8 +279,28 @@ local function metaGemTriggerHandler(env, actor, metaSkill, config)
 		assumeSelfCast(skill, s_format("%s gains no Energy from %ss", triggerName, config.eventName))
 		return
 	end
+	-- Each triggered skill separately rolls to refund half of its Energy cost
+	local refundChance = m_min(metaSkill.skillModList:Sum("BASE", metaSkill.skillCfg, "EnergyRefundChance"), 100) / 100
+	local refunds = { [0] = 1 }
+	if refundChance > 0 then
+		-- calculate all possible combinations of refunds and odds for them
+		for _, triggeredSkill in ipairs(triggeredSkills) do
+			local refund = calcSocketedSkillEnergy(triggeredSkill) / 2
+			local nextRefunds = {}
+			for amount, chance in pairs(refunds) do
+				-- add back cases where this skill does not get refunded
+				nextRefunds[amount] = (nextRefunds[amount] or 0) + chance * (1 - refundChance)
+				-- and where it does get refunded
+				nextRefunds[amount + refund] = (nextRefunds[amount + refund] or 0) + chance * refundChance
+			end
+			refunds = nextRefunds
+		end
+	end
 	-- Excess Energy is discarded when the meta gem triggers, so each trigger takes a whole number of events
-	local events = m_ceil(maxEnergy / energyPerEvent - 1e-9)
+	local events = 0
+	for refund, chance in pairs(refunds) do
+		events += chance * m_ceil((maxEnergy - refund) / energyPerEvent - 1e-9)
+	end
 	output.EnergyPerSecond = energyPerEvent * eventRate
 	output.MaxEnergy = maxEnergy
 
@@ -329,9 +349,13 @@ local function metaGemTriggerHandler(env, actor, metaSkill, config)
 
 		breakdown.SkillTriggerRate = {
 			s_format("%.2f ^8(%ss per second)", eventRate, config.eventName),
-			s_format("/ %d ^8(%ss to reach %.0f maximum Energy)", events, config.eventName, maxEnergy),
-			s_format("= %.2f ^8per second", eventRate / events),
 		}
+		if refundChance > 0 then
+			t_insert(breakdown.SkillTriggerRate, s_format("/ %.2f ^8(average %ss to reach %.0f maximum Energy, %d%% chance per skill to refund half its cost)", events, config.eventName, maxEnergy, refundChance * 100))
+		else
+			t_insert(breakdown.SkillTriggerRate, s_format("/ %d ^8(%ss to reach %.0f maximum Energy)", events, config.eventName, maxEnergy))
+		end
+		t_insert(breakdown.SkillTriggerRate, s_format("= %.2f ^8per second", eventRate / events))
 		if output.SkillTriggerRate < eventRate / events then
 			t_insert(breakdown.SkillTriggerRate, s_format("capped at %.2f ^8(trigger rate cap)", triggerRateCap))
 		end
