@@ -191,6 +191,61 @@ return function(mod, flag, skill)
 ["generic_ongoing_triggerer_is_invocation_skill"] = {
 	flag("Condition:InvocationSkill"),
 },
+-- Meta gem Energy
+["energy_generated_+%"] = {
+	mod("EnergyGenerated", "INC", nil),
+},
+["generic_ongoing_trigger_triggers_at_maximum_energy"] = {
+	skill("triggersAtMaxEnergy", true),
+},
+["generic_ongoing_trigger_maximum_energy_is_total_of_socketed_skills"] = {
+	skill("maxEnergyFromSocketedSkills", true),
+},
+["generic_ongoing_trigger_maximum_energy"] = {
+	skill("maxEnergy", nil),
+},
+-- Applied by the hidden support to each skill socketed in the meta gem
+["generic_ongoing_trigger_1_maximum_energy_per_Xms_total_cast_time"] = {
+	skill("energyPerCastTimeMs", nil),
+},
+["trigger_skills_refund_half_energy_spent_chance_%"] = {
+	mod("EnergyRefundChance", "BASE", nil),
+},
+["trigger_meta_gem_damage_+%_final"] = {
+	mod("Damage", "MORE", nil),
+},
+["cast_on_dodge_dodge_roll_distance_granted_+"] = {
+	mod("DodgeRollDistance", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+	div = 10,
+},
+-- Energy that meta gems gain from this skill's hits
+["active_skill_energy_generated_+%_final"] = {
+	mod("EnergyGeneratedFromSkill", "MORE", nil),
+},
+["cast_on_crit_gain_X_centienergy_per_monster_power_on_crit"] = {
+	skill("energyPerPowerOnCrit", nil),
+	div = 100,
+},
+["cast_on_dodge_roll_gain_X_centienergy_per_unit_travelled_while_dodge_rolling"] = {
+	skill("energyPerMetreDodgeRolling", nil),
+	div = 100,
+},
+["cast_fire_spell_on_hit_gain_X_centienergy_per_monster_power_on_hit"] = {
+	skill("energyPerPowerOnMeleeHit", nil),
+	div = 100,
+},
+["cast_lightning_spell_on_hit_gain_X_centienergy_per_monster_power_on_hit"] = {
+	skill("energyPerPowerOnMeleeHit", nil),
+	div = 100,
+},
+["cast_on_block_gain_X_centienergy_on_block"] = {
+	skill("energyOnBlock", nil),
+	div = 100,
+},
+["cast_on_using_charm_gain_X_centienergy_per_charm_charge_used_on_using_charm"] = {
+	skill("energyPerCharmCharge", nil),
+	div = 100,
+},
 ["base_skill_cost_life_instead_of_mana_%"] = {
 	mod("HybridManaAndLifeCost_Life", "BASE", nil),
 },

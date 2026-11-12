@@ -59,6 +59,9 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("MaxLifeLeechInstance", "BASE", 10, "Base")
 	modDB:NewMod("MaxManaLeechInstance", "BASE", 10, "Base")
 	modDB:NewMod("MaxEnergyShieldLeechInstance", "BASE", 10, "Base")
+	modDB:NewMod("DodgeRollDistance", "BASE", 4.6, "Base")
+	modDB:NewMod("DodgeRollsPerSecond", "BASE", 1, "Base")
+	modDB:NewMod("MonsterPower", "BASE", 20, "Base") -- Power of a Unique enemy
 	modDB:NewMod("TrapThrowingTime", "BASE", 0.6, "Base")
 	modDB:NewMod("MineLayingTime", "BASE", 0.3, "Base")
 	modDB:NewMod("WarcryCastTime", "BASE", 0.8, "Base")
@@ -864,6 +867,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		env.mode = mode
 		env.buildBreakdown = mode == "MAIN" or mode == "CALCS"
 		env.spec = override.spec or build.spec
+		env.override = override
 		env.classId = env.spec.curClassId
 
 		modDB = new("ModDB"):ModDB()

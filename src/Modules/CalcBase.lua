@@ -15,17 +15,20 @@ return calcs
 ---@field BattleMageCryDuration number?
 ---@field BattlemageUpTimeRatio number?
 ---@field BleedDamage number?
+---@field BlockChance number?
 ---@field ChaosHitAverage number?
 ---@field ChaosResist number?
 ---@field ColdHitAverage number?
 ---@field ColdResistOverCap number?
 ---@field ColdResistTotal number?
+---@field CritChance number?
 ---@field CullMultiplier number?
 ---@field Dex number?
 ---@field EffectiveBlockChance number?
 ---@field EffectiveProjectileBlockChance number?
 ---@field EffectiveSpellBlockChance number?
 ---@field EffectiveSpellProjectileBlockChance number?
+---@field EnergyPerSecond number?
 ---@field EnergyShieldLeechDuration number?
 ---@field EnergyShieldRecoupRecoveryAvg number?
 ---@field EnergyShieldRegenRecovery number?
@@ -63,6 +66,7 @@ return calcs
 ---@field ManaRecoupRecoveryAvg number?
 ---@field ManaRegenRecovery number?
 ---@field ManaUnreserved number?
+---@field MaxEnergy number?
 ---@field PhysicalTakenDamage number?
 ---@field PhysicalTakenHit number?
 ---@field PoisonAvoidChance number?
@@ -73,10 +77,12 @@ return calcs
 ---@field SelfIgniteEffect number?
 ---@field SelfPoisonDuration number?
 ---@field SelfPoisonEffect number?
+---@field SkillTriggerRate number?
 ---@field Str number?
 ---@field TotalVaalRejuvenationTotemLife number?
 ---@field TotemChaosResist number?
 ---@field TotemLife number?
+---@field TriggerRateCap number?
 
 ---@class Breakdown
 ---@field MainHand Breakdown?
@@ -149,7 +155,6 @@ return calcs
 ---@field weapon2Flags number
 ---@field minion? Actor
 ---@field minionList? string[]
----@field mirage? table
 ---@field slotName? string
 ---@field skillPart? number
 ---@field skillPartName? string
@@ -220,6 +225,7 @@ return calcs
 ---@field weaponModList1? ModList
 ---@field sourceGemPropertyInfo? table<any, TabulatedMod[]>
 ---@field override? CalcOverride
+---@field triggerSourceCache? table<string, CachedSkillData> Trigger source calculations shared by one calculator override's passes
 ---@field virtuousMoteSkillCount? table<string, number>
 ---@field skillsUsed? table<string, boolean>
 ---@field conditionsUsed? table<string, Mod[]>

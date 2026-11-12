@@ -3511,11 +3511,8 @@ function calcs.perform(env, skipEHP)
 		calcs.buildDefenceEstimations(env, env.player)
 	end
 
-	-- TURNING OFF CALC TRIGGERS AND MIRAGES FOR TIME BEING
-	--calcs.triggers(env, env.player)
-	--if not calcs.mirages(env) then
-		calcs.offence(env, env.player, env.player.mainSkill)
-	--end
+	calcs.triggers(env, env.player)
+	calcs.offence(env, env.player, env.player.mainSkill)
 
 	if env.minion then
 		calcs.defence(env, env.minion)

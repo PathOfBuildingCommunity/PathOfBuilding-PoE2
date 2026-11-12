@@ -86,14 +86,13 @@ c["+(9-14)% to Fire Resistance"]={nil,"+(9-14)% to Fire Resistance "}
 c["+(9-14)% to Lightning Resistance"]={nil,"+(9-14)% to Lightning Resistance "}
 c["+0.08% to Thorns Critical Hit Chance"]={{[1]={flags=32,keywordFlags=0,name="CritChance",type="BASE",value=0.08}},nil}
 c["+0.15% to Thorns Critical Hit Chance"]={{[1]={flags=32,keywordFlags=0,name="CritChance",type="BASE",value=0.15}},nil}
-c["+0.2 metres to Dodge Roll distance"]={{}," metres to Dodge Roll distance "}
+c["+0.2 metres to Dodge Roll distance"]={{[1]={flags=0,keywordFlags=0,name="DodgeRollDistance",type="BASE",value=0.2}},nil}
 c["+0.2 metres to Melee Strike Range"]={{[1]={flags=0,keywordFlags=0,name="MeleeWeaponRangeMetre",type="BASE",value=0.2},[2]={flags=0,keywordFlags=0,name="UnarmedRangeMetre",type="BASE",value=0.2}},nil}
 c["+0.3 metres to Melee Strike Range while Unarmed"]={{[1]={[1]={type="Condition",var="Unarmed"},flags=0,keywordFlags=0,name="MeleeWeaponRangeMetre",type="BASE",value=0.3},[2]={[1]={type="Condition",var="Unarmed"},flags=0,keywordFlags=0,name="UnarmedRangeMetre",type="BASE",value=0.3}},nil}
 c["+0.3% Critical Hit Chance per Power Charge"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.3}},nil}
 c["+0.4 metres to Melee Strike Range if you've dealt a Projectile Attack Hit in the past eight seconds"]={{[1]={[1]={type="Condition",var="HitProjectileRecently"},flags=0,keywordFlags=0,name="MeleeWeaponRangeMetre",type="BASE",value=0.4},[2]={[1]={type="Condition",var="HitProjectileRecently"},flags=0,keywordFlags=0,name="UnarmedRangeMetre",type="BASE",value=0.4}},nil}
 c["+0.4 metres to Melee Strike Range while Unarmed"]={{[1]={[1]={type="Condition",var="Unarmed"},flags=0,keywordFlags=0,name="MeleeWeaponRangeMetre",type="BASE",value=0.4},[2]={[1]={type="Condition",var="Unarmed"},flags=0,keywordFlags=0,name="UnarmedRangeMetre",type="BASE",value=0.4}},nil}
-c["+0.5 metres to Dodge Roll distance while Surrounded"]={{}," metres to Dodge Roll distance  "}
-c["+0.5 metres to Dodge Roll distance while Surrounded 10% increased Movement Speed while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},[2]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="MovementSpeed",type="BASE",value=0.5}}," metres to Dodge Roll distance  10% increased   "}
+c["+0.5 metres to Dodge Roll distance while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="DodgeRollDistance",type="BASE",value=0.5}},nil}
 c["+0.5% to Thorns Critical Hit Chance per 50 Tribute"]={{[1]={[1]={actor="parent",div=50,stat="Tribute",type="PerStat"},flags=32,keywordFlags=0,name="CritChance",type="BASE",value=0.5}},nil}
 c["+0.6% to Unarmed Melee Attack Critical Hit Chance"]={{[1]={flags=16777477,keywordFlags=0,name="CritChance",type="BASE",value=0.6}},nil}
 c["+1 Charm Slot"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=1}},nil}
@@ -108,8 +107,7 @@ c["+1 Ring Slot"]={{[1]={flags=0,keywordFlags=0,name="AdditionalRingSlot",type="
 c["+1 Suffix Modifier allowed"]={{},nil}
 c["+1 Weapon Range per 10% Quality"]={{[1]={flags=0,keywordFlags=0,name="AlternateQualityLocalWeaponRangePer10Quality",type="BASE",value=1}},nil}
 c["+1 maximum stacks of Puppet Master"]={{}," maximum stacks of Puppet Master "}
-c["+1 metre to Dodge Roll distance"]={{}," metre to Dodge Roll distance "}
-c["+1 metre to Dodge Roll distance 50% increased Evasion Rating if you've Dodge Rolled Recently"]={{[1]={[1]={type="Condition",var="DodgeRolledRecently"},flags=0,keywordFlags=0,name="Evasion",type="BASE",value=1}}," metre to Dodge Roll distance 50% increased   "}
+c["+1 metre to Dodge Roll distance"]={{[1]={flags=0,keywordFlags=0,name="DodgeRollDistance",type="BASE",value=1}},nil}
 c["+1 second to Summon Skeleton Cooldown"]={{}," second to Summon  Cooldown "}
 c["+1 to Armour per Strength"]={{[1]={[1]={stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1}},nil}
 c["+1 to Evasion Rating per 1 Item Armour on Equipped Gloves"]={{[1]={[1]={div=1,stat="ArmourOnGloves",type="PerStat"},flags=0,keywordFlags=0,name="Evasion",type="BASE",value=1}},nil}
@@ -443,8 +441,7 @@ c["+2 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",
 c["+2 Prefix Modifiers allowed"]={{},nil}
 c["+2 Suffix Modifiers allowed"]={{},nil}
 c["+2 maximum Energy Shield per 5 Strength"]={{[1]={[1]={div=5,stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=2}},nil}
-c["+2 metres to Dodge Roll distance if you haven't Dodge Rolled Recently"]={{}," metres to Dodge Roll distance if you haven't Dodge Rolled Recently "}
-c["+2 metres to Dodge Roll distance if you haven't Dodge Rolled Recently -1 metre to Dodge Roll distance if you've Dodge Rolled Recently"]={{}," metres to Dodge Roll distance if you haven't Dodge Rolled Recently -1 metre to Dodge Roll distance  "}
+c["+2 metres to Dodge Roll distance if you haven't Dodge Rolled Recently"]={{[1]={[1]={neg=true,type="Condition",var="DodgeRolledRecently"},flags=0,keywordFlags=0,name="DodgeRollDistance",type="BASE",value=2}},nil}
 c["+2 to Armour per 1 Item Energy Shield on Equipped Boots"]={{[1]={[1]={div=1,stat="EnergyShieldOnBoots",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=2}},nil}
 c["+2 to Dexterity per 25 Tribute"]={{[1]={[1]={actor="parent",div=25,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Dex",type="BASE",value=2}},nil}
 c["+2 to Intelligence per 25 Tribute"]={{[1]={[1]={actor="parent",div=25,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Int",type="BASE",value=2}},nil}
@@ -1263,8 +1260,7 @@ c["+95 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",v
 c["-0.2 seconds to current Energy Shield Recharge delay per Combo expended when using Skills"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=-0.2}}," seconds to current  Recharge delay per Combo expended when using Skills "}
 c["-1 Prefix Modifier allowed"]={{},nil}
 c["-1 Suffix Modifier allowed"]={{},nil}
-c["-1 metre to Dodge Roll distance if you've Dodge Rolled Recently"]={{}," metre to Dodge Roll distance  "}
-c["-1 metre to Dodge Roll distance if you've Dodge Rolled Recently Repeatable Attacks with this Bow Repeat +1 time if no enemies are in your Presence"]={{}," metre to Dodge Roll distance  Repeatable Attacks with this Bow Repeat +1 time if no enemies are in your Presence "}
+c["-1 metre to Dodge Roll distance if you've Dodge Rolled Recently"]={{[1]={[1]={type="Condition",var="DodgeRolledRecently"},flags=0,keywordFlags=0,name="DodgeRollDistance",type="BASE",value=-1}},nil}
 c["-1 second to base Energy Shield Recharge delay"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="BASE",value=-1}},nil}
 c["-1 to Maximum Frenzy Charges"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChargesMax",type="BASE",value=-1}},nil}
 c["-1 to Maximum Power Charges"]={{[1]={flags=0,keywordFlags=0,name="PowerChargesMax",type="BASE",value=-1}},nil}
@@ -1935,8 +1931,7 @@ c["12 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeReg
 c["12 Life Regeneration per second per Socket filled"]={{[1]={[1]={type="Multiplier",var="RunesSocketedIn{SlotName}"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=12}},nil}
 c["12 to 14 Added Cold Damage per Frenzy Charge"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=12},[2]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=14}},nil}
 c["12% chance for Spell Skills to fire 2 additional Projectiles"]={{[1]={flags=2,keywordFlags=0,name="TwoAdditionalProjectilesChance",type="BASE",value=12}},nil}
-c["12% chance for Trigger skills to refund half of Energy Spent"]={{}," for Trigger skills to refund half of Energy Spent "}
-c["12% chance for Trigger skills to refund half of Energy Spent 8% increased chance to inflict Ailments"]={{[1]={flags=0,keywordFlags=0,name="AilmentChance",type="BASE",value=12}}," for Trigger skills to refund half of Energy Spent 8% increased  "}
+c["12% chance for Trigger skills to refund half of Energy Spent"]={{[1]={[1]={skillType=32,type="SkillType"},flags=0,keywordFlags=0,name="EnergyRefundChance",type="BASE",value=12}},nil}
 c["12% chance to Avoid Elemental Ailments per Grand Spectrum"]={{[1]={[1]={type="Multiplier",var="GrandSpectrum"},flags=0,keywordFlags=0,name="AvoidElementalAilments",type="BASE",value=12}},nil}
 c["12% chance to Blind Enemies on Hit"]={{[1]={flags=0,keywordFlags=0,name="BlindChance",type="BASE",value=12}},nil}
 c["12% chance when collecting an Elemental Infusion to gain an"]={{}," when collecting an Elemental Infusion to gain an "}
@@ -3184,7 +3179,7 @@ c["25% chance for Lightning Damage with Hits to be Lucky"]={{[1]={flags=0,keywor
 c["25% chance for Projectiles to Pierce Enemies within 3m distance of you"]={{[1]={flags=0,keywordFlags=0,name="ProjectileCount",type="BASE",value=25}}," for  to Pierce Enemies within 3m distance of you "}
 c["25% chance for Skills to retain 40% of Glory on use"]={{}," for Skills to retain 40% of Glory on use "}
 c["25% chance for Slam Skills you use yourself to cause an additional Aftershock"]={{}," for Slam Skills you use yourself to cause an additional Aftershock "}
-c["25% chance for Trigger skills to refund half of Energy Spent"]={{}," for Trigger skills to refund half of Energy Spent "}
+c["25% chance for Trigger skills to refund half of Energy Spent"]={{[1]={[1]={skillType=32,type="SkillType"},flags=0,keywordFlags=0,name="EnergyRefundChance",type="BASE",value=25}},nil}
 c["25% chance on Consuming a Shock on an Enemy to reapply it"]={{}," on Consuming a Shock on an Enemy to reapply it "}
 c["25% chance on Shocking Enemies to created Shocked Ground"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="OnShockedGround"},flags=0,keywordFlags=0,name="ShockBase",type="BASE",value=20}},nil}
 c["25% chance that if you would gain Power Charges, you instead gain up to your maximum number of Power Charges"]={{[1]={flags=0,keywordFlags=0,name="FlaskCharges",type="BASE",value=25}}," that if you would gain Power , you instead gain up to your maximum number of Power Charges "}
@@ -5001,12 +4996,12 @@ c["75% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",t
 c["75% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=75}},nil}
 c["75% increased Melee Damage with Spears while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=268435716,keywordFlags=0,name="Damage",type="INC",value=75}},nil}
 c["75% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=75}},nil}
-end)();(function()
 c["75% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=75}},nil}
 c["75% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=75}},nil}
 c["75% increased Thorns damage if you've Blocked Recently"]={{[1]={[1]={type="Condition",var="BlockedRecently"},flags=32,keywordFlags=0,name="Damage",type="INC",value=75}},nil}
 c["75% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=75}},nil}
 c["75% increased effect of Socketed Augment Items"]={{[1]={flags=0,keywordFlags=0,name="SocketedAugmentItemEffect",type="INC",value=75}},nil}
+end)();(function()
 c["75% more Stun Buildup with Lightning Damage"]={{[1]={[1]={type="Condition",var="LightningHasDamage"},flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="MORE",value=75}},nil}
 c["75% of Damage Converted to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageConvertToFire",type="BASE",value=75}},nil}
 c["75% of Volatility Physical Damage Taken as Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsCold",type="BASE",value=75}}," Volatility   "}
@@ -5228,7 +5223,7 @@ c["86% more Recovery if used while on Low Mana"]={{[1]={[1]={type="Condition",va
 c["89% increased Life Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=89}},nil}
 c["89% increased Mana Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=89}},nil}
 c["9 Mana gained when you Block"]={{[1]={flags=0,keywordFlags=0,name="ManaOnBlock",type="BASE",value=9}},nil}
-c["9% chance for Trigger skills to refund half of Energy Spent"]={{}," for Trigger skills to refund half of Energy Spent "}
+c["9% chance for Trigger skills to refund half of Energy Spent"]={{[1]={[1]={skillType=32,type="SkillType"},flags=0,keywordFlags=0,name="EnergyRefundChance",type="BASE",value=9}},nil}
 c["9% chance to Freeze"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="BASE",value=9}},nil}
 c["9% chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=9}},nil}
 c["9% increased Area of Effect of Curses"]={{[1]={flags=0,keywordFlags=2,name="AreaOfEffect",type="INC",value=9}},nil}
@@ -8590,21 +8585,18 @@ c["Melee Hits count as Rampage Kills Rampage"]={nil,"Melee Hits count as Rampage
 c["Melee Hits have 10% chance to Fortify"]={nil,"Melee Hits have 10% chance to Fortify "}
 c["Melee Hits which Stun Fortify"]={nil,"Melee Hits which Stun Fortify "}
 c["Mercury Footprints"]={nil,"Mercury Footprints "}
-c["Meta Skills gain 0% reduced Energy"]={nil,"Meta Skills gain 0% reduced Energy "}
-c["Meta Skills gain 13% increased Energy"]={nil,"Meta Skills gain 13% increased Energy "}
-c["Meta Skills gain 15% increased Energy"]={nil,"Meta Skills gain 15% increased Energy "}
-c["Meta Skills gain 16% increased Energy"]={nil,"Meta Skills gain 16% increased Energy "}
-c["Meta Skills gain 16% increased Energy 2% increased Cast Speed per 20 Spirit"]={nil,"Meta Skills gain 16% increased Energy 2% increased Cast Speed per 20 Spirit "}
-c["Meta Skills gain 20% increased Energy"]={nil,"Meta Skills gain 20% increased Energy "}
-c["Meta Skills gain 25% increased Energy"]={nil,"Meta Skills gain 25% increased Energy "}
-c["Meta Skills gain 25% increased Energy if you've dealt a Critical Hit Recently"]={nil,"Meta Skills gain 25% increased Energy if you've dealt a Critical Hit Recently "}
-c["Meta Skills gain 25% increased Energy while on Full Mana"]={nil,"Meta Skills gain 25% increased Energy while on Full Mana "}
-c["Meta Skills gain 35% more Energy"]={nil,"Meta Skills gain 35% more Energy "}
-c["Meta Skills gain 35% more Energy Meta Skills have 50% increased Reservation Efficiency"]={nil,"Meta Skills gain 35% more Energy Meta Skills have 50% increased Reservation Efficiency "}
-c["Meta Skills gain 4% increased Energy"]={nil,"Meta Skills gain 4% increased Energy "}
-c["Meta Skills gain 4% increased Energy 5% increased Critical Hit Chance"]={nil,"Meta Skills gain 4% increased Energy 5% increased Critical Hit Chance "}
-c["Meta Skills gain 6% increased Energy"]={nil,"Meta Skills gain 6% increased Energy "}
-c["Meta Skills gain 8% increased Energy"]={nil,"Meta Skills gain 8% increased Energy "}
+c["Meta Skills gain 0% reduced Energy"]={{[1]={[1]={skillType=122,type="SkillType"},flags=0,keywordFlags=0,name="EnergyGenerated",type="INC",value=-0}},nil}
+c["Meta Skills gain 13% increased Energy"]={{[1]={[1]={skillType=122,type="SkillType"},flags=0,keywordFlags=0,name="EnergyGenerated",type="INC",value=13}},nil}
+c["Meta Skills gain 15% increased Energy"]={{[1]={[1]={skillType=122,type="SkillType"},flags=0,keywordFlags=0,name="EnergyGenerated",type="INC",value=15}},nil}
+c["Meta Skills gain 16% increased Energy"]={{[1]={[1]={skillType=122,type="SkillType"},flags=0,keywordFlags=0,name="EnergyGenerated",type="INC",value=16}},nil}
+c["Meta Skills gain 20% increased Energy"]={{[1]={[1]={skillType=122,type="SkillType"},flags=0,keywordFlags=0,name="EnergyGenerated",type="INC",value=20}},nil}
+c["Meta Skills gain 25% increased Energy"]={{[1]={[1]={skillType=122,type="SkillType"},flags=0,keywordFlags=0,name="EnergyGenerated",type="INC",value=25}},nil}
+c["Meta Skills gain 25% increased Energy if you've dealt a Critical Hit Recently"]={{[1]={[1]={skillType=122,type="SkillType"},[2]={type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="EnergyGenerated",type="INC",value=25}},nil}
+c["Meta Skills gain 25% increased Energy while on Full Mana"]={{[1]={[1]={skillType=122,type="SkillType"},[2]={type="Condition",var="FullMana"},flags=0,keywordFlags=0,name="EnergyGenerated",type="INC",value=25}},nil}
+c["Meta Skills gain 35% more Energy"]={{[1]={[1]={skillType=122,type="SkillType"},flags=0,keywordFlags=0,name="EnergyGenerated",type="MORE",value=35}},nil}
+c["Meta Skills gain 4% increased Energy"]={{[1]={[1]={skillType=122,type="SkillType"},flags=0,keywordFlags=0,name="EnergyGenerated",type="INC",value=4}},nil}
+c["Meta Skills gain 6% increased Energy"]={{[1]={[1]={skillType=122,type="SkillType"},flags=0,keywordFlags=0,name="EnergyGenerated",type="INC",value=6}},nil}
+c["Meta Skills gain 8% increased Energy"]={{[1]={[1]={skillType=122,type="SkillType"},flags=0,keywordFlags=0,name="EnergyGenerated",type="INC",value=8}},nil}
 c["Meta Skills gain 8% increased Energy for each Critical Hit you've dealt with Spells Recently"]={nil,"Meta Skills gain 8% increased Energy for each Critical Hit you've dealt with Spells Recently "}
 c["Meta Skills have 20% increased Reservation Efficiency"]={{[1]={[1]={skillType=122,type="SkillType"},flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=20}},nil}
 c["Meta Skills have 25% increased Reservation Efficiency"]={{[1]={[1]={skillType=122,type="SkillType"},flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=25}},nil}
@@ -9687,7 +9679,7 @@ c["Trigger Spark Skill on killing a Shocked Enemy"]={nil,"Trigger Spark Skill on
 c["Trigger a Socketed Bow Skill when you Attack with a Bow, with a 1 second Cooldown"]={nil,"Trigger a Socketed Bow Skill when you Attack with a Bow, with a 1 second Cooldown "}
 c["Trigger a Socketed Bow Skill when you Cast a Spell while wielding a Bow, with a 1 second Cooldown"]={nil,"Trigger a Socketed Bow Skill when you Cast a Spell while wielding a Bow, with a 1 second Cooldown "}
 c["Trigger a Socketed Cold Spell on Melee Critical Hit, with a 0.25 second Cooldown"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportUniqueCosprisMaliceColdSpellsCastOnMeleeCriticalStrike"}}},nil}
-c["Trigger skills refund half of Energy spent"]={nil,"Trigger skills refund half of Energy spent "}
+c["Trigger skills refund half of Energy spent"]={{[1]={[1]={skillType=32,type="SkillType"},flags=0,keywordFlags=0,name="EnergyRefundChance",type="BASE",value=100}},nil}
 c["Triggered Spells deal 14% increased Spell Damage"]={{[1]={[1]={skillType=37,type="SkillType"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=14}},nil}
 c["Triggered Spells deal 16% increased Spell Damage"]={{[1]={[1]={skillType=37,type="SkillType"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=16}},nil}
 c["Triggered Spells deal 33% increased Spell Damage"]={{[1]={[1]={skillType=37,type="SkillType"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=33}},nil}
@@ -10003,7 +9995,6 @@ c["Your speed is Unaffected by Slows while Sprinting"]={nil,"Your speed is Unaff
 c["Your speed is Unaffected by Slows while Sprinting 10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds"]={nil,"Your speed is Unaffected by Slows while Sprinting 10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds "}
 c["Your speed is unaffected by Slows"]={{[1]={flags=0,keywordFlags=0,name="UnaffectedBySlows",type="FLAG",value=true}},nil}
 c["Your spells have 100% chance to Shock against Frozen Enemies"]={nil,"Your spells have 100% chance to Shock against Frozen Enemies "}
-end)();(function()
 c["Zealot's Oath"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Zealot's Oath"},[2]={flags=0,keywordFlags=0,name="Condition:HaveZealot'sOath",type="FLAG",value=true}},nil}
 c["Zealot's Oath during Effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ZealotsOath",type="FLAG",value=true}},nil}
 c["additional Elemental Infusion of the same type"]={nil,"additional Elemental Infusion of the same type "}
@@ -10012,6 +10003,7 @@ c["as being boosted by Chilled Ground"]={nil,"as being boosted by Chilled Ground
 c["as being boosted by Ignited Ground"]={nil,"as being boosted by Ignited Ground "}
 c["as being boosted by Ignited, Shocked, and Chilled Ground"]={nil,"as being boosted by Ignited, Shocked, and Chilled Ground "}
 c["as being boosted by Shocked Ground"]={nil,"as being boosted by Shocked Ground "}
+end)();(function()
 c["being Shapeshifted for at least 8 seconds"]={nil,"being Shapeshifted for at least 8 seconds "}
 c["for 4 seconds, every 0.25 seconds while raised"]={nil,"for 4 seconds, every 0.25 seconds while raised "}
 c["gain 6 Cold Surges or 6 Fire Surges"]={{}," Cold Surges or 6 Fire Surges "}
