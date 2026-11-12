@@ -51,6 +51,7 @@ local displayStats = {
 	{ stat = "Speed", label = "Attack Rate", fmt = ".2f", compPercent = true, flag = "attack", condFunc = function(v, o) return v > 0 and not o.ChannelTime and (o.TriggerTime or 0) == 0 end, breakdown = "Speed", modNames = { "Speed" }, ignoredSections = { "Inc. Cast Speed", "More Cast Speed", } },
 	{ stat = "Speed", label = "Cast Rate", fmt = ".2f", compPercent = true, flag = "spell", condFunc = function(v, o) return v > 0 and not o.ChannelTime and (o.TriggerTime or 0) == 0 end, modNames = { "Speed" } },
 	{ stat = "Speed", label = "Effective Trigger Rate", fmt = ".2f", compPercent = true, condFunc = function(v,o) return (o.TriggerTime or 0) ~= 0 end },
+	{ stat = "EmberFusilladeMaxEffectiveAPS", label = "Max Eff. EF Cast Rate", fmt = ".2f", compPercent = true, condFunc = function(v) return v > 0 end },
 	{ stat = "WarcryCastTime", label = "Cast Time", fmt = ".2fs", compPercent = true, lowerIsBetter = true, flag = "warcry" },
 	{ stat = "ChannelTime", label = "Channel Time", fmt = ".2fs", compPercent = true, flag = "channelRelease", lowerIsBetter = true, condFunc = function(v,o) return not o.TriggerTime end },
 	{ stat = "HitSpeed", label = "Hit Rate", fmt = ".2f", compPercent = true, condFunc = function(v,o) return not o.TriggerTime end },

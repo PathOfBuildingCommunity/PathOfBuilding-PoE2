@@ -1448,9 +1448,10 @@ function calcs.offence(env, actor, activeSkill)
 		if skillModList:Flag(skillCfg, "NoAdditionalProjectiles") then
 			output.ProjectileCount = 1
 		else
+			local projMax = skillModList:Override(skillCfg, "ProjectileCountMaximum") or m_huge
 			local projBase = skillModList:Sum("BASE", skillCfg, "ProjectileCount") + 2 * skillModList:Sum("BASE", skillCfg, "TwoAdditionalProjectilesChance") / 100 + skillModList:Sum("BASE", skillCfg, "SurpassingProjectileChance") / 100
 			local projMore = skillModList:More(skillCfg, "ProjectileCount")
-			output.ProjectileCount = projBase * projMore
+			output.ProjectileCount = m_min(projBase * projMore, projMax)
 		end
 		if skillModList:Flag(skillCfg, "AdditionalProjectilesAddBouncesInstead") then
 			local projBase = skillModList:Sum("BASE", skillCfg, "ProjectileCount") + 2 * skillModList:Sum("BASE", skillCfg, "TwoAdditionalProjectilesChance") / 100 + skillModList:Sum("BASE", skillCfg, "SurpassingProjectileChance") / 100 + skillModList:Sum("BASE", skillCfg, "BounceCount") - 1
@@ -3976,6 +3977,7 @@ function calcs.offence(env, actor, activeSkill)
 				end
 			end
 		end
+		runSkillFunc("postCritFunc")
 		if not output.CritEffect then
 			if skillModList:Flag(cfg, "NoCritMultiplier") then
 				output.CritMultiplier = 1

@@ -439,14 +439,168 @@ statMap = {
 #skillEnd
 
 #skill EmberFusilladePlayer
+parts = {
+	{
+		name = "All Projectiles",
+	},
+	{
+		name = "1 Projectile"
+	},
+},
+preDamageFunc = function(activeSkill, output, breakdown)
+	local skillData = activeSkill.skillData
+	local t_insert = table.insert
+	local s_format = string.format
+
+	if activeSkill.skillPart == 1 then
+		-- Set base dpsMultiplier for projectile count
+		activeSkill.skillData.dpsMultiplier = output.ProjectileCount
+
+		-- Calculate average damage scaling for sequential projectiles
+		-- Each projectile does more damage based on how many came before it
+		local moreDamagePerProj = skillData.damagePerProjectile or 0
+		if moreDamagePerProj ~= 0 and output.ProjectileCount > 1 then
+			-- Average multiplier: sum of (0, X, 2X, 3X, ..., (n-1)X) / n
+			-- This equals: X * (0 + 1 + 2 + ... + (n-1)) / n = X * n(n-1)/2 / n = X * (n-1)/2
+			local avgMoreMult = moreDamagePerProj * (output.ProjectileCount - 1) / 2
+			activeSkill.skillModList:NewMod("Damage", "MORE", avgMoreMult, "Skill:EmberFusilladePlayer")
+
+			-- Store the average multiplier for display
+			output.EmberFusilladeAvgMoreMult = avgMoreMult
+
+			if breakdown then
+				local breakdownSequential = {}
+				t_insert(breakdownSequential, s_format("^8Each projectile deals^7 %d%%^8 more damage per previous projectile", moreDamagePerProj))
+				t_insert(breakdownSequential, s_format("^8With^7 %d^8 projectiles, damage progression is:^7", output.ProjectileCount))
+				for i = 1, output.ProjectileCount do
+					local projMult = moreDamagePerProj * (i - 1)
+					t_insert(breakdownSequential, s_format("  ^8Projectile %d:^7 %d%%^8 more damage", i, projMult))
+				end
+				t_insert(breakdownSequential, s_format("^8Average more multiplier:^7 %.1f%%", avgMoreMult))
+				breakdown.EmberFusilladeSequentialBreakdown = breakdownSequential
+				breakdown.ProjectileCount = breakdown.ProjectileCount or {}
+				t_insert(breakdown.ProjectileCount, s_format("^8Maximum number of Ember Fusillade projectiles:^7 %d", activeSkill.skillModList:Override(activeSkill.skillCfg, "ProjectileCountMaximum")))
+			end
+		end
+	end
+end,
+postCritFunc = function(activeSkill, output, breakdown)
+	local skillData = activeSkill.skillData
+	local t_insert = table.insert
+	local s_format = string.format
+
+	local baseDelayBetweenProjectiles = skillData.delayPerProjectile
+	local projectileCount = 1
+
+	if activeSkill.skillPart == 1 then
+		projectileCount = output.ProjectileCount
+	end
+
+	-- Calculate effective attack rate accounting for delayed projectile firing
+	-- Projectiles orbit for base_skill_effect_duration before firing
+	-- Recasting resets the timer, so attacking too fast wastes potential damage
+	-- Formula: totalTime = (hoverDelay + delayBetweenProj * nProj) * durationMod
+	local ge = activeSkill.activeEffect.grantedEffect
+	local stats = calcLib.buildSkillInstanceStats(activeSkill.activeEffect, ge, ge.statSets[1])
+	local hoverDelay = (stats.base_skill_effect_duration) / 1000
+	local durationMod = output.DurationMod
+	local baseTimeForAllProjectiles = baseDelayBetweenProjectiles * (projectileCount - 1)
+	local effectiveDelay = (hoverDelay) * durationMod + baseTimeForAllProjectiles
+	local effectiveDelayRounded = math.ceil(effectiveDelay / data.misc.ServerTickTime) * data.misc.ServerTickTime
+	local maxEffectiveAPS = 1 / effectiveDelayRounded
+	local currentAPS = output.Speed
+
+	output.EmberFusilladeMaxEffectiveAPS = maxEffectiveAPS
+
+	if breakdown then
+		local breakdownAPS = {}
+		t_insert(breakdownAPS, s_format("^8Base hover delay:^7 %.1fs", hoverDelay))
+		t_insert(breakdownAPS, s_format("^8Base delay between projectiles:^7 %.2fs", baseDelayBetweenProjectiles))
+		t_insert(breakdownAPS, s_format("^8Base time for^7 %d added ^8projectiles:^7 %.2fs x %d = %.1fs", (projectileCount - 1), baseDelayBetweenProjectiles, (projectileCount - 1), baseTimeForAllProjectiles))
+		t_insert(breakdownAPS, s_format("^8Duration modifier:^7 %.4f", durationMod))
+		t_insert(breakdownAPS, "")
+		t_insert(breakdownAPS, s_format("^6Lockstep"))
+		t_insert(breakdownAPS, s_format("^8Effective delay:^7 (%.1f + %.2f) x %.4f = %.4fs", hoverDelay, baseTimeForAllProjectiles, durationMod, effectiveDelay))
+		t_insert(breakdownAPS, s_format("^8Rounded up to nearest server tick^7 = %.4fs", effectiveDelayRounded))
+		t_insert(breakdownAPS, s_format("^8Max effective attack rate:^7 1 / %.4f = %.2f", effectiveDelayRounded, maxEffectiveAPS))
+		if currentAPS then
+			local currentInc = activeSkill.skillModList:Sum("INC", activeSkill.skillCfg, "Speed")
+			local neededInc = ((maxEffectiveAPS / currentAPS) * (1 + currentInc / 100) - 1) * 100
+			local additionalInc = neededInc - currentInc
+			if currentAPS > maxEffectiveAPS then
+				t_insert(breakdownAPS, s_format("^1Current attack rate (%.2f) exceeds max effective rate!", currentAPS))
+				t_insert(breakdownAPS, s_format("^1Reduce attack speed by at least^7 %d%% ^1", math.ceil(-additionalInc)))
+				t_insert(breakdownAPS, s_format("^1DPS is reduced by %.1f%%", (1 - maxEffectiveAPS / currentAPS) * 100))
+			else
+				t_insert(breakdownAPS, s_format("^2Current attack rate (%.2f) is within effective limits", currentAPS))
+				t_insert(breakdownAPS, s_format("^2You can add up to^7 %d%% ^2increased attack speed", math.floor(additionalInc)))
+			end
+		end
+		breakdown.EmberFusilladeMaxEffectiveAPS = breakdownAPS
+	end
+
+	-- Adjust dpsMultiplier if attacking too fast (only for "All Projectiles" mode)
+	if activeSkill.skillPart == 1 then
+		if currentAPS and currentAPS > maxEffectiveAPS then
+			local efficiencyRatio = maxEffectiveAPS / currentAPS
+			local originalMultiplier = skillData.dpsMultiplier or output.ProjectileCount
+			skillData.dpsMultiplier = originalMultiplier * efficiencyRatio
+		end
+	end
+end,
 #set EmberFusilladePlayer
 #flags spell duration projectile
+statMap = {
+	["ember_fusillade_damage_+%_final_per_ember_fired"] = {
+		skill("damagePerProjectile", nil),
+	},
+	["blazing_cluster_delay_between_projectiles_ms"] = {
+		skill("delayPerProjectile", nil),
+		div = 1000,
+	},
+	["quality_display_ember_fusilade_is_gem"] = {
+		-- Display only
+	},
+	["blazing_cluster_maximum_number_of_projectiles_allowed"] = {
+		mod("ProjectileCountMaximum", "OVERRIDE", nil),
+	},
+},
 #mods
 #set EmberFusilladeExplosionPlayer
 #flags spell area projectile
+statMap = {
+	["ember_fusillade_damage_+%_final_per_ember_fired"] = {
+		skill("damagePerProjectile", nil),
+	},
+	["blazing_cluster_delay_between_projectiles_ms"] = {
+		skill("delayPerProjectile", nil),
+		div = 1000,
+	},
+	["quality_display_ember_fusilade_is_gem"] = {
+		-- Display only
+	},
+	["blazing_cluster_maximum_number_of_projectiles_allowed"] = {
+		mod("ProjectileCountMaximum", "OVERRIDE", nil),
+	},
+},
 #mods
 #set EmberFusilladeBeamPlayer
 #flags spell projectile
+statMap = {
+	["ember_fusillade_damage_+%_final_per_ember_fired"] = {
+		skill("damagePerProjectile", nil),
+	},
+	["blazing_cluster_delay_between_projectiles_ms"] = {
+		skill("delayPerProjectile", nil),
+		div = 1000,
+	},
+	["quality_display_ember_fusilade_is_gem"] = {
+		-- Display only
+	},
+	["blazing_cluster_maximum_number_of_projectiles_allowed"] = {
+		mod("ProjectileCountMaximum", "OVERRIDE", nil),
+	},
+},
 #mods
 #skillEnd
 
