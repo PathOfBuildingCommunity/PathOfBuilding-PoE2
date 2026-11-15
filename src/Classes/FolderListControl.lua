@@ -84,11 +84,11 @@ end
 
 function FolderListClass:OnSelDelete(index, folder)
 	if NewFileSearch(folder.fullFileName.."/*") or NewFileSearch(folder.fullFileName.."/*", true) then
-		main:OpenMessagePopup("Delete Folder", "The folder is not empty.")
+		main:OpenMessagePopup(localisation:Text("ui.folder_list_control.on_sel_delete.message_2"), localisation:Text("ui.folder_list_control.on_sel_delete.message_4"))
 	else
 		local res, msg = RemoveDir(folder.fullFileName)
 		if not res then
-			main:OpenMessagePopup("Error", "Couldn't delete '"..folder.fullFileName.."': "..msg)
+			main:OpenMessagePopup(localisation:Text("ui.folder_list_control.on_sel_delete.message_3"), localisation:Text("ui.folder_list_control.on_sel_delete.message", { full_file_name = folder.fullFileName, msg = msg }))
 			return
 		end
 		self:BuildList() 

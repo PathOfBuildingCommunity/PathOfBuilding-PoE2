@@ -1,0 +1,894 @@
+language,source,translation,provenance
+zh-CN,%Inc Life,生命提高百分比,project-supplement
+zh-CN,(Not supported in PoB yet),(PoB 暂不支持),project-supplement
+zh-CN,(Unused),(未使用),project-supplement
+zh-CN,(Used in '{0}'),(用于“{0}”),project-supplement
+zh-CN,(hover over the item and Ctrl+C) to view or edit,（鼠标指向物品后按 Ctrl+C），即可查看、,project-supplement
+zh-CN,(replacing {0}),(替换 {0}),project-supplement
+zh-CN,Activations per Brand,每个烙印激活次数,project-supplement
+zh-CN,Active Minion Limit,最大召唤物数量,project-supplement
+zh-CN,Aegis Buckler,神盾轻盾,project-supplement
+zh-CN,Aged Tower Shield,陈旧塔盾,project-supplement
+zh-CN,Ancestor Tower Shield,先祖塔盾,project-supplement
+zh-CN,Ancient Buckler,远古轻盾,project-supplement
+zh-CN,Antler Focus,鹿角法器,official-trade-linked
+zh-CN,Any Loadout,所有配装,project-supplement
+zh-CN,Array Buckler,阵列轻盾,official-trade-linked
+zh-CN,Arrayed Focus,阵列法器,project-supplement
+zh-CN,Attachment Range,附着范围,project-supplement
+zh-CN,Attack/Cast Rate,攻击/施法 速率,project-supplement
+zh-CN,Attuned Focus,协调法器,project-supplement
+zh-CN,Aura Effect Mod,光环效果修正,project-supplement
+zh-CN,Aureate Targe,镀金圆盾,project-supplement
+zh-CN,Average Burst Damage,平均爆发伤害,project-supplement
+zh-CN,Avg. Mines per Throw,平均每次投掷地雷数,project-supplement
+zh-CN,Avg. Traps per Throw,平均每次投掷陷阱数,project-supplement
+zh-CN,Avian Targe,飞羽圆盾,project-supplement
+zh-CN,Baroque Targe,巴洛克圆盾,project-supplement
+zh-CN,Barricade Tower Shield,障壁塔盾,official-trade-linked
+zh-CN,Blacksteel Crest Shield,黑钢纹章盾,project-supplement
+zh-CN,Blacksteel Tower Shield,黑钢塔盾,official-trade-linked
+zh-CN,Bladeguard Buckler,刀刃守护轻盾,project-supplement
+zh-CN,Blazon Crest Shield,饰印纹章盾,official-trade-linked
+zh-CN,Block Chance,格挡几率,project-supplement
+zh-CN,Blunt Quiver,钝矢箭袋,official-trade-linked
+zh-CN,Bounces Count,弹跳次数,project-supplement
+zh-CN,Braced Tower Shield,加固塔盾,official-trade-linked
+zh-CN,Broadhead Quiver,宽矢箭袋,official-trade-linked
+zh-CN,Bulwark Tower Shield,堡垒塔盾,project-supplement
+zh-CN,Burning Ground DPS,燃烧地面每秒伤害,project-supplement
+zh-CN,Calm Leg,沉静之腿,project-supplement
+zh-CN,Carved Targe,雕纹圆盾,project-supplement
+zh-CN,Cast Time,施法时间,project-supplement
+zh-CN,Caster Arm,施法之臂,project-supplement
+zh-CN,Caustic Ground DPS,腐蚀地面每秒伤害,project-supplement
+zh-CN,Channel Time,引导时间,project-supplement
+zh-CN,Chaos Max Hit,混沌最大承伤,project-supplement
+zh-CN,Chiseled Targe,镌凿圆盾,project-supplement
+zh-CN,Coiled Buckler,盘绕轻盾,project-supplement
+zh-CN,Cold Max Hit,冰霜最大承伤,project-supplement
+zh-CN,Combat Arm,战斗之臂,project-supplement
+zh-CN,Combined Total Damage,结合总伤害,project-supplement
+zh-CN,Commanding Arm,统御之臂,project-supplement
+zh-CN,Corrupting Blood DPS,腐化之血每秒伤害,project-supplement
+zh-CN,Crescent Targe,新月圆盾,official-trade-linked
+zh-CN,Crit Bifurcate Chance,暴击分叉几率,project-supplement
+zh-CN,Crucible Tower Shield,熔铸塔盾,official-trade-linked
+zh-CN,Crystal Focus,水晶法器,official-trade-linked
+zh-CN,Culling DPS,终结 DPS,project-supplement
+zh-CN,Cultist Focus,教徒法器,project-supplement
+zh-CN,Cultist Tower Shield,教徒塔盾,project-supplement
+zh-CN,Current Loadout,当前配装,project-supplement
+zh-CN,Curse Effect Mod,诅咒效果修正,project-supplement
+zh-CN,Damage inc. Impale,含穿刺伤害,project-supplement
+zh-CN,Decrepifying Arm,衰弱之臂,project-supplement
+zh-CN,Defiant Tower Shield,抗争塔盾,project-supplement
+zh-CN,Deflect Chance,偏转几率,project-supplement
+zh-CN,Deflective Arm,偏转之臂,project-supplement
+zh-CN,Deified Crest Shield,神化纹章盾,project-supplement
+zh-CN,Dekharan Crest Shield,德卡拉纹章盾,project-supplement
+zh-CN,Del Unused,删除闲置,project-supplement
+zh-CN,Descry Crest Shield,远见纹章盾,project-supplement
+zh-CN,Desert Buckler,沙漠轻盾,project-supplement
+zh-CN,Dex,敏捷,project-supplement
+zh-CN,"Double-click an item from one of the lists,",双击列表中的物品，,project-supplement
+zh-CN,Druidic Focus,德鲁伊法器,project-supplement
+zh-CN,ES Cost per second,每秒能量护盾消耗,project-supplement
+zh-CN,ES Recovery,能量护盾回复,project-supplement
+zh-CN,ES Regen,能量护盾再生,project-supplement
+zh-CN,Edged Buckler,锋缘轻盾,project-supplement
+zh-CN,Effective Hit Pool,有效承伤池,project-supplement
+zh-CN,Effective Trigger Rate,有效触发速率,project-supplement
+zh-CN,Effigial Tower Shield,塑像塔盾,project-supplement
+zh-CN,Elegant Focus,优雅法器,project-supplement
+zh-CN,Elemental Max Hit,元素最大承伤,project-supplement
+zh-CN,Emblem Crest Shield,圣徽纹章盾,official-trade-linked
+zh-CN,Empyreal Crest Shield,苍穹纹章盾,project-supplement
+zh-CN,Enemy Life Equivalent,等效敌人生命,project-supplement
+zh-CN,Energy Blade One Handed,单手能量之刃,project-supplement
+zh-CN,Energy Blade Two Handed,双手能量之刃,project-supplement
+zh-CN,Energy Shield Cost,能量护盾消耗,project-supplement
+zh-CN,Engraved Crest Shield,雕刻纹章盾,project-supplement
+zh-CN,Engraved Focus,铭刻法器,official-trade-linked
+zh-CN,Eternal,永恒,project-supplement
+zh-CN,Evade Chance,闪避几率,project-supplement
+zh-CN,Evasive Leg,闪避之腿,project-supplement
+zh-CN,Ezomyte,艾兹麦,project-supplement
+zh-CN,Feathered Targe,羽饰圆盾,project-supplement
+zh-CN,Fire Max Hit,火焰最大承伤,project-supplement
+zh-CN,Fire Quiver,火灵箭袋,official-trade-linked
+zh-CN,Firing Rate,射击频率,project-supplement
+zh-CN,Flail,连枷,project-supplement
+zh-CN,Fork Count,分叉数,project-supplement
+zh-CN,Fortress Tower Shield,要塞塔盾,project-supplement
+zh-CN,Full Dot DPS,完整持续伤害每秒伤害,project-supplement
+zh-CN,Fur-lined Targe,毛衬圆盾,project-supplement
+zh-CN,Glacial Fortress,冰川要塞,official-trade-linked
+zh-CN,Glowering Crest Shield,怒视纹章盾,project-supplement
+zh-CN,Golden Targe,耀金圆盾,project-supplement
+zh-CN,Goldworked Tower Shield,金工塔盾,project-supplement
+zh-CN,Grand Targe,宏伟圆盾,project-supplement
+zh-CN,Guarding Arm,守护之臂,project-supplement
+zh-CN,Guiding Palm,指引之掌,project-supplement
+zh-CN,Gutspike Buckler,肠刺轻盾,project-supplement
+zh-CN,Hallowed Focus,神圣法器,project-supplement
+zh-CN,Hardwood Targe,硬木圆盾,official-trade-linked
+zh-CN,Heraldric Tower Shield,徽纹塔盾,official-trade-linked
+zh-CN,"If there's 2 slots an item can go in,",若物品可放入两个装备槽，,project-supplement
+zh-CN,Impale DPS,穿刺 DPS,project-supplement
+zh-CN,Impale Damage,穿刺伤害,project-supplement
+zh-CN,Int,智慧,project-supplement
+zh-CN,Intricate Crest Shield,精巧纹章盾,official-trade-linked
+zh-CN,Iron Buckler,锻铁轻盾,official-trade-linked
+zh-CN,Ironwood Targe,铁木圆盾,project-supplement
+zh-CN,Jingling Buckler,铃鸣轻盾,project-supplement
+zh-CN,Jingling Crest Shield,铃鸣纹章盾,official-trade-linked
+zh-CN,Jingling Focus,铃鸣法器,project-supplement
+zh-CN,Kalguuran,卡古兰,project-supplement
+zh-CN,Karui,卡鲁,project-supplement
+zh-CN,Laminate Buckler,合板轻盾,project-supplement
+zh-CN,Leather Buckler,皮制轻盾,official-trade-linked
+zh-CN,Level,等级,project-supplement
+zh-CN,Leyline Focus,地脉法器,project-supplement
+zh-CN,Life Cost,生命消耗,project-supplement
+zh-CN,Life Cost per second,每秒生命消耗,project-supplement
+zh-CN,Life Recoverable,可恢复生命,project-supplement
+zh-CN,Life Recovery,生命回复,project-supplement
+zh-CN,Lightning Max Hit,闪电最大承伤,project-supplement
+zh-CN,MH Accuracy,命中(主手),project-supplement
+zh-CN,Magus Focus,贤者法器,project-supplement
+zh-CN,Mammoth Targe,猛犸圆盾,project-supplement
+zh-CN,Mana Cost,魔力消耗,project-supplement
+zh-CN,Mana Cost per second,每秒魔力消耗,project-supplement
+zh-CN,Mana Recovery,魔力回复,project-supplement
+zh-CN,Mana Regen,魔力再生,project-supplement
+zh-CN,Maraketh,马拉克斯,project-supplement
+zh-CN,Max Chain Count,最大连锁数,project-supplement
+zh-CN,Max Number of Seals,封印数量上限,project-supplement
+zh-CN,May your resolve never waver.,愿你的决心永不动摇。,project-supplement
+zh-CN,Melee Evade Chance,近战闪避几率,project-supplement
+zh-CN,Mercenary Targe,佣兵圆盾,project-supplement
+zh-CN,Metalworked Tower Shield,金属塔盾,project-supplement
+zh-CN,Mine Throwing Time,地雷投掷用时,project-supplement
+zh-CN,Mirage Burning Ground DPS,幻影燃烧地面每秒伤害,project-supplement
+zh-CN,Mirage Caustic Ground DPS,幻影腐蚀地面每秒伤害,project-supplement
+zh-CN,Mosaic Targe,镶嵌圆盾,project-supplement
+zh-CN,Movement Speed Modifier,移动速度修正,project-supplement
+zh-CN,Net ES Recovery,能量护盾净回复,project-supplement
+zh-CN,Net Life Recovery,生命净回复,project-supplement
+zh-CN,Net Mana Recovery,魔力净回复,project-supplement
+zh-CN,Net Runic Ward Recovery,符文结界净回复,project-supplement
+zh-CN,Noble Tower Shield,贵族塔盾,project-supplement
+zh-CN,OH Accuracy,命中(副手),project-supplement
+zh-CN,Omen Crest Shield,噩兆纹章盾,official-trade-linked
+zh-CN,Omni,全知,project-supplement
+zh-CN,One Hand Axe,单手斧,project-supplement
+zh-CN,One Hand Mace,单手锤,project-supplement
+zh-CN,One Hand Sword,单手剑,project-supplement
+zh-CN,Ornate Buckler,华丽轻盾,official-trade-linked
+zh-CN,Painted Crest Shield,彩绘纹章盾,project-supplement
+zh-CN,Pearl Buckler,珍珠轻盾,project-supplement
+zh-CN,Pelage Targe,毛皮圆盾,project-supplement
+zh-CN,Penetrating Quiver,穿射箭袋,official-trade-linked
+zh-CN,Phalanx Tower Shield,方阵塔盾,project-supplement
+zh-CN,Phys Max Hit,物理最大承伤,project-supplement
+zh-CN,Pierce Count,穿透数,project-supplement
+zh-CN,Plated Buckler,嵌板轻盾,project-supplement
+zh-CN,Plumed Focus,彩羽法器,project-supplement
+zh-CN,Polished Targe,抛光圆盾,project-supplement
+zh-CN,Pre {0},{0} 之前,project-supplement
+zh-CN,Presence Radius,威仪半径,project-supplement
+zh-CN,Primed Quiver,精工箭袋,official-trade-linked
+zh-CN,"Proj, Split Count",投射物分裂数,project-supplement
+zh-CN,Proj. Speed Mod,投射物速度修正,project-supplement
+zh-CN,Projectile Count,投射物数量,project-supplement
+zh-CN,Projectile Evade Chance,投射物闪避几率,project-supplement
+zh-CN,PvP Average Damage,对战平均伤害,project-supplement
+zh-CN,PvP Average Hit,对战平均击中伤害,project-supplement
+zh-CN,PvP Hit DPS,对战击中每秒伤害,project-supplement
+zh-CN,PvP Hit Taken,对战承受击中伤害,project-supplement
+zh-CN,Quantity Multiplier,数量倍率,project-supplement
+zh-CN,Quartered Crest Shield,四分纹章盾,project-supplement
+zh-CN,Rage Cost,怒火消耗,project-supplement
+zh-CN,Rage Cost per second,每秒怒火消耗,project-supplement
+zh-CN,Rage Regen,怒火再生,project-supplement
+zh-CN,Raise Shield,架盾,project-supplement
+zh-CN,Rampart Tower Shield,壁垒塔盾,official-trade-linked
+zh-CN,Reload Time,装填时间,project-supplement
+zh-CN,Removing this item from {0} will give you:,从{0}卸下此物品后的变化：,project-supplement
+zh-CN,Requires,需求,project-supplement
+zh-CN,Reservation DPS,保留每秒伤害,project-supplement
+zh-CN,Reserve Duration,保留持续时间,project-supplement
+zh-CN,Reserved Darkness,已保留黑暗,project-supplement
+zh-CN,Restorative Leg,恢复之腿,project-supplement
+zh-CN,Ridged Buckler,凸脊轻盾,official-trade-linked
+zh-CN,Ringed Buckler,环锁轻盾,project-supplement
+zh-CN,Rondel de Ezo,艾兹麦回旋曲,project-supplement
+zh-CN,Royal Tower Shield,皇家塔盾,project-supplement
+zh-CN,Runed Focus,符文法器,project-supplement
+zh-CN,Runeforged Aegis Buckler,符文神盾轻盾,project-supplement
+zh-CN,Runeforged Ancestor Tower Shield,符文先祖塔盾,project-supplement
+zh-CN,Runeforged Ancient Buckler,符文远古轻盾,project-supplement
+zh-CN,Runeforged Antler Focus,符文鹿角法器,project-supplement
+zh-CN,Runeforged Array Buckler,符文阵列轻盾,project-supplement
+zh-CN,Runeforged Arrayed Focus,符文阵列法器,project-supplement
+zh-CN,Runeforged Attuned Focus,符文协调法器,project-supplement
+zh-CN,Runeforged Aureate Targe,符文镀金圆盾,project-supplement
+zh-CN,Runeforged Avian Targe,符文飞羽圆盾,project-supplement
+zh-CN,Runeforged Baroque Targe,符文巴洛克圆盾,project-supplement
+zh-CN,Runeforged Barricade Tower Shield,符文障壁塔盾,project-supplement
+zh-CN,Runeforged Blacksteel Crest Shield,符文黑钢纹章盾,project-supplement
+zh-CN,Runeforged Blacksteel Tower Shield,符文黑钢塔盾,project-supplement
+zh-CN,Runeforged Bladeguard Buckler,符文刀刃守护轻盾,project-supplement
+zh-CN,Runeforged Blazon Crest Shield,符文饰印纹章盾,project-supplement
+zh-CN,Runeforged Braced Tower Shield,符文加固塔盾,project-supplement
+zh-CN,Runeforged Bulwark Tower Shield,符文堡垒塔盾,project-supplement
+zh-CN,Runeforged Carved Targe,符文雕纹圆盾,project-supplement
+zh-CN,Runeforged Chiseled Targe,符文镌凿圆盾,project-supplement
+zh-CN,Runeforged Crescent Targe,符文新月圆盾,project-supplement
+zh-CN,Runeforged Crucible Tower Shield,符文熔铸塔盾,project-supplement
+zh-CN,Runeforged Crystal Focus,符文水晶法器,project-supplement
+zh-CN,Runeforged Cultist Focus,符文教徒法器,project-supplement
+zh-CN,Runeforged Defiant Tower Shield,符文抗争塔盾,project-supplement
+zh-CN,Runeforged Deified Crest Shield,符文神化纹章盾,project-supplement
+zh-CN,Runeforged Dekharan Crest Shield,符文德卡拉纹章盾,project-supplement
+zh-CN,Runeforged Desert Buckler,符文沙漠轻盾,project-supplement
+zh-CN,Runeforged Druidic Focus,符文德鲁伊法器,project-supplement
+zh-CN,Runeforged Edged Buckler,符文锋缘轻盾,project-supplement
+zh-CN,Runeforged Effigial Tower Shield,符文塑像塔盾,project-supplement
+zh-CN,Runeforged Elegant Focus,符文优雅法器,project-supplement
+zh-CN,Runeforged Emblem Crest Shield,符文圣徽纹章盾,project-supplement
+zh-CN,Runeforged Empyreal Crest Shield,符文苍穹纹章盾,project-supplement
+zh-CN,Runeforged Engraved Focus,符文铭刻法器,project-supplement
+zh-CN,Runeforged Feathered Targe,符文羽饰圆盾,project-supplement
+zh-CN,Runeforged Fortress Tower Shield,符文要塞塔盾,project-supplement
+zh-CN,Runeforged Glowering Crest Shield,符文怒视纹章盾,project-supplement
+zh-CN,Runeforged Golden Targe,符文耀金圆盾,project-supplement
+zh-CN,Runeforged Goldworked Tower Shield,符文金工塔盾,project-supplement
+zh-CN,Runeforged Grand Targe,符文宏伟圆盾,project-supplement
+zh-CN,Runeforged Gutspike Buckler,符文肠刺轻盾,project-supplement
+zh-CN,Runeforged Hallowed Focus,符文神圣法器,project-supplement
+zh-CN,Runeforged Hardwood Targe,符文硬木圆盾,project-supplement
+zh-CN,Runeforged Heraldric Tower Shield,符文徽纹塔盾,project-supplement
+zh-CN,Runeforged Intricate Crest Shield,符文精巧纹章盾,project-supplement
+zh-CN,Runeforged Iron Buckler,符文锻铁轻盾,project-supplement
+zh-CN,Runeforged Jingling Buckler,符文铃鸣轻盾,project-supplement
+zh-CN,Runeforged Jingling Crest Shield,符文铃鸣纹章盾,project-supplement
+zh-CN,Runeforged Laminate Buckler,符文合板轻盾,project-supplement
+zh-CN,Runeforged Leather Buckler,符文皮制轻盾,project-supplement
+zh-CN,Runeforged Leyline Focus,符文地脉法器,project-supplement
+zh-CN,Runeforged Magus Focus,符文贤者法器,project-supplement
+zh-CN,Runeforged Mammoth Targe,符文猛犸圆盾,project-supplement
+zh-CN,Runeforged Mosaic Targe,符文镶嵌圆盾,project-supplement
+zh-CN,Runeforged Noble Tower Shield,符文贵族塔盾,project-supplement
+zh-CN,Runeforged Omen Crest Shield,符文噩兆纹章盾,project-supplement
+zh-CN,Runeforged Ornate Buckler,符文华丽轻盾,project-supplement
+zh-CN,Runeforged Painted Tower Shield,符文彩绘塔盾,project-supplement
+zh-CN,Runeforged Pearl Buckler,符文珍珠轻盾,project-supplement
+zh-CN,Runeforged Pelage Targe,符文毛皮圆盾,project-supplement
+zh-CN,Runeforged Phalanx Tower Shield,符文方阵塔盾,project-supplement
+zh-CN,Runeforged Plated Buckler,符文嵌板轻盾,project-supplement
+zh-CN,Runeforged Plumed Focus,符文彩羽法器,project-supplement
+zh-CN,Runeforged Polished Targe,符文抛光圆盾,project-supplement
+zh-CN,Runeforged Quartered Crest Shield,符文四分纹章盾,project-supplement
+zh-CN,Runeforged Rampart Tower Shield,符文壁垒塔盾,project-supplement
+zh-CN,Runeforged Ridged Buckler,符文凸脊轻盾,project-supplement
+zh-CN,Runeforged Ringed Buckler,符文环锁轻盾,project-supplement
+zh-CN,Runeforged Royal Tower Shield,符文皇家塔盾,project-supplement
+zh-CN,Runeforged Runed Focus,符文符文法器,project-supplement
+zh-CN,Runeforged Sacred Focus,符文圣洁法器,project-supplement
+zh-CN,Runeforged Sectarian Crest Shield,符文宗室纹章盾,project-supplement
+zh-CN,Runeforged Seer Crest Shield,符文先知纹章盾,project-supplement
+zh-CN,Runeforged Sekheman Crest Shield,符文丝克玛纹章盾,project-supplement
+zh-CN,Runeforged Sigil Crest Shield,符文魔印纹章盾,project-supplement
+zh-CN,Runeforged Soaring Targe,符文翱翔圆盾,project-supplement
+zh-CN,Runeforged Spiked Buckler,符文尖刺轻盾,project-supplement
+zh-CN,Runeforged Spikeward Buckler,符文尖刺守护轻盾,project-supplement
+zh-CN,Runeforged Splintered Tower Shield,符文朽木塔盾,project-supplement
+zh-CN,Runeforged Stoic Crest Shield,符文坚毅纹章盾,project-supplement
+zh-CN,Runeforged Stone Targe,符文石制圆盾,project-supplement
+zh-CN,Runeforged Stone Tower Shield,符文坚石塔盾,project-supplement
+zh-CN,Runeforged Stratified Targe,符文分层圆盾,project-supplement
+zh-CN,Runeforged Studded Targe,符文镶钉圆盾,project-supplement
+zh-CN,Runeforged Tasalian Focus,符文塔萨利法器,project-supplement
+zh-CN,Runeforged Tawhoan Tower Shield,符文塔赫亚塔盾,project-supplement
+zh-CN,Runeforged Tonal Focus,符文音调法器,project-supplement
+zh-CN,Runeforged Twig Focus,符文枝条法器,project-supplement
+zh-CN,Runeforged Vaal Crest Shield,符文瓦尔纹章盾,project-supplement
+zh-CN,Runeforged Vaal Tower Shield,符文瓦尔塔盾,project-supplement
+zh-CN,Runeforged Voodoo Focus,符文巫毒法器,project-supplement
+zh-CN,Runeforged Warden Bow,符文监守弓,official-trade-linked
+zh-CN,Runeforged Wayward Crest Shield,符文无定纹章盾,project-supplement
+zh-CN,Runeforged Whorl Focus,符文涡纹法器,project-supplement
+zh-CN,Runeforged Wooden Buckler,符文木制轻盾,project-supplement
+zh-CN,Runeforged Woven Focus,符文织造法器,project-supplement
+zh-CN,Runemastered Antler Focus,符文师匠鹿角法器,official-trade-linked
+zh-CN,Runemastered Array Buckler,符文师匠阵列轻盾,official-trade-linked
+zh-CN,Runemastered Barricade Tower Shield,符文师匠障壁塔盾,official-trade-linked
+zh-CN,Runemastered Blacksteel Tower Shield,符文师匠黑钢塔盾,official-trade-linked
+zh-CN,Runemastered Blazon Crest Shield,符文师匠饰印纹章盾,official-trade-linked
+zh-CN,Runemastered Braced Tower Shield,符文师匠加固塔盾,official-trade-linked
+zh-CN,Runemastered Crescent Targe,符文师匠新月圆盾,official-trade-linked
+zh-CN,Runemastered Crucible Tower Shield,符文师匠熔铸塔盾,official-trade-linked
+zh-CN,Runemastered Crystal Focus,符文师匠水晶法器,official-trade-linked
+zh-CN,Runemastered Effigial Tower Shield,符文师匠塑像塔盾,project-supplement
+zh-CN,Runemastered Emblem Crest Shield,符文师匠圣徽纹章盾,official-trade-linked
+zh-CN,Runemastered Engraved Focus,符文师匠铭刻法器,official-trade-linked
+zh-CN,Runemastered Glacial Fortress,符文师匠冰川要塞,official-trade-linked
+zh-CN,Runemastered Hardwood Targe,符文师匠硬木圆盾,official-trade-linked
+zh-CN,Runemastered Heraldric Tower Shield,符文师匠徽纹塔盾,official-trade-linked
+zh-CN,Runemastered Intricate Crest Shield,符文师匠精巧纹章盾,official-trade-linked
+zh-CN,Runemastered Iron Buckler,符文师匠锻铁轻盾,official-trade-linked
+zh-CN,Runemastered Jingling Crest Shield,符文师匠铃鸣纹章盾,official-trade-linked
+zh-CN,Runemastered Leather Buckler,符文师匠皮制轻盾,official-trade-linked
+zh-CN,Runemastered Omen Crest Shield,符文师匠噩兆纹章盾,official-trade-linked
+zh-CN,Runemastered Ornate Buckler,符文师匠华丽轻盾,official-trade-linked
+zh-CN,Runemastered Painted Tower Shield,符文师匠彩绘塔盾,official-trade-linked
+zh-CN,Runemastered Plated Buckler,符文师匠嵌板轻盾,project-supplement
+zh-CN,Runemastered Plumed Focus,符文师匠彩羽法器,official-trade-linked
+zh-CN,Runemastered Rampart Tower Shield,符文师匠壁垒塔盾,official-trade-linked
+zh-CN,Runemastered Ridged Buckler,符文师匠凸脊轻盾,official-trade-linked
+zh-CN,Runemastered Sigil Crest Shield,符文师匠魔印纹章盾,official-trade-linked
+zh-CN,Runemastered Spiked Buckler,符文师匠尖刺轻盾,official-trade-linked
+zh-CN,Runemastered Splintered Tower Shield,符文师匠朽木塔盾,official-trade-linked
+zh-CN,Runemastered Tonal Focus,符文师匠音调法器,official-trade-linked
+zh-CN,Runemastered Twig Focus,符文师匠枝条法器,official-trade-linked
+zh-CN,Runemastered Vaal Tower Shield,符文师匠瓦尔塔盾,official-trade-linked
+zh-CN,Runemastered Venerable Defender,符文师匠庄严护卫,official-trade-linked
+zh-CN,Runemastered Voodoo Focus,符文师匠巫毒法器,official-trade-linked
+zh-CN,Runemastered Wooden Buckler,符文师匠木制轻盾,official-trade-linked
+zh-CN,Runemastered Woven Focus,符文师匠织造法器,official-trade-linked
+zh-CN,Runic Ward,符文结界,project-supplement
+zh-CN,Runic Ward Cost,符文结界消耗,project-supplement
+zh-CN,Runic Ward Cost / s,每秒符文结界消耗,project-supplement
+zh-CN,Runic Ward Cost per second,每秒符文结界消耗,project-supplement
+zh-CN,Runic Ward Recovery,符文结界回复,project-supplement
+zh-CN,Runic Ward Regen,符文结界再生,project-supplement
+zh-CN,Sacral Quiver,圣骨箭袋,official-trade-linked
+zh-CN,Sacred Focus,圣洁法器,official-trade-linked
+zh-CN,Seal Gain Frequency,封印获取频率,project-supplement
+zh-CN,Search,搜索,project-supplement
+zh-CN,Secondary Duration,二阶段持续时间,project-supplement
+zh-CN,Sectarian Crest Shield,宗室纹章盾,project-supplement
+zh-CN,Seer Crest Shield,先知纹章盾,project-supplement
+zh-CN,Sekheman Crest Shield,丝克玛纹章盾,project-supplement
+zh-CN,Serrated Quiver,锯齿箭袋,project-supplement
+zh-CN,Sigil Crest Shield,魔印纹章盾,official-trade-linked
+zh-CN,Skill Cooldown,技能冷却,project-supplement
+zh-CN,Skill DPS,技能 DPS,project-supplement
+zh-CN,Skill Movement Speed,技能移动速度,project-supplement
+zh-CN,Soaring Targe,翱翔圆盾,project-supplement
+zh-CN,Soul Cost,灵魂消耗,project-supplement
+zh-CN,Soul Gain Prevent.,无法获取灵魂时长,project-supplement
+zh-CN,Spell Evade Chance,法术闪避几率,project-supplement
+zh-CN,Spell Proj. Evade Chance,法术投射物闪避几率,project-supplement
+zh-CN,Spiked Buckler,尖刺轻盾,official-trade-linked
+zh-CN,Spikeward Buckler,尖刺守护轻盾,project-supplement
+zh-CN,Sprinters Leg,疾跑之腿,project-supplement
+zh-CN,Staghorn Focus,雄鹿角法器,project-supplement
+zh-CN,Stoic Crest Shield,坚毅纹章盾,project-supplement
+zh-CN,Stone Targe,石制圆盾,project-supplement
+zh-CN,Stone Tower Shield,坚石塔盾,project-supplement
+zh-CN,Stored Uses,储存的使用次数,project-supplement
+zh-CN,Str,力量,project-supplement
+zh-CN,Stratified Targe,分层圆盾,project-supplement
+zh-CN,Studded Targe,镶钉圆盾,project-supplement
+zh-CN,Sturdy Leg,强健之腿,project-supplement
+zh-CN,Surefooted Leg,稳步之腿,project-supplement
+zh-CN,Sustainable Trauma,可保持的内伤,project-supplement
+zh-CN,Tasalian Focus,塔萨利法器,project-supplement
+zh-CN,Tethering Bands,束缚环带,project-supplement
+zh-CN,This is a list of items that will be shared between all of,这里的物品可在所有构筑间共享。,project-supplement
+zh-CN,This is the list of items that have been added to this build.,这是已添加到当前构筑的物品列表。,project-supplement
+zh-CN,Time to Gain Max Seals,获取全部封印所需时间,project-supplement
+zh-CN,Tip: Hold Shift to display a tooltip for the granted skill.,提示：按住 Shift 查看赋予技能的说明。,project-supplement
+zh-CN,Tip: Hold Shift to display a tooltip for the granted skills.,提示：按住 Shift 查看赋予技能的说明。,project-supplement
+zh-CN,Tip: Press Ctrl+D in the Items tab to disable the display of stat differences.,提示：在物品页按 Ctrl+D 隐藏属性差异。,project-supplement
+zh-CN,Tip: Press Ctrl+D in the Items tab to enable the display of stat differences.,提示：在物品页按 Ctrl+D 显示属性差异。,project-supplement
+zh-CN,Tip: Press Ctrl+D to disable the display of stat differences.,提示：按 Ctrl+D 隐藏属性差异。,project-supplement
+zh-CN,Tip: Press Ctrl+D to enable the display of stat differences.,提示：按 Ctrl+D 显示属性差异。,project-supplement
+zh-CN,Tonal Focus,音调法器,official-trade-linked
+zh-CN,Total DPS inc. Bleed,含流血每秒总伤害,project-supplement
+zh-CN,Total DPS inc. DoT,含持续伤总DPS,project-supplement
+zh-CN,Total DPS inc. Impale,含穿刺伤总DPS,project-supplement
+zh-CN,Total Damage per Bleed,每次流血总伤害,project-supplement
+zh-CN,Total Darkness,黑暗总量,project-supplement
+zh-CN,Total Degen,总每秒扣血,project-supplement
+zh-CN,Total DoT DPS,总持续伤DPS,project-supplement
+zh-CN,Total Explode Chance,总爆炸几率,project-supplement
+zh-CN,Total Mana,魔力总量,project-supplement
+zh-CN,Total Mirage DPS,总幻影射手DPS,project-supplement
+zh-CN,Total Net Recovery,总净回复,project-supplement
+zh-CN,Total Spirit,精魂总量,project-supplement
+zh-CN,Total Wisp DPS,鬼灵每秒总伤害,project-supplement
+zh-CN,Toxic Quiver,淬毒箭袋,official-trade-linked
+zh-CN,Transcendent Arm,超凡手臂,project-supplement
+zh-CN,Transcendent Leg,超凡腿部,project-supplement
+zh-CN,Transcendent Limb,超凡肢体,project-supplement
+zh-CN,Tribute,贡品,project-supplement
+zh-CN,Twig Focus,枝条法器,official-trade-linked
+zh-CN,Two Hand Axe,双手斧,project-supplement
+zh-CN,Two Hand Mace,双手锤,project-supplement
+zh-CN,Two Hand Sword,双手剑,project-supplement
+zh-CN,Two-Point Quiver,双锋箭袋,project-supplement
+zh-CN,Uncap. Hit Chance,未封顶命中率,project-supplement
+zh-CN,Unreserved Spirit,未保留精魂,project-supplement
+zh-CN,Unused Items,未使用物品,project-supplement
+zh-CN,Vaal,瓦尔,project-supplement
+zh-CN,Vaal Crest Shield,瓦尔纹章盾,project-supplement
+zh-CN,Vaal Tower Shield,瓦尔塔盾,official-trade-linked
+zh-CN,Variant: Current ({0} variants),变体：当前（共 {0} 种）,project-supplement
+zh-CN,Variant: {0},变体：{0},project-supplement
+zh-CN,Variant: {0} ({1} variants),变体：{0}（共 {1} 种）,project-supplement
+zh-CN,Venerable Defender,庄严护卫,official-trade-linked
+zh-CN,Version: {0},版本：{0},project-supplement
+zh-CN,Visceral Quiver,贯心箭袋,official-trade-linked
+zh-CN,Volant Quiver,飞矢箭袋,project-supplement
+zh-CN,Voodoo Focus,巫毒法器,official-trade-linked
+zh-CN,Warstaff,战杖,project-supplement
+zh-CN,Wayward Crest Shield,无定纹章盾,project-supplement
+zh-CN,Whorl Focus,涡纹法器,project-supplement
+zh-CN,Wooden Buckler,木制轻盾,official-trade-linked
+zh-CN,Woven Focus,织造法器,official-trade-linked
+zh-CN,Wreath Focus,花环法器,project-supplement
+zh-CN,"You can Control + Click an item to equip it, or",按住 Ctrl 点击物品即可装备，,project-supplement
+zh-CN,You can add items to this list by dragging them from,可从其他列表拖入物品，,project-supplement
+zh-CN,also clone an item within Path of Building by,也可在 PoB 内按 Ctrl+C 和 Ctrl+V,project-supplement
+zh-CN,copying and pasting it with Ctrl+C and Ctrl+V.,复制物品。,project-supplement
+zh-CN,drag it onto the slot.  This will also add it to,或将它拖入装备槽。传奇和模板列表的,project-supplement
+zh-CN,holding Shift will put it in the second.,按住 Shift 会放入第二个槽位。,project-supplement
+zh-CN,"one of the other lists, or by clicking 'Add to build' when",或在查看物品时点击“添加到构筑”，,project-supplement
+zh-CN,one of the other lists.,将它们添加到此处。,project-supplement
+zh-CN,or copy and paste an item from in game,或在游戏中复制物品并粘贴到此处,project-supplement
+zh-CN,the item and add it to your build. You can,编辑并添加到构筑。,project-supplement
+zh-CN,viewing an item.,将物品添加到此处。,project-supplement
+zh-CN,your build if it's from the unique/template list.,物品还会同时加入当前构筑。,project-supplement
+zh-CN,your builds., ,project-supplement
+zh-TW,%Inc Life,生命增加百分比,project-supplement
+zh-TW,(Not supported in PoB yet),(PoB 尚未支援),project-supplement
+zh-TW,(Unused),(未使用),project-supplement
+zh-TW,(Used in '{0}'),(用於「{0}」),project-supplement
+zh-TW,(hover over the item and Ctrl+C) to view or edit,（游標指向物品後按 Ctrl+C），即可查看、,project-supplement
+zh-TW,(replacing {0}),(替換 {0}),project-supplement
+zh-TW,Activations per Brand,每個烙印啟動次數,project-supplement
+zh-TW,Aegis Buckler,神盾輕盾,project-supplement
+zh-TW,Aged Tower Shield,陳舊塔盾,project-supplement
+zh-TW,Amethyst Charm,紫晶護符,official-trade-linked
+zh-TW,Ancestor Tower Shield,先祖塔盾,project-supplement
+zh-TW,Ancient Buckler,遠古輕盾,project-supplement
+zh-TW,Antidote Charm,解毒護符,official-trade-linked
+zh-TW,Antler Focus,靈鹿法器,official-trade-linked
+zh-TW,Any Loadout,所有配裝,project-supplement
+zh-TW,Array Buckler,排列輕盾,official-trade-linked
+zh-TW,Arrayed Focus,陣列法器,project-supplement
+zh-TW,Attachment Range,附著範圍,project-supplement
+zh-TW,Attuned Focus,調諧法器,project-supplement
+zh-TW,Aura Effect Mod,光環效果詞綴,project-supplement
+zh-TW,Aureate Targe,鍍金圓盾,project-supplement
+zh-TW,Average Burst Damage,平均爆發傷害,project-supplement
+zh-TW,Avg. Mines per Throw,平均每次投擲地雷數,project-supplement
+zh-TW,Avg. Traps per Throw,平均每次投擲陷阱數,project-supplement
+zh-TW,Avian Targe,飛羽圓盾,project-supplement
+zh-TW,Baroque Targe,巴洛克圓盾,project-supplement
+zh-TW,Barricade Tower Shield,障壁塔盾,official-trade-linked
+zh-TW,Blacksteel Crest Shield,烏鋼紋章盾,project-supplement
+zh-TW,Blacksteel Tower Shield,黑鋼塔盾,official-trade-linked
+zh-TW,Bladeguard Buckler,刃衛輕盾,project-supplement
+zh-TW,Blazon Crest Shield,家徽紋章盾,official-trade-linked
+zh-TW,Block Chance,格擋機率,project-supplement
+zh-TW,Blunt Quiver,鈍箭袋,official-trade-linked
+zh-TW,Bounces Count,彈射數,project-supplement
+zh-TW,Braced Tower Shield,加固塔盾,official-trade-linked
+zh-TW,Broadhead Quiver,寬頭箭袋,official-trade-linked
+zh-TW,Bulwark Tower Shield,守護塔盾,project-supplement
+zh-TW,Burning Ground DPS,燃燒地面每秒傷害,project-supplement
+zh-TW,Calm Leg,沉靜之腿,project-supplement
+zh-TW,Carved Targe,雕刻圓盾,project-supplement
+zh-TW,Cast Time,施放時間,project-supplement
+zh-TW,Caster Arm,施法之臂,project-supplement
+zh-TW,Caustic Ground DPS,腐蝕地面每秒傷害,project-supplement
+zh-TW,Channel Time,引導時間,project-supplement
+zh-TW,Chaos Max Hit,混沌最大承傷,project-supplement
+zh-TW,Chiseled Targe,鑿刻圓盾,project-supplement
+zh-TW,Cleansing Charm,淨化護符,project-supplement
+zh-TW,Coiled Buckler,盤繞輕盾,project-supplement
+zh-TW,Cold Max Hit,冰霜最大承傷,project-supplement
+zh-TW,Combat Arm,戰鬥之臂,project-supplement
+zh-TW,Commanding Arm,統御之臂,project-supplement
+zh-TW,Corrupting Blood DPS,腐化之血每秒傷害,project-supplement
+zh-TW,Crescent Targe,新月圓盾,official-trade-linked
+zh-TW,Crit Bifurcate Chance,暴擊分岔機率,project-supplement
+zh-TW,Crucible Tower Shield,磨煉塔盾,official-trade-linked
+zh-TW,Crystal Focus,水晶法器,official-trade-linked
+zh-TW,Culling DPS,撲殺秒傷,project-supplement
+zh-TW,Cultist Focus,教徒法器,project-supplement
+zh-TW,Cultist Tower Shield,教徒塔盾,project-supplement
+zh-TW,Current Loadout,目前配裝,project-supplement
+zh-TW,Curse Effect Mod,詛咒效果詞綴,project-supplement
+zh-TW,Damage inc. Impale,含穿刺傷害,project-supplement
+zh-TW,Decay DPS,腐蝕秒傷,project-supplement
+zh-TW,Decrepifying Arm,衰弱之臂,project-supplement
+zh-TW,Defiant Tower Shield,抗爭塔盾,project-supplement
+zh-TW,Deflect Chance,偏轉機率,project-supplement
+zh-TW,Deflective Arm,偏轉之臂,project-supplement
+zh-TW,Deified Crest Shield,神化紋章盾,project-supplement
+zh-TW,Dekharan Crest Shield,部下紋章盾,project-supplement
+zh-TW,Del Unused,刪除閒置,project-supplement
+zh-TW,Descry Crest Shield,遠見紋章盾,project-supplement
+zh-TW,Desert Buckler,沙漠輕盾,project-supplement
+zh-TW,Dex,敏捷,project-supplement
+zh-TW,"Double-click an item from one of the lists,",按兩下清單中的物品，,project-supplement
+zh-TW,Druidic Focus,德魯伊法器,project-supplement
+zh-TW,ES Cost per second,每秒能盾消耗,project-supplement
+zh-TW,ES Recovery,能量護盾回復,project-supplement
+zh-TW,ES Regen,能量護盾再生,project-supplement
+zh-TW,Edged Buckler,刃緣輕盾,project-supplement
+zh-TW,Effective Hit Pool,有效承傷池,project-supplement
+zh-TW,Effective Trigger Rate,有效觸發速度,project-supplement
+zh-TW,Effigial Tower Shield,靈像塔盾,official-trade-linked
+zh-TW,Elegant Focus,優雅法器,project-supplement
+zh-TW,Elemental Max Hit,元素最大承傷,project-supplement
+zh-TW,Emblem Crest Shield,徽印紋章盾,official-trade-linked
+zh-TW,Empyreal Crest Shield,蒼穹紋章盾,project-supplement
+zh-TW,Enemy Life Equivalent,等效敵人生命,project-supplement
+zh-TW,Energy Blade One Handed,單手能量之刃,project-supplement
+zh-TW,Energy Blade Two Handed,雙手能量之刃,project-supplement
+zh-TW,Energy Shield Cost,能量護盾消耗,project-supplement
+zh-TW,Engraved Crest Shield,紋刻紋章盾,project-supplement
+zh-TW,Engraved Focus,紋刻法器,official-trade-linked
+zh-TW,Eternal,永恆,project-supplement
+zh-TW,Evasive Leg,閃避之腿,project-supplement
+zh-TW,Ezomyte,艾茲麥,project-supplement
+zh-TW,Feathered Targe,羽毛圓盾,project-supplement
+zh-TW,Fire Max Hit,火焰最大承傷,project-supplement
+zh-TW,Fire Quiver,火焰箭袋,official-trade-linked
+zh-TW,Firing Rate,射擊頻率,project-supplement
+zh-TW,Flail,連枷,project-supplement
+zh-TW,Fork Count,分裂數量,project-supplement
+zh-TW,Fortress Tower Shield,要塞塔盾,project-supplement
+zh-TW,Full Dot DPS,完整持續傷害每秒傷害,project-supplement
+zh-TW,Fur-lined Targe,皮襯圓盾,project-supplement
+zh-TW,Gargantuan Life Flask,巨大生命藥劑,official-trade-linked
+zh-TW,Gargantuan Mana Flask,巨大魔力藥劑,official-trade-linked
+zh-TW,Glacial Fortress,冰川堡壘,official-trade-linked
+zh-TW,Glowering Crest Shield,怒視紋章盾,project-supplement
+zh-TW,Golden Targe,耀金圓盾,project-supplement
+zh-TW,Goldworked Tower Shield,黃金塔盾,project-supplement
+zh-TW,Grand Targe,宏偉圓盾,project-supplement
+zh-TW,Guarding Arm,守護之臂,project-supplement
+zh-TW,Gutspike Buckler,挑腸輕盾,project-supplement
+zh-TW,Hallowed Focus,祝聖法器,project-supplement
+zh-TW,Hardwood Targe,硬木圓盾,official-trade-linked
+zh-TW,Heraldric Tower Shield,紋章塔盾,official-trade-linked
+zh-TW,"If there's 2 slots an item can go in,",若物品可放入兩個裝備欄，,project-supplement
+zh-TW,Impale DPS,穿刺秒傷,project-supplement
+zh-TW,Impale Damage,穿刺傷害,project-supplement
+zh-TW,Int,智慧,project-supplement
+zh-TW,Intricate Crest Shield,錯綜紋章盾,official-trade-linked
+zh-TW,Iron Buckler,鍛鐵輕盾,official-trade-linked
+zh-TW,Ironwood Targe,鐵木圓盾,project-supplement
+zh-TW,Jingling Buckler,響聲輕盾,project-supplement
+zh-TW,Jingling Crest Shield,響聲紋章盾,official-trade-linked
+zh-TW,Jingling Focus,響聲法器,project-supplement
+zh-TW,Kalguuran,卡爾葛,project-supplement
+zh-TW,Karui,卡魯,project-supplement
+zh-TW,Laminate Buckler,層壓輕盾,project-supplement
+zh-TW,Leather Buckler,皮革輕盾,official-trade-linked
+zh-TW,Lesser Life Flask,小型生命藥劑,project-supplement
+zh-TW,Lesser Mana Flask,小型魔力藥劑,project-supplement
+zh-TW,Level,等級,project-supplement
+zh-TW,Leyline Focus,地脈法器,project-supplement
+zh-TW,Life Cost,生命消耗,project-supplement
+zh-TW,Life Cost per second,每秒生命消耗,project-supplement
+zh-TW,Life Recoverable,可恢復的生命,project-supplement
+zh-TW,Life Recovery,生命回復,project-supplement
+zh-TW,Lightning Max Hit,閃電最大承傷,project-supplement
+zh-TW,MH Accuracy,命中(主手),project-supplement
+zh-TW,Magus Focus,賢者法器,project-supplement
+zh-TW,Mammoth Targe,猛獁圓盾,project-supplement
+zh-TW,Mana Cost per second,每秒魔力消耗,project-supplement
+zh-TW,Mana Recovery,魔力回復,project-supplement
+zh-TW,Mana Regen,魔力回復,project-supplement
+zh-TW,Maraketh,馬拉克斯,project-supplement
+zh-TW,Max Chain Count,最大連鎖數量,project-supplement
+zh-TW,Max Number of Seals,封印數量上限,project-supplement
+zh-TW,May your resolve never waver.,願你的決心永不動搖。,project-supplement
+zh-TW,Mercenary Targe,傭兵圓盾,project-supplement
+zh-TW,Metalworked Tower Shield,金屬塔盾,project-supplement
+zh-TW,Mine Throwing Time,地雷丟擲時間,project-supplement
+zh-TW,Mirage Burning Ground DPS,幻影燃燒地面每秒傷害,project-supplement
+zh-TW,Mirage Caustic Ground DPS,幻影腐蝕地面每秒傷害,project-supplement
+zh-TW,Mosaic Targe,鑲嵌圓盾,project-supplement
+zh-TW,Movement Speed Modifier,移動速度修正,project-supplement
+zh-TW,Net ES Recovery,能量護盾淨回復,project-supplement
+zh-TW,Net Life Recovery,生命淨回復,project-supplement
+zh-TW,Net Mana Recovery,魔力淨回復,project-supplement
+zh-TW,Net Runic Ward Recovery,符文結界淨回復,project-supplement
+zh-TW,Noble Tower Shield,高貴塔盾,project-supplement
+zh-TW,OH Accuracy,命中(副手),project-supplement
+zh-TW,Omen Crest Shield,預兆紋章盾,official-trade-linked
+zh-TW,Omni,全知,project-supplement
+zh-TW,One Hand Axe,單手斧,project-supplement
+zh-TW,One Hand Mace,單手錘,project-supplement
+zh-TW,One Hand Sword,單手劍,project-supplement
+zh-TW,Ornate Buckler,華麗輕盾,official-trade-linked
+zh-TW,Painted Crest Shield,彩繪紋章盾,project-supplement
+zh-TW,Pearl Buckler,珍珠輕盾,project-supplement
+zh-TW,Pelage Targe,毛皮圓盾,official-trade-linked
+zh-TW,Penetrating Quiver,穿透箭袋,official-trade-linked
+zh-TW,Phalanx Tower Shield,方陣塔盾,project-supplement
+zh-TW,Phys Max Hit,物理最大承傷,project-supplement
+zh-TW,Plated Buckler,鋼板輕盾,project-supplement
+zh-TW,Plumed Focus,羽飾法器,project-supplement
+zh-TW,Polished Targe,拋光圓盾,project-supplement
+zh-TW,Pre {0},{0} 之前,project-supplement
+zh-TW,Presence Radius,存在半徑,project-supplement
+zh-TW,Primed Quiver,灌注箭袋,official-trade-linked
+zh-TW,"Proj, Split Count",投射物分裂數,project-supplement
+zh-TW,Proj. Speed Mod,投射物速度詞綴,project-supplement
+zh-TW,PvP Average Damage,對戰平均傷害,project-supplement
+zh-TW,PvP Average Hit,對戰平均擊中傷害,project-supplement
+zh-TW,PvP Hit DPS,對戰擊中每秒傷害,project-supplement
+zh-TW,PvP Hit Taken,對戰承受擊中傷害,project-supplement
+zh-TW,Quantity Multiplier,數量倍率,project-supplement
+zh-TW,Quartered Crest Shield,四分紋章盾,project-supplement
+zh-TW,Rage Cost,盛怒消耗,project-supplement
+zh-TW,Rage Cost per second,每秒盛怒消耗,project-supplement
+zh-TW,Rage Regen,盛怒回復,project-supplement
+zh-TW,Raise Shield,舉盾,project-supplement
+zh-TW,Rampart Tower Shield,壁壘塔盾,official-trade-linked
+zh-TW,Recoverable ES,可恢復的能盾,project-supplement
+zh-TW,Reload Time,裝填時間,project-supplement
+zh-TW,Removing this item from {0} will give you:,從{0}卸下此物品後的變化：,project-supplement
+zh-TW,Requires,需求,project-supplement
+zh-TW,Reservation DPS,保留每秒傷害,project-supplement
+zh-TW,Reserve Duration,保留持續時間,project-supplement
+zh-TW,Reserved Darkness,已保留黑暗,project-supplement
+zh-TW,Restorative Leg,恢復之腿,project-supplement
+zh-TW,Ridged Buckler,脊狀輕盾,official-trade-linked
+zh-TW,Ringed Buckler,環紋輕盾,project-supplement
+zh-TW,Rondel de Ezo,艾茲麥迴旋曲,project-supplement
+zh-TW,Royal Tower Shield,皇族塔盾,project-supplement
+zh-TW,Ruby Charm,紅玉護符,project-supplement
+zh-TW,Runed Focus,符文法器,project-supplement
+zh-TW,Runeforged Aegis Buckler,符鍛神盾輕盾,project-supplement
+zh-TW,Runeforged Ancestor Tower Shield,符鍛先祖塔盾,project-supplement
+zh-TW,Runeforged Ancient Buckler,符鍛遠古輕盾,project-supplement
+zh-TW,Runeforged Antler Focus,符鍛靈鹿法器,project-supplement
+zh-TW,Runeforged Array Buckler,符鍛排列輕盾,project-supplement
+zh-TW,Runeforged Arrayed Focus,符鍛陣列法器,project-supplement
+zh-TW,Runeforged Attuned Focus,符鍛調諧法器,project-supplement
+zh-TW,Runeforged Aureate Targe,符鍛鍍金圓盾,project-supplement
+zh-TW,Runeforged Avian Targe,符鍛飛羽圓盾,project-supplement
+zh-TW,Runeforged Baroque Targe,符鍛巴洛克圓盾,project-supplement
+zh-TW,Runeforged Barricade Tower Shield,符鍛障壁塔盾,project-supplement
+zh-TW,Runeforged Blacksteel Crest Shield,符鍛烏鋼紋章盾,project-supplement
+zh-TW,Runeforged Blacksteel Tower Shield,符鍛黑鋼塔盾,project-supplement
+zh-TW,Runeforged Bladeguard Buckler,符鍛刃衛輕盾,project-supplement
+zh-TW,Runeforged Blazon Crest Shield,符鍛家徽紋章盾,project-supplement
+zh-TW,Runeforged Braced Tower Shield,符鍛加固塔盾,project-supplement
+zh-TW,Runeforged Bulwark Tower Shield,符鍛守護塔盾,project-supplement
+zh-TW,Runeforged Carved Targe,符鍛雕刻圓盾,project-supplement
+zh-TW,Runeforged Chiseled Targe,符鍛鑿刻圓盾,project-supplement
+zh-TW,Runeforged Crescent Targe,符鍛新月圓盾,project-supplement
+zh-TW,Runeforged Crucible Tower Shield,符鍛磨煉塔盾,project-supplement
+zh-TW,Runeforged Crystal Focus,符鍛水晶法器,project-supplement
+zh-TW,Runeforged Cultist Focus,符鍛教徒法器,project-supplement
+zh-TW,Runeforged Defiant Tower Shield,符鍛抗爭塔盾,project-supplement
+zh-TW,Runeforged Deified Crest Shield,符鍛神化紋章盾,project-supplement
+zh-TW,Runeforged Dekharan Crest Shield,符鍛部下紋章盾,project-supplement
+zh-TW,Runeforged Desert Buckler,符鍛沙漠輕盾,project-supplement
+zh-TW,Runeforged Druidic Focus,符鍛德魯伊法器,project-supplement
+zh-TW,Runeforged Edged Buckler,符鍛刃緣輕盾,project-supplement
+zh-TW,Runeforged Effigial Tower Shield,符鍛靈像塔盾,project-supplement
+zh-TW,Runeforged Elegant Focus,符鍛優雅法器,project-supplement
+zh-TW,Runeforged Emblem Crest Shield,符鍛徽印紋章盾,project-supplement
+zh-TW,Runeforged Empyreal Crest Shield,符鍛蒼穹紋章盾,project-supplement
+zh-TW,Runeforged Engraved Focus,符鍛紋刻法器,project-supplement
+zh-TW,Runeforged Feathered Targe,符鍛羽毛圓盾,project-supplement
+zh-TW,Runeforged Fortress Tower Shield,符鍛要塞塔盾,project-supplement
+zh-TW,Runeforged Glowering Crest Shield,符鍛怒視紋章盾,project-supplement
+zh-TW,Runeforged Golden Targe,符鍛耀金圓盾,project-supplement
+zh-TW,Runeforged Goldworked Tower Shield,符鍛黃金塔盾,project-supplement
+zh-TW,Runeforged Grand Targe,符鍛宏偉圓盾,project-supplement
+zh-TW,Runeforged Gutspike Buckler,符鍛挑腸輕盾,project-supplement
+zh-TW,Runeforged Hallowed Focus,符鍛祝聖法器,project-supplement
+zh-TW,Runeforged Hardwood Targe,符鍛硬木圓盾,project-supplement
+zh-TW,Runeforged Heraldric Tower Shield,符鍛紋章塔盾,project-supplement
+zh-TW,Runeforged Intricate Crest Shield,符鍛錯綜紋章盾,project-supplement
+zh-TW,Runeforged Iron Buckler,符鍛鍛鐵輕盾,project-supplement
+zh-TW,Runeforged Jingling Buckler,符鍛響聲輕盾,project-supplement
+zh-TW,Runeforged Jingling Crest Shield,符鍛響聲紋章盾,project-supplement
+zh-TW,Runeforged Laminate Buckler,符鍛層壓輕盾,project-supplement
+zh-TW,Runeforged Leather Buckler,符鍛皮革輕盾,project-supplement
+zh-TW,Runeforged Leyline Focus,符鍛地脈法器,project-supplement
+zh-TW,Runeforged Magus Focus,符鍛賢者法器,project-supplement
+zh-TW,Runeforged Mammoth Targe,符鍛猛獁圓盾,project-supplement
+zh-TW,Runeforged Mosaic Targe,符鍛鑲嵌圓盾,project-supplement
+zh-TW,Runeforged Noble Tower Shield,符鍛高貴塔盾,project-supplement
+zh-TW,Runeforged Omen Crest Shield,符鍛預兆紋章盾,project-supplement
+zh-TW,Runeforged Ornate Buckler,符鍛華麗輕盾,project-supplement
+zh-TW,Runeforged Painted Tower Shield,符鍛彩繪塔盾,project-supplement
+zh-TW,Runeforged Pearl Buckler,符鍛珍珠輕盾,project-supplement
+zh-TW,Runeforged Pelage Targe,符鍛毛皮圓盾,project-supplement
+zh-TW,Runeforged Phalanx Tower Shield,符鍛方陣塔盾,project-supplement
+zh-TW,Runeforged Plated Buckler,符鍛鋼板輕盾,project-supplement
+zh-TW,Runeforged Plumed Focus,符鍛羽飾法器,project-supplement
+zh-TW,Runeforged Polished Targe,符鍛拋光圓盾,project-supplement
+zh-TW,Runeforged Quartered Crest Shield,符鍛四分紋章盾,project-supplement
+zh-TW,Runeforged Rampart Tower Shield,符鍛壁壘塔盾,project-supplement
+zh-TW,Runeforged Ridged Buckler,符鍛脊狀輕盾,project-supplement
+zh-TW,Runeforged Ringed Buckler,符鍛環紋輕盾,project-supplement
+zh-TW,Runeforged Royal Tower Shield,符鍛皇族塔盾,project-supplement
+zh-TW,Runeforged Runed Focus,符鍛符文法器,project-supplement
+zh-TW,Runeforged Sacred Focus,符鍛神聖法器,project-supplement
+zh-TW,Runeforged Sectarian Crest Shield,符鍛宗派紋章盾,project-supplement
+zh-TW,Runeforged Seer Crest Shield,符鍛先知紋章盾,project-supplement
+zh-TW,Runeforged Sekheman Crest Shield,符鍛絲克瑪紋章盾,project-supplement
+zh-TW,Runeforged Sigil Crest Shield,符鍛符印紋章盾,project-supplement
+zh-TW,Runeforged Soaring Targe,符鍛翱翔圓盾,project-supplement
+zh-TW,Runeforged Spiked Buckler,符鍛尖刺輕盾,project-supplement
+zh-TW,Runeforged Spikeward Buckler,符鍛尖衛輕盾,project-supplement
+zh-TW,Runeforged Splintered Tower Shield,符鍛朽木塔盾,project-supplement
+zh-TW,Runeforged Stoic Crest Shield,符鍛堅毅紋章盾,project-supplement
+zh-TW,Runeforged Stone Targe,符鍛岩石圓盾,project-supplement
+zh-TW,Runeforged Stone Tower Shield,符鍛岩石塔盾,project-supplement
+zh-TW,Runeforged Stratified Targe,符鍛分層圓盾,project-supplement
+zh-TW,Runeforged Studded Targe,符鍛鑲釘圓盾,project-supplement
+zh-TW,Runeforged Tasalian Focus,符鍛塔薩利法器,project-supplement
+zh-TW,Runeforged Tawhoan Tower Shield,符鍛塔赫亞塔盾,project-supplement
+zh-TW,Runeforged Tonal Focus,符鍛音調法器,project-supplement
+zh-TW,Runeforged Twig Focus,符鍛枝條法器,project-supplement
+zh-TW,Runeforged Vaal Crest Shield,符鍛瓦爾紋章盾,project-supplement
+zh-TW,Runeforged Vaal Tower Shield,符鍛瓦爾塔盾,project-supplement
+zh-TW,Runeforged Voodoo Focus,符鍛巫毒法器,project-supplement
+zh-TW,Runeforged Warden Bow,符鍛守護者之弓,official-trade-linked
+zh-TW,Runeforged Wayward Crest Shield,符鍛剛愎紋章盾,project-supplement
+zh-TW,Runeforged Whorl Focus,符鍛渦紋法器,project-supplement
+zh-TW,Runeforged Wooden Buckler,符鍛木頭輕盾,project-supplement
+zh-TW,Runeforged Woven Focus,符鍛編織法器,project-supplement
+zh-TW,Runemastered Antler Focus,符煉靈鹿法器,official-trade-linked
+zh-TW,Runemastered Array Buckler,符煉排列輕盾,official-trade-linked
+zh-TW,Runemastered Barricade Tower Shield,符煉障壁塔盾,official-trade-linked
+zh-TW,Runemastered Blacksteel Tower Shield,符煉黑鋼塔盾,official-trade-linked
+zh-TW,Runemastered Blazon Crest Shield,符煉家徽紋章盾,official-trade-linked
+zh-TW,Runemastered Braced Tower Shield,符煉加固塔盾,official-trade-linked
+zh-TW,Runemastered Crescent Targe,符煉新月圓盾,official-trade-linked
+zh-TW,Runemastered Crucible Tower Shield,符煉磨煉塔盾,official-trade-linked
+zh-TW,Runemastered Crystal Focus,符煉水晶法器,official-trade-linked
+zh-TW,Runemastered Effigial Tower Shield,符煉靈像塔盾,project-supplement
+zh-TW,Runemastered Emblem Crest Shield,符煉徽印紋章盾,official-trade-linked
+zh-TW,Runemastered Engraved Focus,符煉紋刻法器,official-trade-linked
+zh-TW,Runemastered Glacial Fortress,符煉冰川堡壘,official-trade-linked
+zh-TW,Runemastered Hardwood Targe,符煉硬木圓盾,official-trade-linked
+zh-TW,Runemastered Heraldric Tower Shield,符煉紋章塔盾,official-trade-linked
+zh-TW,Runemastered Intricate Crest Shield,符煉錯綜紋章盾,official-trade-linked
+zh-TW,Runemastered Iron Buckler,符煉鍛鐵輕盾,official-trade-linked
+zh-TW,Runemastered Jingling Crest Shield,符煉響聲紋章盾,official-trade-linked
+zh-TW,Runemastered Leather Buckler,符煉皮革輕盾,official-trade-linked
+zh-TW,Runemastered Omen Crest Shield,符煉預兆紋章盾,official-trade-linked
+zh-TW,Runemastered Ornate Buckler,符煉華麗輕盾,official-trade-linked
+zh-TW,Runemastered Painted Tower Shield,符煉彩繪塔盾,official-trade-linked
+zh-TW,Runemastered Plated Buckler,符煉鋼板輕盾,project-supplement
+zh-TW,Runemastered Plumed Focus,符煉羽飾法器,official-trade-linked
+zh-TW,Runemastered Rampart Tower Shield,符煉壁壘塔盾,official-trade-linked
+zh-TW,Runemastered Ridged Buckler,符煉脊狀輕盾,official-trade-linked
+zh-TW,Runemastered Sigil Crest Shield,符煉符印紋章盾,official-trade-linked
+zh-TW,Runemastered Spiked Buckler,符煉尖刺輕盾,official-trade-linked
+zh-TW,Runemastered Splintered Tower Shield,符煉朽木塔盾,official-trade-linked
+zh-TW,Runemastered Tonal Focus,符煉音調法器,official-trade-linked
+zh-TW,Runemastered Twig Focus,符煉枝條法器,official-trade-linked
+zh-TW,Runemastered Vaal Tower Shield,符煉瓦爾塔盾,official-trade-linked
+zh-TW,Runemastered Venerable Defender,符煉古老護衛盾,official-trade-linked
+zh-TW,Runemastered Voodoo Focus,符煉巫毒法器,official-trade-linked
+zh-TW,Runemastered Wooden Buckler,符煉木頭輕盾,official-trade-linked
+zh-TW,Runemastered Woven Focus,符煉編織法器,official-trade-linked
+zh-TW,Runic Ward,符文結界,project-supplement
+zh-TW,Runic Ward Cost,符文結界消耗,project-supplement
+zh-TW,Runic Ward Cost / s,每秒符文結界消耗,project-supplement
+zh-TW,Runic Ward Cost per second,每秒符文結界消耗,project-supplement
+zh-TW,Runic Ward Recovery,符文結界回復,project-supplement
+zh-TW,Runic Ward Regen,符文結界再生,project-supplement
+zh-TW,Sacral Quiver,聖禮箭袋,official-trade-linked
+zh-TW,Sacred Focus,神聖法器,official-trade-linked
+zh-TW,Sapphire Charm,藍玉護符,official-trade-linked
+zh-TW,Seal Gain Frequency,封印獲取頻率,project-supplement
+zh-TW,Search,搜尋,project-supplement
+zh-TW,Secondary Duration,附加持續時間,project-supplement
+zh-TW,Sectarian Crest Shield,宗派紋章盾,project-supplement
+zh-TW,Seer Crest Shield,先知紋章盾,project-supplement
+zh-TW,Sekheman Crest Shield,絲克瑪紋章盾,project-supplement
+zh-TW,Serrated Quiver,鋸齒箭袋,project-supplement
+zh-TW,Sigil Crest Shield,符印紋章盾,official-trade-linked
+zh-TW,Silver Charm,白銀護符,official-trade-linked
+zh-TW,Skill DPS,技能秒傷,project-supplement
+zh-TW,Skill Movement Speed,技能移動速度,project-supplement
+zh-TW,Soaring Targe,翱翔圓盾,project-supplement
+zh-TW,Soul Cost,靈魂消耗,project-supplement
+zh-TW,Soul Gain Prevent.,無法獲取靈魂時長,project-supplement
+zh-TW,Spell Evade Chance,法術閃避機率,project-supplement
+zh-TW,Spell Proj. Evade Chance,法術投射物閃避機率,project-supplement
+zh-TW,Spell Suppression Chance,法術壓抑機率,project-supplement
+zh-TW,Spiked Buckler,尖刺輕盾,official-trade-linked
+zh-TW,Spikeward Buckler,尖衛輕盾,project-supplement
+zh-TW,Sprinters Leg,疾跑之腿,project-supplement
+zh-TW,Staghorn Focus,雄鹿角法器,project-supplement
+zh-TW,Staunching Charm,止血護符,official-trade-linked
+zh-TW,Stoic Crest Shield,堅毅紋章盾,project-supplement
+zh-TW,Stone Targe,岩石圓盾,project-supplement
+zh-TW,Stone Tower Shield,岩石塔盾,project-supplement
+zh-TW,Stored Uses,儲存使用次數,project-supplement
+zh-TW,Str,力量,project-supplement
+zh-TW,Stratified Targe,分層圓盾,project-supplement
+zh-TW,Studded Targe,鑲釘圓盾,project-supplement
+zh-TW,Sturdy Leg,強健之腿,project-supplement
+zh-TW,Surefooted Leg,穩步之腿,project-supplement
+zh-TW,Sustainable Trauma,可持續創傷,project-supplement
+zh-TW,Tasalian Focus,塔薩利法器,project-supplement
+zh-TW,Tethering Bands,束縛環帶,project-supplement
+zh-TW,This is a list of items that will be shared between all of,這裡的物品可在所有構築間共用。,project-supplement
+zh-TW,This is the list of items that have been added to this build.,這是已加入目前構築的物品清單。,project-supplement
+zh-TW,Time to Gain Max Seals,獲取全部封印所需時間,project-supplement
+zh-TW,Tip: Hold Shift to display a tooltip for the granted skill.,提示：按住 Shift 查看賦予技能的說明。,project-supplement
+zh-TW,Tip: Hold Shift to display a tooltip for the granted skills.,提示：按住 Shift 查看賦予技能的說明。,project-supplement
+zh-TW,Tip: Press Ctrl+D in the Items tab to disable the display of stat differences.,提示：在物品頁按 Ctrl+D 隱藏屬性差異。,project-supplement
+zh-TW,Tip: Press Ctrl+D in the Items tab to enable the display of stat differences.,提示：在物品頁按 Ctrl+D 顯示屬性差異。,project-supplement
+zh-TW,Tip: Press Ctrl+D to disable the display of stat differences.,提示：按 Ctrl+D 隱藏屬性差異。,project-supplement
+zh-TW,Tip: Press Ctrl+D to enable the display of stat differences.,提示：按 Ctrl+D 顯示屬性差異。,project-supplement
+zh-TW,Tonal Focus,音調法器,official-trade-linked
+zh-TW,Topaz Charm,黃玉護符,official-trade-linked
+zh-TW,Total DPS inc. Bleed,含流血每秒總傷害,project-supplement
+zh-TW,Total DPS inc. Impale,總計秒傷(含穿刺),project-supplement
+zh-TW,Total Damage per Bleed,每次流血總傷害,project-supplement
+zh-TW,Total Darkness,黑暗總量,project-supplement
+zh-TW,Total Degen,總計每秒扣血,project-supplement
+zh-TW,Total Explode Chance,總爆炸機率,project-supplement
+zh-TW,Total Mana,魔力總量,project-supplement
+zh-TW,Total Mirage DPS,總計幻影射手秒傷,project-supplement
+zh-TW,Total Net Recovery,總淨回復,project-supplement
+zh-TW,Total Spirit,精魂總量,project-supplement
+zh-TW,Total Wisp DPS,鬼靈每秒總傷害,project-supplement
+zh-TW,Toxic Quiver,劇毒箭袋,official-trade-linked
+zh-TW,Transcendent Arm,超凡手臂,project-supplement
+zh-TW,Transcendent Leg,超凡腿部,project-supplement
+zh-TW,Transcendent Life Flask,超凡生命藥劑,project-supplement
+zh-TW,Transcendent Limb,超凡肢體,project-supplement
+zh-TW,Tribute,貢品,project-supplement
+zh-TW,Twig Focus,枝條法器,project-supplement
+zh-TW,Two Hand Axe,雙手斧,project-supplement
+zh-TW,Two Hand Mace,雙手錘,project-supplement
+zh-TW,Two Hand Sword,雙手劍,project-supplement
+zh-TW,Two-Point Quiver,雙尖箭袋,project-supplement
+zh-TW,Uncap. Hit Chance,未封頂命中率,project-supplement
+zh-TW,Unreserved Spirit,未保留精魂,project-supplement
+zh-TW,Unused Items,未使用物品,project-supplement
+zh-TW,Vaal,瓦爾,project-supplement
+zh-TW,Vaal Crest Shield,瓦爾紋章盾,project-supplement
+zh-TW,Vaal Tower Shield,瓦爾塔盾,official-trade-linked
+zh-TW,Variant: Current ({0} variants),變體：目前（共 {0} 種）,project-supplement
+zh-TW,Variant: {0},變體：{0},project-supplement
+zh-TW,Variant: {0} ({1} variants),變體：{0}（共 {1} 種）,project-supplement
+zh-TW,Venerable Defender,古老護衛盾,official-trade-linked
+zh-TW,Version: {0},版本：{0},project-supplement
+zh-TW,Visceral Quiver,內臟箭袋,official-trade-linked
+zh-TW,Volant Quiver,速射箭袋,project-supplement
+zh-TW,Voodoo Focus,巫毒法器,official-trade-linked
+zh-TW,Warstaff,戰杖,project-supplement
+zh-TW,Wayward Crest Shield,剛愎紋章盾,project-supplement
+zh-TW,Whorl Focus,渦紋法器,project-supplement
+zh-TW,Wooden Buckler,木頭輕盾,official-trade-linked
+zh-TW,Woven Focus,編織法器,official-trade-linked
+zh-TW,Wreath Focus,花環法器,project-supplement
+zh-TW,"You can Control + Click an item to equip it, or",按住 Ctrl 點擊物品即可裝備，,project-supplement
+zh-TW,You can add items to this list by dragging them from,可從其他清單拖入物品，,project-supplement
+zh-TW,also clone an item within Path of Building by,也可在 PoB 內按 Ctrl+C 和 Ctrl+V,project-supplement
+zh-TW,copying and pasting it with Ctrl+C and Ctrl+V.,複製物品。,project-supplement
+zh-TW,drag it onto the slot.  This will also add it to,或將它拖入裝備欄。傳奇和範本清單的,project-supplement
+zh-TW,holding Shift will put it in the second.,按住 Shift 會放入第二個欄位。,project-supplement
+zh-TW,"one of the other lists, or by clicking 'Add to build' when",或在查看物品時點擊「加入構築」，,project-supplement
+zh-TW,one of the other lists.,將它們加入此處。,project-supplement
+zh-TW,or copy and paste an item from in game,或在遊戲中複製物品並貼到此處,project-supplement
+zh-TW,the item and add it to your build. You can,編輯並加入構築。,project-supplement
+zh-TW,viewing an item.,將物品加入此處。,project-supplement
+zh-TW,your build if it's from the unique/template list.,物品還會同時加入目前構築。,project-supplement
+zh-TW,your builds., ,project-supplement

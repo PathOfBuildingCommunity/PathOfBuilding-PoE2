@@ -1,0 +1,87 @@
+
+
+
+
+
+
+Update Ready,更新已就绪
+
+
+
+
+Update check failed!,更新失败！
+No update available,无可用更新
+You are running the latest version.,你正在运行最新版本。
+Update Available,有可用更新
+An update has been downloaded and is ready,已下载完成一版更新，
+to be applied.,已准备好应用更新。
+Build List,构筑列表
+.*No such file or directory,.*无此文件或路径
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Application options,软件设置
+Connection Protocol:,连接协议:
+Changes which protocol is used when downloading updates and importing builds.,更改下载更新和导入构筑时使用的协议。
+Auto,自动
+Proxy server:,代理服务:
+UI scaling override:,UI缩放覆盖:
+Overrides Windows DPI scaling inside Path of Building.\nChoose a percentage between 100% and 250% or revert to the system default.,在POB内覆盖Windows DPI缩放。在100%到250%之间选择一个百分比，或者恢复到系统默认值。
+Build save path:,构筑保存路径:
+Overrides the default save location for builds.,覆盖构筑的默认保存位置。
+Node Power colours:,节点强度颜色:
+Changes the colour scheme used for the node power display on the passive tree.,更改天赋树上用于节点强度显示的配色方案。
+Red & Blue,^xE05030红 ^7& ^x7070FF蓝
+Red & Green,^xE05030红 ^7& ^x33FF77绿
+Green & Blue,^x33FF77绿 ^7& ^x7070FF蓝
+Hex colour for positive values:,正值十六进制颜色:
+Overrides the default hex colour for positive values in breakdowns. ,覆盖拆分显示时正值的默认十六进制颜色。
+Expected format is 0x000000. The default value is 0x33FF77.,预期格式为0x000000。默认值为0x33FF77
+"If updating while inside a build, please re-load the build after saving.","如果在构筑中更新，请在保存后重新加载构筑。"
+Hex colour for negative values:,负值十六进制颜色:
+Overrides the default hex colour for negative values in breakdowns. ,覆盖拆分显示时负值的默认十六进制颜色。
+Expected format is 0x000000. The default value is 0xDD0022.,预期格式为0x000000。默认值为0xDD0022
+Hex colour for highlight nodes:,高亮节点十六进制颜色:
+Overrides the default hex colour for highlighting nodes in passive tree search. ,覆盖在天赋树上搜索时高亮节点的默认十六进制颜色。
+Expected format is 0x000000. The default value is 0xFF0000.,预期格式为0x000000。默认值为0xFF0000
+Opt-in to weekly beta test builds:,选择加入每周Beta测试版本:
+Show search circles at viewport edge,在视窗边缘显示搜索高亮圈
+Show Latest/Trending builds:,显示最新/趋势构筑:
+Styled Tooltips with Flavour Text:,风格化工具提示与风味文本:
+Show Animations:,显示动画:
+Show all item affixes sliders:,显示全部物品词缀滑条:
+Display all item affix slots as a stacked list instead of hiding them in dropdowns,将所有物品词缀槽位显示为一个堆叠列表，而非隐藏在下拉菜单中
+
+Build-related options,构筑相关设置
+Show thousands separators:,显示千位分隔符:
+Thousands separator:,千位分隔符:
+Decimal separator:,小数分隔符:
+Show build name in window title:,在窗口标题中显示构筑名称:
+Set the default quality that can be overwritten by build-related quality settings in the skill panel.,设置默认质量，该质量可以被技能面板中构筑相关质量设置覆盖。
+"Set the default level of your builds. If this is higher than 1, manual level mode will be enabled by default in new builds.","设置你构筑中角色的默认等级，如果该值高于1，则在新构筑中默认启用手动级别模式。"
+Default character level:,默认角色等级：
+Default item affix quality:,默认物品词缀Roll值：
+Show build warnings:,显示构筑警告:
+Show tooltips only for affected slots:,仅为受影响的插槽显示工具提示:
+"Shows comparisons in tooltips only for the slot you are currently placing the item in, instead of all slots.","仅显示你当前有物品的槽位的对比工具提示，而非所有槽位的信息。"
+Copy Eldritch Implicits onto Display Item:,复制异能基底至显示的物品:
+"Apply Eldritch Implicits from current gear when comparing new gear, given the new item doesn't have any influence","在比较新装备时，如果新装备没有受影响，则应用当前装备的异能基底"
+Show tooltip for unsupported mods :,为不支持的词缀显示工具提示:
+Show (Not supported in PoB yet) next to unsupported mods,^7为不支持的词缀显示^8(Not supported in PoB yet)^7字样
+Invert slider scroll direction:,反转滑块滚动方向:
+Default scroll direction is:,默认滚动方向为:
+Scroll Up = Move right,向上滚动=向右移动
+Scroll Down = Move left,向下滚动=向左移动
+About,关于

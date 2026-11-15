@@ -1,0 +1,241 @@
+"(You can only take one of the three Witch Ascendancy passives)","( 你只能在女巫的三个升华职业中选择一个 )"
+"(Shock increases Damage taken by up to 50%, depending on the amount of Lightning Damage in the hit, for 2 seconds)","（感电能额外提高至多50%的伤害，取决于击中的闪电伤害量, 持续2秒）"
+"(Recently refers to the past 4 seconds)","( 近期内意指 4 秒内 )"
+"(You can only take one of the three Templar Ascendancy passives)","( 你只能在圣堂武僧的三个升华职业中选择一个 )"
+"(Arcane Surge grants 10% more Spell Damage, 10% increased Cast Speed, and 0.5% of maximum Mana Regenerated per second, for 4 seconds)","(秘术增强额外增加 10% 法术总伤害, 增加 10% 施法速度，和每秒 0.5% 最大魔力的魔力回复，持续4秒)"
+"(Poison deals Chaos Damage over time, based on the base Physical and Chaos Damage of the Skill. Multiple instances of Poison stack)","( 中毒造成持续混沌伤害, 伤害取决于技能初始的物理和混沌伤害。中毒效果可以叠加 )"
+"(Ignoring Resistances means your Damage cannot be modified in any way by any Resistance stats)",（无视抗性表示你的伤害不会被任何抗性相关的词缀以任何方式修改）
+"(You can only take one of the three Ranger Ascendancy passives)","( 你只能在游侠的三个升华职业中选择一个 )"
+"(You can only take one of the three Marauder Ascendancy passives)","( 你只能在野蛮人的三个升华职业中选择一个 )"
+"(Maximum Rage is 50)","(最大怒气为 50 层)"
+"(You lose 1 Rage every 0.5 seconds if you have not been Hit or gained Rage Recently)","（近期内如果你没有被击中或获得怒气，则每 0.5 秒失去 1 层怒气）"
+"(Allies on your Consecrated Ground Regenerate a percentage of their Maximum Life per second. Hits against Enemies on your Consecrated Ground have increased Critical Strike Chance)","( 站在奉献地面上的友军每秒回复一定百分比的最大生命 )"
+"(Elemental Ailments are Ignited, Scorched, Chilled, Frozen, Brittle, Shocked, and Sapped)",(被点燃、灼烧、冰缓、冰冻、易碎、感电和精疲力尽统称为元素异常状态)
+"(You can only take one of the three Shadow Ascendancy passives)","( 你只能在暗影的三个升华职业中选择一个 )"
+"(Intimidated enemies take 10% increased Attack Damage)",（受到威吓的敌人受到的攻击伤害会提高10%）
+"(Adrenaline grants 100% increased Damage, 25% increased Attack, Cast and Movement Speed and 10% additional Physical Damage Reduction)",(肾上腺素会增加100%伤害，提高25%攻击速度，施法速度和移动速度，并且受到的物理伤害额外减少10%)
+"(Onslaught grants 20% increased Attack, Cast, and Movement Speed)","( 猛攻赋予你额外你 20% 攻击速度, 施法速度, 和移动速度 )"
+"(You can only take one of the three Duelist Ascendancy passives)","( 你只能在决斗者的三个升华职业中选择一个 )"
+"(Culling Strike means enemies that are on 10% or lower life after your Hit are Killed)","( 对生命等于或少于 10% 生命上限的敌人可以造成终结，敌人将直接死亡 )"
+"(Choose one of the three attached options)","( 请在三个选项中选择一项 )"
+"(Bleeding deals Physical Damage over time, based on the base Physical Damage of the Skill. Damage is higher while moving)","( 流血造成持续物理伤害, 伤害取决于技能初始的物理伤害。移动时受到的流血伤害增加 )"
+"(Blinded enemies have their Chance to Hit halved)","( 被致盲的敌人命中率减半 )"
+"(Withered applies 6% increased Chaos Damage Taken, and can be inflicted up to 15 times)","（死亡凋零会使受到的混沌伤害提高 6%，最多造成 15 次)"
+"(Freeze lowers Enemy Action Speed to zero, preventing them from acting. Duration is based on the Cold Damage of the Hit)","(冰冻将完全冻结敌人, 使其无法移动。冰冻的持续长度取决于命中时造成的冰霜伤害量)"
+"(Enemies you Taunt can only target you, and deal 10% less damage to anyone else. Taunt lasts for 3 seconds)","(受你嘲讽的敌人只会攻击你, 并对你以外的其他人造成额外减少 10% 的总伤害, 嘲讽持续3秒)"
+"Enemies have -12% to Total Physical Damage Reduction against your Hits","敌人对抗你的击中时，总物理伤害减免 -12%"
+"Enemies have -5% to Total Physical Damage Reduction against your Hits","敌人对抗你的击中时，总物理伤害减免 -5%"
+"Enemies have -10% to Total Physical Damage Reduction against your Hits","敌人对抗你的击中时，总物理伤害减免 -10%"
+"3% more Damage per Summoned Totem","每个召唤的图腾都使总伤害额外提高 3%"
+"Enemies you Impale have -5% to Total Physical Damage Reduction against Impale Hits","被你穿刺的敌人对抗穿刺击中的总物理伤害减免 -5%"
+"Enemies you Impale have -10% to Total Physical Damage Reduction against Impale Hits","被你穿刺的敌人对抗穿刺击中的总物理伤害减免 -10%"
+"Auras from your Skills grant 3% increased Attack and Cast",你技能的光环可使你和周围友军的攻击和施法
+"You and nearby Allies have +20% to Elemental Resistances","你和周围友军的元素抗性 +20%"
+"Enemies have -15% to Total Physical Damage Reduction against your Hits","敌人对抗你的击中时，总物理伤害减免 -15%"
+"30% increased Critical Strike Chance against Shocked Enemies","对感电目标的暴击率提高 30%"
+"(Fortify grants 20% less Damage Taken from Hits)","（护体从击中承受的总伤害额外降低 20%）"
+"(Defences are Armour, Evasion Rating and Energy Shield)","(防御指护甲, 闪避和能量护盾)"
+"(Ailments that deal Damage are Bleeding, Ignited, and Poisoned)",(伤害类异常状态包括流血、点燃和中毒)
+"(Leeched Life is recovered over time. Multiple Leeches can occur simultaneously, up to a maximum rate)","(吸取的生命会随时间逐渐回复。多个吸取效果可以同时发生, 但有一个上限)"
+"(Physical Damage Reduction cannot be negative)",（物理伤害减免不能为负）
+"(Projectile Attacks gain Damage as they travel farther, dealing up to 30% more Attack Damage with Hits to targets)","(投射物攻击飞得越远, 造成伤害越高, 最多可对目标额外造成30%的伤害)"
+"(Ignite deals Fire Damage over time, based on the base Fire Damage of the Skill, for 4 seconds)","(点燃会造成持续燃烧的火焰伤害, 取决于技能的基础火焰伤害, 持续4秒)"
+"(Warstaves are considered Staves)",（战杖视为长杖）
+"(Affects Melee Strikes, including the Default Attack. Does not apply to Areas of Effect)",（影响近战打击，包括普通攻击。无法用于效果区域）
+"(Rune Daggers are considered Daggers)",（符文匕首视为匕首）
+"(The Stun Threshold determines how much Damage can Stun something)",(眩晕门槛决定了多少伤害可以眩晕目标)
+"(Maximum Resistances cannot be raised above 90%)","（最大抗性不能超过 90%）"
+"(Unholy Might grants 30% of Physical Damage as extra Chaos Damage)",(不洁之力将附加等同30%物理伤害的混沌伤害)
+"(They will deal the same total damage over a shorter duration)",（他们会在短时间内造成相同的伤害）
+"(Knockback pushes Enemies away when Hit)",(命中时击退敌人)
+"(Leeched Energy Shield is recovered over time. Multiple Leeches can occur simultaneously, up to a maximum rate)",（被偷取的能量护盾会持续恢复。可以同时进行多次偷取，次数有上限）
+"(No chance to avoid damage can be higher than 75%)","（躲避伤害的几率不能高于 75%）"
+"(Leeched Mana is recovered over time. Multiple Leeches can occur simultaneously, up to a maximum rate)","(吸取的魔力会随时间逐渐回复。多个吸取效果可以同时发生, 但有一个上限)"
+"(Debuffs you are Unaffected by can still be placed on you, but will not actually apply their effect)",(你受到的未生效的减益效果依然会被显示，但是他们不会产生效果)
+"(Chill reduces Enemy Action Speed by 10% for 2 seconds)",(冰缓使敌人行动速度降低10%持续2秒)
+"(The effects of the ground still apply to you, allies or enemies after leaving its area)",（离开此区域，地面的效果也会附加于你、友军或敌人）
+"(Enemies that are Covered in Ash have 20% less Movement Speed and 20% increased Fire Damage Taken)","（灰烬覆盖的敌人移动速度降低 20%，所承受的火焰伤害提高 20 %）"
+"(Auras can only grant bonuses to things they affect)",（光环只能给受影响的事物提供加成）
+"(Unnerved enemies take 10% increased Spell Damage)","（恐惧的敌人承受的法术伤害提高 10%）"
+"(Killing an Enemy is not Spawning a corpse)",（击败敌人不会唤起灵枢）
+"(Shock increases Damage taken by 15%)","（感电使敌人承受的伤害提高 15%）"
+"(Chill reduces Enemy Action Speed by 10%)",(冰缓使敌人行动速度降低10%)
+"(While you have Phasing, your movement is not blocked by Enemies)","( 当你进入迷踪状态时, 你将不会被敌人所阻挡 )"
+"(Hindered enemies have reduced movement speed)",(被缓速的敌人移动速度会降低)
+"(A Hit that removes at least 15% of Maximum Life is a Savage Hit)","( 一次击中使目标失去 15% 最大生命以上的伤害时, 该攻击会被视为残暴打击 )"
+"(Blitz Charges have a base Duration of 5 seconds)","（疾电球的基础持续时间为 5 秒）。"
+"(Ailments that do not deal Damage are Scorched, Chilled, Frozen, Brittle, Shocked, and Sapped)",(非伤害类异常状态包括灼烧、冰缓、冰冻、易碎、感电和精疲力尽)
+"(Overkill Damage is any Damage from a Hit in excess of the Enemy's remaining Life)",(溢出伤害是造成的伤害超出怪物剩余生命的部分)
+"(You are on Low Life if you have 35% of your Maximum Life or less)",(生命低于35%时进入低血状态)
+"(Elusive initially grants 15% chance to Dodge Spell or Attack Hits, and 30% increased Movement Speed. The buff reduces its effect over time, removing itself at 0% effect. If you already have an Elusive buff, you cannot gain Elusive)","（【灵巧】一开始有 15% 几率躲避法术或攻击击中，并使移动速度提高 30%。该增益随时间流逝递减，降低到 0% 时移除。在已经获得【灵巧】的情况下，无法再次获得【灵巧】）"
+"(Increases and Reductions to Maximum Energy Shield",（对最大能量护盾的增幅与减益
+"also apply to Spell Damage at 30% of their value)","有 30% 也套用于法术伤害）"
+"(Increases and Reductions to Maximum Mana also apply to Damage at 30% of their value)","（对最大魔力的增幅与减益有 30% 也套用于伤害）"
+"(Enemies with Malediction deal 10% reduced damage and take 10% increased damage)",(带有恶语术诅咒的敌人造成的伤害减少10%，受到的伤害增加10%)
+"(Freeze lowers Enemy Action Speed to zero, preventing them from acting)",(冻结可将敌人的行动速度减缓至零，使其无法行动）
+"(Maimed enemies have 30% reduced Movement Speed)","( 被瘫痪的敌人减少 30% 移动速度 )"
+"(Attacks that Trigger when you are Hit are Counterattacks)",(当你被击中时触发的攻击被称为反击)
+"(Ailments are Bleeding, Ignited, Scorched, Chilled, Frozen, Brittle, Shocked, Sapped, and Poisoned)",(异常状态包括流血、点燃、灼烧、冰缓、冰冻、易碎、感电、精疲力尽和中毒)
+"(Permanent Auras are Auras with no Duration)",（恒定光环没有持续时间）
+"(Up to 10 Vines can grasp you, inflicting 8% less Movement Speed per Vine. Broken by moving)","（最多有 10 根蔓藤可以抓住你，每根蔓藤都使你移动速度降低 8%。移动可以挣脱）"
+"(Scorched Enemies have their Elemental Resistances lowered by up to 30%, based on the Fire Damage of the Hit, for 4 seconds)","（基于击中的火焰伤害，使被【灼烧】的敌人元素抗性最多降低 30%，持续 4 秒）"
+"(Hits have up to +15% Critical Strike Chance against Brittle Enemies, based on the Cold Damage of the Hit which inflicted Brittle, for 4 seconds)","（基于造成【易碎】的击中冰霜伤害，使对抗【易碎】的敌人时，最多 +15% 暴击率，持续 4 秒）"
+"(Sapped Enemies deal up to 20% less Damage, based on the Lightning Damage of the Hit, for 4 seconds)","（基于击中的闪电伤害，使【精疲力尽】的敌人造成的总伤害降低最多 20%，持续 4 秒）"
+"(You are Unencumbered while you have no Gloves, no Main Hand Item, and no Off Hand Item Equipped)",（未装备手部装备、主手物品、副手物品时，视为【两手空空】状态）
+"(Attributes are Strength, Dexterity, and Intelligence)",(属性分为力量，敏捷和智慧三种)
+"(Cold Exposure applies -10% to Cold Resistance for 4 seconds)","(【畏寒】-10% 冰霜抗性，持续 4 秒）"
+"(Fire Exposure applies -10% to Fire Resistance for 4 seconds)","(【畏火】-10% 火焰抗性，持续 4 秒）"
+"(Lightning Exposure applies -10% to Lightning Resistance for 4 seconds)","(【闪电曝露】-10% 闪电抗性，持续 4 秒）"
+"(Throwing Mines takes 10% more time for each additional Mine thrown)","（每投掷一个额外地雷都使投掷地雷时间延长 10%）"
+"(Increases and Reductions to Maximum Life also apply to Attack Damage at 30% of their value)","（对最大能量护盾的增幅与减益 有 30% 也套用于法术伤害）"
+"(Brand Damage is any Damage dealt by Brand Skills or by Skills Triggered by a Brand)",（由烙印技能和烙印触发的技能造成的伤害都为烙印伤害）
+"(When an Impaled enemy is hit, the Impale reflects 10% of the physical damage of the Impaling hit to that enemy. Impale lasts for 5 hits or 8 seconds)","（当一个被穿刺的敌人被击中，穿刺效果会对该敌人造成该穿刺击中物理伤害的 10%。穿刺效果持续 5 次击中，或持续 8 秒）"
+"(Enemies that are Debilitated have 20% less Movement Speed and deal 10% less damage)","（【疲惫】的敌人总移动速度额外减慢 20%，造成的总伤害额外降低 20 %）"
+"(Physical Damage Reduction is lower against Overwhelming Hits, but cannot go negative)",（物理伤害减免对抗猛攻击中效果会降低，但不会变为负值）
+"(Armour is treated as double value, only for calculating damage mitigation)",（护甲被视为双倍数值，只用于缓阻伤害）
+"(Chill reduces Enemy Action Speed by up to 30%, depending on the amount of Cold Damage in the hit, for 2 seconds)","(取决于造成的冰霜伤害量, 冰缓能至多使敌人减速30%并持续2秒)"
+"(Brand Critical Strikes are any Critical Strikes dealt by Brand Skills or by Skills Triggered by a Brand)",（由烙印技能和烙印触发的技能造成的暴击都为烙印暴击）
+"(Effects cannot be slowed below 25% of their normal expiry rate)","（效果无法低于正常消退速率的 25%）"
+"(You are in Blood Stance by default)",（你默认为血姿态）
+"(Alchemist's Genius increases Flask Charges gained by 20% and effect of Flasks by 10%, for 4 seconds)","（炼金奇才使药剂充能获取率提高20%，药剂效果提高10%，持续 4 秒）"
+"(Normal Monsters have 1 Power, Magic Monsters 2, Rare Monsters 10, Unique Monsters 20, and Players 5)","（普通怪物的威力为 1，魔法怪物为 2，稀有怪物为 10，传奇怪物为 20，玩家为 5）"
+"(Being Covered in Ash applies 20% less Movement Speed and 20% increased Fire Damage Taken, and lasts for 4 seconds)","(处于灰烬缠身状态的敌人移动速度减少20%，受到的火焰伤害提高20%，持续 4 秒)"
+"(Cold Ailments are Chilled, Frozen and Brittle)",（冰霜元素异常状态指冰缓、冻结、易碎）
+"(Lightning Ailments are Shocked and Sapped)",（闪电异常状态指感电、精疲力尽）
+"(This only affects the inherent loss of Rage when you haven't been Hit or gained Rage Recently)",（只影响近期内没有被击中或没有获得战火时，战火的固有损耗）
+"(Hexes can gain Doom up to a maximum of 30. The effect of a Hex is increased by the amount of Doom it has)","（魔蛊可以获得最多 30 点灭能。增加灭能数值能提高魔蛊的效果）"
+"Totem mastery",图腾专精
+"Disciple of Kitava",奇塔弗门徒
+"Lone Messenger",独行使者
+"Nature's Patience",造化自然
+Kineticism,万物皆动
+"Veteran's Awareness",百战老兵
+Pitfighter,深渊斗士
+"Axe and Sword Damage",斧剑伤害
+"Axe and Sword Damage Mastery",斧剑伤害专精
+"Mace and Staff Damage",锤杖伤害
+"Mace and Staff Damage Mastery",锤杖伤害专精
+"Dagger and Claw Damage",匕爪伤害
+"Dagger and Claw Damage Mastery",匕爪伤害专精
+"Bow Damage Mastery",弓类伤害专精
+"Wand Damage Mastery",法杖伤害专精
+"Damage with Two Handed Melee Weapons",双手近战武器伤害
+"Damage with Two Handed Melee Weapons Mastery",双手近战武器伤害专精
+"Attack Damage while Dual Wielding",双持攻击伤害
+"Attack Damage while Dual Wielding Mastery",双持攻击伤害专精
+"Attack Damage while holding a Shield",持盾攻击伤害
+"Attack Damage while holding a Shield Mastery",持盾攻击伤害专精
+"Fire Damage Mastery",火焰伤害专精
+"Lightning Damage Mastery",闪电伤害专精
+"Cold Damage Mastery",冰霜伤害专精
+"Minion Damage Mastery",召唤生物伤害专精
+"Fire Damage over Time Multiplier",持续火焰伤害加成
+"Fire Damage over Time Multiplier Mastery",持续火焰伤害加成专精
+"Chaos Damage over Time Multiplier",持续混沌伤害加成
+"Chaos Damage over Time Multiplier Mastery",持续混沌伤害加成专精
+"Physical Damage over Time Multiplier Mastery",持续物理伤害加成专精
+"Cold Damage over Time Multiplier",持续冰霜伤害加成
+"Cold Damage over Time Multiplier Mastery",持续冰霜伤害加成专精
+"Effect of Non-Damaging Ailments",非伤害型异常状态效果
+"Effect of Non-Damaging Ailments Mastery",非伤害型异常状态效果专精
+"Aura Effect Mastery",光环效果专精
+"Curse Effect Mastery",诅咒效果专精
+"Damage while you have a Herald Mastery",捷效果下伤害专精
+"Minion Damage while you have a Herald",捷状态下的召唤生物伤害
+"Minion Damage while you have a Herald Mastery",捷效果下召唤生物伤害专精
+"Warcry Buff Effect Mastery",战吼增益效果专精
+"Critical Chance",暴击率
+"Critical Chance Mastery",暴击率专精
+"Minion Life Mastery",召唤生物生命专精
+"Area Damage",范围伤害
+"Area Damage Mastery",范围伤害专精
+"Totem Damage Mastery",图腾伤害专精
+"Brand Damage Mastery",烙印伤害专精
+"Channelling Skill Damage",吟唱技能伤害
+"Channelling Skill Damage Mastery",吟唱技能伤害专精
+"Flask Duration",药剂持续时间
+"Flask Duration Mastery",药剂持续时间专精
+"Life and Mana recovery from Flasks",药剂回复生命和魔力
+"Life and Mana recovery from Flasks Mastery",生命和魔力回复专精
+"Chance to Block Attack Damage",格挡攻击伤害几率
+"Chance to Block Spell Damage",格挡法术伤害几率
+"Chance to Dodge Attacks",躲避攻击几率
+"(Fanaticism grants Spells you Cast yourself 75% more Cast Speed, 75% reduced mana cost and 75% increased Area of Effect)","（欣喜若狂使对自我施放的法术的总施法速度额外加快 75%，魔力消耗降低 75%，效果区域扩大 75%）"
+"(Gain Added Spell Damage equal to the Damage of your Main Hand Weapon)",（获得等于你主手武器伤害的附加法术伤害）
+"(Tailwind increases Action Speed by 8%)","（提速尾流使行动速度加快 8%）"
+"(Convergence grants 30% more Elemental Damage and lasts 4 seconds)","（汇聚使总元素伤害额外提高 30%，并持续 4 秒）"
+"(Only Damage from Hits can be Recouped, over 4 seconds following the Hit)","（仅能回收击中伤害，它在击中 4 秒内回收）"
+"(Targets take 25% more Damage from Bleeding, and Bleeding on them expires 25% more quickly, per Rupture affecting them. Up to 3 Ruptures can affect a target, lasting 3 seconds each)","（残破的目标从流血中受到的总伤害额外提高 25%，身上的流血效果总消减速度额外加快 25%，持续 3 秒。一个目标最多 3 层残破）"
+"(Each instance of Gale Force lasts 4 seconds. Maximum 10 Gale Force)","（每个飓风之力都持续 4 秒。最多 10 个飓风之力）"
+"(Projectile Attack Hits deal 20% less Damage to targets at the start of their movement, dealing up to 60% more Damage to targets as the projectile travels farther)","（投射物攻击近距离目标时最多额外降低 20% 总伤害，但在攻击远距离目标时额外增加 60% 总伤害）"
+"(These are consecutive)
+(Each Conflux means all damage causes that Ailment)","(这些是汇流)
+(每一种汇流代表所有的伤害会触发该属性的异常状态)"
+"(Inherent effects from having Rage are:
+1% increased Attack Damage per 1 Rage
+1% increased Attack Speed per 2 Rage
+1% increased Movement Speed per 5 Rage)","（你将从怒火中获得：
+每 1 点怒火使攻击伤害提高 1%
+每 2 点怒火使攻击速度提高 1%
+每 5 点怒火使移动速度提高 1%）"
+"(Fortify grants 20% less Damage Taken from Hits, for 4 seconds)","（护体使得4秒内从击中承受的总伤害总降 20%）"
+"(Enemies standing in Smoke Clouds are Blinded)","( 站在迷雾中的敌人将被致盲 )"
+"(Allies on your Consecrated Ground Regenerate a percentage of their Maximum Life per second)",（友军在你产生的奉献地面上按照百分比每秒再生最大生命）
+"(Arcane Surge grants 10% more Spell Damage and 30% increased Mana Regeneration rate, for 4 seconds)","（秘术增强可以在 4 秒内使法术伤害总增 10%， 魔力再生率提高 30%）"
+"(Crushed lowers Physical Damage Reduction by 15%)","（碾压使物理伤害减免降低 15%）"
+"(Being Blinded causes 20% less Accuracy Rating and Evasion Rating, for 4 seconds)","（被致盲时命中和闪避在接下来 4 秒总降 20%）"
+"(Take 1% less Damage from Hits per Fortification. Maximum 20 Fortification. Fortification lasts 5 seconds)","（承受的击中伤害按照每层护体效果总降 1%。护体最多 20 层，它持续 5 秒）"
+"(Allies on your Consecrated Ground Regenerate a percentage of their Maximum Life per second, and Curses have 50% reduced effect on them)","（友军在你产生的奉献地面上按照生命上限百分比每秒再生生命，并且他们身上的诅咒效果降低 50%）"
+"(Take 1% less Damage from Hits per Fortification. Maximum 20 Fortification. Fortification lasts 6 seconds)",（受到的击中伤害按照每层护体效果总降1%。最多20层护体。护身持续6秒）
+"(Adrenaline grants 100% increased Damage, 25% increased Attack, Cast and Movement Speed and 10% additional Physical Damage Reduction. You cannot gain Adrenaline if you already have it)",（肾上腺素会增加100%伤害，提高25%攻击速度、施法速度和移动速度，并且获得10%额外物理伤害减免。如果你已经有肾上腺素就不能再获得肾上腺素。）
+"(50% of Damage from Suppressed Hits and Ailments they inflict is prevented)",(防止50%被压制的击中和击中造成的异常状态的伤害)
+"(Elusive initially grants 15% chance to Avoid All Damage from Hits, and 30% increased Movement Speed. The buff reduces its effect over time, removing itself at 0% effect. If you already have an Elusive buff, you cannot gain Elusive)",(灵巧最初给予15%几率避免所有击中伤害、移动速度提高30%的增益。随着时间的推移，这个增益会逐渐降低效果，在效果为0时移除它自己。如果你已经有灵巧增益，你不能获得灵巧)
+"(Hinder reduces movement speed)",(缓速将使移动速度降低)
+"(Being Blinded causes 20% less Accuracy Rating and Evasion Rating)","(目盲状态会导致命中值和闪避值总降 20%)"
+"(Arcane Surge grants 10% increased Cast Speed and 30% increased Mana Regeneration rate, for 4 seconds)","（秘术增强可以在 4 秒内使施法速度提高 10%，魔力恢复速度提高 30%）"
+"(You can only take one of the three Warlock Power passives)",（你只能在术士之力的三个天赋中选择一个）
+"(Characters inherently gain +12 Life per Level)","（角色本身每级获得 +12 生命）"
+"(Pacify curses all targets in an area, having no effect at first, but causing them to deal no damage once 60% of the curse's duration has expired)","（宁心会诅咒区域中的所有目标，最初没有效果，但在诅咒的持续时间消减 60% 后使其无法造成伤害）"
+"(Affliction permanently Afflicts any of your damageable minions in a targeted area, causing them to take physical damage over time, at an accelerating rate. Each such minion causes you to regenerate life at a rate based on the current damage of its Affliction debuff. Afflicted Minions explode if their life is lowered to a fifth of maximum)",（折磨会永久性地影响你在目标区域内可受伤害的召唤生物，使其持续受到越来越高的物理伤害。每个受到该效果影响的召唤生物使你再生生命，再生速度由折磨减益效果造成的伤害决定。受折磨的召唤生物的生命低于上限的五分之一时会爆炸）
+"(Penance Mark curses a single enemy, causing them to spawn multiple phantasms when hit. The phantasms will be allies of the marked enemy with the same monster level. They cast a projectile spell which deals physical damage, and are immune to curses. You can only have one Mark at a time)",（忏悔印记会诅咒一名敌人，使其被击中时产生多个幽影。幽影被视作被标记的敌人的盟友，拥有相同的怪物等级，会施放造成物理伤害的投射物法术，并且免疫诅咒。你同时只能施加一个印记）
+"(Adopt the power of the Viridian Wildwood, gradually covering your body in bark. Getting hit by enemy attacks causes bark to be removed. You have higher armour the more bark builds up, but higher chance to evade when less covered in bark)",（汲取维里迪安荒林的力量，逐渐用树皮覆盖你的身体。被敌人的攻击击中会移除树皮。覆盖的树皮越多，你的护甲越高。覆盖的树皮越少，你的闪避率越高）
+"(Summon two Triggerbots which follow you around and run towards enemies. our Triggered Spells Trigger twice, once from each Triggerbot's location)",（召唤两个会跟随你移动的触发机器人，它们会冲向你的敌人。你的触发法术在每个触发机器人的位置各触发一次，共两次）
+"(Summons a Sentinel of Radiance which follows you and attacks enemies in melee, while burning enemies around it and taking a portion of damage from hits for you. You can only have one Sentinel of Radiance)",（召唤一个跟随你的光辉哨兵，它会攻击近战范围内的敌人，使周围的敌人燃烧，并替你承受一定比例的击中伤害。你只能拥有一个光辉哨兵）
+"(This skill is triggered when you use a Slam or Strike skill, and summons a Mirage Chieftain who will use that Slam or Strike skill once before dissipating)",（你使用猛击或打击技能时会触发该技能，召唤一个蜃影酋长，它在消失前会使用一次猛击或打击技能）
+"(Summons a Relic of a random element that stays near you. Depending on the element chosen, the relic minion will have an Anger, Hatred, or Wrath aura. These relics explode when they die, dealing elemental damage to enemies around them. If you already have a relic of the chosen element, its duration will be refreshed instead of summoning a new one)",（在你身旁召唤一个随机元素的遗物。根据选择的元素，遗物召唤生物会具有愤怒、憎恨或雷霆光环。遗物被击败时爆炸，对周围的敌人造成元素伤害。如果你已拥有该元素的遗物，则会刷新它的持续时间，而非召唤一个新的遗物）
+"(Primal Aegis calls forth a protective aegis which takes elemental damage from hits for you until depleted. The aegis will be restored to its full value after a short delay if you stop taking elemental damage from hits, or if depleted)",（原能护盾会灵唤一个守护护盾，在消散前抵挡击中造成的元素伤害。该护盾在未受到元素伤害或消散一段时间后会自动回复满值）
+"(Bone Armour applies a buff to you and each of your minions, which will take some of the damage from enemy hits before being depleted. The buff also grants immunity to bleeding. Shares a cooldown with other Guard skills)",（骨制战甲给你和你的每个召唤生物施加一个增益效果，在其耗尽之前替你承受部分敌人的击中伤害。该增益效果还免疫流血。和其它防卫技能共用冷却时间）
+"(Ravenous consumes a targeted corpse, granting you a buff that causes you to deal more damage to, and take less damage from, enemies of the same Monster Category as the corpse)",（贪噬会吞噬一个目标灵柩，使你获得一项增益，在对抗与灵柩怪物类型相同的敌人时能造成更高的伤害，并降低受到该类怪物造成的伤害）
+"(Summon two Triggerbots which follow you around and run towards enemies. Your Triggered Spells Trigger twice, once from each Triggerbot's location)",（召唤两个会跟随你移动的触发机器人，它们会冲向你的敌人。你的触发法术在每个触发机器人的位置各触发一次，共两次）
+"Damage over Time Multiplier for Ailments is equal to Critical Strike Multiplier",异常状态的持续伤害加成等同于暴击加成
+"Non-Critical Strikes cannot inflict Ailments",非暴击无法造成异常状态
+"(Bleeding deals Physical Damage over time, based on the base Physical Damage of the Skill. Damage is 200% higher while moving)","（流血造成持续物理伤害，伤害取决于技能初始的物理伤害，移动时受到的流血伤害总增 200%）"
+"(Every Rage grants 1% more Attack Damage. Maximum Rage is 30. Lose 10 Rage per second if you have not been Hit or gained Rage in the last 2 seconds)","（每点怒火使攻击伤害总增 1%。怒火上限为 30 点。若过去 2 秒内没有被击中或获得怒火，则每秒失去 10 点怒火）"
+"(You lose 10 Rage per second if you have not been Hit or gained Rage in the last 2 seconds)","（由于过去 2 秒内你没有被击中或获得怒火，正在以每秒 10 点的速度失去怒火）"
+"(Base Maximum Rage is 30)","（基础怒气上限为 30 点）"
+"(Arcane Surge grants 20% increased Cast Speed and 30% increased Mana Regeneration rate, for 4 seconds)","（秘术增强可以在 4 秒内使施法速度提高 20%，魔力恢复速度提高 30%）"
+"(Adopt the power of the forest, gradually covering your body in bark. Getting hit by enemy attacks causes bark to be removed. You take reduced damage from physical attack hits the more bark builds up, but higher chance to evade when less covered in bark)",（汲取森林的力量，逐渐用树皮覆盖你的身体。被敌人的攻击击中会移除树皮。覆盖的树皮越多，你受到的物理攻击击中伤害越低。覆盖的树皮越少，你的闪避率越高）
+"(Choose one of the two attached options)",（请在两个选项中选择一项）
+"(Unbound Avatar requires 100 Unbound Fury to use and causes you to become Unbound for 10 seconds, which has no effects beyond those listed here)","（不羁化身需要 100 点不羁狂怒才能使用，使你在 10 秒内获得不羁状态，其效果皆已在此列出）"
+"(Summons an immortal chieftain minion of the Kitava tribe to fight alongside you for a duration. This minion grants you a buff which makes a percentage of your leech recover instantly)",（召唤一个不死的奇塔弗部落酋长，与你并肩作战一段时间。该召唤生物会给你提供一个增益效果，使一定比例的生命偷取立即生效）
+"(Summons an immortal chieftain minion of the Tasalio tribe to fight alongside you for a duration. This minion grants you a buff which prevents your action speed being lowered)",（召唤一个不死的塔萨里奥部落酋长，与你并肩作战一段时间。该召唤生物会给你提供一个增益效果，使你的行动速度无法被降低）
+"(Summons an immortal chieftain minion of the Valako tribe to fight alongside you for a duration. This minion grants you a buff which recovers life, mana and energy shield when you block)",（召唤一个不死的瓦拉克部落酋长，与你并肩作战一段时间。该召唤生物会给你提供一个增益效果，在你格挡时回复生命、魔力和能量护盾）
+"(Summons an immortal chieftain minion of the Ngamahu tribe to fight alongside you for a duration. This minion grants you a buff which allows totems to take some damage from hits for you)",（召唤一个不死的努葛玛呼部落酋长，与你并肩作战一段时间。该召唤生物会给你提供一个增益效果，让图腾替你承受部分击中伤害）
+"(Summons an immortal chieftain minion of the Rongokurai tribe to fight alongside you for a duration. This minion grants you a buff which lets a percentage of your armour protect against all damage types)",（召唤一个不死的隆戈库莱部落酋长，与你并肩作战一段时间。该召唤生物会给你提供一个增益效果，让你的部分护甲值能够抵御所有伤害类型）
+"(Creates a Lesser Shrine, which will grant a bonus when touched. The Lesser Shrine will disappear after a short duration, or when used)",（创造一个低等神龛，触摸即可获得加成。使用后或是放置一段时间后低等神殿即会消失。）
+"(Summons a spectral wolf companion that attacks nearby enemies and dies after a duration. Each spectral wolf grants you a buff that adds damage to your attacks. If you have the maximum number of them, refreshes the duration and life of an existing one instead)",（召唤一头幽狼伙伴攻击周围的敌人，持续一段时间后消失。每头幽狼都会给你提供增加攻击伤害的增益效果。达到召唤上限时使用会刷新其中一头的生命和持续时间）
+"(Summons an immortal Harbinger minion. The minion will occasionally create an aura on you that increases the Action Speed of you and all allies near you)",（召唤一个不死的先驱者。它会偶尔对你施放光环，增加你和你周围所有队友的行动速度）
+"(Summons an immortal Harbinger minion. The minion has two buff spells it will cast on you: Arcane Surge, granting increased Cast Speed and Mana Regeneration, and a buff that grants Chance to Shock and Lightning Penetration)",（召唤一个不朽的先驱者。它会偶尔对你施放两个下列增益法术：秘术增强，提高施法速度和魔力再生率，以及一个有几率导致感电并穿透闪电抗性的增益效果）
+"(Summons an immortal Harbinger minion. While you are channelling, the minion will occasionally cast a buff on you that reduces the Damage you take, makes you avoid all Stuns and Elemental Ailments, and prevents Curses affecting you)",（召唤一个不死的先驱者。它会在你持续吟唱时偶尔会对你施放一个增益效果，减少你受到的伤害，使你避免所有晕眩和元素异常状态，并免受诅咒影响）
+"(Makes you immune to physical damage, and harder for enemies to detect, for a duration)",（在一段时间内使你对物理伤害免疫，同时很难被敌人发现）
+"(While you run, this skill creates a small explosion with each step, dealing fire damage in an area around you)",（奔跑时每踏下一步都造成一次小爆炸，对周围造成火焰伤害）
+"(Raise two spectral spiders from each nearby corpse that will attack your enemies with Viper Strike. Each raised spider grants you increased Attack Speed and increased Damage with Poison. Enemies will not engage the spiders directly, and they are immune to damage)",（周围每具灵柩召唤两只幽魂巨蛛，用毒蛇打击攻击你的敌人。每只幽魂巨蛛使你的攻击速度加快，并提高中毒的伤害。敌人将不会主动攻击你的蜘蛛，并且它们免疫伤害）
+"(Casts an aura that grants evasion to you and your allies)",（施放一个光环，使你与受光环影响友军获得额外的闪避）
+"(Casts an aura that adds chaos damage to the attacks and spells of you and your allies)",（施放一个光环，使你与受光环影响友军在攻击和施放法术时额外附带混沌伤害）
+"(Casts an aura that grants additional energy shield and increased energy shield recharge rate to you and your allies)",（施放一个光环，使你与受光环影响友军获得额外的能量护盾）
+"(Casts an aura that grants armour to you and your allies)",（施放一个光环，使你与受光环影响友军获得额外的护甲）
+"(While active, periodically applies a Spider's Web debuff to nearby Enemies, and Hinders them. Each Spider's Web on an Enemy increases the Damage they take. Hinder reduces their movement speed. You can only have one Aspect active at a time)",（当生效时，每隔一段时间对周围敌人施加蜘蛛网减益效果，并减缓他们的移动速度。每层敌人身上的蜘蛛网会增加他们受到的伤害。同一时间只能激活一种势）
+"(While active, grants the Cat's Stealth and Cat's Agility buffs in sequence. Cat's Stealth increases your critical strike chance, makes you harder to see, and gives you a chance to avoid damage for a short duration. Cat's Agility increases your attack and cast speed for a longer secondary duration. You can only have one Aspect active at a time)",（当生效时，依次轮流赋予玩家猫之隐匿和猫之敏捷。猫之隐匿会提高暴击率，短时间内有一定几率避免伤害，并使你更难被敌人发现。猫之敏捷会在一段时间内增加你的攻击和施法速度。同一时间只能激活一种势）
+"(While active, grants the Avian's Might and Avian's Flight buffs in sequence. Avian's Might grants you and your minions a chance to deal Double Damage with hits for a duration. Avian's Flight grants you and your minions increased Movement Speed for a secondary duration. You can only have one Aspect active at a time)",（当生效时，依次轮流赋予玩家鸟之力量和鸟之斗魄。鸟之力量会让你和你的召唤生物在一定时间内的击中有几率造成双倍伤害。鸟之斗魄会让你和你的召唤生物移动速度增加。同一时间只能激活一种）
+"(Curses a single enemy, making them more vulnerable to Critical Strikes. Killing the cursed enemy will grant life and mana, and a power charge. You can only have one Mark at a time)",（诅咒单个敌人，使其更易受到暴击。击杀他将回复生命和魔力，并获得一个暴击球。你每次只能标记一个印记。）
+"(Thirst for Blood reserves some of your life to cause bleeding you inflict to be stronger, and grant life regeneration based on the number bleeding enemies nearby)",（鲜血渴求会保留你的一部分生命，使你造成的流血更加强大，并根据附近流血敌人的数量提供生命回复。）

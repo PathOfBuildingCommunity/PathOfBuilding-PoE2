@@ -1,0 +1,140 @@
+"1 Projectile","1 个投射物"
+"All Projectiles",所有投射物
+"1 Stage","1 阶"
+"6 Stages","6 阶"
+"Release at 6 Stages","6 阶时释放"
+"0 Blades","0 飞刃"
+"5 Blades","5 飞刃"
+"10 Blades","10 飞刃"
+"1 explosion","1 爆炸"
+"4 explosions","4 爆炸"
+"Corpse Explosion",灵柩爆炸
+"Explosion (1 fuse)","爆炸 (1 箭)"
+"Explosion (5 fuses)","爆炸 (5 箭)"
+Arrow,箭矢
+"Melee hit",近战击中
+"Icy blades",冰霜之刃
+Cone,扇形区域
+"One slash",一次冲击波
+"Both slashes",所有冲击波
+Projectiles,投射物
+Beams,光束
+"Projectile Weakness",投射物要害
+"No stages","0 阶"
+"4 stages","4 阶"
+"8 stages","8 阶"
+"No Stages",不叠层
+"4 Stages","4 阶"
+"8 Stages","8 阶"
+"Release at 5 Stages","5 阶释放"
+"Thorn Arrows",荆棘箭
+"Shrapnel Shot",流星射击
+Shield,盾牌
+Shards,碎片
+"Outgoing Projectile",发射的投射物
+"Returning Projectile",返还的投射物
+"Fire hit",火焰击中
+"Fire explosion",火焰爆炸
+"Lightning hit",闪电击中
+"Lightning bolt",闪电弧
+"Cold hit",冰霜击中
+"Icy wave",冰霜波
+"Arctic Breath",极地吐息
+"Self Explosion",自身附近爆炸
+"Cast on Player",玩家上施放
+"Cast on Skeleton",灵侍上施放
+"Release at 10 Stages","10 阶释放"
+"Release at 20 Stages","20 阶释放"
+Explosion,爆炸
+"10 Stages","10 阶"
+"First Form, 1 Projectile","第一状态, 1 个投射物"
+"Second Form, 1 Projectile","第二状态, 1个投射物"
+"First Form, All Projectiles","第一状态, 所有投射物"
+"Second Form, All Projectiles","第二状态, 所有投射物"
+"Half stages",一半阶数
+"Maximum stages",最大阶数
+Release,释放
+Explosions,爆炸
+"Magma Orb",熔岩之核
+"Initial hit",初始击中
+Ring,环形部分
+Idle,空
+"1 Stack","1 层"
+"5 Stacks","5 层"
+"10 Stacks","10 层"
+"15 Stacks","15 层"
+"Initial impact",初始冲击
+Aftershock,余震
+"First Hit",初段击中
+"Second Hit",次段击中
+"Third Hit",三段击中
+"Melee Hit",近战击中
+"Magma Balls",熔岩球
+"Initial effect",初始效果
+"Maximum effect",最大效果
+"Beams - 1 Stack","光束 - 1 层"
+"Beams - 3 Stacks","光束 - 3 层"
+"Primary wave",初始冲击波
+Shockwaves,冲击波
+Cascade,冰川之刺
+"Chaos Aura",混沌光环
+"Magma Ball",岩浆球
+"Flame Wave",火焰震波
+"Storm Orb",风暴之珠
+"Lightning Projectile",闪电投射物
+Charge,重盾冲锋
+"Cold Projectile",冰霜投射物
+"Fire Projectile",火焰投射物
+Roll,回旋之刃
+"Physical Projectile",物理投射物
+"Tail Spike",尾刺
+"Crusade Slam",十字军猛击
+"Chaos Projectile",混沌投射物
+"Combo Attack",连击
+"Caustic Cloud",腐蚀毒云
+Mjolner,沉默之雷
+Blessing,祝福
+"Convert to fire",转化为火焰
+"Convert to cold",转化为冰霜
+"Convert to lightning",转化为闪电
+"Summon Volatile Anomaly",召唤异动奇点
+"Blood Projectile",鲜血投射物
+"Consume Corpse",亵渎
+Sandstorm,沙尘暴
+"Delayed Blast",延时爆破
+"Whirling Charge",旋转充能
+"Ranged Attack",远程攻击
+"Chaos Ball",混沌之珠
+"Lightning Ball",天雷之珠
+"Fire Roll",火回旋之刃
+"Blue Flame",蓝火舌图腾
+"Chaos Spikes",混沌尾刺
+Spit,喷射
+"Scorching Ray Totem",灼热奔流图腾
+"Mass Frenzy",群体狂乱
+"Mass Power",群体之力
+"Throw Fire",掷火
+"Caustic Bomb",腐蚀炸弹
+"Fire Bomb",火焰炸弹
+"Lesser Multi Fireball",低阶多重火球
+"Lesser Multi Ice Spear",低阶多重冰矛
+"Lightning Thorns",闪电荆棘
+"Multi Fireball",多重火球
+"Multi Ice Spear",多重冰矛
+"Proximity Shield",近盾
+"Unrighteous Fire",不洁之火
+"Split Fireball",分裂火球
+"Split Ice Spear",分裂冰矛
+"Chaos Fireball",混沌火球
+"Suicide Explosion",自爆
+Screech,尖哮
+Wave,震波
+"Spine Attack",脊柱攻击
+"Flame Vortex",火焰漩涡
+Beam,光柱
+"Tar Projectile",焦油投射物
+"Double Slash",双重打击
+"Physical Mortar",物理炮击
+"Curse On Hit",击中附加诅咒(辅)
+Deathmark,亡印（辅）
+"Ranged Attack Totem",远距离攻击图腾(辅)

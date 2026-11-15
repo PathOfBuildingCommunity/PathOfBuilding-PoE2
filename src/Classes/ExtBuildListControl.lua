@@ -124,7 +124,7 @@ function ExtBuildListControlClass:Init(providerName)
 	end
 
 	if self.activeListProvider:GetPageUrl() then
-		self.controls.all = new("ButtonControl"):ButtonControl({ "BOTTOM", self, "BOTTOM" }, { 0, 1, self.width, 20 }, "See All",
+		self.controls.all = new("ButtonControl"):ButtonControl({ "BOTTOM", self, "BOTTOM" }, { 0, 1, self.width, 20 }, localisation:Label("ui.ext_build_list_control.init.all.label"),
 			function()
 				local url = self.activeListProvider:GetPageUrl()
 				if url then
@@ -276,7 +276,7 @@ function ExtBuildListControlClass:Draw(viewPort, noTooltip)
 
 	-- write status message
 	if self.activeListProvider.statusMsg then
-		self:DrawString(x, currentHeight, "LEFT", 16, self.font, self.activeListProvider.statusMsg)
+		self:DrawString(x, currentHeight, "LEFT", 16, self.font, localisation:Field(self.activeListProvider, 'statusMsg'))
 	end
 
 	local scrollBarV = self.controls.scrollBarV
@@ -358,20 +358,20 @@ function ExtBuildListControlClass:Draw(viewPort, noTooltip)
 			currentHeight = addSeparator(currentHeight, portraitHeight)
 
 			-- stats
-			local dpsText = "DPS: 0"
-			local lifeText = "Life: 0"
-			local ehpText = "EHP: 0"
+			local dpsText = localisation:Text("ui.ext_build_list_control.display.draw.dps_text")
+			local lifeText = localisation:Text("ui.ext_build_list_control.display.draw.life_text")
+			local ehpText = localisation:Text("ui.ext_build_list_control.display.draw.ehp_text")
 			if build.dps then
 				-- SetDrawColor(1, 0, 0)
-				dpsText = formatNumSep(s_format('^x%sDPS^7: %0.f', 'FFC470', build.dps))
+				dpsText = formatNumSep("^xFFC470" .. localisation:Text("ui.ext_build_list_control.display.draw.dps_text_2", { dps = build.dps }))
 			end
 			if build.life or build.es then
 				-- SetDrawColor(0, 1, 0)
-				lifeText = formatNumSep(s_format('%s^7: %0.f', (build.life or 0) > (build.es or 0) and "^xFFAAAALife" or "^x667BC6ES", math.max(build.life or 0, build.es or 0)))
+				lifeText = formatNumSep(localisation:Text((build.life or 0) > (build.es or 0) and "external_build.pool.life" or "external_build.pool.energy_shield", { value = math.max(build.life or 0, build.es or 0) }))
 			end
 			if build.ehp then
 				-- SetDrawColor(0, 0, 1)
-				ehpText = formatNumSep(s_format('^x%sEHP^7: %0.f', '3AA6B9',  build.ehp))
+				ehpText = formatNumSep("^x3AA6B9" .. localisation:Text("ui.ext_build_list_control.display.draw.ehp_text_2", { ehp = build.ehp }))
 			end
 
 			-- prevent overlapping on smaller screens.
@@ -411,14 +411,14 @@ function ExtBuildListControlClass:Draw(viewPort, noTooltip)
 			local relativeHeight = currentHeight + 10 - self.controls.scrollBarV.offset
 			if relativeHeight > y and relativeHeight < self.height() + y - 10 then
 				if build.buildLink then
-					local importButton = new("ButtonControl"):ButtonControl(nil, { x, currentHeight - self.controls.scrollBarV.offset, 45, 20 }, "Import", function()
+					local importButton = new("ButtonControl"):ButtonControl(nil, { x, currentHeight - self.controls.scrollBarV.offset, 45, 20 }, localisation:Label("ui.ext_build_list_control.draw.import_button.label"), function()
 						self:importBuild(build)
 					end)
 					t_insert(self.controls, importButton)
 				end
 
 				if build.previewLink then
-					local previewButton = new("ButtonControl"):ButtonControl(nil, { x + 50, currentHeight - self.controls.scrollBarV.offset, 60, 20 }, "Preview", function()
+					local previewButton = new("ButtonControl"):ButtonControl(nil, { x + 50, currentHeight - self.controls.scrollBarV.offset, 60, 20 }, localisation:Label("ui.ext_build_list_control.draw.preview_button.label"), function()
 							OpenURL(build.previewLink)
 					end)
 					t_insert(self.controls, previewButton)

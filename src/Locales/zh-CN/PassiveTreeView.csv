@@ -1,0 +1,23 @@
+Tip: Right click this socket to go to the items page and choose the jewel for this socket.,提示: 右键单击插槽以跳转到物品页并更换此插槽的珠宝。
+Tip: Hold Shift or Ctrl to hide this tooltip.,提示:按住Shift或Ctrl以隐藏此提示
+
+Available Mastery node options are:,可用的精通点选择为:
+
+Tip: Right click to edit the tattoo for this node,提示:右键以为此节点编辑纹身
+
+Reallocating this node will give you:,重新分配这个天赋点会给你:
+Unallocating this node will give you:,取消这个天赋点会给你:
+This node is granted by an item. Removing it will give you:,该节点由一项物品授予。移除它会给你:
+Allocating this node will give you:,分配这个天赋点会给你:
+Unallocating this node and all nodes depending on it will give you:,取消这个天赋点以及关联的天赋点会给你:
+Allocating this node and all nodes leading to it will give you:,分配这个天赋点以及关联天赋点会给你:
+This node is granted by an item. Removing it will cause no changes,该节点由一项物品授予。移除它不会引起任何更改
+Tip: Press Ctrl+D to disable the display of stat differences.,"提示: 可使用 Ctrl+D 关闭差异统计."
+Tip: Press Ctrl+D to enable the display of stat differences.,"提示: 可使用 Ctrl+D 开启差异统计."
+"Tip: To reach this node by a different path, hold Shift, then trace the path and click this node","提示: 选择其它到达这个天赋的路径,请按住 Shift 键,然后鼠标选择路径并单击确认"
+{0} points gained from unallocating these nodes,取消这个天赋获得 {0} 点天赋点
+Tip: Hold Ctrl to hide this tooltip.,提示:按住Ctrl以隐藏此提示
+No changes from allocating this node.,分配这个天赋没有任何变化.
+No changes from unallocating this node.,取消这个天赋没有任何变化.
+No changes from allocating this node or the nodes leading to it.,分配这个天赋及关联天赋点没有任何变化.
+No changes from unallocating this node or the nodes leading to it.,取消这个天赋及关联天赋点没有任何变化.

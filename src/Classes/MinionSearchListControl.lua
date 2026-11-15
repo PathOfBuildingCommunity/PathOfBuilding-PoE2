@@ -17,16 +17,16 @@ function MinionSearchListClass:MinionSearchListControl(anchor, rect, data, list,
 	self.unfilteredList = copyTable(list)
 	self.isMutable = false
 
-	self.controls.searchText = new("EditControl"):EditControl({ "BOTTOMLEFT", self, "TOPLEFT" }, { 0, -2, 148, 18 }, "", "Search", "%c", 100, function(buf)
+	self.controls.searchText = new("EditControl"):EditControl({ "BOTTOMLEFT", self, "TOPLEFT" }, { 0, -2, 148, 18 }, "", localisation:Label("ui.minion_search_list_control.init.search_text.label"), "%c", 100, function(buf)
 		self:ListFilterChanged(buf, self.controls.searchModeDropDown.selIndex)
 		self:sortSourceList()
 	end, nil, nil, true)	
 	
-	self.controls.searchModeDropDown = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.searchText, "RIGHT" }, { 2, 0, 60, 18 }, { "Names", "Skills", "Both" }, function(index, value)
+	self.controls.searchModeDropDown = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.searchText, "RIGHT" }, { 2, 0, 60, 18 }, localisation:List({ "Names", "Skills", "Both" }, { [1] = "ui.minion_search_list_control.init.search_mode_drop_down.label_2", [2] = "ui.minion_search_list_control.init.search_mode_drop_down.label_3", [3] = "ui.minion_search_list_control.init.search_mode_drop_down.label" }), function(index, value)
 		self:ListFilterChanged(self.controls.searchText.buf, index)
 		self:sortSourceList()
 	end)
-	self.controls.sortModeDropDown = new("DropDownControl"):DropDownControl({ "BOTTOMRIGHT", self.controls.searchModeDropDown, "TOPRIGHT" }, { 0, -2, self.width, 18 }, {
+	self.controls.sortModeDropDown = new("DropDownControl"):DropDownControl({ "BOTTOMRIGHT", self.controls.searchModeDropDown, "TOPRIGHT" }, { 0, -2, self.width, 18 }, localisation:List({
 		"Sort by Names",
 		"Sort by Life + ES",
 		"Sort by Life",
@@ -41,7 +41,7 @@ function MinionSearchListClass:MinionSearchListControl(anchor, rect, data, list,
 		"Sort by Chaos Resistance",
 		"Sort by Total Resistance",
 		"Sort by Movement Speed",
-	}, function(index, value)
+	}, { [1] = "ui.minion_search_list_control.init.sort_mode_drop_down.label_12", [2] = "ui.minion_search_list_control.init.sort_mode_drop_down.label_9", [3] = "ui.minion_search_list_control.init.sort_mode_drop_down.label_8", [4] = "ui.minion_search_list_control.init.sort_mode_drop_down.label_6", [5] = "ui.minion_search_list_control.init.sort_mode_drop_down.label", [6] = "ui.minion_search_list_control.init.sort_mode_drop_down.label_2", [7] = "ui.minion_search_list_control.init.sort_mode_drop_down.label_5", [8] = "ui.minion_search_list_control.init.sort_mode_drop_down.label_13", [9] = "ui.minion_search_list_control.init.sort_mode_drop_down.label_7", [10] = "ui.minion_search_list_control.init.sort_mode_drop_down.label_4", [11] = "ui.minion_search_list_control.init.sort_mode_drop_down.label_10", [12] = "ui.minion_search_list_control.init.sort_mode_drop_down.label_3", [13] = "ui.minion_search_list_control.init.sort_mode_drop_down.label_14", [14] = "ui.minion_search_list_control.init.sort_mode_drop_down.label_11" }), function(index, value)
 			self:sortSourceList()
 	end)
 
@@ -57,7 +57,7 @@ end
 
 function MinionSearchListClass:DoesEntryMatchFilters(searchStr, minionId, filterMode)
 	if filterMode == 1 or filterMode == 3 then
-		local err, match = PCall(string.matchOrPattern, self.data.minions[minionId].name:lower(), searchStr)
+		local err, match = PCall(localisation.MatchField, localisation, self.data.minions[minionId], "name", searchStr)
 		if not err and match then
 			return true
 		end
@@ -65,7 +65,7 @@ function MinionSearchListClass:DoesEntryMatchFilters(searchStr, minionId, filter
 	if filterMode == 2 or filterMode == 3 then
 		for _, skillId in ipairs(self.data.minions[minionId].skillList) do
 			if self.data.skills[skillId] then
-				local err, match = PCall(string.matchOrPattern, self.data.skills[skillId].name:lower(), searchStr)
+				local err, match = PCall(localisation.MatchField, localisation, self.data.skills[skillId], "name", searchStr)
 				if not err and match then
 					return true
 				end

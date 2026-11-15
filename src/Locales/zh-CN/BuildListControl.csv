@@ -1,0 +1,12 @@
+Enter the new name for this folder:,输入此文件夹的新名字:
+Enter the new name for this build:,输入此构筑的新名字:
+Copy Folder,复制文件夹
+Copy Build,复制构筑
+Rename Folder,重命名文件夹
+Rename Build,重命名构筑
+Confirm Folder Delete,文件夹删除确认
+The folder is not empty.,此文件夹不是空的。
+Are you sure you want to delete folder::,你是否确定要删除文件夹:
+Confirm Delete,确认删除
+Are you sure you want to delete build:,你是否确定要删除构筑:
+This cannot be undone.,该行动无法被撤销。

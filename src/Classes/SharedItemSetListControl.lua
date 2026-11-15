@@ -15,13 +15,14 @@ function SharedItemSetListClass:SharedItemSetListControl(anchor, rect, itemsTab)
 	self:ListControl(anchor, rect, 16, "VERTICAL", true, main.sharedItemSetList)
 	self.itemsTab = itemsTab
 	self.defaultText = "^x7F7F7FThis is a list of item sets that will be shared\nbetween all of your builds.\nYou can add sets to this list by dragging them\nfrom the build's set list."
-	self.controls.delete = new("ButtonControl"):ButtonControl({ "BOTTOMLEFT", self, "TOP" }, { 2, -4, 60, 18 }, "Delete", function()
+	self.defaultTextKey = 'ui.shared_item_set_list_control.empty_list'
+	self.controls.delete = new("ButtonControl"):ButtonControl({ "BOTTOMLEFT", self, "TOP" }, { 2, -4, 60, 18 }, localisation:Label("ui.shared_item_set_list_control.init.delete.label"), function()
 		self:OnSelDelete(self.selIndex, self.selValue)
 	end)
 	self.controls.delete.enabled = function()
 		return self.selValue ~= nil
 	end
-	self.controls.rename = new("ButtonControl"):ButtonControl({ "BOTTOMRIGHT", self, "TOP" }, { -2, -4, 60, 18 }, "Rename", function()
+	self.controls.rename = new("ButtonControl"):ButtonControl({ "BOTTOMRIGHT", self, "TOP" }, { -2, -4, 60, 18 }, localisation:Label("ui.shared_item_set_list_control.init.rename.label"), function()
 		self:RenameSet(self.selValue)
 	end)
 	self.controls.rename.enabled = function()
@@ -32,20 +33,20 @@ end
 
 function SharedItemSetListClass:RenameSet(sharedItemSet)
 	local controls = { }
-	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, "^7Enter name for this item set:")
+	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, localisation:Label("ui.shared_item_set_list_control.rename_set.label"))
 	controls.edit = new("EditControl"):EditControl(nil, { 0, 40, 350, 20 }, sharedItemSet.title, nil, nil, 100, function(buf)
 		controls.save.enabled = buf:match("%S")
 	end)
-	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, 70, 80, 20 }, "Save", function()
+	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, 70, 80, 20 }, localisation:Label("ui.shared_item_set_list_control.rename_set.save.label"), function()
 		sharedItemSet.title = controls.edit.buf
 		self.itemsTab.modFlag = true
 		main:ClosePopup()
 	end)
 	controls.save.enabled = false
-	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 45, 70, 80, 20 }, "Cancel", function()
+	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 45, 70, 80, 20 }, localisation:Label("ui.shared_item_set_list_control.rename_set.cancel.label"), function()
 		main:ClosePopup()
 	end)
-	main:OpenPopup(370, 100, sharedItemSet.title and "Rename" or "Set Name", controls, "save", "edit")
+	main:OpenPopup(370, 100, sharedItemSet.title and localisation:Label("ui.shared_item_set_list_control.rename_set.label_2") or localisation:Label("ui.shared_item_set_list_control.rename_set.label_3"), controls, "save", "edit")
 end
 
 function SharedItemSetListClass:GetRowValue(column, index, sharedItemSet)
@@ -99,7 +100,7 @@ function SharedItemSetListClass:ReceiveDrag(type, value, source)
 end
 
 function SharedItemSetListClass:OnSelDelete(index, sharedItemSet)
-	main:OpenConfirmPopup("Delete Item Set", "Are you sure you want to delete '"..(sharedItemSet.title or "Default").."' from the shared item set list?", "Delete", function()
+	main:OpenConfirmPopup(localisation:Text("ui.shared_item_set_list_control.on_sel_delete.message_4"), localisation:Text("ui.shared_item_set_list_control.on_sel_delete.message", { value = (sharedItemSet.title or localisation:Ref("ui.shared_item_set_list_control.on_sel_delete.message_2")) }), localisation:Text("ui.shared_item_set_list_control.on_sel_delete.message_3"), function()
 		t_remove(self.list, index)
 		self.selIndex = nil
 		self.selValue = nil

@@ -107,20 +107,20 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 
 	-- Controls: top bar, left side
 	self.anchorTopBarLeft = new("Control"):Control(nil, { 4, 4, 0, 20 })
-	self.controls.back = new("ButtonControl"):ButtonControl({ "LEFT", self.anchorTopBarLeft, "RIGHT" }, { 0, 0, 60, 20 }, "<< Back", function()
+	self.controls.back = new("ButtonControl"):ButtonControl({ "LEFT", self.anchorTopBarLeft, "RIGHT" }, { 0, 0, 60, 20 }, localisation:Label("ui.build.init.back.label"), function()
 		if self.unsaved then
 			self:OpenSavePopup("LIST")
 		else
 			self:CloseBuild()
 		end
 	end)
-	self.controls.save = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.back, "RIGHT" }, { 8, 0, 50, 20 }, "Save", function()
+	self.controls.save = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.back, "RIGHT" }, { 8, 0, 50, 20 }, localisation:Label("ui.build.init.save.label"), function()
 		self:SaveDBFile()
 	end)
 	self.controls.save.enabled = function()
 		return not self.dbFileName or self.unsaved
 	end
-	self.controls.saveAs = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.save, "RIGHT" }, { 8, 0, 70, 20 }, "Save As", function()
+	self.controls.saveAs = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.save, "RIGHT" }, { 8, 0, 70, 20 }, localisation:Label("ui.build.init.save_as.label"), function()
 		self:OpenSaveAsPopup()
 	end)
 	self.controls.saveAs.enabled = function()
@@ -151,7 +151,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		DrawImage(nil, x + 92, y + 1, self.strWidth + 4, 18)
 		SetDrawColor(1, 1, 1)
 		SetViewport(x, y + 2, self.strWidth + 94, 16)
-		DrawString(0, 0, "LEFT", 16, "VAR", "Current build:  "..self.buildName)
+		DrawString(0, 0, "LEFT", 16, "VAR", localisation:Text("ui.build.init.build_name_draw.message", { build_name = self.buildName }))
 		SetViewport()
 		if control:IsMouseInBounds() then
 			SetDrawLayer(nil, 10)
@@ -199,25 +199,25 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 			SetDrawLayer(nil, 0)
 		end
 	end
-	self.controls.levelScalingButton = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.pointDisplay, "RIGHT" }, { 8, 0, 50, 20 }, self.characterLevelAutoMode and "Auto" or "Manual", function()
+	self.controls.levelScalingButton = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.pointDisplay, "RIGHT" }, { 8, 0, 50, 20 }, self.characterLevelAutoMode and localisation:Label("ui.build.init.level_scaling_button.label") or localisation:Label("ui.build.init.level_scaling_button.label_2"), function()
 		self.characterLevelAutoMode = not self.characterLevelAutoMode
-		self.controls.levelScalingButton.label = self.characterLevelAutoMode and "Auto" or "Manual"
+		self.controls.levelScalingButton.label = self.characterLevelAutoMode and localisation:Label("ui.build.init.level_scaling_button_label.label") or localisation:Label("ui.build.init.level_scaling_button_label.label_2")
 		self.configTab:BuildModList()
 		self.modFlag = true
 		self.buildFlag = true
 	end)
-	self.controls.characterLevel = new("EditControl"):EditControl({ "LEFT", self.controls.levelScalingButton, "RIGHT" }, { 10, 0, 106, 20 }, "", "Level", "%D", 3, function(buf)
+	self.controls.characterLevel = new("EditControl"):EditControl({ "LEFT", self.controls.levelScalingButton, "RIGHT" }, { 10, 0, 106, 20 }, "", localisation:Label("ui.build.init.character_level.label"), "%D", 3, function(buf)
 		self.characterLevel = m_min(m_max(tonumber(buf) or 1, 1), 100)
 		self.configTab:BuildModList()
 		self.modFlag = true
 		self.buildFlag = true
 		self.characterLevelAutoMode = false
-		self.controls.levelScalingButton.label = "Manual"
+		self.controls.levelScalingButton.label = localisation:Label("ui.build.init.level_scaling_button_label.label_2")
 	end)
 	self.controls.characterLevel:SetText(self.characterLevel)
 	self.controls.characterLevel.tooltipFunc = function(tooltip)
 		if tooltip:CheckForUpdate(self.characterLevel) then
-			tooltip:AddLine(16, "Experience multiplier:")
+			tooltip:AddLine(16, localisation:Text("ui.build.init.character_level_tooltip_func.tooltip"))
 			local playerLevel = self.characterLevel
 			local safeZone = 3 + m_floor(playerLevel / 16)
 			for level, expLevel in ipairs(self.data.monsterExperienceLevelMap) do
@@ -235,7 +235,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 				if mult > 0.01 then
 					local line = level
 					if level >= 68 then
-						line = line .. string.format(" (Tier %d)", level - 67)
+						line = line .. localisation:Text("build.level_scaling.tier", { tier = level - 67 })
 					end
 					line = line .. string.format(": %.1f%%", mult * 100)
 					tooltip:AddLine(14, line)
@@ -252,13 +252,13 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 				self.buildFlag = true
 				self.treeTab.viewer.searchStrCached = ""
 			else
-				main:OpenConfirmPopup("Class Change", "Changing class to "..value.label.." will reset your passive tree.\nThis can be avoided by connecting one of the "..value.label.." starting nodes to your tree.", "Continue", function()
+				main:OpenConfirmPopup(localisation:Text("ui.build.init.class_drop.label_2"), localisation:Text("ui.build.init.class_drop.label", { label = localisation:Field(value, 'label'), label_2 = localisation:Field(value, 'label') }), localisation:Text("ui.build.init.class_drop.label_4"), function()
 					self.spec:SelectClass(value.classId)
 					self.spec:AddUndoState()
 					self.spec:SetWindowTitleWithBuildClass()
 					self.buildFlag = true
 					self.treeTab.viewer.searchStrCached = ""
-				end, "Connect Path", function()
+				end, localisation:Text("ui.build.init.class_drop.label_3"), function()
 					if self.spec:ConnectToClass(value.classId) then
 						self.spec:SelectClass(value.classId)
 						self.spec:AddUndoState()
@@ -322,45 +322,45 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		return buildNameConditional() and 60 or 36
 	end
 
-	self.controls.modeImport = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.anchorSideBar, "TOPLEFT" }, { 0, 0, 134, 20 }, "Import/Export Build", function()
+	self.controls.modeImport = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.anchorSideBar, "TOPLEFT" }, { 0, 0, 134, 20 }, localisation:Label("ui.build.init.mode_import.label"), function()
 		self.viewMode = "IMPORT"
 		self.importTab:RefreshAuthStatus()
 	end)
 	self.controls.modeImport.locked = function() return self.viewMode == "IMPORT" end
-	self.controls.modeNotes = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.modeImport, "RIGHT" }, { 4, 0, 58, 20 }, "Notes", function()
+	self.controls.modeNotes = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.modeImport, "RIGHT" }, { 4, 0, 58, 20 }, localisation:Label("ui.build.init.mode_notes.label"), function()
 		self.viewMode = "NOTES"
 	end)
 	self.controls.modeNotes.locked = function() return self.viewMode == "NOTES" end
-	self.controls.modeConfig = new("ButtonControl"):ButtonControl({ "TOPRIGHT", self.anchorSideBar, "TOPLEFT" }, { 300, 0, 100, 20 }, "Configuration", function()
+	self.controls.modeConfig = new("ButtonControl"):ButtonControl({ "TOPRIGHT", self.anchorSideBar, "TOPLEFT" }, { 300, 0, 100, 20 }, localisation:Label("ui.build.init.mode_config.label"), function()
 		self.viewMode = "CONFIG"
 	end)
 	self.controls.modeConfig.locked = function() return self.viewMode == "CONFIG" end
-	self.controls.modeTree = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.anchorSideBar, "TOPLEFT" }, { 0, 26, 72, 20 }, "Tree", function()
+	self.controls.modeTree = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.anchorSideBar, "TOPLEFT" }, { 0, 26, 72, 20 }, localisation:Label("ui.build.init.mode_tree.label"), function()
 		self.viewMode = "TREE"
 	end)
 	self.controls.modeTree.locked = function() return self.viewMode == "TREE" end
-	self.controls.modeSkills = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.modeTree, "RIGHT" }, { 4, 0, 72, 20 }, "Skills", function()
+	self.controls.modeSkills = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.modeTree, "RIGHT" }, { 4, 0, 72, 20 }, localisation:Label("ui.build.init.mode_skills.label"), function()
 		self.viewMode = "SKILLS"
 	end)
 	self.controls.modeSkills.locked = function() return self.viewMode == "SKILLS" end
-	self.controls.modeItems = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.modeSkills, "RIGHT" }, { 4, 0, 72, 20 }, "Items", function()
+	self.controls.modeItems = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.modeSkills, "RIGHT" }, { 4, 0, 72, 20 }, localisation:Label("ui.build.init.mode_items.label"), function()
 		self.viewMode = "ITEMS"
 	end)
 	self.controls.modeItems.locked = function() return self.viewMode == "ITEMS" end
-	self.controls.modeCalcs = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.modeItems, "RIGHT" }, { 4, 0, 72, 20 }, "Calcs", function()
+	self.controls.modeCalcs = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.modeItems, "RIGHT" }, { 4, 0, 72, 20 }, localisation:Label("ui.build.init.mode_calcs.label"), function()
 		self.viewMode = "CALCS"
 	end)
 	self.controls.modeCalcs.locked = function() return self.viewMode == "CALCS" end
-	self.controls.modeParty = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.anchorSideBar, "TOPLEFT" }, { 0, 52, 72, 20 }, "Party", function()
+	self.controls.modeParty = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.anchorSideBar, "TOPLEFT" }, { 0, 52, 72, 20 }, localisation:Label("ui.build.init.mode_party.label"), function()
 		self.viewMode = "PARTY"
 	end)
 	self.controls.modeParty.locked = function() return self.viewMode == "PARTY" end
-	self.controls.modeCompare = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.modeParty, "RIGHT" }, { 4, 0, 72, 20 }, "Compare", function()
+	self.controls.modeCompare = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.modeParty, "RIGHT" }, { 4, 0, 72, 20 }, localisation:Label("ui.build.init.mode_compare.label"), function()
 		self.viewMode = "COMPARE"
 	end)
 	self.controls.modeCompare.locked = function() return self.viewMode == "COMPARE" end
 	-- Skills
-	self.controls.mainSkillLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.anchorSideBar, "TOPLEFT" }, { 0, 80, 300, 16 }, "^7Main Skill:")
+	self.controls.mainSkillLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.anchorSideBar, "TOPLEFT" }, { 0, 80, 300, 16 }, localisation:Label("ui.build.init.main_skill_label.label"))
 	self.controls.mainSocketGroup = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.mainSkillLabel, "BOTTOMLEFT" }, { 0, 2, 300, 18 }, nil, function(index, value)
 		self.mainSocketGroup = index
 		self.modFlag = true
@@ -394,7 +394,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		self.modFlag = true
 		self.buildFlag = true
 	end)
-	self.controls.mainSkillStageCountLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.mainSkillPart, "BOTTOMLEFT", true }, { 0, 3, 0, 16 }, "^7Stages:") {
+	self.controls.mainSkillStageCountLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.mainSkillPart, "BOTTOMLEFT", true }, { 0, 3, 0, 16 }, localisation:Label("ui.build.init.main_skill_stage_count_label.label")) {
 		shown = function()
 			return self.controls.mainSkillStageCount:IsShown()
 		end,
@@ -406,7 +406,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		self.modFlag = true
 		self.buildFlag = true
 	end)
-	self.controls.mainSkillMineCountLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.mainSkillStageCountLabel, "BOTTOMLEFT", true }, { 0, 3, 0, 16 }, "^7Active Mines:") {
+	self.controls.mainSkillMineCountLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.mainSkillStageCountLabel, "BOTTOMLEFT", true }, { 0, 3, 0, 16 }, localisation:Label("ui.build.init.main_skill_mine_count_label.label")) {
 		shown = function()
 			return self.controls.mainSkillMineCount:IsShown()
 		end,
@@ -456,13 +456,13 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		if value.itemSetId then
 			self.itemsTab:AddItemSetTooltip(tooltip, self.itemsTab.itemSets[value.itemSetId])
 			tooltip:AddSeparator(14)
-			tooltip:AddLine(14, colorCodes.TIP.."Tip: You can drag items from the Items tab onto this dropdown to equip them onto the minion.")
+			tooltip:AddLine(14, colorCodes.TIP .. localisation:Text("ui.build.tooltip_func.tooltip"))
 		end
 	end
-	self.controls.mainSkillMinionLibrary = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.mainSkillMinion, "RIGHT" }, { 2, 0, 120, 18 }, "Manage Spectres...", function()
+	self.controls.mainSkillMinionLibrary = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.mainSkillMinion, "RIGHT" }, { 2, 0, 120, 18 }, localisation:Label("ui.build.init.main_skill_minion_library.label"), function()
 		self:OpenSpectreLibrary("spectre")
 	end)
-	self.controls.mainSkillBeastLibrary = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.mainSkillMinion, "RIGHT" }, { 2, 0, 120, 18 }, "Manage Beasts...", function()
+	self.controls.mainSkillBeastLibrary = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.mainSkillMinion, "RIGHT" }, { 2, 0, 120, 18 }, localisation:Label("ui.build.init.main_skill_beast_library.label"), function()
 		self:OpenSpectreLibrary("beast")
 	end)
 	self.controls.mainSkillMinionSkill = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.mainSkillMinion, "BOTTOMLEFT", true }, { 0, 2, 200, 16 }, nil, function(index, value)
@@ -500,7 +500,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		if #self.controls.warnings.lines > 0 then
 			local count = 0
 			for _ in pairs(self.controls.warnings.lines) do count = count + 1 end
-			control.str = string.format(colorCodes.NEGATIVE.."%d Warnings", count)
+			control.str = colorCodes.NEGATIVE .. localisation:Text('build.warning.count', { count = count })
 			local x, y = control:GetPos()
 			local width, height = control:GetSize()
 			DrawString(x, y + 2, "LEFT", 16, "FIXED", control.str)
@@ -635,10 +635,11 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 end
 
 function buildMode:SyncLoadouts(skipBuildPlannerSync)
-	self.controls.buildLoadouts.list = {"No Loadouts"}
+	self.controls.buildLoadouts.list = localisation:List({"No Loadouts"}, { "ui.build.loadouts.empty" })
 	self.loadoutsList = {}
 
 	local filteredList = {"^7^7Loadouts:"}
+	local loadoutKeys = { [1] = "ui.build.loadouts.heading" }
 	local filteredSpecs = {}
 	local treeList = {}
 	local itemList = {}
@@ -718,6 +719,9 @@ function buildMode:SyncLoadouts(skipBuildPlannerSync)
 			-- only exact match loadouts
 			if (oneItem or itemList[tree]) and (oneSkill or skillList[tree]) and (oneConfig or configList[tree]) then
 				t_insert(filteredList, tree)
+				if not spec.title and spec.treeVersion == latestTreeVersion then
+					loadoutKeys[#filteredList] = 'term.calculation_source.default'
+				end
 				t_insert(self.loadoutsList, filteredSpecs[id])
 			end
 		end
@@ -740,6 +744,10 @@ function buildMode:SyncLoadouts(skipBuildPlannerSync)
 	t_insert(filteredList, "^7^7Manage")
 	t_insert(filteredList, "^7^7Sync")
 	t_insert(filteredList, "^7^7Help >>")
+	loadoutKeys[#filteredList - 2] = "ui.build.loadouts.manage"
+	loadoutKeys[#filteredList - 1] = "ui.build.loadouts.sync"
+	loadoutKeys[#filteredList] = "ui.build.loadouts.help"
+	localisation:List(filteredList, loadoutKeys)
 
 	if #filteredList > 0 then
 		self.controls.buildLoadouts.list = filteredList
@@ -1051,35 +1059,25 @@ function buildMode:EstimatePlayerProgress()
 			or ""
 
 		local normalPassives = PointsUsed - m_min(weaponSet1Used, weaponSet2Used)
-		if normalPassives > usedMax then InsertIfNew(self.controls.warnings.lines, "You have too many passive points allocated") end
-		if AscUsed > ascMax then InsertIfNew(self.controls.warnings.lines, "You have too many ascendancy points allocated") end
-		if SecondaryAscUsed > secondaryAscMax then InsertIfNew(self.controls.warnings.lines, "You have too many secondary ascendancy points allocated") end
+		if normalPassives > usedMax then InsertIfNew(self.controls.warnings.lines, localisation:Text("ui.build.warning.estimate_player_progress")) end
+		if AscUsed > ascMax then InsertIfNew(self.controls.warnings.lines, localisation:Text("ui.build.warning.estimate_player_progress_2")) end
+		if SecondaryAscUsed > secondaryAscMax then InsertIfNew(self.controls.warnings.lines, localisation:Text("ui.build.warning.estimate_player_progress_3")) end
 
 		-- if you are using more than maxWeaponSets + extraWeaponSets, you are using too many weapon sets
 		local warningsWeaponSet = false
 		if weaponSet1Used > (maxWeaponSets + extraWeaponSets) then
 			warningsWeaponSet = true
-			InsertIfNew(self.controls.warnings.lines, string.format(
-				"You have allocated %d too many weapon set 1 passives",
-				math.abs((maxWeaponSets + extraWeaponSets) - weaponSet1Used)
-			))
+			InsertIfNew(self.controls.warnings.lines, localisation:Text("ui.build.warning.estimate_player_progress_4", { value = math.abs((maxWeaponSets + extraWeaponSets) - weaponSet1Used) }))
 		end
 		if weaponSet2Used > (maxWeaponSets + extraWeaponSets) then
 			warningsWeaponSet = true
-			InsertIfNew(self.controls.warnings.lines, string.format(
-				"You have allocated %d too many weapon set 2 passives",
-				math.abs((maxWeaponSets + extraWeaponSets) - weaponSet2Used)
-			))
+			InsertIfNew(self.controls.warnings.lines, localisation:Text("ui.build.warning.estimate_player_progress_5", { value = math.abs((maxWeaponSets + extraWeaponSets) - weaponSet2Used) }))
 		end
 
 		if not warningsWeaponSet and weaponSet1Used ~= weaponSet2Used then
 			-- The set with fewer allocated points is the one with points to
 			-- spare, since a node allocated in both sets is only paid for once.
-			InsertIfNew(self.controls.warnings.lines, string.format(
-				"You have %d Weapon set %d passives available",
-				math.abs(weaponSet2Used - weaponSet1Used),
-				weaponSet1Used < weaponSet2Used and 1 or 2
-			))
+			InsertIfNew(self.controls.warnings.lines, localisation:Text("ui.build.warning.estimate_player_progress_6", { value = math.abs(weaponSet2Used - weaponSet1Used), value_2 = ((weaponSet1Used < weaponSet2Used and 1) or 2) }))
 		end
 
 		self.Act = act == self.maxActs and "Endgame" or "Act " .. act
@@ -1283,6 +1281,12 @@ function buildMode:ResetModFlags()
 end
 
 function buildMode:OnFrame(inputEvents)
+	-- 计算详情在生成时使用显式文案，切换语言后重新生成缓存，不改动构筑数据。
+	if self.displayLanguage ~= localisation.language then
+		self.displayLanguage = localisation.language
+		self.buildFlag = true
+		if self.calcsTab then self.calcsTab.modFlag = true end
+	end
 	-- Stop at drawing the background if the loaded build needs to be converted
 	if not self.targetVersion then
 		main:DrawBackground(main.viewPort)
@@ -1408,8 +1412,10 @@ function buildMode:OnFrame(inputEvents)
 	if main.decimalSeparator ~= self.lastShowDecimalSeparator then
 		self:RefreshStatList()
 	end
-	if main.showTitlebarName ~= self.lastShowTitlebarName then
+	-- 窗口标题由原生接口输出，语言变化时也需重新读取职业显示资源。
+	if main.showTitlebarName ~= self.lastShowTitlebarName or self.lastTitleLanguage ~= localisation.language then
 		self.spec:SetWindowTitleWithBuildClass()
+		self.lastTitleLanguage = localisation.language
 	end
 
 	-- Update contents of main skill dropdowns
@@ -1527,11 +1533,13 @@ function buildMode:UpdateClassDropdowns(treeVersion)
 			local ascendClass = class.classes[i]
 			t_insert(ascendancies, {
 				label = ascendClass.name,
+				labelKey = ascendClass.nameKey,
 				ascendClassId = i,
 			})
 		end
 		t_insert(self.controls.classDrop.list, {
 			label = class.name,
+			labelKey = class.nameKey,
 			classId = classId,
 			ascendancies = ascendancies,
 		})
@@ -1543,44 +1551,34 @@ end
 function buildMode:OpenConversionPopup()
 	local controls = { }
 	local currentVersion = treeVersions[latestTreeVersion].display
-	controls.note = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, colorCodes.TIP .. [[
-Info:^7 You are trying to load a build created for a version of Path of Exile that is
-not supported by us. You will have to convert it to the current game version to load it.
-To use a build newer than the current supported game version, you may have to update.
-To use a build older than the current supported game version, we recommend loading it
-in an older version of Path of Building Community instead.
-]])
-	controls.label = new("LabelControl"):LabelControl(nil, { 0, 110, 0, 16 }, colorCodes.WARNING .. [[
-Warning:^7 Converting a build to a different game version may have side effects.
-For example, if the passive tree has changed, then some passives may be deallocated.
-You should create a backup copy of the build before proceeding.
-]])
-	controls.convert = new("ButtonControl"):ButtonControl(nil, { -40, 170, 120, 20 }, "Convert to " .. currentVersion, function()
+	controls.note = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, localisation:Label("ui.build.open_conversion_popup.note.label", nil, colorCodes.TIP))
+	controls.label = new("LabelControl"):LabelControl(nil, { 0, 110, 0, 16 }, localisation:Label("ui.build.open_conversion_popup.label_2", nil, colorCodes.WARNING))
+	controls.convert = new("ButtonControl"):ButtonControl(nil, { -40, 170, 120, 20 }, localisation:Label("ui.build.open_conversion_popup.convert.label", { current_version = currentVersion }), function()
 		main:ClosePopup()
 		self:Shutdown()
 		self:Init(self.dbFileName, self.buildName, nil, true)
 	end)
-	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 60, 170, 70, 20 }, "Cancel", function()
+	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 60, 170, 70, 20 }, localisation:Label("ui.build.open_conversion_popup.cancel.label"), function()
 		main:ClosePopup()
 		self:CloseBuild()
 	end)
-	main:OpenPopup(580, 200, "Game Version", controls, "convert", nil, "cancel")
+	main:OpenPopup(580, 200, localisation:Label("ui.build.open_conversion_popup.label"), controls, "convert", nil, "cancel")
 end
 
 function buildMode:OpenSavePopup(mode)
 	local modeDesc = {
-		["LIST"] = "now?",
-		["EXIT"] = "before exiting?",
-		["UPDATE"] = "before updating?",
+		["LIST"] = localisation:Ref("ui.build.open_save_popup.mode.now"),
+		["EXIT"] = localisation:Ref("ui.build.open_save_popup.mode.before_exiting"),
+		["UPDATE"] = localisation:Ref("ui.build.open_save_popup.mode.before_updating"),
 	}
 	local controls = { }
-	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, "^7This build has unsaved changes.\nDo you want to save them " .. modeDesc[mode])
-	controls.save = new("ButtonControl"):ButtonControl(nil, { -90, 70, 80, 20 }, "Save", function()
+	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, localisation:Label("ui.build.open_save_popup.label_2", { value = modeDesc[mode] }))
+	controls.save = new("ButtonControl"):ButtonControl(nil, { -90, 70, 80, 20 }, localisation:Label("ui.build.init.save.label"), function()
 		main:ClosePopup()
 		self.actionOnSave = mode
 		self:SaveDBFile()
 	end)
-	controls.noSave = new("ButtonControl"):ButtonControl(nil, { 0, 70, 80, 20 }, "Don't Save", function()
+	controls.noSave = new("ButtonControl"):ButtonControl(nil, { 0, 70, 80, 20 }, localisation:Label("ui.build.open_save_popup.no_save.label"), function()
 		main:ClosePopup()
 		if mode == "LIST" then
 			self:CloseBuild()
@@ -1590,10 +1588,10 @@ function buildMode:OpenSavePopup(mode)
 			launch:ApplyUpdate(launch.updateAvailable)
 		end
 	end)
-	controls.close = new("ButtonControl"):ButtonControl(nil, { 90, 70, 80, 20 }, "Cancel", function()
+	controls.close = new("ButtonControl"):ButtonControl(nil, { 90, 70, 80, 20 }, localisation:Label("ui.build.open_conversion_popup.cancel.label"), function()
 		main:ClosePopup()
 	end)
-	main:OpenPopup(300, 100, "Save Changes", controls)
+	main:OpenPopup(300, 100, localisation:Label("ui.build.open_save_popup.label"), controls)
 end
 
 function buildMode:OpenSaveAsPopup()
@@ -1613,13 +1611,13 @@ function buildMode:OpenSaveAsPopup()
 			end
 		end
 	end
-	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, "^7Enter new build name:")
+	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, localisation:Label("ui.build.open_save_as_popup.label"))
 	controls.edit = new("EditControl"):EditControl(nil, { 0, 40, 450, 20 },
 	(self.buildName or self.dbFileName):gsub("[\\/:%*%?\"<>|%c]", "-"), nil, "\\/:%*%?\"<>|%c", 100, function(buf)
 		updateBuildName()
 	end)
-	controls.folderLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { 10, 70, 0, 16 }, "^7Folder:")
-	controls.newFolder = new("ButtonControl"):ButtonControl({ "TOPLEFT", nil, "TOPLEFT" }, { 100, 67, 94, 20 }, "New Folder...", function()
+	controls.folderLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { 10, 70, 0, 16 }, localisation:Label("ui.build.open_save_as_popup.folder_label.label"))
+	controls.newFolder = new("ButtonControl"):ButtonControl({ "TOPLEFT", nil, "TOPLEFT" }, { 100, 67, 94, 20 }, localisation:Label("ui.build.open_save_as_popup.new_folder.label"), function()
 		main:OpenNewFolderPopup(main.buildPath..controls.folder.subPath, function(newFolderName)
 			if newFolderName then
 				controls.folder:OpenFolder(newFolderName)
@@ -1629,7 +1627,7 @@ function buildMode:OpenSaveAsPopup()
 	controls.folder = new("FolderListControl"):FolderListControl(nil, { 0, 115, 450, 100 }, self.dbFileSubPath, function(subPath)
 		updateBuildName()
 	end)
-	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, 225, 80, 20 }, "Save", function()
+	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, 225, 80, 20 }, localisation:Label("ui.build.init.save.label"), function()
 		main:ClosePopup()
 		self.dbFileName = newFileName
 		self.buildName = newBuildName
@@ -1637,7 +1635,7 @@ function buildMode:OpenSaveAsPopup()
 		self:SaveDBFile()
 		self.spec:SetWindowTitleWithBuildClass()
 	end)
-	controls.close = new("ButtonControl"):ButtonControl(nil, { 45, 225, 80, 20 }, "Cancel", function()
+	controls.close = new("ButtonControl"):ButtonControl(nil, { 45, 225, 80, 20 }, localisation:Label("ui.build.open_conversion_popup.cancel.label"), function()
 		main:ClosePopup()
 		self.actionOnSave = nil
 	end)
@@ -1649,7 +1647,7 @@ function buildMode:OpenSaveAsPopup()
 		controls.save.enabled = false
 	end
 
-	main:OpenPopup(470, 255, self.dbFileName and "Save As" or "Save", controls, "save", "edit", "close")
+	main:OpenPopup(470, 255, self.dbFileName and localisation:Label("ui.build.open_save_as_popup.label_3") or localisation:Label("ui.build.open_save_as_popup.label_2"), controls, "save", "edit", "close")
 end
 
 -- Open the spectre library popup
@@ -1779,7 +1777,7 @@ function buildMode:OpenSpectreLibrary(library)
 		local coldResist = library == "beast" and minion.companionColdResist or minion.coldResist
 		local lightningResist = library == "beast" and minion.companionLightningResist or minion.lightningResist
 		local chaosResist = library == "beast" and minion.companionChaosResist or minion.chaosResist
-		controls.minionNameLabel.labelText = "^7" .. minion.name
+		controls.minionNameLabel.minion = minion
 		controls.lifeLabel.lifeValue = round(totalLife)
 		controls.energyshieldLabel.energyShieldValue = round(totalES)
 		controls.armourLabel.armourValue = round(totalArmour)
@@ -1794,12 +1792,12 @@ function buildMode:OpenSpectreLibrary(library)
 		controls.movementSpeedLabel.movementSpeedValue = movementSpeed
 	end
 
-	local label = (library == "beast" and "Beasts" or "Spectres")
-	controls.list = new("MinionListControl"):MinionListControl(nil, { -230, 40, 210, 270 }, self.data, destList, nil, label .. " in Build:", library == "beast")
+	local label = localisation:Ref(library == "beast" and "minion.library.beasts" or "minion.library.spectres")
+	controls.list = new("MinionListControl"):MinionListControl(nil, { -230, 40, 210, 270 }, self.data, destList, nil, localisation:Label("minion.library.in_build", { kind = label }), library == "beast")
 	controls.list.OnSelect = function()
 			UpdateMinionDisplay(controls.list.selValue)
 	end
-	controls.source = new("MinionSearchListControl"):MinionSearchListControl(nil, { 0, 80, 210, 230 }, self.data, sourceList, controls.list, "^7Available " .. label .. ":", library == "beast")
+	controls.source = new("MinionSearchListControl"):MinionSearchListControl(nil, { 0, 80, 210, 230 }, self.data, sourceList, controls.list, localisation:Label("minion.library.available", { kind = label }), library == "beast")
 	controls.source.OnSelect = function()
 			UpdateMinionDisplay(controls.source.selValue)
 	end
@@ -1844,14 +1842,15 @@ function buildMode:OpenSpectreLibrary(library)
 	}
 	for _, monsterType in ipairs(monsterTypeCheckbox) do
 		local controlName = "sortMonsterCheckbox" .. monsterType.name
-		local checkbox = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.source, "BOTTOMLEFT" }, { monsterType.x, 30, 26, 26 }, "", monsterTypeCheckboxChange(monsterType.name), monsterType.name, true)
+		local checkbox = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.source, "BOTTOMLEFT" }, { monsterType.x, 30, 26, 26 }, "", monsterTypeCheckboxChange(monsterType.name), function() return localisation:Term("monster_category", monsterType.name, monsterType.name) end, true)
 		checkbox:SetCheckImage(self.monsterImages[monsterType.name])
 		checkbox.shown = library ~= "beast"
 		controls[controlName] = checkbox
 	end
-	controls.sortMonsterCheckboxShowAll = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.source, "BOTTOMLEFT" }, { 153, 2, 26, 26 }, "", monsterTypeCheckboxChange("recommendedList"), "^7Show All " .. firstToUpper(library) .. "s", false)
-	controls.showAllLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.sortMonsterCheckboxShowAll, "LEFT" }, { -5, 0, 0, 16 }, "^7Show All " .. firstToUpper(library) .. "s:")
-	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, 420, 80, 20 }, "Save", function()
+	local libraryName = localisation:Ref(library == "beast" and "minion.library.beast" or "minion.library.spectre")
+	controls.sortMonsterCheckboxShowAll = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.source, "BOTTOMLEFT" }, { 153, 2, 26, 26 }, "", monsterTypeCheckboxChange("recommendedList"), localisation:Label("ui.build.check_box_control.tooltip", { value = libraryName }), false)
+	controls.showAllLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.sortMonsterCheckboxShowAll, "LEFT" }, { -5, 0, 0, 16 }, localisation:Label("ui.build.open_spectre_library.show_all_label.label", { value = libraryName }))
+	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, 420, 80, 20 }, localisation:Label("ui.build.init.save.label"), function()
 		if library == "beast" then
 			self.beastList = destList
 		else
@@ -1861,22 +1860,22 @@ function buildMode:OpenSpectreLibrary(library)
 		self.buildFlag = true
 		main:ClosePopup()
 	end)
-	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 45, 420, 80, 20 }, "Cancel", function()
+	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 45, 420, 80, 20 }, localisation:Label("ui.build.open_conversion_popup.cancel.label"), function()
 		main:ClosePopup()
 	end)
 	local spectrePopup
 	if library == "beast" then
-		spectrePopup = main:OpenPopup(720, 450, "Beast Library", controls)
-		controls.noteLine1 = new("LabelControl"):LabelControl({ "TOP", controls.save, "BOTTOM" }, { 45, -60, 0, 16 }, "^7Beasts in your Library must be assigned to an active")
-		controls.noteLine2 = new("LabelControl"):LabelControl({ "TOP", controls.save, "BOTTOM" }, { 45, -42, 0, 16 }, "Companion gem for their buffs and curses to activate")
+		spectrePopup = main:OpenPopup(720, 450, localisation:Label("ui.build.open_spectre_library.spectre_popup.label"), controls)
+		controls.noteLine1 = new("LabelControl"):LabelControl({ "TOP", controls.save, "BOTTOM" }, { 45, -60, 0, 16 }, localisation:Label("ui.build.open_spectre_library.note_line1.label"))
+		controls.noteLine2 = new("LabelControl"):LabelControl({ "TOP", controls.save, "BOTTOM" }, { 45, -42, 0, 16 }, localisation:Label("ui.build.open_spectre_library.note_line2.label"))
 	else
-		spectrePopup = main:OpenPopup(720, 450, "Spectre Library", controls)
-		controls.noteLine1 = new("LabelControl"):LabelControl({ "TOP", controls.save, "BOTTOM" }, { 45, -60, 0, 16 }, "^7Spectres in your Library must be assigned to an active")
-		controls.noteLine2 = new("LabelControl"):LabelControl({ "TOP", controls.save, "BOTTOM" }, { 45, -42, 0, 16 }, "Raise Spectre gem for their buffs and curses to activate")
+		spectrePopup = main:OpenPopup(720, 450, localisation:Label("ui.build.open_spectre_library.spectre_popup.label_2"), controls)
+		controls.noteLine1 = new("LabelControl"):LabelControl({ "TOP", controls.save, "BOTTOM" }, { 45, -60, 0, 16 }, localisation:Label("ui.build.open_spectre_library.note_line1.label_2"))
+		controls.noteLine2 = new("LabelControl"):LabelControl({ "TOP", controls.save, "BOTTOM" }, { 45, -42, 0, 16 }, localisation:Label("ui.build.open_spectre_library.note_line2.label_2"))
 	end
 	spectrePopup:SelectControl(spectrePopup.controls.source.controls.searchText)
 
-	controls.minionNameLabel = new("LabelControl"):LabelControl({ "TOP", controls.source, "TOP" }, { 230, -50, 0, 18 }, "Minion Stats")
+	controls.minionNameLabel = new("LabelControl"):LabelControl({ "TOP", controls.source, "TOP" }, { 230, -50, 0, 18 }, localisation:Label("ui.build.open_spectre_library.minion_name_label.label"))
 	controls.minionNameLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
 		SetDrawColor(colorCodes.RELIC)
@@ -1884,19 +1883,19 @@ function buildMode:OpenSpectreLibrary(library)
 		SetDrawColor(0,0,0,1)
 		DrawImage(nil, xPos-76, yPos-8, 241, 34)
 		SetDrawColor(1, 1, 1)
-		DrawString(xPos + 45, yPos, "CENTER_X", 18, "VAR BOLD", self.labelText or "Monster Stats")
+		DrawString(xPos + 45, yPos, "CENTER_X", 18, "VAR BOLD", self.minion and ("^7" .. localisation:Field(self.minion, 'name')) or localisation:Text("ui.build.open_spectre_library.minion_name_label_draw.message"))
 	end
-	controls.minionGemLevelLabel = new("LabelControl"):LabelControl({ "BOTTOM", controls.minionNameLabel, "TOP" }, { 24, 271, 0, 16 }, "Gem Level:")
+	controls.minionGemLevelLabel = new("LabelControl"):LabelControl({ "BOTTOM", controls.minionNameLabel, "TOP" }, { 24, 271, 0, 16 }, localisation:Label("ui.build.open_spectre_library.minion_gem_level_label.label"))
 	controls.minionGemLevel = new("EditControl"):EditControl({ "LEFT", controls.minionGemLevelLabel, "RIGHT" }, { 4, 0, 60, 20 }, 20, nil, "%D", 3, function()
 		if self.lastSelectedMinion then
 			UpdateMinionDisplay(self.lastSelectedMinion)
 		end
 	end)
-	controls.lifeLabel = new("LabelControl"):LabelControl({ "TOP", controls.source, "TOP" }, { 170, -9, 0, 16 }, colorCodes.LIFE .. "LIFE")
+	controls.lifeLabel = new("LabelControl"):LabelControl({ "TOP", controls.source, "TOP" }, { 170, -9, 0, 16 }, localisation:Label("ui.build.open_spectre_library.life_label.label", nil, colorCodes.LIFE))
 	controls.lifeLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
 		local boxWidth, boxHeight = 120, 50
-		local labelWidth = DrawStringWidth(16, "VAR BOLD", "LIFE")
+		local labelWidth = DrawStringWidth(16, "VAR BOLD", localisation:Text("ui.build.open_spectre_library.label_width.message_5"))
 		SetDrawColor(colorCodes.LIFE)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos - 3, boxWidth, boxHeight)
 		SetDrawColor(0, 0, 0, 1)
@@ -1904,16 +1903,16 @@ function buildMode:OpenSpectreLibrary(library)
 		SetDrawColor(colorCodes.LIFE)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 16, boxWidth, 2)
 		SetDrawColor(1, 1, 1)
-		DrawString(xPos + (labelWidth / 2), yPos, "CENTER_X", 16, "VAR BOLD", "LIFE")
+		DrawString(xPos + (labelWidth / 2), yPos, "CENTER_X", 16, "VAR BOLD", localisation:Text("ui.build.open_spectre_library.life_label_draw.message"))
 		if self.lifeValue then
 			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.lifeValue)
 		end
 	end
-	controls.energyshieldLabel = new("LabelControl"):LabelControl({ "TOP", controls.source, "TOP" }, { 293, -9, 0, 16 }, colorCodes.ES .. "ENERGY SHIELD")
+	controls.energyshieldLabel = new("LabelControl"):LabelControl({ "TOP", controls.source, "TOP" }, { 293, -9, 0, 16 }, localisation:Label("ui.build.open_spectre_library.energyshield_label.label", nil, colorCodes.ES))
 	controls.energyshieldLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
 		local boxWidth, boxHeight = 120, 50
-		local labelWidth = DrawStringWidth(16, "VAR BOLD", "ENERGY SHIELD")
+		local labelWidth = DrawStringWidth(16, "VAR BOLD", localisation:Text("ui.build.open_spectre_library.label_width.message_3"))
 		SetDrawColor(colorCodes.ES)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos - 3, boxWidth, boxHeight)
 		SetDrawColor(0, 0, 0, 1)
@@ -1921,16 +1920,16 @@ function buildMode:OpenSpectreLibrary(library)
 		SetDrawColor(colorCodes.ES)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 16, boxWidth, 2)
 		SetDrawColor(1, 1, 1)
-		DrawString(xPos + (labelWidth / 2), yPos, "CENTER_X", 16, "VAR BOLD", "ENERGY SHIELD")
+		DrawString(xPos + (labelWidth / 2), yPos, "CENTER_X", 16, "VAR BOLD", localisation:Text("ui.build.open_spectre_library.energyshield_label_draw.message"))
 		if self.energyShieldValue then
 			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.energyShieldValue)
 		end
 	end
-	controls.armourLabel = new("LabelControl"):LabelControl({ "TOP", controls.lifeLabel, "TOP" }, { 0, 54, 0, 16 }, colorCodes.ARMOUR .. "ARMOUR")
+	controls.armourLabel = new("LabelControl"):LabelControl({ "TOP", controls.lifeLabel, "TOP" }, { 0, 54, 0, 16 }, localisation:Label("ui.build.open_spectre_library.armour_label.label", nil, colorCodes.ARMOUR))
 	controls.armourLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
 		local boxWidth, boxHeight = 120, 50
-		local labelWidth = DrawStringWidth(16, "VAR BOLD", "ARMOUR")
+		local labelWidth = DrawStringWidth(16, "VAR BOLD", localisation:Text("ui.build.open_spectre_library.label_width.message"))
 		SetDrawColor(colorCodes.NORMAL)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos - 3, boxWidth, boxHeight)
 		SetDrawColor(0, 0, 0, 1)
@@ -1938,16 +1937,16 @@ function buildMode:OpenSpectreLibrary(library)
 		SetDrawColor(colorCodes.NORMAL)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 16, boxWidth, 2)
 		SetDrawColor(1, 1, 1)
-		DrawString(xPos + (labelWidth / 2), yPos, "CENTER_X", 16, "VAR BOLD", "ARMOUR")
+		DrawString(xPos + (labelWidth / 2), yPos, "CENTER_X", 16, "VAR BOLD", localisation:Text("ui.build.open_spectre_library.armour_label_draw.message"))
 		if self.armourValue then
 			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.armourValue)
 		end
 	end
-	controls.evasionLabel = new("LabelControl"):LabelControl({ "TOP", controls.energyshieldLabel, "TOP" }, { 1, 54, 0, 16 }, colorCodes.EVASION .. "EVASION")
+	controls.evasionLabel = new("LabelControl"):LabelControl({ "TOP", controls.energyshieldLabel, "TOP" }, { 1, 54, 0, 16 }, localisation:Label("ui.build.open_spectre_library.evasion_label.label", nil, colorCodes.EVASION))
 	controls.evasionLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
 		local boxWidth, boxHeight = 120, 50
-		local labelWidth = DrawStringWidth(16, "VAR BOLD", "EVASION")
+		local labelWidth = DrawStringWidth(16, "VAR BOLD", localisation:Text("ui.build.open_spectre_library.label_width.message_4"))
 		SetDrawColor(colorCodes.EVASION)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos - 3, boxWidth, boxHeight)
 		SetDrawColor(0, 0, 0, 1)
@@ -1955,16 +1954,16 @@ function buildMode:OpenSpectreLibrary(library)
 		SetDrawColor(colorCodes.EVASION)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 16, boxWidth, 2)
 		SetDrawColor(1, 1, 1)
-		DrawString(xPos + (labelWidth / 2), yPos, "CENTER_X", 16, "VAR BOLD", "EVASION")
+		DrawString(xPos + (labelWidth / 2), yPos, "CENTER_X", 16, "VAR BOLD", localisation:Text("ui.build.open_spectre_library.evasion_label_draw.message"))
 		if self.evasionValue then
 			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.evasionValue)
 		end
 	end
-	controls.blockLabel = new("LabelControl"):LabelControl({ "TOP", controls.armourLabel, "TOP" }, { 1, 54, 0, 16 }, colorCodes.NORMAL .. "BLOCK")
+	controls.blockLabel = new("LabelControl"):LabelControl({ "TOP", controls.armourLabel, "TOP" }, { 1, 54, 0, 16 }, localisation:Label("ui.build.open_spectre_library.block_label.label", nil, colorCodes.NORMAL))
 	controls.blockLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
 		local boxWidth, boxHeight = 120, 50
-		local labelWidth = DrawStringWidth(16, "VAR BOLD", "BLOCK")
+		local labelWidth = DrawStringWidth(16, "VAR BOLD", localisation:Text("ui.build.open_spectre_library.label_width.message_2"))
 		SetDrawColor(colorCodes.NORMAL)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos - 3, boxWidth, boxHeight)
 		SetDrawColor(0, 0, 0, 1)
@@ -1972,16 +1971,16 @@ function buildMode:OpenSpectreLibrary(library)
 		SetDrawColor(colorCodes.NORMAL)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 16, boxWidth, 2)
 		SetDrawColor(1, 1, 1)
-		DrawString(xPos + labelWidth / 2, yPos, "CENTER_X", 16, "VAR BOLD", "BLOCK")
+		DrawString(xPos + labelWidth / 2, yPos, "CENTER_X", 16, "VAR BOLD", localisation:Text("ui.build.open_spectre_library.block_label_draw.message"))
 		if self.blockValue then
 			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.blockValue)
 		end
 	end
-	controls.resistsLabel = new("LabelControl"):LabelControl({ "TOP", controls.evasionLabel, "TOP" }, { 1, 54, 0, 16 }, "RESISTS")
+	controls.resistsLabel = new("LabelControl"):LabelControl({ "TOP", controls.evasionLabel, "TOP" }, { 1, 54, 0, 16 }, localisation:Label("ui.build.open_spectre_library.resists_label.label"))
 	controls.resistsLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
 		local boxWidth, boxHeight = 120, 50
-		local labelWidth = DrawStringWidth(16, "VAR BOLD", "RESISTS")
+		local labelWidth = DrawStringWidth(16, "VAR BOLD", localisation:Text("ui.build.open_spectre_library.label_width.message_7"))
 		SetDrawColor(colorCodes.DEFENCE)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos - 3, boxWidth, boxHeight)
 		SetDrawColor(0, 0, 0, 1)
@@ -1989,16 +1988,16 @@ function buildMode:OpenSpectreLibrary(library)
 		SetDrawColor(colorCodes.DEFENCE)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 16, boxWidth, 2)
 		SetDrawColor(1, 1, 1)
-		DrawString(xPos + labelWidth / 2, yPos, "CENTER_X", 16, "VAR BOLD", "RESISTS")
+		DrawString(xPos + labelWidth / 2, yPos, "CENTER_X", 16, "VAR BOLD", localisation:Text("ui.build.open_spectre_library.resists_label_draw.message"))
 		if self.resistsValue then
 			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.resistsValue)
 		end
 	end
-	controls.movementSpeedLabel = new("LabelControl"):LabelControl({ "TOP", controls.blockLabel, "TOP" }, { 61, 54, 0, 16 }, "MOVEMENT SPEED")
+	controls.movementSpeedLabel = new("LabelControl"):LabelControl({ "TOP", controls.blockLabel, "TOP" }, { 61, 54, 0, 16 }, localisation:Label("ui.build.open_spectre_library.movement_speed_label.label"))
 	controls.movementSpeedLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
 		local boxWidth, boxHeight = 244, 50
-		local labelWidth = DrawStringWidth(16, "VAR BOLD", "MOVEMENT SPEED")
+		local labelWidth = DrawStringWidth(16, "VAR BOLD", localisation:Text("ui.build.open_spectre_library.label_width.message_6"))
 		SetDrawColor(colorCodes.DEFENCE)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos - 3, boxWidth, boxHeight)
 		SetDrawColor(0, 0, 0, 1)
@@ -2006,12 +2005,12 @@ function buildMode:OpenSpectreLibrary(library)
 		SetDrawColor(colorCodes.DEFENCE)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 16, boxWidth, 2)
 		SetDrawColor(1, 1, 1)
-		DrawString(xPos + labelWidth / 2, yPos, "CENTER_X", 16, "VAR BOLD", "MOVEMENT SPEED")
+		DrawString(xPos + labelWidth / 2, yPos, "CENTER_X", 16, "VAR BOLD", localisation:Text("ui.build.open_spectre_library.movement_speed_label_draw.message"))
 		if self.movementSpeedValue then
 			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.movementSpeedValue)
 		end
 	end
-	controls.spawnLocations = new("SpawnListControl"):SpawnListControl({ "TOP", controls.movementSpeedLabel, "TOP" }, { 2, 73, 244, 68 }, self.data, nil, "Spawns:")
+	controls.spawnLocations = new("SpawnListControl"):SpawnListControl({ "TOP", controls.movementSpeedLabel, "TOP" }, { 2, 73, 244, 68 }, self.data, nil, localisation:Label("minion.library.spawns"))
 end
 
 function buildMode:OpenSimilarPopup()
@@ -2041,7 +2040,7 @@ function buildMode:OpenSimilarPopup()
 
 	-- controls.similarBuildList.shown = not controls.similarBuildList:IsShown()
 
-	controls.close = new("ButtonControl"):ButtonControl(nil, { 0, height() - (padding + 20) / 2, 80, 20 }, "Close", function()
+	controls.close = new("ButtonControl"):ButtonControl(nil, { 0, height() - (padding + 20) / 2, 80, 20 }, localisation:Label("ui.build.open_similar_popup.close.label"), function()
 		main:ClosePopup()
 	end)
 	-- used in PopupDialog to dynamically size the popup
@@ -2052,7 +2051,7 @@ function buildMode:OpenSimilarPopup()
 		end
 		controls.close.y = height() - 35
 	end
-	main:OpenPopup(width, height(), "Similar Builds", controls, nil, nil, nil, nil, resizeFunc)
+	main:OpenPopup(width, height(), localisation:Label("ui.build.open_similar_popup.label"), controls, nil, nil, nil, nil, resizeFunc)
 end
 
 -- Refresh the set of controls used to select main group/skill/minion
@@ -2060,13 +2059,13 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 	controls.mainSocketGroup.selIndex = mainGroup
 	wipeTable(controls.mainSocketGroup.list)
 	for i, socketGroup in pairs(self.skillsTab.socketGroupList) do
-		controls.mainSocketGroup.list[i] = { val = i, label = socketGroup.displayLabel }
+		controls.mainSocketGroup.list[i] = { val = i, label = socketGroup.displayLabel, labelDisplay = function() return localisation:SocketGroupName(socketGroup) end }
 	end
 	controls.mainSocketGroup:CheckDroppedWidth(true)
 	if controls.warnings then controls.warnings.shown = #controls.warnings.lines > 0 end
 	controls.statSet.shown = false
 	if #controls.mainSocketGroup.list == 0 then
-		controls.mainSocketGroup.list[1] = { val = 1, label = "<No skills added yet>" }
+		controls.mainSocketGroup.list[1] = { val = 1, label = "<No skills added yet>", labelKey = "ui.build.refresh_skill_select_controls.main_socket_group_list_1.label" }
 		controls.mainSkill.shown = false
 		controls.mainSkillPart.shown = false
 		controls.mainSkillMineCount.shown = false
@@ -2083,7 +2082,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 			local explodeSource = activeSkill.activeEffect.srcInstance.explodeSource
 			local explodeSourceName = explodeSource and (explodeSource.name or explodeSource.dn)
 			local colourCoded = explodeSourceName and ("From "..colorCodes[explodeSource.rarity or "NORMAL"]..explodeSourceName)
-			t_insert(controls.mainSkill.list, { val = i, label = colourCoded or self.calcsTab.calcs.getActiveSkillDisplayName(activeSkill) })
+			t_insert(controls.mainSkill.list, { val = i, label = colourCoded or self.calcsTab.calcs.getActiveSkillDisplayName(activeSkill), labelDisplay = function() return localisation:ActiveSkillSelectionName(activeSkill) end })
 		end
 		controls.mainSkill.enabled = #displaySkillList > 1
 		controls.mainSkill.selIndex = mainActiveSkill
@@ -2102,7 +2101,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 			if activeEffect then
 				wipeTable(controls.statSet.list)
 				for i, statSet in ipairs(activeEffect.grantedEffect.statSets) do
-					t_insert(controls.statSet.list, { val = i, label = statSet.label, grantedEffectId = activeEffect.grantedEffect.id })
+					t_insert(controls.statSet.list, { val = i, label = statSet.label, labelKey = statSet.labelKey, grantedEffectId = activeEffect.grantedEffect.id })
 				end
 				controls.statSet.selIndex = activeEffect.srcInstance["statSet"..suffix] and activeEffect.srcInstance["statSet"..suffix][activeEffect.grantedEffect.id] or 1
 				controls.statSet.enabled = #controls.statSet.list > 1
@@ -2159,6 +2158,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 							if minion then
 								t_insert(controls.mainSkillMinion.list, {
 									label = minion.name,
+									labelKey = minion.nameKey,
 									minionId = minionId,
 								})
 							end
@@ -2171,14 +2171,15 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 					if activeSkill.minion then
 						if activeSkill.minion.activeSkillList and activeSkill.minion.activeSkillList[1] then
 							for _, minionSkill in ipairs(activeSkill.minion.activeSkillList) do
-								t_insert(controls.mainSkillMinionSkill.list, minionSkill.activeEffect.grantedEffect.name)
+								local effect = minionSkill.activeEffect.grantedEffect
+								t_insert(controls.mainSkillMinionSkill.list, { label = effect.name, labelKey = effect.nameKey })
 							end
 							controls.mainSkillMinionSkill.selIndex = activeEffect.srcInstance["skillMinionSkill"..suffix] or 1
 							controls.mainSkillMinionSkill.shown = true
 							controls.mainSkillMinionSkill.enabled = #controls.mainSkillMinionSkill.list > 1
 							wipeTable(controls.mainSkillMinionSkillStatSet.list)
 							for _, statSet in ipairs(activeSkill.minion.activeSkillList[controls.mainSkillMinionSkill.selIndex].activeEffect.grantedEffect.statSets) do
-								t_insert(controls.mainSkillMinionSkillStatSet.list, {label =  statSet.label, grantedEffectId = activeEffect.grantedEffect.id})
+								t_insert(controls.mainSkillMinionSkillStatSet.list, {label =  statSet.label, labelKey = statSet.labelKey, grantedEffectId = activeEffect.grantedEffect.id})
 							end
 							local minionStatSetIndexLookup = activeEffect.srcInstance["skillMinionSkillStatSetIndexLookup"..suffix]
 							controls.mainSkillMinionSkillStatSet.selIndex = minionStatSetIndexLookup and minionStatSetIndexLookup[activeEffect.grantedEffect.id] and minionStatSetIndexLookup[activeEffect.grantedEffect.id][controls.mainSkillMinionSkill.selIndex] or 1
@@ -2394,12 +2395,13 @@ function buildMode:AddDisplayStatList(statList, actor, actorName)
 						for _, skillData in ipairs(actor.output.SkillDPS) do
 							local triggerStr = ""
 							if skillData.trigger and skillData.trigger ~= "" then
-								triggerStr = colorCodes.WARNING.." ("..skillData.trigger..")"..labelColor
+								triggerStr = colorCodes.WARNING.." ("..localisation:Field(skillData, 'trigger')..")"..labelColor
 							end
 							local skillCount = skillData.count or 1
-							local lhsString = labelColor..skillData.name..triggerStr..":"
+							local skillName = localisation:Field(skillData, 'name')
+							local lhsString = labelColor..skillName..triggerStr..":"
 							if skillCount ~= 1 then
-								lhsString = labelColor..s_format("%g", skillCount).."x "..skillData.name..triggerStr..":"
+								lhsString = labelColor..s_format("%g", skillCount).."x "..skillName..triggerStr..":"
 							end
 							t_insert(statBoxList, {
 								height = 16,
@@ -2410,14 +2412,14 @@ function buildMode:AddDisplayStatList(statList, actor, actorName)
 								t_insert(statBoxList, {
 									height = 14,
 									align = "CENTER_X", x = 140,
-									"^8"..skillData.skillPart,
+									"^8"..localisation:Field(skillData, 'skillPart'),
 								})
 							end
 							if skillData.source then
 								t_insert(statBoxList, {
 									height = 14,
 									align = "CENTER_X", x = 140,
-									colorCodes.WARNING.."from " ..skillData.source,
+									colorCodes.WARNING .. localisation:Text("ui.build.sidebar.add_display_stat_list", { source = localisation:Field(skillData, 'source') }),
 								})
 							end
 						end
@@ -2453,7 +2455,7 @@ function buildMode:AddDisplayStatList(statList, actor, actorName)
 						local breakdownColour = labelColor ~= "^7" and hexToRGB(labelColor) or colourCodeMap[labelColor]
 						t_insert(statBoxList, {
 							height = 16,
-							labelColor..statData.label..":",
+							labelColor..localisation:Field(statData, "label")..":",
 							formattedStat,
 							breakdown = breakdown,
 							modNames = statData.modNames,
@@ -2472,68 +2474,59 @@ function buildMode:AddDisplayStatList(statList, actor, actorName)
 				end
 			elseif statData.label and statData.condFunc and statData.condFunc(actor.output) then
 				t_insert(statBoxList, {
-					height = 16, labelColor..statData.label..":",
+					height = 16, labelColor..localisation:Field(statData, "label")..":",
 					"^7"..actor.output[statData.labelStat].."%^x808080" .. " (" .. statData.val  .. ")",})
 			elseif not statBoxList[#statBoxList] or statBoxList[#statBoxList][1] then
 				t_insert(statBoxList, { height = 6 })
 			end
 		end
 	end
-	for pool, warningFlag in pairs({["Life"] = "LifeCostWarningList", ["Mana"] = "ManaCostWarningList", ["Runic Ward"] = "WardCostWarningList", ["Rage"] = "RageCostWarningList", ["Energy Shield"] = "ESCostWarningList"}) do
+	for pool, warningFlag in pairs({["Life"] = "LifeCostWarningList", ["Mana"] = "ManaCostWarningList", ["Runic Ward"] = "WardCostWarningList", ["Rage"] = "RageCostWarningList", ["Energy Shield"] = "ESCostWarningList", ["Unreserved life"] = "LifePercentCostPercentCostWarningList", ["Unreserved Mana"] = "ManaPercentCostPercentCostWarningList"}) do
 		if actor.output[warningFlag] then
-			local line = "You do not have enough "..(actor.output.EnergyShieldProtectsMana and pool == "Mana" and "Energy Shield and Mana" or pool).." to use: "
-			for _, skill in ipairs(actor.output[warningFlag]) do
-				line = line..skill..", "
+			local skills = { }
+			for index, skill in ipairs(actor.output[warningFlag]) do
+				local effect = actor.output[warningFlag .. "Display"] and actor.output[warningFlag .. "Display"][index]
+				skills[index] = effect and localisation:Field(effect, "name") or skill
 			end
-			line = line:sub(1, -3)
-			InsertIfNew(self.controls.warnings.lines, line)
-		end
-	end
-	for pool, warningFlag in pairs({["Unreserved life"] = "LifePercentCostPercentCostWarningList", ["Unreserved Mana"] = "ManaPercentCostPercentCostWarningList"}) do
-		if actor.output[warningFlag] then
-			local line = "You do not have enough ".. pool .."% to use: "
-			for _, skill in ipairs(actor.output[warningFlag]) do
-				line = line..skill..", "
-			end
-			line = line:sub(1, -3)
-			InsertIfNew(self.controls.warnings.lines, line)
+			local resource = actor.output.EnergyShieldProtectsMana and pool == "Mana" and "Energy Shield and Mana" or pool
+			InsertIfNew(self.controls.warnings.lines, localisation:Text("build.warning.insufficient_resource", { resource = localisation:TermRef("cost_pool", resource), skills = table.concat(skills, ", ") }))
 		end
 	end
 	if actor.output.EternalLifeWarning then
-		InsertIfNew(self.controls.warnings.lines, "You cannot pay Life costs of skills while You have Energy Shield and have Eternal Life allocated")
+		InsertIfNew(self.controls.warnings.lines, localisation:Text("ui.build.warning.add_display_stat_list"))
 	end
 	if actor.output.VixensTooMuchCastSpeedWarn then
-		InsertIfNew(self.controls.warnings.lines, "You may have too much cast speed or too little cooldown reduction to effectively use Vixen's Curse replacement")
+		InsertIfNew(self.controls.warnings.lines, localisation:Text("ui.build.warning.add_display_stat_list_2"))
 	end
 	if actor.output.VixenModeNoVixenGlovesWarn then
-		InsertIfNew(self.controls.warnings.lines, "Vixen's calculation mode for Doom Blast is selected but you do not have Vixen's Entrapment Embroidered Gloves equipped")
+		InsertIfNew(self.controls.warnings.lines, localisation:Text("ui.build.warning.add_display_stat_list_3"))
 	end
 end
 
 function buildMode:InsertItemWarnings()
 	if self.calcsTab.mainEnv.itemWarnings.jewelLimitWarning then
 		for _, warning in ipairs(self.calcsTab.mainEnv.itemWarnings.jewelLimitWarning) do
-			InsertIfNew(self.controls.warnings.lines, "You are exceeding jewel limit with the jewel "..warning)
+			InsertIfNew(self.controls.warnings.lines, localisation:Text("ui.build.warning.insert_item_warnings", { warning = warning }))
 		end
 	end
 	if self.calcsTab.mainEnv.itemWarnings.augmentLimitWarning then
 		for _, warning in ipairs(self.calcsTab.mainEnv.itemWarnings.augmentLimitWarning) do
-			InsertIfNew(self.controls.warnings.lines, "You are exceeding augment limit with: "..warning)
+			InsertIfNew(self.controls.warnings.lines, localisation:Text("ui.build.warning.insert_item_warnings_2", { warning = warning }))
 		end
 	end
 	if self.calcsTab.mainEnv.itemWarnings.socketLimitWarning then
 		for _, warning in ipairs(self.calcsTab.mainEnv.itemWarnings.socketLimitWarning) do
-			InsertIfNew(self.controls.warnings.lines, "You have too many gems in your "..warning.." socket group")
+			InsertIfNew(self.controls.warnings.lines, localisation:Text("ui.build.warning.insert_item_warnings_3", { warning = warning }))
 		end
 	end
 	if self.calcsTab.mainEnv.itemWarnings.lineageSupportGemLimitWarning then
 		for _, warning in ipairs(self.calcsTab.mainEnv.itemWarnings.lineageSupportGemLimitWarning) do
-			InsertIfNew(self.controls.warnings.lines, "You have too many "..warning[1].." lineage support gems allocated. Max allowed is "..warning[2].."."..(warning[3] and " Locations: "..table.concat(warning[3], ", ") or ""))
+			InsertIfNew(self.controls.warnings.lines, localisation:Text("ui.build.warning.insert_item_warnings_4", { value = warning[1], value_2 = warning[2], value_3 = warning[3] and localisation:Ref("ui.build.warning.lineage_locations", { locations = table.concat(warning[3], ", ") }) or "" }))
 		end
 	end
 	if self.calcsTab.mainEnv.itemWarnings.gemGroupCountWarning then
 		for _, warning in ipairs(self.calcsTab.mainEnv.itemWarnings.gemGroupCountWarning) do
-			InsertIfNew(self.controls.warnings.lines, "You have too many gem groups allocated. Max allowed is "..warning[1]..". You have "..warning[2].." non-item/non-granted gem groups allocated.")
+			InsertIfNew(self.controls.warnings.lines, localisation:Text("ui.build.warning.insert_item_warnings_5", { value = warning[1], value_2 = warning[2] }))
 		end
 	end
 end
@@ -2555,7 +2548,7 @@ function buildMode:RefreshStatList()
 		end
 	end
 	if self.calcsTab.mainEnv.minion then
-		t_insert(statBoxList, { height = 18, "^7Minion:" })
+		t_insert(statBoxList, { height = 18, localisation:Text("ui.build.sidebar.refresh_stat_list") })
 		if self.calcsTab.mainEnv.minion.mainSkill.infoMessage then
 			-- Split the line if too long
 			if #self.calcsTab.mainEnv.minion.mainSkill.infoMessage > 40 then
@@ -2571,10 +2564,10 @@ function buildMode:RefreshStatList()
 		end
 		self:AddDisplayStatList(self.minionDisplayStats, self.calcsTab.mainEnv.minion, "minion")
 		t_insert(statBoxList, { height = 10 })
-		t_insert(statBoxList, { height = 18, "^7Player:" })
+		t_insert(statBoxList, { height = 18, localisation:Text("ui.build.sidebar.refresh_stat_list_2") })
 	end
 	if self.calcsTab.mainEnv.player.mainSkill.activeEffect.statSet.skillFlags.disable then
-		t_insert(statBoxList, { height = 16, "^7Skill disabled:" })
+		t_insert(statBoxList, { height = 16, localisation:Text("ui.build.sidebar.refresh_stat_list_3") })
 		t_insert(statBoxList, { height = 14, align = "CENTER_X", x = 140, self.calcsTab.mainEnv.player.mainSkill.disableReason })
 	end
 	self:AddDisplayStatList(self.displayStats, self.calcsTab.mainEnv.player, "player")
@@ -2582,7 +2575,7 @@ function buildMode:RefreshStatList()
 	self:EstimatePlayerProgress()
 end
 
-function buildMode:CompareStatList(tooltip, statList, actor, baseOutput, compareOutput, header, nodeCount)
+function buildMode:CompareStatList(tooltip, statList, actor, baseOutput, compareOutput, header, nodeCount, newBlock)
 	local count = 0
 	for _, statData in ipairs(statList) do
 		if statData.stat and (not statData.flag or actor.mainSkill.activeEffect.statSet.skillFlags[statData.flag]) and not statData.childStat and statData.stat ~= "SkillDPS" then
@@ -2594,7 +2587,7 @@ function buildMode:CompareStatList(tooltip, statList, actor, baseOutput, compare
 			end
 			if (diff > 0.001 or diff < -0.001) and (not statData.condFunc or statData.condFunc(statVal1,compareOutput) or statData.condFunc(statVal2,baseOutput)) then
 				if count == 0 then
-					tooltip:AddLine(14, header)
+					tooltip:AddLine(14, header, nil, nil, nil, newBlock)
 				end
 				local color = ((statData.lowerIsBetter and diff < 0) or (not statData.lowerIsBetter and diff > 0)) and colorCodes.POSITIVE or colorCodes.NEGATIVE
 				local val = diff * ((statData.pc or statData.mod) and 100 or 1)
@@ -2602,7 +2595,7 @@ function buildMode:CompareStatList(tooltip, statList, actor, baseOutput, compare
 
 				valStr = formatNumSep(valStr)
 
-				local line = s_format("%s%s %s", color, valStr, statData.label)
+				local line = s_format("%s%s %s", color, valStr, localisation:Field(statData, "label"))
 				local pcPerPt = ""
 				if statData.compPercent and statVal1 ~= 0 and statVal2 ~= 0 then
 					local pc = statVal1 / statVal2 * 100 - 100
@@ -2612,7 +2605,7 @@ function buildMode:CompareStatList(tooltip, statList, actor, baseOutput, compare
 					end
 				end
 				if nodeCount then
-					line = line .. s_format(" ^8[%+"..statData.fmt.."%s per point]", diff * ((statData.pc or statData.mod) and 100 or 1) / nodeCount, pcPerPt)
+					line = line .. localisation:Text("build.compare.per_point", { value = s_format("%+" .. statData.fmt, diff * ((statData.pc or statData.mod) and 100 or 1) / nodeCount), percentage = pcPerPt })
 				end
 				tooltip:AddLine(14, line)
 				count = count + 1
@@ -2625,17 +2618,18 @@ end
 -- Compare values of all display stats between the two output tables, and add any changed stats to the tooltip
 -- Adds the provided header line before the first stat line, if any are added
 -- Returns the number of stat lines added
-function buildMode:AddStatComparesToTooltip(tooltip, baseOutput, compareOutput, header, nodeCount)
+function buildMode:AddStatComparesToTooltip(tooltip, baseOutput, compareOutput, header, nodeCount, newBlock)
 	local count = 0
 	if self.calcsTab.mainEnv.player.mainSkill.minion and baseOutput.Minion and compareOutput.Minion then
-		count = count + self:CompareStatList(tooltip, self.minionDisplayStats, self.calcsTab.mainEnv.minion, baseOutput.Minion, compareOutput.Minion, header.."\n^7Minion:", nodeCount)
+		count = count + self:CompareStatList(tooltip, self.minionDisplayStats, self.calcsTab.mainEnv.minion, baseOutput.Minion, compareOutput.Minion, header.."\n^7Minion:", nodeCount, newBlock)
 		if count > 0 then
+			newBlock = false
 			header = "^7Player:"
 		else
 			header = header.."\n^7Player:"
 		end
 	end
-	count = count + self:CompareStatList(tooltip, self.displayStats, self.calcsTab.mainEnv.player, baseOutput, compareOutput, header, nodeCount)
+	count = count + self:CompareStatList(tooltip, self.displayStats, self.calcsTab.mainEnv.player, baseOutput, compareOutput, header, nodeCount, newBlock)
 	return count
 end
 
@@ -2645,9 +2639,9 @@ do
 	function buildMode:AddRequirementsToTooltip(tooltip, level, str, dex, int, strBase, dexBase, intBase)
 		if level and level > 0 then
 			if tooltip.tooltipHeader ~= "GEM" then
-				t_insert(req, s_format("^x7F7F7FLevel %s%d", main:StatColor(level, nil, self.characterLevel), level))
+				t_insert(req, "^x7F7F7F" .. localisation:Text("equipment.requirement.level_value", { colour = main:StatColor(level, nil, self.characterLevel), level = level }))
 			else
-				t_insert(req, s_format("^7Level %s%d", main:StatColor(level, nil, self.characterLevel), level))
+				t_insert(req, "^7" .. localisation:Text("equipment.requirement.level_value", { colour = main:StatColor(level, nil, self.characterLevel), level = level }))
 			end
 		end
 		-- Convert normal attributes to Omni attributes
@@ -2661,27 +2655,27 @@ do
 			end
 			local omni = math.floor(highestAttribute * (100/omniSatisfy))
 			if omni and (omni > 0 or omni > self.calcsTab.mainOutput.Omni) then
-				t_insert(req, s_format("%s%d ^x7F7F7FOmni", main:StatColor(omni, 0, self.calcsTab.mainOutput.Omni), omni))
+				t_insert(req, localisation:Text("equipment.requirement.omniscience_value", { colour = main:StatColor(omni, 0, self.calcsTab.mainOutput.Omni), value = omni }))
 			end
 		else
 			local attrTextColor = (tooltip.tooltipHeader == "GEM") and "^7" or "^x7F7F7F"
 			if str and (str > 7 or str > self.calcsTab.mainOutput.Str) then
-				t_insert(req, s_format("%s%d %s%s", main:StatColor(str, strBase, self.calcsTab.mainOutput.Str), str, attrTextColor, level and "Str" or "Strength"))
+				t_insert(req, localisation:Text("equipment.requirement.attribute_value", { colour = main:StatColor(str, strBase, self.calcsTab.mainOutput.Str), value = str, label_colour = attrTextColor, attribute = localisation:TermRef("attribute", level and "Str" or "Strength") }))
 			end
 			if dex and (dex > 7 or dex > self.calcsTab.mainOutput.Dex) then
-				t_insert(req, s_format("%s%d %s%s", main:StatColor(dex, dexBase, self.calcsTab.mainOutput.Dex), dex, attrTextColor, level and "Dex" or "Dexterity"))
+				t_insert(req, localisation:Text("equipment.requirement.attribute_value", { colour = main:StatColor(dex, dexBase, self.calcsTab.mainOutput.Dex), value = dex, label_colour = attrTextColor, attribute = localisation:TermRef("attribute", level and "Dex" or "Dexterity") }))
 			end
 			if int and (int > 7 or int > self.calcsTab.mainOutput.Int) then
-				t_insert(req, s_format("%s%d %s%s", main:StatColor(int, intBase, self.calcsTab.mainOutput.Int), int, attrTextColor, level and "Int" or "Intelligence"))
+				t_insert(req, localisation:Text("equipment.requirement.attribute_value", { colour = main:StatColor(int, intBase, self.calcsTab.mainOutput.Int), value = int, label_colour = attrTextColor, attribute = localisation:TermRef("attribute", level and "Int" or "Intelligence") }))
 			end
 		end
 		if req[1] then
 			local fontSizeBig = main.showFlavourText and 18 or 16
 			if tooltip.tooltipHeader ~= "GEM" then
-				tooltip:AddLine(fontSizeBig, "^x7F7F7FRequires "..table.concat(req, "^x7F7F7F, "), "FONTIN SC")
+				tooltip:AddLine(fontSizeBig, localisation:Text("ui.build.add_requirements_to_tooltip.tooltip", { value = table.concat(req, "^x7F7F7F, ") }), "FONTIN SC")
 				tooltip:AddSeparator(10)
 			else
-				tooltip:AddLine(fontSizeBig, "   ^x7F7F7FRequires: "..table.concat(req, "^7, "), "FONTIN SC")
+				tooltip:AddLine(fontSizeBig, localisation:Text("ui.build.add_requirements_to_tooltip.tooltip_2", { value = table.concat(req, "^7, ") }), "FONTIN SC")
 			end
 		end
 		wipeTable(req)
@@ -2698,7 +2692,7 @@ function buildMode:LoadDB(xmlText, fileName)
 		launch:ShowErrMsg("^1"..errMsg)
 		return true
 	elseif dbXML[1].elem ~= "PathOfBuilding2" then
-		launch:ShowErrMsg("^1Error parsing '%s': 'PathOfBuilding2' root element missing", fileName)
+		launch:ShowErrMsg("%s", localisation:Text("ui.build.load_db.error", { file_name = fileName }))
 		return true
 	end
 
@@ -2763,7 +2757,7 @@ function buildMode:SaveDB(fileName)
 	-- Compose the XML
 	local xmlText, errMsg = common.xml.ComposeXML(dbXML)
 	if not xmlText then
-		launch:ShowErrMsg("Error saving '%s': %s", fileName, errMsg)
+		launch:ShowErrMsg("%s", localisation:Text("ui.build.save_db.error", { file_name = fileName, err_msg = errMsg }))
 	else
 		return xmlText
 	end
@@ -2781,7 +2775,7 @@ function buildMode:SaveDBFile()
 	end
 	local file = io.open(self.dbFileName, "w+")
 	if not file then
-		main:OpenMessagePopup("Error", "Couldn't save the build file:\n"..self.dbFileName.."\nMake sure the save folder exists and is writable.")
+		main:OpenMessagePopup(localisation:Text("ui.build.save_dbfile.message_2"), localisation:Text("ui.build.save_dbfile.message", { db_file_name = self.dbFileName }))
 		return true
 	end
 	file:write(xmlText)
@@ -2803,9 +2797,9 @@ end
 
 -- Opens the build set manager
 function buildMode:OpenBuildSetManagePopup()
-	main:OpenPopup(400, 290, "Manage Loadouts", {
+	main:OpenPopup(400, 290, localisation:Label("ui.build.open_build_set_manage_popup.label_2"), {
 		new("BuildSetListControl"):BuildSetListControl(nil, { 0, 50, 380, 200 }, self),
-		new("ButtonControl"):ButtonControl(nil, { 0, 260, 90, 20 }, "Done", function()
+		new("ButtonControl"):ButtonControl(nil, { 0, 260, 90, 20 }, localisation:Label("ui.build.open_build_set_manage_popup.label"), function()
 			main:ClosePopup()
 			if self.activeLoadout and self.activeLoadout > 0 then
 				self.controls.buildLoadouts:SetSel(self.activeLoadout + 1)

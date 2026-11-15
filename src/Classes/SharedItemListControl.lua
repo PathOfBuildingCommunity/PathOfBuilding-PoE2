@@ -17,10 +17,11 @@ local SharedItemListClass = newClass("SharedItemListControl", "ListControl")
 function SharedItemListClass:SharedItemListControl(anchor, rect, itemsTab, forceTooltip)
 	self:ListControl(anchor, rect, 16, "VERTICAL", true, main.sharedItemList, forceTooltip)
 	self.itemsTab = itemsTab
-	self.label = "^7Shared items:"
+	self.label = localisation:Label("ui.shared_item_list_control.init.label")
 	self.defaultText = "^x7F7F7FThis is a list of items that will be shared between all of\nyour builds.\nYou can add items to this list by dragging them from\none of the other lists."
+	self.defaultTextKey = 'ui.shared_item_list_control.empty_list'
 	self.dragTargetList = { }
-	self.controls.delete = new("ButtonControl"):ButtonControl({ "BOTTOMRIGHT", self, "TOPRIGHT" }, { 0, -2, 60, 18 }, "Delete", function()
+	self.controls.delete = new("ButtonControl"):ButtonControl({ "BOTTOMRIGHT", self, "TOPRIGHT" }, { 0, -2, 60, 18 }, localisation:Label("ui.shared_item_list_control.init.delete.label"), function()
 		self:OnSelDelete(self.selIndex, self.selValue)
 	end)
 	self.controls.delete.enabled = function()
@@ -31,7 +32,7 @@ end
 
 function SharedItemListClass:GetRowValue(column, index, item)
 	if column == 1 then
-		return colorCodes[item.rarity] .. item.name
+		return colorCodes[item.rarity] .. localisation:ItemName(item)
 	end
 end
 
@@ -72,7 +73,7 @@ function SharedItemListClass:OnSelCopy(index, item)
 end
 
 function SharedItemListClass:OnSelDelete(index, item)
-	main:OpenConfirmPopup("Delete Item", "Are you sure you want to remove '"..item.name.."' from the shared item list?", "Delete", function()
+	main:OpenConfirmPopup(localisation:Text("ui.shared_item_list_control.on_sel_delete.message_3"), localisation:Text("ui.shared_item_list_control.on_sel_delete.message", { name = localisation:ItemName(item) }), localisation:Text("ui.shared_item_list_control.on_sel_delete.message_2"), function()
 		t_remove(self.list, index)
 		self.selIndex = nil
 		self.selValue = nil

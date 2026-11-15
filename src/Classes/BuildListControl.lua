@@ -44,7 +44,7 @@ function BuildListClass:BuildListControl(anchor, rect, listMode)
 							local destPath = listMode:GetDestName(folder.path, build.fileName)
 							local res, msg = os.rename(build.fullFileName, destPath)
 							if not res then
-								main:OpenMessagePopup("Error", "Couldn't move '"..build.fullFileName.."' to '"..destPath.."': "..(msg or ""))
+								main:OpenMessagePopup(localisation:Text("ui.build_list_control.rename_build.save.label_4"), localisation:Text("ui.build_list_control.receive_drag.message", { full_file_name = build.fullFileName, dest_path = destPath, value = (msg or "") }))
 								return
 							end
 						end
@@ -94,7 +94,7 @@ end
 
 function BuildListClass:RenameBuild(build, copyOnName)
 	local controls = { }
-	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, "^7Enter the new name for this " .. (build.folderName and "folder:" or "build:"))
+	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, localisation:Label("ui.build_list_control.rename_build.label_2", { value = ((build.folderName and localisation:Ref("ui.build_list_control.rename_build.label_3")) or localisation:Ref("ui.build_list_control.rename_build.label")) }))
 	controls.edit = new("EditControl"):EditControl(nil, { 0, 40, 350, 20 }, build.folderName or build.buildName, nil, "\\/:%*%?\"<>|%c", 100, function(buf)
 		controls.save.enabled = false
 		if build.folderName then
@@ -117,7 +117,7 @@ function BuildListClass:RenameBuild(build, copyOnName)
 			end
 		end
 	end)
-	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, 70, 80, 20 }, "Save", function()
+	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, 70, 80, 20 }, localisation:Label("ui.build_list_control.rename_build.save.label_5"), function()
 		local newBuildName = controls.edit.buf
 		if build.folderName then
 			if copyOnName then
@@ -125,7 +125,7 @@ function BuildListClass:RenameBuild(build, copyOnName)
 			else
 				local res, msg = os.rename(build.fullFileName, main.buildPath..build.subPath..newBuildName)
 				if not res then
-					main:OpenMessagePopup("Error", "Couldn't rename '"..build.fullFileName.."' to '"..newBuildName.."': "..msg)
+					main:OpenMessagePopup(localisation:Text("ui.build_list_control.rename_build.save.label_4"), localisation:Text("ui.build_list_control.rename_build.save.label_2", { full_file_name = build.fullFileName, new_build_name = newBuildName, msg = msg }))
 					return
 				end
 			end
@@ -135,13 +135,13 @@ function BuildListClass:RenameBuild(build, copyOnName)
 			if copyOnName then
 				local res, msg = copyFile(build.fullFileName, main.buildPath..build.subPath..newFileName)
 				if not res then
-					main:OpenMessagePopup("Error", "Couldn't copy build: "..msg)
+					main:OpenMessagePopup(localisation:Text("ui.build_list_control.rename_build.save.label_4"), localisation:Text("ui.build_list_control.rename_build.save.label", { msg = msg }))
 					return
 				end
 			else
 				local res, msg = os.rename(build.fullFileName, main.buildPath..build.subPath..newFileName)
 				if not res then
-					main:OpenMessagePopup("Error", "Couldn't rename '"..build.fullFileName.."' to '"..newFileName.."': "..msg)
+					main:OpenMessagePopup(localisation:Text("ui.build_list_control.rename_build.save.label_4"), localisation:Text("ui.build_list_control.rename_build.save.label_3", { full_file_name = build.fullFileName, new_file_name = newFileName, msg = msg }))
 					return
 				end
 			end
@@ -152,7 +152,7 @@ function BuildListClass:RenameBuild(build, copyOnName)
 		self.listMode:SelectControl(self)
 	end)
 	controls.save.enabled = false
-	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 45, 70, 80, 20 }, "Cancel", function()
+	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 45, 70, 80, 20 }, localisation:Label("ui.build_list_control.rename_build.cancel.label"), function()
 		main:ClosePopup()
 		self.listMode:SelectControl(self)
 	end)
@@ -162,7 +162,7 @@ end
 function BuildListClass:DeleteBuild(build)
 	if build.folderName then
 		if NewFileSearch(build.fullFileName.."/*") or NewFileSearch(build.fullFileName.."/*", true) then
-			main:OpenConfirmPopup("Confirm Folder Delete", "The folder is not empty.\nAre you sure you want to delete folder:\n"..build.folderName.."\nThis cannot be undone.", "Delete", function()
+			main:OpenConfirmPopup(localisation:Text("ui.build_list_control.delete_build.message_3"), localisation:Text("ui.build_list_control.delete_build.message_6", { folder_name = build.folderName }), localisation:Text("ui.build_list_control.delete_build.message_5"), function()
 				RemoveDir(build.fullFileName, true)
 				self.listMode:BuildList()
 				self.selIndex = nil
@@ -171,7 +171,7 @@ function BuildListClass:DeleteBuild(build)
 		else
 			local res, msg = RemoveDir(build.fullFileName)
 			if not res then
-				main:OpenMessagePopup("Error", "Couldn't delete '"..build.fullFileName.."': "..msg)
+				main:OpenMessagePopup(localisation:Text("ui.build_list_control.rename_build.save.label_4"), localisation:Text("ui.build_list_control.delete_build.message_4", { full_file_name = build.fullFileName, msg = msg }))
 				return
 			end
 			self.listMode:BuildList()
@@ -179,7 +179,7 @@ function BuildListClass:DeleteBuild(build)
 			self.selValue = nil
 		end
 	else
-		main:OpenConfirmPopup("Confirm Delete", "Are you sure you want to delete build:\n"..build.buildName.."\nThis cannot be undone.", "Delete", function()
+		main:OpenConfirmPopup(localisation:Text("ui.build_list_control.delete_build.message_2"), localisation:Text("ui.build_list_control.delete_build.message", { build_name = build.buildName }), localisation:Text("ui.build_list_control.delete_build.message_5"), function()
 			os.remove(build.fullFileName)
 			self.listMode:BuildList()
 			self.selIndex = nil
@@ -212,11 +212,20 @@ function BuildListClass:GetRowValue(column, index, build)
 		end
 	elseif column == 2 then
 		if build.buildName then
-			return s_format("%sLevel %d %s", 
-				build.className and colorCodes[build.className:upper()] or "^7", 
-				build.level or 1, 
-				(build.ascendClassName ~= "None" and build.ascendClassName) or build.className or "?"
-			)
+			-- 使用构筑头中的职业身份读取树资源，保留未知或历史职业的原始名称。
+			local tree = main.tree[latestTreeVersion]
+			local class = tree.classes[tree.classNameMap[build.className]]
+			local className = (build.ascendClassName ~= "None" and build.ascendClassName) or build.className or "?"
+			local displayClass = class
+			if build.ascendClassName and build.ascendClassName ~= "None" then
+				displayClass = nil
+				for _, ascendancy in pairs(class and class.classes or { }) do
+					if ascendancy.name == className or ascendancy.id == className then displayClass = ascendancy; break end
+				end
+			end
+			return (build.className and colorCodes[build.className:upper()] or "^7") .. localisation:Text("ui.build_list_control.summary", {
+				level = s_format("%d", build.level or 1), class = displayClass and localisation:Field(displayClass, "name") or className,
+			})
 		else
 			return ""
 		end
@@ -242,7 +251,7 @@ function BuildListClass:ReceiveDrag(type, build, source)
 					local destPath = self.listMode:GetDestName(targetSubPath, build.fileName)
 					local res, msg = os.rename(build.fullFileName, destPath)
 					if not res then
-						main:OpenMessagePopup("Error", "Couldn't move '"..build.fullFileName.."' to '"..destPath.."': "..(msg or ""))
+						main:OpenMessagePopup(localisation:Text("ui.build_list_control.rename_build.save.label_4"), localisation:Text("ui.build_list_control.receive_drag.message", { full_file_name = build.fullFileName, dest_path = destPath, value = (msg or "") }))
 						return
 					end
 				end

@@ -255,12 +255,12 @@ end
 
 local function initStatSortSelectionList(list)
 	t_insert(list,  {
-		label = "Full DPS",
+		label = "Full DPS", labelKey = "ui.trade_query.init_stat_sort_selection_list.full_dps.label",
 		stat = "FullDPS",
 		weightMult = 1.0,
 	})
 	t_insert(list,  {
-		label = "Effective Hit Pool",
+		label = "Effective Hit Pool", labelKey = "ui.trade_query.init_stat_sort_selection_list.total_ehp.label",
 		stat = "TotalEHP",
 		weightMult = 0.5,
 	})
@@ -304,17 +304,17 @@ function TradeQueryClass:PriceItem()
 	self.loginStatus = function()
 		if main.api.authToken then
 			self.clickTime = nil
-			return "Authenticated"
+			return localisation:Text("auth.status.signed_in")
 		elseif self.clickTime then
 			local left = m_max(0,(self.clickTime + 60) - os.time())
 			if left == 0 then
 				self.clickTime = nil
-				return "Not authenticated"
+				return localisation:Text("auth.status.signed_out")
 			else
 				return self:FormatOAuthLoginStatus(left)
 			end
 		else
-			return colorCodes.WARNING.."Not authenticated"
+			return colorCodes.WARNING .. localisation:Text("auth.status.signed_out")
 		end
 	end
 
@@ -332,14 +332,14 @@ function TradeQueryClass:PriceItem()
 		if not main.api.authToken then
 			main.api:FetchAuthToken(function()
 				if main.api.authToken then
-					self.loginStatus = "Authenticated"
+					self.loginStatus = localisation:Label("auth.status.signed_in")
 
 					main.lastToken = main.api.authToken
 					main.lastRefreshToken = main.api.refreshToken
 					main.tokenExpiry = main.api.tokenExpiry
 					main:SaveSettings()
 				else
-					self.loginStatus = colorCodes.WARNING.."Not authenticated"
+					self.loginStatus = localisation:Label("auth.status.signed_out", nil, colorCodes.WARNING)
 				end
 			end)
 			self.clickTime = os.time()
@@ -354,31 +354,16 @@ function TradeQueryClass:PriceItem()
 			main:SaveSettings()
 		end
 	end)
-	self.controls.poesessidButton.tooltipText = [[
-The Trader feature supports two modes of operation depending on the authorization availability.
-You can click this button to authorize PoB by logging in.
-
-^2Session Mode^7
-- Requires authorization on pathofexile.com.
-- You can search, compare, and quickly import items without leaving Path of Building.
-- You can select an item and search it directly.
-- You can generate and perform searches for the private leagues you are participating.
-
-^xFF9922No Session Mode^7
-- Doesn't require authorization.
-- You cannot search and compare items in Path of Building.
-- You can generate weighted search URLs but have to visit the trade site and manually import items.
-- You can only generate weighted searches for public leagues. (Generated searches can be modified
-on trade site to work on other leagues and realms)]]
+	self.controls.poesessidButton.tooltipText = localisation:Label("ui.trade_query.price_item.poesessid_button_tooltip_text.label")
 
 	-- Buyout selection
-	self.tradeTypes = {
+	self.tradeTypes = localisation:List({
 		"Instant buyout",
 		"Instant buyout and in person",
 		"In person (online in league)",
 		"In person (online)",
 		"Any (includes offline)"
-	}
+	}, { [1] = "ui.trade_query.price_item.trade_types.message_4", [2] = "ui.trade_query.price_item.trade_types.message_5", [3] = "ui.trade_query.price_item.trade_types.message_3", [4] = "ui.trade_query.price_item.trade_types.message_2", [5] = "ui.trade_query.price_item.trade_types.message" })
 
 	self.controls.tradeTypeSelection = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.poesessidButton, "BOTTOMLEFT" },
 		{ 0, row_vertical_padding, 188, row_height }, self.tradeTypes, function(index, value)
@@ -389,7 +374,7 @@ on trade site to work on other leagues and realms)]]
 
 	-- Fetches Box
 	self.maxFetchPerSearchDefault = 2
-	self.controls.fetchCountEdit = new("EditControl"):EditControl({ "TOPRIGHT", nil, "TOPRIGHT" }, { -12, 19, 150, row_height }, "", "Fetch Pages", "%D", 3, function(buf)
+	self.controls.fetchCountEdit = new("EditControl"):EditControl({ "TOPRIGHT", nil, "TOPRIGHT" }, { -12, 19, 150, row_height }, "", localisation:Label("ui.trade_query.price_item.fetch_count_edit.label"), "%D", 3, function(buf)
 		self.maxFetchPages = m_min(m_max(tonumber(buf) or self.maxFetchPerSearchDefault, 1), 10)
 		self.tradeQueryRequests.maxFetchPerSearch = 10 * self.maxFetchPages
 		self.controls.fetchCountEdit.focusValue = self.maxFetchPages
@@ -402,9 +387,9 @@ on trade site to work on other leagues and realms)]]
 	end
 	self.controls.fetchCountEdit.tooltipFunc = function(tooltip)
 		tooltip:Clear()
-		tooltip:AddLine(16, "Specify maximum number of item pages to retrieve per search from PoE Trade.")
-		tooltip:AddLine(16, "Each page fetches up to 10 items.")
-		tooltip:AddLine(16, "Acceptable Range is: 1 to 10")
+		tooltip:AddLine(16, localisation:Text("ui.trade_query.price_item.fetch_count_edit_tooltip_func.tooltip_3"))
+		tooltip:AddLine(16, localisation:Text("ui.trade_query.price_item.fetch_count_edit_tooltip_func.tooltip_2"))
+		tooltip:AddLine(16, localisation:Text("ui.trade_query.price_item.fetch_count_edit_tooltip_func.tooltip"))
 	end
 
 	-- Stat sort popup button
@@ -413,14 +398,14 @@ on trade site to work on other leagues and realms)]]
 		self.statSortSelectionList = { }
 		initStatSortSelectionList(self.statSortSelectionList)
 	end
-	self.controls.StatWeightMultipliersButton = new("ButtonControl"):ButtonControl({ "TOPRIGHT", self.controls.fetchCountEdit, "BOTTOMRIGHT" }, { 0, row_vertical_padding, 150, row_height }, "^7Adjust search weights", function()
+	self.controls.StatWeightMultipliersButton = new("ButtonControl"):ButtonControl({ "TOPRIGHT", self.controls.fetchCountEdit, "BOTTOMRIGHT" }, { 0, row_vertical_padding, 150, row_height }, localisation:Label("ui.trade_query.price_item.stat_weight_multipliers_button.label"), function()
 		self.itemsTab.modFlag = true
 		self:SetStatWeights()
 	end)
 	self.controls.StatWeightMultipliersButton.tooltipFunc = function(tooltip)
 		tooltip:Clear()
-		tooltip:AddLine(16, "Sorts the weights by the stats selected multiplied by a value")
-		tooltip:AddLine(16, "Currently sorting by:")
+		tooltip:AddLine(16, localisation:Text("ui.trade_query.price_item.stat_weight_multipliers_button_tooltip_func.tooltip_2"))
+		tooltip:AddLine(16, localisation:Text("ui.trade_query.price_item.stat_weight_multipliers_button_tooltip_func.tooltip"))
 		for _, stat in ipairs(self.statSortSelectionList) do
 			tooltip:AddLine(16, s_format("%s: %.2f", stat.label, stat.weightMult))
 		end
@@ -445,18 +430,13 @@ on trade site to work on other leagues and realms)]]
 		end
 	end)
 	self.controls.itemSortSelection.tooltipText =
-[[Weighted Sum searches will always sort using descending weighted sum
-Additional post filtering options can be done these include:
-Highest Stat Value - Sort from highest to lowest Stat Value change of equipping item
-Highest Stat Value / Price - Sorts from highest to lowest by estimated Stat Value per currency
-Lowest Price - Sorts from lowest to highest price of retrieved items
-Highest Weight - Displays the order retrieved from trade]]
+localisation:Label("ui.trade_query.price_item.item_sort_selection_tooltip_text.label")
 	-- avoid calling selFunc to avoid updating controls before they are initialised
 	self.controls.itemSortSelection:SetSel(self.pbItemSortSelectionIndex, true)
-	self.controls.itemSortSelectionLabel = new("LabelControl"):LabelControl({ "TOPRIGHT", self.controls.itemSortSelection, "TOPLEFT" }, { -4, 0, 56, 16 }, "^7Sort By:")
+	self.controls.itemSortSelectionLabel = new("LabelControl"):LabelControl({ "TOPRIGHT", self.controls.itemSortSelection, "TOPLEFT" }, { -4, 0, 56, 16 }, localisation:Label("ui.trade_query.price_item.item_sort_selection_label.label"))
 
 	-- Realm selection
-	self.controls.realmLabel = new("LabelControl"):LabelControl({ "LEFT", self.controls.setSelect, "RIGHT" }, { 18, 0, 20, row_height - 4 }, "^7Realm:")
+	self.controls.realmLabel = new("LabelControl"):LabelControl({ "LEFT", self.controls.setSelect, "RIGHT" }, { 18, 0, 20, row_height - 4 }, localisation:Label("ui.trade_query.price_item.realm_label.label"))
 	self.controls.realm = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.realmLabel, "RIGHT" }, { 6, 0, 150, row_height }, self.realmDropList, function(index, value)
 		self.pbRealmIndex = index
 		if self.pbRealm ~= self.realmIds[value] then
@@ -497,7 +477,7 @@ Highest Weight - Displays the order retrieved from trade]]
 	end
 
 	-- League selection
-	self.controls.leagueLabel = new("LabelControl"):LabelControl({ "TOPRIGHT", self.controls.realmLabel, "TOPRIGHT" }, { 0, row_height + row_vertical_padding, 20, row_height - 4 }, "^7League:")
+	self.controls.leagueLabel = new("LabelControl"):LabelControl({ "TOPRIGHT", self.controls.realmLabel, "TOPRIGHT" }, { 0, row_height + row_vertical_padding, 20, row_height - 4 }, localisation:Label("ui.trade_query.price_item.league_label.label"))
 	self.controls.league = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.leagueLabel, "RIGHT" }, { 6, 0, 150, row_height }, self.itemsTab.leagueDropList, function(index, value)
 		self.pbLeagueIndex = index
 		self.pbLeague = value
@@ -556,10 +536,10 @@ Highest Weight - Displays the order retrieved from trade]]
 		t_insert(slotTables, { slotName = self.itemsTab.sockets[nodeId].label, nodeId = nodeId })
 	end
 
-	self.controls.authenticateButton = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.controls.characterImportAnchor, "TOPLEFT" }, { 0, 0, 200, 16 }, "^7Authorize with Path of Exile", function()
+	self.controls.authenticateButton = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.controls.characterImportAnchor, "TOPLEFT" }, { 0, 0, 200, 16 }, localisation:Label("ui.trade_query.price_item.authenticate_button.label"), function()
 		main.api:FetchAuthToken(function()
 			if main.api.authToken then
-				self.charImportStatus = "Authenticated"
+				self.charImportStatus = localisation:Label("auth.status.signed_in")
 
 				main.lastToken = main.api.authToken
 				main.lastRefreshToken = main.api.refreshToken
@@ -568,11 +548,11 @@ Highest Weight - Displays the order retrieved from trade]]
 
 				TradeQueryClass:SetNotice(self.controls.pbNotice, "")
 			else
-				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
+				self.charImportStatus = localisation:Label("auth.status.signed_out", nil, colorCodes.WARNING)
 			end
 		end)
 		local clickTime = os.time()
-		self.charImportStatus = function() return "Logging in... (" .. m_max(0, (clickTime + 30) - os.time()) .. ")" end
+		self.charImportStatus = function() return localisation:Text("auth.status.waiting", { value = m_max(0, (clickTime + 30) - os.time()) }) end
 	end)
 	self.controls.authenticateButton.shown = function()
 		return self.charImportMode == "AUTHENTICATION"
@@ -605,7 +585,7 @@ Highest Weight - Displays the order retrieved from trade]]
 		end
 	end
 
-	self.controls.otherTradesLabel = new("LabelControl"):LabelControl(top_pane_alignment_ref, { 0, (#slotTables + 1) * (row_height + row_vertical_padding), 100, 16 }, "^8Other trades:")
+	self.controls.otherTradesLabel = new("LabelControl"):LabelControl(top_pane_alignment_ref, { 0, (#slotTables + 1) * (row_height + row_vertical_padding), 100, 16 }, localisation:Label("ui.trade_query.price_item.other_trades_label.label"))
 	self.controls.otherTradesLabel.shown = function()
 		return hideRowFunc(self, #slotTables+1)
 	end
@@ -653,7 +633,7 @@ Highest Weight - Displays the order retrieved from trade]]
 	self.controls.scrollBar.shown = function() return scrollBarShown end
 
 	self.controls.fullPrice = new("LabelControl"):LabelControl({ "BOTTOM", nil, "BOTTOM" }, { 0, -row_height - pane_margins_vertical - row_vertical_padding, pane_width - 2 * pane_margins_horizontal, row_height }, "")
-	self.controls.close = new("ButtonControl"):ButtonControl({ "BOTTOM", nil, "BOTTOM" }, { 0, -pane_margins_vertical, 90, row_height }, "Done", function()
+	self.controls.close = new("ButtonControl"):ButtonControl({ "BOTTOM", nil, "BOTTOM" }, { 0, -pane_margins_vertical, 90, row_height }, localisation:Label("ui.trade_query.price_item.close.label"), function()
 		main:ClosePopup()
 	end)
 
@@ -692,7 +672,7 @@ Highest Weight - Displays the order retrieved from trade]]
 		end
 	end
 	self:PullCXData()
-	main:OpenPopup(pane_width, self.pane_height, "Trader", self.controls, nil, nil, "close", (scrollBarShown and scrollBarFunc or nil))
+	main:OpenPopup(pane_width, self.pane_height, localisation:Label("ui.trade_query.price_item.label"), self.controls, nil, nil, "close", (scrollBarShown and scrollBarFunc or nil))
 end
 
 -- Popup to set stat weight multipliers for sorting
@@ -727,7 +707,7 @@ function TradeQueryClass:SetStatWeights(previousSelectionList)
 	controls.SliderLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPRIGHT" }, { -410, 20, 0, 16 }, "^7" .. statList[1].stat.label .. ":")
 	controls.Slider = new("SliderControl"):SliderControl({ "TOPLEFT", controls.SliderLabel, "TOPRIGHT" }, { 20, 0, 150, 16 }, function(value)
 		if value == 0 then
-			controls.SliderValue.label = "^7Disabled"
+			controls.SliderValue.label = localisation:Label("ui.trade_query.set_stat_weights.slider_value_label.label")
 			statList[sliderController.index].stat.weightMult = 0
 			statList[sliderController.index].label = s_format("%d      :  ", 0)..statList[sliderController.index].stat.label
 		else
@@ -736,7 +716,7 @@ function TradeQueryClass:SetStatWeights(previousSelectionList)
 			statList[sliderController.index].label = s_format("%.2f :  ", 0.01 + value * 0.99)..statList[sliderController.index].stat.label
 		end
 	end)
-	controls.SliderValue = new("LabelControl"):LabelControl({ "TOPLEFT", controls.Slider, "TOPRIGHT" }, { 20, 0, 0, 16 }, "^7Disabled")
+	controls.SliderValue = new("LabelControl"):LabelControl({ "TOPLEFT", controls.Slider, "TOPRIGHT" }, { 20, 0, 0, 16 }, localisation:Label("ui.trade_query.set_stat_weights.slider_value.label"))
 	controls.Slider.tooltip.realDraw = controls.Slider.tooltip.Draw
 	controls.Slider.tooltip.Draw = function(self, x, y, width, height, viewPort)
 		local sliderOffsetX = round(184 * (1 - controls.Slider.val))
@@ -762,7 +742,7 @@ function TradeQueryClass:SetStatWeights(previousSelectionList)
 		end
 	end
 
-	controls.finalise = new("ButtonControl"):ButtonControl({ "BOTTOM", nil, "BOTTOM" }, { -90, -10, 80, 20 }, "Save", function()
+	controls.finalise = new("ButtonControl"):ButtonControl({ "BOTTOM", nil, "BOTTOM" }, { -90, -10, 80, 20 }, localisation:Label("ui.trade_query.set_stat_weights.finalise.label"), function()
 		main:ClosePopup()
 
 		-- used in ItemsTab to save to xml under TradeSearchWeights node
@@ -780,13 +760,13 @@ function TradeQueryClass:SetStatWeights(previousSelectionList)
 			self:UpdateControlsWithItems(row_idx)
 		end
     end)
-	controls.cancel = new("ButtonControl"):ButtonControl({ "BOTTOM", nil, "BOTTOM" }, { 0, -10, 80, 20 }, "Cancel", function()
+	controls.cancel = new("ButtonControl"):ButtonControl({ "BOTTOM", nil, "BOTTOM" }, { 0, -10, 80, 20 }, localisation:Label("ui.trade_query.set_stat_weights.cancel.label"), function()
 		if previousSelectionList and #previousSelectionList > 0 then
 			self.statSortSelectionList = copyTable(previousSelectionList, true)
 		end
 		main:ClosePopup()
 	end)
-	controls.reset = new("ButtonControl"):ButtonControl({ "BOTTOM", nil, "BOTTOM" }, { 90, -10, 80, 20 }, "Reset", function()
+	controls.reset = new("ButtonControl"):ButtonControl({ "BOTTOM", nil, "BOTTOM" }, { 90, -10, 80, 20 }, localisation:Label("ui.trade_query.set_stat_weights.reset.label"), function()
 		local previousSelection = { }
 		if isSameAsDefaultList(self.statSortSelectionList) then
 			previousSelection = copyTable(previousSelectionList, true)
@@ -798,7 +778,7 @@ function TradeQueryClass:SetStatWeights(previousSelectionList)
 		main:ClosePopup()
 		self:SetStatWeights(previousSelection)
 	end)
-	main:OpenPopup(420, popupHeight, "Stat Weight Multipliers", controls)
+	main:OpenPopup(420, popupHeight, localisation:Label("ui.trade_query.set_stat_weights.label"), controls)
 end
 
 -- Method to set the notice message in upper right of PoB Trader pane
@@ -967,7 +947,7 @@ function TradeQueryClass:ResetResultRow(rowIdx)
 	self.resultTbl[rowIdx] = nil
 	self.totalPrice[rowIdx] = nil
 	self:UpdateDropdownList(rowIdx)
-	self.controls.fullPrice.label = "^7Total Price: " .. self:GetTotalPriceString()
+	self.controls.fullPrice.label = localisation:Label("ui.trade_query.reset_result_row.full_price_label.label", { value = self:GetTotalPriceString() })
 end
 function TradeQueryClass:UpdateControlsWithItems(row_idx)
 	local sortMode = self.itemSortSelectionList[self.pbItemSortSelectionIndex]
@@ -990,12 +970,12 @@ function TradeQueryClass:UpdateControlsWithItems(row_idx)
 	end
 	local pb_index = sortedItems[1].index
 	self.itemIndexTbl[row_idx] = pb_index
-	self.controls["priceButton".. row_idx].tooltipText = "Sorted by " .. self.itemSortSelectionList[self.pbItemSortSelectionIndex]
+	self.controls["priceButton".. row_idx].tooltipText = localisation:Label("ui.trade_query.update_controls_with_items.controls_price_button_row_idx_tooltip_text.label", { value = self.itemSortSelectionList[self.pbItemSortSelectionIndex] })
 	self.totalPrice[row_idx] = {
 		currency = self.resultTbl[row_idx][pb_index].currency,
 		amount = self.resultTbl[row_idx][pb_index].amount,
 	}
-	self.controls.fullPrice.label = "^7Total Price: " .. self:GetTotalPriceString()
+	self.controls.fullPrice.label = localisation:Label("ui.trade_query.reset_result_row.full_price_label.label", { value = self:GetTotalPriceString() })
 	self:UpdateDropdownList(row_idx)
 end
 
@@ -1006,7 +986,7 @@ function TradeQueryClass:SetFetchResultReturn(row_idx, index)
 			currency = self.resultTbl[row_idx][index].currency,
 			amount = self.resultTbl[row_idx][index].amount,
 		}
-		self.controls.fullPrice.label = "^7Total Price: " .. self:GetTotalPriceString()
+		self.controls.fullPrice.label = localisation:Label("ui.trade_query.reset_result_row.full_price_label.label", { value = self:GetTotalPriceString() })
 	end
 end
 
@@ -1116,7 +1096,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 	end
 	local nameColor = slotTbl.unique and colorCodes.UNIQUE or "^7"
 	controls["name" .. row_idx] = new("LabelControl"):LabelControl(top_pane_alignment_ref, { 0, row_idx * (row_height + row_vertical_padding), 135, row_height - 4 }, nameColor .. slotTbl.slotName)
-	controls["bestButton" .. row_idx] = new("ButtonControl"):ButtonControl({ "LEFT", controls["name" .. row_idx], "LEFT" }, { 135 + 8, 0, 80, row_height }, "Find best", function()
+	controls["bestButton" .. row_idx] = new("ButtonControl"):ButtonControl({ "LEFT", controls["name" .. row_idx], "LEFT" }, { 135 + 8, 0, 80, row_height }, localisation:Label("ui.trade_query.price_item_row_display.controls_best_button_row_idx.label"), function()
 		---@param query table A table of filters
 		local function requestQueryHandler(context, query, errMsg)
 			if errMsg then
@@ -1131,7 +1111,8 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 				controls["uri"..context.row_idx]:SetText(url, true)
 				return
 			end
-			context.controls["priceButton"..context.row_idx].label = "Searching..."
+			context.controls["priceButton"..context.row_idx].label = localisation:Label("ui.trade_query.request_query_handler.context_controls_price_button_context_row_idx_label.label_2")
+			context.controls["priceButton"..context.row_idx].searching = true
 			-- the query that can be included in the url only contains the filters, which means we
 			-- need to modify the query slightly for the POST endpoint
 			query = dkjson.encode({
@@ -1143,7 +1124,8 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 				function(items, errMsg)
 					if errMsg then
 						self:SetNotice(context.controls.pbNotice, colorCodes.NEGATIVE .. errMsg)
-						context.controls["priceButton"..context.row_idx].label =  "Price Item"
+						context.controls["priceButton"..context.row_idx].label =  localisation:Label("ui.trade_query.request_query_handler.context_controls_price_button_context_row_idx_label.label")
+						context.controls["priceButton"..context.row_idx].searching = false
 						return
 					else
 						self:SetNotice(context.controls.pbNotice, "")
@@ -1184,7 +1166,8 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 
 					self.resultTbl[context.row_idx] = itemsSafe
 					self:UpdateControlsWithItems(context.row_idx)
-					context.controls["priceButton"..context.row_idx].label =  "Price Item"
+					context.controls["priceButton"..context.row_idx].label =  localisation:Label("ui.trade_query.request_query_handler.context_controls_price_button_context_row_idx_label.label")
+					context.controls["priceButton"..context.row_idx].searching = false
 				end,
 				{
 					callbackQueryId = function(queryId)
@@ -1198,10 +1181,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 	end)
 	controls["bestButton"..row_idx].shown = function() return not self.resultTbl[row_idx] end
 	controls["bestButton"..row_idx].enabled = function() return self.pbLeague end
-	controls["bestButton"..row_idx].tooltipText = [[Creates a weighted search to find the highest Stat Value items for this slot.
-Note that even if you are authenticated, you can click this button again to show the search link.
-If you have additional requirements that the trade tool doesn't cover (e.g. Adorned Magic jewels),
-you can add them, copy the link here, and press "Price Item" to evaluate the items.]]
+	controls["bestButton"..row_idx].tooltipText = localisation:Label("ui.trade_query.price_item_row_display.controls_best_button_row_idx_tooltip_text.label")
 	controls["bestButton" .. row_idx].onHover = function()
 		local button = controls["bestButton" .. row_idx]
 
@@ -1237,18 +1217,20 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 		end
 	end, nil)
 	controls["uri"..row_idx]:SetPlaceholder("Paste trade URL here...")
+	controls["uri"..row_idx].placeholderKey = "trade.url.placeholder"
 	if pbURL and pbURL ~= "" then
 		controls["uri"..row_idx]:SetText(pbURL, true)
 	end
 	controls["uri"..row_idx].tooltipFunc = function(tooltip)
 		tooltip:Clear()
 		if controls["uri"..row_idx].buf:find('^'..self.hostName..'trade2/search/') ~= nil then
-			tooltip:AddLine(16, "Control + click to open in web-browser")
+			tooltip:AddLine(16, localisation:Text("ui.trade_query.price_item_row_display.controls_uri_row_idx_tooltip_func.tooltip"))
 		end
 	end
-	controls["priceButton" .. row_idx] = new("ButtonControl"):ButtonControl({ "TOPLEFT", controls["uri" .. row_idx], "TOPRIGHT" }, { 8, 0, 100, row_height }, "Price Item",
+	controls["priceButton" .. row_idx] = new("ButtonControl"):ButtonControl({ "TOPLEFT", controls["uri" .. row_idx], "TOPRIGHT" }, { 8, 0, 100, row_height }, localisation:Label("ui.trade_query.price_item_row_display.controls_price_button_row_idx.label"),
 		function()
-			controls["priceButton"..row_idx].label = "Searching..."
+			controls["priceButton"..row_idx].label = localisation:Label("ui.trade_query.request_query_handler.context_controls_price_button_context_row_idx_label.label_2")
+			controls["priceButton"..row_idx].searching = true
 			self.tradeQueryRequests:SearchWithURL(controls["uri"..row_idx].buf, function(items, errMsg, query)
 				if errMsg then
 					self:SetNotice(controls.pbNotice, "Error: " .. errMsg)
@@ -1260,13 +1242,14 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 					self.resultTbl[row_idx] = itemsSafe
 					self:UpdateControlsWithItems(row_idx)
 				end
-				controls["priceButton"..row_idx].label = "Price Item"
+				controls["priceButton"..row_idx].label = localisation:Label("ui.trade_query.request_query_handler.context_controls_price_button_context_row_idx_label.label")
+				controls["priceButton"..row_idx].searching = false
 			end)
 		end)
 	controls["priceButton"..row_idx].enabled = function()
 		local isAuthorized = main.api.authToken ~= nil
 		local validURL = controls["uri"..row_idx].validURL
-		local isSearching = controls["priceButton"..row_idx].label == "Searching..."
+		local isSearching = controls["priceButton"..row_idx].searching
 		local selectedJewelSlot = slotTbl.selectedJewelNodeId and self.itemsTab.sockets[slotTbl.selectedJewelNodeId]
 		local hasRequiredJewelSlot = not slotTbl.unique or selectedJewelSlot and not selectedJewelSlot.inactive
 		return isAuthorized and validURL and not isSearching and hasRequiredJewelSlot
@@ -1274,17 +1257,17 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 	controls["priceButton"..row_idx].tooltipFunc = function(tooltip)
 		tooltip:Clear()
 		if not main.api.authToken then
-			tooltip:AddLine(16, "You must log in to use the search feature")
+			tooltip:AddLine(16, localisation:Text("ui.trade_query.price_item_row_display.controls_price_button_row_idx_tooltip_func.tooltip_3"))
 		elseif not controls["uri"..row_idx].validURL then
-			tooltip:AddLine(16, "Enter a valid trade URL")
+			tooltip:AddLine(16, localisation:Text("ui.trade_query.price_item_row_display.controls_price_button_row_idx_tooltip_func.tooltip"))
 		elseif slotTbl.unique and (not slotTbl.selectedJewelNodeId or not self.itemsTab.sockets[slotTbl.selectedJewelNodeId] or self.itemsTab.sockets[slotTbl.selectedJewelNodeId].inactive) then
-			tooltip:AddLine(16, "Requires an active Jewel Socket")
+			tooltip:AddLine(16, localisation:Text("ui.trade_query.price_item_row_display.controls_price_button_row_idx_tooltip_func.tooltip_2"))
 		end
 	end
 	local clampItemIndex = function(index)
 		return m_min(m_max(index or 1, 1), self.sortedResultTbl[row_idx] and #self.sortedResultTbl[row_idx] or 1)
 	end
-	controls["changeButton" .. row_idx] = new("ButtonControl"):ButtonControl({ "LEFT", controls["name" .. row_idx], "LEFT" }, { 135 + 8, 0, 80, row_height }, "<< Search", function()
+	controls["changeButton" .. row_idx] = new("ButtonControl"):ButtonControl({ "LEFT", controls["name" .. row_idx], "LEFT" }, { 135 + 8, 0, 80, row_height }, localisation:Label("ui.trade_query.price_item_row_display.controls_change_button_row_idx.label"), function()
 		self:ResetResultRow(row_idx)
 	end)
 	controls["changeButton"..row_idx].shown = function() return self.resultTbl[row_idx] end
@@ -1314,19 +1297,19 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 		if eval and eval[1] and eval[1].statDetails then
 			local scorePercent = self:GetResultScorePercent(eval[1])
 			local scoreColor = scorePercent and scorePercent >= 0 and colorCodes.POSITIVE or colorCodes.NEGATIVE
-			tooltip:AddLine(16, "^7Score Breakdown:")
+			tooltip:AddLine(16, localisation:Text("ui.trade_query.price_item_row_display.controls_result_dropdown_row_idx_tooltip_func.tooltip_3"))
 			for _, detail in ipairs(eval[1].statDetails) do
 				local color = detail.percentChange >= 0 and colorCodes.POSITIVE or colorCodes.NEGATIVE
-				tooltip:AddLine(16, s_format("  %s%s: %+.1f%%^7 (weight: %.2f)", color, detail.label, detail.percentChange, detail.weightMult))
+				tooltip:AddLine(16, localisation:Text("ui.trade_query.price_item_row_display.controls_result_dropdown_row_idx_tooltip_func.tooltip_4", { color = color, label = localisation:Field(detail, 'label'), percent_change = detail.percentChange, weight_mult = detail.weightMult }))
 			end
 			if scorePercent then
-				tooltip:AddLine(16, s_format("  %sOverall: %+.1f%%", scoreColor, scorePercent))
+				tooltip:AddLine(16, localisation:Text("ui.trade_query.price_item_row_display.controls_result_dropdown_row_idx_tooltip_func.tooltip", { score_color = scoreColor, score_percent = scorePercent }))
 			end
 			tooltip:AddSeparator(10)
 		end
-		tooltip:AddLine(16, string.format("^7Price: %s %s", result.amount, result.currency))
+		tooltip:AddLine(16, localisation:Text("ui.trade_query.price_item_row_display.controls_result_dropdown_row_idx_tooltip_func.tooltip_2", { amount = result.amount, currency = result.currency }))
 	end
-	controls["importButton" .. row_idx] = new("ButtonControl"):ButtonControl({ "TOPLEFT", controls["resultDropdown" .. row_idx], "TOPRIGHT" }, { 8, 0, 100, row_height }, "Import Item", function()
+	controls["importButton" .. row_idx] = new("ButtonControl"):ButtonControl({ "TOPLEFT", controls["resultDropdown" .. row_idx], "TOPRIGHT" }, { 8, 0, 100, row_height }, localisation:Label("ui.trade_query.price_item_row_display.controls_import_button_row_idx.label"), function()
 		self.itemsTab:CreateDisplayItemFromRaw(self.resultTbl[row_idx][self.itemIndexTbl[row_idx]].item_string)
 		local item = self.itemsTab.displayItem
 		-- pass "true" to not auto equip it as we will have our own logic
@@ -1369,9 +1352,9 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 			-- we also check the price type so we can prefer instant buyout over
 			-- whisper
 			if itemResult.whisper and (itemResult.priceType ~= "~b/o") then
-				return price and "Whisper for " .. price or "Whisper"
+				return price and localisation:Text("ui.trade_query.price_item_row_display.controls_whisper_button_row_idx.label_4", { price = price }) or localisation:Text("ui.trade_query.price_item_row_display.controls_whisper_button_row_idx.label_3")
 			else
-				return price and "Search for " .. price or "Search"
+				return price and localisation:Text("ui.trade_query.price_item_row_display.controls_whisper_button_row_idx.label_2", { price = price }) or localisation:Text("ui.trade_query.price_item_row_display.controls_whisper_button_row_idx.label")
 			end
 
 		end, function()

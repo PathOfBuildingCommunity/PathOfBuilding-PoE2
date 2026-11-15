@@ -7,6 +7,7 @@ local pairs = pairs
 local ipairs = ipairs
 local t_insert = table.insert
 local s_format = string.format
+local StatTemplates = dofile('Modules/Localisation/StatTemplates.lua')
 
 local scopes = { }
 
@@ -22,8 +23,18 @@ local function getScope(scopeName)
 			scope = LoadModule("Data/StatDescriptions/Specific_Skill_Stat_Descriptions/"..normalizedScopeName)
 		else
 			scope = LoadModule("Data/StatDescriptions/"..normalizedScopeName)
-		end 
+		end
 		scope.name = scopeName
+		local variants = { }
+		for _, descriptor in ipairs(scope) do
+			for _, description in ipairs(descriptor[1] or { }) do
+				local identity = StatTemplates.Identity(normalizedScopeName, descriptor.stats, description)
+				variants[identity] = (variants[identity] or 0) + 1
+				localisation:BindFields('stat_description', identity .. '|variant_' .. variants[identity], description)
+				local _, slots = StatTemplates.Compile(description.text)
+				description.displaySlots = slots
+			end
+		end
 		if scope.parent then
 			local parentScope = getScope(scope.parent)
 			scope.scopeList = copyTable(parentScope.scopeList, true)
@@ -172,7 +183,7 @@ local function applySpecial(val, spec)
 	elseif spec.k == "milliseconds_to_seconds_2dp" or spec.k == "milliseconds_to_seconds_2dp_if_required" then
 		val[spec.v].min = round(val[spec.v].min / 1000, 2)
 		val[spec.v].max = round(val[spec.v].max / 1000, 2)
-		val[spec.v].fmt = "g"									
+		val[spec.v].fmt = "g"
 	elseif spec.k == "deciseconds_to_seconds" then
 		val[spec.v].min = val[spec.v].min / 10
 		val[spec.v].max = val[spec.v].max / 10
@@ -228,13 +239,13 @@ local function applySpecial(val, spec)
 	end
 end
 
-return function(stats, scopeName, quality)
+return function(stats, scopeName, quality, parameterTransform)
 	local rootScope = getScope(scopeName)
 
 	-- Figure out which descriptions we need, and identify them by the first stat that they describe
 	local describeStats = { }
 	for s, v in pairs(stats) do
-		if (type(v) == "number" and v ~= 0) or (type(v) == "table" and (v.min ~= 0 or v.max ~= 0)) then	
+		if (type(v) == "number" and v ~= 0) or (type(v) == "table" and (v.min ~= 0 or v.max ~= 0)) then
 			for depth, scope in ipairs(rootScope.scopeList) do
 				if scope[s] then
 					local descriptor = scope[scope[s]]
@@ -278,21 +289,26 @@ return function(stats, scopeName, quality)
 			for _, spec in ipairs(desc) do
 				applySpecial(val, spec)
 			end
-			local statDesc = desc.text:gsub("{(%d)}", function(n) 
+			local statDesc
+			if desc.textKey then
+				statDesc = localisation:Field(desc, 'text', StatTemplates.Parameters(desc.displaySlots, val, parameterTransform))
+				if desc.text:find('\\n', 1, true) then statDesc = statDesc:gsub('\n', '\\n') end
+			else
+			statDesc = desc.text:gsub("{(%d)}", function(n)
 				local v = val[tonumber(n)+1]
 				if v.min == v.max then
 					return s_format("%"..v.fmt, v.min)
 				else
 					return s_format("(%"..v.fmt.."-%"..v.fmt..")", v.min, v.max)
 				end
-			end):gsub("{}", function() 
+			end):gsub("{}", function()
 				local v = val[1]
 				if v.min == v.max then
 					return s_format("%"..v.fmt, v.min)
 				else
 					return s_format("(%"..v.fmt.."-%"..v.fmt..")", v.min, v.max)
 				end
-			end):gsub("{:%+?d}", function() 
+			end):gsub("{:%+?d}", function()
 				local v = val[1]
 				if v.min == v.max then
 					return s_format("%"..v.fmt, v.min)
@@ -313,6 +329,7 @@ return function(stats, scopeName, quality)
 					return s_format("(%"..fmt..v.fmt.."-%"..fmt..v.fmt..")", v.min, v.max)
 				end
 			end):gsub("%%%%","%%")
+			end
 			for line in (statDesc.."\\n"):gmatch("([^\\]+)\\n") do
 				t_insert(out, line)
 				lineMap[line] = stat

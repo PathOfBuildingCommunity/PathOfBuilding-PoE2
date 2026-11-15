@@ -16,30 +16,36 @@ function ComparePowerReportListClass:ComparePowerReportListControl(anchor, rect)
 	local width = rect[3]
 	self.impactColumn = { width = width * 0.22, label = "", sortable = true }
 	self.colList = {
-		{ width = width * 0.10, label = "Category", sortable = true },
-		{ width = width * 0.44, label = "Name" },
+		{ width = width * 0.10, label = "Category", labelKey = "ui.compare_power_report_list_control.init.col_list.label", sortable = true },
+		{ width = width * 0.44, label = "Name", labelKey = "ui.compare_power_report_list_control.init.col_list.label_2" },
 		self.impactColumn,
-		{ width = width * 0.06, label = "Points", sortable = true },
-		{ width = width * 0.14, label = "Per Point", sortable = true },
+		{ width = width * 0.06, label = "Points", labelKey = "ui.compare_power_report_list_control.init.col_list.label_4", sortable = true },
+		{ width = width * 0.14, label = "Per Point", labelKey = "ui.compare_power_report_list_control.init.col_list.label_3", sortable = true },
 	}
 	self.colLabels = true
 	self.showRowSeparators = true
 	self.statusText = "Select a metric above to generate the power report."
+	self.statusTextKey = 'ui.compare_power_report_list_control.init.status_text_key.message'
 	return self
 end
 
 function ComparePowerReportListClass:SetReport(stat, report)
 	self.impactColumn.label = stat and stat.label or ""
+	self.impactColumn.labelKey = stat and stat.labelKey
+	self.impactColumn.labelParams = stat and stat.labelParams
 	self.reportData = report or {}
 
 	if stat and stat.stat then
 		if report and #report > 0 then
 			self.statusText = nil
+			self.statusTextKey, self.statusTextParams = nil, nil
 		else
 			self.statusText = "No differences found."
+			self.statusTextKey, self.statusTextParams = 'ui.compare_power_report_list_control.set_report.status_text_key.message', nil
 		end
 	else
 		self.statusText = "Select a metric above to generate the power report."
+		self.statusTextKey, self.statusTextParams = 'ui.compare_power_report_list_control.init.status_text_key.message', nil
 	end
 
 	self:ReList()
@@ -49,6 +55,7 @@ end
 function ComparePowerReportListClass:SetProgress(progress)
 	if progress < 100 then
 		self.statusText = "Calculating... " .. progress .. "%"
+		self.statusTextKey, self.statusTextParams = 'ui.compare_power_report_list_control.set_progress.status_text_key.message', { progress = progress }
 		self.list = {}
 	end
 end
@@ -66,7 +73,7 @@ function ComparePowerReportListClass:Draw(viewPort, noTooltip)
 		-- Column headers are 18px tall, plus 2px border = start at y+20
 		SetViewport(x + 2, y + 20, width - 20, height - 22)
 		SetDrawColor(1, 1, 1)
-		DrawString(4, 4, "LEFT", 14, "VAR", self.statusText)
+		DrawString(4, 4, "LEFT", 14, "VAR", localisation:Field(self, 'statusText'))
 		SetViewport()
 	end
 end

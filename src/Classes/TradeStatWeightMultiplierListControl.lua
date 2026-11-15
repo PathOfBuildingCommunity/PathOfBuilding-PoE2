@@ -29,7 +29,7 @@ end
 function TradeStatWeightMultiplierListControlClass:AddValueTooltip(tooltip, index, data)
 	tooltip:Clear()
 	if not self.noTooltip then
-		tooltip:AddLine(16, "^7Click to modify this stats weight multiplier.")
+		tooltip:AddLine(16, localisation:Text("ui.trade_stat_weight_multiplier_list_control.add_value_tooltip.tooltip"))
 	end
 end
 

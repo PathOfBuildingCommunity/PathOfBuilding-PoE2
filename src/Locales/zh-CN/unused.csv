@@ -1,0 +1,76 @@
+"Have you used a Fire Skill in the past 10s?","你过去 10 秒内有使用火焰技能?"
+"Have you used a Cold Skill in the past 10s?","你过去 10 秒内有使用冰霜技能?"
+"Have you used a Light. Skill in the past 10s?","你过去 10 秒内有使用闪电技能?"
+"Blocked hit from a Unique Recently?",近期有格挡传奇怪物击中?
+ES % Cost:,ES百分比消耗:
+Avoid Projectiles Ch.:,投射物伤害避免几率:
+Physical Hit/DoT:,物理 击中/持续:
+Fire Hit/DoT:,火焰 击中/持续:
+Cold Hit/DoT:,冰霜 击中/持续:
+Lightning Hit/DoT:,闪电 击中/持续:
+Chaos Hit/DoT:,混沌 击中/持续:
+Mind over Matter:,心灵升华:
+Curse Effect:,诅咒效果:
+"x {0} (chance to deal double damage)","x {0} (造成双倍伤害几率)"
+"x {0} (mana cost multiplier)","x {0} (魔力消耗倍率)"
+"this will lessen the enemy's chance to hit, and thereby increase your evade chance.",这将减少敌人的击中几率从而提高你的闪避几率.
+"This also implies that the enemy is Chilled.",这也意味着敌人被冰缓.
+"this will apply Shock's Damage Taken modifier to the enemy.",这将对敌人应用感电伤害的加成.
+"This adds the following modifiers:",这将会应用以下加成:
+"10% increased Damage Taken by enemy","敌人承受伤害提高 10%"
+"10% increased Attack Damage Taken by enemy","敌人承受攻击伤害提高 10%"
+"10% increased Spell Damage Taken by enemy","敌人承受法术伤害提高 10%"
+"20% less enemy Movement Speed","敌人移动速度额外降低 20%"
+"20% increased Fire Damage Taken by enemy","敌人承受火焰伤害提高 20%"
+"Your enemy will automatically be considered to be Unique if one of the Boss options is selected.","如果已选择 Boss 选项将会自动启用此状态."
+"Shaper/Guardian adds the following modifiers:","岳父/长老 将会应用以下加成:"
+Shaper/Guardian,岳父/长老
+"50% less Duration of Bleed","流血持续时间额外降低 50%"
+"50% less Duration of Poison","中毒持续时间额外降低 50%"
+"50% less Duration of Ignite","点燃持续时间额外降低 50%"
+"used in-game to calculate the stats on the character sheet.",在游戏中用于计算角色状态面板
+"Enemy Physical Hit Damage:",敌人击中物理伤害:
+"This overrides the default damage amount used to estimate your physical damage reduction from armour.",设置伤害量会影响你来自护甲的物理伤害减免估算
+"or copy and paste an item from in game (hover over the item and Ctrl+C)","或者复制粘贴游戏中的物品(鼠标悬停在物品上 Ctrl+C)"
+"to view or edit the item and add it to your build.","来查看或编辑物品并添加到你的 BD"
+"This will also add it to your build if it's from the unique/template list.","如果物品来自 传奇/模版 列表,它也会添加到你的 BD 中"
+"If there's 2 slots an item can go in, holding Shift will put it in the second.","如果物品可以并需要装备到第二个插槽,请按住 Shitf 键放入其中."
+"You can Control + Click an item to equip it, or drag it onto the slot.","你可以使用 Control+Click 或拖放快速装备某个物品"
+"^x7F7F7FSockets: ","^x7F7F7F插槽: "
+"^x7F7F7FQuality: ","^x7F7F7F品质: "
+"^x7F7F7FArmour: ","^x7F7F7F护甲: "
+"^x7F7F7FEvasion Rating: ","^x7F7F7F闪避值: "
+"^x7F7F7FCritical Strike Chance: ","^x7F7F7F攻击暴击率: "
+"^x7F7F7FAttacks per Second: ","^x7F7F7F每秒攻击次数: "
+"^x7F7F7FWeapon Range: ","^x7F7F7F武器范围: "
+"^x7F7F7FChance to Block: ","^x7F7F7F格挡几率: "
+"^x7F7F7FPhysical Damage: ","^x7F7F7F物理伤害: "
+"^x7F7F7FElemental Damage: ","^x7F7F7F元素伤害: "
+"^x7F7F7FElemental DPS: ","^x7F7F7F元素 DPS: "
+"^x7F7F7FChaos Damage: ","^x7F7F7F混沌伤害: "
+"^x7F7F7FTotal DPS: ","^x7F7F7F总 DPS: "
+^x7F7F7FLevel:,^x7F7F7F等级:
+"^x7F7F7FMana Multiplier:",^x7F7F7F魔力消耗倍率:
+"^x7F7F7FMana Cost:",^x7F7F7F魔力消耗:
+"^x7F7F7FCast Time:",^x7F7F7F施放时间:
+"^x7F7F7FMana Reserved:",^x7F7F7F魔力保留:
+"^x7F7F7FCooldown Time:",^x7F7F7F冷却时间:
+"^x7F7F7FEffectiveness of Added Damage:",^x7F7F7F伤害效用:
+"^x7F7F7FLimited to: ","^x7F7F7F仅限: "
+"^x7F7F7FRadius: ^7Large","^x7F7F7F范围: ^7大"
+"^x7F7F7FRadius: ^7Medium","^x7F7F7F范围: ^7中"
+"^x7F7F7FRadius: ^7Small","^x7F7F7F范围: ^7小"
+"^x7F7F7FEnergy Shield: ","^x7F7F7F能量护盾: "
+"x {0} leech rate modifier","x {0} 偷取速率加成"
+"x 0.20 (poison deals 20% per second)","x 0.20 (每秒 20% 中毒伤害)"
+"/ %.2f (burn rate modifier)","/ {0} (燃烧速度加成)"
+"x 0.5 (ignite deals 50% per second)","x 0.5 (每秒 50% 点燃伤害)"
+Are you against Damage over Time?,你在受到持续伤害?
+Warcry calculation mode:,战吼计算模式:
+Super Chance:,超聚能概率:
+"Is Ngamahu, Flame's Advance active?","【火徒.努葛玛呼】激活?"
+"Total DPS","总 DPS"
+"Average Dmg. inc. Poison:","总+中毒平均伤害"
+Capped to 1 poison:,最大限制1层中毒:
+
+Did you Chill yourself?,^xFFFFFF你^x3F6DB3【冰缓】^7你自己?

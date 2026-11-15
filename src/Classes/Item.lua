@@ -1112,7 +1112,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 							for _, line in ipairs(self.base.flask.buff) do
 								flaskBuffLines[line] = true
 								local modList, extra = modLib.parseMod(line)
-								t_insert(self.buffModLines, { line = line, extra = extra, modList = modList or { } })
+								local entry = { line = line, extra = extra, modList = modList or { } }
+								localisation:BindModLine(entry, 'base:' .. self.baseName .. ':flask')
+								t_insert(self.buffModLines, entry)
 							end
 						end
 						if self.base.charm and self.base.charm.buff and not charmBuffLines then
@@ -1120,7 +1122,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 							for _, line in ipairs(self.base.charm.buff) do
 								charmBuffLines[line] = true
 								local modList, extra = modLib.parseMod(line)
-								t_insert(self.buffModLines, { line = line, extra = extra, modList = modList or { } })
+								local entry = { line = line, extra = extra, modList = modList or { } }
+								localisation:BindModLine(entry, 'base:' .. self.baseName .. ':charm')
+								t_insert(self.buffModLines, entry)
 							end
 						end
 					end
@@ -1333,6 +1337,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					modLines = self.explicitModLines
 				end
 				modLine.line = line
+				localisation:BindModLine(modLine, self.title and self.title .. ':' .. (self.baseName or ''), { rangedLine, itemLib.applyRange(line, 0, catalystScalar, modLine.corruptedRange) })
 				if self:CheckModLineVariant(modLine) then
 					if modLine.socketedAugmentTypeOverride then
 						self.socketedAugmentTypeOverride = modLine.socketedAugmentTypeOverride
@@ -1823,6 +1828,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	if self.jewelData and self.jewelData.timeLostJewelRadiusOverride then
 		self.jewelRadiusIndex = self.jewelData.timeLostJewelRadiusOverride
 	end
+	localisation:BindItemMetadata(self)
 end
 
 function ItemClass:NormaliseQuality()
@@ -2145,7 +2151,7 @@ function ItemClass:UpdateRunes()
 	local statOrder = {}
 	-- Normal and Bonded stats share display ordering and stacking, but Bonded is only
 	-- added for display; it is not part of the text sent to the modifier parser.
-	local addModLine = function(mod, line, order, bonded)
+	local addModLine = function(mod, line, order, bonded, index)
 		local orderValue = order or 0
 		local displayLine = bonded and "Bonded: " .. line or line
 		local orderKey = mod.type .. ":" .. (bonded and "Bonded:" or "") .. orderValue
@@ -2164,6 +2170,7 @@ function ItemClass:UpdateRunes()
 		else
 			local modList, extra = modLib.parseMod(line)
 			local modLine = { line = displayLine, order = orderValue, modList = modList or { }, extra = extra, rune = true, enchant = true, augmentType = mod.type }
+			localisation:BindModDataLine(bonded and mod.bonded or mod, index, modLine)
 			if bonded then
 				modLine.bonded = true
 			end
@@ -2199,11 +2206,11 @@ function ItemClass:UpdateRunes()
 			end
 			for _, mod in ipairs(gatheredMods) do
 				for i, modLine in ipairs(mod) do
-					addModLine(mod, modLine, mod.statOrder and mod.statOrder[i], false)
+					addModLine(mod, modLine, mod.statOrder and mod.statOrder[i], false, i)
 				end
 				if mod.bonded then
 					for i, modLine in ipairs(mod.bonded) do
-						addModLine(mod, modLine, mod.bonded.statOrder and mod.bonded.statOrder[i], true)
+						addModLine(mod, modLine, mod.bonded.statOrder and mod.bonded.statOrder[i], true, i)
 					end
 				end
 			end

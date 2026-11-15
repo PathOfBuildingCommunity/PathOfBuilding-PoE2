@@ -1,0 +1,483 @@
+"Paua Amulet",海靈護身符
+"Coral Amulet",珊瑚護身符
+"Amber Amulet",琥珀護身符
+"Jade Amulet",翠玉護身符
+"Lapis Amulet",海玉護身符
+"Gold Amulet",帝金護身符
+"Onyx Amulet",黑曜護身符
+"Turquoise Amulet",青玉護身符
+"Agate Amulet",瑪瑙護身符
+"Citrine Amulet",黃晶護身符
+"Ruby Amulet",血色護身符
+"Unset Amulet",夕暮護身符
+"Astrolabe Amulet",星盤護身符
+"Simplex Amulet",簡純護身符
+"Jet Amulet",傑特護身符
+"Blue Pearl Amulet",碧珠護身符
+"Marble Amulet",理石護身符
+"Seaglass Amulet",海鏡項鍊
+"Black Maw Talisman",黑牙魔符
+"Bonespire Talisman",脊骨魔符
+"Ashscale Talisman",灰燼魔符
+"Lone Antler Talisman",孤角魔符
+"Deep One Talisman",深淵魔符
+"Breakrib Talisman",碎骨魔符
+"Deadhand Talisman",亡手魔符
+"Undying Flesh Talisman",不朽魔符
+"Rot Head Talisman",腐首魔符
+"Mandible Talisman",巨顎魔符
+"Chrysalis Talisman",蟲蛹魔符
+"Writhing Talisman",狂癲魔符
+"Hexclaw Talisman",幻爪魔符
+"Primal Skull Talisman",皇骨魔符
+"Wereclaw Talisman",亡爪魔符
+"Splitnewt Talisman",斷螈魔符
+"Clutching Talisman",咒箍魔符
+"Avian Twins Talisman",雙子魔符
+"Fangjaw Talisman",齒鯊魔符
+"Horned Talisman",尖角魔符
+"Spinefuse Talisman",潛能魔符
+"Three Rat Talisman",三鼠魔符
+"Monkey Twins Talisman",雙猴魔符
+"Longtooth Talisman",長牙魔符
+"Rotfeather Talisman",死羽魔符
+"Monkey Paw Talisman",猴掌魔符
+"Three Hands Talisman",三手魔符
+"Greatwolf Talisman",狼王魔符
+"Golden Hoop",金環
+"Iron Ring",鍛鐵戒指
+"Coral Ring",珊瑚戒指
+"Paua Ring",海靈戒指
+"Gold Ring",金光戒指
+"Topaz Ring",黃玉戒指
+"Sapphire Ring",藍玉戒指
+"Ruby Ring",紅玉戒指
+"Prismatic Ring",三相戒指
+"Moonstone Ring",月光石戒指
+"Amethyst Ring",紫晶戒指
+"Diamond Ring",寶鑽戒指
+"Two-Stone Ring",雙玉戒指
+"Unset Ring",潛能之戒
+"Bone Ring",骸骨之戒
+"Cogwork Ring",齒輪戒指
+"Geodesic Ring",大地戒指
+"Dusk Ring",幽暗戒指
+"Penumbra Ring",半影戒指
+"Gloam Ring",黃昏戒指
+"Tenebrous Ring",黑暗戒指
+"Shadowed Ring",暗影戒指
+"Jet Ring",傑特戒指
+"Steel Ring",鋼鑄戒指
+"Opal Ring",蛋白石戒指
+"Vermillion Ring",朱紅戒指
+"Cerulean Ring",碧藍戒指
+"Iolite Ring",混青石戒指
+Ring,戒指
+"Breach Ring",裂痕戒指
+"Rustic Sash",素布腰帶
+"Chain Belt",扣鏈腰帶
+"Leather Belt",皮革腰帶
+"Heavy Belt",重革腰帶
+"Cloth Belt",飾布腰帶
+"Studded Belt",扣釘腰帶
+"Micro-Distillery Belt",微釀腰帶
+"Mechalarm Belt",機械腰帶
+"Vanguard Belt",先鋒腰帶
+"Crystal Belt",水晶腰帶
+"Golden Obi",金羽腰帶
+"Stygian Vise",冥河腰帶
+"Thief's Trinket",盜賊飾品
+"Atziri's Foible",阿茲里聖徽
+Sidhebreath,魔靈之符
+Sidhebite,斯拜特
+"Zerphi's Heart",澤佛伊之心
+"Sacrificial Heart",犧牲之心
+"Replica Atziri's Foible",贗品．阿茲里聖徽
+"DrTestapus' Charm",特塔普斯的幸運符
+"Araku Tiki",隱靈之符
+"Ngamahu Tiki",拿瑪乎蒂基
+"The Primordial Chain",先祖羈絆
+Tavukai,狂靈之怒
+"The Anvil",信念之砧
+"Blood of Corruption",墮落之血
+"The Rathorn",咒荊
+"Xoph's Heart",索伏之心
+"Xoph's Blood",索伏之血
+"Karui Ward",卡魯的戰徽
+"Rashkaldor's Patience",拉什卡德的耐心
+"Karui Charge",卡魯充能
+"The Halcyon",太平
+"The Pandemonius",群魔殿
+"Hyrri's Truth",西里的真理
+Willowgift,柳木之禮
+"Replica Karui Ward",贗品．卡魯的戰徽
+"Replica Hyrri's Truth",贗品．西里的真理
+"Marylene's Fallacy",瑪莉琳的護體之符
+"Stone of Lazhwar",拉茲瓦的靈石
+"Tear of Purity",純淨之淚
+"Voice of the Storm",暴風之言
+"Choir of the Storm",暴風之語
+"The Ephemeral Bond",短期債券
+"Doedre's Tongue",德瑞的毒舌
+"Demigod's Presence",昇華之印
+"The Ignomon",烈陽徽記
+Winterheart,冬之心
+"Frost Unbroken",不滅冰晶
+"The Ascetic",苦行
+"Bisco's Collar",畢斯寇的項圈
+"The Effigon",艾非根
+"Perquil's Toe",珀奎爾的指頭
+"Replica Winterheart",贗品．冬之心
+Astramentis,均衡之符
+"Carnage Heart",屠戮之心
+"Eye of Chayula",夏烏拉之眼
+"Hinekora's Sight",悉妮蔻拉之眼
+"The Learning Stone",學習之石
+Duskwing,黃昏之翼
+"Presence of Chayula",夏烏拉之印
+"Yoke of Suffering",磨難之軛
+Impresence,不在場證明
+"Aul's Uprising",奧爾的崛起
+"Malachai's Brilliance",瑪拉凱的聰慧
+"Solstice Vigil",守夜之至
+"Leadership's Price",領導力的代價
+Stranglegasp,扼殺之息
+"Crystallised Omniscience",晶化全知
+"Ashes of the Stars",星塵
+"The Eternal Struggle",永恆鬥爭
+"Victario's Acuity",維多里奧的捷思
+"Ungil's Harmony",恩吉爾的和諧
+"Warped Timepiece",扭曲之鐘
+"Maligaro's Cruelty",馬雷葛蘿的殘暴
+"Badge of the Brotherhood",激情之章
+"Fury Valve",憤怒閉鎖
+"Voll's Devotion",福爾的忠誠之符
+"Shaper's Seed",塑界者之籽
+"The Aylardex",艾拉黛絲
+"Extractor Mentis",心靈抽取
+"Eternal Damnation",永恆的詛咒
+"Daresso's Salute",德瑞索的戰禮
+"Eye of Innocence",無罪之眼
+"The Jinxed Juju",惡咒護符
+"The Felbog Fang",費爾博格獠牙
+"Retaliation Charm",復仇誘惑
+"Star of Wraeclast",瓦爾克拉斯之星
+"Uul-Netol's Vow",烏爾尼多之誓
+"Talisman of the Victor",勝者護符
+Gloomfang,憂愁獠根
+Bloodgrip,鮮血支配
+"Night's Hold",夜守
+"Rigwald's Curse",瑞佛詛咒
+Blightwell,枯井
+"Natural Hierarchy",自然組織
+"Eyes of the Greatwolf",巨狼之眼
+"Demigod's Eye",昇華之眼
+Blackheart,幽暗之語
+"Le Heup of All",英靈寶環
+Voidheart,虛空心靈
+"The Warden's Brand",獄使之印
+"Circle of Guilt",愧疚之環
+"Icefang Orbit",冰風軌跡
+Venopuncture,脈絡針刺
+"Kaom's Sign",岡姆的遠見
+"Sibyl's Lament",希比爾之嘆
+"Kaom's Way",岡姆之路
+Winterweave,冬織
+"Doedre's Damning",德瑞的魔具
+"Perandus Signet",普蘭德斯之記
+Praxis,普拉克斯
+"Replica Doedre's Damning",贗品．德瑞的魔具
+"Fated End",命運終結
+Andvarius,貪慾之記
+"Ventor's Gamble",賭神芬多
+"The Highwayman",高尚之人
+Kikazaru,基加薩魯
+"Valako's Sign",瓦拉庫之印
+"Putembo's Valley",普坦堡的峽谷
+"Putembo's Mountain",普坦堡的山巒
+"Putembo's Meadow",普坦堡的草原
+"Precursor's Emblem",先引之征
+"Circle of Regret",遺憾之環
+"Astral Projector",星空之影
+"Ungils's Coil",恩吉爾的指環
+"Storm Secret",風暴之密
+Nimis,尼米斯
+"Dream Fragments",夢語之痕
+Pyre,燃焰
+"Tasalio's Sign",塔薩里之印
+Snakepit,蛇巢
+"Uzaza's Meadow",尤莎莎的草原
+"Uzaza's Mountain",尤莎莎的山巒
+"Uzaza's Valley",尤莎莎的峽谷
+"Circle of Fear",恐懼之環
+"Replica Tasalio's Sign",贗品．塔薩里之印
+"Call of the Void",虛空呼喚
+"Mokou's Embrace",莫考之擁
+"Ngamahu's Sign",拿瑪乎之印
+Emberwake,餘燼之痕
+"Ahkeli's Mountain",阿卡莉的山巒
+"Ahkeli's Meadow",阿卡莉的草原
+"Ahkeli's Valley",阿卡莉的峽谷
+"Circle of Anguish",煎熬之環
+"Warrior's Legacy",戰士遺物
+"Replica Emberwake",贗品．餘燼之痕
+"Lori's Lantern",羅里的幸運之燈
+"The Taming",元素之章
+"Thief's Torment",竊罪
+"Shavronne's Revelation",薛朗的啟示之環
+Timeclasp,時光之握
+"Heartbound Loop",結魂之環
+"Mana Sponge",吸魔海綿
+Valyrium,戰日
+Timetwist,時空扭曲
+Anathema,咒詛
+"Death Rush",亡者呼喚
+"Ming's Heart",明恩的慧心
+"Circle of Nostalgia",懷舊之環
+Blackflame,黯炎
+"Original Sin",原罪
+"Gifts from Above",神賜
+"Romira's Banquet",羅米拉的潛力之環
+"Berek's Respite",貝雷克的火與雷之樂
+"Berek's Grip",貝雷克的冰與雷之曲
+"Call of the Brotherhood",意志呼喚
+"Berek's Pass",貝雷克的冰與火之歌
+"Rigwald's Crest",瑞佛之冠
+Voideye,虛空慧眼
+"Malachai's Artifice",瑪拉凱的巧技
+"Brinerot Mark",布琳洛特印記
+"Redblade Band",紅刃之環
+"Mutewind Seal",啞風封印
+"The Pariah",草民
+"Essence Worm",菁華蠕蟲
+"Angler's Plait",漁夫之辮
+"The Hungry Loop",惡鬼轉世
+"Mark of Submission",臣服之記
+Vivinsect,寄生惡魔
+"Profane Proxy",褻瀆之替
+"Replica Malachai's Artifice",贗品．瑪拉凱的巧技
+"Replica Voideye",贗品．虛空慧眼
+"Rotblood Promise",敗血承諾
+"Triumvirate Authority",三體權威
+"Band of the Victor",勝利之環
+"Mark of the Elder",尊師之印
+Stormfire,烈風暴
+"Mark of the Shaper",塑者之印
+"Polaric Devastation",極地毀滅
+"Kalandra's Touch",卡蘭德之觸
+Prismweave,幻彩菱織
+"Chains of Time",時空之鏈
+Feastbind,盛宴之結
+Faminebind,饑荒之結
+"The Retch",嘔吐
+"Replica Prismweave",贗品．幻彩菱織
+"Bated Breath",凝息
+"Maligaro's Restraint",馬雷葛蘿的染血之環
+"Ascent From Flesh",血軀昇華
+"Coward's Chains",懦夫的鎖鏈
+"Coward's Legacy",懦夫的遺產
+"Chains of Emancipation",解放鏈
+"Replica Bated Breath",贗品．凝息
+Headhunter,獵首
+"Immortal Flesh",永生
+"Wurm's Molt",龍蛻之帶
+"Umbilicus Immortalis",不朽繫命
+"Cyclopean Coil",巨岩之環
+Gluttony,貪食腰
+Hyperboreus,極地束腹
+"Leash of Oblation",祭品之繫
+"Bear's Girdle",熊之束
+"Replica Headhunter",贗品．獵首
+"Pyroshock Clasp",烈焰衝擊鉤
+"Doryani's Invitation",多里亞尼之約
+"Meginord's Girdle",梅吉諾德的力量泉源
+"Belt of the Deceiver",狡徒束腰
+"Dyadian Dawn",戴亞迪安的晨曦
+"Bisco's Leash",畢斯寇繫帶
+"String of Servitude",奴役之索
+Siegebreaker,突圍
+"Mother's Embrace",母親的擁抱
+"Replica Siegebreaker",贗品．突圍
+"Survivor's Guilt",倖存者的原罪
+Mageblood,魔血
+"Perandus Blazon",普蘭德斯之印
+Sunblast,日炎
+Soulthirst,嗜魂
+"Soul Tether",靈魂束縛
+"The Flow Untethered",潺流不息
+"The Torrent's Reclamation",奔流之開拓
+"Replica Soul Tether",贗品．靈魂束縛
+"The Druggery",純貨
+"Arn's Anguish",昂恩的煩惱
+"Olesya's Delight",奧莉西亞的喜悅
+"Graven's Secret",格雷文的秘密
+"The Magnate",堅毅之環
+"Ryslatha's Coil",瑞斯拉薩之纏
+"The Tactician",智勇軍師
+"The Nomad",游牧
+Perseverance,恆毅意志
+Auxium,奧術之符
+"The Burden of Truth",真理負擔
+"Demigod's Bounty",昇華珍寶
+"Darkness Enthroned",夜惡降臨
+"Tainted Pact",汙穢契約
+"Bloodsoaked Medallion",血染勳章
+Soulbound,靈魂之絆
+"Chain of Endurance",堅決鎖鏈
+"Ceinture of Benevolence",仁愛之心
+"Defiance of Destiny",拒絕命運
+"Ikiaho's Promise",伊基亞呼的承諾
+"Replica Dragonfang's Flight",贗品．龍牙翱翔
+"Honoured Alliance",榮耀同盟
+"Tawhanuku's Timing",塔瓦努庫的時機
+"Kaom's Binding",岡姆的束縛
+"Bound Fate",命運繫帶
+"Focused Amulet",專注護身符
+"Composite Ring",複合戒指
+"Manifold Ring",孔洞戒指
+"Ratcheting Ring",荊棘戒指
+"Helical Ring",螺旋戒指
+"The Untouched Soul",聖潔之魂
+"Replica Hinekora's Sight",贗品．悉妮蔻拉之眼
+"Replica Badge of the Brotherhood",贗品．激情之章
+"Ixchel's Temptation",伊克契爾的誘惑
+"Mechanical Belt",腰帶外觀：機械龐克
+"The Utmost",竭誠者
+"Circle of Ambition",野心之環
+"Grattus Signet",格拉圖斯之記
+"Nevalius Inheritance",涅瓦里烏斯背向
+"The Tides of Time",時間之潮
+"Nameless Ring",無名戒指
+"The Queller of Minds",心靈鎮壓者
+"The Selfish Shepherd",自私牧羊人
+"The Hateful Accuser",憎惡控告者
+"Ynda's Stand",英達的小販
+"Crimson Amulet",赤紅項鍊
+"Azure Amulet",蒼藍項鍊
+"Lunar Amulet",月神項鍊
+"Bloodstone Amulet",血石項鍊
+"Stellar Amulet",恆星項鍊
+"Solar Amulet",日耀項鍊
+"Lazuli Ring",青金石戒指
+"Emerald Ring",綠寶石戒指
+"Pearl Ring",珍珠戒指
+"Rawhide Belt",生皮腰帶
+"Linen Belt",麻布腰帶
+"Wide Belt",寬大腰帶
+"Long Belt",長腰帶
+"Plate Belt",板甲腰帶
+"Ornate Belt",華麗腰帶
+"Mail Belt",鎖甲腰帶
+"Double Belt",雙層腰帶
+"Utility Belt",實用腰帶
+"Fine Belt",精良腰帶
+Igniferis,烈焰之擊
+"Idol of Uldurn",奧敦塑像
+"The Everlasting Gaze",永恆凝視
+"Revered Resin",崇敬樹脂
+"Surefooted Sigil",穩健印記
+"Ligurium Talisman",豐金巫符
+"Rondel of Fragility",弱化圓飾
+"Fixation of Yix",伊克斯的依戀
+Strugglescream,掙扎吶喊
+"Beacon of Azis",阿基斯的信標
+Fireflower,火焰之花
+"Serpent's Egg",毒蛇之卵
+Glowswarm,發光蟲群
+"Seed of Cataclysm",浩劫種子
+Cracklecreep,裂紋怪客
+"Blistering Bond",極熱護環
+Polcirkeln,極圈
+"Whisper of the Brotherhood",意志低語
+"The Burrower",掘地者
+Levinstone,浮游石
+"Perandus Seal",普蘭德斯之印
+"Sekhema's Resolve",絲克瑪的決意
+"Midnight Braid",午夜護鏈
+Keelhaul,船拖刑
+"Birthright Buckle",天生權利扣環
+Brynabas,布萊納巴斯
+Infernoclasp,地獄之握
+"Zerphi's Genesis",澤佛伊的創世紀
+Ingenuity,獨創
+"Shavronne's Satchel",薛朗的背包
+"Pearlescent Amulet",珠光項鍊
+"Dusk Amulet",幽暗項鍊
+"Gloam Amulet",黃昏項鍊
+"Penumbra Amulet",半影項鍊
+"Tenebrous Amulet",黑暗項鍊
+"Distorted Amulet",歪曲護身符
+"Abyssal Signet",深淵之記
+Nighthowl,夜嚎
+"Prized Pain",珍貴苦痛
+"Vigilant View",警戒之視
+"Evergrasping Ring",永恆之握戒指
+"Bursting Decay",爆發腐蝕
+"Grip of Kulemak",骷髏馬克的掌握
+Byrnabas,布萊納巴斯
+"The Gnashing Sash",憤恨飾帶
+"Circle of Protection",守護之環
+Goregirdle,血肉束腰
+"Spirit Link",精魂連結
+Silverpoint,銀點
+Bijouborne,寶石之源
+Waistgate,腰閥
+"Cat O' Nine Tails",九尾貓
+"Victario's Study",維多里奧的研究
+"Cryonic Ring",低溫之戒
+"Enthalpic Ring",焓能之戒
+"Synaptic Ring",突觸之戒
+"Organic Ring",有機之戒
+"Fugitive Ring",亡命之戒
+"Formless Ring",無形之戒
+"Haunting Memories",縈繞回憶
+"Venarius' Astrolabe",維那利斯的星盤
+Bonemeld,骨融
+"Whispers of Infinity",無盡低語
+"Prospero's Protection",普洛斯彼羅的守護
+"Coiling Whisper",盤繞細語
+"Squirming Terror",扭曲恐懼
+"The Will of Tul",托沃之意志
+"The Will of Xoph",索伏之意志
+"The Will of Esh",艾許之意志
+"The Will of Uul-Netol",烏爾尼托之意志
+"The Sundered Will",破碎之志
+"Lost Unity",失落同心
+"Betrayal's Sting",反叛之針
+Woespike,悲嘆之刺
+"The Unseen Hue",無形之彩
+"Enmity's Embrace",惡言之擁
+"The Arkhon's Tools",執政官的工具
+"Binds of Bloody Vengeance",血腥復仇的束縛
+"Cord Belt",繩帶
+"Khatal's Weeping",卡塔爾之泣
+"Khatal's Geyser",卡塔爾之泉
+"Replica Gifts from Above",贗品．神賜
+"Saresh's Darkness",薩雷許之闇
+"Solerai's Radiance",索拉萊的輝耀
+"Screams of the Desiccated",塵燥之吼
+"Veridical Chain",幻象鎖鏈
+"Runemastered Veridical Chain",符煉幻象鎖鏈
+"Lament Amulet",悼亡護身符
+"Portent Amulet",惡兆護身符
+"Absent Amulet",虛無護身符
+"Corona Amulet",日冕護身符
+"Twisted Amulet",扭曲項鍊
+"Biostatic Ring",恆生之戒
+"Vitalic Ring",維生之戒
+"Mnemonic Ring",憶念之戒
+"Kinetic Ring",動力之戒
+"Oneiric Ring",夢境之戒
+"Grasping Ring",抓取之戒
+"Refined Breach Ring",精製裂痕戒指
+"Runemastered Heavy Belt",符煉重革腰帶
+"Stalking Belt",獵跡腰帶
+"Invoking Belt",祈喚腰帶
+"Sinew Belt",韌筋腰帶
+"Forking Belt",歧路腰帶
+"Immaculate Adherence",完美契合
+"Eventide Petals",暮色瓣落
+Veilpiercer,破帷者
+"Safrin's Resolve",薩弗林的決心
+"Eshtera's Path",艾許特拉之路
+"Zaida's Longevity",扎伊達的長壽

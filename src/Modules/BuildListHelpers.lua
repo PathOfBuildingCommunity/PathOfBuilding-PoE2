@@ -8,10 +8,10 @@
 local t_insert = table.insert
 
 local buildSortDropList = {
-	{ label = "Sort by Name", sortMode = "NAME" },
-	{ label = "Sort by Class", sortMode = "CLASS" },
-	{ label = "Sort by Last Edited", sortMode = "EDITED"},
-	{ label = "Sort by Level", sortMode = "LEVEL"},
+	{ label = "Sort by Name", labelKey = "ui.build_list_helpers.module.build_sort_drop_list.label_4", sortMode = "NAME" },
+	{ label = "Sort by Class", labelKey = "ui.build_list_helpers.module.build_sort_drop_list.label", sortMode = "CLASS" },
+	{ label = "Sort by Last Edited", labelKey = "ui.build_list_helpers.module.build_sort_drop_list.label_2", sortMode = "EDITED"},
+	{ label = "Sort by Level", labelKey = "ui.build_list_helpers.module.build_sort_drop_list.label_3", sortMode = "LEVEL"},
 }
 
 local function ReadBuildHeader(fullFileName)

@@ -1,0 +1,48 @@
+Normal Maximum,通常最大
+All gems default to their highest valid non-corrupted gem level.,所有宝石默认为它们的最高可达的非腐化宝石级别。
+Corrupted Maximum,腐化最大
+Normal gems default to their highest valid corrupted gem level.,普通宝石默认为它们的最高可达的腐化宝石级别。
+Awakened gems default to their highest valid non-corrupted gem level.,觉醒宝石默认为它们的最高可达的非腐化宝石级别。
+Awakened Maximum,觉醒最大
+All gems default to their highest valid corrupted gem level.,所有宝石默认为它们的最高可达的腐化宝石级别。
+Match Character Level,匹配角色等级
+All gems default to their highest valid non-corrupted gem level that your character meets the level requirement for.,所有宝石默认为你角色满足使用要求的的它们的最高可达的非腐化宝石级别。
+"This hides gems with a minimum level requirement above your character level, preventing them from showing up in the dropdown list.",这将隐藏最低等级要求在你的角色等级之上的宝石，防止它们在下拉列表中显示。
+Non-Awakened,非觉醒
+Awakened,觉醒
+Full DPS,最终总和DPS
+Combined DPS,结合DPS
+Hit DPS,击中DPS
+Average Hit,平均击中
+Effective Hit Pool,击中伤有效生命值
+Skill set:,技能集:
+Usage Tips:,使用技巧:
+You can copy/paste socket groups using Ctrl+C and Ctrl+V.,你可以使用Ctrl+C和Ctrl+V复制/粘贴插槽组。
+Ctrl + Click to enable/disable socket groups.,Ctrl+单击以启用/禁用插槽组。
+Ctrl + Right click to include/exclude in FullDPS calculations.,Ctrl+右键单击以计入/排除最终总和DPS计算。
+Right click to set as the Main skill group.,右键单击以设置为主要技能组。
+Gem Options,技能宝石选项
+Sort gems by DPS:,技能宝石排序(DPS):
+Default gem level:,默认技能宝石等级:
+Default gem quality:,默认技能宝石品质:
+Show support gems:,显示辅助宝石:
+Show quality variants:,显示品质变种:
+Socketed in:,插槽位置:
+Select the item in which this skill is socketed.,选择该技能插槽所在的物品。
+This will allow the skill to benefit from modifiers on the item that affect socketed gems.,这将会使技能宝石受到物品上影响插槽的词缀的加成。
+No item is equipped in this slot.,这个装备槽位没有装备任何物品。
+Enabled:,启用:
+Include in Full DPS:,计入最终总和DPS:
+Imbued Support:,注入辅助:
+Remove this imbued support.,移除此注入辅助。
+Count:,倍率:
+"You cannot delete this group, but it will disappear if you un-allocate the node.",你不能删除该组，但如果取消分配该节点，该组将消失。
+"You cannot delete this group, but it will disappear if you un-equip the item.",你不能删除该组，但如果取消装备该物品，该组将消失。
+"You cannot add support gems to this group, but support gems in",你不能向该组添加辅助宝石，但在
+will automatically apply to the skill.,将自动应用于技能。
+Gem name:,技能宝石名称:
+Variant:,变种:
+"Note: `count` integer value scales the DPS of associated skill by a scalar.","注意:'倍率'整数值将按比例倍增其相关技能的DPS。"
+"To be used with totems, minions, shot-gunning of projectiles (e.g., VD, magma-orbs),","用于计算图腾、召唤物、霰弹效应投射物(比如灵体火球、熔岩奔涌)、"
+"multi-hit projectiles (e.g. ball-lightning), traps, mines.","复数击中投射物(比如天雷之珠)、陷阱、地雷的DPS。"
+Manage Skill Sets,管理技能集

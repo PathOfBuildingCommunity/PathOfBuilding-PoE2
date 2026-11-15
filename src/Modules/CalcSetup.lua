@@ -1986,7 +1986,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				end
 				if not group then
 					-- Create a new group for this skill
-					group = { label = "On Kill Monster Explosion", enabled = true, gemList = { }, source = "Explode", noSupports = true }
+					group = { label = "On Kill Monster Explosion", labelKey = "ui.calc_setup.init_env.group.label", enabled = true, gemList = { }, source = "Explode", noSupports = true }
 					t_insert(build.skillsTab.socketGroupList, group)
 				end
 				-- Hack to remove duplicates
@@ -2055,7 +2055,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				else
 					if not group then
-						group = { label = "Thorns", enabled = true, gemList = { }, source = "Thorns", noSupports = true }
+						group = { label = "Thorns", labelKey = "ui.calc_setup.init_env.group.label_2", enabled = true, gemList = { }, source = "Thorns", noSupports = true }
 						t_insert(build.skillsTab.socketGroupList, group)
 					end
 

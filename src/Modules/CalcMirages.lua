@@ -76,10 +76,11 @@ function calcs.mirages(env)
 
 				env.player.mainSkill.mirage = { }
 				env.player.mainSkill.mirage.name = newSkill.activeEffect.grantedEffect.name
+				env.player.mainSkill.mirage.nameKey = newSkill.activeEffect.grantedEffect.nameKey
 				env.player.mainSkill.mirage.count = mirageCount
 
 				if not env.player.mainSkill.infoMessage then
-					env.player.mainSkill.infoMessage = tostring(mirageCount) .. " Mirage Archers using " .. newSkill.activeEffect.grantedEffect.name
+					env.player.mainSkill.infoMessage = localisation:Text("ui.calc_mirages.state.pre_calc_func.info_message", { value = tostring(mirageCount), name = localisation:Field(newSkill.activeEffect.grantedEffect, 'name') })
 				end
 
 				-- Add new modifiers to new skill (which already has all the old skill's modifiers)
@@ -92,7 +93,7 @@ function calcs.mirages(env)
 				if newSkill.skillPartName then
 					env.player.mainSkill.mirage.skillPart = newSkill.skillPart
 					env.player.mainSkill.mirage.skillPartName = newSkill.skillPartName
-					env.player.mainSkill.mirage.infoMessage2 = newSkill.activeEffect.grantedEffect.name
+					env.player.mainSkill.mirage.infoMessage2 = localisation:Field(newSkill.activeEffect.grantedEffect, 'name')
 				else
 					env.player.mainSkill.mirage.skillPartName = nil
 				end
@@ -114,7 +115,7 @@ function calcs.mirages(env)
 			end,
 			mirageSkillNotFoundFunc = function(env, config)
 				if not env.player.mainSkill.infoMessage2 then
-					env.player.mainSkill.infoMessage2 = "No Mirage Archer active skill found"
+					env.player.mainSkill.infoMessage2 = localisation:Text("ui.calc_mirages.state.mirage_skill_not_found_func.info_message2")
 				end
 			end
 		}
@@ -154,7 +155,7 @@ function calcs.mirages(env)
 			end,
 			postCalcFunc = function(env, newSkill, newEnv)
 				env.player.mainSkill = newSkill
-				env.player.mainSkill.infoMessage = tostring(maxMirageWarriors) .. " Mirage Warriors using " .. newSkill.activeEffect.grantedEffect.name
+				env.player.mainSkill.infoMessage = localisation:Text("ui.calc_mirages.state.post_calc_func.info_message", { value = tostring(maxMirageWarriors), name = localisation:Field(newSkill.activeEffect.grantedEffect, 'name') })
 
 				-- Re-link over the output
 				env.player.output = newEnv.player.output
@@ -172,7 +173,7 @@ function calcs.mirages(env)
 				end
 			end,
 			mirageSkillNotFoundFunc = function(env, config)
-				env.player.mainSkill.disableReason = "No Saviour active skill found"
+				env.player.mainSkill.disableReason = localisation:Text("ui.calc_mirages.state.mirage_skill_not_found_func.disable_reason")
 				env.player.mainSkill.skillFlags.disable = true
 			end
 		}
@@ -244,7 +245,7 @@ function calcs.mirages(env)
 			end,
 			postCalcFunc = function(env, newSkill, newEnv)
 				env.player.mainSkill = newSkill
-				env.player.mainSkill.infoMessage = "Tawhoa's Chosen using " .. newSkill.activeEffect.grantedEffect.name
+				env.player.mainSkill.infoMessage = localisation:Text("ui.calc_mirages.state.post_calc_func.info_message_2", { name = localisation:Field(newSkill.activeEffect.grantedEffect, 'name') })
 
 				env.player.output = newEnv.player.output
 				env.player.output.Speed = SkillTriggerRate
@@ -291,7 +292,7 @@ function calcs.mirages(env)
 				end
 			end,
 			mirageSkillNotFoundFunc = function(env, config)
-				env.player.mainSkill.disableReason = "No Tawhoa's Chosen active skill found"
+				env.player.mainSkill.disableReason = localisation:Text("ui.calc_mirages.state.mirage_skill_not_found_func.disable_reason_2")
 				env.player.mainSkill.skillFlags.disable = true
 			end
 		}
@@ -319,10 +320,11 @@ function calcs.mirages(env)
 
 				env.player.mainSkill.mirage = { }
 				env.player.mainSkill.mirage.name = newSkill.activeEffect.grantedEffect.name
+				env.player.mainSkill.mirage.nameKey = newSkill.activeEffect.grantedEffect.nameKey
 				env.player.mainSkill.mirage.count = wispsMaxCount
 
 				if not env.player.mainSkill.infoMessage then
-					env.player.mainSkill.infoMessage = tostring(wispsMaxCount) .. " Sacred Wisps using " .. newSkill.activeEffect.grantedEffect.name
+					env.player.mainSkill.infoMessage = localisation:Text("ui.calc_mirages.state.pre_calc_func.info_message_2", { value = tostring(wispsMaxCount), name = localisation:Field(newSkill.activeEffect.grantedEffect, 'name') })
 				end
 
 				-- Add new modifiers to new skill (which already has all the old skill's modifiers)
@@ -335,7 +337,7 @@ function calcs.mirages(env)
 				if newSkill.skillPartName then
 					env.player.mainSkill.mirage.skillPart = newSkill.skillPart
 					env.player.mainSkill.mirage.skillPartName = newSkill.skillPartName
-					env.player.mainSkill.mirage.infoMessage2 = newSkill.activeEffect.grantedEffect.name
+					env.player.mainSkill.mirage.infoMessage2 = localisation:Field(newSkill.activeEffect.grantedEffect, 'name')
 				else
 					env.player.mainSkill.mirage.skillPartName = nil
 				end
@@ -357,7 +359,7 @@ function calcs.mirages(env)
 			end,
 			mirageSkillNotFoundFunc = function(env, config)
 				if not env.player.mainSkill.infoMessage2 then
-					env.player.mainSkill.infoMessage2 = "No active skill for Sacred Wisps found"
+					env.player.mainSkill.infoMessage2 = localisation:Text("ui.calc_mirages.state.mirage_skill_not_found_func.info_message2_2")
 				end
 			end
 		}
@@ -415,7 +417,7 @@ function calcs.mirages(env)
 			env.player.mainSkill.skillModList:NewMod("QuantityMultiplier", mod.type, mod.value, mod.source, mod.flags, mod.keywordFlags)
 			maxMirageWarriors = maxMirageWarriors + mod.value
 		end
-		env.player.mainSkill.infoMessage = tostring(maxMirageWarriors) .. " GC Mirage Warriors using " .. env.player.mainSkill.activeEffect.grantedEffect.name
+		env.player.mainSkill.infoMessage = localisation:Text("ui.calc_mirages.state.mirages.info_message", { value = tostring(maxMirageWarriors), name = localisation:Field(env.player.mainSkill.activeEffect.grantedEffect, 'name') })
 	end
 
 	return calculateMirage(env, config)

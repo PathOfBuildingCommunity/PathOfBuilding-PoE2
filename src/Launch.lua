@@ -6,6 +6,7 @@
 --
 
 local startTime = GetTime()
+localisation = LoadModule("Modules/Localisation")
 APP_NAME = "Path of Building (PoE2)"
 
 SetWindowTitle(APP_NAME)

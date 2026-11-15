@@ -79,10 +79,12 @@ function PoBArchivesProviderClass:GetRecommendations(buildCode, postURL)
 		launch:RegisterSubScript(id, function(response, errMsg)
 			if errMsg == 200 then
 				self.statusMsg = nil
+				self.statusMsgKey, self.statusMsgParams = nil, nil
 				self:ParseBuilds(response)
 				return
 			else
 				self.statusMsg = "Error while fetching similar builds: " .. errMsg
+				self.statusMsgKey, self.statusMsgParams = 'ui.po_barchives_provider.get_recommendations.status_msg_key.message', { error = errMsg }
 				return
 			end
 		end)
@@ -94,6 +96,7 @@ function PoBArchivesProviderClass:ParseBuilds(message)
 	local obj = dkjson.decode(message)
 	if not obj or not obj.builds or next(obj.builds) == nil then
 		self.statusMsg = "No builds found."
+		self.statusMsgKey, self.statusMsgParams = 'ui.po_barchives_provider.parse_builds.status_msg_key.message', nil
 		return
 	end
 
@@ -129,6 +132,7 @@ end
 
 function PoBArchivesProviderClass:GetBuilds()
 	self.statusMsg = "Loading.."
+	self.statusMsgKey, self.statusMsgParams = 'ui.po_barchives_provider.get_builds.status_msg_key.message', nil
 	wipeTable(self.buildList)
 	self.contentHeight = nil
 
@@ -140,12 +144,14 @@ function PoBArchivesProviderClass:GetBuilds()
 		launch:DownloadPage(self:GetApiUrl(), function(response, errMsg)
 			if errMsg then
 				self.statusMsg = errMsg
+				self.statusMsgKey, self.statusMsgParams = nil, nil
 				return
 			end
 
 			self:ParseBuilds(response.body)
 
 			self.statusMsg = nil
+			self.statusMsgKey, self.statusMsgParams = nil, nil
 		end, {})
 	end
 end

@@ -9,6 +9,12 @@ local m_min = math.min
 
 local itemSlotHelper = LoadModule("Modules/ItemSlotHelper")
 local BuildExportPoE2 = LoadModule("Modules/BuildExportPoE2")
+
+-- 下拉列表分别保存显示标签和检索词，中文名称仍可按英文原名搜索。
+local function itemEntry(item)
+	local label = colorCodes[item.rarity] .. localisation:ItemName(item)
+	return { label = label, searchFilter = StripEscapes(label) .. '\n' .. item.name }
+end
 ---@class ItemSlotControl: DropDownControl
 local ItemSlotClass = newClass("ItemSlotControl", "DropDownControl")
 
@@ -43,7 +49,7 @@ function ItemSlotClass:ItemSlotControl(anchor, x, y, itemsTab, slotName, slotLab
 	if data.buildFileInventorySlotMap[slotName] then
 		self.controls.noteButton = new("ButtonControl"):ButtonControl({"LEFT",self,"RIGHT"}, {2, 0, 20, 20}, "~", function()
 			local item = itemsTab.items[self.selItemId]
-			main:OpenNoteEditPopup(self.slotName, self.note or "", function(note)
+			main:OpenNoteEditPopup(localisation:Term("equipment.slot", self.slotName), self.note or "", function(note)
 				self.note = note
 				itemsTab:PopulateSlots()
 				itemsTab:AddUndoState()
@@ -52,7 +58,7 @@ function ItemSlotClass:ItemSlotControl(anchor, x, y, itemsTab, slotName, slotLab
 		end)
 		self.controls.noteButton.tooltipFunc = function(tooltip)
 			tooltip:Clear()
-			tooltip:AddBuildPlannerNote(14, self.note and self.note ~= "" and self.note or "Add a note for this item slot")
+			tooltip:AddBuildPlannerNote(14, self.note and self.note ~= "" and self.note or localisation:Text("build_note.empty_item_slot"))
 		end
 	end
 	if slotName:match("Flask") then
@@ -65,7 +71,7 @@ function ItemSlotClass:ItemSlotControl(anchor, x, y, itemsTab, slotName, slotLab
 		self.controls.activate.enabled = function()
 			return self.selItemId ~= 0
 		end
-		self.controls.activate.tooltipText = "Activate this flask."
+		self.controls.activate.tooltipText = localisation:Label("ui.item_slot_control.init.activate_tooltip_text.label_2")
 		self.labelOffset = -24
 	elseif slotName:match("Charm") then
 		self.controls.activate = new("CheckBoxControl"):CheckBoxControl({ "RIGHT", self, "LEFT" }, { -2, 0, 20 }, nil, function(state)
@@ -77,7 +83,7 @@ function ItemSlotClass:ItemSlotControl(anchor, x, y, itemsTab, slotName, slotLab
 		self.controls.activate.enabled = function()
 			return self.selItemId ~= 0
 		end
-		self.controls.activate.tooltipText = "Activate this charm."
+		self.controls.activate.tooltipText = localisation:Label("ui.item_slot_control.init.activate_tooltip_text.label")
 		self.labelOffset = -24
 	else
 		self.labelOffset = -2
@@ -96,6 +102,12 @@ function ItemSlotClass:ItemSlotControl(anchor, x, y, itemsTab, slotName, slotLab
 		end
 	end
 	self.label = slotLabel or slotName
+	local label = self.label
+	if label:match('^Jewel #%d+$') then
+		self.labelDisplay = localisation:Label('equipment.slot.jewel_index', { index = tonumber(label:match('%d+')) })
+	else
+		self.labelDisplay = function() return localisation:Term('equipment.slot', label) end
+	end
 	self.nodeId = nodeId
 	return self
 end
@@ -115,15 +127,17 @@ function ItemSlotClass:SetSelItemId(selItemId)
 end
 
 function ItemSlotClass:Populate()
+	self.displayLanguage = localisation.language
 	wipeTable(self.items)
 	wipeTable(self.list)
 	self.items[1] = 0
 	self.list[1] = "None"
+	localisation:List(self.list, { [1] = 'equipment.slot.empty' })
 	self.selIndex = 1
 	for _, item in pairs(self.itemsTab.items) do
 		if self.itemsTab:IsItemValidForSlot(item, self.slotName) then
 			t_insert(self.items, item.id)
-			t_insert(self.list, colorCodes[item.rarity]..item.name)
+			t_insert(self.list, itemEntry(item))
 			if item.id == self.selItemId then
 				self.selIndex = #self.list
 			end
@@ -166,9 +180,18 @@ function ItemSlotClass:ReceiveDrag(type, value, source)
 end
 
 function ItemSlotClass:Draw(viewPort)
+	-- 语言切换只刷新显示名称，不重新装备物品或重算插槽。
+	if self.displayLanguage ~= localisation.language then
+		for index, itemId in ipairs(self.items) do
+			local item = self.itemsTab.items[itemId]
+			self.list[index] = item and itemEntry(item) or "None"
+		end
+		self.displayLanguage = localisation.language
+		self:UpdateSearch()
+	end
 	local x, y = self:GetPos()
 	local width, height = self:GetSize()
-	DrawString(x + self.labelOffset, y + 2, "RIGHT_X", height - 4, "VAR", "^7"..self.label..":")
+	DrawString(x + self.labelOffset, y + 2, "RIGHT_X", height - 4, "VAR", "^7"..localisation:Field(self, 'label')..":")
 	self.DropDownControl:Draw(viewPort)
 	self:DrawControls(viewPort)
 	if not main.popups[1] and self.nodeId and (self.dropped or (self:IsMouseOver() and (self.otherDragSource or not self.itemsTab.selControl))) then

@@ -43,10 +43,10 @@ function NotableDBClass:NotableDBControl(anchor, rect, itemsTab, db, dbType)
 	self.controls.sort = new("DropDownControl"):DropDownControl({ "TOPLEFT", self, "TOPLEFT" }, { 0, -headerHeight, 360, 18 }, self.sortDropList, function(index, value)
 		self:SetSortMode(value.sortMode)
 	end)
-	self.controls.search = new("EditControl"):EditControl({ "TOPLEFT", self.controls.sort, "BOTTOMLEFT" }, { 0, 2, 258, 18 }, "", "Search", "%c", 100, function()
+	self.controls.search = new("EditControl"):EditControl({ "TOPLEFT", self.controls.sort, "BOTTOMLEFT" }, { 0, 2, 258, 18 }, "", localisation:Label("ui.notable_dbcontrol.init.search.label"), "%c", 100, function()
 		self.listBuildFlag = true
 	end, nil, nil, true)
-	self.controls.searchMode = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.search, "RIGHT" }, { 2, 0, 100, 18 }, { "Anywhere", "Names", "Modifiers" }, function(index, value)
+	self.controls.searchMode = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.search, "RIGHT" }, { 2, 0, 100, 18 }, localisation:List({ "Anywhere", "Names", "Modifiers" }, { [1] = "ui.notable_dbcontrol.init.search_mode.label", [2] = "ui.notable_dbcontrol.init.search_mode.label_3", [3] = "ui.notable_dbcontrol.init.search_mode.label_2" }), function(index, value)
 		self.listBuildFlag = true
 	end)
 
@@ -62,7 +62,7 @@ function NotableDBClass:NotableDBControl(anchor, rect, itemsTab, db, dbType)
 	end
 	self.emotionImages = getEmotionImages()
 
-	self.controls.emotionLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.search, "BOTTOMLEFT" }, { 0, 6, 100, 16 }, "Emotions: ")
+	self.controls.emotionLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.search, "BOTTOMLEFT" }, { 0, 6, 100, 16 }, localisation:Label("ui.notable_dbcontrol.init.emotion_label.label"))
 	self.emotionsAvailable = { }
 	local function emoCheckOnChange(name)
 		self.emotionsAvailable[name] = true
@@ -74,7 +74,7 @@ function NotableDBClass:NotableDBControl(anchor, rect, itemsTab, db, dbType)
 	local function emoCheck(name, relTo)
 		local anchor = {"LEFT", relTo, "RIGHT"}
 		local rect = {2, 0, 26, 26}
-		local ctl = new("CheckBoxControl"):CheckBoxControl(anchor, rect, "", emoCheckOnChange(name), "Distilled " .. name, true)
+		local ctl = new("CheckBoxControl"):CheckBoxControl(anchor, rect, "", emoCheckOnChange(name), localisation:Label("ui.notable_dbcontrol.check_box_control.tooltip", { name = localisation:TermRef('anoint_material', name) }), true)
 		if self.emotionImages then ctl:SetCheckImage(self.emotionImages[name]) end
 		return ctl
 	end
@@ -83,7 +83,7 @@ function NotableDBClass:NotableDBControl(anchor, rect, itemsTab, db, dbType)
 	for i,emo in ipairs(emotionList) do
 		local emoCtl
 		if i == 11 then
-			local ctl = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", emotionCheckBoxes[1], "BOTTOMLEFT" }, { 0, 2, 26, 26 }, "", emoCheckOnChange(emo), "Distilled " .. emo, true)
+			local ctl = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", emotionCheckBoxes[1], "BOTTOMLEFT" }, { 0, 2, 26, 26 }, "", emoCheckOnChange(emo), localisation:Label("ui.notable_dbcontrol.check_box_control.tooltip_2", { emo = localisation:TermRef('anoint_material', emo) }), true)
 			if self.emotionImages then ctl:SetCheckImage(self.emotionImages[emo]) end
 			emoCtl = ctl
 		else
@@ -117,14 +117,16 @@ function NotableDBClass:DoesNotableMatchFilters(node)
 		local found = false
 		local mode = self.controls.searchMode.selIndex
 		if mode == 1 or mode == 2 then
-			local err, match = PCall(string.matchOrPattern, node.dn:lower(), searchStr)
+			local err, match = PCall(localisation.MatchField, localisation, node, 'dn', searchStr)
 			if not err and match then
 				found = true
 			end
 		end
 		if mode == 1 or mode == 3 then
-			for _, line in ipairs(node.sd) do
-				local err, match = PCall(string.matchOrPattern, line:lower(), searchStr)
+			for index, line in ipairs(node.sd) do
+				local err, match = PCall(function()
+					return string.matchOrPattern(line:lower(), searchStr) or string.matchOrPattern(localisation:Line(node, 'sd', index, line):lower(), searchStr)
+				end)
 				if not err and match then
 					found = true
 					break
@@ -151,6 +153,7 @@ function NotableDBClass:BuildSortOrder()
 		if not stat.ignoreForItems then
 			t_insert(self.sortDropList, {
 				label="Sort by "..stat.label,
+				labelKey = 'ui.item_dbcontrol.build_sort_order.label', labelParams = { stat = localisation:Ref(stat.labelKey, stat.labelParams) },
 				sortMode=stat.itemField or stat.stat,
 				itemField=stat.itemField,
 				stat=stat.stat,
@@ -206,6 +209,7 @@ function NotableDBClass:ListBuilder()
 			local now = GetTime()
 			if now - start > 50 then
 				self.defaultText = "^7Sorting... ("..m_floor(nodeIndex/#list*100).."%)"
+				self.defaultTextKey, self.defaultTextParams = 'ui.notable_dbcontrol.sorting', { percent = m_floor(nodeIndex/#list*100) }
 				coroutine.yield()
 				start = now
 			end
@@ -243,6 +247,7 @@ function NotableDBClass:ListBuilder()
 
 	self.list = list
 	self.defaultText = "^7No notables found that match those filters."
+	self.defaultTextKey, self.defaultTextParams = 'ui.notable_dbcontrol.no_matches', nil
 end
 
 ---@param viewPort table<string, number>
@@ -279,12 +284,12 @@ function NotableDBClass:GetRowValue(column, index, node)
 				local scaledPower = node.measuredPower / self.sortMaxPower
 				local powerRed = scaledPower * (0xFF - 0x80) + 0x80
 				local powerColor = s_format("^x%X8080", powerRed)
-				return powerColor..node.dn
+				return powerColor..localisation:Field(node, 'dn')
 			else
-				return "^x808080"..node.dn
+				return "^x808080"..localisation:Field(node, 'dn')
 			end
 		else
-			return colorCodes.ENCHANTED..node.dn
+			return colorCodes.ENCHANTED..localisation:Field(node, 'dn')
 		end
 	end
 end
@@ -294,7 +299,7 @@ end
 ---@param node table
 function NotableDBClass:AddValueTooltip(tooltip, index, node)
 	local dropdownDropped = self.controls.type and self.controls.type.dropped or self.controls.sort.dropped or self.controls.searchMode.dropped
-	if dropdownDropped or (main.popups[1] and main.popups[1].title ~= "Anoint Item") then
+	if dropdownDropped or (main.popups[1] and main.popups[1].controls.notableDB ~= self) then
 		tooltip:Clear()
 		return
 	end
@@ -306,9 +311,10 @@ function NotableDBClass:AddValueTooltip(tooltip, index, node)
 		if node.sd[1] then
 			tooltip:AddLine(16, "")
 			for i, line in ipairs(node.sd) do
+				line = localisation:Line(node, 'sd', i, line)
 				if line ~= " " and (node.mods[i].extra or not node.mods[i].list) then
 					local line = colorCodes.UNSUPPORTED..line
-					line = main.notSupportedModTooltips and (line .. main.notSupportedTooltipText) or line
+					line = main.notSupportedModTooltips and (line .. localisation:Field(main, 'notSupportedTooltipText')) or line
 					tooltip:AddLine(16, line)
 				else
 					tooltip:AddLine(16, colorCodes.MAGIC..line)
@@ -319,8 +325,8 @@ function NotableDBClass:AddValueTooltip(tooltip, index, node)
 		-- Reminder text
 		if node.reminderText then
 			tooltip:AddSeparator(14)
-			for _, line in ipairs(node.reminderText) do
-				tooltip:AddLine(14, "^xA0A080"..line)
+			for index, line in ipairs(node.reminderText) do
+				tooltip:AddLine(14, "^xA0A080"..localisation:Line(node, 'reminderText', index, line))
 			end
 		end
 

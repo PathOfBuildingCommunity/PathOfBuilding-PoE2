@@ -89,10 +89,10 @@ Implicits: 0
 	it("uses placeholder values for empty build metadata fields", function()
 		local importTab = build.importTab
 		assert.are.equal("", importTab.controls.buildPlannerBuildName.buf)
-		assert.are.equal("Build name", importTab.controls.buildPlannerBuildName.prompt)
+		assert.are.equal("Build name", importTab.controls.buildPlannerBuildName:GetProperty("prompt"))
 		assert.are.equal("Unnamed Build", importTab.controls.buildPlannerBuildName.placeholder)
 		assert.are.equal("", importTab.controls.buildPlannerAuthorName.buf)
-		assert.are.equal("Author name", importTab.controls.buildPlannerAuthorName.prompt)
+		assert.are.equal("Author name", importTab.controls.buildPlannerAuthorName:GetProperty("prompt"))
 		assert.are.equal("Author", importTab.controls.buildPlannerAuthorName.placeholder)
 		assert.are.same({ name = "Unnamed Build", author = "Author", description = "", useGeneratedItemText = true }, importTab:GetBuildPlannerMetadata())
 
