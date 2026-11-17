@@ -1673,41 +1673,6 @@ function calcs.defence(env, actor)
 	output.ManaRecoveryRateMod = calcLib.mod(modDB, nil, "ManaRecoveryRate")
 	output.EnergyShieldRecoveryRateMod = calcLib.mod(modDB, nil, "EnergyShieldRecoveryRate")
 
-	-- Leech caps
-	output.MaxLifeLeechInstance = output.Life * calcLib.val(modDB, "MaxLifeLeechInstance") / 100
-	output.MaxLifeLeechRatePercent = calcLib.val(modDB, "MaxLifeLeechRate")
-	if modDB:Flag(nil, "MaximumLifeLeechIsEqualToParent") then
-		output.MaxLifeLeechRatePercent = actor.parent.output.MaxLifeLeechRatePercent
-	elseif modDB:Flag(nil, "MaximumLifeLeechIsEqualToPartyMember") then
-		output.MaxLifeLeechRatePercent = actor.partyMembers.output.MaxLifeLeechRatePercent
-	end
-	output.MaxLifeLeechRate = output.Life * output.MaxLifeLeechRatePercent / 100
-	if breakdown then
-		breakdown.MaxLifeLeechRate = {
-			s_format("%d ^8(maximum life)", output.Life),
-			s_format("x %d%% ^8(percentage of life to maximum leech rate)", output.MaxLifeLeechRatePercent),
-			s_format("= %.1f", output.MaxLifeLeechRate)
-		}
-	end
-	output.MaxEnergyShieldLeechInstance = output.EnergyShield * calcLib.val(modDB, "MaxEnergyShieldLeechInstance") / 100
-	output.MaxEnergyShieldLeechRate = output.EnergyShield * calcLib.val(modDB, "MaxEnergyShieldLeechRate") / 100
-	if breakdown then
-		breakdown.MaxEnergyShieldLeechRate = {
-			s_format("%d ^8(maximum energy shield)", output.EnergyShield),
-			s_format("x %d%% ^8(percentage of energy shield to maximum leech rate)", calcLib.val(modDB, "MaxEnergyShieldLeechRate")),
-			s_format("= %.1f", output.MaxEnergyShieldLeechRate)
-		}
-	end
-	output.MaxManaLeechInstance = output.Mana * calcLib.val(modDB, "MaxManaLeechInstance") / 100
-	output.MaxManaLeechRate = output.Mana * calcLib.val(modDB, "MaxManaLeechRate") / 100
-	if breakdown then
-		breakdown.MaxManaLeechRate = {
-			s_format("%d ^8(maximum mana)", output.Mana),
-			s_format("x %d%% ^8(percentage of mana to maximum leech rate)", calcLib.val(modDB, "MaxManaLeechRate")),
-			s_format("= %.1f", output.MaxManaLeechRate)
-		}
-	end
-
 	-- Regeneration
 	local resources = {"Mana", "Life", "Energy Shield", "Rage", "Ward"}
 	for i, resourceName in ipairs(resources) do

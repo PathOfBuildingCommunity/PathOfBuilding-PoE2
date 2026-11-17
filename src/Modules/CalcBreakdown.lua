@@ -206,56 +206,46 @@ return function(modDB, output, actor)
 		return out
 	end
 
-	function breakdown.leech(instant, instantRate, instances, pool, rate, max, dur, instantLeechProportion, hitRate)
+	function breakdown.leech(output, resource, hitRate)
 		local out = { }
+		if output.EnemyLeechResistance > 0 then
+			t_insert(out, s_format("Leech reduced by %.2f%% ^8(enemy leech resistance)", output.EnemyLeechResistance))
+		end
+		local instant = output[resource.."LeechInstant"]
+		if instant > 0 then
+			t_insert(out, s_format("Instant Leech: %.1f ^8(%d%% of leech)", instant, instant / output[resource.."LeechPerHit"] * 100))
+		end
 		if actor.mainSkill.skillData.showAverage then
-			if instant > 0 then
-				if instantLeechProportion ~= 1 then
-					t_insert(out, s_format("Instant Leech: %.1f ^8(%d%% x %.1f)", instant, instantLeechProportion * 100, dur * pool * data.misc.LeechRateBase / (1-instantLeechProportion)))
-				else
-					t_insert(out, s_format("Instant Leech: %.1f", instant))
-				end
-			end
-			if instances > 0 then
-				t_insert(out, "Total leeched per instance:")
-				t_insert(out, s_format("%d ^8(size of leech destination pool)", pool))
-				t_insert(out, s_format("x %.2f ^8(base leech rate is %d%% per second)", data.misc.LeechRateBase, 100 * data.misc.LeechRateBase))
-				local rateMod = calcLib.mod(modDB, skillCfg, rate)
-				if rateMod ~= 1 then
-					t_insert(out, s_format("x %.2f ^8(leech rate modifier)", rateMod))
-				end
-				t_insert(out, s_format("x %.2fs ^8(instance duration)", dur))
-				t_insert(out, s_format("= %.1f", pool * data.misc.LeechRateBase * rateMod * dur))
+			local nonInstant = output[resource.."LeechPerHit"] - instant
+			if nonInstant > 0 then
+				t_insert(out, s_format("Leech over time: %.1f ^8(recovered over %.2fs)", nonInstant, output[resource.."LeechDuration"]))
 			end
 		else
+			local instantRate = instant * hitRate
 			if instantRate > 0 then
-				if instantLeechProportion ~= 1 then
-					t_insert(out, s_format("Instant Leech: %.1f ^8(%d%% x %.1f)", instant, instantLeechProportion * 100, dur * pool * data.misc.LeechRateBase / (1-instantLeechProportion)))
-				else
-					t_insert(out, s_format("Instant Leech: %.1f", instant))
-				end
-				t_insert(out, s_format("Instant Leech per second: %.1f ^8(%.1f x %.2f)", instantRate, instant, hitRate))
+				t_insert(out, s_format("Instant Leech per second: %.1f ^8(%.1f x %.2f hits per second)", instantRate, instant, hitRate))
 			end
-			if instances > 0 then
-				t_insert(out, "Rate per instance:")
-				t_insert(out, s_format("%d ^8(size of leech destination pool)", pool))
-				t_insert(out, s_format("x %.2f ^8(base leech rate is %d%% per second)", data.misc.LeechRateBase, 100 * data.misc.LeechRateBase))
-				local rateMod = calcLib.mod(modDB, skillCfg, rate)
-				if rateMod ~= 1 then
-					t_insert(out, s_format("x %.2f ^8(leech rate modifier)", rateMod))
+			local instances = output[resource.."LeechInstances"]
+			if output[resource.."LeechRate"] - instantRate > 0 and instances > 0 then
+				t_insert(out, "Leech instances active within one duration:")
+				t_insert(out, s_format("%.2f ^8(hits per second)", hitRate))
+				t_insert(out, s_format("x %.2fs ^8(instance duration)", output[resource.."LeechDuration"]))
+				t_insert(out, s_format("= %.2f", instances))
+				if instances > 1 then
+					t_insert(out, "Only the strongest instance recovers at a time:")
+					t_insert(out, s_format("%.1f%% ^8(average roll of the strongest instance)", output[resource.."LeechRollAverage"]))
+					if output.CritChance > 0 then
+						t_insert(out, s_format("%.1f%% ^8(chance the strongest instance is from a critical hit)", output[resource.."LeechCritActive"]))
+					end
 				end
-				t_insert(out, s_format("= %.1f ^8per second", pool * data.misc.LeechRateBase * rateMod))
-				t_insert(out, "Maximum leech rate against one target:")
-				t_insert(out, s_format("%.1f", pool * data.misc.LeechRateBase * rateMod))
-				t_insert(out, s_format("x %.2f ^8(average instances)", instances))
-				local total = pool * data.misc.LeechRateBase * rateMod * instances
-				t_insert(out, s_format("= %.1f ^8per second", total))
-				if total <= max then
-					t_insert(out, s_format("Time to reach max: %.1fs", dur))
-				end
-				t_insert(out, s_format("Leech rate cap: %.1f", max))
-				if total > max then
-					t_insert(out, s_format("Time to reach cap: %.1fs", dur / total * max))
+				local instanceRate = output[resource.."LeechInstanceAmount"] * output[resource.."LeechSpeed"]
+				t_insert(out, "Leech rate:")
+				t_insert(out, s_format("%.1f ^8(leeched by the active instance)", output[resource.."LeechInstanceAmount"]))
+				t_insert(out, s_format("x %.2f ^8(leech speed)", output[resource.."LeechSpeed"]))
+				t_insert(out, s_format("= %.1f ^8per second while leeching", instanceRate))
+				if instances < 1 then
+					t_insert(out, s_format("x %.2f ^8(portion of time leeching)", instances))
+					t_insert(out, s_format("= %.1f ^8per second", instanceRate * instances))
 				end
 			end
 		end
