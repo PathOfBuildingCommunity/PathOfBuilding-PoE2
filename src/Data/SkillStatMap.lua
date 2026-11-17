@@ -508,12 +508,6 @@ return function(mod, flag, skill)
 	mod("DamageEnergyShieldLeech", "BASE", nil, ModFlag.Spell),
 	div = 100,
 },
-["maximum_life_leech_amount_per_leech_+%"] = {
-	mod("MaxLifeLeechRate", "INC", nil)
-},
-["maximum_energy_shield_leech_amount_per_leech_+%"] = {
-	mod("MaxEnergyShieldLeechRate", "INC", nil)
-},
 ["mana_gain_per_target"] = {
 	mod("ManaOnHit", "BASE", nil)
 },

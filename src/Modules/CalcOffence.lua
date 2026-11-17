@@ -520,6 +520,74 @@ local function getBaseLeech(resource, dmgType, skillModList, cfg, enemyDB)
 	end
 	return leech and leech or 0
 end
+
+local leechResources = { "Life", "EnergyShield", "Mana" }
+
+-- Leech from a hit rolled rollShift of the way from the average to the maximum hit, with the hit capped for leech purposes
+-- Also returns the uncapped hit damage
+local function getLeechAmount(pass, resource, rollShift)
+	if pass.hitAvg <= 0 then
+		return 0, 0
+	end
+	local hit = pass.hitAvg + m_max(pass.hitMax - pass.hitAvg, 0) * rollShift
+	return pass[resource] / pass.hitAvg * m_min(hit, data.gameConstants["EffectiveMaxDamageForLeech"]), hit
+end
+
+-- Only the strongest Leech instance of a resource recovers at a time. Like non-stacking ailments,
+-- overlapping instances shift the active one towards the top of the damage range and towards crits
+-- speed is the multiplier to how fast an instance recovers, 1 meaning its full amount over one
+-- second
+local function calcLeech(output, resource, critPass, nonCritPass, critChance, hitRate, speed)
+	local critPortion = critChance / 100
+	-- Leech of an average crit / non-crit, and the portion of it that is instant
+	local critAmount = getLeechAmount(critPass, resource, 0)
+	local nonCritAmount = getLeechAmount(nonCritPass, resource, 0)
+	local critInstant = critPass[resource.."Instant"]
+	local nonCritInstant = nonCritPass[resource.."Instant"]
+	local perHit = critAmount * critPortion + nonCritAmount * (1 - critPortion)
+	local instant = critAmount * critInstant * critPortion + nonCritAmount * nonCritInstant * (1 - critPortion)
+	-- Average number of instances alive at any time (hits per second x duration). Instant Leech
+	-- shortens the duration, but the rest recovers at the normal rate. Hits that leech nothing or only
+	-- instantly never create an instance
+	local duration, critInstances, nonCritInstances = 0, 0, 0
+	if speed > 0 then
+		duration = (critPortion * (1 - critInstant) + (1 - critPortion) * (1 - nonCritInstant)) / speed
+		if critAmount > 0 then
+			critInstances = hitRate * critPortion * (1 - critInstant) / speed
+		end
+		if nonCritAmount > 0 then
+			nonCritInstances = hitRate * (1 - critPortion) * (1 - nonCritInstant) / speed
+		end
+	end
+	local instances = critInstances + nonCritInstances
+	-- With more than one instance alive, the active one is the strongest of them, so its expected
+	-- roll and chance of being a crit both increase. With one or fewer, it is just an average
+	-- instance The strongest of n uniform rolls averages n/(n+1) of the damage range, i.e.
+	-- (n-1)/(n+1) of the way from average to max
+	local rollShift = instances > 1 and (instances - 1) / (instances + 1) or 0
+	-- Chance that at least one of the alive instances came from a crit
+	local critActive = instances > 0 and 1 - (1 - critInstances / instances) ^ m_max(instances, 1) or 0
+	-- Full leech amount of the active instance. Its instant part shortens the duration, so it
+	-- always recovers at amount x speed
+	local critInstanceAmount, critHit = getLeechAmount(critPass, resource, rollShift)
+	local nonCritInstanceAmount, nonCritHit = getLeechAmount(nonCritPass, resource, rollShift)
+	local instanceAmount = critInstanceAmount * critActive + nonCritInstanceAmount * (1 - critActive)
+	output[resource.."LeechPerHit"] = perHit
+	output[resource.."LeechInstant"] = instant
+	output[resource.."LeechDuration"] = duration
+	output[resource.."LeechSpeed"] = speed
+	output[resource.."LeechInstances"] = instances
+	output[resource.."LeechRollAverage"] = 50 + 50 * rollShift
+	output[resource.."LeechCritActive"] = critActive * 100
+	output[resource.."LeechCritHit"] = critHit
+	output[resource.."LeechNonCritHit"] = nonCritHit
+	output[resource.."LeechCritInstanceAmount"] = critInstanceAmount
+	output[resource.."LeechNonCritInstanceAmount"] = nonCritInstanceAmount
+	output[resource.."LeechInstanceAmount"] = instanceAmount
+	-- Instant leech from every hit, plus the active instance for the portion of time one is alive
+	output[resource.."LeechRate"] = instant * hitRate + instanceAmount * speed * m_min(instances, 1)
+end
+
 -- Performs all offensive calculations
 ---@param env Env
 ---@param actor Actor
@@ -3337,14 +3405,6 @@ function calcs.offence(env, actor, activeSkill)
 		end
 	end
 
-	-- Calculate leech
-	local function getLeechInstances(amount, total, hitRate)
-		if total == 0 then
-			return 0, 0
-		end
-		local duration = amount / total / data.misc.LeechRateBase
-		return duration, duration * hitRate
-	end
 	-- dynamic way of calculating the Ancestral Boost from a single source without duplicating the code
 	-- uptimeOverride: Ancestral Empowerment
 	-- combinedCalcs: ignore INC AoE as we will run that in calcCombinedAncestralBoost
@@ -4193,12 +4253,8 @@ function calcs.offence(env, actor, activeSkill)
 		local totalHitMin, totalHitMax, totalHitAvg = 0, 0, 0
 		local totalCritMin, totalCritMax, totalCritAvg = 0, 0, 0
 		local ghostReaver = skillModList:Flag(nil, "GhostReaver")
-		output.LifeLeech = 0
-		output.LifeLeechInstant = 0
-		output.EnergyShieldLeech = 0
-		output.EnergyShieldLeechInstant = 0
-		output.ManaLeech = 0
-		output.ManaLeechInstant = 0
+		local leechPasses = { }
+		local leechEffect = 1 - m_min(data.monsterLeechResistanceTable[env.enemyLevel] / 10000, 1)
 
 		for pass = 1, 2 do
 			-- Pass 1 is critical strike damage, pass 2 is non-critical strike
@@ -4207,7 +4263,7 @@ function calcs.offence(env, actor, activeSkill)
 			local energyShieldLeechTotal = 0
 			local manaLeechTotal = 0
 			local noLifeLeech = skillModList:Flag(cfg, "CannotLeechLife") or enemyDB:Flag(nil, "CannotLeechLifeFromSelf") or skillModList:Flag(cfg, "CannotGainLife")
-			local noEnergyShieldLeech = skillModList:Flag(cfg, "CannotLeechEnergyShield") or enemyDB:Flag(nil, "CannotLeechEnergyShieldFromSelf") or skillModList:Flag(cfg, "CannotGainEnergyShield")
+			local noEnergyShieldLeech = skillModList:Flag(cfg, "CannotGainEnergyShield")
 			local noManaLeech = skillModList:Flag(cfg, "CannotLeechMana") or enemyDB:Flag(nil, "CannotLeechManaFromSelf") or skillModList:Flag(cfg, "CannotGainMana")
 			for _, damageType in ipairs(dmgTypeList) do
 				local damageTypeHitMin, damageTypeHitMax, damageTypeHitAvg, damageTypeLuckyChance, damageTypeHitAvgLucky, damageTypeHitAvgNotLucky = 0, 0, 0, 0, 0
@@ -4455,22 +4511,20 @@ function calcs.offence(env, actor, activeSkill)
 					totalHitMax = totalHitMax + damageTypeHitMax
 				end
 			end
-			if skillData.lifeLeechPerUse then
-				lifeLeechTotal = lifeLeechTotal + skillData.lifeLeechPerUse
+			local leechPass = {
+				hitAvg = pass == 1 and totalCritAvg or totalHitAvg,
+				hitMax = pass == 1 and totalCritMax or totalHitMax,
+				Life = lifeLeechTotal * calcLib.mod(skillModList, cfg, "LifeLeechAmount") * leechEffect,
+				EnergyShield = energyShieldLeechTotal * calcLib.mod(skillModList, cfg, "EnergyShieldLeechAmount") * leechEffect,
+				Mana = manaLeechTotal * calcLib.mod(skillModList, cfg, "ManaLeechAmount") * leechEffect,
+				LifeInstant = m_max(m_min(skillModList:Sum("BASE", cfg, "InstantLifeLeech"), 100), 0) / 100,
+				EnergyShieldInstant = m_max(m_min(skillModList:Sum("BASE", cfg, "InstantEnergyShieldLeech"), 100), 0) / 100,
+				ManaInstant = m_max(m_min(skillModList:Sum("BASE", cfg, "InstantManaLeech"), 100), 0) / 100,
+			}
+			if skillModList:Flag(cfg, "ManaLeechRecoversEnergyShield") then
+				leechPass.EnergyShieldInstant = m_min(leechPass.EnergyShieldInstant + leechPass.ManaInstant, 1)
 			end
-			if skillData.manaLeechPerUse then
-				manaLeechTotal = manaLeechTotal + skillData.manaLeechPerUse
-			end
-
-			-- leech caps per instance
-			lifeLeechTotal = m_min(lifeLeechTotal, globalOutput.MaxLifeLeechInstance)
-			energyShieldLeechTotal = m_min(energyShieldLeechTotal, globalOutput.MaxEnergyShieldLeechInstance)
-			manaLeechTotal = m_min(manaLeechTotal, globalOutput.MaxManaLeechInstance)
-
-			local portion = (pass == 1) and (output.CritChance / 100) or (1 - output.CritChance / 100)
-			output.LifeLeech = output.LifeLeech + lifeLeechTotal * portion
-			output.EnergyShieldLeech = output.EnergyShieldLeech + energyShieldLeechTotal * portion
-			output.ManaLeech = output.ManaLeech + manaLeechTotal * portion
+			leechPasses[pass] = leechPass
 		end
 		output.TotalMin = totalHitMin
 		output.TotalMax = totalHitMax
@@ -4501,34 +4555,10 @@ function calcs.offence(env, actor, activeSkill)
 			skillModList:NewMod("Condition:"..highestType.."IsHighestDamageType", "FLAG", true, "Config")
 		end
 
-
-
-		--Instant Leech
-		output.LifeLeechInstantProportion = m_max(m_min(skillModList:Sum("BASE", cfg, "InstantLifeLeech") or 0, 100), 0) / 100
-		if output.LifeLeechInstantProportion > 0 then
-			output.LifeLeechInstant = output.LifeLeech * output.LifeLeechInstantProportion
-			output.LifeLeech = output.LifeLeech * (1 - output.LifeLeechInstantProportion)
+		for _, resource in ipairs(leechResources) do
+			local speed = calcLib.mod(skillModList, cfg, resource.."LeechRate") * globalOutput[resource.."RecoveryRateMod"]
+			calcLeech(output, resource, leechPasses[1], leechPasses[2], output.CritChance, hitRate, speed)
 		end
-		output.ManaLeechInstantProportion = m_max(m_min(skillModList:Sum("BASE", cfg, "InstantManaLeech") or 0, 100), 0) / 100
-		if output.ManaLeechInstantProportion > 0 then
-			output.ManaLeechInstant = output.ManaLeech * output.ManaLeechInstantProportion
-			output.ManaLeech = output.ManaLeech * (1 - output.ManaLeechInstantProportion)
-		end
-		output.EnergyShieldLeechInstantProportion = m_max(m_min(skillModList:Sum("BASE", cfg, "InstantEnergyShieldLeech") or 0, 100), 0) / 100
-		if skillModList:Flag(cfg, "ManaLeechRecoversEnergyShield") then
-			output.EnergyShieldLeechInstantProportion = output.EnergyShieldLeechInstantProportion + output.ManaLeechInstantProportion
-		end
-		if output.EnergyShieldLeechInstantProportion > 0 then
-			output.EnergyShieldLeechInstant = output.EnergyShieldLeech * output.EnergyShieldLeechInstantProportion
-			output.EnergyShieldLeech = output.EnergyShieldLeech * (1 - output.EnergyShieldLeechInstantProportion)
-		end
-
-		output.LifeLeechDuration, output.LifeLeechInstances = getLeechInstances(output.LifeLeech, globalOutput.Life, hitRate)
-		output.LifeLeechInstantRate = output.LifeLeechInstant * hitRate
-		output.EnergyShieldLeechDuration, output.EnergyShieldLeechInstances = getLeechInstances(output.EnergyShieldLeech, globalOutput.EnergyShield, hitRate)
-		output.EnergyShieldLeechInstantRate = output.EnergyShieldLeechInstant * hitRate
-		output.ManaLeechDuration, output.ManaLeechInstances = getLeechInstances(output.ManaLeech, globalOutput.Mana, hitRate)
-		output.ManaLeechInstantRate = output.ManaLeechInstant * hitRate
 
 		-- Calculate gain on hit
 		if skillFlags.mine or skillFlags.trap or skillFlags.totem then
@@ -4730,21 +4760,14 @@ function calcs.offence(env, actor, activeSkill)
 		combineStat("DpsMultiplier", "DPS")
 		combineStat("TotalDPS", "DPS")
 		combineStat("PvpTotalDPS", "DPS")
-		combineStat("LifeLeechDuration", "DPS")
-		combineStat("LifeLeechInstances", "DPS")
-		combineStat("LifeLeechInstant", "DPS")
-		combineStat("LifeLeechInstantRate", "DPS")
-		combineStat("LifeLeechInstantProportion", "DPS")
-		combineStat("EnergyShieldLeechDuration", "DPS")
-		combineStat("EnergyShieldLeechInstances", "DPS")
-		combineStat("EnergyShieldLeechInstant", "DPS")
-		combineStat("EnergyShieldLeechInstantRate", "DPS")
-		combineStat("EnergyShieldLeechInstantProportion", "DPS")
-		combineStat("ManaLeechDuration", "DPS")
-		combineStat("ManaLeechInstances", "DPS")
-		combineStat("ManaLeechInstant", "DPS")
-		combineStat("ManaLeechInstantRate", "DPS")
-		combineStat("ManaLeechInstantProportion", "DPS")
+		for _, resource in ipairs(leechResources) do
+			for _, stat in ipairs({ "PerHit", "Rate", "Instances", "Instant", "InstanceAmount", "CritInstanceAmount", "NonCritInstanceAmount", "CritHit", "NonCritHit" }) do
+				combineStat(resource.."Leech"..stat, "DPS")
+			end
+			for _, stat in ipairs({ "Duration", "Speed", "RollAverage", "CritActive" }) do
+				combineStat(resource.."Leech"..stat, "AVERAGE")
+			end
+		end
 		combineStat("LifeOnHit", "DPS")
 		combineStat("LifeOnHitRate", "DPS")
 		combineStat("LifeOnKill", "DPS")
@@ -4904,16 +4927,6 @@ function calcs.offence(env, actor, activeSkill)
 		skillData.summonSpeed = output.SummonedMinionsPerCast * (output.HitSpeed or output.Speed) * output.DpsMultiplier
 	end
 
-	-- Calculate leech rates
-	output.LifeLeechInstanceRate = output.Life * data.misc.LeechRateBase * calcLib.mod(skillModList, skillCfg, "LifeLeechRate")
-	output.LifeLeechRate = output.LifeLeechInstances * output.LifeLeechInstanceRate
-	output.LifeLeechPerHit = output.LifeLeechInstanceRate
-	output.EnergyShieldLeechInstanceRate = output.EnergyShield * data.misc.LeechRateBase * calcLib.mod(skillModList, skillCfg, "EnergyShieldLeechRate")
-	output.EnergyShieldLeechRate = output.EnergyShieldLeechInstances * output.EnergyShieldLeechInstanceRate
-	output.EnergyShieldLeechPerHit = output.EnergyShieldLeechInstanceRate
-	output.ManaLeechInstanceRate = output.Mana * data.misc.LeechRateBase * calcLib.mod(skillModList, skillCfg, "ManaLeechRate")
-	output.ManaLeechRate = output.ManaLeechInstances * output.ManaLeechInstanceRate
-	output.ManaLeechPerHit = output.ManaLeechInstanceRate
 	-- On full life, Immortal Ambition treats life leech as energy shield leech
 	if skillModList:Flag(nil, "ImmortalAmbition") then
 		output.EnergyShieldLeechRate = output.EnergyShieldLeechRate + output.LifeLeechRate
@@ -4922,18 +4935,6 @@ function calcs.offence(env, actor, activeSkill)
 		output.LifeLeechRate = 0
 		output.LifeLeechPerHit = 0
 	end
-	-- Disable non-instant life leech
-	if skillModList:Flag(nil, "UnaffectedByNonInstantLifeLeech") then
-		output.LifeLeechRate = 0
-		output.LifeLeechPerHit = 0
-		output.LifeLeechInstances = 0
-	end
-	output.LifeLeechRate = output.LifeLeechInstantRate + m_min(output.LifeLeechRate, output.MaxLifeLeechRate) * output.LifeRecoveryRateMod
-	output.LifeLeechPerHit = output.LifeLeechInstant + m_min(output.LifeLeechPerHit, output.MaxLifeLeechRate) * output.LifeLeechDuration * output.LifeRecoveryRateMod
-	output.EnergyShieldLeechRate = output.EnergyShieldLeechInstantRate + m_min(output.EnergyShieldLeechRate, output.MaxEnergyShieldLeechRate) * output.EnergyShieldRecoveryRateMod
-	output.EnergyShieldLeechPerHit = output.EnergyShieldLeechInstant + m_min(output.EnergyShieldLeechPerHit, output.MaxEnergyShieldLeechRate) * output.EnergyShieldLeechDuration * output.EnergyShieldRecoveryRateMod
-	output.ManaLeechRate = output.ManaLeechInstantRate + m_min(output.ManaLeechRate, output.MaxManaLeechRate) * output.ManaRecoveryRateMod
-	output.ManaLeechPerHit = output.ManaLeechInstant + m_min(output.ManaLeechPerHit, output.MaxManaLeechRate) * output.ManaLeechDuration * output.ManaRecoveryRateMod
 	skillFlags.leechLife = output.LifeLeechRate > 0
 	skillFlags.leechES = output.EnergyShieldLeechRate > 0
 	skillFlags.leechMana = output.ManaLeechRate > 0
@@ -4947,15 +4948,16 @@ function calcs.offence(env, actor, activeSkill)
 		output.ManaLeechGainRate = output.ManaLeechRate + output.ManaOnHitRate
 	end
 	if breakdown then
+		output.EnemyLeechResistance = data.monsterLeechResistanceTable[env.enemyLevel] / 100
 		local hitRate = output.HitChance / 100 * (globalOutput.HitSpeed or globalOutput.Speed) * output.DpsMultiplier
 		if skillFlags.leechLife then
-			breakdown.LifeLeech = breakdown.leech(output.LifeLeechInstant, output.LifeLeechInstantRate, output.LifeLeechInstances, output.Life, "LifeLeechRate", output.MaxLifeLeechRate, output.LifeLeechDuration, output.LifeLeechInstantProportion, hitRate)
+			breakdown.LifeLeech = breakdown.leech(output, "Life", hitRate)
 		end
 		if skillFlags.leechES then
-			breakdown.EnergyShieldLeech = breakdown.leech(output.EnergyShieldLeechInstant, output.EnergyShieldLeechInstantRate, output.EnergyShieldLeechInstances, output.EnergyShield, "EnergyShieldLeechRate", output.MaxEnergyShieldLeechRate, output.EnergyShieldLeechDuration, output.EnergyShieldLeechInstantProportion, hitRate)
+			breakdown.EnergyShieldLeech = breakdown.leech(output, "EnergyShield", hitRate)
 		end
 		if skillFlags.leechMana then
-			breakdown.ManaLeech = breakdown.leech(output.ManaLeechInstant, output.ManaLeechInstantRate, output.ManaLeechInstances, output.Mana, "ManaLeechRate", output.MaxManaLeechRate, output.ManaLeechDuration, output.ManaLeechInstantProportion, hitRate)
+			breakdown.ManaLeech = breakdown.leech(output, "Mana", hitRate)
 		end
 	end
 

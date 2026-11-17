@@ -206,59 +206,73 @@ return function(modDB, output, actor)
 		return out
 	end
 
-	function breakdown.leech(instant, instantRate, instances, pool, rate, max, dur, instantLeechProportion, hitRate)
+	function breakdown.leech(output, resource, hitRate)
 		local out = { }
+		local prefix = resource.."Leech"
+		local instant = output[prefix.."Instant"]
+		local resistance = output.EnemyLeechResistance
+		local resistMult = 1 - resistance / 100
+		local resistText = resistance > 0 and s_format(" ^8(after %.2f%% enemy leech resistance)", resistance) or ""
 		if actor.mainSkill.skillData.showAverage then
+			local overTime = output[prefix.."PerHit"] - instant
+			t_insert(out, "Leech per hit:")
+			if overTime > 0 then
+				t_insert(out, s_format("%.1f ^8(recovered over %.2fs)", overTime, output[prefix.."Duration"]))
+			end
 			if instant > 0 then
-				if instantLeechProportion ~= 1 then
-					t_insert(out, s_format("Instant Leech: %.1f ^8(%d%% x %.1f)", instant, instantLeechProportion * 100, dur * pool * data.misc.LeechRateBase / (1-instantLeechProportion)))
-				else
-					t_insert(out, s_format("Instant Leech: %.1f", instant))
+				t_insert(out, s_format("%s%.1f ^8(instant)", overTime > 0 and "+ " or "", instant))
+			end
+			t_insert(out, s_format("= %.1f%s", output[prefix.."PerHit"], resistText))
+			return out
+		end
+		local instances = output[prefix.."Instances"]
+		local instanceAmount = output[prefix.."InstanceAmount"] / resistMult
+		local hasOverTime = instances > 0 and instanceAmount > 0
+		if hasOverTime then
+			t_insert(out, "Overlapping leech instances:")
+			t_insert(out, s_format("%.2f ^8(hits per second)", hitRate))
+			t_insert(out, s_format("x %.2fs ^8(duration)", output[prefix.."Duration"]))
+			t_insert(out, s_format("= %.2f", instances))
+			local critActive = output[prefix.."CritActive"] / 100
+			if instances > 1 then
+				t_insert(out, s_format("Only the strongest of %.2f instances recovers:", instances))
+				t_insert(out, s_format("%.1f%% ^8(average roll, %.2f / (%.2f + 1))", output[prefix.."RollAverage"], instances, instances))
+				if critActive > 0 and critActive < 1 then
+					local critShare = 1 - (1 - critActive) ^ (1 / instances)
+					t_insert(out, s_format("%.1f%% ^8(chance of a critical hit, 1 - (1 - %.1f%%) ^ %.2f)", critActive * 100, critShare * 100, instances))
 				end
 			end
-			if instances > 0 then
-				t_insert(out, "Total leeched per instance:")
-				t_insert(out, s_format("%d ^8(size of leech destination pool)", pool))
-				t_insert(out, s_format("x %.2f ^8(base leech rate is %d%% per second)", data.misc.LeechRateBase, 100 * data.misc.LeechRateBase))
-				local rateMod = calcLib.mod(modDB, skillCfg, rate)
-				if rateMod ~= 1 then
-					t_insert(out, s_format("x %.2f ^8(leech rate modifier)", rateMod))
-				end
-				t_insert(out, s_format("x %.2fs ^8(instance duration)", dur))
-				t_insert(out, s_format("= %.1f", pool * data.misc.LeechRateBase * rateMod * dur))
+			t_insert(out, instances > 1 and "Leech of the strongest instance:" or "Leech per instance:")
+			local cap = data.gameConstants["EffectiveMaxDamageForLeech"]
+			local function insertHit(op, label, hit, amount, chance)
+				local damage = m_min(hit, cap)
+				local capped = hit > cap and s_format(" capped from %.0f", hit) or ""
+				local chanceText = chance < 1 and s_format(" x %.1f%%", chance * 100) or ""
+				t_insert(out, s_format("%s%.0f x %.2f%%%s ^8(%s hit%s x leech%s)", op, damage, amount / resistMult / damage * 100, chanceText, label, capped, chance < 1 and " x chance" or ""))
 			end
-		else
-			if instantRate > 0 then
-				if instantLeechProportion ~= 1 then
-					t_insert(out, s_format("Instant Leech: %.1f ^8(%d%% x %.1f)", instant, instantLeechProportion * 100, dur * pool * data.misc.LeechRateBase / (1-instantLeechProportion)))
-				else
-					t_insert(out, s_format("Instant Leech: %.1f", instant))
-				end
-				t_insert(out, s_format("Instant Leech per second: %.1f ^8(%.1f x %.2f)", instantRate, instant, hitRate))
+			if critActive < 1 then
+				insertHit("", "non-critical", output[prefix.."NonCritHit"], output[prefix.."NonCritInstanceAmount"], 1 - critActive)
 			end
-			if instances > 0 then
-				t_insert(out, "Rate per instance:")
-				t_insert(out, s_format("%d ^8(size of leech destination pool)", pool))
-				t_insert(out, s_format("x %.2f ^8(base leech rate is %d%% per second)", data.misc.LeechRateBase, 100 * data.misc.LeechRateBase))
-				local rateMod = calcLib.mod(modDB, skillCfg, rate)
-				if rateMod ~= 1 then
-					t_insert(out, s_format("x %.2f ^8(leech rate modifier)", rateMod))
-				end
-				t_insert(out, s_format("= %.1f ^8per second", pool * data.misc.LeechRateBase * rateMod))
-				t_insert(out, "Maximum leech rate against one target:")
-				t_insert(out, s_format("%.1f", pool * data.misc.LeechRateBase * rateMod))
-				t_insert(out, s_format("x %.2f ^8(average instances)", instances))
-				local total = pool * data.misc.LeechRateBase * rateMod * instances
-				t_insert(out, s_format("= %.1f ^8per second", total))
-				if total <= max then
-					t_insert(out, s_format("Time to reach max: %.1fs", dur))
-				end
-				t_insert(out, s_format("Leech rate cap: %.1f", max))
-				if total > max then
-					t_insert(out, s_format("Time to reach cap: %.1fs", dur / total * max))
-				end
+			if critActive > 0 then
+				insertHit(critActive < 1 and "+ " or "", "critical", output[prefix.."CritHit"], output[prefix.."CritInstanceAmount"], critActive)
+			end
+			t_insert(out, s_format("= %.1f", instanceAmount))
+		end
+		t_insert(out, "Leech per second:")
+		if hasOverTime then
+			t_insert(out, s_format("%.1f ^8(leech of the instance)", instanceAmount))
+			if resistance > 0 then
+				t_insert(out, s_format("x %.4f ^8(%.2f%% enemy leech resistance)", resistMult, resistance))
+			end
+			t_insert(out, s_format("x %.2f ^8(leech speed%s)", output[prefix.."Speed"], instant > 0 and ", the instant part shortens the duration instead" or ""))
+			if instances < 1 then
+				t_insert(out, s_format("x %.2f ^8(portion of time leeching)", instances))
 			end
 		end
+		if instant > 0 then
+			t_insert(out, s_format("%s%.1f x %.2f ^8(instant leech per hit x hits per second)", hasOverTime and "+ " or "", instant, hitRate))
+		end
+		t_insert(out, s_format("= %.1f ^8per second", output[prefix.."Rate"]))
 		return out
 	end
 

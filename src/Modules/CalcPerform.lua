@@ -3632,8 +3632,6 @@ function calcs.perform(env, skipEHP)
 						buffExports.PlayerMods["BlockChanceMax="..tostring(output["BlockChanceMax"])] = true
 					elseif mod.name == "BlockAttackChanceIsEqualToParent" then
 						buffExports.PlayerMods["BlockChance="..tostring(output["BlockChance"])] = true
-					elseif mod.name == "MaximumLifeLeechIsEqualToPartyMember" then
-						buffExports.PlayerMods["MaxLifeLeechRatePercent="..tostring(output["MaxLifeLeechRatePercent"])] = true
 					elseif mod.name == "TakenFromParentESBeforeYou" then
 						buffExports.PlayerMods["EnergyShieldRecoveryCap="..tostring(output["EnergyShieldRecoveryCap"])] = true
 					elseif mod.name == "MainHandCritIsEqualToParent" then
