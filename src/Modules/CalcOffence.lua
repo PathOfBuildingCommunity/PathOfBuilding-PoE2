@@ -524,13 +524,13 @@ end
 local leechResources = { "Life", "EnergyShield", "Mana" }
 
 -- Leech from a hit rolled rollShift of the way from the average to the maximum hit, with the hit capped for leech purposes
+-- Also returns the uncapped hit damage
 local function getLeechAmount(pass, resource, rollShift)
 	if pass.hitAvg <= 0 then
-		return 0
+		return 0, 0
 	end
 	local hit = pass.hitAvg + m_max(pass.hitMax - pass.hitAvg, 0) * rollShift
-	ConPrintf("%.2f", rollShift)
-	return pass[resource] / pass.hitAvg * m_min(hit, data.gameConstants["EffectiveMaxDamageForLeech"])
+	return pass[resource] / pass.hitAvg * m_min(hit, data.gameConstants["EffectiveMaxDamageForLeech"]), hit
 end
 
 -- Only the strongest Leech instance of a resource recovers at a time. Like non-stacking ailments,
@@ -547,7 +547,7 @@ local function calcLeech(output, resource, critPass, nonCritPass, critChance, hi
 	local perHit = critAmount * critPortion + nonCritAmount * (1 - critPortion)
 	local instant = critAmount * critInstant * critPortion + nonCritAmount * nonCritInstant * (1 - critPortion)
 	-- Average number of instances alive at any time (hits per second x duration). Instant Leech
-	-- shortens the duration, the rest recovers at the normal rate. Hits that leech nothing or only
+	-- shortens the duration, but the rest recovers at the normal rate. Hits that leech nothing or only
 	-- instantly never create an instance
 	local duration, critInstances, nonCritInstances = 0, 0, 0
 	if speed > 0 then
@@ -569,7 +569,9 @@ local function calcLeech(output, resource, critPass, nonCritPass, critChance, hi
 	local critActive = instances > 0 and 1 - (1 - critInstances / instances) ^ m_max(instances, 1) or 0
 	-- Full leech amount of the active instance. Its instant part shortens the duration, so it
 	-- always recovers at amount x speed
-	local instanceAmount = getLeechAmount(critPass, resource, rollShift) * critActive + getLeechAmount(nonCritPass, resource, rollShift) * (1 - critActive)
+	local critInstanceAmount, critHit = getLeechAmount(critPass, resource, rollShift)
+	local nonCritInstanceAmount, nonCritHit = getLeechAmount(nonCritPass, resource, rollShift)
+	local instanceAmount = critInstanceAmount * critActive + nonCritInstanceAmount * (1 - critActive)
 	output[resource.."LeechPerHit"] = perHit
 	output[resource.."LeechInstant"] = instant
 	output[resource.."LeechDuration"] = duration
@@ -577,6 +579,10 @@ local function calcLeech(output, resource, critPass, nonCritPass, critChance, hi
 	output[resource.."LeechInstances"] = instances
 	output[resource.."LeechRollAverage"] = 50 + 50 * rollShift
 	output[resource.."LeechCritActive"] = critActive * 100
+	output[resource.."LeechCritHit"] = critHit
+	output[resource.."LeechNonCritHit"] = nonCritHit
+	output[resource.."LeechCritInstanceAmount"] = critInstanceAmount
+	output[resource.."LeechNonCritInstanceAmount"] = nonCritInstanceAmount
 	output[resource.."LeechInstanceAmount"] = instanceAmount
 	-- Instant leech from every hit, plus the active instance for the portion of time one is alive
 	output[resource.."LeechRate"] = instant * hitRate + instanceAmount * speed * m_min(instances, 1)
@@ -4755,7 +4761,7 @@ function calcs.offence(env, actor, activeSkill)
 		combineStat("TotalDPS", "DPS")
 		combineStat("PvpTotalDPS", "DPS")
 		for _, resource in ipairs(leechResources) do
-			for _, stat in ipairs({ "PerHit", "Rate", "Instances", "Instant", "InstanceAmount" }) do
+			for _, stat in ipairs({ "PerHit", "Rate", "Instances", "Instant", "InstanceAmount", "CritInstanceAmount", "NonCritInstanceAmount", "CritHit", "NonCritHit" }) do
 				combineStat(resource.."Leech"..stat, "DPS")
 			end
 			for _, stat in ipairs({ "Duration", "Speed", "RollAverage", "CritActive" }) do
