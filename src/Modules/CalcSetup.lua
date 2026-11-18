@@ -192,7 +192,7 @@ local function resetModList(list)
 	list.multipliers = wipeTable(list.multipliers)
 	list.conditions = wipeTable(list.conditions)
 	list.actor = wipeTable(list.actor)
-	list.parent = false
+	list.parent = nil
 	return list
 end
 
