@@ -2915,7 +2915,6 @@ function CompareTabClass:ComparePowerBuilder(compareEntry, powerStat, categories
 			if sig ~= "" and not pSignatures[sig] then
 				-- Temporarily add this socket group to primary build and recalculate
 				t_insert(pGroups, cGroup)
-				self.primaryBuild.buildFlag = true
 
 				-- Get a fresh calculator with the added group (pcall to guarantee cleanup)
 				local ok, gemCalcFunc, gemCalcBase = pcall(function()
@@ -2924,7 +2923,6 @@ function CompareTabClass:ComparePowerBuilder(compareEntry, powerStat, categories
 
 				-- Always remove the temporarily added group
 				t_remove(pGroups)
-				self.primaryBuild.buildFlag = true
 
 				if not ok then
 					-- gemCalcFunc contains the error message on failure; skip this group
@@ -2998,7 +2996,6 @@ function CompareTabClass:ComparePowerBuilder(compareEntry, powerStat, categories
 
 						-- Temporarily add to primary build's main socket group
 						t_insert(pMainGroup.gemList, tempGem)
-						self.primaryBuild.buildFlag = true
 
 						local ok, sgCalcFunc, sgCalcBase = pcall(function()
 							return self.calcs.getMiscCalculator(self.primaryBuild)
@@ -3006,7 +3003,6 @@ function CompareTabClass:ComparePowerBuilder(compareEntry, powerStat, categories
 
 						-- Always remove the temporarily added gem
 						t_remove(pMainGroup.gemList)
-						self.primaryBuild.buildFlag = true
 
 						if not ok then
 							ConPrintf("Compare power (support gem): %s", tostring(sgCalcFunc))
@@ -3062,6 +3058,7 @@ function CompareTabClass:ComparePowerBuilder(compareEntry, powerStat, categories
 				if pNorm ~= cNorm then
 					-- Save original value
 					local savedVal = pInput[varData.var]
+					local buildFlag = self.primaryBuild.buildFlag
 
 					-- Apply compare build's config value
 					pInput[varData.var] = cVal
@@ -3069,14 +3066,15 @@ function CompareTabClass:ComparePowerBuilder(compareEntry, powerStat, categories
 					-- Rebuild and calculate (pcall to guarantee restore on error)
 					local ok, cfgCalcFunc, cfgCalcBase = pcall(function()
 						self.primaryBuild.configTab:BuildModList()
-						self.primaryBuild.buildFlag = true
 						return self.calcs.getMiscCalculator(self.primaryBuild)
 					end)
 
 					-- Always restore original value
 					pInput[varData.var] = savedVal
 					self.primaryBuild.configTab:BuildModList()
-					self.primaryBuild.buildFlag = true
+					-- Some config applies (e.g. enemyIsBoss placeholders) flag the build for a rebuild,
+					-- which would restart this report
+					self.primaryBuild.buildFlag = buildFlag
 
 					if not ok then
 						-- cfgCalcFunc contains the error message on failure; skip this config
@@ -3127,9 +3125,13 @@ end
 
 -- Drive the compare power report coroutine
 function CompareTabClass:RunComparePowerReport(compareEntry)
-	-- Invalidate if compare entry changed
-	if self.comparePowerCompareId ~= compareEntry then
+	-- Invalidate if the compare entry changed or either build was recalculated
+	if self.comparePowerCompareId ~= compareEntry
+			or self.comparePowerPrimaryRevision ~= self.primaryBuild.outputRevision
+			or self.comparePowerCompareRevision ~= compareEntry.outputRevision then
 		self.comparePowerCompareId = compareEntry
+		self.comparePowerPrimaryRevision = self.primaryBuild.outputRevision
+		self.comparePowerCompareRevision = compareEntry.outputRevision
 		self.comparePowerDirty = true
 	end
 

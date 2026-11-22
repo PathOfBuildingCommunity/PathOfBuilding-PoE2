@@ -1,0 +1,28 @@
+diff a/src/Classes/CompareTab.lua b/src/Classes/CompareTab.lua	(rejected hunks)
+@@ -186,6 +186,8 @@ function CompareTabClass:CompareTab(primaryBuild)
+ 	self.comparePowerProgress = 0         -- 0-100
+ 	self.comparePowerDirty = false        -- flag to restart calculation
+ 	self.comparePowerCompareId = nil      -- track which compare entry was calculated
++	self.comparePowerPrimaryRevision = nil -- primary build outputRevision the report was calculated for
++	self.comparePowerCompareRevision = nil -- compare entry outputRevision the report was calculated for
+ 
+ 	-- Pre-load static module data
+ 	self.configOptions = require("Modules.ConfigOptions")
+@@ -2754,7 +2756,7 @@ function CompareTabClass:ComparePowerBuilder(compareEntry, powerStat, categories
+ 								-- copy item
+ 								local itemCopy = new("Item"):Item(cmpJewel:BuildRaw())
+ 								table.insert(cmpJewels, itemCopy)
+-								self.primaryBuild.itemsTab:AddItem(itemCopy, false)
++								self.primaryBuild.itemsTab:AddItem(itemCopy, true)
+ 
+ 								-- equip copied
+ 								self.primaryBuild.itemsTab.slots[abyssSlotName]:SetSelItemId(itemCopy.id)
+@@ -2774,7 +2776,7 @@ function CompareTabClass:ComparePowerBuilder(compareEntry, powerStat, categories
+ 						self.primaryBuild.itemsTab.slots[k]:SetSelItemId(v)
+ 					end
+ 					for _, item in ipairs(cmpJewels) do
+-						self.primaryBuild.itemsTab:DeleteItem(item)
++						self.primaryBuild.itemsTab:DeleteItem(item, true)
+ 					end
+ 				end
+ 
