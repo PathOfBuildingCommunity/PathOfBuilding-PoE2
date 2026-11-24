@@ -801,6 +801,12 @@ Huge sets the radius to 11.
 	{ var = "TotalTotemLife", type = "countAllowZero", label = "Total Totem Life:", ifOption = "conditionHaveTotem", ifMod = "TakenFromTotemsBeforeYou", tooltip = "The total life of your Totems (excluding Vaal Rejuvenation Totem) that can be taken before yours (used by totem mastery)", apply = function(val, modList, enemyModList)
 		modList:NewMod("TotalTotemLife", "BASE", val, "Config")
 	end },
+	{ var = "totemRecoupHitDPS", type = "countAllowZero", label = "Hit damage taken by Totems per second:", ifMod = "TotemDamageLifeRecoup", tooltip = "Total damage taken from hits per second by all your Totems, after their mitigation. Used to estimate sustained Life Recoup." },
+	{ var = "offeringRecoupHitDPS", type = "countAllowZero", label = "Hit damage taken by Offerings per second:", ifMod = "OfferingDamageLifeRecoup", tooltip = "Total hit damage taken per second by all your Offerings, after mitigation. Used to estimate sustained Life Recoup." },
+	{ var = "essenceHarvestDeathsPerSecond", type = "float", label = "Essence Harvest minion deaths per second:", ifMod = "MinionDeathManaRecoup", tooltip = "Average deaths per second of minions supported by Essence Harvest. Used to estimate sustained Mana Recoup." },
+	{ var = "conditionOnNavirasOasis", type = "check", label = "Are you standing in Navira's Oasis?", ifFlag = "NavirasOasis", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:OnNavirasOasis", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
 	{ var = "TotalRadianceSentinelLife", type = "countAllowZero", label = "Total life pool of Sentinel of Radiance", ifMod = "takenFromRadianceSentinelBeforeYou", apply = function(val, modList, enemyModList)
 		modList:NewMod("TotalRadianceSentinelLife", "BASE", val, "Config")
 	end },
@@ -949,7 +955,7 @@ Huge sets the radius to 11.
 	{ var = "overrideFortification", type = "count", label = "# of Fortification Stacks (if not maximum):", ifFlag = "Condition:Fortified", tooltip = "You have 1% less damage taken from hits per stack of fortification:\nHas a default cap of 20 stacks.", apply = function(val, modList, enemyModList)
 		modList:NewMod("FortificationStacks", "OVERRIDE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
-	{ var = "multiplierTailwind", type = "count", label = "# of Tailwind Stacks:", ifFlag = "Condition:CanHaveTailwind", tooltip = "Tailwind grants the following, up to a base of 10 stacks:\n\t1% increased movement speed\n\t3% increased Skill Speed\n\t15% increased Evasion Rating", apply = function(val, modList, enemyModList)
+	{ var = "multiplierTailwind", type = "count", label = "# of Tailwind Stacks:", ifFlag = "Condition:CanHaveTailwind", tooltip = "Tailwind grants the following, up to a base of 10 stacks:\n\t1% increased movement speed\n\t2% increased Skill Speed\n\t10% increased Evasion Rating\n\tPrevent +1% of Damage from Deflected Hits", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:Tailwind", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "buffAdrenaline", type = "check", label = "Do you have Adrenaline?", tooltip = "This will enable the Adrenaline buff, which grants:\n\t100% increased Damage\n\t25% increased Attack, Cast and Movement Speed\n\t10% additional Physical Damage Reduction", apply = function(val, modList, enemyModList)
@@ -987,6 +993,9 @@ Huge sets the radius to 11.
 	end },
 	{ var = "conditionLeeching", type = "check", label = "Are you Leeching?", ifCond = "Leeching", tooltip = "You will automatically be considered to be Leeching if you have '^xE05030Life ^7Leech effects are not removed at Full ^xE05030Life^7',\nbut you can use this option to force it if necessary.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Leeching", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "conditionLifeLeechRemovedByFillingUnreservedLifeRecently", type = "check", label = "Was Life Leech removed by filling Unreserved Life Recently?", ifCond = "LifeLeechRemovedByFillingUnreservedLifeRecently", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:LifeLeechRemovedByFillingUnreservedLifeRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "conditionLeechingLife", type = "check", label = "Are you Leeching ^xE05030Life?", ifCond = "LeechingLife", implyCond = "Leeching", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:LeechingLife", "FLAG", true, "Config", { type = "Condition", var = "Combat" })

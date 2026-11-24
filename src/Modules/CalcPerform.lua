@@ -2615,7 +2615,8 @@ function calcs.perform(env, skipEHP)
 				local skillCfg = activeMinionSkill.skillCfg
 				for _, buff in ipairs(activeMinionSkill.buffList) do
 					if buff.type == "Buff" then
-						if env.mode_buffs and activeMinionSkill.skillData.enable then
+						local navirasOasisEnabled = activeMinionSkill.activeEffect.grantedEffect.id == "ChilledGroundOasisConvertWaterDjinn" and modDB:Flag(nil, "NavirasOasis")
+						if env.mode_buffs and (activeMinionSkill.skillData.enable or navirasOasisEnabled) then
 							local skillCfg = buff.activeSkillBuff and skillCfg
 							local modStore = buff.activeSkillBuff and skillModList or castingMinion.modDB
 							if buff.applyAllies then

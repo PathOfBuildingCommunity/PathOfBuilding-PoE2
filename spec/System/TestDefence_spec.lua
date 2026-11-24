@@ -30,6 +30,221 @@ describe("TestDefence", function()
 		return build.calcsTab.calcs.reducePoolsByDamage(nil, takenDamages, build.calcsTab.calcsEnv.player)
 	end
 
+	it("recoups only damage taken from deflected hits with Mending Deflection", function()
+		local item = new("Item"):Item([[
+Rarity: RARE
+Test Locket
+Gold Amulet
+--------
+Item Level: 80
+--------
+Allocates Mending Deflection (enchant)
+]])
+		build.itemsTab:AddItem(item, true)
+		build.itemsTab.slots["Amulet"]:SetSelItemId(item.id)
+		build.buildFlag = true
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.mainOutput
+		assert.are.equals(15, output.DeflectedLifeRecoup)
+		assert.are.equals(0, output.DeflectChance)
+		assert.are.equals(0, output.TotalLifeRecoupRecovery)
+
+		build.configTab.input.customMods = "+10000 to Deflection Rating"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		output = build.calcsTab.mainOutput
+		local chance = output.DeflectChance / 100
+		assert.is_true(chance > 0 and chance < 1)
+		local damageAfterDeflection = 1 - output.DeflectEffect / 100
+		local totalDamage = 0
+		for _, damageType in ipairs({ "Physical", "Lightning", "Cold", "Fire", "Chaos" }) do
+			totalDamage = totalDamage + output[damageType.."RecoupableDamageTaken"]
+		end
+		local deflectedDamage = totalDamage * chance * damageAfterDeflection / (1 - chance + chance * damageAfterDeflection)
+		assert.are.near(deflectedDamage * 0.15, output.TotalLifeRecoupRecovery, 0.001)
+		assert.are.near(deflectedDamage * 0.15 / 8, output.LifeRecoupRecoveryMax, 0.001)
+
+		local baseline = output
+		build.configTab.input.customMods = build.configTab.input.customMods .. "\n20% increased speed of Recoup Effects\nLife Recoup Effects instead occur over 4 seconds"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		output = build.calcsTab.mainOutput
+		assert.are.near(4 / 1.2, output.LifeRecoupDuration, 0.001)
+		assert.are.near(8 / 1.2, output.ManaRecoupDuration, 0.001)
+		assert.are.near(8 / 1.2, output.EnergyShieldRecoupDuration, 0.001)
+		assert.are.near(baseline.TotalLifeRecoupRecovery, output.TotalLifeRecoupRecovery, 0.001)
+		assert.are.near(baseline.LifeRecoupRecoveryMax * 2.4, output.LifeRecoupRecoveryMax, 0.001)
+	end)
+
+	it("applies Tailwind and extra prevention on deflected critical hits", function()
+		build.configTab.input.enemyDamageType = "Untyped"
+		build.configTab.input.enemyCritChance = 100
+		build.configTab.input.multiplierTailwind = 5
+		build.configTab.input.customMods = [[
+			+10000 to Deflection Rating
+			Prevent +15% of Damage from Deflected Critical Hits
+			Deflected Hits cannot inflict Bleeding on you
+			Deflected Hits cannot inflict Maim on you
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.mainOutput
+		assert.are.equals(45, output.DeflectEffect)
+		assert.are.equals(60, output.DeflectCritEffect)
+		assert.are.near(60, output.ConfiguredDeflectEffect, 0.001)
+		assert.is_true(output.DeflectChance > 0)
+		assert.are.equals(output.DeflectChance, output.DeflectBleedingProtection)
+		assert.are.equals(output.DeflectChance, output.DeflectMaimProtection)
+		assert.is_true(not output.MaimImmunity)
+
+		build.configTab.input.enemyCritChance = 0
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(45, build.calcsTab.mainOutput.ConfiguredDeflectEffect)
+	end)
+
+	it("recoups prevented physical damage without counting blocked damage", function()
+		build.configTab.input.enemyDamageType = "Melee"
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.enemyPhysicalDamage = 500
+		build.configTab.input.enemyCritChance = 0
+		build.configTab.input.customMods = [[
+			5% of Physical Damage prevented Recouped as Life
+			5% of Physical Damage prevented Recouped as Energy Shield per enemy Power
+			+50% Chance to Block
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.mainOutput
+		assert.are.equals(0, output.TotalLifeRecoupRecovery)
+		assert.are.equals(0, output.TotalEnergyShieldRecoupRecovery)
+
+		build.configTab.input.customMods = build.configTab.input.customMods .. "\n+5000 to Armour"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		output = build.calcsTab.mainOutput
+		local prevented = (output.PhysicalTakenDamage - output.PhysicalTakenHit) * output.NumberOfMitigatedDamagingHits
+		assert.is_true(prevented > 0)
+		assert.are.near(prevented * 0.05, output.TotalLifeRecoupRecovery, 0.001)
+		assert.are.near(prevented * 0.05, output.TotalEnergyShieldRecoupRecovery, 0.001)
+	end)
+
+	it("uses configured totem hit damage for Watchtowers' sustained Recoup", function()
+		build.configTab.input.customMods = "Recoup 5% of damage taken by your Totems as Life"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(0, build.calcsTab.mainOutput.TotemLifeRecoupRecovery)
+
+		build.configTab.input.totemRecoupHitDPS = 2000
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local output = build.calcsTab.mainOutput
+		assert.are.equals(100, output.TotemLifeRecoupRecovery)
+		assert.are.equals(100, output.LifeRecoupRecoveryAvg)
+	end)
+
+	it("recoups only the mitigated portion of a blocked hit as Mana", function()
+		local input = build.configTab.input
+		input.enemyDamageType = "Melee"
+		input.enemyPhysicalDamage = 100
+		input.enemyCritChance = 0
+		input.customMods = "Damage Blocked is Recouped as Mana\n+50% Chance to Block\nYou take 50% of Damage from Blocked Hits"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.mainOutput
+		assert.are.equals(100, output.BlockedManaRecoup)
+		assert.are.equals(50, output.BlockEffect)
+		local blocked = output.totalTakenHit * output.EffectiveBlockChance / 100 * 0.5 * output.NumberOfMitigatedDamagingHits
+		assert.is_true(blocked > 0)
+		assert.are.near(blocked, output.TotalManaRecoupRecovery, 0.001)
+		assert.are.near(blocked / (output.EHPSurvivalTime + 8), output.ManaRecoupRecoveryAvg, 0.001)
+
+		input.customMods = input.customMods:gsub("Damage Blocked is Recouped as Mana", "30%% of damage Blocked is Recouped as Mana")
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.near(blocked * 0.3, build.calcsTab.mainOutput.TotalManaRecoupRecovery, 0.001)
+
+		input.customMods = "Damage Blocked is Recouped as Mana\n+100% Chance to Block\n+100% to maximum Block Chance"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		output = build.calcsTab.mainOutput
+		assert.are.equals(90, output.EffectiveBlockChance)
+		assert.is_true(output.ManaRecoupRecoveryAvg > 0 and output.ManaRecoupRecoveryAvg < math.huge)
+	end)
+
+	it("recoups prevented Chaos damage and Flask hit damage only during effect", function()
+		local input = build.configTab.input
+		input.enemyDamageType = "Melee"
+		input.enemyChaosDamage = 100
+		input.enemyCritChance = 0
+		input.customMods = [[
+			+40% to Chaos Resistance
+			30% of Damage taken during effect Recouped as Life
+			50% of Chaos damage you prevent when Hit Recouped as Life and Mana during effect
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(0, build.calcsTab.mainOutput.PreventedChaosManaRecoup)
+
+		input.conditionUsingFlask = true
+		input.conditionUsingCharm = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local output = build.calcsTab.mainOutput
+		local prevented = (output.ChaosTakenDamage - output.ChaosTakenHit) * output.NumberOfMitigatedDamagingHits
+		assert.is_true(prevented > 0)
+		assert.are.equals(30, output.LifeRecoup)
+		assert.are.near(prevented * 0.5, output.TotalManaRecoupRecovery, 0.001)
+		assert.is_true(output.TotalLifeRecoupRecovery > output.TotalManaRecoupRecovery)
+	end)
+
+	it("uses the original Life Recoup duration when redirecting its recovery to Energy Shield", function()
+		build.configTab.input.customMods = [[
+			20% of Damage taken Recouped as Life
+			Life Recoup Effects instead occur over 3 seconds
+			Life Recoup Recovers Energy Shield instead
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.mainOutput
+		assert.are.equals(3, output.LifeRecoupDuration)
+		assert.are.equals(0, output.TotalLifeRecoupRecovery)
+		assert.are.equals(0, output.LifeRecoupRecoveryAvg)
+		assert.is_true(output.TotalEnergyShieldRecoupRecovery > 0)
+		assert.are.near(output.TotalEnergyShieldRecoupRecovery / 3, output.EnergyShieldRecoupRecoveryMax, 0.001)
+	end)
+
+	it("includes Mana Recoup from supported Essence Harvest deaths", function()
+		build.skillsTab:PasteSocketGroup("Skeletal Warrior 20/0  1\nEssence Harvest 1/0  1")
+		build.configTab.input.essenceHarvestDeathsPerSecond = 1.5
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.mainOutput
+		assert.are.equals(8, output.MinionDeathManaRecoup)
+		assert.are.near(output.Mana * 0.08 * 1.5, output.ManaRecoupRecoveryAvg, 0.001)
+	end)
+
+	it("applies both Recoup bonuses only while standing in the allocated Navira's Oasis", function()
+		build.spec:ImportFromNodeList("Disciple of Varashta", 0, 0, 0, { 32705, 45602 }, {}, {}, {}, build.spec.treeVersion)
+		build.buildFlag = true
+		runCallback("OnFrame")
+		assert.are.equals(0, build.calcsTab.mainOutput.LifeRecoup)
+		assert.are.equals(0, build.calcsTab.mainOutput.ManaRecoup)
+
+		build.configTab.input.conditionOnNavirasOasis = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.is_true(build.calcsTab.mainOutput.LifeRecoup > 0)
+		assert.is_true(build.calcsTab.mainOutput.ManaRecoup > 0)
+	end)
+
 	it("converts total energy shield modifiers to mana", function()
 		build.configTab.input.customMods = "Convert 100% of maximum Energy Shield to maximum Mana\n100% increased maximum Mana"
 		build.configTab:BuildModList()

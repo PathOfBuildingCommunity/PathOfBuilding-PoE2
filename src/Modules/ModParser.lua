@@ -439,6 +439,8 @@ local modNameList = {
 	["maximum life, mana and global energy shield"] = { "Life", "Mana", "EnergyShield", tag = { type = "Global" } },
 	["non-chaos damage taken bypasses energy shield"] = { "PhysicalEnergyShieldBypass", "LightningEnergyShieldBypass", "ColdEnergyShieldBypass", "FireEnergyShieldBypass" },
 	["damage taken recouped as life"] = "LifeRecoup",
+	["damage taken from deflected hits recouped as life"] = "DeflectedLifeRecoup",
+	["speed of recoup effects"] = "RecoupSpeed",
 	["physical damage taken recouped as life"] = "PhysicalLifeRecoup",
 	["lightning damage taken recouped as life"] = "LightningLifeRecoup",
 	["cold damage taken recouped as life"] = "ColdLifeRecoup",
@@ -448,6 +450,7 @@ local modNameList = {
 	["damage taken recouped as energy shield"] = "EnergyShieldRecoup",
 	["elemental damage taken recouped as energy shield"] = { "LightningEnergyShieldRecoup", "ColdEnergyShieldRecoup", "FireEnergyShieldRecoup" },
 	["damage taken recouped as mana"] = "ManaRecoup",
+	["damage blocked is recouped as mana"] = "BlockedManaRecoup",
 	["damage taken recouped as life, mana and energy shield"] = { "LifeRecoup", "EnergyShieldRecoup", "ManaRecoup" },
 	["ailment threshold"] = "AilmentThreshold",
 	["elemental ailment threshold"] = "AilmentThreshold",
@@ -1697,6 +1700,7 @@ local modTagList = {
 	["to targets they pierce"] = { tag = { type = "StatThreshold", stat = "PierceCount", threshold = 1 } },
 	["w?h?i[lf]e? you have at least (%d+) devotion"] = function(num) return { tag = { type = "StatThreshold", stat = "Devotion", threshold = num } } end,
 	["w?h?i[lf]e? you have at least (%d+) tribute"] = function(num) return { tag = { type = "StatThreshold", stat = "Tribute", threshold = num } } end,
+	["if leech was removed by filling unreserved life recently"] = { tag = { type = "Condition", var = "LifeLeechRemovedByFillingUnreservedLifeRecently" } },
 	["while you have at least (%d+) rage"] = function(num) return { tag = { type = "MultiplierThreshold", var = "Rage", threshold = num } } end,
 	["while affected by a unique abyss jewel"] = { tag = { type = "MultiplierThreshold", var = "UniqueAbyssJewels", threshold = 1 } },
 	["while affected by a rare abyss jewel"] = { tag = { type = "MultiplierThreshold", var = "RareAbyssJewels", threshold = 1 } },
@@ -3596,6 +3600,7 @@ local specialModList = {
 	} end,
 	-- Extra skill/support
 	["grants skill: spear throw"] = { }, -- Display-only; granted by CharacterMeleeSkills.
+	["grants skill: navira's oasis"] = { flag("NavirasOasis") },
 	["grants skill: (%D+)"] = function(_, skill) return grantedExtraSkill(skill, 1) end,
 	["grants skill: level (%d+) (.+)"] = function(num, _, skill) return grantedExtraSkill(skill, num) end,
 	["[ct][ar][si][tg]g?e?r?s? level (%d+) (.+) when equipped"] = function(num, _, skill) return triggerExtraSkill(skill, num) end,
@@ -4238,6 +4243,9 @@ local specialModList = {
 	["gain deflection rating equal to (%d+)%% of evasion rating"] = function(num) return { mod("EvasionGainAsDeflection", "BASE", num) } end,
 	["gain deflection rating equal to (%d+)%% of armour"] = function(num) return { mod("ArmourGainAsDeflection", "BASE", num) } end,
 	["prevent %+(%d+)%% of damage from deflected hits"] = function(num) return { mod("DeflectEffect", "BASE", num) } end,
+	["prevent %+(%d+)%% of damage from deflected critical hits"] = function(num) return { mod("DeflectCritEffect", "BASE", num) } end,
+	["deflected hits cannot inflict bleeding on you"] = { flag("DeflectedHitsCannotInflictBleeding") },
+	["deflected hits cannot inflict maim on you"] = { flag("DeflectedHitsCannotInflictMaim") },
 	["chance to deflect is lucky"] = { flag("DeflectIsLucky") },
 	["chance to deflect is lucky while on low life"] = { flag("DeflectIsLucky", { type = "Condition", var = "LowLife" }), },
 	["y?o?u?r? ?chance to suppress spell damage is lucky"] = { flag("SpellSuppressionChanceIsLucky") },
@@ -5149,6 +5157,30 @@ local specialModList = {
 	["(%d+)%% of damage taken while affected by clarity recouped as mana"] = function(num) return { mod("ManaRecoup", "BASE", num, { type = "Condition", var = "AffectedByClarity" }) } end,
 	["recoup effects instead occur over 4 seconds"] = { flag("4SecondRecoup") },
 	["life recoup effects instead occur over 4 seconds"] = { flag("4SecondLifeRecoup") },
+	["life recoup effects instead occur over 3 seconds"] = { flag("3SecondLifeRecoup") },
+	["life recoup recovers energy shield instead"] = { flag("LifeRecoupToEnergyShield") },
+	["damage blocked is recouped as mana"] = { mod("BlockedManaRecoup", "BASE", 100) },
+	["(%d+)%% of damage taken during effect recouped as life"] = function(num)
+		return { mod("LifeRecoup", "BASE", num, { type = "Condition", var = "UsingFlask" }) }
+	end,
+	["(%d+)%% of chaos damage you prevent when hit recouped as life and mana during effect"] = function(num)
+		local condition = { type = "Condition", var = "UsingCharm" }
+		return { mod("PreventedChaosLifeRecoup", "BASE", num, condition), mod("PreventedChaosManaRecoup", "BASE", num, condition) }
+	end,
+	["(%d+)%% of damage taken from enemies with an open weakness recouped as life and energy shield"] = function(num)
+		local condition = { type = "Condition", var = "EnemyHasOpenWeakness" }
+		return { mod("LifeRecoup", "BASE", num, condition), mod("EnergyShieldRecoup", "BASE", num, condition) }
+	end,
+	["(%d+)%% of damage taken from enemies with an open weakness recouped as life"] = function(num)
+		return { mod("LifeRecoup", "BASE", num, { type = "Condition", var = "EnemyHasOpenWeakness" }) }
+	end,
+	["(%d+)%% of physical damage prevented recouped as life"] = function(num) return { mod("PreventedPhysicalLifeRecoup", "BASE", num) } end,
+	["(%d+)%% of physical damage prevented recouped as life if you have at least (%d+) tribute"] = function(num, _, threshold)
+		return { mod("PreventedPhysicalLifeRecoup", "BASE", num, { type = "StatThreshold", stat = "Tribute", threshold = tonumber(threshold) }) }
+	end,
+	["(%d+)%% of physical damage prevented recouped as energy shield per enemy power"] = function(num) return { mod("PreventedPhysicalEnergyShieldRecoupPerEnemyPower", "BASE", num) } end,
+	["recoup (%d+)%% of damage taken by your totems as life"] = function(num) return { mod("TotemDamageLifeRecoup", "BASE", num) } end,
+	["you recoup (%d+)%% of damage taken by your offerings as life"] = function(num) return { mod("OfferingDamageLifeRecoup", "BASE", num) } end,
 	["damage taken recouped as (%a+) is also recouped as energy shield"] = function(_, type) return {
 		flag("Add"..firstToUpper(type).."RecoupToEnergyShieldRecoup"),
 	} end,
@@ -5163,6 +5195,7 @@ local specialModList = {
 	["y?o?u? ?cannot recharge energy shield"] = { flag("NoEnergyShieldRecharge") },
 	["energy shield does not recharge"] = { flag("NoEnergyShieldRecharge") },
 	["you cannot regenerate energy shield" ] = { flag("NoEnergyShieldRegen") },
+	["you cannot recover energy shield from regeneration"] = { flag("NoEnergyShieldRegen") },
 	["cannot recharge or regenerate energy shield"] = { flag("NoEnergyShieldRecharge"), flag("NoEnergyShieldRegen") },
 	["enemies you (%a+) cannot recharge energy shield"] = function(_, cond) return {
 		mod("EnemyModifier", "LIST", { mod = flag("NoEnergyShieldRecharge" )}, { type = "Condition", var = cond:gsub("^%a", string.upper) })
