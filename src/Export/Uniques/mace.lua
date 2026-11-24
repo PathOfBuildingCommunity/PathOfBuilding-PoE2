@@ -64,7 +64,7 @@ UniqueLocalIncreasedAttackSpeed19
 {variant:2}UniqueGlobalLightningGemLevel2
 ]],[[
 Nebuloch
-Brigand Mace
+Execratus Hammer
 League: Dawn of the Hunt
 UniqueLocalAddedPhysicalDamage17
 UniqueLocalCriticalMultiplier2

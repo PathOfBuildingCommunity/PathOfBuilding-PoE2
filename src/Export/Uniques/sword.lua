@@ -2,6 +2,21 @@
 
 return {
 -- Weapon: One Handed Sword
+[[
+Bluetongue
+Shortsword
+UniqueLocalAddedPhysicalDamage1
+UniqueLocalIncreasedAttackSpeed1
+UniqueManaGainedFromEnemyDeath1
+UniqueAttackDamageNotOnLowMana1
+]],[[
+Redbeak
+Shortsword
+UniqueLocalAddedPhysicalDamage1
+UniqueLocalIncreasedAttackSpeed1
+UniqueLifeGainedFromEnemyDeath1
+UniqueAttackDamageOnLowLife1
+]],
 
 -- Weapon: Thrusting Sword
 

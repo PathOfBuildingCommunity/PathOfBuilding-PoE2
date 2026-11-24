@@ -67,7 +67,7 @@ Grants Skill: Level (1-20) Thundergod's Wrath
 {variant:2}+(2-4) to Level of all Lightning Skills
 ]],[[
 Nebuloch
-Brigand Mace
+Execratus Hammer
 League: Dawn of the Hunt
 Adds (39-48) to (69-79) Physical Damage
 +(20-30)% to Critical Damage Bonus
