@@ -65,6 +65,86 @@ Allocates Mending Deflection (enchant)
 		local deflectedDamage = totalDamage * chance * damageAfterDeflection / (1 - chance + chance * damageAfterDeflection)
 		assert.are.near(deflectedDamage * 0.15, output.TotalLifeRecoupRecovery, 0.001)
 		assert.are.near(deflectedDamage * 0.15 / 8, output.LifeRecoupRecoveryMax, 0.001)
+
+		local baseline = output
+		build.configTab.input.customMods = build.configTab.input.customMods .. "\n20% increased speed of Recoup Effects\nLife Recoup Effects instead occur over 4 seconds"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		output = build.calcsTab.mainOutput
+		assert.are.near(4 / 1.2, output.LifeRecoupDuration, 0.001)
+		assert.are.near(8 / 1.2, output.ManaRecoupDuration, 0.001)
+		assert.are.near(8 / 1.2, output.EnergyShieldRecoupDuration, 0.001)
+		assert.are.near(baseline.TotalLifeRecoupRecovery, output.TotalLifeRecoupRecovery, 0.001)
+		assert.are.near(baseline.LifeRecoupRecoveryMax * 2.4, output.LifeRecoupRecoveryMax, 0.001)
+	end)
+
+	it("applies Tailwind and extra prevention on deflected critical hits", function()
+		build.configTab.input.enemyDamageType = "Untyped"
+		build.configTab.input.enemyCritChance = 100
+		build.configTab.input.multiplierTailwind = 5
+		build.configTab.input.customMods = [[
+			+10000 to Deflection Rating
+			Prevent +15% of Damage from Deflected Critical Hits
+			Deflected Hits cannot inflict Bleeding on you
+			Deflected Hits cannot inflict Maim on you
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.mainOutput
+		assert.are.equals(45, output.DeflectEffect)
+		assert.are.equals(60, output.DeflectCritEffect)
+		assert.are.near(60, output.ConfiguredDeflectEffect, 0.001)
+		assert.is_true(output.DeflectChance > 0)
+		assert.are.equals(output.DeflectChance, output.DeflectBleedingProtection)
+		assert.are.equals(output.DeflectChance, output.DeflectMaimProtection)
+		assert.is_true(not output.MaimImmunity)
+
+		build.configTab.input.enemyCritChance = 0
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(45, build.calcsTab.mainOutput.ConfiguredDeflectEffect)
+	end)
+
+	it("recoups prevented physical damage without counting blocked damage", function()
+		build.configTab.input.enemyDamageType = "Melee"
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.enemyPhysicalDamage = 500
+		build.configTab.input.enemyCritChance = 0
+		build.configTab.input.customMods = [[
+			5% of Physical Damage prevented Recouped as Life
+			5% of Physical Damage prevented Recouped as Energy Shield per enemy Power
+			+50% Chance to Block
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.mainOutput
+		assert.are.equals(0, output.TotalLifeRecoupRecovery)
+		assert.are.equals(0, output.TotalEnergyShieldRecoupRecovery)
+
+		build.configTab.input.customMods = build.configTab.input.customMods .. "\n+5000 to Armour"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		output = build.calcsTab.mainOutput
+		local prevented = (output.PhysicalTakenDamage - output.PhysicalTakenHit) * output.NumberOfMitigatedDamagingHits
+		assert.is_true(prevented > 0)
+		assert.are.near(prevented * 0.05, output.TotalLifeRecoupRecovery, 0.001)
+		assert.are.near(prevented * 0.05, output.TotalEnergyShieldRecoupRecovery, 0.001)
+	end)
+
+	it("uses configured totem hit damage for Watchtowers' sustained Recoup", function()
+		build.configTab.input.customMods = "Recoup 5% of damage taken by your Totems as Life"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(0, build.calcsTab.mainOutput.TotemLifeRecoupRecovery)
+
+		build.configTab.input.totemRecoupHitDPS = 2000
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local output = build.calcsTab.mainOutput
+		assert.are.equals(100, output.TotemLifeRecoupRecovery)
+		assert.are.equals(100, output.LifeRecoupRecoveryAvg)
 	end)
 
 	it("converts total energy shield modifiers to mana", function()

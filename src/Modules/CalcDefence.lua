@@ -771,7 +771,7 @@ local function incomingDamageBreakdown(breakdownTable, poolsRemaining, output)
 	return breakdownTable
 end
 
-local function calcRecoup(output, breakdown, modDB, recoup, recoupType, damageType)
+local function calcRecoup(output, breakdown, recoup, recoupType, damageType)
 	output[damageType .. recoupType .. "Recoup"] = recoup * output[recoupType .. "RecoveryRateMod"]
 	output["anyRecoup"] = output["anyRecoup"] + output[damageType .. recoupType .. "Recoup"]
 	if breakdown then
@@ -779,10 +779,10 @@ local function calcRecoup(output, breakdown, modDB, recoup, recoupType, damageTy
 			breakdown[damageType .. recoupType .. "Recoup"] = {
 				s_format("%d%% ^8(base)", recoup),
 				s_format("* %.2f ^8(recovery rate modifier)", output[recoupType .. "RecoveryRateMod"]),
-				s_format("= %.1f%% over %d seconds", output[damageType .. recoupType .. "Recoup"], (modDB:Flag(nil, "4Second" .. recoupType .. "Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4 or 8)
+				s_format("= %.1f%% over %.2f seconds", output[damageType .. recoupType .. "Recoup"], output[recoupType .. "RecoupDuration"])
 			}
 		else
-			breakdown[damageType .. recoupType .. "Recoup"] = { s_format("%d%% over %d seconds", output[damageType .. recoupType .. "Recoup"], (modDB:Flag(nil, "4Second" .. recoupType .. "Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4 or 8) }
+			breakdown[damageType .. recoupType .. "Recoup"] = { s_format("%.1f%% over %.2f seconds", output[damageType .. recoupType .. "Recoup"], output[recoupType .. "RecoupDuration"]) }
 		end
 	end
 end
@@ -1568,7 +1568,13 @@ function calcs.defence(env, actor)
 			local notDeflect = 1 - output.DeflectChance / 100
 			output.DeflectChance = (1 - notDeflect * notDeflect) * 100
 		end
-		output.DeflectEffect = m_min(m_max(data.misc.DeflectEffect + modDB:Sum("BASE", nil, "DeflectEffect"), 0), 100)
+		local deflectEffect = data.misc.DeflectEffect + modDB:Sum("BASE", nil, "DeflectEffect")
+		output.DeflectEffect = m_min(m_max(deflectEffect, 0), 100)
+		output.DeflectCritEffect = m_min(m_max(deflectEffect + modDB:Sum("BASE", nil, "DeflectCritEffect"), 0), 100)
+		output.DeflectCritEffectBonus = output.DeflectCritEffect - output.DeflectEffect
+		output.ConfiguredDeflectEffect = output.DeflectEffect
+		output.DeflectBleedingProtection = modDB:Flag(nil, "DeflectedHitsCannotInflictBleeding") and output.DeflectChance or 0
+		output.DeflectMaimProtection = modDB:Flag(nil, "DeflectedHitsCannotInflictMaim") and output.DeflectChance or 0
 		if breakdown then
 			breakdown.DeflectChance = {
 				s_format("Enemy level: %d ^8(%s the Configuration tab)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),
@@ -1852,13 +1858,24 @@ function calcs.defence(env, actor)
 	do
 		-- base Life/Mana/Energy Shield Recoup calcs
 		output["anyRecoup"] = 0
-		local deflectedLifeRecoup = modDB:Sum("BASE", nil, "DeflectedLifeRecoup")
-		calcRecoup(output, breakdown, modDB, deflectedLifeRecoup, "Life", "Deflected")
-		calcRecoup(output, breakdown, modDB, modDB:Flag(nil, "AddLifeRecoupToEnergyShieldRecoup") and deflectedLifeRecoup or 0, "EnergyShield", "Deflected")
 		local recoupTypeList = {"Life", "Mana", "EnergyShield"}
+		local recoupSpeed = m_max(calcLib.mod(modDB, nil, "RecoupSpeed"), 0)
+		for _, recoupType in ipairs(recoupTypeList) do
+			local baseDuration = (modDB:Flag(nil, "4Second"..recoupType.."Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4 or 8
+			output[recoupType.."RecoupDuration"] = baseDuration / recoupSpeed
+		end
+		local deflectedLifeRecoup = modDB:Sum("BASE", nil, "DeflectedLifeRecoup")
+		calcRecoup(output, breakdown, deflectedLifeRecoup, "Life", "Deflected")
+		calcRecoup(output, breakdown, modDB:Flag(nil, "AddLifeRecoupToEnergyShieldRecoup") and deflectedLifeRecoup or 0, "EnergyShield", "Deflected")
+		calcRecoup(output, breakdown, modDB:Sum("BASE", nil, "PreventedPhysicalLifeRecoup"), "Life", "PreventedPhysical")
+		local enemyPower = m_max(modDB:GetMultiplier("EnemyPower"), 1)
+		calcRecoup(output, breakdown, modDB:Sum("BASE", nil, "PreventedPhysicalEnergyShieldRecoupPerEnemyPower") * enemyPower, "EnergyShield", "PreventedPhysical")
+		calcRecoup(output, breakdown, modDB:Sum("BASE", nil, "TotemDamageLifeRecoup"), "Life", "TotemDamage")
+		local totemHitDPS = m_max(tonumber(env.configInput.totemRecoupHitDPS) or 0, 0)
+		output.TotemLifeRecoupRecovery = output.LifeRecoupDuration < m_huge and totemHitDPS * output.TotemDamageLifeRecoup / 100 or 0
 		for _, recoupType in ipairs(recoupTypeList) do
 			local recoup = modDB:Sum("BASE", nil, recoupType.."Recoup")
-			calcRecoup(output, breakdown, modDB, recoup, recoupType, "")
+			calcRecoup(output, breakdown, recoup, recoupType, "")
 
 			if modDB:Flag(nil, "Add"..recoupType.."RecoupToEnergyShieldRecoup") then -- Sacrosanctum
 				local mod = modDB:Tabulate("FLAG", nil, "Add"..recoupType.."RecoupToEnergyShieldRecoup")[1].mod
@@ -1869,7 +1886,7 @@ function calcs.defence(env, actor)
 		for _, recoupType in ipairs(recoupTypeList) do
 			for _, damageType in ipairs(dmgTypeList) do
 				local recoup = modDB:Sum("BASE", nil, damageType..recoupType.."Recoup")
-				calcRecoup(output, breakdown, modDB, recoup, recoupType, damageType)
+				calcRecoup(output, breakdown, recoup, recoupType, damageType)
 
 				if modDB:Flag(nil, "Add"..recoupType.."RecoupToEnergyShieldRecoup") then -- Sacrosanctum
 					local mod = modDB:Tabulate("FLAG", nil, "Add"..recoupType.."RecoupToEnergyShieldRecoup")[1].mod
@@ -2290,6 +2307,8 @@ function calcs.buildDefenceEstimations(env, actor)
 		output["EnemyCritChance"] = enemyCritChance
 		local enemyCritDamage = m_max(((env.configInput["enemyCritDamage"] or env.configPlaceholder["enemyCritDamage"] or 0) + enemyDB:Sum("BASE", nil, "CritMultiplier")) * (1 + enemyDB:Sum("INC", { flags = ModFlag.Hit }, "CritMultiplier") / 100), 0)
 		output["EnemyCritEffect"] = 1 + enemyCritChance / 100 * (enemyCritDamage / 100) * (1 - output.CritExtraDamageReduction / 100)
+		local critDamageShare = (enemyCritChance / 100 + output.EnemyCritEffect - 1) / output.EnemyCritEffect
+		output.ConfiguredDeflectEffect = output.DeflectEffect + output.DeflectCritEffectBonus * critDamageShare
 		local enemyCfg = {keywordFlags = NOT64(KeywordFlag.MatchAll)} -- Match all keywordFlags parameter for enemy min-max damage mods
 		local enemyDamageConversion = {}
 		for _, damageType in ipairs(dmgTypeList) do
@@ -2661,7 +2680,8 @@ function calcs.buildDefenceEstimations(env, actor)
 		output[damageType.."BaseTakenHitMult"] = baseMult * afterReductionMulti
 		local takenMultReflect = output[damageType.."TakenReflect"]
 		local finalReflect = baseMult * takenMultReflect
-		output[damageType.."TakenHit"] = m_max(damage * baseMult + takenFlat, 0) * afterReductionMulti + impaleDamage
+		local configuredDeflectMulti = output.DeflectChance == 100 and (1 - output.ConfiguredDeflectEffect / 100) or 1
+		output[damageType.."TakenHit"] = m_max(damage * baseMult + takenFlat, 0) * takenMult * spellSuppressMult * configuredDeflectMulti + impaleDamage
 		output[damageType.."TakenHitMult"] = (damage > 0) and (output[damageType.."TakenHit"] / damage) or 0
 		output["totalTakenHit"] = output["totalTakenHit"] + output[damageType.."TakenHit"]
 		if output.AnyTakenReflect then
@@ -3238,6 +3258,7 @@ function calcs.buildDefenceEstimations(env, actor)
 		end
 	end
 
+	local physicalPreventedPerHit = 0
 	if damageCategoryConfig ~= "DamageOverTime" then
 		-- number of damaging hits needed to be taken to die
 		do
@@ -3288,7 +3309,10 @@ function calcs.buildDefenceEstimations(env, actor)
 				DamageIn.EnergyShieldWhenHit = (DamageIn.EnergyShieldWhenHit or 0) + output.EnergyShieldOnSuppress * ( damageCategoryConfig == "Average" and 0.5 or 1 )
 				DamageIn.LifeWhenHit = (DamageIn.LifeWhenHit or 0) + output.LifeOnSuppress * ( damageCategoryConfig == "Average" and 0.5 or 1 )
 			end
-			local effectiveDeflectMulti = output.DeflectChance < 100 and 1 - output.DeflectChance * output.DeflectEffect / 10000 or 1
+			local effectiveDeflectMulti = output.DeflectChance < 100 and 1 - output.DeflectChance * output.ConfiguredDeflectEffect / 10000 or 1
+			-- Guaranteed suppression and Deflection are already in PhysicalTakenHit.
+			-- Use damage before block and avoidance for prevented damage Recoup.
+			physicalPreventedPerHit = m_max(output.PhysicalTakenDamage - output.PhysicalTakenHit * suppressionEffect * effectiveDeflectMulti, 0)
 			-- extra avoid chance
 			if damageCategoryConfig == "Projectile" or damageCategoryConfig == "SpellProjectile" then
 				ExtraAvoidChance = ExtraAvoidChance + output.AvoidProjectilesChance
@@ -3456,14 +3480,25 @@ function calcs.buildDefenceEstimations(env, actor)
 		-- EHP simulates averaged hits. Apportion the damage actually taken by
 		-- weighting deflected hits by both their chance and their remaining damage.
 		local deflectChance = output.DeflectChance / 100
-		local deflectedDamageWeight = deflectChance * (1 - output.DeflectEffect / 100)
+		local deflectedDamageWeight = deflectChance * (1 - output.ConfiguredDeflectEffect / 100)
 		local damageWeight = 1 - deflectChance + deflectedDamageWeight
 		local totalDeflectedDamage = damageWeight > 0 and totalDamage * deflectedDamageWeight / damageWeight or 0
+		local infiniteHits = output.NumberOfMitigatedDamagingHits == m_huge
+		local preventedPhysicalDamage = not infiniteHits and physicalPreventedPerHit * output.NumberOfMitigatedDamagingHits or 0
+		local preventedPhysicalDPS = infiniteHits and output.enemySkillTime > 0 and physicalPreventedPerHit * (1 - output.ConfiguredNotHitChance / 100) / output.enemySkillTime or 0
 		local recoupTypeList = {"Life", "Mana", "EnergyShield"}
 		for i, recoupType in ipairs(recoupTypeList) do
-			local recoupTime = (modDB:Flag(nil, "4Second"..recoupType.."Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4 or 8
+			local recoupTime = output[recoupType.."RecoupDuration"]
 			local deflectedRecoup = output["Deflected"..recoupType.."Recoup"] or 0
+			local preventedRecoup = output["PreventedPhysical"..recoupType.."Recoup"] or 0
+			local steadyRecoup = recoupTime < m_huge and preventedPhysicalDPS * preventedRecoup / 100 or 0
+			if recoupType == "Life" then
+				steadyRecoup = steadyRecoup + output.TotemLifeRecoupRecovery
+			end
 			output["Total"..recoupType.."RecoupRecovery"] = (output[recoupType.."Recoup"] or 0) / 100 * totalDamage + deflectedRecoup / 100 * totalDeflectedDamage
+			if preventedRecoup > 0 then
+				output["Total"..recoupType.."RecoupRecovery"] = output["Total"..recoupType.."RecoupRecovery"] + preventedRecoup / 100 * preventedPhysicalDamage
+			end
 			if (output["Elemental"..recoupType.."Recoup"] or 0) > 0 and totalElementalDamage > 0 then
 				output["Total"..recoupType.."RecoupRecovery"] = output["Total"..recoupType.."RecoupRecovery"] + output["Elemental"..recoupType.."Recoup"] / 100 * totalElementalDamage
 			end
@@ -3483,8 +3518,8 @@ function calcs.buildDefenceEstimations(env, actor)
 				end
 			end
 			output["Total"..recoupType.."PseudoRecoup"] = ((not modDB:Flag(nil, "UnaffectedBy"..recoupType.."Regen")) and output["Total"..recoupType.."PseudoRecoup"] or 0)
-			output[recoupType.."RecoupRecoveryMax"] = output["Total"..recoupType.."RecoupRecovery"] / recoupTime + output["Total"..recoupType.."PseudoRecoup"] / PseudoRecoupDuration + (extraPseudoRecoup[recoupType] and (extraPseudoRecoup[recoupType][1] / extraPseudoRecoup[recoupType][2]) or 0)
-			output[recoupType.."RecoupRecoveryAvg"] = output["Total"..recoupType.."RecoupRecovery"] / (output["EHPSurvivalTime"] + recoupTime) + output["Total"..recoupType.."PseudoRecoup"] / (output["EHPSurvivalTime"] + PseudoRecoupDuration) + (extraPseudoRecoup[recoupType] and (extraPseudoRecoup[recoupType][1] / (output["EHPSurvivalTime"] + extraPseudoRecoup[recoupType][2])) or 0)
+			output[recoupType.."RecoupRecoveryMax"] = output["Total"..recoupType.."RecoupRecovery"] / recoupTime + output["Total"..recoupType.."PseudoRecoup"] / PseudoRecoupDuration + (extraPseudoRecoup[recoupType] and (extraPseudoRecoup[recoupType][1] / extraPseudoRecoup[recoupType][2]) or 0) + steadyRecoup
+			output[recoupType.."RecoupRecoveryAvg"] = output["Total"..recoupType.."RecoupRecovery"] / (output["EHPSurvivalTime"] + recoupTime) + output["Total"..recoupType.."PseudoRecoup"] / (output["EHPSurvivalTime"] + PseudoRecoupDuration) + (extraPseudoRecoup[recoupType] and (extraPseudoRecoup[recoupType][1] / (output["EHPSurvivalTime"] + extraPseudoRecoup[recoupType][2])) or 0) + steadyRecoup
 			if breakdown then
 				local multipleTypes = 0
 				breakdown[recoupType.."RecoupRecoveryMax"] = { }
@@ -3496,6 +3531,11 @@ function calcs.buildDefenceEstimations(env, actor)
 				if deflectedRecoup > 0 and totalDeflectedDamage > 0 then
 					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("%s%.1f ^8(estimated damage taken from deflected hits)", multipleTypes > 0 and "+ " or "", totalDeflectedDamage))
 					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("* %.2f ^8(percent of deflected hit damage recouped)", deflectedRecoup / 100))
+					multipleTypes = multipleTypes + 1
+				end
+				if preventedRecoup > 0 and preventedPhysicalDamage > 0 then
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("%s%.1f ^8(estimated physical damage prevented)", multipleTypes > 0 and "+ " or "", preventedPhysicalDamage))
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("* %.2f ^8(percent of prevented damage recouped)", preventedRecoup / 100))
 					multipleTypes = multipleTypes + 1
 				end
 				if (output["Elemental"..recoupType.."Recoup"] or 0) > 0 and totalElementalDamage > 0 then
@@ -3518,7 +3558,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				end
 				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("= %d ^8(total damage recoup amount)", output["Total"..recoupType.."RecoupRecovery"]))
 				breakdown[recoupType.."RecoupRecoveryAvg"] = copyTable(breakdown[recoupType.."RecoupRecoveryMax"])
-				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("/ %.2f ^8(over %d seconds)", recoupTime, recoupTime))
+				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("/ %.2f ^8(recoup duration in seconds)", recoupTime))
 				if output["Total"..recoupType.."PseudoRecoup"] > 0 then
 					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("+ %.2f ^8(total damage mitigated pseudo recoup amount)", output["Total"..recoupType.."PseudoRecoup"]))
 					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("/ %.2f ^8(over %d seconds)", PseudoRecoupDuration, PseudoRecoupDuration))
@@ -3527,8 +3567,11 @@ function calcs.buildDefenceEstimations(env, actor)
 					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("+ %.2f ^8(total damage mitigated pseudo recoup amount)", extraPseudoRecoup[recoupType][1]))
 					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("/ %.2f ^8(over %d seconds)", extraPseudoRecoup[recoupType][2], extraPseudoRecoup[recoupType][2]))
 				end
+				if steadyRecoup > 0 then
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("+ %.2f ^8(sustained recoup per second)", steadyRecoup))
+				end
 				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("= %.2f per second ^8", output[recoupType.."RecoupRecoveryMax"]))
-				t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("/ %.2f ^8(total time of the recoup (survival time + %d seconds))", (output["EHPSurvivalTime"] + recoupTime), recoupTime))
+				t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("/ %.2f ^8(survival time + %.2f seconds of recoup)", output["EHPSurvivalTime"] + recoupTime, recoupTime))
 				if output["Total"..recoupType.."PseudoRecoup"] > 0 then
 					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("+ %.2f ^8(total damage mitigated pseudo recoup amount)", output["Total"..recoupType.."PseudoRecoup"]))
 					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("/ %.2f ^8(total time of the recoup (survival time + %d seconds)", (output["EHPSurvivalTime"] + PseudoRecoupDuration), PseudoRecoupDuration))
@@ -3536,6 +3579,9 @@ function calcs.buildDefenceEstimations(env, actor)
 				if extraPseudoRecoup[recoupType] then
 					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("+ %.2f ^8(total damage mitigated pseudo recoup amount)", extraPseudoRecoup[recoupType][1]))
 					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("/ %.2f ^8(total time of the recoup (survival time + %d seconds)", (output["EHPSurvivalTime"] + extraPseudoRecoup[recoupType][2]), extraPseudoRecoup[recoupType][2]))
+				end
+				if steadyRecoup > 0 then
+					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("+ %.2f ^8(sustained recoup per second)", steadyRecoup))
 				end
 				t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("= %.2f per second ^8", output[recoupType.."RecoupRecoveryAvg"]))
 			end

@@ -440,6 +440,7 @@ local modNameList = {
 	["non-chaos damage taken bypasses energy shield"] = { "PhysicalEnergyShieldBypass", "LightningEnergyShieldBypass", "ColdEnergyShieldBypass", "FireEnergyShieldBypass" },
 	["damage taken recouped as life"] = "LifeRecoup",
 	["damage taken from deflected hits recouped as life"] = "DeflectedLifeRecoup",
+	["speed of recoup effects"] = "RecoupSpeed",
 	["physical damage taken recouped as life"] = "PhysicalLifeRecoup",
 	["lightning damage taken recouped as life"] = "LightningLifeRecoup",
 	["cold damage taken recouped as life"] = "ColdLifeRecoup",
@@ -4239,6 +4240,9 @@ local specialModList = {
 	["gain deflection rating equal to (%d+)%% of evasion rating"] = function(num) return { mod("EvasionGainAsDeflection", "BASE", num) } end,
 	["gain deflection rating equal to (%d+)%% of armour"] = function(num) return { mod("ArmourGainAsDeflection", "BASE", num) } end,
 	["prevent %+(%d+)%% of damage from deflected hits"] = function(num) return { mod("DeflectEffect", "BASE", num) } end,
+	["prevent %+(%d+)%% of damage from deflected critical hits"] = function(num) return { mod("DeflectCritEffect", "BASE", num) } end,
+	["deflected hits cannot inflict bleeding on you"] = { flag("DeflectedHitsCannotInflictBleeding") },
+	["deflected hits cannot inflict maim on you"] = { flag("DeflectedHitsCannotInflictMaim") },
 	["chance to deflect is lucky"] = { flag("DeflectIsLucky") },
 	["chance to deflect is lucky while on low life"] = { flag("DeflectIsLucky", { type = "Condition", var = "LowLife" }), },
 	["y?o?u?r? ?chance to suppress spell damage is lucky"] = { flag("SpellSuppressionChanceIsLucky") },
@@ -5150,6 +5154,9 @@ local specialModList = {
 	["(%d+)%% of damage taken while affected by clarity recouped as mana"] = function(num) return { mod("ManaRecoup", "BASE", num, { type = "Condition", var = "AffectedByClarity" }) } end,
 	["recoup effects instead occur over 4 seconds"] = { flag("4SecondRecoup") },
 	["life recoup effects instead occur over 4 seconds"] = { flag("4SecondLifeRecoup") },
+	["(%d+)%% of physical damage prevented recouped as life"] = function(num) return { mod("PreventedPhysicalLifeRecoup", "BASE", num) } end,
+	["(%d+)%% of physical damage prevented recouped as energy shield per enemy power"] = function(num) return { mod("PreventedPhysicalEnergyShieldRecoupPerEnemyPower", "BASE", num) } end,
+	["recoup (%d+)%% of damage taken by your totems as life"] = function(num) return { mod("TotemDamageLifeRecoup", "BASE", num) } end,
 	["damage taken recouped as (%a+) is also recouped as energy shield"] = function(_, type) return {
 		flag("Add"..firstToUpper(type).."RecoupToEnergyShieldRecoup"),
 	} end,
@@ -5164,6 +5171,7 @@ local specialModList = {
 	["y?o?u? ?cannot recharge energy shield"] = { flag("NoEnergyShieldRecharge") },
 	["energy shield does not recharge"] = { flag("NoEnergyShieldRecharge") },
 	["you cannot regenerate energy shield" ] = { flag("NoEnergyShieldRegen") },
+	["you cannot recover energy shield from regeneration"] = { flag("NoEnergyShieldRegen") },
 	["cannot recharge or regenerate energy shield"] = { flag("NoEnergyShieldRecharge"), flag("NoEnergyShieldRegen") },
 	["enemies you (%a+) cannot recharge energy shield"] = function(_, cond) return {
 		mod("EnemyModifier", "LIST", { mod = flag("NoEnergyShieldRecharge" )}, { type = "Condition", var = cond:gsub("^%a", string.upper) })
