@@ -1760,9 +1760,7 @@ c["10% reduced Projectile Speed"]={{[1]={flags=0,keywordFlags=0,name="Projectile
 c["10% reduced Projectile Speed for Spell Skills"]={{[1]={flags=2,keywordFlags=0,name="ProjectileSpeed",type="INC",value=-10}},nil}
 c["10% reduced Shock duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfShockDuration",type="INC",value=-10}},nil}
 c["10% reduced Skill Speed"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=-10},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=-10},[3]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=-10}},nil}
-c["10% reduced Slowing Potency of Debuffs on You"]={{}," Slowing Potency of Debuffs on You "}
-c["10% reduced Slowing Potency of Debuffs on You 12% increased Critical Spell Damage Bonus"]={{[1]={flags=2,keywordFlags=0,name="CritMultiplier",type="INC",value=-10}}," Slowing Potency of Debuffs on You 12% increased  "}
-c["10% reduced Slowing Potency of Debuffs on You 5% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-10}}," Slowing Potency of Debuffs on You 5% reduced  Penalty from using Skills  "}
+c["10% reduced Slowing Potency of Debuffs on You"]={{[1]={flags=0,keywordFlags=0,name="SlowEffectOnSelf",type="INC",value=-10}},nil}
 c["10% reduced Spell Area Damage"]={{[1]={flags=514,keywordFlags=0,name="Damage",type="INC",value=-10}},nil}
 c["10% reduced Trap Duration"]={{[1]={flags=0,keywordFlags=0,name="TrapDuration",type="INC",value=-10}},nil}
 c["10% reduced effect of Curses on you"]={{[1]={flags=0,keywordFlags=0,name="CurseEffectOnSelf",type="INC",value=-10}},nil}
@@ -2042,7 +2040,7 @@ c["12% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keyw
 c["12% of Damage is taken from Mana before Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenFromManaBeforeLife",type="BASE",value=12}},nil}
 c["12% of Leech is Instant"]={{[1]={flags=0,keywordFlags=0,name="InstantEnergyShieldLeech",type="BASE",value=12},[2]={flags=0,keywordFlags=0,name="InstantManaLeech",type="BASE",value=12},[3]={flags=0,keywordFlags=0,name="InstantLifeLeech",type="BASE",value=12}},nil}
 c["12% of Skill Mana Costs Converted to Life Costs"]={{[1]={flags=0,keywordFlags=0,name="HybridManaAndLifeCost_Life",type="BASE",value=12}},nil}
-c["12% reduced Slowing Potency of Debuffs on You"]={{}," Slowing Potency of Debuffs on You "}
+c["12% reduced Slowing Potency of Debuffs on You"]={{[1]={flags=0,keywordFlags=0,name="SlowEffectOnSelf",type="INC",value=-12}},nil}
 c["12.5 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=12.5}},nil}
 c["120% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=120}},nil}
 c["120% increased Armour and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=120}},nil}
@@ -2410,7 +2408,7 @@ c["15% increased Reservation Efficiency of Skills"]={{[1]={flags=0,keywordFlags=
 c["15% increased Shock Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockDuration",type="INC",value=15}},nil}
 c["15% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=15}},nil}
 c["15% increased Skill Speed"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=15},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=15},[3]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=15}},nil}
-c["15% increased Slowing Potency of Debuffs on You"]={{}," Slowing Potency of Debuffs on You "}
+c["15% increased Slowing Potency of Debuffs on You"]={{[1]={flags=0,keywordFlags=0,name="SlowEffectOnSelf",type="INC",value=15}},nil}
 c["15% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
 c["15% increased Spell Damage if you have consumed an Elemental Infusion Recently"]={{[1]={[1]={type="Condition",var="InfusionConsumedRecently"},flags=2,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
 c["15% increased Spell Damage while Dual Wielding"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=2,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
@@ -2490,7 +2488,7 @@ c["15% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={fl
 c["15% reduced Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="PresenceArea",type="INC",value=-15}},nil}
 c["15% reduced Skeleton Duration"]={{[1]={[1]={includeTransfigured=true,skillName="Summon Skeletons",type="SkillName"},flags=0,keywordFlags=0,name="Duration",type="INC",value=-15}},nil}
 c["15% reduced Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-15}},nil}
-c["15% reduced Slowing Potency of Debuffs on You"]={{}," Slowing Potency of Debuffs on You "}
+c["15% reduced Slowing Potency of Debuffs on You"]={{[1]={flags=0,keywordFlags=0,name="SlowEffectOnSelf",type="INC",value=-15}},nil}
 c["15% reduced Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=-15}},nil}
 c["15% reduced Volatility Explosion delay"]={{}," Volatility Explosion delay "}
 c["15% reduced effect of Chill and Shock on you"]={{[1]={flags=0,keywordFlags=0,name="SelfChillEffect",type="INC",value=-15},[2]={flags=0,keywordFlags=0,name="SelfShockEffect",type="INC",value=-15}},nil}
@@ -2570,7 +2568,7 @@ c["16% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="Ma
 c["16% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=16}},nil}
 c["16% reduced Charges per use"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=-16}},nil}
 c["16% reduced Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-16}},nil}
-c["16% reduced Slowing Potency of Debuffs on You"]={{}," Slowing Potency of Debuffs on You "}
+c["16% reduced Slowing Potency of Debuffs on You"]={{[1]={flags=0,keywordFlags=0,name="SlowEffectOnSelf",type="INC",value=-16}},nil}
 c["160% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=160}},nil}
 c["160% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=160}},nil}
 c["160% increased Critical Hit Chance if you haven't dealt a Critical Hit Recently"]={{[1]={[1]={neg=true,type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=160}},nil}
@@ -3069,11 +3067,7 @@ c["20% reduced Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootR
 c["20% reduced Reservation Efficiency of Skills"]={{[1]={flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=-20}},nil}
 c["20% reduced Reservation Efficiency of Skills which create Undead Minions"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=-20}}}},"  which create Undead s "}
 c["20% reduced Reservation Efficiency of Skills which create Undead Minions 30% increased Reservation Efficiency of Skills which create Undead Minions"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=-20}}}},"  which create Undead s 30% increased Reservation Efficiency of Skills which create Undead Minions "}
-c["20% reduced Slowing Potency of Debuffs on You"]={{}," Slowing Potency of Debuffs on You "}
-c["20% reduced Slowing Potency of Debuffs on You 6% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-20}}," Slowing Potency of Debuffs on You 6% reduced  Penalty from using Skills  "}
-c["20% reduced Slowing Potency of Debuffs on You 8% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-20}}," Slowing Potency of Debuffs on You 8% reduced  Penalty from using Skills  "}
-c["20% reduced Slowing Potency of Debuffs on You Buffs on you expire 10% slower"]={{}," Slowing Potency of Debuffs on You Buffs on you expire 10% slower "}
-c["20% reduced Slowing Potency of Debuffs on You Gain 12% of Damage as Extra Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=-20}}," Slowing Potency of Debuffs on You Gain 12% of  as Extra Fire Damage "}
+c["20% reduced Slowing Potency of Debuffs on You"]={{[1]={flags=0,keywordFlags=0,name="SlowEffectOnSelf",type="INC",value=-20}},nil}
 c["20% reduced Strength Requirement"]={{[1]={flags=0,keywordFlags=0,name="StrRequirement",type="INC",value=-20}},nil}
 c["20% reduced Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=-20}},nil}
 c["20% reduced effect of Curses on you"]={{[1]={flags=0,keywordFlags=0,name="CurseEffectOnSelf",type="INC",value=-20}},nil}
@@ -3109,7 +3103,7 @@ c["21% increased Reload Speed"]={{[1]={flags=1,keywordFlags=0,name="ReloadSpeed"
 c["21% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=21}},nil}
 c["21% increased Totem Placement speed"]={{[1]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=21}},nil}
 c["21% increased Warcry Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=4,name="CooldownRecovery",type="INC",value=21}},nil}
-c["21% reduced Slowing Potency of Debuffs on You if you've used a Charm Recently"]={{}," Slowing Potency of Debuffs on You if you've used a Charm Recently "}
+c["21% reduced Slowing Potency of Debuffs on You if you've used a Charm Recently"]={{[1]={[1]={type="Condition",var="UsedCharmRecently"},flags=0,keywordFlags=0,name="SlowEffectOnSelf",type="INC",value=-21}},nil}
 c["22% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=22}},nil}
 c["22% increased Critical Damage Bonus for Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="CritMultiplier",type="INC",value=22}},nil}
 c["22% increased Critical Hit Chance for Attacks"]={{[1]={flags=1,keywordFlags=0,name="CritChance",type="INC",value=22}},nil}
@@ -3165,7 +3159,7 @@ c["24% increased Flammability Magnitude"]={{[1]={flags=0,keywordFlags=0,name="En
 c["24% increased Minion Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=24}}}},nil}
 c["24% increased Warcry Speed"]={{[1]={flags=0,keywordFlags=4,name="WarcrySpeed",type="INC",value=24}},nil}
 c["24% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=24}},nil}
-c["24% reduced Slowing Potency of Debuffs on You"]={{}," Slowing Potency of Debuffs on You "}
+c["24% reduced Slowing Potency of Debuffs on You"]={{[1]={flags=0,keywordFlags=0,name="SlowEffectOnSelf",type="INC",value=-24}},nil}
 c["240% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=240}},nil}
 c["240% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=240}},nil}
 c["25 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=25}},nil}
@@ -3462,7 +3456,7 @@ c["25% reduced Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="Pre
 c["25% reduced Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=-25}},nil}
 c["25% reduced Reservation Efficiency of Minion Skills"]={{[1]={[1]={skillType=6,type="SkillType"},flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=-25}},nil}
 c["25% reduced Shock duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfShockDuration",type="INC",value=-25}},nil}
-c["25% reduced Slowing Potency of Debuffs on You"]={{}," Slowing Potency of Debuffs on You "}
+c["25% reduced Slowing Potency of Debuffs on You"]={{[1]={flags=0,keywordFlags=0,name="SlowEffectOnSelf",type="INC",value=-25}},nil}
 c["25% reduced Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=-25}},nil}
 c["25% reduced Totem Life"]={{[1]={flags=0,keywordFlags=0,name="TotemLife",type="INC",value=-25}},nil}
 c["25% reduced Trap Throwing Speed"]={{[1]={flags=0,keywordFlags=0,name="TrapThrowingSpeed",type="INC",value=-25}},nil}
@@ -4083,8 +4077,7 @@ c["4% reduced Elemental Ailment Duration on you per 10 Devotion"]={{[1]={[1]={ac
 c["4% reduced Flask Charges used from Mana Flasks"]={{[1]={flags=0,keywordFlags=0,name="ManaFlaskChargesUsed",type="INC",value=-4}},nil}
 c["4% reduced Mana Cost of Skills"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=-4}},nil}
 c["4% reduced Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-4}},nil}
-c["4% reduced Slowing Potency of Debuffs on You"]={{}," Slowing Potency of Debuffs on You "}
-c["4% reduced Slowing Potency of Debuffs on You Debuffs on you expire 3% faster"]={{}," Slowing Potency of Debuffs on You Debuffs on you expire 3% faster "}
+c["4% reduced Slowing Potency of Debuffs on You"]={{[1]={flags=0,keywordFlags=0,name="SlowEffectOnSelf",type="INC",value=-4}},nil}
 c["4.5 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=4.5}},nil}
 c["4.6 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=4.6}},nil}
 c["40 Mana gained when you Block"]={{[1]={flags=0,keywordFlags=0,name="ManaOnBlock",type="BASE",value=40}},nil}
@@ -4325,7 +4318,7 @@ c["45% increased Thorns damage"]={{[1]={flags=32,keywordFlags=0,name="Damage",ty
 c["45% increased chance to inflict Ailments against Enemies affected by Abyssal Wasting"]={{[1]={flags=0,keywordFlags=0,name="AbyssalWastingAlsoGrants",type="LIST",value={mod={flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=45},unscalable=true}}},nil}
 c["45% reduced Mana Cost of Raise Spectre"]={{[1]={[1]={includeTransfigured=true,skillName="Raise Spectre",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=-45}}}},"  Raise  "}
 c["45% reduced Quantity of Fish Caught"]={{}," Quantity of Fish Caught "}
-c["45% reduced Slowing Potency of Debuffs on You"]={{}," Slowing Potency of Debuffs on You "}
+c["45% reduced Slowing Potency of Debuffs on You"]={{[1]={flags=0,keywordFlags=0,name="SlowEffectOnSelf",type="INC",value=-45}},nil}
 c["450 Chaos Damage taken per second"]={{[1]={flags=0,keywordFlags=0,name="ChaosDegen",type="BASE",value=450}},nil}
 c["450% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=450}},nil}
 c["450% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=450}},nil}
@@ -4463,7 +4456,7 @@ c["5% reduced Movement Speed Penalty while Actively Blocking"]={{[1]={[1]={skill
 c["5% reduced Movement Speed while Cursed"]={{[1]={[1]={type="Condition",var="Cursed"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-5}},nil}
 c["5% reduced Projectile Speed for Spell Skills"]={{[1]={flags=2,keywordFlags=0,name="ProjectileSpeed",type="INC",value=-5}},nil}
 c["5% reduced Skill Speed"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=-5},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=-5},[3]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=-5}},nil}
-c["5% reduced Slowing Potency of Debuffs on You"]={{}," Slowing Potency of Debuffs on You "}
+c["5% reduced Slowing Potency of Debuffs on You"]={{[1]={flags=0,keywordFlags=0,name="SlowEffectOnSelf",type="INC",value=-5}},nil}
 c["5% reduced effect of Curses on you"]={{[1]={flags=0,keywordFlags=0,name="CurseEffectOnSelf",type="INC",value=-5}},nil}
 c["5% reduced maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=-5}},nil}
 c["50 Chaos Damage taken per second"]={{[1]={flags=0,keywordFlags=0,name="ChaosDegen",type="BASE",value=50}},nil}
@@ -4689,8 +4682,7 @@ c["50% reduced Projectile Range Adds 98 to 193 Fire Damage"]={{[1]={flags=0,keyw
 c["50% reduced Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecoveryRate",type="INC",value=-50}},nil}
 c["50% reduced Reload Speed"]={{[1]={flags=1,keywordFlags=0,name="ReloadSpeed",type="INC",value=-50}},nil}
 c["50% reduced Shock duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfShockDuration",type="INC",value=-50}},nil}
-c["50% reduced Slowing Potency of Debuffs on You"]={{}," Slowing Potency of Debuffs on You "}
-c["50% reduced Slowing Potency of Debuffs on You 20 to 30 Physical Thorns damage"]={{[1]={flags=32,keywordFlags=0,name="Damage",type="INC",value=-50}}," Slowing Potency of Debuffs on You 20 to 30 Physical  "}
+c["50% reduced Slowing Potency of Debuffs on You"]={{[1]={flags=0,keywordFlags=0,name="SlowEffectOnSelf",type="INC",value=-50}},nil}
 c["50% reduced bonuses gained from Equipped Focus"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromFocus",type="INC",value=-50}},nil}
 c["50% reduced effect of Archon Buffs on you"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=-50}},"  of Archon Buffs on you "}
 c["50% reduced effect of Archon Buffs on you Archon Buffs have no recovery period after you lose one"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=-50}},"  of Archon Buffs on you Archon Buffs have no recovery period after you lose one "}
@@ -5016,6 +5008,7 @@ c["75% reduced Ignite Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="
 c["76% more Recovery if used while on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="FlaskLifeRecoveryLowLife",type="MORE",value=76}},nil}
 c["76% more Recovery if used while on Low Mana"]={{[1]={[1]={type="Condition",var="LowMana"},flags=0,keywordFlags=0,name="FlaskLifeRecoveryLowLife",type="MORE",value=76}},"  if used  "}
 c["78% increased Amount Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=78}},nil}
+end)();(function()
 c["8 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=8}},nil}
 c["8 to 14 Fire Damage per Endurance Charge"]={{[1]={[1]={type="Multiplier",var="EnduranceCharge"},flags=0,keywordFlags=0,name="FireMin",type="BASE",value=8},[2]={[1]={type="Multiplier",var="EnduranceCharge"},flags=0,keywordFlags=0,name="FireMax",type="BASE",value=14}},nil}
 c["8% Global chance to Blind Enemies on Hit"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="BlindChance",type="BASE",value=8}},"%  chance  "}
@@ -5161,7 +5154,7 @@ c["8% of Spell Mana Cost Converted to Life Cost"]={{[1]={[1]={skillType=2,type="
 c["8% reduced Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=-8}},nil}
 c["8% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="INC",value=-8}},nil}
 c["8% reduced Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-8}},nil}
-c["8% reduced Slowing Potency of Debuffs on You"]={{}," Slowing Potency of Debuffs on You "}
+c["8% reduced Slowing Potency of Debuffs on You"]={{[1]={flags=0,keywordFlags=0,name="SlowEffectOnSelf",type="INC",value=-8}},nil}
 c["80% chance to Avoid being Chilled"]={{[1]={flags=0,keywordFlags=0,name="AvoidChill",type="BASE",value=80}},nil}
 c["80% chance to Avoid being Shocked"]={{[1]={flags=0,keywordFlags=0,name="AvoidShock",type="BASE",value=80}},nil}
 c["80% faster start of Energy Shield Recharge"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=80}},nil}
@@ -10021,6 +10014,7 @@ c["their Explicit Modifiers are transformed into more powerful related Modifiers
 c["until you take no Damage to Life for 3 seconds"]={nil,"until you take no Damage to Life for 3 seconds "}
 c["until you take no Damage to Life for 5 seconds"]={nil,"until you take no Damage to Life for 5 seconds "}
 c["until you take no Damage to Life for 5 seconds Life that would be lost by taking Damage is instead Reserved"]={nil,"until you take no Damage to Life for 5 seconds Life that would be lost by taking Damage is instead Reserved "}
+end)();(function()
 c["you Shapeshift to an Animal form"]={nil,"you Shapeshift to an Animal form "}
 c["you Shapeshift to an Animal form Modifiers gained this way are lost after 30 seconds or when you next Shapeshift"]={nil,"you Shapeshift to an Animal form Modifiers gained this way are lost after 30 seconds or when you next Shapeshift "}
 c["your maximum number of Power Charges"]={nil,"your maximum number of Power Charges "}

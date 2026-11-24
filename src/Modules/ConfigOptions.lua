@@ -1091,6 +1091,15 @@ Huge sets the radius to 11.
 	{ var = "conditionSelfChill", type = "check", label = "Did you ^x3F6DB3Chill ^7yourself?", ifOption = "conditionChilled", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:ChilledSelf", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
+	{ var = "conditionMaimed", type = "check", label = "Are you Maimed?", ifMod = "SlowEffectOnSelf", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:Maimed", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "conditionHindered", type = "check", label = "Are you Hindered?", ifMod = "SlowEffectOnSelf", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:Hindered", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "conditionUsedCharmRecently", type = "check", label = "Have you used a Charm Recently?", ifCond = "UsedCharmRecently", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:UsedCharmRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
 	{ var = "conditionFrozen", type = "check", label = "Are you ^x3F6DB3Frozen?", ifCond = "Frozen", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Frozen", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },

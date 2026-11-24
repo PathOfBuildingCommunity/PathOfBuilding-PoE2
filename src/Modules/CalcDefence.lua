@@ -1923,7 +1923,13 @@ function calcs.defence(env, actor)
 	end
 
 	-- Miscellaneous: move speed, avoidance, weapon swap speed
-	output.MovementSpeedMod = modDB:Override(nil, "MovementSpeed") or (modDB:Flag(nil, "MovementSpeedEqualHighestLinkedPlayers") and actor.partyMembers.output.MovementSpeedMod or (round((1 + modDB:Sum("BASE", nil, "MovementSpeed")) * calcLib.mod(modDB, nil, "MovementSpeed"), 3)))
+	local movementSpeedInc, movementSpeedMore = calcLib.mods(modDB, nil, "MovementSpeed")
+	if not modDB:Flag(nil, "UnaffectedBySlows") then
+		local slowEffect = m_max(calcLib.mod(modDB, nil, "SlowEffectOnSelf"), 0)
+		movementSpeedInc = movementSpeedInc + modDB:Sum("INC", nil, "SlowingMovementSpeed") * slowEffect / 100
+	end
+	local movementSpeedMod = round((1 + modDB:Sum("BASE", nil, "MovementSpeed")) * (movementSpeedInc * movementSpeedMore), 3)
+	output.MovementSpeedMod = modDB:Override(nil, "MovementSpeed") or (modDB:Flag(nil, "MovementSpeedEqualHighestLinkedPlayers") and actor.partyMembers.output.MovementSpeedMod or movementSpeedMod)
 	if modDB:Flag(nil, "MovementSpeedCannotBeBelowBase") then
 		output.MovementSpeedMod = m_max(output.MovementSpeedMod, 1)
 	end
