@@ -18,6 +18,21 @@ local m_modf = math.modf
 local s_format = string.format
 local m_huge = math.huge
 
+local function scaleCurseMods(dest, mods, inc, more, targetDB, roundToNearest)
+	local curseScale = (1 + inc / 100) * more
+	local slowInc, slowMore = calcLib.mods(targetDB, nil, "SlowEffectOnSelf")
+	if slowInc == 1 and slowMore == 1 then
+		dest:ScaleAddList(mods, curseScale, roundToNearest)
+		return
+	end
+
+	-- Curse and slow magnitude are additive for the slowing component of Temporal Chains.
+	local slowScale = m_max((slowInc + inc / 100) * more * slowMore, 0)
+	for _, mod in ipairs(mods) do
+		dest:ScaleAddMod(mod, mod.name == "TemporalChainsActionSpeed" and slowScale or curseScale, roundToNearest)
+	end
+end
+
 --- getCachedOutputValue
 ---  retrieves a value specified by key from a cached version of skill
 ---  specified by @uuid or if not found in cache computes teh cache.
@@ -758,7 +773,9 @@ local function doActorMisc(env, actor)
 			local chillValue = modDB:Override(nil, "ChillVal") or ailmentData.Chill.default
 
 			local chillSelf = (modDB:Flag(nil, "Condition:ChilledSelf") and modDB:Sum("INC", nil, "EnemyChillMagnitude") / 100) or 0
-			local totalChillSelfEffect = calcLib.mod(modDB, nil, "SelfChillEffect") + chillSelf
+			local chillInc, chillMore = calcLib.mods(modDB, nil, "SelfChillEffect")
+			local slowInc, slowMore = calcLib.mods(modDB, nil, "SlowEffectOnSelf")
+			local totalChillSelfEffect = ((chillInc + (slowInc - 1)) * chillMore + chillSelf) * slowMore
 
 			local effect = m_min(m_max(m_floor(chillValue *  totalChillSelfEffect), 0), modDB:Override(nil, "ChillMax") or ailmentData.Chill.max)
 
@@ -850,6 +867,9 @@ local function doActorMisc(env, actor)
 		local slowEffect = modDB:SumNegativeValues("INC", nil, "ActionSpeed") or 0
 		slowEffect = slowEffect + modDB:SumNegativeValues("INC", nil, "MovementSpeed") or 0
 		slowEffect = slowEffect + modDB:SumNegativeValues("INC", nil, "TemporalChainsActionSpeed") or 0
+		if calcLib.mod(modDB, nil, "SlowEffectOnSelf") > 0 then
+			slowEffect = slowEffect + modDB:SumNegativeValues("INC", nil, "SlowingMovementSpeed")
+		end
 		if slowEffect ~= 0 then
 			modDB:NewMod("Condition:Slowed", "FLAG", true)
 		end
@@ -2510,13 +2530,15 @@ function calcs.perform(env, skipEHP)
 					if not curse.isMark then
 						more = more * enemyDB:More(nil, "CurseEffectOnSelf")
 					end
-					local mult = 0
-					if not (modDB:Flag(nil, "SelfAurasOnlyAffectYou") and activeSkill.skillTypes[SkillType.Aura]) then --If your aura only effect you blasphemy does nothing
-						mult = (1 + inc / 100) * more
-					end
+					local selfOnlyAura = activeSkill.skillTypes[SkillType.Aura] and modDB:Flag(nil, "SelfAurasOnlyAffectYou")
+					local mult = selfOnlyAura and 0 or (1 + inc / 100) * more
 					if buff.type == "Curse" then
 						curse.modList = new("ModList"):ModList()
-						curse.modList:ScaleAddList(buff.modList, mult, true)
+						if selfOnlyAura then
+							curse.modList:ScaleAddList(buff.modList, 0, true)
+						else
+							scaleCurseMods(curse.modList, buff.modList, inc, more, enemyDB, true)
+						end
 						if partyTabEnableExportBuffs then
 							buffExports["Curse"][buff.name] = { isMark = curse.isMark, effectMult = curse.isMark and mult or (1 + inc / 100) * moreMark, modList = buff.modList }
 						end
@@ -2766,7 +2788,7 @@ function calcs.perform(env, skipEHP)
 							local inc = skillModList:Sum("INC", skillCfg, "CurseEffect") + enemyDB:Sum("INC", nil, "CurseEffectOnSelf")
 							local more = skillModList:More(skillCfg, "CurseEffect") * enemyDB:More(nil, "CurseEffectOnSelf") * calcLib.mod(skillModList, skillCfg, "Magnitude")
 							curse.modList = new("ModList"):ModList()
-							curse.modList:ScaleAddList(buff.modList, (1 + inc / 100) * more)
+							scaleCurseMods(curse.modList, buff.modList, inc, more, enemyDB)
 							t_insert(minionCurses, curse)
 						end
 					elseif buff.type == "Debuff" or buff.type == "AuraDebuff" then
@@ -2983,7 +3005,7 @@ function calcs.perform(env, skipEHP)
 						local cfg = { skillName = grantedEffect.name }
 						local inc = modDB:Sum("INC", cfg, "CurseEffectOnSelf") + gemModList:Sum("INC", nil, "CurseEffectAgainstPlayer")
 						local more = modDB:More(cfg, "CurseEffectOnSelf") * gemModList:More(nil, "CurseEffectAgainstPlayer")
-						modDB:ScaleAddList(curseModList, m_max((1 + inc / 100) * more, 0), true)
+						scaleCurseMods(modDB, curseModList, m_max(inc, -100), more, modDB, true)
 					end
 				elseif not enemyDB:Flag(nil, "Hexproof") or modDB:Flag(nil, "CursesIgnoreHexproof") then
 					local curse = {
@@ -2992,7 +3014,7 @@ function calcs.perform(env, skipEHP)
 						priority = determineCursePriority(grantedEffect.name),
 					}
 					curse.modList = new("ModList"):ModList()
-					curse.modList:ScaleAddList(curseModList, (1 + enemyDB:Sum("INC", nil, "CurseEffectOnSelf") / 100) * enemyDB:More(nil, "CurseEffectOnSelf"), true)
+					scaleCurseMods(curse.modList, curseModList, enemyDB:Sum("INC", nil, "CurseEffectOnSelf"), enemyDB:More(nil, "CurseEffectOnSelf"), enemyDB, true)
 					t_insert(dest, curse)
 				end
 			end
@@ -3011,13 +3033,13 @@ function calcs.perform(env, skipEHP)
 			priority = 0,
 			modList = new("ModList"):ModList()
 		}
-		local mult = curse.effectMult / 100
+		local more = 1
 		if curse.isMark then
 			newCurse.isMark = true
 		else
-			mult = mult * enemyDB:More(nil, "CurseEffectOnSelf")
+			more = enemyDB:More(nil, "CurseEffectOnSelf")
 		end
-		newCurse.modList:ScaleAddList(curse.modList, mult, true)
+		scaleCurseMods(newCurse.modList, curse.modList, curse.effectMult - 100, more, enemyDB, true)
 		t_insert(allyCurses, newCurse)
 	end
 
@@ -3277,14 +3299,15 @@ function calcs.perform(env, skipEHP)
 			condition = "Chilled",
 			mods = function(num)
 				local mods = {  }
+				local slow = num * m_max(calcLib.mod(enemyDB, nil, "SlowEffectOnSelf"), 0)
 
 				if modDB:Flag(nil, "ChillCanStack") then
 					output["CurrentChill"] = num * m_min(enemyDB:Sum("BASE", nil, "Multiplier:ChillStacks"), modDB:Override(nil, "ChillStacksMax") or modDB:Sum("BASE", nil, "ChillStacksMax"))
 					if breakdown then
-						t_insert(mods, modLib.createMod("ActionSpeed", "INC", -num, "Chill Stacks", { type = "Condition", var = "Chilled" }, { type = "Multiplier", var = "ShockStacks", limit = modDB:Override(nil, "ShockStacksMax") or modDB:Sum("BASE", nil, "ShockStacksMax")}))
+						t_insert(mods, modLib.createMod("ActionSpeed", "INC", -slow, "Chill Stacks", { type = "Condition", var = "Chilled" }, { type = "Multiplier", var = "ShockStacks", limit = modDB:Override(nil, "ShockStacksMax") or modDB:Sum("BASE", nil, "ShockStacksMax")}))
 					end
 				else
-					t_insert(mods, modLib.createMod("ActionSpeed", "INC", -num, "Chill", { type = "Condition", var = "Chilled" }))
+					t_insert(mods, modLib.createMod("ActionSpeed", "INC", -slow, "Chill", { type = "Condition", var = "Chilled" }))
 				end
 
 				if output.HasBonechill and (hasGuaranteedBonechill or enemyDB:Sum("BASE", nil, "ChillVal") > 0) then
