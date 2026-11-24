@@ -802,6 +802,11 @@ Huge sets the radius to 11.
 		modList:NewMod("TotalTotemLife", "BASE", val, "Config")
 	end },
 	{ var = "totemRecoupHitDPS", type = "countAllowZero", label = "Hit damage taken by Totems per second:", ifMod = "TotemDamageLifeRecoup", tooltip = "Total damage taken from hits per second by all your Totems, after their mitigation. Used to estimate sustained Life Recoup." },
+	{ var = "offeringRecoupHitDPS", type = "countAllowZero", label = "Hit damage taken by Offerings per second:", ifMod = "OfferingDamageLifeRecoup", tooltip = "Total hit damage taken per second by all your Offerings, after mitigation. Used to estimate sustained Life Recoup." },
+	{ var = "essenceHarvestDeathsPerSecond", type = "float", label = "Essence Harvest minion deaths per second:", ifMod = "MinionDeathManaRecoup", tooltip = "Average deaths per second of minions supported by Essence Harvest. Used to estimate sustained Mana Recoup." },
+	{ var = "conditionOnNavirasOasis", type = "check", label = "Are you standing in Navira's Oasis?", ifFlag = "NavirasOasis", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:OnNavirasOasis", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
 	{ var = "TotalRadianceSentinelLife", type = "countAllowZero", label = "Total life pool of Sentinel of Radiance", ifMod = "takenFromRadianceSentinelBeforeYou", apply = function(val, modList, enemyModList)
 		modList:NewMod("TotalRadianceSentinelLife", "BASE", val, "Config")
 	end },
@@ -988,6 +993,9 @@ Huge sets the radius to 11.
 	end },
 	{ var = "conditionLeeching", type = "check", label = "Are you Leeching?", ifCond = "Leeching", tooltip = "You will automatically be considered to be Leeching if you have '^xE05030Life ^7Leech effects are not removed at Full ^xE05030Life^7',\nbut you can use this option to force it if necessary.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Leeching", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "conditionLifeLeechRemovedByFillingUnreservedLifeRecently", type = "check", label = "Was Life Leech removed by filling Unreserved Life Recently?", ifCond = "LifeLeechRemovedByFillingUnreservedLifeRecently", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:LifeLeechRemovedByFillingUnreservedLifeRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "conditionLeechingLife", type = "check", label = "Are you Leeching ^xE05030Life?", ifCond = "LeechingLife", implyCond = "Leeching", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:LeechingLife", "FLAG", true, "Config", { type = "Condition", var = "Combat" })

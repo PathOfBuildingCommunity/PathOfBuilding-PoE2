@@ -147,6 +147,104 @@ Allocates Mending Deflection (enchant)
 		assert.are.equals(100, output.LifeRecoupRecoveryAvg)
 	end)
 
+	it("recoups only the mitigated portion of a blocked hit as Mana", function()
+		local input = build.configTab.input
+		input.enemyDamageType = "Melee"
+		input.enemyPhysicalDamage = 100
+		input.enemyCritChance = 0
+		input.customMods = "Damage Blocked is Recouped as Mana\n+50% Chance to Block\nYou take 50% of Damage from Blocked Hits"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.mainOutput
+		assert.are.equals(100, output.BlockedManaRecoup)
+		assert.are.equals(50, output.BlockEffect)
+		local blocked = output.totalTakenHit * output.EffectiveBlockChance / 100 * 0.5 * output.NumberOfMitigatedDamagingHits
+		assert.is_true(blocked > 0)
+		assert.are.near(blocked, output.TotalManaRecoupRecovery, 0.001)
+		assert.are.near(blocked / (output.EHPSurvivalTime + 8), output.ManaRecoupRecoveryAvg, 0.001)
+
+		input.customMods = input.customMods:gsub("Damage Blocked is Recouped as Mana", "30%% of damage Blocked is Recouped as Mana")
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.near(blocked * 0.3, build.calcsTab.mainOutput.TotalManaRecoupRecovery, 0.001)
+
+		input.customMods = "Damage Blocked is Recouped as Mana\n+100% Chance to Block\n+100% to maximum Block Chance"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		output = build.calcsTab.mainOutput
+		assert.are.equals(90, output.EffectiveBlockChance)
+		assert.is_true(output.ManaRecoupRecoveryAvg > 0 and output.ManaRecoupRecoveryAvg < math.huge)
+	end)
+
+	it("recoups prevented Chaos damage and Flask hit damage only during effect", function()
+		local input = build.configTab.input
+		input.enemyDamageType = "Melee"
+		input.enemyChaosDamage = 100
+		input.enemyCritChance = 0
+		input.customMods = [[
+			+40% to Chaos Resistance
+			30% of Damage taken during effect Recouped as Life
+			50% of Chaos damage you prevent when Hit Recouped as Life and Mana during effect
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(0, build.calcsTab.mainOutput.PreventedChaosManaRecoup)
+
+		input.conditionUsingFlask = true
+		input.conditionUsingCharm = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local output = build.calcsTab.mainOutput
+		local prevented = (output.ChaosTakenDamage - output.ChaosTakenHit) * output.NumberOfMitigatedDamagingHits
+		assert.is_true(prevented > 0)
+		assert.are.equals(30, output.LifeRecoup)
+		assert.are.near(prevented * 0.5, output.TotalManaRecoupRecovery, 0.001)
+		assert.is_true(output.TotalLifeRecoupRecovery > output.TotalManaRecoupRecovery)
+	end)
+
+	it("uses the original Life Recoup duration when redirecting its recovery to Energy Shield", function()
+		build.configTab.input.customMods = [[
+			20% of Damage taken Recouped as Life
+			Life Recoup Effects instead occur over 3 seconds
+			Life Recoup Recovers Energy Shield instead
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.mainOutput
+		assert.are.equals(3, output.LifeRecoupDuration)
+		assert.are.equals(0, output.TotalLifeRecoupRecovery)
+		assert.are.equals(0, output.LifeRecoupRecoveryAvg)
+		assert.is_true(output.TotalEnergyShieldRecoupRecovery > 0)
+		assert.are.near(output.TotalEnergyShieldRecoupRecovery / 3, output.EnergyShieldRecoupRecoveryMax, 0.001)
+	end)
+
+	it("includes Mana Recoup from supported Essence Harvest deaths", function()
+		build.skillsTab:PasteSocketGroup("Skeletal Warrior 20/0  1\nEssence Harvest 1/0  1")
+		build.configTab.input.essenceHarvestDeathsPerSecond = 1.5
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.mainOutput
+		assert.are.equals(8, output.MinionDeathManaRecoup)
+		assert.are.near(output.Mana * 0.08 * 1.5, output.ManaRecoupRecoveryAvg, 0.001)
+	end)
+
+	it("applies both Recoup bonuses only while standing in the allocated Navira's Oasis", function()
+		build.spec:ImportFromNodeList("Disciple of Varashta", 0, 0, 0, { 32705, 45602 }, {}, {}, {}, build.spec.treeVersion)
+		build.buildFlag = true
+		runCallback("OnFrame")
+		assert.are.equals(0, build.calcsTab.mainOutput.LifeRecoup)
+		assert.are.equals(0, build.calcsTab.mainOutput.ManaRecoup)
+
+		build.configTab.input.conditionOnNavirasOasis = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.is_true(build.calcsTab.mainOutput.LifeRecoup > 0)
+		assert.is_true(build.calcsTab.mainOutput.ManaRecoup > 0)
+	end)
+
 	it("converts total energy shield modifiers to mana", function()
 		build.configTab.input.customMods = "Convert 100% of maximum Energy Shield to maximum Mana\n100% increased maximum Mana"
 		build.configTab:BuildModList()

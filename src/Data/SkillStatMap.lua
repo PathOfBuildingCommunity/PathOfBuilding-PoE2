@@ -2565,6 +2565,19 @@ return function(mod, flag, skill)
 ["companion_takes_%_damage_before_you_from_support"] = {
 	mod("TakenFromCompanionBeforeYou", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
 },
+["loyalty_%_of_redirected_damage_recouped_as_life_for_owner"] = {
+	mod("CompanionDamageLifeRecoup", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
+},
+["recoup_mana_%_on_minion_death"] = {
+	mod("MinionDeathManaRecoup", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
+},
+["oasis_damage_recouped_as_life_%"] = {
+	mod("LifeRecoup", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Condition", var = "OnNavirasOasis" }),
+	skill("buffAllies", true),
+},
+["oasis_damage_recouped_as_mana_%"] = {
+	mod("ManaRecoup", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Condition", var = "OnNavirasOasis" }),
+},
 ["minion_damage_+%_final_per_different_elemental_ailment_on_target"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Electrocuted" }) }),
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }) }),

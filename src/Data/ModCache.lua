@@ -3151,7 +3151,7 @@ c["23% increased Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",
 c["23% increased Trap Damage"]={{[1]={flags=0,keywordFlags=4096,name="Damage",type="INC",value=23}},nil}
 c["23% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=23}},nil}
 c["23% more Global Evasion Rating and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="MORE",value=23},[2]={flags=0,keywordFlags=0,name="EnergyShield",type="MORE",value=23}},nil}
-c["23% of Damage taken during effect Recouped as Life"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=23}},"   Recouped as Life "}
+c["23% of Damage taken during effect Recouped as Life"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=23}},nil}
 c["23% reduced Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-23}},nil}
 c["23% reduced Light Radius"]={{[1]={flags=0,keywordFlags=0,name="LightRadius",type="INC",value=-23}},nil}
 c["24% increased Armour, Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=24},[2]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=24},[3]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=24}},nil}
@@ -3808,8 +3808,7 @@ c["30% of Damage is taken from Mana before Life"]={{[1]={flags=0,keywordFlags=0,
 c["30% of Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=30}},nil}
 c["30% of Damage taken Recouped as Life while Channelling"]={{[1]={[1]={type="Condition",var="Channelling"},flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=30}},nil}
 c["30% of Damage taken Recouped as Mana"]={{[1]={flags=0,keywordFlags=0,name="ManaRecoup",type="BASE",value=30}},nil}
-c["30% of Damage taken during effect Recouped as Life"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=30}},"   Recouped as Life "}
-c["30% of Damage taken during effect Recouped as Life Gain 5 Rage when Hit by an Enemy during effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},[2]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=30}},"   Recouped as Life Gain 5 Rage when Hit by an Enemy  "}
+c["30% of Damage taken during effect Recouped as Life"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=30}},nil}
 c["30% of Fire Damage Converted to Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamageConvertToChaos",type="BASE",value=30}},nil}
 c["30% of Leech is Instant"]={{[1]={flags=0,keywordFlags=0,name="InstantEnergyShieldLeech",type="BASE",value=30},[2]={flags=0,keywordFlags=0,name="InstantManaLeech",type="BASE",value=30},[3]={flags=0,keywordFlags=0,name="InstantLifeLeech",type="BASE",value=30}},nil}
 c["30% of Life Leeched from targets affected by Abyssal Wasting is Instant"]={{[1]={flags=0,keywordFlags=0,name="AbyssalWastingAlsoGrants",type="LIST",value={mod={flags=0,keywordFlags=0,name="InstantLifeLeech",type="BASE",value=30},unscalable=true}}},nil}
@@ -4636,7 +4635,7 @@ c["50% more Magnitude of Bleeding you inflict"]={{[1]={flags=0,keywordFlags=4194
 c["50% more Mana Cost of Skills if you have no Energy Shield"]={{[1]={[1]={neg=true,type="Condition",var="HaveEnergyShield"},flags=0,keywordFlags=0,name="ManaCost",type="MORE",value=50}},nil}
 c["50% more amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="MORE",value=50}},nil}
 c["50% more damage against enemies with an Open Weakness"]={{[1]={[1]={type="Condition",var="EnemyHasOpenWeakness"},flags=0,keywordFlags=0,name="Damage",type="MORE",value=50}},nil}
-c["50% of Chaos damage you prevent when Hit Recouped as Life and Mana during effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ChaosDamage",type="BASE",value=50}},"  you prevent when Hit Recouped as Life and Mana  "}
+c["50% of Chaos damage you prevent when Hit Recouped as Life and Mana during effect"]={{[1]={[1]={type="Condition",var="UsingCharm"},flags=0,keywordFlags=0,name="PreventedChaosLifeRecoup",type="BASE",value=50},[2]={[1]={type="Condition",var="UsingCharm"},flags=0,keywordFlags=0,name="PreventedChaosManaRecoup",type="BASE",value=50}},nil}
 c["50% of Charges consumed by used Charms are granted to your Life Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskCharges",type="BASE",value=50}},"  consumed by used Charms are granted to your Life Flasks "}
 c["50% of Charges consumed by used Charms are granted to your Life Flasks 50% of Charges consumed by used Life Flasks are granted to your Charms"]={{[1]={flags=0,keywordFlags=0,name="FlaskCharges",type="BASE",value=50}},"  consumed by used Charms are granted to your Life Flasks 50% of Charges consumed by used Life Flasks are granted to your Charms "}
 c["50% of Charges consumed by used Life Flasks are granted to your Charms"]={{[1]={flags=0,keywordFlags=0,name="FlaskCharges",type="BASE",value=50}},"  consumed by used Life Flasks are granted to your Charms "}
@@ -4863,7 +4862,7 @@ c["60% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type
 c["60% increased Stun Threshold while Channelling"]={{[1]={[1]={type="Condition",var="Channelling"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=60}},nil}
 c["60% increased bonuses gained from Equipped Rings"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 1",type="INC",value=60},[2]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 2",type="INC",value=60},[3]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 3",type="INC",value=60}},nil}
 c["60% less Life Flask Recovery"]={{[1]={flags=0,keywordFlags=0,name="Life",type="MORE",value=-60}},"  Flask Recovery "}
-c["60% of damage taken from enemies with an Open Weakness Recouped as Life and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=60}},"  from enemies with an Open Weakness Recouped as Life and Energy Shield "}
+c["60% of damage taken from enemies with an Open Weakness Recouped as Life and Energy Shield"]={{[1]={[1]={type="Condition",var="EnemyHasOpenWeakness"},flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=60},[2]={[1]={type="Condition",var="EnemyHasOpenWeakness"},flags=0,keywordFlags=0,name="EnergyShieldRecoup",type="BASE",value=60}},nil}
 c["60% of your current Energy Shield is added to your Armour for"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=60}}," your current  is added to your Armour for "}
 c["60% of your current Energy Shield is added to your Armour for determining your Physical Damage Reduction from Armour"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldAppliesToPhysicalDamageTaken",type="BASE",value=60}},nil}
 c["60% reduced Charges"]={{[1]={flags=0,keywordFlags=0,name="FlaskCharges",type="INC",value=-60}},nil}
@@ -5011,6 +5010,7 @@ c["76% more Recovery if used while on Low Life"]={{[1]={[1]={type="Condition",va
 c["76% more Recovery if used while on Low Mana"]={{[1]={[1]={type="Condition",var="LowMana"},flags=0,keywordFlags=0,name="FlaskLifeRecoveryLowLife",type="MORE",value=76}},"  if used  "}
 c["78% increased Amount Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=78}},nil}
 c["8 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=8}},nil}
+end)();(function()
 c["8 to 14 Fire Damage per Endurance Charge"]={{[1]={[1]={type="Multiplier",var="EnduranceCharge"},flags=0,keywordFlags=0,name="FireMin",type="BASE",value=8},[2]={[1]={type="Multiplier",var="EnduranceCharge"},flags=0,keywordFlags=0,name="FireMax",type="BASE",value=14}},nil}
 c["8% Global chance to Blind Enemies on Hit"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="BlindChance",type="BASE",value=8}},"%  chance  "}
 c["8% additional Physical Damage Reduction"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageReduction",type="BASE",value=8}},nil}
@@ -5269,7 +5269,7 @@ c["90% increased Reservation Efficiency of Remnant Skills"]={{[1]={flags=0,keywo
 c["90% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=90}},nil}
 c["90% increased Thorns damage if you've consumed an Endurance Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovableEnduranceCharge"},flags=32,keywordFlags=0,name="Damage",type="INC",value=90}},nil}
 c["90% less Life Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="MORE",value=-90}},nil}
-c["90% of damage taken from enemies with an Open Weakness Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=90}},"  from enemies with an Open Weakness Recouped as Life "}
+c["90% of damage taken from enemies with an Open Weakness Recouped as Life"]={{[1]={[1]={type="Condition",var="EnemyHasOpenWeakness"},flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=90}},nil}
 c["92% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=92}},nil}
 c["93% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=93}},nil}
 c["93% increased Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=93}},nil}
@@ -7074,7 +7074,7 @@ c["DNT-UNUSED Bleeding you inflict on Shocked enemies is Aggravated"]={nil,"DNT-
 c["DNT-UNUSED Break Armour equal to 7% of Physical Spell damage dealt"]={nil,"DNT-UNUSED Break Armour equal to 7% of Physical Spell damage dealt "}
 c["DNT-UNUSED Gain 20% Edict Declaration when you disable a rare monster mod"]={nil,"DNT-UNUSED Gain 20% Edict Declaration when you disable a rare monster mod "}
 c["DNT-UNUSED Lightning Damage from Hits against Bleeding enemies Contributes to Electrocute buildup"]={nil,"DNT-UNUSED Lightning Damage from Hits against Bleeding enemies Contributes to Electrocute buildup "}
-c["Damage Blocked is Recouped as Mana"]={nil,"Damage Blocked is Recouped as Mana "}
+c["Damage Blocked is Recouped as Mana"]={{[1]={flags=0,keywordFlags=0,name="BlockedManaRecoup",type="BASE",value=100}},nil}
 c["Damage Penetrates (2-4)% Cold Resistance"]={nil,"Damage Penetrates (2-4)% Cold Resistance "}
 c["Damage Penetrates (2-4)% Fire Resistance"]={nil,"Damage Penetrates (2-4)% Fire Resistance "}
 c["Damage Penetrates (2-4)% Lightning Resistance"]={nil,"Damage Penetrates (2-4)% Lightning Resistance "}
@@ -8116,7 +8116,7 @@ c["Grants Skill: Meditate"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type
 c["Grants Skill: Mirage Deadeye"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="MetaMirageDeadeyePlayer"}}},nil}
 c["Grants Skill: Moment of Vulnerability"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="MomentOfVulnerabilityPlayer"}}},nil}
 c["Grants Skill: Navira's Fracturing"]={nil,nil}
-c["Grants Skill: Navira's Oasis"]={nil,nil}
+c["Grants Skill: Navira's Oasis"]={{[1]={flags=0,keywordFlags=0,name="NavirasOasis",type="FLAG",value=true}},nil}
 c["Grants Skill: Navira's Well"]={nil,nil}
 c["Grants Skill: Navira, the Last Mirage"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SummonWaterDjinnPlayer"}}},nil}
 c["Grants Skill: Parry"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="ParryPlayer"}}},nil}
@@ -10013,6 +10013,7 @@ c["until you take no Damage to Life for 3 seconds"]={nil,"until you take no Dama
 c["until you take no Damage to Life for 5 seconds"]={nil,"until you take no Damage to Life for 5 seconds "}
 c["until you take no Damage to Life for 5 seconds Life that would be lost by taking Damage is instead Reserved"]={nil,"until you take no Damage to Life for 5 seconds Life that would be lost by taking Damage is instead Reserved "}
 c["you Shapeshift to an Animal form"]={nil,"you Shapeshift to an Animal form "}
+end)();(function()
 c["you Shapeshift to an Animal form Modifiers gained this way are lost after 30 seconds or when you next Shapeshift"]={nil,"you Shapeshift to an Animal form Modifiers gained this way are lost after 30 seconds or when you next Shapeshift "}
 c["your maximum number of Power Charges"]={nil,"your maximum number of Power Charges "}
 c["your maximum number of Power Charges +1 to Maximum Power Charges"]={nil,"your maximum number of Power Charges +1 to Maximum Power Charges "}
