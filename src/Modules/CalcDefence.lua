@@ -1852,6 +1852,9 @@ function calcs.defence(env, actor)
 	do
 		-- base Life/Mana/Energy Shield Recoup calcs
 		output["anyRecoup"] = 0
+		local deflectedLifeRecoup = modDB:Sum("BASE", nil, "DeflectedLifeRecoup")
+		calcRecoup(output, breakdown, modDB, deflectedLifeRecoup, "Life", "Deflected")
+		calcRecoup(output, breakdown, modDB, modDB:Flag(nil, "AddLifeRecoupToEnergyShieldRecoup") and deflectedLifeRecoup or 0, "EnergyShield", "Deflected")
 		local recoupTypeList = {"Life", "Mana", "EnergyShield"}
 		for _, recoupType in ipairs(recoupTypeList) do
 			local recoup = modDB:Sum("BASE", nil, recoupType.."Recoup")
@@ -3450,10 +3453,17 @@ function calcs.buildDefenceEstimations(env, actor)
 				totalElementalDamage = totalElementalDamage + output[damageType.."RecoupableDamageTaken"]
 			end
 		end
+		-- EHP simulates averaged hits. Apportion the damage actually taken by
+		-- weighting deflected hits by both their chance and their remaining damage.
+		local deflectChance = output.DeflectChance / 100
+		local deflectedDamageWeight = deflectChance * (1 - output.DeflectEffect / 100)
+		local damageWeight = 1 - deflectChance + deflectedDamageWeight
+		local totalDeflectedDamage = damageWeight > 0 and totalDamage * deflectedDamageWeight / damageWeight or 0
 		local recoupTypeList = {"Life", "Mana", "EnergyShield"}
 		for i, recoupType in ipairs(recoupTypeList) do
 			local recoupTime = (modDB:Flag(nil, "4Second"..recoupType.."Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4 or 8
-			output["Total"..recoupType.."RecoupRecovery"] = (output[recoupType.."Recoup"] or 0) / 100 * totalDamage
+			local deflectedRecoup = output["Deflected"..recoupType.."Recoup"] or 0
+			output["Total"..recoupType.."RecoupRecovery"] = (output[recoupType.."Recoup"] or 0) / 100 * totalDamage + deflectedRecoup / 100 * totalDeflectedDamage
 			if (output["Elemental"..recoupType.."Recoup"] or 0) > 0 and totalElementalDamage > 0 then
 				output["Total"..recoupType.."RecoupRecovery"] = output["Total"..recoupType.."RecoupRecovery"] + output["Elemental"..recoupType.."Recoup"] / 100 * totalElementalDamage
 			end
@@ -3481,6 +3491,11 @@ function calcs.buildDefenceEstimations(env, actor)
 				if (output[recoupType.."Recoup"] or 0) > 0 then
 					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("%d ^8(total damage taken during ehp calcs)", totalDamage))
 					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("* %.2f ^8(percent of damage recouped)", output[recoupType.."Recoup"] / 100))
+					multipleTypes = multipleTypes + 1
+				end
+				if deflectedRecoup > 0 and totalDeflectedDamage > 0 then
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("%s%.1f ^8(estimated damage taken from deflected hits)", multipleTypes > 0 and "+ " or "", totalDeflectedDamage))
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("* %.2f ^8(percent of deflected hit damage recouped)", deflectedRecoup / 100))
 					multipleTypes = multipleTypes + 1
 				end
 				if (output["Elemental"..recoupType.."Recoup"] or 0) > 0 and totalElementalDamage > 0 then
