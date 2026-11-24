@@ -3555,7 +3555,7 @@ c["3% increased Curse Magnitudes"]={{[1]={flags=0,keywordFlags=0,name="CurseEffe
 c["3% increased Energy Shield per Power Charge"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=3}},nil}
 c["3% increased Evasion Rating per 10 Intelligence"]={{[1]={[1]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=3}},nil}
 c["3% increased Experience gain"]={{}," Experience gain "}
-c["3% increased Fire Damage per Endurance Charge consumed Recently"]={{[1]={[1]={type="Multiplier",var="EnduranceCharge"},flags=0,keywordFlags=0,name="FireDamage",type="INC",value=3}},"   consumed Recently "}
+c["3% increased Fire Damage per Endurance Charge consumed Recently"]={{[1]={[1]={type="Multiplier",var="EnduranceChargesConsumedRecently"},flags=0,keywordFlags=0,name="FireDamage",type="INC",value=3}},nil}
 c["3% increased Flask Effect Duration per 25 Tribute"]={{[1]={[1]={actor="parent",div=25,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=3}},nil}
 c["3% increased Global Critical Hit Chance per Level"]={{[1]={[1]={type="Global"},[2]={type="Multiplier",var="Level"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=3}},nil}
 c["3% increased Magnitude of Non-Damaging Ailments you inflict per 10 Devotion"]={{[1]={[1]={actor="parent",div=10,stat="Devotion",type="PerStat"},flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=3},[2]={[1]={actor="parent",div=10,stat="Devotion",type="PerStat"},flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=3},[3]={[1]={actor="parent",div=10,stat="Devotion",type="PerStat"},flags=0,keywordFlags=0,name="EnemyFreezeBuildup",type="INC",value=3}},nil}
@@ -7424,7 +7424,7 @@ c["Every Rage also grants 2% increased Spell Damage"]={{[1]={[1]={type="Multipli
 c["Every Rage also grants 2% increased Stun Threshold"]={{[1]={[1]={type="Multiplier",var="RageEffect"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=2}},nil}
 c["Every Rage also grants you 1% increased Minion Damage"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="player",type="Multiplier",var="RageEffect"},flags=0,keywordFlags=0,name="Damage",type="INC",value=1}}}},nil}
 c["Every Third Slam skill that doesn't create Fissures which you use yourself causes 3 additional Aftershocks ahead and to each side of the initial area"]={nil,"Every Third Slam skill that doesn't create Fissures which you use yourself causes 3 additional Aftershocks ahead and to each side of the initial area "}
-c["Every five Rage also grants you 2% increased Minion Attack Speed"]={nil,"Every five Rage also grants you 2% increased Minion Attack Speed "}
+c["Every five Rage also grants you 2% increased Minion Attack Speed"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={type="Multiplier",var="RageEffect",div=5,actor="player"},flags=1,keywordFlags=0,name="Speed",type="INC",value=2}}}},nil}
 c["Every five Rage also grants you 2% increased Minion Attack Speed Every Rage also grants you 1% increased Minion Damage"]={nil,"Every five Rage also grants you 2% increased Minion Attack Speed Every Rage also grants you 1% increased Minion Damage "}
 c["Every second Slam Skill you use while Shapeshifted is Ancestrally Boosted"]={nil,"Every second Slam Skill you use while Shapeshifted is Ancestrally Boosted "}
 c["Every second Slam Skill you use while Shapeshifted is Ancestrally Boosted Every second Strike Skill you use while Shapeshifted is Ancestrally Boosted"]={nil,"Every second Slam Skill you use while Shapeshifted is Ancestrally Boosted Every second Strike Skill you use while Shapeshifted is Ancestrally Boosted "}
@@ -7583,7 +7583,7 @@ c["Gain 2 Mana per Enemy Hit with Attacks"]={{[1]={flags=4,keywordFlags=65536,na
 c["Gain 2 Power Charge on use"]={{}," Power Charge on use "}
 c["Gain 2 Rage on Melee Axe Hit"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
 c["Gain 2 Rage when Hit by an Enemy"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
-c["Gain 2% of Damage as Extra Fire Damage per Endurance Charge consumed Recently"]={{[1]={[1]={type="Multiplier",var="EnduranceCharge"},flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=2}},"    consumed Recently "}
+c["Gain 2% of Damage as Extra Fire Damage per Endurance Charge consumed Recently"]={{[1]={[1]={type="Multiplier",var="EnduranceChargesConsumedRecently"},flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=2}},nil}
 c["Gain 20 Energy Shield per enemy killed"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldOnKill",type="BASE",value=20}},nil}
 c["Gain 20 Life per enemy killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=20}},nil}
 c["Gain 20% of Damage as Extra Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsCold",type="BASE",value=20}},nil}

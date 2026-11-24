@@ -4914,6 +4914,15 @@ local specialModList = {
 	["every rage also grants you (%d+)%% increased minion attack speed"] = function(num) return {
 		mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", num, nil, ModFlag.Attack, { type = "Multiplier", var = "RageEffect", actor = "player" }) }),
 	} end,
+	["(%d+)%% increased fire damage per endurance charge consumed recently"] = function(num) return {
+		mod("FireDamage", "INC", num, { type = "Multiplier", var = "EnduranceChargesConsumedRecently" }),
+	} end,
+	["gain (%d+)%% of damage as extra fire damage per endurance charge consumed recently"] = function(num) return {
+		mod("DamageGainAsFire", "BASE", num, { type = "Multiplier", var = "EnduranceChargesConsumedRecently" }),
+	} end,
+	["every five rage also grants you (%d+)%% increased minion attack speed"] = function(num) return {
+		mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", num, nil, ModFlag.Attack, { type = "Multiplier", var = "RageEffect", div = 5, actor = "player" }) }),
+	} end,
 	-- Projectiles
 	["skills chain %+(%d) times"] = function(num) return { mod("ChainCountMax", "BASE", num) } end,
 	["arrows chain %+(%d) times"] = function(num) return { mod("ChainCountMax", "BASE", num, nil, 0, KeywordFlag.Arrow) } end,

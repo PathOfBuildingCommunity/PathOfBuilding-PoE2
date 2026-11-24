@@ -827,6 +827,9 @@ Huge sets the radius to 11.
 	{ var = "useEnduranceCharges", type = "check", label = "Do you use Endurance Charges?", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:UseEnduranceCharges", "FLAG", true, "Config")
 	end },
+	{ var = "enduranceChargesConsumedRecently", type = "countAllowZero", label = "Endurance Charges consumed Recently:", ifMult = "EnduranceChargesConsumedRecently", tooltip = "Total Endurance Charges consumed in the past 4 seconds.", apply = function(val, modList)
+		modList:NewMod("Multiplier:EnduranceChargesConsumedRecently", "BASE", val, "Config", { type = "Condition", var = "Combat" })
+	end },
 	{ var = "overrideEnduranceCharges", type = "count", label = "# of Endurance Charges (if not maximum):", ifOption = "useEnduranceCharges", apply = function(val, modList, enemyModList)
 		modList:NewMod("EnduranceCharges", "OVERRIDE", val, "Config", { type = "Condition", var = "Combat" })
 	end },

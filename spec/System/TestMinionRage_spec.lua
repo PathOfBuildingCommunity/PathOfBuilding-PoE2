@@ -98,6 +98,31 @@ describe("Minion Rage", function()
 		assert.is_true(control.shown())
 	end)
 
+	it("applies Commanding Rage to minion attack speed using player Rage effect", function()
+		setupMinionSkill("Metadata/Items/Gems/SkillGemSkeletalBrute")
+		build.spec:AllocNode(build.spec.nodes[42660])
+		local input = build.configTab.input
+
+		local function speedAtRage(rage, effect)
+			input.customMods = "Gain 1 Rage on Melee Hit\n" .. effect .. "% increased Rage effect"
+			input.multiplierRage = rage
+			build.configTab:BuildModList()
+			build.modFlag = true
+			build.buildFlag = true
+			runCallback("OnFrame")
+			build.calcsTab:BuildOutput()
+			runCallback("OnFrame")
+			local minion = build.calcsTab.mainEnv.minion
+			return minion.mainSkill.skillModList:Sum("INC", minion.mainSkill.skillCfg, "Speed")
+		end
+
+		local baseline = speedAtRage(0, 0)
+		assert.are.equals(baseline, speedAtRage(4, 0))
+		assert.are.equals(baseline + 2, speedAtRage(5, 0))
+		assert.are.equals(baseline + 8, speedAtRage(20, 0))
+		assert.are.equals(baseline + 12, speedAtRage(20, 50))
+	end)
+
 	it("clamps configured Minion Rage to Maximum Rage", function()
 		setupMinionSkill("Metadata/Items/Gems/SkillGemSkeletalReaver")
 
