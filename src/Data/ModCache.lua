@@ -2461,8 +2461,7 @@ c["15% of Damage from Hits is taken from your Damageable Companion's Life before
 c["15% of Damage is taken from Mana before Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenFromManaBeforeLife",type="BASE",value=15}},nil}
 c["15% of Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=15}},nil}
 c["15% of Damage taken Recouped as Mana"]={{[1]={flags=0,keywordFlags=0,name="ManaRecoup",type="BASE",value=15}},nil}
-c["15% of Damage taken from Deflected Hits Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=15}},"  from Deflected Hits Recouped as Life "}
-c["15% of Damage taken from Deflected Hits Recouped as Life 20% faster start of Energy Shield Recharge when not on Full Life"]={{[1]={[1]={neg=true,type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=15}},"  from Deflected Hits Recouped as Life 20% faster start of Energy Shield Recharge  "}
+c["15% of Damage taken from Deflected Hits Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="DeflectedLifeRecoup",type="BASE",value=15}},nil}
 c["15% of Elemental Damage taken Recouped as Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="LightningEnergyShieldRecoup",type="BASE",value=15},[2]={flags=0,keywordFlags=0,name="ColdEnergyShieldRecoup",type="BASE",value=15},[3]={flags=0,keywordFlags=0,name="FireEnergyShieldRecoup",type="BASE",value=15}},nil}
 c["15% of Fire Damage Converted to Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamageConvertToChaos",type="BASE",value=15}},nil}
 c["15% of Fire damage taken as Cold damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamageTakenAsCold",type="BASE",value=15}},nil}
@@ -5001,8 +5000,8 @@ c["75% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",t
 c["75% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=75}},nil}
 c["75% increased Melee Damage with Spears while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=268435716,keywordFlags=0,name="Damage",type="INC",value=75}},nil}
 c["75% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=75}},nil}
-end)();(function()
 c["75% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=75}},nil}
+end)();(function()
 c["75% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=75}},nil}
 c["75% increased Thorns damage if you've Blocked Recently"]={{[1]={[1]={type="Condition",var="BlockedRecently"},flags=32,keywordFlags=0,name="Damage",type="INC",value=75}},nil}
 c["75% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=75}},nil}
@@ -5151,7 +5150,7 @@ c["8% of Damage Taken Recouped as Life, Mana and Energy Shield"]={{[1]={flags=0,
 c["8% of Damage is taken from Mana before Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenFromManaBeforeLife",type="BASE",value=8}},nil}
 c["8% of Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=8}},nil}
 c["8% of Damage taken Recouped as Mana"]={{[1]={flags=0,keywordFlags=0,name="ManaRecoup",type="BASE",value=8}},nil}
-c["8% of Damage taken from Deflected Hits Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=8}},"  from Deflected Hits Recouped as Life "}
+c["8% of Damage taken from Deflected Hits Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="DeflectedLifeRecoup",type="BASE",value=8}},nil}
 c["8% of Maximum Energy Shield taken as Physical Damage on Minion Death"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="EnergyShieldAsPhysical",type="BASE",value=8}}}},"  taken  on  Death "}
 c["8% of Maximum Life Converted to Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="LifeConvertToEnergyShield",type="BASE",value=8}},nil}
 c["8% of Physical Damage from Hits taken as Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageFromHitsTakenAsFire",type="BASE",value=8}},nil}
@@ -10003,8 +10002,8 @@ c["Your speed is Unaffected by Slows while Sprinting"]={nil,"Your speed is Unaff
 c["Your speed is Unaffected by Slows while Sprinting 10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds"]={nil,"Your speed is Unaffected by Slows while Sprinting 10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds "}
 c["Your speed is unaffected by Slows"]={{[1]={flags=0,keywordFlags=0,name="UnaffectedBySlows",type="FLAG",value=true}},nil}
 c["Your spells have 100% chance to Shock against Frozen Enemies"]={nil,"Your spells have 100% chance to Shock against Frozen Enemies "}
-end)();(function()
 c["Zealot's Oath"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Zealot's Oath"},[2]={flags=0,keywordFlags=0,name="Condition:HaveZealot'sOath",type="FLAG",value=true}},nil}
+end)();(function()
 c["Zealot's Oath during Effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ZealotsOath",type="FLAG",value=true}},nil}
 c["additional Elemental Infusion of the same type"]={nil,"additional Elemental Infusion of the same type "}
 c["additional Rune-only sockets:"]={{},nil}

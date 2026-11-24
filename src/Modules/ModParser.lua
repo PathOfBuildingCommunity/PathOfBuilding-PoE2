@@ -439,6 +439,7 @@ local modNameList = {
 	["maximum life, mana and global energy shield"] = { "Life", "Mana", "EnergyShield", tag = { type = "Global" } },
 	["non-chaos damage taken bypasses energy shield"] = { "PhysicalEnergyShieldBypass", "LightningEnergyShieldBypass", "ColdEnergyShieldBypass", "FireEnergyShieldBypass" },
 	["damage taken recouped as life"] = "LifeRecoup",
+	["damage taken from deflected hits recouped as life"] = "DeflectedLifeRecoup",
 	["physical damage taken recouped as life"] = "PhysicalLifeRecoup",
 	["lightning damage taken recouped as life"] = "LightningLifeRecoup",
 	["cold damage taken recouped as life"] = "ColdLifeRecoup",

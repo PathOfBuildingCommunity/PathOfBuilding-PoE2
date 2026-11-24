@@ -30,6 +30,43 @@ describe("TestDefence", function()
 		return build.calcsTab.calcs.reducePoolsByDamage(nil, takenDamages, build.calcsTab.calcsEnv.player)
 	end
 
+	it("recoups only damage taken from deflected hits with Mending Deflection", function()
+		local item = new("Item"):Item([[
+Rarity: RARE
+Test Locket
+Gold Amulet
+--------
+Item Level: 80
+--------
+Allocates Mending Deflection (enchant)
+]])
+		build.itemsTab:AddItem(item, true)
+		build.itemsTab.slots["Amulet"]:SetSelItemId(item.id)
+		build.buildFlag = true
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.mainOutput
+		assert.are.equals(15, output.DeflectedLifeRecoup)
+		assert.are.equals(0, output.DeflectChance)
+		assert.are.equals(0, output.TotalLifeRecoupRecovery)
+
+		build.configTab.input.customMods = "+10000 to Deflection Rating"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		output = build.calcsTab.mainOutput
+		local chance = output.DeflectChance / 100
+		assert.is_true(chance > 0 and chance < 1)
+		local damageAfterDeflection = 1 - output.DeflectEffect / 100
+		local totalDamage = 0
+		for _, damageType in ipairs({ "Physical", "Lightning", "Cold", "Fire", "Chaos" }) do
+			totalDamage = totalDamage + output[damageType.."RecoupableDamageTaken"]
+		end
+		local deflectedDamage = totalDamage * chance * damageAfterDeflection / (1 - chance + chance * damageAfterDeflection)
+		assert.are.near(deflectedDamage * 0.15, output.TotalLifeRecoupRecovery, 0.001)
+		assert.are.near(deflectedDamage * 0.15 / 8, output.LifeRecoupRecoveryMax, 0.001)
+	end)
+
 	it("converts total energy shield modifiers to mana", function()
 		build.configTab.input.customMods = "Convert 100% of maximum Energy Shield to maximum Mana\n100% increased maximum Mana"
 		build.configTab:BuildModList()
