@@ -251,7 +251,7 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 
 			rowList = {}
 			for _, row in pairs(breakdown.slots) do
-				if (row.item and row.item.armourData) then
+				if row.item and row.item.armourData and row.base > 0 then
 					table.insert(rowList, row)
 				end
 			end
