@@ -6036,6 +6036,64 @@ function calcs.offence(env, actor, activeSkill)
 		end
 	end
 
+	-- Ignited Ground applies an ignite as though dealing Fire damage based on maximum Life
+	local ignitedGroundMaxLifePercent = modDB:Sum("BASE", nil, "IgnitedGroundMaxLifePercent")
+	-- Read from the source item as charms only merge their modifiers while active
+	local groundSourceItem = activeSkill.socketGroup and activeSkill.socketGroup.sourceItem
+	local groundModList = groundSourceItem and (groundSourceItem.modList or (groundSourceItem.slotModList and groundSourceItem.slotModList[1]))
+	if groundModList then
+		local sourcePercent = 0
+		for _, mod in ipairs(groundModList) do
+			if mod.name == "IgnitedGroundMaxLifePercent" and mod.type == "BASE" then
+				sourcePercent = sourcePercent + (mod.value or 0)
+			end
+		end
+		ignitedGroundMaxLifePercent = m_max(ignitedGroundMaxLifePercent, sourcePercent)
+	end
+	if ignitedGroundMaxLifePercent > 0 and canDeal.Fire then
+		local igniteCfg = {
+			flags = bor(ModFlag.Dot, ModFlag.Ailment),
+			keywordFlags = bor(KeywordFlag.Ignite, KeywordFlag.Ailment, KeywordFlag.FireDot)
+		}
+		local playerMaxLife = (env.player and env.player.output and env.player.output.Life) or modDB:Sum("BASE", nil, "Life") or 0
+		local baseDamage = playerMaxLife * (ignitedGroundMaxLifePercent / 100)
+		local inc = modDB:Sum("INC", igniteCfg, "Damage", "FireDamage", "ElementalDamage")
+		local more = modDB:More(igniteCfg, "Damage", "FireDamage", "ElementalDamage")
+		local hitDamage = baseDamage * (1 + inc / 100) * more
+		local magnitude = calcLib.mod(modDB, igniteCfg, "AilmentMagnitude")
+		local effectMod = calcLib.mod(modDB, igniteCfg, "AilmentEffect")
+		local rateMod = (calcLib.mod(modDB, igniteCfg, "IgniteFaster") + enemyDB:Sum("INC", nil, "SelfIgniteFaster") / 100) / calcLib.mod(modDB, igniteCfg, "IgniteSlower")
+		local effMult = 1
+		if env.mode_effective then
+			local resist = calcResistForType("Fire", igniteCfg)
+			local takenInc = enemyDB:Sum("INC", igniteCfg, "DamageTaken", "DamageTakenOverTime", "FireDamageTaken", "FireDamageTakenOverTime", "ElementalDamageTaken")
+			local takenMore = enemyDB:More(igniteCfg, "DamageTaken", "DamageTakenOverTime", "FireDamageTaken", "FireDamageTakenOverTime", "ElementalDamageTaken")
+			effMult = (1 - resist / 100) * (1 + takenInc / 100) * takenMore
+		end
+		local igniteDPS = hitDamage * data.misc.IgnitePercentBase * magnitude * effectMod * rateMod * effMult
+		if igniteDPS > (output.IgniteDPS or 0) then
+			local durationMod = m_max(calcLib.mod(modDB, igniteCfg, "EnemyIgniteDuration", "EnemyAilmentDuration", "EnemyElementalAilmentDuration", "DamagingAilmentDuration")
+				* calcLib.mod(enemyDB, nil, "SelfIgniteDuration", "SelfAilmentDuration", "SelfElementalAilmentDuration"), 0)
+			output.IgniteDPS = igniteDPS
+			output.IgniteMagnitudeEffect = magnitude
+			output.IgniteEffMult = effMult
+			output.IgniteChancePerHit = m_max(output.IgniteChancePerHit or 0, 100)
+			output.IgniteDuration = data.misc.IgniteDurationBase * durationMod / rateMod
+			output.IgniteDamage = igniteDPS * output.IgniteDuration
+			skillFlags.ignite = true
+			if breakdown then
+				breakdown.IgniteDPS = {
+					s_format("%.1f ^8(fire damage from max Life)", baseDamage),
+					s_format("* %.3f ^8(damage modifiers)", (1 + inc / 100) * more),
+					s_format("* %.2f ^8(ignite deals %d%% per second)", data.misc.IgnitePercentBase, data.misc.IgnitePercentBase * 100),
+					s_format("* %.3f ^8(ailment magnitude effect)", magnitude * effectMod * rateMod),
+					s_format("* %.3f ^8(effective DPS modifier)", effMult),
+					s_format("= %.1f ^8per second", igniteDPS)
+				}
+			end
+		end
+	end
+
 	-- Calculate skill DOT components
 	local dotCfg = {
 		skillName = skillCfg.skillName,

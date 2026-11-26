@@ -2271,11 +2271,26 @@ local explodeFunc = function(chance, amount, type, ...)
 	}
 end
 
+---@return Mod[]
+local ignitedGroundFunc = function(num)
+	return {
+		mod("IgnitedGroundMaxLifePercent", "BASE", num),
+		mod("ExtraSkill", "LIST", { skillId = "IgnitedGroundPlayer", level = 1, noSupports = true, triggered = true }),
+	}
+end
+
 -- forward declarations
 local dmgTypes
 -- List of special modifiers
 ---@type table<string, Mod[]|fun(...: any):Mod[]?>
 local specialModList = {
+	-- Ignited Ground created from maximum Life (Beira's Anguish, Birth of Fury)
+	["creates ignited ground for %d+ seconds when used, igniting enemies as though dealing fire damage equal to (%d+)%% of your maximum life"] = function(num)
+		return ignitedGroundFunc(num)
+	end,
+	["drop ignited ground while moving, which lasts %d+ seconds and ignites as though dealing fire damage equal to (%d+)%% of your maximum life"] = function(num)
+		return ignitedGroundFunc(num)
+	end,
 	-- Explode mods
 	["enemies you kill have a (%d+)%% chance to explode, dealing a (.+) of their maximum life as (.+) damage"] = function(chance, _, amount, type)	-- Obliteration, Unspeakable Gifts (chaos cluster), synth implicit mod, current crusader body mod, Ngamahu Warmonger tattoo
 		return explodeFunc(chance, amount, type)

@@ -21295,4 +21295,33 @@ skills["AncientGiftsPlayer"] = {
 					},
 				}
 			}
+
+			-- Pseudo skill for Ignited Ground created by items (e.g. Beira's Anguish, Birth of Fury).
+			skills["IgnitedGroundPlayer"] = {
+				name = "Ignited Ground",
+				hidden = true,
+				fromItem = true,
+				skillTypes = { [SkillType.Damage] = true, [SkillType.Fire] = true, [SkillType.Duration] = true, [SkillType.DamageOverTime] = true },
+				cannotBeSupported = true,
+				levels = {
+					[1] = { levelRequirement = 0 },
+				},
+				statSets = {
+					[1] = {
+						label = "Ignited Ground",
+						incrementalEffectiveness = 0,
+						statDescriptionScope = "skill_stat_descriptions",
+						baseFlags = {
+							fire = true,
+						},
+						baseMods = {
+						},
+						constantStats = {},
+						stats = {},
+						levels = {
+							[1] = {},
+						},
+					},
+				},
+			}
 			end
