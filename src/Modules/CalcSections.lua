@@ -1189,7 +1189,7 @@ return {
 		{ breakdown = "MainHand.IgniteDPS" },
 		{ breakdown = "OffHand.IgniteDPS" },
 	}, },
-	{ label = "Burning Ground", haveOutput = "BurningGroundDPS", { format = "{0:output:BurningGroundDPS}", { breakdown = "BurningGroundDPS" } } },
+	{ label = "Burning Ground", haveOutput = "BurningGroundFromIgnite", { format = "{0:output:BurningGroundDPS}", { breakdown = "BurningGroundDPS" } } },
 	{ label = "Ignite Duration", { format = "{2:output:IgniteDuration}s",
 		{ breakdown = "IgniteDuration" },
 		{ label = "Player modifiers", modName = { "EnemyIgniteDuration", "EnemyAilmentDuration", "EnemyElementalAilmentDuration", "DamagingAilmentDuration", "IgniteFaster", "IgniteSlower" }, cfg = "skill" },
