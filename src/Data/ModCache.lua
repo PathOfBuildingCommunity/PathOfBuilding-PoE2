@@ -7021,7 +7021,7 @@ c["Creates Chilled Ground on Use"]={{},nil}
 c["Creates Consecrated Ground on Critical Hit"]={nil,"Creates Consecrated Ground on Critical Hit "}
 c["Creates Consecrated Ground on Use"]={{},nil}
 c["Creates Consecrated Ground on use"]={{},nil}
-c["Creates Ignited Ground for 4 seconds when used, Igniting enemies as though dealing Fire damage equal to 500% of your maximum Life"]={nil,"Creates Ignited Ground for 4 seconds when used, Igniting enemies as though dealing Fire damage equal to 500% of your maximum Life "}
+c["Creates Ignited Ground for 4 seconds when used, Igniting enemies as though dealing Fire damage equal to 500% of your maximum Life"]={{[1]={flags=0,keywordFlags=0,name="IgnitedGroundMaxLifePercent",type="BASE",value=500},[2]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,noSupports=true,skillId="IgnitedGroundPlayer",triggered=true}}},nil}
 c["Creates a Smoke Cloud on Rampage"]={nil,"Creates a Smoke Cloud on Rampage "}
 c["Creates a Smoke Cloud on Use"]={{},nil}
 c["Crimson Assault"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Crimson Assault"},[2]={flags=0,keywordFlags=0,name="Condition:HaveCrimsonAssault",type="FLAG",value=true}},nil}

@@ -2276,6 +2276,13 @@ local dmgTypes
 -- List of special modifiers
 ---@type table<string, Mod[]|fun(...: any):Mod[]?>
 local specialModList = {
+	-- Ignited Ground created on use (e.g. Beira's Anguish)
+	["creates ignited ground for %d+ seconds when used, igniting enemies as though dealing fire damage equal to (%d+)%% of your maximum life"] = function(num)
+		return {
+			mod("IgnitedGroundMaxLifePercent", "BASE", num),
+			mod("ExtraSkill", "LIST", { skillId = "IgnitedGroundPlayer", level = 1, noSupports = true, triggered = true }),
+		}
+	end,
 	-- Explode mods
 	["enemies you kill have a (%d+)%% chance to explode, dealing a (.+) of their maximum life as (.+) damage"] = function(chance, _, amount, type)	-- Obliteration, Unspeakable Gifts (chaos cluster), synth implicit mod, current crusader body mod, Ngamahu Warmonger tattoo
 		return explodeFunc(chance, amount, type)
